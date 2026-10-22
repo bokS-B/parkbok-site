@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HWP 뷰어 · 변환 — 한글 없이 HWP/HWPX 열기, PDF·텍스트 저장 | parkbok.com</title>
+<meta name="description" content="한글(HWP) 프로그램 없이 브라우저에서 HWP·HWPX 파일을 바로 열어 보고 PDF, 텍스트, HTML로 저장하세요. 파일은 서버로 전송되지 않고 내 브라우저 안에서만 처리됩니다. 설치·가입 없음, 무료.">
+<link rel="canonical" href="https://parkbok.com/">
+<meta property="og:title" content="HWP 뷰어 · 변환 — 한글 없이 HWP 열기">
+<meta property="og:description" content="설치 없이 브라우저에서 HWP/HWPX를 열고 PDF·텍스트로 저장. 파일은 서버로 올라가지 않습니다.">
+<meta property="og:url" content="https://parkbok.com/">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"parkbok HWP 뷰어","url":"https://parkbok.com/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"브라우저에서 HWP·HWPX 파일을 열어 보고 PDF·텍스트·HTML로 저장하는 무료 도구"}
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/">parkbok<span style="color:#2563eb">.com</span></a>
+  <nav class="menu"><a href="/">HWP 뷰어</a><a href="/guide/">가이드</a><a href="/about.html">소개</a></nav>
+</div></header>
+
+<main class="wrap">
+  <h1>HWP 뷰어 · 변환기</h1>
+  <p class="lead">한글 프로그램 없이 HWP·HWPX 파일을 바로 열어 보고 PDF·텍스트·HTML로 저장합니다. 파일은 서버로 올라가지 않고 내 브라우저 안에서만 처리됩니다.</p>
+
+  <div class="drop" id="drop">
+    <strong>여기에 HWP 또는 HWPX 파일을 끌어다 놓거나 클릭해서 선택</strong>
+    <span>설치·가입 없음 · 무료 · 파일 전송 없음</span>
+    <input type="file" id="file" accept=".hwp,.hwpx" hidden>
+  </div>
+  <div class="status" id="status">파일을 선택하면 바로 변환됩니다.</div>
+
+  <div class="tools" id="tools" style="display:none">
+    <button class="btn" id="btn-pdf">PDF로 저장 (인쇄)</button>
+    <button class="btn ghost" id="btn-txt">텍스트(.txt) 다운로드</button>
+    <button class="btn ghost" id="btn-html">HTML 다운로드</button>
+    <button class="btn ghost" id="btn-copy">본문 복사</button>
+  </div>
+
+  <div id="viewer"></div>
+
+  <div id="textwrap" style="display:none">
+    <h2>추출된 본문 텍스트</h2>
+    <textarea id="textout" readonly></textarea>
+  </div>
+
+  <div class="ad" id="ad-top"></div>
+
+  <div class="card intro">
+    <h2 style="margin-top:0">이 도구로 할 수 있는 것</h2>
+    <div class="grid">
+      <div class="card"><h3>HWP 열기</h3><p>한글(아래아한글) 5.0 형식 .hwp 문서를 페이지 모양 그대로 보여줍니다.</p></div>
+      <div class="card"><h3>HWPX 열기</h3><p>한글 2014 이후 표준 .hwpx 문서의 본문과 표를 읽습니다.</p></div>
+      <div class="card"><h3>PDF 저장</h3><p>브라우저 인쇄 기능으로 PDF 파일을 만듭니다. 맥·윈도우·안드로이드 모두 가능합니다.</p></div>
+      <div class="card"><h3>텍스트·HTML 저장</h3><p>본문만 뽑아 .txt로 받거나, 다른 편집기에 붙여 넣을 수 있게 복사합니다.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0">자주 묻는 질문</h2>
+    <dl class="faq">
+      <dt>파일이 서버로 올라가나요?</dt><dd>아니요. 변환은 전부 지금 쓰는 브라우저 안에서 자바스크립트로 처리됩니다. 네트워크로 파일을 보내는 코드가 없습니다. 이력서, 계약서, 회사 문서처럼 민감한 파일도 안심하고 열 수 있습니다.</dd>
+      <dt>글꼴이나 표가 원본과 다르게 보여요.</dt><dd>한글 전용 글꼴이 없는 환경에서는 비슷한 글꼴로 대체됩니다. 수식, 복잡한 개체, 일부 표 병합은 완벽히 재현되지 않습니다. 내용 확인과 PDF 저장 용도에 맞습니다.</dd>
+      <dt>안 열리는 파일이 있어요.</dt><dd>암호가 걸린 문서, 배포용(DRM) 문서, 1990년대 HWP 3.0 형식은 지원하지 않습니다. 한글 프로그램에서 암호를 풀거나 HWPX로 다시 저장해 보세요.</dd>
+      <dt>DOCX(워드)로도 바꿀 수 있나요?</dt><dd>현재는 PDF·텍스트·HTML까지 지원합니다. HTML 파일을 워드에서 열면 대부분의 본문과 표가 그대로 들어옵니다.</dd>
+      <dt>휴대폰에서도 되나요?</dt><dd>네. 안드로이드 Chrome, 아이폰 Safari에서 파일을 선택하면 똑같이 동작합니다.</dd>
+    </dl>
+  </div>
+
+  <h2>가이드</h2>
+  <div class="grid">
+    <a class="card" href="/guide/hwp-vs-hwpx.html"><h3>HWP와 HWPX의 차이</h3><p>왜 두 가지 확장자가 있고 무엇을 써야 하는지</p></a>
+    <a class="card" href="/guide/open-hwp-on-mac.html"><h3>맥에서 HWP 여는 방법</h3><p>한글 없이 맥북에서 HWP를 보는 4가지 방법</p></a>
+    <a class="card" href="/guide/hwp-to-pdf.html"><h3>HWP를 PDF로 바꾸기</h3><p>프로그램 없이 무료로 PDF 만드는 법</p></a>
+    <a class="card" href="/guide/open-hwp-on-phone.html"><h3>휴대폰에서 HWP 열기</h3><p>안드로이드·아이폰에서 HWP 확인하기</p></a>
+  </div>
+</main>
+
+<footer><div class="wrap">
+  <a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a>
+  <div style="margin-top:8px">© parkbok.com · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.</div>
+</div></footer>
+
+<script src="/assets/hwp-bundle.js"></script>
+<script src="/assets/app.js"></script>
+</body>
+</html>
