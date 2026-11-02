@@ -168,6 +168,8 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
   /* 결과 작업대: 주 56px + 보조 44px 한 줄, 전체 72px + 안전 영역 */
   .stage-out .actions{position:sticky;bottom:0;z-index:5;flex-wrap:nowrap;gap:8px;background:var(--bg);padding:8px 0 calc(8px + env(safe-area-inset-bottom));margin:8px 0 0;box-shadow:0 -8px 12px -8px rgba(0,0,0,.15)}
   .stage-out .actions .btn-big{flex:1 1 auto;width:auto;min-width:0;min-height:56px;padding:12px 16px;font-size:20px;line-height:24px}
+  /* 초과 파일 받기 문구는 번역 길이가 길어도 2줄 64px 안에서 표시한다. */
+  .stage-out .actions .btn-big[data-warning]{font-size:16px;line-height:20px}
   .stage-out .actions .btn.ghost{flex:0 0 auto;min-height:44px;padding:8px 14px}
   .opts#opts .opt-label{min-width:0;flex-basis:100%}
   .pages-grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px}
