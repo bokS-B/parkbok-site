@@ -1,0 +1,90 @@
+{
+  "en": {
+    "name": "English", "dir": "ltr",
+    "selectImages": "Select images", "dropText": "or drop images here · paste works too", "addMore": "Add more", "remove": "Remove",
+    "filesCount": "{n} images", "fileCount": "1 image", "processing": "Processing…", "done": "Done", "download": "Download", "downloadAll": "Download ZIP", "startOver": "Start over",
+    "errorType": "Only {type} images are supported.", "errorBroken": "This file is damaged or is not a supported image.", "errorEmpty": "Select at least {n} image(s).", "errorHeic": "This HEIC file could not be opened.", "errorGeneric": "Something went wrong. Try again with another image.",
+    "before": "Before", "after": "After", "saved": "saved {p}%", "quality": "Quality", "width": "Width", "height": "Height", "keepRatio": "Keep aspect ratio",
+    "images": "{n} images", "imageN": "Image {n}", "selected": "{n} selected", "moreImages": "+{n} more images (no preview)", "selectAll": "Select all", "clearAll": "Clear all", "moveLeft": "Move left", "moveRight": "Move right", "moveUp": "Move up", "moveDown": "Move down", "rotate": "Rotate", "delete": "Delete", "restore": "Restore",
+    "dragHint": "Drag on the image to select an area", "regions": "{n} areas", "reset": "Reset", "drawHere": "Draw here", "upload": "Upload PNG", "clear": "Clear", "language": "Language", "loadingLib": "Loading…", "preview": "Preview",
+    "hub": { "title": "Free Image Tools Online – Convert, Compress, Resize, Crop", "h1": "Image tools", "line": "Free, in your browser. Images never leave your device.", "description": "Free online image tools: convert PNG, JPG, WebP and HEIC, compress, resize, crop, rotate and more. Everything runs in your browser – no upload, no sign-up, no limits." },
+    "aboutLine": "Your images are processed on your device and are never uploaded to a server.", "aboutTitle": "How it works", "nextTools": "Next tools"
+  },
+  "ko": {
+    "name": "한국어", "dir": "ltr",
+    "selectImages": "이미지 선택", "dropText": "또는 여기에 끌어다 놓기 · 붙여넣기도 됩니다", "addMore": "더 추가", "remove": "삭제",
+    "filesCount": "이미지 {n}장", "fileCount": "이미지 1장", "processing": "처리 중…", "done": "완료", "download": "내려받기", "downloadAll": "ZIP 내려받기", "startOver": "다시 시작",
+    "errorType": "{type} 이미지만 넣을 수 있습니다.", "errorBroken": "파일이 손상되었거나 지원하는 이미지가 아닙니다.", "errorEmpty": "이미지를 {n}장 이상 넣어 주세요.", "errorHeic": "이 HEIC 파일을 열지 못했습니다.", "errorGeneric": "처리에 실패했습니다. 다른 이미지로 다시 시도해 주세요.",
+    "before": "원본", "after": "결과", "saved": "{p}% 절감", "quality": "품질", "width": "가로", "height": "세로", "keepRatio": "비율 유지",
+    "images": "{n}장", "imageN": "{n}번째", "selected": "{n}장 선택", "moreImages": "+{n}장 더 (미리보기 없음)", "selectAll": "전체 선택", "clearAll": "모두 지우기", "moveLeft": "왼쪽으로", "moveRight": "오른쪽으로", "moveUp": "위로", "moveDown": "아래로", "rotate": "회전", "delete": "삭제", "restore": "되돌리기",
+    "dragHint": "이미지 위를 드래그해 영역을 정하세요", "regions": "영역 {n}개", "reset": "초기화", "drawHere": "여기에 그리세요", "upload": "PNG 올리기", "clear": "지우기", "language": "언어", "loadingLib": "불러오는 중…", "preview": "미리보기",
+    "hub": { "title": "이미지 도구 – 변환·압축·크기 조절·자르기 무료 온라인", "h1": "이미지 도구", "line": "설치 없이 브라우저에서. 이미지는 서버로 가지 않습니다.", "description": "무료 온라인 이미지 도구. PNG·JPG·WebP·HEIC 변환, 압축, 크기 조절, 자르기, 회전을 브라우저 안에서 처리합니다. 업로드 없음, 가입 없음, 제한 없음." },
+    "aboutLine": "이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.", "aboutTitle": "사용 방법", "nextTools": "다음 도구"
+  },
+  "zh": {
+    "name": "中文", "dir": "ltr",
+    "selectImages": "选择图片", "dropText": "或将图片拖到这里 · 也支持粘贴", "addMore": "继续添加", "remove": "移除",
+    "filesCount": "{n} 张图片", "fileCount": "1 张图片", "processing": "处理中…", "done": "完成", "download": "下载", "downloadAll": "下载 ZIP", "startOver": "重新开始",
+    "errorType": "仅支持 {type} 图片。", "errorBroken": "文件已损坏或不是支持的图片格式。", "errorEmpty": "请至少选择 {n} 张图片。", "errorHeic": "无法打开此 HEIC 文件。", "errorGeneric": "处理失败，请换一张图片重试。",
+    "before": "原始", "after": "结果", "saved": "节省 {p}%", "quality": "质量", "width": "宽度", "height": "高度", "keepRatio": "保持比例",
+    "images": "{n} 张", "imageN": "第 {n} 张", "selected": "已选 {n} 张", "moreImages": "还有 {n} 张（无预览）", "selectAll": "全选", "clearAll": "全部清除", "moveLeft": "左移", "moveRight": "右移", "moveUp": "上移", "moveDown": "下移", "rotate": "旋转", "delete": "删除", "restore": "恢复",
+    "dragHint": "在图片上拖动以选择区域", "regions": "{n} 个区域", "reset": "重置", "drawHere": "在此绘制", "upload": "上传 PNG", "clear": "清除", "language": "语言", "loadingLib": "加载中…", "preview": "预览",
+    "hub": { "title": "免费在线图片工具 – 转换、压缩、调整大小、裁剪", "h1": "图片工具", "line": "免费、在浏览器中完成，图片不会离开您的设备。", "description": "免费在线图片工具：PNG、JPG、WebP、HEIC 转换，压缩、调整大小、裁剪、旋转等。全部在浏览器中运行，无需上传，无需注册，没有限制。" },
+    "aboutLine": "图片只在您的设备上处理，不会上传到任何服务器。", "aboutTitle": "使用方法", "nextTools": "下一步工具"
+  },
+  "ja": {
+    "name": "日本語", "dir": "ltr",
+    "selectImages": "画像を選択", "dropText": "またはここにドロップ · 貼り付けも可", "addMore": "さらに追加", "remove": "削除",
+    "filesCount": "{n}枚", "fileCount": "1枚", "processing": "処理中…", "done": "完了", "download": "ダウンロード", "downloadAll": "ZIPで保存", "startOver": "やり直す",
+    "errorType": "{type} 画像のみ対応しています。", "errorBroken": "ファイルが壊れているか、対応していない画像です。", "errorEmpty": "画像を{n}枚以上選んでください。", "errorHeic": "このHEICファイルを開けませんでした。", "errorGeneric": "処理に失敗しました。別の画像でお試しください。",
+    "before": "元", "after": "結果", "saved": "{p}%削減", "quality": "画質", "width": "幅", "height": "高さ", "keepRatio": "縦横比を保つ",
+    "images": "{n}枚", "imageN": "{n}枚目", "selected": "{n}枚選択", "moreImages": "他{n}枚（プレビューなし）", "selectAll": "すべて選択", "clearAll": "すべて消す", "moveLeft": "左へ", "moveRight": "右へ", "moveUp": "上へ", "moveDown": "下へ", "rotate": "回転", "delete": "削除", "restore": "元に戻す",
+    "dragHint": "画像上をドラッグして範囲を決めます", "regions": "{n}か所", "reset": "リセット", "drawHere": "ここに描く", "upload": "PNGを選択", "clear": "消す", "language": "言語", "loadingLib": "読み込み中…", "preview": "プレビュー",
+    "hub": { "title": "無料画像ツール – 変換・圧縮・リサイズ・切り抜きをブラウザで", "h1": "画像ツール", "line": "無料・インストール不要。画像は端末の外に出ません。", "description": "無料のオンライン画像ツール。PNG・JPG・WebP・HEIC変換、圧縮、リサイズ、切り抜き、回転などをブラウザ内で処理。アップロードなし、登録なし、制限なし。" },
+    "aboutLine": "画像はお使いの端末内だけで処理され、サーバーには送信されません。", "aboutTitle": "使い方", "nextTools": "次のツール"
+  },
+  "es": {
+    "name": "Español", "dir": "ltr",
+    "selectImages": "Elegir imágenes", "dropText": "o arrastra las imágenes aquí · también puedes pegar", "addMore": "Añadir más", "remove": "Quitar",
+    "filesCount": "{n} imágenes", "fileCount": "1 imagen", "processing": "Procesando…", "done": "Listo", "download": "Descargar", "downloadAll": "Descargar ZIP", "startOver": "Empezar de nuevo",
+    "errorType": "Solo se admiten imágenes {type}.", "errorBroken": "El archivo está dañado o no es una imagen compatible.", "errorEmpty": "Elige al menos {n} imagen(es).", "errorHeic": "No se pudo abrir este archivo HEIC.", "errorGeneric": "Algo salió mal. Prueba con otra imagen.",
+    "before": "Original", "after": "Resultado", "saved": "ahorro {p}%", "quality": "Calidad", "width": "Ancho", "height": "Alto", "keepRatio": "Mantener proporción",
+    "images": "{n} imágenes", "imageN": "Imagen {n}", "selected": "{n} seleccionadas", "moreImages": "+{n} imágenes más (sin vista previa)", "selectAll": "Seleccionar todo", "clearAll": "Borrar todo", "moveLeft": "Mover a la izquierda", "moveRight": "Mover a la derecha", "moveUp": "Subir", "moveDown": "Bajar", "rotate": "Girar", "delete": "Eliminar", "restore": "Restaurar",
+    "dragHint": "Arrastra sobre la imagen para elegir un área", "regions": "{n} áreas", "reset": "Restablecer", "drawHere": "Dibuja aquí", "upload": "Subir PNG", "clear": "Borrar", "language": "Idioma", "loadingLib": "Cargando…", "preview": "Vista previa",
+    "hub": { "title": "Herramientas de imagen gratis online – Convertir, comprimir, redimensionar, recortar", "h1": "Herramientas de imagen", "line": "Gratis y en tu navegador. Tus imágenes no salen de tu dispositivo.", "description": "Herramientas de imagen gratuitas: convertir PNG, JPG, WebP y HEIC, comprimir, redimensionar, recortar, girar y más. Todo se procesa en tu navegador, sin subir archivos, sin registro y sin límites." },
+    "aboutLine": "Tus imágenes se procesan en tu dispositivo y nunca se suben a un servidor.", "aboutTitle": "Cómo funciona", "nextTools": "Siguientes herramientas"
+  },
+  "pt": {
+    "name": "Português", "dir": "ltr",
+    "selectImages": "Escolher imagens", "dropText": "ou arraste as imagens para cá · colar também funciona", "addMore": "Adicionar mais", "remove": "Remover",
+    "filesCount": "{n} imagens", "fileCount": "1 imagem", "processing": "Processando…", "done": "Pronto", "download": "Baixar", "downloadAll": "Baixar ZIP", "startOver": "Recomeçar",
+    "errorType": "Só são aceitas imagens {type}.", "errorBroken": "O arquivo está danificado ou não é uma imagem compatível.", "errorEmpty": "Escolha pelo menos {n} imagem(ns).", "errorHeic": "Não foi possível abrir este arquivo HEIC.", "errorGeneric": "Algo deu errado. Tente com outra imagem.",
+    "before": "Original", "after": "Resultado", "saved": "economia de {p}%", "quality": "Qualidade", "width": "Largura", "height": "Altura", "keepRatio": "Manter proporção",
+    "images": "{n} imagens", "imageN": "Imagem {n}", "selected": "{n} selecionadas", "moreImages": "+{n} imagens (sem prévia)", "selectAll": "Selecionar tudo", "clearAll": "Limpar tudo", "moveLeft": "Mover para a esquerda", "moveRight": "Mover para a direita", "moveUp": "Subir", "moveDown": "Descer", "rotate": "Girar", "delete": "Excluir", "restore": "Restaurar",
+    "dragHint": "Arraste sobre a imagem para escolher uma área", "regions": "{n} áreas", "reset": "Redefinir", "drawHere": "Desenhe aqui", "upload": "Enviar PNG", "clear": "Apagar", "language": "Idioma", "loadingLib": "Carregando…", "preview": "Prévia",
+    "hub": { "title": "Ferramentas de imagem grátis online – Converter, comprimir, redimensionar, cortar", "h1": "Ferramentas de imagem", "line": "Grátis e no seu navegador. Suas imagens não saem do seu dispositivo.", "description": "Ferramentas de imagem gratuitas: converter PNG, JPG, WebP e HEIC, comprimir, redimensionar, cortar, girar e mais. Tudo roda no navegador, sem upload, sem cadastro e sem limites." },
+    "aboutLine": "Suas imagens são processadas no seu dispositivo e nunca são enviadas a um servidor.", "aboutTitle": "Como funciona", "nextTools": "Próximas ferramentas"
+  },
+  "de": {
+    "name": "Deutsch", "dir": "ltr",
+    "selectImages": "Bilder auswählen", "dropText": "oder Bilder hierher ziehen · Einfügen geht auch", "addMore": "Mehr hinzufügen", "remove": "Entfernen",
+    "filesCount": "{n} Bilder", "fileCount": "1 Bild", "processing": "Wird verarbeitet…", "done": "Fertig", "download": "Herunterladen", "downloadAll": "ZIP herunterladen", "startOver": "Neu beginnen",
+    "errorType": "Nur {type}-Bilder werden unterstützt.", "errorBroken": "Die Datei ist beschädigt oder kein unterstütztes Bild.", "errorEmpty": "Wähle mindestens {n} Bild(er).", "errorHeic": "Diese HEIC-Datei konnte nicht geöffnet werden.", "errorGeneric": "Etwas ist schiefgelaufen. Versuche es mit einem anderen Bild.",
+    "before": "Vorher", "after": "Nachher", "saved": "{p}% gespart", "quality": "Qualität", "width": "Breite", "height": "Höhe", "keepRatio": "Seitenverhältnis beibehalten",
+    "images": "{n} Bilder", "imageN": "Bild {n}", "selected": "{n} ausgewählt", "moreImages": "+{n} weitere Bilder (ohne Vorschau)", "selectAll": "Alle auswählen", "clearAll": "Alle löschen", "moveLeft": "Nach links", "moveRight": "Nach rechts", "moveUp": "Nach oben", "moveDown": "Nach unten", "rotate": "Drehen", "delete": "Löschen", "restore": "Wiederherstellen",
+    "dragHint": "Auf dem Bild ziehen, um einen Bereich zu wählen", "regions": "{n} Bereiche", "reset": "Zurücksetzen", "drawHere": "Hier zeichnen", "upload": "PNG hochladen", "clear": "Löschen", "language": "Sprache", "loadingLib": "Wird geladen…", "preview": "Vorschau",
+    "hub": { "title": "Kostenlose Bild-Tools online – Umwandeln, Komprimieren, Skalieren, Zuschneiden", "h1": "Bild-Werkzeuge", "line": "Kostenlos, direkt im Browser. Deine Bilder verlassen dein Gerät nicht.", "description": "Kostenlose Bild-Tools: PNG, JPG, WebP und HEIC umwandeln, komprimieren, skalieren, zuschneiden, drehen und mehr. Alles läuft im Browser – kein Upload, keine Anmeldung, keine Limits." },
+    "aboutLine": "Deine Bilder werden auf deinem Gerät verarbeitet und nie auf einen Server hochgeladen.", "aboutTitle": "So funktioniert es", "nextTools": "Weitere Tools"
+  },
+  "fr": {
+    "name": "Français", "dir": "ltr",
+    "selectImages": "Choisir des images", "dropText": "ou déposez les images ici · le collage fonctionne aussi", "addMore": "Ajouter", "remove": "Retirer",
+    "filesCount": "{n} images", "fileCount": "1 image", "processing": "Traitement…", "done": "Terminé", "download": "Télécharger", "downloadAll": "Télécharger le ZIP", "startOver": "Recommencer",
+    "errorType": "Seules les images {type} sont acceptées.", "errorBroken": "Le fichier est endommagé ou n'est pas une image prise en charge.", "errorEmpty": "Choisissez au moins {n} image(s).", "errorHeic": "Impossible d'ouvrir ce fichier HEIC.", "errorGeneric": "Une erreur est survenue. Réessayez avec une autre image.",
+    "before": "Avant", "after": "Après", "saved": "{p}% économisés", "quality": "Qualité", "width": "Largeur", "height": "Hauteur", "keepRatio": "Conserver les proportions",
+    "images": "{n} images", "imageN": "Image {n}", "selected": "{n} sélectionnées", "moreImages": "+{n} images (sans aperçu)", "selectAll": "Tout sélectionner", "clearAll": "Tout effacer", "moveLeft": "Vers la gauche", "moveRight": "Vers la droite", "moveUp": "Monter", "moveDown": "Descendre", "rotate": "Pivoter", "delete": "Supprimer", "restore": "Rétablir",
+    "dragHint": "Faites glisser sur l'image pour choisir une zone", "regions": "{n} zones", "reset": "Réinitialiser", "drawHere": "Dessinez ici", "upload": "Importer un PNG", "clear": "Effacer", "language": "Langue", "loadingLib": "Chargement…", "preview": "Aperçu",
+    "hub": { "title": "Outils image gratuits en ligne – Convertir, compresser, redimensionner, recadrer", "h1": "Outils image", "line": "Gratuit, dans votre navigateur. Vos images ne quittent pas votre appareil.", "description": "Outils image gratuits : convertir PNG, JPG, WebP et HEIC, compresser, redimensionner, recadrer, pivoter et plus. Tout se passe dans votre navigateur – sans envoi, sans inscription, sans limite." },
+    "aboutLine": "Vos images sont traitées sur votre appareil et ne sont jamais envoyées à un serveur.", "aboutTitle": "Comment ça marche", "nextTools": "Outils suivants"
+  }
+}

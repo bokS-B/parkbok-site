@@ -1,0 +1,197 @@
+{
+  "id": "webp-to-jpg",
+  "order": 3,
+  "icon": "webp-to-jpg",
+  "cat": "image",
+  "next": [
+    "jpg-to-webp",
+    "png-to-jpg",
+    "image-compress"
+  ],
+  "strings": {
+    "en": {
+      "title": "WebP to JPG – Convert WebP Images to JPG Online Free",
+      "h1": "WebP to JPG",
+      "line": "WebP images into JPG",
+      "description": "Convert WebP to JPG online for free. Drop one or many WebP images, pick the quality and background color, and download JPG files that open anywhere. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select WebP",
+      "runText": "Convert",
+      "resultName": "jpg-images",
+      "options": {
+        "quality": { "label": "Quality", "help": "Higher quality keeps more detail but makes a bigger file. 90 is a good default." },
+        "background": { "label": "Background", "help": "JPG cannot be transparent, so transparent areas are filled with this color." }
+      },
+      "faq": [
+        [
+          "Why convert WebP to JPG?",
+          "Some older apps, photo editors and websites cannot open WebP. JPG works everywhere and keeps the photo looking the same."
+        ],
+        [
+          "Are my images uploaded?",
+          "No. Each image is converted on your device with your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "WebP JPG 변환 – WebP 이미지를 JPG 로 무료 온라인 변환",
+      "h1": "WebP JPG 변환",
+      "line": "WebP 를 어디서나 열리는 JPG 로",
+      "description": "WebP JPG 변환 무료 온라인. WebP 이미지를 여러 장 넣고 품질과 배경색을 정한 뒤 어디서나 열리는 JPG 로 내려받으세요. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "buttonText": "WebP 선택",
+      "runText": "JPG로 변환",
+      "resultName": "jpg변환",
+      "options": {
+        "quality": { "label": "품질", "help": "품질이 높을수록 선명하지만 용량이 커집니다. 보통 90이면 충분합니다." },
+        "background": { "label": "배경색", "help": "JPG 는 투명을 지원하지 않아 투명한 부분을 이 색으로 채웁니다." }
+      },
+      "faq": [
+        [
+          "왜 WebP 를 JPG 로 바꾸나요?",
+          "오래된 앱·사진 편집기·사이트에서는 WebP 가 열리지 않을 때가 있습니다. JPG 는 어디서나 열리고 사진 느낌도 그대로입니다."
+        ],
+        [
+          "이미지가 업로드되나요?",
+          "아니요. 각 이미지는 내 기기의 브라우저 안에서 변환되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "WebP 转 JPG – 免费在线将 WebP 图片转换为 JPG",
+      "h1": "WebP 转 JPG",
+      "line": "把 WebP 变成通用 JPG",
+      "description": "免费在线 WebP 转 JPG。添加一张或多张 WebP 图片，选择质量和背景色，然后下载随处可打开的 JPG 文件。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 WebP",
+      "runText": "转换",
+      "resultName": "jpg图片",
+      "options": {
+        "quality": { "label": "质量", "help": "质量越高细节越多，但文件也越大。90 是不错的默认值。" },
+        "background": { "label": "背景色", "help": "JPG 不支持透明，透明区域会用此颜色填充。" }
+      },
+      "faq": [
+        [
+          "为什么要把 WebP 转成 JPG？",
+          "一些旧应用、图片编辑器和网站打不开 WebP。JPG 在任何地方都能打开，照片效果也保持一致。"
+        ],
+        [
+          "我的图片会被上传吗？",
+          "不会。每张图片都在您的设备上由浏览器转换，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "WebP JPG 変換 – WebP画像をJPGに無料オンライン変換",
+      "h1": "WebP JPG 変換",
+      "line": "WebPをどこでも開けるJPGに",
+      "description": "無料でWebPをJPGに変換。WebP画像を1枚または複数追加し、画質と背景色を選んでどこでも開けるJPGをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "WebPを選択",
+      "runText": "変換する",
+      "resultName": "jpg変換",
+      "options": {
+        "quality": { "label": "画質", "help": "画質が高いほど細部が残りますが、ファイルは大きくなります。通常は90で十分です。" },
+        "background": { "label": "背景色", "help": "JPGは透明に対応していないため、透明な部分はこの色で塗られます。" }
+      },
+      "faq": [
+        [
+          "なぜWebPをJPGにするのですか？",
+          "古いアプリや画像編集ソフト、サイトではWebPを開けないことがあります。JPGならどこでも開け、写真の見た目もそのままです。"
+        ],
+        [
+          "画像はアップロードされますか？",
+          "いいえ。各画像は端末のブラウザ内で変換され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "WebP a JPG – Convertir imágenes WebP a JPG gratis online",
+      "h1": "WebP a JPG",
+      "line": "WebP en JPG universal",
+      "description": "Convierte WebP a JPG gratis y online. Añade una o varias imágenes WebP, elige la calidad y el color de fondo y descarga JPG que se abren en cualquier sitio. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir WebP",
+      "runText": "Convertir",
+      "resultName": "imagenes-jpg",
+      "options": {
+        "quality": { "label": "Calidad", "help": "Más calidad conserva más detalle pero genera un archivo mayor. 90 es un buen valor." },
+        "background": { "label": "Fondo", "help": "JPG no admite transparencia, así que las zonas transparentes se rellenan con este color." }
+      },
+      "faq": [
+        [
+          "¿Por qué convertir WebP a JPG?",
+          "Algunas apps antiguas, editores y webs no abren WebP. JPG funciona en todas partes y la foto se ve igual."
+        ],
+        [
+          "¿Se suben mis imágenes?",
+          "No. Cada imagen se convierte en tu dispositivo con tu navegador y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "WebP para JPG – Converter imagens WebP em JPG grátis online",
+      "h1": "WebP para JPG",
+      "line": "WebP em JPG universal",
+      "description": "Converta WebP para JPG grátis e online. Adicione uma ou várias imagens WebP, escolha a qualidade e a cor de fundo e baixe JPG que abrem em qualquer lugar. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher WebP",
+      "runText": "Converter",
+      "resultName": "imagens-jpg",
+      "options": {
+        "quality": { "label": "Qualidade", "help": "Mais qualidade mantém mais detalhes, mas gera um arquivo maior. 90 é um bom padrão." },
+        "background": { "label": "Fundo", "help": "JPG não tem transparência, então as áreas transparentes são preenchidas com esta cor." }
+      },
+      "faq": [
+        [
+          "Por que converter WebP em JPG?",
+          "Alguns apps antigos, editores e sites não abrem WebP. O JPG funciona em qualquer lugar e a foto continua igual."
+        ],
+        [
+          "Minhas imagens são enviadas?",
+          "Não. Cada imagem é convertida no seu dispositivo pelo navegador e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "WebP in JPG – WebP-Bilder online kostenlos in JPG umwandeln",
+      "h1": "WebP in JPG",
+      "line": "WebP als normales JPG",
+      "description": "WebP kostenlos online in JPG umwandeln. Ein oder mehrere WebP-Bilder hinzufügen, Qualität und Hintergrundfarbe wählen und JPG herunterladen, das überall funktioniert. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "WebP wählen",
+      "runText": "Umwandeln",
+      "resultName": "jpg-bilder",
+      "options": {
+        "quality": { "label": "Qualität", "help": "Höhere Qualität behält mehr Details, macht die Datei aber größer. 90 ist ein guter Standard." },
+        "background": { "label": "Hintergrund", "help": "JPG kennt keine Transparenz, transparente Bereiche werden mit dieser Farbe gefüllt." }
+      },
+      "faq": [
+        [
+          "Warum WebP in JPG umwandeln?",
+          "Manche älteren Apps, Bildbearbeitungen und Websites können WebP nicht öffnen. JPG funktioniert überall, und das Foto sieht gleich aus."
+        ],
+        [
+          "Werden meine Bilder hochgeladen?",
+          "Nein. Jedes Bild wird auf deinem Gerät im Browser umgewandelt und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "WebP en JPG – Convertir des images WebP en JPG gratuitement",
+      "h1": "WebP en JPG",
+      "line": "WebP en JPG universel",
+      "description": "Convertissez des WebP en JPG gratuitement en ligne. Ajoutez une ou plusieurs images WebP, choisissez la qualité et la couleur de fond, puis téléchargez des JPG lisibles partout. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir WebP",
+      "runText": "Convertir",
+      "resultName": "images-jpg",
+      "options": {
+        "quality": { "label": "Qualité", "help": "Une qualité plus élevée garde plus de détails mais donne un fichier plus lourd. 90 est une bonne valeur." },
+        "background": { "label": "Fond", "help": "Le JPG ne gère pas la transparence : les zones transparentes sont remplies avec cette couleur." }
+      },
+      "faq": [
+        [
+          "Pourquoi convertir WebP en JPG ?",
+          "Certaines applications anciennes, logiciels de retouche et sites n'ouvrent pas le WebP. Le JPG fonctionne partout et la photo garde le même rendu."
+        ],
+        [
+          "Mes images sont-elles envoyées ?",
+          "Non. Chaque image est convertie sur votre appareil par le navigateur et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "id": "favicon",
+  "order": 40,
+  "icon": "favicon",
+  "cat": "image",
+  "next": [
+    "image-resize",
+    "png-to-jpg",
+    "image-crop"
+  ],
+  "strings": {
+    "en": {
+      "title": "Favicon Generator – Make favicon.ico and App Icons Online Free",
+      "h1": "Favicon generator",
+      "line": "All icon sizes at once",
+      "description": "Create a favicon online for free. Drop a PNG, JPG or SVG and get favicon.ico plus 32, 180, 192 and 512 px PNG icons with ready-to-paste link tags. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select image",
+      "runText": "Make icons",
+      "resultName": "favicon",
+      "linkNote": "Put the files in your site root and add to <head>:",
+      "options": {
+        "padding": {
+          "label": "Padding",
+          "help": "Space around the image inside the icon. 0 fills the whole square."
+        },
+        "transparent": {
+          "label": "Transparent background",
+          "help": "Turn off to fill the icon with a solid color."
+        },
+        "background": {
+          "label": "Background",
+          "help": "Color behind the image when the background is not transparent."
+        },
+        "roundCorners": {
+          "label": "Round corners",
+          "help": "Clip the icon to a rounded square like app icons."
+        }
+      },
+      "faq": [
+        [
+          "Which files do I get?",
+          "favicon.ico (16, 32 and 48 px inside), favicon-32.png, apple-touch-icon-180.png, icon-192.png and icon-512.png. Upload them to your site root and paste the shown link tags into <head>."
+        ],
+        [
+          "Is my image uploaded?",
+          "No. The icons are drawn on your device with your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "파비콘 만들기 – favicon.ico 와 앱 아이콘 무료 온라인 생성",
+      "h1": "파비콘 만들기",
+      "line": "이미지 한 장으로 모든 아이콘",
+      "description": "파비콘 만들기 무료 온라인. PNG·JPG·SVG 한 장을 넣으면 favicon.ico 와 32·180·192·512px PNG 아이콘, 바로 붙여 넣는 link 태그까지 만들어 줍니다. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "buttonText": "이미지 선택",
+      "runText": "아이콘 만들기",
+      "resultName": "파비콘",
+      "linkNote": "파일을 사이트 루트에 올리고 <head> 에 추가하세요:",
+      "options": {
+        "padding": {
+          "label": "여백",
+          "help": "아이콘 안쪽에서 이미지 둘레에 두는 빈 공간입니다. 0이면 꽉 채웁니다."
+        },
+        "transparent": {
+          "label": "투명 배경",
+          "help": "끄면 아이콘을 단색으로 채웁니다."
+        },
+        "background": {
+          "label": "배경색",
+          "help": "투명 배경을 껐을 때 이미지 뒤를 채우는 색입니다."
+        },
+        "roundCorners": {
+          "label": "둥근 모서리",
+          "help": "앱 아이콘처럼 모서리를 둥글게 잘라 냅니다."
+        }
+      },
+      "faq": [
+        [
+          "어떤 파일이 만들어지나요?",
+          "favicon.ico(16·32·48px 포함), favicon-32.png, apple-touch-icon-180.png, icon-192.png, icon-512.png 입니다. 사이트 루트에 올리고 표시된 link 태그를 <head> 에 붙여 넣으세요."
+        ],
+        [
+          "이미지가 업로드되나요?",
+          "아니요. 아이콘은 내 기기의 브라우저 안에서 그려지며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "Favicon 生成器 – 免费在线制作 favicon.ico 和应用图标",
+      "h1": "Favicon 生成器",
+      "line": "一张图片生成全部尺寸图标",
+      "description": "免费在线制作 favicon。放入一张 PNG、JPG 或 SVG，即可得到 favicon.ico 以及 32、180、192、512 px 的 PNG 图标和可直接粘贴的 link 标签。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择图片",
+      "runText": "生成图标",
+      "resultName": "favicon",
+      "linkNote": "把文件放到网站根目录，并在 <head> 中加入：",
+      "options": {
+        "padding": {
+          "label": "留白",
+          "help": "图标内图片四周的空白。0 表示铺满整个方形。"
+        },
+        "transparent": {
+          "label": "透明背景",
+          "help": "关闭后图标会填充为纯色。"
+        },
+        "background": {
+          "label": "背景色",
+          "help": "关闭透明背景时，图片后面的填充颜色。"
+        },
+        "roundCorners": {
+          "label": "圆角",
+          "help": "像应用图标一样裁成圆角方形。"
+        }
+      },
+      "faq": [
+        [
+          "会生成哪些文件？",
+          "favicon.ico（内含 16、32、48 px）、favicon-32.png、apple-touch-icon-180.png、icon-192.png 和 icon-512.png。上传到网站根目录，再把显示的 link 标签粘贴到 <head> 中。"
+        ],
+        [
+          "我的图片会被上传吗？",
+          "不会。图标在您的设备上由浏览器绘制，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "ファビコン作成 – favicon.ico とアプリアイコンを無料オンライン生成",
+      "h1": "ファビコン作成",
+      "line": "画像1枚で全サイズのアイコン",
+      "description": "無料でファビコンを作成。PNG・JPG・SVG を1枚入れるだけで favicon.ico と 32・180・192・512px の PNG アイコン、そのまま貼れる link タグまで生成します。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "画像を選択",
+      "runText": "アイコン作成",
+      "resultName": "favicon",
+      "linkNote": "ファイルをサイトのルートに置き、<head> に追加してください：",
+      "options": {
+        "padding": {
+          "label": "余白",
+          "help": "アイコン内で画像の周りに空ける余白です。0 で全面に配置します。"
+        },
+        "transparent": {
+          "label": "透明背景",
+          "help": "オフにするとアイコンを単色で塗りつぶします。"
+        },
+        "background": {
+          "label": "背景色",
+          "help": "透明背景をオフにしたとき、画像の後ろを塗る色です。"
+        },
+        "roundCorners": {
+          "label": "角丸",
+          "help": "アプリアイコンのように角を丸く切り抜きます。"
+        }
+      },
+      "faq": [
+        [
+          "どのファイルができますか？",
+          "favicon.ico（16・32・48px 入り）、favicon-32.png、apple-touch-icon-180.png、icon-192.png、icon-512.png です。サイトのルートに置き、表示された link タグを <head> に貼り付けてください。"
+        ],
+        [
+          "画像はアップロードされますか？",
+          "いいえ。アイコンは端末のブラウザ内で描画され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Generador de favicon – Crear favicon.ico e iconos de app gratis online",
+      "h1": "Generador de favicon",
+      "line": "Iconos en cada tamaño",
+      "description": "Crea un favicon gratis y online. Añade un PNG, JPG o SVG y obtén favicon.ico más iconos PNG de 32, 180, 192 y 512 px con las etiquetas link listas para pegar. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir imagen",
+      "runText": "Crear iconos",
+      "resultName": "favicon",
+      "linkNote": "Sube los archivos a la raíz del sitio y añade en <head>:",
+      "options": {
+        "padding": {
+          "label": "Margen",
+          "help": "Espacio alrededor de la imagen dentro del icono. Con 0 ocupa todo el cuadrado."
+        },
+        "transparent": {
+          "label": "Fondo transparente",
+          "help": "Desactívalo para rellenar el icono con un color sólido."
+        },
+        "background": {
+          "label": "Fondo",
+          "help": "Color detrás de la imagen cuando el fondo no es transparente."
+        },
+        "roundCorners": {
+          "label": "Esquinas redondeadas",
+          "help": "Recorta el icono como un cuadrado redondeado, igual que los iconos de app."
+        }
+      },
+      "faq": [
+        [
+          "¿Qué archivos obtengo?",
+          "favicon.ico (con 16, 32 y 48 px dentro), favicon-32.png, apple-touch-icon-180.png, icon-192.png e icon-512.png. Súbelos a la raíz del sitio y pega las etiquetas link mostradas en <head>."
+        ],
+        [
+          "¿Se sube mi imagen?",
+          "No. Los iconos se dibujan en tu dispositivo con tu navegador y nunca se envían a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Gerador de favicon – Criar favicon.ico e ícones de app grátis online",
+      "h1": "Gerador de favicon",
+      "line": "Ícones em cada tamanho",
+      "description": "Crie um favicon grátis e online. Adicione um PNG, JPG ou SVG e receba favicon.ico mais ícones PNG de 32, 180, 192 e 512 px com as tags link prontas para colar. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher imagem",
+      "runText": "Criar ícones",
+      "resultName": "favicon",
+      "linkNote": "Coloque os arquivos na raiz do site e adicione em <head>:",
+      "options": {
+        "padding": {
+          "label": "Margem",
+          "help": "Espaço ao redor da imagem dentro do ícone. Com 0 ela ocupa todo o quadrado."
+        },
+        "transparent": {
+          "label": "Fundo transparente",
+          "help": "Desative para preencher o ícone com uma cor sólida."
+        },
+        "background": {
+          "label": "Fundo",
+          "help": "Cor atrás da imagem quando o fundo não é transparente."
+        },
+        "roundCorners": {
+          "label": "Cantos arredondados",
+          "help": "Recorta o ícone como um quadrado arredondado, igual aos ícones de app."
+        }
+      },
+      "faq": [
+        [
+          "Quais arquivos eu recebo?",
+          "favicon.ico (com 16, 32 e 48 px dentro), favicon-32.png, apple-touch-icon-180.png, icon-192.png e icon-512.png. Envie para a raiz do site e cole as tags link mostradas em <head>."
+        ],
+        [
+          "Minha imagem é enviada?",
+          "Não. Os ícones são desenhados no seu dispositivo pelo navegador e nunca vão para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "Favicon Generator – favicon.ico und App-Icons online kostenlos erstellen",
+      "h1": "Favicon Generator",
+      "line": "Icons in jeder Größe",
+      "description": "Favicon kostenlos online erstellen. PNG, JPG oder SVG hinzufügen und favicon.ico plus PNG-Icons in 32, 180, 192 und 512 px samt fertigen link-Tags erhalten. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "Bild wählen",
+      "runText": "Icons erstellen",
+      "resultName": "favicon",
+      "linkNote": "Dateien ins Stammverzeichnis der Seite legen und in <head> einfügen:",
+      "options": {
+        "padding": {
+          "label": "Rand",
+          "help": "Freiraum um das Bild innerhalb des Icons. Bei 0 füllt es das ganze Quadrat."
+        },
+        "transparent": {
+          "label": "Transparenter Hintergrund",
+          "help": "Ausschalten, um das Icon mit einer Farbe zu füllen."
+        },
+        "background": {
+          "label": "Hintergrund",
+          "help": "Farbe hinter dem Bild, wenn der Hintergrund nicht transparent ist."
+        },
+        "roundCorners": {
+          "label": "Abgerundete Ecken",
+          "help": "Schneidet das Icon wie ein App-Icon als abgerundetes Quadrat zu."
+        }
+      },
+      "faq": [
+        [
+          "Welche Dateien bekomme ich?",
+          "favicon.ico (mit 16, 32 und 48 px), favicon-32.png, apple-touch-icon-180.png, icon-192.png und icon-512.png. Lade sie ins Stammverzeichnis deiner Seite und füge die gezeigten link-Tags in <head> ein."
+        ],
+        [
+          "Wird mein Bild hochgeladen?",
+          "Nein. Die Icons werden auf deinem Gerät im Browser gezeichnet und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Générateur de favicon – Créer favicon.ico et icônes d'app gratuitement",
+      "h1": "Générateur de favicon",
+      "line": "Icônes en toute taille",
+      "description": "Créez un favicon gratuitement en ligne. Ajoutez un PNG, JPG ou SVG et obtenez favicon.ico plus des icônes PNG de 32, 180, 192 et 512 px avec les balises link prêtes à coller. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir image",
+      "runText": "Créer icônes",
+      "resultName": "favicon",
+      "linkNote": "Placez les fichiers à la racine du site et ajoutez dans <head> :",
+      "options": {
+        "padding": {
+          "label": "Marge",
+          "help": "Espace autour de l'image dans l'icône. À 0, elle remplit tout le carré."
+        },
+        "transparent": {
+          "label": "Fond transparent",
+          "help": "Désactivez pour remplir l'icône d'une couleur unie."
+        },
+        "background": {
+          "label": "Fond",
+          "help": "Couleur derrière l'image quand le fond n'est pas transparent."
+        },
+        "roundCorners": {
+          "label": "Coins arrondis",
+          "help": "Découpe l'icône en carré arrondi, comme une icône d'app."
+        }
+      },
+      "faq": [
+        [
+          "Quels fichiers vais-je obtenir ?",
+          "favicon.ico (avec 16, 32 et 48 px), favicon-32.png, apple-touch-icon-180.png, icon-192.png et icon-512.png. Déposez-les à la racine du site et collez les balises link affichées dans <head>."
+        ],
+        [
+          "Mon image est-elle envoyée ?",
+          "Non. Les icônes sont dessinées sur votre appareil par le navigateur et ne partent jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

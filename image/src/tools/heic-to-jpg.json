@@ -1,0 +1,205 @@
+{
+  "id": "heic-to-jpg",
+  "order": 5,
+  "icon": "heic-to-jpg",
+  "cat": "image",
+  "next": [
+    "jpg-to-png",
+    "image-compress",
+    "image-resize"
+  ],
+  "strings": {
+    "en": {
+      "title": "HEIC to JPG – Convert iPhone HEIC Photos to JPG Online Free",
+      "h1": "HEIC to JPG",
+      "line": "iPhone HEIC photos as JPG",
+      "description": "Convert HEIC to JPG online for free. Drop one or many iPhone HEIC/HEIF photos, pick the quality and size, and download JPG files that open anywhere. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select HEIC",
+      "runText": "Convert",
+      "resultName": "jpg-photos",
+      "options": {
+        "quality": { "label": "Quality", "help": "Higher quality keeps more detail but makes a bigger file. 90 is a good default." },
+        "maxEdge": { "label": "Max size", "help": "Shrinks the long side of large photos. Original keeps the full resolution.", "choices": { "0": "Original", "4096": "4096 px", "2048": "2048 px", "1280": "1280 px" } },
+        "background": { "label": "Background", "help": "JPG cannot be transparent, so any transparent areas are filled with this color." }
+      },
+      "faq": [
+        [
+          "Why won't my HEIC photos open on Windows?",
+          "HEIC is Apple's photo format and many Windows apps and websites cannot read it. Converting to JPG makes the photos open everywhere."
+        ],
+        [
+          "Are my photos uploaded?",
+          "No. Each photo is decoded and converted on your device with your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "HEIC JPG 변환 – 아이폰 HEIC 사진을 JPG 로 무료 온라인 변환",
+      "h1": "HEIC JPG 변환",
+      "line": "아이폰 HEIC 사진을 JPG 로",
+      "description": "HEIC JPG 변환 무료 온라인. 아이폰 HEIC/HEIF 사진을 여러 장 넣고 품질과 크기를 정한 뒤 어디서나 열리는 JPG 로 내려받으세요. 브라우저 안에서 처리되어 사진이 서버로 올라가지 않습니다.",
+      "buttonText": "HEIC 선택",
+      "runText": "JPG로 변환",
+      "resultName": "jpg변환",
+      "options": {
+        "quality": { "label": "품질", "help": "품질이 높을수록 선명하지만 용량이 커집니다. 보통 90이면 충분합니다." },
+        "maxEdge": { "label": "최대 크기", "help": "큰 사진의 긴 변을 줄입니다. 원본을 고르면 해상도를 그대로 둡니다.", "choices": { "0": "원본", "4096": "4096 px", "2048": "2048 px", "1280": "1280 px" } },
+        "background": { "label": "배경색", "help": "JPG 는 투명을 지원하지 않아 투명한 부분을 이 색으로 채웁니다." }
+      },
+      "faq": [
+        [
+          "HEIC 사진이 윈도우에서 왜 안 열리나요?",
+          "HEIC 는 애플 사진 형식이라 윈도우 프로그램과 웹사이트 상당수가 읽지 못합니다. JPG 로 바꾸면 어디서나 열립니다."
+        ],
+        [
+          "사진이 업로드되나요?",
+          "아니요. 각 사진은 내 기기의 브라우저 안에서 해독·변환되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "HEIC 转 JPG – 免费在线将 iPhone HEIC 照片转换为 JPG",
+      "h1": "HEIC 转 JPG",
+      "line": "把 iPhone HEIC 照片变成 JPG",
+      "description": "免费在线 HEIC 转 JPG。添加一张或多张 iPhone HEIC/HEIF 照片，选择质量和尺寸，然后下载随处可打开的 JPG 文件。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 HEIC",
+      "runText": "转换",
+      "resultName": "jpg照片",
+      "options": {
+        "quality": { "label": "质量", "help": "质量越高细节越多，但文件也越大。90 是不错的默认值。" },
+        "maxEdge": { "label": "最大尺寸", "help": "缩小大照片的长边。选择原始则保留完整分辨率。", "choices": { "0": "原始", "4096": "4096 px", "2048": "2048 px", "1280": "1280 px" } },
+        "background": { "label": "背景色", "help": "JPG 不支持透明，透明区域会用此颜色填充。" }
+      },
+      "faq": [
+        [
+          "为什么 HEIC 照片在 Windows 上打不开？",
+          "HEIC 是苹果的照片格式，很多 Windows 软件和网站无法读取。转换成 JPG 后在任何地方都能打开。"
+        ],
+        [
+          "我的照片会被上传吗？",
+          "不会。每张照片都在您的设备上由浏览器解码和转换，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "HEIC JPG 変換 – iPhoneのHEIC写真をJPGに無料オンライン変換",
+      "h1": "HEIC JPG 変換",
+      "line": "iPhoneのHEIC写真をJPGに",
+      "description": "無料でHEICをJPGに変換。iPhoneのHEIC/HEIF写真を1枚または複数追加し、画質とサイズを選んでどこでも開けるJPGをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "HEICを選択",
+      "runText": "変換する",
+      "resultName": "jpg変換",
+      "options": {
+        "quality": { "label": "画質", "help": "画質が高いほど細部が残りますが、ファイルは大きくなります。通常は90で十分です。" },
+        "maxEdge": { "label": "最大サイズ", "help": "大きな写真の長辺を縮小します。元のサイズを選ぶと解像度はそのままです。", "choices": { "0": "元のサイズ", "4096": "4096 px", "2048": "2048 px", "1280": "1280 px" } },
+        "background": { "label": "背景色", "help": "JPGは透明に対応していないため、透明な部分はこの色で塗られます。" }
+      },
+      "faq": [
+        [
+          "HEIC写真がWindowsで開けないのはなぜ？",
+          "HEICはApple独自の写真形式で、多くのWindowsアプリやウェブサイトが読み込めません。JPGに変換すればどこでも開けます。"
+        ],
+        [
+          "写真はアップロードされますか？",
+          "いいえ。各写真は端末のブラウザ内で読み込み・変換され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "HEIC a JPG – Convertir fotos HEIC de iPhone a JPG gratis online",
+      "h1": "HEIC a JPG",
+      "line": "Fotos HEIC de iPhone en JPG",
+      "description": "Convierte HEIC a JPG gratis y online. Añade una o varias fotos HEIC/HEIF de iPhone, elige la calidad y el tamaño y descarga JPG que se abren en cualquier sitio. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir HEIC",
+      "runText": "Convertir",
+      "resultName": "fotos-jpg",
+      "options": {
+        "quality": { "label": "Calidad", "help": "Más calidad conserva más detalle pero genera un archivo mayor. 90 es un buen valor." },
+        "maxEdge": { "label": "Tamaño máximo", "help": "Reduce el lado largo de las fotos grandes. Original mantiene toda la resolución.", "choices": { "0": "Original", "4096": "4096 px", "2048": "2048 px", "1280": "1280 px" } },
+        "background": { "label": "Fondo", "help": "JPG no admite transparencia, así que las zonas transparentes se rellenan con este color." }
+      },
+      "faq": [
+        [
+          "¿Por qué mis fotos HEIC no se abren en Windows?",
+          "HEIC es el formato de foto de Apple y muchas aplicaciones y webs de Windows no lo leen. Al convertirlas a JPG se abren en cualquier parte."
+        ],
+        [
+          "¿Se suben mis fotos?",
+          "No. Cada foto se decodifica y convierte en tu dispositivo con tu navegador y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "HEIC para JPG – Converter fotos HEIC do iPhone em JPG grátis online",
+      "h1": "HEIC para JPG",
+      "line": "Fotos HEIC do iPhone em JPG",
+      "description": "Converta HEIC para JPG grátis e online. Adicione uma ou várias fotos HEIC/HEIF do iPhone, escolha a qualidade e o tamanho e baixe JPG que abrem em qualquer lugar. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher HEIC",
+      "runText": "Converter",
+      "resultName": "fotos-jpg",
+      "options": {
+        "quality": { "label": "Qualidade", "help": "Mais qualidade mantém mais detalhes, mas gera um arquivo maior. 90 é um bom padrão." },
+        "maxEdge": { "label": "Tamanho máximo", "help": "Reduz o lado maior das fotos grandes. Original mantém a resolução completa.", "choices": { "0": "Original", "4096": "4096 px", "2048": "2048 px", "1280": "1280 px" } },
+        "background": { "label": "Fundo", "help": "JPG não tem transparência, então as áreas transparentes são preenchidas com esta cor." }
+      },
+      "faq": [
+        [
+          "Por que minhas fotos HEIC não abrem no Windows?",
+          "HEIC é o formato de foto da Apple e muitos programas e sites no Windows não o leem. Convertendo para JPG, as fotos abrem em qualquer lugar."
+        ],
+        [
+          "Minhas fotos são enviadas?",
+          "Não. Cada foto é decodificada e convertida no seu dispositivo pelo navegador e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "HEIC in JPG – iPhone-HEIC-Fotos online kostenlos in JPG umwandeln",
+      "h1": "HEIC in JPG",
+      "line": "iPhone-HEIC-Fotos als JPG",
+      "description": "HEIC kostenlos online in JPG umwandeln. Ein oder mehrere iPhone-HEIC/HEIF-Fotos hinzufügen, Qualität und Größe wählen und JPG herunterladen, die sich überall öffnen lassen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "HEIC wählen",
+      "runText": "Umwandeln",
+      "resultName": "jpg-fotos",
+      "options": {
+        "quality": { "label": "Qualität", "help": "Höhere Qualität behält mehr Details, macht die Datei aber größer. 90 ist ein guter Standard." },
+        "maxEdge": { "label": "Maximale Größe", "help": "Verkleinert die lange Seite großer Fotos. Original behält die volle Auflösung.", "choices": { "0": "Original", "4096": "4096 px", "2048": "2048 px", "1280": "1280 px" } },
+        "background": { "label": "Hintergrund", "help": "JPG kennt keine Transparenz, transparente Bereiche werden mit dieser Farbe gefüllt." }
+      },
+      "faq": [
+        [
+          "Warum öffnen sich meine HEIC-Fotos unter Windows nicht?",
+          "HEIC ist Apples Fotoformat, das viele Windows-Programme und Websites nicht lesen können. Als JPG lassen sich die Fotos überall öffnen."
+        ],
+        [
+          "Werden meine Fotos hochgeladen?",
+          "Nein. Jedes Foto wird auf deinem Gerät im Browser dekodiert und umgewandelt und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "HEIC en JPG – Convertir des photos HEIC d'iPhone en JPG gratuitement",
+      "h1": "HEIC en JPG",
+      "line": "Photos HEIC d'iPhone en JPG",
+      "description": "Convertissez des HEIC en JPG gratuitement en ligne. Ajoutez une ou plusieurs photos HEIC/HEIF d'iPhone, choisissez la qualité et la taille, puis téléchargez des JPG lisibles partout. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir HEIC",
+      "runText": "Convertir",
+      "resultName": "photos-jpg",
+      "options": {
+        "quality": { "label": "Qualité", "help": "Une qualité plus élevée garde plus de détails mais donne un fichier plus lourd. 90 est une bonne valeur." },
+        "maxEdge": { "label": "Taille maximale", "help": "Réduit le grand côté des photos volumineuses. Original conserve toute la résolution.", "choices": { "0": "Original", "4096": "4096 px", "2048": "2048 px", "1280": "1280 px" } },
+        "background": { "label": "Fond", "help": "Le JPG ne gère pas la transparence : les zones transparentes sont remplies avec cette couleur." }
+      },
+      "faq": [
+        [
+          "Pourquoi mes photos HEIC ne s'ouvrent-elles pas sous Windows ?",
+          "Le HEIC est le format photo d'Apple et beaucoup de logiciels et sites Windows ne le lisent pas. Converties en JPG, les photos s'ouvrent partout."
+        ],
+        [
+          "Mes photos sont-elles envoyées ?",
+          "Non. Chaque photo est décodée et convertie sur votre appareil par le navigateur et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "id": "svg-to-png",
+  "order": 6,
+  "icon": "svg-to-png",
+  "cat": "image",
+  "next": [
+    "png-to-jpg",
+    "image-resize",
+    "favicon"
+  ],
+  "strings": {
+    "en": {
+      "title": "SVG to PNG – Convert SVG Vector Files to PNG Online Free",
+      "h1": "SVG to PNG",
+      "line": "SVG files as sharp PNG",
+      "description": "Convert SVG to PNG online for free. Drop one or many SVG files, set the width, 2x/3x scale and a transparent or colored background, and download PNG images. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select SVG",
+      "runText": "Convert",
+      "resultName": "png-images",
+      "options": {
+        "width": { "label": "Width", "help": "Width of the PNG in pixels. The height follows the SVG's aspect ratio." },
+        "scale": { "label": "Scale", "help": "Multiplies the width for high-resolution screens.", "choices": { "1": "1x", "2": "2x", "3": "3x" } },
+        "transparent": { "label": "Transparent background" },
+        "background": { "label": "Background", "help": "Fills the background with this color instead of transparency." }
+      },
+      "errors": { "svg": "This SVG could not be drawn. SVGs that load external images or fonts are not supported." },
+      "faq": [
+        [
+          "Which size should I choose?",
+          "Enter the width you need; the height is calculated from the SVG's aspect ratio. Pick 2x or 3x for a sharper image on high-resolution screens."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. Each SVG is rendered on your device with your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "SVG PNG 변환 – SVG 벡터 파일을 PNG 로 무료 온라인 변환",
+      "h1": "SVG PNG 변환",
+      "line": "SVG 를 선명한 PNG 이미지로",
+      "description": "SVG PNG 변환 무료 온라인. SVG 파일을 여러 개 넣고 가로 크기, 2x/3x 배율, 투명 또는 배경색을 정한 뒤 PNG 로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "SVG 선택",
+      "runText": "PNG로 변환",
+      "resultName": "png변환",
+      "options": {
+        "width": { "label": "가로", "help": "PNG 의 가로 픽셀 크기입니다. 세로는 SVG 비율에 맞춰 정해집니다." },
+        "scale": { "label": "배율", "help": "고해상도 화면용으로 가로 크기를 배로 키웁니다.", "choices": { "1": "1x", "2": "2x", "3": "3x" } },
+        "transparent": { "label": "투명 배경" },
+        "background": { "label": "배경색", "help": "투명 대신 이 색으로 배경을 채웁니다." }
+      },
+      "errors": { "svg": "이 SVG 를 그리지 못했습니다. 외부 이미지나 글꼴을 불러오는 SVG 는 지원하지 않습니다." },
+      "faq": [
+        [
+          "크기는 어떻게 정하나요?",
+          "필요한 가로 크기를 입력하면 세로는 SVG 비율대로 계산됩니다. 고해상도 화면용이면 2x 나 3x 를 고르세요."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. 각 SVG 는 내 기기의 브라우저 안에서 그려지며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "SVG 转 PNG – 免费在线将 SVG 矢量文件转换为 PNG",
+      "h1": "SVG 转 PNG",
+      "line": "把 SVG 变成清晰的 PNG",
+      "description": "免费在线 SVG 转 PNG。添加一个或多个 SVG 文件，设置宽度、2x/3x 倍率和透明或纯色背景，然后下载 PNG 图片。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 SVG",
+      "runText": "转换",
+      "resultName": "png图片",
+      "options": {
+        "width": { "label": "宽度", "help": "PNG 的宽度（像素）。高度按 SVG 的比例自动计算。" },
+        "scale": { "label": "倍率", "help": "为高分辨率屏幕放大宽度。", "choices": { "1": "1x", "2": "2x", "3": "3x" } },
+        "transparent": { "label": "透明背景" },
+        "background": { "label": "背景色", "help": "用此颜色填充背景，而不是透明。" }
+      },
+      "errors": { "svg": "无法绘制此 SVG。不支持加载外部图片或字体的 SVG。" },
+      "faq": [
+        [
+          "应该选择多大尺寸？",
+          "输入需要的宽度，高度会按 SVG 的比例计算。高分辨率屏幕请选择 2x 或 3x 以获得更清晰的图片。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。每个 SVG 都在您的设备上由浏览器绘制，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "SVG PNG 変換 – SVGベクター画像をPNGに無料オンライン変換",
+      "h1": "SVG PNG 変換",
+      "line": "SVGをくっきりしたPNGに",
+      "description": "無料でSVGをPNGに変換。SVGファイルを1つまたは複数追加し、幅、2x/3x倍率、透明または背景色を選んでPNGをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "SVGを選択",
+      "runText": "変換する",
+      "resultName": "png変換",
+      "options": {
+        "width": { "label": "幅", "help": "PNGの幅（ピクセル）です。高さはSVGの縦横比に合わせて決まります。" },
+        "scale": { "label": "倍率", "help": "高解像度画面向けに幅を倍にします。", "choices": { "1": "1x", "2": "2x", "3": "3x" } },
+        "transparent": { "label": "透明な背景" },
+        "background": { "label": "背景色", "help": "透明の代わりにこの色で背景を塗ります。" }
+      },
+      "errors": { "svg": "このSVGを描画できませんでした。外部の画像やフォントを読み込むSVGには対応していません。" },
+      "faq": [
+        [
+          "サイズはどう選べばいいですか？",
+          "必要な幅を入力すると、高さはSVGの縦横比から計算されます。高解像度画面向けには2xか3xを選んでください。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。各SVGは端末のブラウザ内で描画され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "SVG a PNG – Convertir archivos vectoriales SVG a PNG gratis online",
+      "h1": "SVG a PNG",
+      "line": "SVG en imágenes PNG nítidas",
+      "description": "Convierte SVG a PNG gratis y online. Añade uno o varios archivos SVG, elige el ancho, la escala 2x/3x y un fondo transparente o de color, y descarga las imágenes PNG. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir SVG",
+      "runText": "Convertir",
+      "resultName": "imagenes-png",
+      "options": {
+        "width": { "label": "Ancho", "help": "Ancho del PNG en píxeles. El alto sigue la proporción del SVG." },
+        "scale": { "label": "Escala", "help": "Multiplica el ancho para pantallas de alta resolución.", "choices": { "1": "1x", "2": "2x", "3": "3x" } },
+        "transparent": { "label": "Fondo transparente" },
+        "background": { "label": "Fondo", "help": "Rellena el fondo con este color en lugar de dejarlo transparente." }
+      },
+      "errors": { "svg": "No se pudo dibujar este SVG. No se admiten SVG que cargan imágenes o fuentes externas." },
+      "faq": [
+        [
+          "¿Qué tamaño debo elegir?",
+          "Escribe el ancho que necesitas; el alto se calcula con la proporción del SVG. Elige 2x o 3x para una imagen más nítida en pantallas de alta resolución."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. Cada SVG se dibuja en tu dispositivo con tu navegador y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "SVG para PNG – Converter arquivos vetoriais SVG em PNG grátis online",
+      "h1": "SVG para PNG",
+      "line": "SVG em imagens PNG nítidas",
+      "description": "Converta SVG para PNG grátis e online. Adicione um ou vários arquivos SVG, defina a largura, a escala 2x/3x e um fundo transparente ou colorido, e baixe as imagens PNG. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher SVG",
+      "runText": "Converter",
+      "resultName": "imagens-png",
+      "options": {
+        "width": { "label": "Largura", "help": "Largura do PNG em pixels. A altura segue a proporção do SVG." },
+        "scale": { "label": "Escala", "help": "Multiplica a largura para telas de alta resolução.", "choices": { "1": "1x", "2": "2x", "3": "3x" } },
+        "transparent": { "label": "Fundo transparente" },
+        "background": { "label": "Fundo", "help": "Preenche o fundo com esta cor em vez de deixá-lo transparente." }
+      },
+      "errors": { "svg": "Não foi possível desenhar este SVG. SVGs que carregam imagens ou fontes externas não são suportados." },
+      "faq": [
+        [
+          "Qual tamanho devo escolher?",
+          "Digite a largura necessária; a altura é calculada pela proporção do SVG. Escolha 2x ou 3x para uma imagem mais nítida em telas de alta resolução."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. Cada SVG é desenhado no seu dispositivo pelo navegador e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "SVG in PNG – SVG-Vektordateien online kostenlos in PNG umwandeln",
+      "h1": "SVG in PNG",
+      "line": "SVG als scharfe PNG-Bilder",
+      "description": "SVG kostenlos online in PNG umwandeln. Eine oder mehrere SVG-Dateien hinzufügen, Breite, 2x/3x-Skalierung und transparenten oder farbigen Hintergrund wählen und PNG herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "SVG wählen",
+      "runText": "Umwandeln",
+      "resultName": "png-bilder",
+      "options": {
+        "width": { "label": "Breite", "help": "Breite des PNG in Pixeln. Die Höhe folgt dem Seitenverhältnis der SVG." },
+        "scale": { "label": "Skalierung", "help": "Vervielfacht die Breite für hochauflösende Bildschirme.", "choices": { "1": "1x", "2": "2x", "3": "3x" } },
+        "transparent": { "label": "Transparenter Hintergrund" },
+        "background": { "label": "Hintergrund", "help": "Füllt den Hintergrund mit dieser Farbe statt Transparenz." }
+      },
+      "errors": { "svg": "Diese SVG konnte nicht gezeichnet werden. SVGs, die externe Bilder oder Schriften laden, werden nicht unterstützt." },
+      "faq": [
+        [
+          "Welche Größe soll ich wählen?",
+          "Gib die gewünschte Breite ein; die Höhe wird aus dem Seitenverhältnis der SVG berechnet. Wähle 2x oder 3x für ein schärferes Bild auf hochauflösenden Bildschirmen."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Jede SVG wird auf deinem Gerät im Browser gezeichnet und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "SVG en PNG – Convertir des fichiers vectoriels SVG en PNG gratuitement",
+      "h1": "SVG en PNG",
+      "line": "Des SVG en PNG nets",
+      "description": "Convertissez des SVG en PNG gratuitement en ligne. Ajoutez un ou plusieurs fichiers SVG, choisissez la largeur, l'échelle 2x/3x et un fond transparent ou coloré, puis téléchargez les images PNG. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir SVG",
+      "runText": "Convertir",
+      "resultName": "images-png",
+      "options": {
+        "width": { "label": "Largeur", "help": "Largeur du PNG en pixels. La hauteur suit les proportions du SVG." },
+        "scale": { "label": "Échelle", "help": "Multiplie la largeur pour les écrans haute résolution.", "choices": { "1": "1x", "2": "2x", "3": "3x" } },
+        "transparent": { "label": "Fond transparent" },
+        "background": { "label": "Fond", "help": "Remplit le fond avec cette couleur au lieu de la transparence." }
+      },
+      "errors": { "svg": "Impossible de dessiner ce SVG. Les SVG qui chargent des images ou des polices externes ne sont pas pris en charge." },
+      "faq": [
+        [
+          "Quelle taille choisir ?",
+          "Saisissez la largeur voulue ; la hauteur est calculée d'après les proportions du SVG. Choisissez 2x ou 3x pour une image plus nette sur les écrans haute résolution."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Chaque SVG est dessiné sur votre appareil par le navigateur et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

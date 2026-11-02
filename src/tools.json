@@ -1,63 +1,1061 @@
 [
-  { "id": "hwp", "cat": "hwp", "section": "hwp", "status": "live", "order": 1, "url": "/", "icon": "hwp",
-    "name": { "ko": "HWP 뷰어", "en": "HWP viewer" }, "line": { "ko": "HWP·HWPX 열고 PDF로 저장", "en": "Open HWP, save as PDF" }, "langs": ["ko"], "hideOn": ["/"] },
-
-  { "id": "remove-line-breaks", "cat": "text", "section": "text", "status": "live", "order": 2, "url": "/text/remove-line-breaks.html", "icon": "text-lines",
-    "name": { "ko": "줄바꿈 제거", "en": "Remove line breaks" }, "line": { "ko": "복사한 글의 줄바꿈 정리", "en": "Clean up pasted line breaks" }, "langs": ["ko"] },
-  { "id": "char-count", "cat": "text", "section": "text", "status": "live", "order": 3, "url": "/text/char-count.html", "icon": "text-count",
-    "name": { "ko": "글자수 세기", "en": "Character count" }, "line": { "ko": "공백 포함·제외 글자수·바이트", "en": "Characters, bytes, words" }, "langs": ["ko"] },
-  { "id": "wheel", "cat": "wheel", "section": "wheel", "status": "live", "order": 4, "url": "/wheel/ko/", "icon": "wheel",
-    "name": { "ko": "돌림판 룰렛 – 랜덤 뽑기", "en": "Spin the wheel" }, "line": { "ko": "이름 넣고 돌려서 랜덤 뽑기", "en": "Pick a random name" }, "langs": ["ko"] },
-  { "id": "dedupe-lines", "cat": "text", "section": "text", "status": "live", "order": 5, "url": "/text/dedupe-lines.html", "icon": "text-dedupe",
-    "name": { "ko": "중복 줄 제거 · 정렬", "en": "Dedupe and sort lines" }, "line": { "ko": "겹치는 줄 지우고 정렬", "en": "Remove duplicates, sort" }, "langs": ["ko"] },
-  { "id": "sql-in", "cat": "text", "section": "text", "status": "live", "order": 6, "url": "/text/sql-in.html", "icon": "text-sql",
-    "name": { "ko": "목록 → SQL IN절 변환", "en": "List to SQL IN clause" }, "line": { "ko": "목록을 ('A', 'B') 형태로", "en": "Turn a list into IN ('a','b')" }, "langs": ["ko"] },
-  { "id": "list-to-line", "cat": "text", "section": "text", "status": "live", "order": 7, "url": "/text/list-to-line.html", "icon": "text-list",
-    "name": { "ko": "목록 ↔ 한 줄 변환", "en": "List to one line" }, "line": { "ko": "세로 목록과 한 줄 서로 변환", "en": "Switch list and one line" }, "langs": ["ko"] },
-  { "id": "wheel-yesno", "cat": "wheel", "section": "wheel", "status": "live", "order": 8, "url": "/wheel/ko/yes-or-no/", "icon": "wheel-yesno",
-    "name": { "ko": "예 아니오 룰렛", "en": "Yes or no wheel" }, "line": { "ko": "결정 못 할 때 돌리기", "en": "Decide with a spin" }, "langs": ["ko"] },
-  { "id": "wheel-number", "cat": "wheel", "section": "wheel", "status": "live", "order": 9, "url": "/wheel/ko/number/", "icon": "wheel-number",
-    "name": { "ko": "숫자 룰렛 – 랜덤 숫자 뽑기", "en": "Number wheel" }, "line": { "ko": "범위 안 숫자 하나 뽑기", "en": "Random number in a range" }, "langs": ["ko"] },
-  { "id": "wheel-food", "cat": "wheel", "section": "wheel", "status": "live", "order": 10, "url": "/wheel/ko/what-to-eat/", "icon": "wheel-food",
-    "name": { "ko": "오늘 뭐 먹지? 메뉴 룰렛", "en": "What to eat wheel" }, "line": { "ko": "메뉴 돌려서 정하기", "en": "Let the wheel pick a meal" }, "langs": ["ko"] },
-
-  { "id": "guide-hwp-vs-hwpx", "cat": "guide", "section": "guide", "status": "live", "order": 11, "url": "/guide/hwp-vs-hwpx.html", "icon": "guide",
-    "name": { "ko": "HWP와 HWPX의 차이", "en": "HWP vs HWPX" }, "line": { "ko": "두 형식 차이와 선택 기준", "en": "What differs, which to use" }, "langs": ["ko"] },
-  { "id": "guide-hwp-to-pdf", "cat": "guide", "section": "guide", "status": "live", "order": 12, "url": "/guide/hwp-to-pdf.html", "icon": "guide",
-    "name": { "ko": "HWP를 PDF로 바꾸기", "en": "HWP to PDF" }, "line": { "ko": "프로그램 없이 PDF 만들기", "en": "Make a PDF without Hangul" }, "langs": ["ko"] },
-  { "id": "guide-open-hwp-on-mac", "cat": "guide", "section": "guide", "status": "live", "order": 13, "url": "/guide/open-hwp-on-mac.html", "icon": "guide",
-    "name": { "ko": "맥에서 HWP 열기", "en": "Open HWP on Mac" }, "line": { "ko": "한글 없이 맥에서 보는 방법", "en": "Four ways on macOS" }, "langs": ["ko"] },
-  { "id": "guide-open-hwp-on-phone", "cat": "guide", "section": "guide", "status": "live", "order": 14, "url": "/guide/open-hwp-on-phone.html", "icon": "guide",
-    "name": { "ko": "휴대폰에서 HWP 열기", "en": "Open HWP on a phone" }, "line": { "ko": "안드로이드·아이폰 확인법", "en": "Android and iPhone" }, "langs": ["ko"] },
-  { "id": "guide-hwp-wont-open", "cat": "guide", "section": "guide", "status": "live", "order": 15, "url": "/guide/hwp-wont-open.html", "icon": "guide",
-    "name": { "ko": "HWP 안 열릴 때", "en": "HWP will not open" }, "line": { "ko": "원인별 확인과 해결", "en": "Causes and fixes" }, "langs": ["ko"] },
-
-  { "id": "merge", "cat": "pdf", "section": "pdf", "status": "planned", "order": 16, "url": "/pdf/merge/", "icon": "merge",
-    "name": { "ko": "PDF 합치기", "en": "Merge PDF" }, "line": { "ko": "여러 PDF를 한 파일로", "en": "Combine PDFs into one" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "split", "cat": "pdf", "section": "pdf", "status": "planned", "order": 17, "url": "/pdf/split/", "icon": "split",
-    "name": { "ko": "PDF 나누기", "en": "Split PDF" }, "line": { "ko": "페이지 범위로 분리", "en": "Split by page ranges" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "extract-pages", "cat": "pdf", "section": "pdf", "status": "planned", "order": 18, "url": "/pdf/extract-pages/", "icon": "extract-pages",
-    "name": { "ko": "PDF 페이지 추출", "en": "Extract pages" }, "line": { "ko": "원하는 페이지만 새 PDF로", "en": "Pull pages into a new PDF" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "remove-pages", "cat": "pdf", "section": "pdf", "status": "planned", "order": 19, "url": "/pdf/remove-pages/", "icon": "remove-pages",
-    "name": { "ko": "PDF 페이지 삭제", "en": "Remove pages" }, "line": { "ko": "필요 없는 페이지 지우기", "en": "Delete unwanted pages" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "organize", "cat": "pdf", "section": "pdf", "status": "planned", "order": 20, "url": "/pdf/organize/", "icon": "organize",
-    "name": { "ko": "PDF 페이지 정렬", "en": "Organize PDF" }, "line": { "ko": "페이지 순서 바꾸기", "en": "Reorder pages" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "rotate", "cat": "pdf", "section": "pdf", "status": "planned", "order": 21, "url": "/pdf/rotate/", "icon": "rotate",
-    "name": { "ko": "PDF 회전", "en": "Rotate PDF" }, "line": { "ko": "페이지 방향 돌리기", "en": "Turn pages the right way" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "page-numbers", "cat": "pdf", "section": "pdf", "status": "planned", "order": 22, "url": "/pdf/page-numbers/", "icon": "page-numbers",
-    "name": { "ko": "PDF 쪽번호 넣기", "en": "Add page numbers" }, "line": { "ko": "쪽번호 위치·형식 지정", "en": "Number every page" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "watermark", "cat": "pdf", "section": "pdf", "status": "planned", "order": 23, "url": "/pdf/watermark/", "icon": "watermark",
-    "name": { "ko": "PDF 워터마크", "en": "Add watermark" }, "line": { "ko": "글자·이미지 워터마크 삽입", "en": "Stamp text or an image" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "crop", "cat": "pdf", "section": "pdf", "status": "planned", "order": 24, "url": "/pdf/crop/", "icon": "crop",
-    "name": { "ko": "PDF 자르기", "en": "Crop PDF" }, "line": { "ko": "여백 잘라 페이지 크기 조정", "en": "Trim margins" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "jpg-to-pdf", "cat": "pdf", "section": "pdf", "status": "planned", "order": 25, "url": "/pdf/jpg-to-pdf/", "icon": "jpg-to-pdf",
-    "name": { "ko": "JPG를 PDF로", "en": "JPG to PDF" }, "line": { "ko": "이미지 여러 장을 PDF로", "en": "Images into one PDF" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "pdf-to-jpg", "cat": "pdf", "section": "pdf", "status": "planned", "order": 26, "url": "/pdf/pdf-to-jpg/", "icon": "pdf-to-jpg",
-    "name": { "ko": "PDF를 JPG로", "en": "PDF to JPG" }, "line": { "ko": "페이지를 이미지로 저장", "en": "Save pages as images" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "sign", "cat": "pdf", "section": "pdf", "status": "planned", "order": 27, "url": "/pdf/sign/", "icon": "sign",
-    "name": { "ko": "PDF 서명", "en": "Sign PDF" }, "line": { "ko": "서명·이름·날짜 넣기", "en": "Draw or type a signature" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "scan", "cat": "pdf", "section": "pdf", "status": "planned", "order": 28, "url": "/pdf/scan/", "icon": "scan",
-    "name": { "ko": "스캔 PDF 만들기", "en": "Scan to PDF" }, "line": { "ko": "카메라로 찍어 PDF로", "en": "Photograph pages into a PDF" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] },
-  { "id": "compress", "cat": "pdf", "section": "pdf", "status": "planned", "order": 29, "url": "/pdf/compress/", "icon": "compress",
-    "name": { "ko": "PDF 용량 줄이기", "en": "Compress PDF" }, "line": { "ko": "화질 유지하며 용량 축소", "en": "Shrink file size" }, "langs": ["en", "ko", "zh", "ja", "es", "pt", "de", "fr"] }
+  {
+    "id": "hwp",
+    "cat": "hwp",
+    "section": "hwp",
+    "status": "live",
+    "order": 1,
+    "url": "/",
+    "icon": "hwp",
+    "name": {
+      "ko": "HWP 뷰어",
+      "en": "HWP viewer"
+    },
+    "line": {
+      "ko": "HWP·HWPX 열고 PDF로 저장",
+      "en": "Open HWP, save as PDF"
+    },
+    "langs": [
+      "ko"
+    ],
+    "hideOn": [
+      "/"
+    ]
+  },
+  {
+    "id": "remove-line-breaks",
+    "cat": "text",
+    "section": "text",
+    "status": "live",
+    "order": 2,
+    "url": "/text/remove-line-breaks.html",
+    "icon": "text-lines",
+    "name": {
+      "ko": "줄바꿈 제거",
+      "en": "Remove line breaks"
+    },
+    "line": {
+      "ko": "복사한 글의 줄바꿈 정리",
+      "en": "Clean up pasted line breaks"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "char-count",
+    "cat": "text",
+    "section": "text",
+    "status": "live",
+    "order": 3,
+    "url": "/text/char-count.html",
+    "icon": "text-count",
+    "name": {
+      "ko": "글자수 세기",
+      "en": "Character count"
+    },
+    "line": {
+      "ko": "공백 포함·제외 글자수·바이트",
+      "en": "Characters, bytes, words"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "wheel",
+    "cat": "wheel",
+    "section": "wheel",
+    "status": "live",
+    "order": 4,
+    "url": "/wheel/ko/",
+    "icon": "wheel",
+    "name": {
+      "ko": "돌림판 룰렛 – 랜덤 뽑기",
+      "en": "Spin the wheel"
+    },
+    "line": {
+      "ko": "이름 넣고 돌려서 랜덤 뽑기",
+      "en": "Pick a random name"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "dedupe-lines",
+    "cat": "text",
+    "section": "text",
+    "status": "live",
+    "order": 5,
+    "url": "/text/dedupe-lines.html",
+    "icon": "text-dedupe",
+    "name": {
+      "ko": "중복 줄 제거 · 정렬",
+      "en": "Dedupe and sort lines"
+    },
+    "line": {
+      "ko": "겹치는 줄 지우고 정렬",
+      "en": "Remove duplicates, sort"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "sql-in",
+    "cat": "text",
+    "section": "text",
+    "status": "live",
+    "order": 6,
+    "url": "/text/sql-in.html",
+    "icon": "text-sql",
+    "name": {
+      "ko": "목록 → SQL IN절 변환",
+      "en": "List to SQL IN clause"
+    },
+    "line": {
+      "ko": "목록을 ('A', 'B') 형태로",
+      "en": "Turn a list into IN ('a','b')"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "list-to-line",
+    "cat": "text",
+    "section": "text",
+    "status": "live",
+    "order": 7,
+    "url": "/text/list-to-line.html",
+    "icon": "text-list",
+    "name": {
+      "ko": "목록 ↔ 한 줄 변환",
+      "en": "List to one line"
+    },
+    "line": {
+      "ko": "세로 목록과 한 줄 서로 변환",
+      "en": "Switch list and one line"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "wheel-yesno",
+    "cat": "wheel",
+    "section": "wheel",
+    "status": "live",
+    "order": 8,
+    "url": "/wheel/ko/yes-or-no/",
+    "icon": "wheel-yesno",
+    "name": {
+      "ko": "예 아니오 룰렛",
+      "en": "Yes or no wheel"
+    },
+    "line": {
+      "ko": "결정 못 할 때 돌리기",
+      "en": "Decide with a spin"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "wheel-number",
+    "cat": "wheel",
+    "section": "wheel",
+    "status": "live",
+    "order": 9,
+    "url": "/wheel/ko/number/",
+    "icon": "wheel-number",
+    "name": {
+      "ko": "숫자 룰렛 – 랜덤 숫자 뽑기",
+      "en": "Number wheel"
+    },
+    "line": {
+      "ko": "범위 안 숫자 하나 뽑기",
+      "en": "Random number in a range"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "wheel-food",
+    "cat": "wheel",
+    "section": "wheel",
+    "status": "live",
+    "order": 10,
+    "url": "/wheel/ko/what-to-eat/",
+    "icon": "wheel-food",
+    "name": {
+      "ko": "오늘 뭐 먹지? 메뉴 룰렛",
+      "en": "What to eat wheel"
+    },
+    "line": {
+      "ko": "메뉴 돌려서 정하기",
+      "en": "Let the wheel pick a meal"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "guide-hwp-vs-hwpx",
+    "cat": "guide",
+    "section": "guide",
+    "status": "live",
+    "order": 11,
+    "url": "/guide/hwp-vs-hwpx.html",
+    "icon": "guide",
+    "name": {
+      "ko": "HWP와 HWPX의 차이",
+      "en": "HWP vs HWPX"
+    },
+    "line": {
+      "ko": "두 형식 차이와 선택 기준",
+      "en": "What differs, which to use"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "guide-hwp-to-pdf",
+    "cat": "guide",
+    "section": "guide",
+    "status": "live",
+    "order": 12,
+    "url": "/guide/hwp-to-pdf.html",
+    "icon": "guide",
+    "name": {
+      "ko": "HWP를 PDF로 바꾸기",
+      "en": "HWP to PDF"
+    },
+    "line": {
+      "ko": "프로그램 없이 PDF 만들기",
+      "en": "Make a PDF without Hangul"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "guide-open-hwp-on-mac",
+    "cat": "guide",
+    "section": "guide",
+    "status": "live",
+    "order": 13,
+    "url": "/guide/open-hwp-on-mac.html",
+    "icon": "guide",
+    "name": {
+      "ko": "맥에서 HWP 열기",
+      "en": "Open HWP on Mac"
+    },
+    "line": {
+      "ko": "한글 없이 맥에서 보는 방법",
+      "en": "Four ways on macOS"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "guide-open-hwp-on-phone",
+    "cat": "guide",
+    "section": "guide",
+    "status": "live",
+    "order": 14,
+    "url": "/guide/open-hwp-on-phone.html",
+    "icon": "guide",
+    "name": {
+      "ko": "휴대폰에서 HWP 열기",
+      "en": "Open HWP on a phone"
+    },
+    "line": {
+      "ko": "안드로이드·아이폰 확인법",
+      "en": "Android and iPhone"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "guide-hwp-wont-open",
+    "cat": "guide",
+    "section": "guide",
+    "status": "live",
+    "order": 15,
+    "url": "/guide/hwp-wont-open.html",
+    "icon": "guide",
+    "name": {
+      "ko": "HWP 안 열릴 때",
+      "en": "HWP will not open"
+    },
+    "line": {
+      "ko": "원인별 확인과 해결",
+      "en": "Causes and fixes"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "merge",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 16,
+    "url": "/pdf/merge/",
+    "icon": "merge",
+    "name": {
+      "ko": "PDF 합치기",
+      "en": "Merge PDF"
+    },
+    "line": {
+      "ko": "여러 PDF를 한 파일로",
+      "en": "Combine PDFs into one"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "split",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 17,
+    "url": "/pdf/split/",
+    "icon": "split",
+    "name": {
+      "ko": "PDF 나누기",
+      "en": "Split PDF"
+    },
+    "line": {
+      "ko": "페이지 범위로 분리",
+      "en": "Split by page ranges"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "extract-pages",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 18,
+    "url": "/pdf/extract-pages/",
+    "icon": "extract-pages",
+    "name": {
+      "ko": "PDF 페이지 추출",
+      "en": "Extract pages"
+    },
+    "line": {
+      "ko": "원하는 페이지만 새 PDF로",
+      "en": "Pull pages into a new PDF"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "remove-pages",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 19,
+    "url": "/pdf/remove-pages/",
+    "icon": "remove-pages",
+    "name": {
+      "ko": "PDF 페이지 삭제",
+      "en": "Remove pages"
+    },
+    "line": {
+      "ko": "필요 없는 페이지 지우기",
+      "en": "Delete unwanted pages"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "organize",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 20,
+    "url": "/pdf/organize/",
+    "icon": "organize",
+    "name": {
+      "ko": "PDF 페이지 정렬",
+      "en": "Organize PDF"
+    },
+    "line": {
+      "ko": "페이지 순서 바꾸기",
+      "en": "Reorder pages"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "rotate",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 21,
+    "url": "/pdf/rotate/",
+    "icon": "rotate",
+    "name": {
+      "ko": "PDF 회전",
+      "en": "Rotate PDF"
+    },
+    "line": {
+      "ko": "페이지 방향 돌리기",
+      "en": "Turn pages the right way"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "page-numbers",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 22,
+    "url": "/pdf/page-numbers/",
+    "icon": "page-numbers",
+    "name": {
+      "ko": "PDF 쪽번호 넣기",
+      "en": "Add page numbers"
+    },
+    "line": {
+      "ko": "쪽번호 위치·형식 지정",
+      "en": "Number every page"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "watermark",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 23,
+    "url": "/pdf/watermark/",
+    "icon": "watermark",
+    "name": {
+      "ko": "PDF 워터마크",
+      "en": "Add watermark"
+    },
+    "line": {
+      "ko": "글자·이미지 워터마크 삽입",
+      "en": "Stamp text or an image"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "crop",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 24,
+    "url": "/pdf/crop/",
+    "icon": "crop",
+    "name": {
+      "ko": "PDF 자르기",
+      "en": "Crop PDF"
+    },
+    "line": {
+      "ko": "여백 잘라 페이지 크기 조정",
+      "en": "Trim margins"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "jpg-to-pdf",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 25,
+    "url": "/pdf/jpg-to-pdf/",
+    "icon": "jpg-to-pdf",
+    "name": {
+      "ko": "JPG를 PDF로",
+      "en": "JPG to PDF"
+    },
+    "line": {
+      "ko": "이미지 여러 장을 PDF로",
+      "en": "Images into one PDF"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "pdf-to-jpg",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 26,
+    "url": "/pdf/pdf-to-jpg/",
+    "icon": "pdf-to-jpg",
+    "name": {
+      "ko": "PDF를 JPG로",
+      "en": "PDF to JPG"
+    },
+    "line": {
+      "ko": "페이지를 이미지로 저장",
+      "en": "Save pages as images"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "sign",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 27,
+    "url": "/pdf/sign/",
+    "icon": "sign",
+    "name": {
+      "ko": "PDF 서명",
+      "en": "Sign PDF"
+    },
+    "line": {
+      "ko": "서명·이름·날짜 넣기",
+      "en": "Draw or type a signature"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "scan",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 28,
+    "url": "/pdf/scan/",
+    "icon": "scan",
+    "name": {
+      "ko": "스캔 PDF 만들기",
+      "en": "Scan to PDF"
+    },
+    "line": {
+      "ko": "카메라로 찍어 PDF로",
+      "en": "Photograph pages into a PDF"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "compress",
+    "cat": "pdf",
+    "section": "pdf",
+    "status": "planned",
+    "order": 29,
+    "url": "/pdf/compress/",
+    "icon": "compress",
+    "name": {
+      "ko": "PDF 용량 줄이기",
+      "en": "Compress PDF"
+    },
+    "line": {
+      "ko": "화질 유지하며 용량 축소",
+      "en": "Shrink file size"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "png-to-jpg",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 30,
+    "url": "/image/png-to-jpg/",
+    "icon": "png-to-jpg",
+    "name": {
+      "ko": "PNG JPG 변환",
+      "en": "PNG to JPG"
+    },
+    "line": {
+      "ko": "PNG 를 가벼운 JPG 로",
+      "en": "PNG images into smaller JPG files"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "jpg-to-png",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 31,
+    "url": "/image/jpg-to-png/",
+    "icon": "jpg-to-png",
+    "name": {
+      "ko": "JPG PNG 변환",
+      "en": "JPG to PNG"
+    },
+    "line": {
+      "ko": "JPG 를 무손실 PNG 로",
+      "en": "JPG into lossless PNG"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "webp-to-jpg",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 32,
+    "url": "/image/webp-to-jpg/",
+    "icon": "webp-to-jpg",
+    "name": {
+      "ko": "WebP JPG 변환",
+      "en": "WebP to JPG"
+    },
+    "line": {
+      "ko": "WebP 를 어디서나 열리는 JPG 로",
+      "en": "WebP images into JPG"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "jpg-to-webp",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 33,
+    "url": "/image/jpg-to-webp/",
+    "icon": "jpg-to-webp",
+    "name": {
+      "ko": "JPG WebP 변환",
+      "en": "JPG to WebP"
+    },
+    "line": {
+      "ko": "JPG·PNG 를 가벼운 WebP 로",
+      "en": "JPG and PNG into WebP"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "heic-to-jpg",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 34,
+    "url": "/image/heic-to-jpg/",
+    "icon": "heic-to-jpg",
+    "name": {
+      "ko": "HEIC JPG 변환",
+      "en": "HEIC to JPG"
+    },
+    "line": {
+      "ko": "아이폰 HEIC 사진을 JPG 로",
+      "en": "iPhone HEIC photos as JPG"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "svg-to-png",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 35,
+    "url": "/image/svg-to-png/",
+    "icon": "svg-to-png",
+    "name": {
+      "ko": "SVG PNG 변환",
+      "en": "SVG to PNG"
+    },
+    "line": {
+      "ko": "SVG 를 선명한 PNG 이미지로",
+      "en": "SVG files as sharp PNG"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "image-compress",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 36,
+    "url": "/image/image-compress/",
+    "icon": "image-compress",
+    "name": {
+      "ko": "이미지 압축",
+      "en": "Compress image"
+    },
+    "line": {
+      "ko": "JPG·PNG·WebP 용량 줄이기",
+      "en": "Smaller JPG, PNG and WebP files"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "image-resize",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 37,
+    "url": "/image/image-resize/",
+    "icon": "image-resize",
+    "name": {
+      "ko": "이미지 크기 조절",
+      "en": "Resize image"
+    },
+    "line": {
+      "ko": "픽셀이나 % 로 크기 변경",
+      "en": "New width and height in pixels or %"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "image-crop",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 38,
+    "url": "/image/image-crop/",
+    "icon": "image-crop",
+    "name": {
+      "ko": "이미지 자르기",
+      "en": "Crop Image"
+    },
+    "line": {
+      "ko": "필요한 부분만 잘라내기",
+      "en": "Cut out what you need"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "image-rotate",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 39,
+    "url": "/image/image-rotate/",
+    "icon": "image-rotate",
+    "name": {
+      "ko": "이미지 회전",
+      "en": "Rotate Image"
+    },
+    "line": {
+      "ko": "돌리고 뒤집기 한 번에",
+      "en": "Turn or flip in one click"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "image-watermark",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 40,
+    "url": "/image/image-watermark/",
+    "icon": "image-watermark",
+    "name": {
+      "ko": "이미지 워터마크",
+      "en": "Watermark image"
+    },
+    "line": {
+      "ko": "사진에 글자·로고 워터마크",
+      "en": "Text or logo on your photos"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "meme",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 41,
+    "url": "/image/meme/",
+    "icon": "meme",
+    "name": {
+      "ko": "밈 생성기",
+      "en": "Meme generator"
+    },
+    "line": {
+      "ko": "사진 위아래에 글자 넣기",
+      "en": "Top and bottom text on a photo"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "blur",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 42,
+    "url": "/image/blur/",
+    "icon": "blur",
+    "name": {
+      "ko": "사진 모자이크",
+      "en": "Blur Image"
+    },
+    "line": {
+      "ko": "얼굴·개인정보 가리기",
+      "en": "Hide faces and details"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "favicon",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 43,
+    "url": "/image/favicon/",
+    "icon": "favicon",
+    "name": {
+      "ko": "파비콘 만들기",
+      "en": "Favicon generator"
+    },
+    "line": {
+      "ko": "이미지 한 장으로 모든 아이콘",
+      "en": "All icon sizes at once"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  }
 ]

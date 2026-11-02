@@ -1,0 +1,205 @@
+{
+  "id": "image-crop",
+  "order": 30,
+  "icon": "image-crop",
+  "cat": "image",
+  "next": [
+    "image-resize",
+    "image-rotate",
+    "image-compress"
+  ],
+  "strings": {
+    "en": {
+      "title": "Crop Image – Crop Photos Online Free (JPG, PNG, WebP)",
+      "h1": "Crop Image",
+      "line": "Cut out what you need",
+      "description": "Crop images online for free. Drag a box over your photo, lock a ratio like 1:1 or 16:9 if you need one, and download the cropped JPG, PNG or WebP. Several images at once. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select images",
+      "runText": "Crop",
+      "resultName": "cropped-images",
+      "options": {
+        "ratio": { "label": "Aspect ratio", "help": "Locks the box to a fixed shape. Free lets you drag any size.", "choices": { "free": "Free", "1:1": "1:1 square", "4:3": "4:3", "16:9": "16:9", "3:4": "3:4", "9:16": "9:16" } },
+        "crop": { "label": "Crop area", "help": "Drag on the image or pull the handles. With several images the same relative area is cut from each one." },
+        "format": { "label": "Output format", "help": "Same as original keeps PNG as PNG and JPG as JPG.", "choices": { "keep": "Same as original", "jpg": "JPG", "png": "PNG" } }
+      },
+      "faq": [
+        [
+          "Can I crop several images at once?",
+          "Yes. Set the area on the first image and the same relative area is cut from every image. Download them one by one or as a ZIP."
+        ],
+        [
+          "Are my images uploaded?",
+          "No. Each image is cropped on your device with your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "이미지 자르기 – 사진 자르기 무료 온라인 (JPG, PNG, WebP)",
+      "h1": "이미지 자르기",
+      "line": "필요한 부분만 잘라내기",
+      "description": "이미지 자르기 무료 온라인. 사진 위를 드래그해 영역을 정하고, 1:1·16:9 같은 비율을 고정한 뒤 JPG·PNG·WebP 로 내려받으세요. 여러 장도 한 번에. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "buttonText": "이미지 선택",
+      "runText": "자르기",
+      "resultName": "자르기",
+      "options": {
+        "ratio": { "label": "비율", "help": "선택한 비율로 상자 모양을 고정합니다. 자유는 아무 크기나 됩니다.", "choices": { "free": "자유", "1:1": "1:1 정사각형", "4:3": "4:3", "16:9": "16:9", "3:4": "3:4", "9:16": "9:16" } },
+        "crop": { "label": "자를 영역", "help": "이미지 위를 드래그하거나 모서리를 끌어 조절하세요. 여러 장이면 같은 비율 위치가 각 이미지에 적용됩니다." },
+        "format": { "label": "저장 형식", "help": "원본 유지는 PNG 는 PNG, JPG 는 JPG 로 저장합니다.", "choices": { "keep": "원본 유지", "jpg": "JPG", "png": "PNG" } }
+      },
+      "faq": [
+        [
+          "여러 장을 한 번에 자를 수 있나요?",
+          "네. 첫 이미지에서 영역을 정하면 같은 비율 위치가 모든 이미지에 적용됩니다. 한 장씩 또는 ZIP 으로 내려받으세요."
+        ],
+        [
+          "이미지가 업로드되나요?",
+          "아니요. 각 이미지는 내 기기의 브라우저 안에서 잘리며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "图片裁剪 – 免费在线裁剪图片（JPG、PNG、WebP）",
+      "h1": "图片裁剪",
+      "line": "只保留需要的部分",
+      "description": "免费在线图片裁剪。在图片上拖出区域，可锁定 1:1、16:9 等比例，然后下载裁剪后的 JPG、PNG 或 WebP。支持多张同时处理。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择图片",
+      "runText": "裁剪",
+      "resultName": "裁剪图片",
+      "options": {
+        "ratio": { "label": "比例", "help": "将选框锁定为固定形状。自由可拖出任意大小。", "choices": { "free": "自由", "1:1": "1:1 正方形", "4:3": "4:3", "16:9": "16:9", "3:4": "3:4", "9:16": "9:16" } },
+        "crop": { "label": "裁剪区域", "help": "在图片上拖动或拉动边角调整。多张图片时，每张都按相同的相对位置裁剪。" },
+        "format": { "label": "输出格式", "help": "保持原格式：PNG 仍为 PNG，JPG 仍为 JPG。", "choices": { "keep": "保持原格式", "jpg": "JPG", "png": "PNG" } }
+      },
+      "faq": [
+        [
+          "可以一次裁剪多张图片吗？",
+          "可以。在第一张图片上确定区域后，相同的相对区域会应用到每一张图片。可以逐张下载或打包为 ZIP。"
+        ],
+        [
+          "我的图片会被上传吗？",
+          "不会。每张图片都在您的设备上由浏览器裁剪，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "画像 トリミング – 写真を無料でオンライン切り抜き（JPG・PNG・WebP）",
+      "h1": "画像トリミング",
+      "line": "必要な部分だけ切り抜く",
+      "description": "無料で画像をトリミング。写真の上をドラッグして範囲を決め、1:1 や 16:9 などの比率を固定して JPG・PNG・WebP でダウンロード。複数枚まとめて処理できます。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "画像を選択",
+      "runText": "切り抜く",
+      "resultName": "トリミング",
+      "options": {
+        "ratio": { "label": "比率", "help": "枠の形を固定します。自由なら好きな大きさで選べます。", "choices": { "free": "自由", "1:1": "1:1 正方形", "4:3": "4:3", "16:9": "16:9", "3:4": "3:4", "9:16": "9:16" } },
+        "crop": { "label": "切り抜く範囲", "help": "画像上をドラッグするか、角を引いて調整します。複数枚の場合は同じ相対位置が各画像に適用されます。" },
+        "format": { "label": "保存形式", "help": "元のままなら PNG は PNG、JPG は JPG で保存します。", "choices": { "keep": "元のまま", "jpg": "JPG", "png": "PNG" } }
+      },
+      "faq": [
+        [
+          "複数枚をまとめて切り抜けますか？",
+          "はい。1枚目で範囲を決めると、同じ相対位置がすべての画像に適用されます。1枚ずつ、または ZIP でダウンロードできます。"
+        ],
+        [
+          "画像はアップロードされますか？",
+          "いいえ。各画像は端末のブラウザ内で切り抜かれ、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Recortar imagen – Recortar fotos online gratis (JPG, PNG, WebP)",
+      "h1": "Recortar imagen",
+      "line": "Solo lo que necesitas",
+      "description": "Recorta imágenes online gratis. Arrastra un recuadro sobre la foto, fija una proporción como 1:1 o 16:9 si la necesitas y descarga el JPG, PNG o WebP recortado. Varias imágenes a la vez. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir imágenes",
+      "runText": "Recortar",
+      "resultName": "imagenes-recortadas",
+      "options": {
+        "ratio": { "label": "Proporción", "help": "Fija la forma del recuadro. Libre permite cualquier tamaño.", "choices": { "free": "Libre", "1:1": "1:1 cuadrado", "4:3": "4:3", "16:9": "16:9", "3:4": "3:4", "9:16": "9:16" } },
+        "crop": { "label": "Área a recortar", "help": "Arrastra sobre la imagen o tira de las esquinas. Con varias imágenes se recorta la misma área relativa en cada una." },
+        "format": { "label": "Formato de salida", "help": "Igual que el original mantiene PNG como PNG y JPG como JPG.", "choices": { "keep": "Igual que el original", "jpg": "JPG", "png": "PNG" } }
+      },
+      "faq": [
+        [
+          "¿Puedo recortar varias imágenes a la vez?",
+          "Sí. Define el área en la primera imagen y se recorta la misma área relativa en todas. Descárgalas una a una o en un ZIP."
+        ],
+        [
+          "¿Se suben mis imágenes?",
+          "No. Cada imagen se recorta en tu dispositivo con tu navegador y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Cortar imagem – Cortar fotos online grátis (JPG, PNG, WebP)",
+      "h1": "Cortar imagem",
+      "line": "Só o que você precisa",
+      "description": "Corte imagens online grátis. Arraste um quadro sobre a foto, fixe uma proporção como 1:1 ou 16:9 se precisar e baixe o JPG, PNG ou WebP cortado. Várias imagens de uma vez. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher imagens",
+      "runText": "Cortar",
+      "resultName": "imagens-cortadas",
+      "options": {
+        "ratio": { "label": "Proporção", "help": "Fixa o formato do quadro. Livre permite qualquer tamanho.", "choices": { "free": "Livre", "1:1": "1:1 quadrado", "4:3": "4:3", "16:9": "16:9", "3:4": "3:4", "9:16": "9:16" } },
+        "crop": { "label": "Área de corte", "help": "Arraste sobre a imagem ou puxe os cantos. Com várias imagens, a mesma área relativa é cortada em cada uma." },
+        "format": { "label": "Formato de saída", "help": "Igual ao original mantém PNG como PNG e JPG como JPG.", "choices": { "keep": "Igual ao original", "jpg": "JPG", "png": "PNG" } }
+      },
+      "faq": [
+        [
+          "Posso cortar várias imagens de uma vez?",
+          "Sim. Defina a área na primeira imagem e a mesma área relativa é cortada em todas. Baixe uma a uma ou em um ZIP."
+        ],
+        [
+          "Minhas imagens são enviadas?",
+          "Não. Cada imagem é cortada no seu dispositivo pelo navegador e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "Bild zuschneiden – Fotos online kostenlos zuschneiden (JPG, PNG, WebP)",
+      "h1": "Bild zuschneiden",
+      "line": "Ausschnitt frei wählen",
+      "description": "Bilder kostenlos online zuschneiden. Rahmen über das Foto ziehen, bei Bedarf ein Verhältnis wie 1:1 oder 16:9 festlegen und das zugeschnittene JPG, PNG oder WebP herunterladen. Mehrere Bilder auf einmal. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "Bilder wählen",
+      "runText": "Zuschneiden",
+      "resultName": "zugeschnitten",
+      "options": {
+        "ratio": { "label": "Seitenverhältnis", "help": "Hält den Rahmen in fester Form. Frei erlaubt jede Größe.", "choices": { "free": "Frei", "1:1": "1:1 quadratisch", "4:3": "4:3", "16:9": "16:9", "3:4": "3:4", "9:16": "9:16" } },
+        "crop": { "label": "Ausschnitt", "help": "Auf dem Bild ziehen oder die Griffe verschieben. Bei mehreren Bildern wird aus jedem derselbe relative Bereich geschnitten." },
+        "format": { "label": "Ausgabeformat", "help": "Wie Original behält PNG als PNG und JPG als JPG.", "choices": { "keep": "Wie Original", "jpg": "JPG", "png": "PNG" } }
+      },
+      "faq": [
+        [
+          "Kann ich mehrere Bilder auf einmal zuschneiden?",
+          "Ja. Lege den Bereich im ersten Bild fest, dann wird aus jedem Bild derselbe relative Bereich geschnitten. Einzeln oder als ZIP herunterladen."
+        ],
+        [
+          "Werden meine Bilder hochgeladen?",
+          "Nein. Jedes Bild wird auf deinem Gerät im Browser zugeschnitten und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Recadrer une image – Recadrer des photos en ligne gratuitement (JPG, PNG, WebP)",
+      "h1": "Recadrer une image",
+      "line": "Ne garder que l'essentiel",
+      "description": "Recadrez des images gratuitement en ligne. Tracez un cadre sur la photo, fixez un ratio comme 1:1 ou 16:9 si besoin, puis téléchargez le JPG, PNG ou WebP recadré. Plusieurs images à la fois. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir images",
+      "runText": "Recadrer",
+      "resultName": "images-recadrees",
+      "options": {
+        "ratio": { "label": "Ratio", "help": "Fixe la forme du cadre. Libre permet n'importe quelle taille.", "choices": { "free": "Libre", "1:1": "1:1 carré", "4:3": "4:3", "16:9": "16:9", "3:4": "3:4", "9:16": "9:16" } },
+        "crop": { "label": "Zone à recadrer", "help": "Faites glisser sur l'image ou tirez les poignées. Avec plusieurs images, la même zone relative est découpée dans chacune." },
+        "format": { "label": "Format de sortie", "help": "Comme l'original garde le PNG en PNG et le JPG en JPG.", "choices": { "keep": "Comme l'original", "jpg": "JPG", "png": "PNG" } }
+      },
+      "faq": [
+        [
+          "Puis-je recadrer plusieurs images à la fois ?",
+          "Oui. Définissez la zone sur la première image : la même zone relative est découpée dans toutes. Téléchargez-les une par une ou en ZIP."
+        ],
+        [
+          "Mes images sont-elles envoyées ?",
+          "Non. Chaque image est recadrée sur votre appareil par le navigateur et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "jpg-to-png",
+  "order": 2,
+  "icon": "jpg-to-png",
+  "cat": "image",
+  "next": [
+    "png-to-jpg",
+    "jpg-to-webp",
+    "image-compress"
+  ],
+  "strings": {
+    "en": {
+      "title": "JPG to PNG – Convert JPG Images to PNG Online Free",
+      "h1": "JPG to PNG",
+      "line": "JPG into lossless PNG",
+      "description": "Convert JPG to PNG online for free. Drop one or many JPG, WebP, BMP or GIF images and download them as PNG files in one click. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select JPG",
+      "runText": "Convert",
+      "resultName": "png-images",
+      "options": {},
+      "faq": [
+        [
+          "Does PNG make the file bigger?",
+          "Usually yes. PNG stores every pixel without loss, so a photo often grows a few times in size. Use it when you need exact pixels or want to edit the image later."
+        ],
+        [
+          "Are my images uploaded?",
+          "No. Each image is converted on your device with your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "JPG PNG 변환 – JPG 이미지를 PNG 로 무료 온라인 변환",
+      "h1": "JPG PNG 변환",
+      "line": "JPG 를 무손실 PNG 로",
+      "description": "JPG PNG 변환 무료 온라인. JPG·WebP·BMP·GIF 이미지를 여러 장 넣고 한 번에 PNG 로 내려받으세요. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "buttonText": "JPG 선택",
+      "runText": "PNG로 변환",
+      "resultName": "png변환",
+      "options": {},
+      "faq": [
+        [
+          "PNG 로 바꾸면 용량이 커지나요?",
+          "보통 커집니다. PNG 는 모든 픽셀을 손실 없이 저장해 사진은 몇 배로 늘어날 수 있습니다. 픽셀을 정확히 보존하거나 나중에 편집할 때 쓰세요."
+        ],
+        [
+          "이미지가 업로드되나요?",
+          "아니요. 각 이미지는 내 기기의 브라우저 안에서 변환되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "JPG 转 PNG – 免费在线将 JPG 图片转换为 PNG",
+      "h1": "JPG 转 PNG",
+      "line": "把 JPG 变成无损 PNG",
+      "description": "免费在线 JPG 转 PNG。添加一张或多张 JPG、WebP、BMP 或 GIF 图片，一键下载 PNG 文件。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 JPG",
+      "runText": "转换",
+      "resultName": "png图片",
+      "options": {},
+      "faq": [
+        [
+          "转成 PNG 后文件会变大吗？",
+          "通常会。PNG 无损保存每个像素，照片可能增大数倍。需要精确像素或之后还要编辑时使用。"
+        ],
+        [
+          "我的图片会被上传吗？",
+          "不会。每张图片都在您的设备上由浏览器转换，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "JPG PNG 変換 – JPG画像をPNGに無料オンライン変換",
+      "h1": "JPG PNG 変換",
+      "line": "JPGを劣化なしのPNGに",
+      "description": "無料でJPGをPNGに変換。JPG・WebP・BMP・GIF画像を1枚または複数追加し、ワンクリックでPNGをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "JPGを選択",
+      "runText": "変換する",
+      "resultName": "png変換",
+      "options": {},
+      "faq": [
+        [
+          "PNGにするとファイルは大きくなりますか？",
+          "通常は大きくなります。PNGは全ピクセルを劣化なしで保存するため、写真は数倍になることもあります。ピクセルを正確に残したい時や後で編集する時に使ってください。"
+        ],
+        [
+          "画像はアップロードされますか？",
+          "いいえ。各画像は端末のブラウザ内で変換され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "JPG a PNG – Convertir imágenes JPG a PNG gratis online",
+      "h1": "JPG a PNG",
+      "line": "JPG en PNG sin pérdida",
+      "description": "Convierte JPG a PNG gratis y online. Añade una o varias imágenes JPG, WebP, BMP o GIF y descárgalas como PNG con un clic. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir JPG",
+      "runText": "Convertir",
+      "resultName": "imagenes-png",
+      "options": {},
+      "faq": [
+        [
+          "¿El PNG ocupa más?",
+          "Normalmente sí. PNG guarda cada píxel sin pérdida, así que una foto puede crecer varias veces. Úsalo cuando necesites píxeles exactos o quieras editar la imagen después."
+        ],
+        [
+          "¿Se suben mis imágenes?",
+          "No. Cada imagen se convierte en tu dispositivo con tu navegador y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "JPG para PNG – Converter imagens JPG em PNG grátis online",
+      "h1": "JPG para PNG",
+      "line": "JPG em PNG sem perdas",
+      "description": "Converta JPG para PNG grátis e online. Adicione uma ou várias imagens JPG, WebP, BMP ou GIF e baixe como PNG com um clique. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher JPG",
+      "runText": "Converter",
+      "resultName": "imagens-png",
+      "options": {},
+      "faq": [
+        [
+          "O PNG fica maior?",
+          "Geralmente sim. O PNG guarda cada pixel sem perdas, então uma foto pode crescer várias vezes. Use quando precisar dos pixels exatos ou for editar a imagem depois."
+        ],
+        [
+          "Minhas imagens são enviadas?",
+          "Não. Cada imagem é convertida no seu dispositivo pelo navegador e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "JPG in PNG – JPG-Bilder online kostenlos in PNG umwandeln",
+      "h1": "JPG in PNG",
+      "line": "JPG zu PNG ohne Verlust",
+      "description": "JPG kostenlos online in PNG umwandeln. Ein oder mehrere JPG-, WebP-, BMP- oder GIF-Bilder hinzufügen und mit einem Klick als PNG herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "JPG wählen",
+      "runText": "Umwandeln",
+      "resultName": "png-bilder",
+      "options": {},
+      "faq": [
+        [
+          "Wird die Datei als PNG größer?",
+          "Meist ja. PNG speichert jedes Pixel verlustfrei, ein Foto kann dadurch um ein Vielfaches wachsen. Nutze es, wenn du exakte Pixel brauchst oder das Bild später bearbeiten willst."
+        ],
+        [
+          "Werden meine Bilder hochgeladen?",
+          "Nein. Jedes Bild wird auf deinem Gerät im Browser umgewandelt und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "JPG en PNG – Convertir des images JPG en PNG gratuitement",
+      "h1": "JPG en PNG",
+      "line": "JPG en PNG sans perte",
+      "description": "Convertissez des JPG en PNG gratuitement en ligne. Ajoutez une ou plusieurs images JPG, WebP, BMP ou GIF et téléchargez-les en PNG en un clic. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir JPG",
+      "runText": "Convertir",
+      "resultName": "images-png",
+      "options": {},
+      "faq": [
+        [
+          "Le PNG est-il plus lourd ?",
+          "En général oui. Le PNG conserve chaque pixel sans perte, une photo peut donc être plusieurs fois plus lourde. Utilisez-le pour garder des pixels exacts ou retoucher l'image ensuite."
+        ],
+        [
+          "Mes images sont-elles envoyées ?",
+          "Non. Chaque image est convertie sur votre appareil par le navigateur et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

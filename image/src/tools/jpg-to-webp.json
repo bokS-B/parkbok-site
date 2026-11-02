@@ -1,0 +1,213 @@
+{
+  "id": "jpg-to-webp",
+  "order": 4,
+  "icon": "jpg-to-webp",
+  "cat": "image",
+  "next": [
+    "webp-to-jpg",
+    "image-compress",
+    "png-to-jpg"
+  ],
+  "strings": {
+    "en": {
+      "title": "JPG to WebP – Convert JPG and PNG Images to WebP Online Free",
+      "h1": "JPG to WebP",
+      "line": "JPG and PNG into WebP",
+      "description": "Convert JPG or PNG to WebP online for free. Drop one or many images, pick the quality, and download smaller WebP files for faster websites. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select images",
+      "runText": "Convert",
+      "resultName": "webp-images",
+      "options": {
+        "quality": { "label": "Quality", "help": "Higher quality keeps more detail but makes a bigger file. 85 looks almost identical to the original." }
+      },
+      "errors": {
+        "noWebp": "This browser cannot create WebP images. Try Chrome, Edge, Firefox or a recent Safari."
+      },
+      "faq": [
+        [
+          "Why use WebP?",
+          "WebP files are usually 25–35% smaller than JPG at the same visual quality and keep PNG transparency, so pages load faster."
+        ],
+        [
+          "Are my images uploaded?",
+          "No. Each image is converted on your device with your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "JPG WebP 변환 – JPG·PNG 이미지를 WebP 로 무료 온라인 변환",
+      "h1": "JPG WebP 변환",
+      "line": "JPG·PNG 를 가벼운 WebP 로",
+      "description": "JPG WebP 변환 무료 온라인. JPG 나 PNG 이미지를 여러 장 넣고 품질을 정한 뒤 더 작은 WebP 로 내려받으세요. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "buttonText": "이미지 선택",
+      "runText": "WebP로 변환",
+      "resultName": "webp변환",
+      "options": {
+        "quality": { "label": "품질", "help": "품질이 높을수록 선명하지만 용량이 커집니다. 85면 원본과 거의 같아 보입니다." }
+      },
+      "errors": {
+        "noWebp": "이 브라우저는 WebP 를 만들 수 없습니다. Chrome·Edge·Firefox 또는 최신 Safari 에서 시도해 주세요."
+      },
+      "faq": [
+        [
+          "WebP 를 쓰면 뭐가 좋나요?",
+          "같은 화질에서 JPG 보다 보통 25~35% 작고 PNG 의 투명도 유지되어 웹페이지가 더 빨리 뜹니다."
+        ],
+        [
+          "이미지가 업로드되나요?",
+          "아니요. 각 이미지는 내 기기의 브라우저 안에서 변환되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "JPG 转 WebP – 免费在线将 JPG、PNG 图片转换为 WebP",
+      "h1": "JPG 转 WebP",
+      "line": "把 JPG、PNG 变成更小的 WebP",
+      "description": "免费在线 JPG 转 WebP。添加一张或多张 JPG 或 PNG 图片，选择质量，然后下载更小的 WebP 文件让网页加载更快。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择图片",
+      "runText": "转换",
+      "resultName": "webp图片",
+      "options": {
+        "quality": { "label": "质量", "help": "质量越高细节越多，但文件也越大。85 看起来几乎与原图相同。" }
+      },
+      "errors": {
+        "noWebp": "此浏览器无法生成 WebP 图片。请使用 Chrome、Edge、Firefox 或新版 Safari。"
+      },
+      "faq": [
+        [
+          "为什么要用 WebP？",
+          "同等画质下 WebP 通常比 JPG 小 25–35%，还能保留 PNG 的透明，网页加载更快。"
+        ],
+        [
+          "我的图片会被上传吗？",
+          "不会。每张图片都在您的设备上由浏览器转换，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "JPG WebP 変換 – JPG・PNG画像をWebPに無料オンライン変換",
+      "h1": "JPG WebP 変換",
+      "line": "JPG・PNGを軽いWebPに",
+      "description": "無料でJPGやPNGをWebPに変換。画像を1枚または複数追加し、画質を選んで軽いWebPをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "画像を選択",
+      "runText": "変換する",
+      "resultName": "webp変換",
+      "options": {
+        "quality": { "label": "画質", "help": "画質が高いほど細部が残りますが、ファイルは大きくなります。85なら元とほぼ同じ見た目です。" }
+      },
+      "errors": {
+        "noWebp": "このブラウザではWebPを作成できません。Chrome・Edge・Firefox、または新しいSafariでお試しください。"
+      },
+      "faq": [
+        [
+          "WebPを使う利点は？",
+          "同じ画質ならJPGより通常25〜35%小さく、PNGの透明も保てるのでページの表示が速くなります。"
+        ],
+        [
+          "画像はアップロードされますか？",
+          "いいえ。各画像は端末のブラウザ内で変換され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "JPG a WebP – Convertir imágenes JPG y PNG a WebP gratis online",
+      "h1": "JPG a WebP",
+      "line": "JPG y PNG en WebP",
+      "description": "Convierte JPG o PNG a WebP gratis y online. Añade una o varias imágenes, elige la calidad y descarga WebP más pequeños para webs más rápidas. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir imágenes",
+      "runText": "Convertir",
+      "resultName": "imagenes-webp",
+      "options": {
+        "quality": { "label": "Calidad", "help": "Más calidad conserva más detalle pero genera un archivo mayor. Con 85 se ve casi igual que el original." }
+      },
+      "errors": {
+        "noWebp": "Este navegador no puede crear imágenes WebP. Prueba con Chrome, Edge, Firefox o un Safari reciente."
+      },
+      "faq": [
+        [
+          "¿Por qué usar WebP?",
+          "Los WebP suelen ser un 25–35% más pequeños que un JPG con la misma calidad y conservan la transparencia del PNG, así que las páginas cargan más rápido."
+        ],
+        [
+          "¿Se suben mis imágenes?",
+          "No. Cada imagen se convierte en tu dispositivo con tu navegador y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "JPG para WebP – Converter imagens JPG e PNG em WebP grátis online",
+      "h1": "JPG para WebP",
+      "line": "JPG e PNG em WebP leve",
+      "description": "Converta JPG ou PNG para WebP grátis e online. Adicione uma ou várias imagens, escolha a qualidade e baixe WebP menores para sites mais rápidos. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher imagens",
+      "runText": "Converter",
+      "resultName": "imagens-webp",
+      "options": {
+        "quality": { "label": "Qualidade", "help": "Mais qualidade mantém mais detalhes, mas gera um arquivo maior. Com 85 fica quase igual ao original." }
+      },
+      "errors": {
+        "noWebp": "Este navegador não consegue criar imagens WebP. Tente Chrome, Edge, Firefox ou um Safari recente."
+      },
+      "faq": [
+        [
+          "Por que usar WebP?",
+          "Os WebP costumam ser 25–35% menores que o JPG na mesma qualidade e mantêm a transparência do PNG, então as páginas carregam mais rápido."
+        ],
+        [
+          "Minhas imagens são enviadas?",
+          "Não. Cada imagem é convertida no seu dispositivo pelo navegador e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "JPG in WebP – JPG- und PNG-Bilder online kostenlos in WebP umwandeln",
+      "h1": "JPG in WebP",
+      "line": "JPG und PNG als WebP",
+      "description": "JPG oder PNG kostenlos online in WebP umwandeln. Ein oder mehrere Bilder hinzufügen, Qualität wählen und kleinere WebP-Dateien für schnellere Websites herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "Bilder wählen",
+      "runText": "Umwandeln",
+      "resultName": "webp-bilder",
+      "options": {
+        "quality": { "label": "Qualität", "help": "Höhere Qualität behält mehr Details, macht die Datei aber größer. Bei 85 sieht das Bild fast wie das Original aus." }
+      },
+      "errors": {
+        "noWebp": "Dieser Browser kann keine WebP-Bilder erzeugen. Versuche Chrome, Edge, Firefox oder ein aktuelles Safari."
+      },
+      "faq": [
+        [
+          "Warum WebP?",
+          "WebP-Dateien sind bei gleicher Bildqualität meist 25–35 % kleiner als JPG und behalten die PNG-Transparenz, Seiten laden dadurch schneller."
+        ],
+        [
+          "Werden meine Bilder hochgeladen?",
+          "Nein. Jedes Bild wird auf deinem Gerät im Browser umgewandelt und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "JPG en WebP – Convertir des images JPG et PNG en WebP gratuitement",
+      "h1": "JPG en WebP",
+      "line": "JPG et PNG en WebP",
+      "description": "Convertissez des JPG ou PNG en WebP gratuitement en ligne. Ajoutez une ou plusieurs images, choisissez la qualité et téléchargez des WebP plus légers pour des sites plus rapides. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir images",
+      "runText": "Convertir",
+      "resultName": "images-webp",
+      "options": {
+        "quality": { "label": "Qualité", "help": "Une qualité plus élevée garde plus de détails mais donne un fichier plus lourd. À 85, l'image est presque identique à l'original." }
+      },
+      "errors": {
+        "noWebp": "Ce navigateur ne peut pas créer d'images WebP. Essayez Chrome, Edge, Firefox ou un Safari récent."
+      },
+      "faq": [
+        [
+          "Pourquoi utiliser le WebP ?",
+          "À qualité égale, un WebP est souvent 25 à 35 % plus léger qu'un JPG et conserve la transparence du PNG : les pages se chargent plus vite."
+        ],
+        [
+          "Mes images sont-elles envoyées ?",
+          "Non. Chaque image est convertie sur votre appareil par le navigateur et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

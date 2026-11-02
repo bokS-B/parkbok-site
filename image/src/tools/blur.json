@@ -1,0 +1,213 @@
+{
+  "id": "blur",
+  "order": 12,
+  "icon": "blur",
+  "cat": "image",
+  "next": [
+    "image-crop",
+    "image-watermark",
+    "image-compress"
+  ],
+  "strings": {
+    "en": {
+      "title": "Blur Face or Part of a Photo – Blur, Pixelate & Censor Online Free",
+      "h1": "Blur Image",
+      "line": "Hide faces and details",
+      "description": "Blur a face or any part of a photo online for free. Drag boxes over what to hide, pick blur, pixelate or black, and download the image. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select image",
+      "runText": "Hide areas",
+      "resultName": "blurred",
+      "noteWhole": "No area was drawn, so the whole image was covered.",
+      "options": {
+        "regions": { "label": "Areas to hide", "help": "Drag on the image to draw a box over each face or detail. Add as many as you need; with no box, the whole image is covered." },
+        "style": { "label": "Style", "help": "Blur softens, pixelate makes a mosaic, black paints a solid block.", "choices": { "blur": "Blur", "pixelate": "Pixelate", "black": "Black" } },
+        "strength": { "label": "Strength", "help": "Higher values hide more. 20 is enough for most faces." }
+      },
+      "faq": [
+        [
+          "Can the blur be undone?",
+          "No. The hidden pixels are replaced in the downloaded file, so the original cannot be recovered from it. Keep your original if you still need it."
+        ],
+        [
+          "Is my photo uploaded?",
+          "No. The image is edited on your device in your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "사진 모자이크 – 얼굴·개인정보 가리기 무료 온라인 (블러·모자이크)",
+      "h1": "사진 모자이크",
+      "line": "얼굴·개인정보 가리기",
+      "description": "사진 모자이크 무료 온라인. 가릴 곳을 드래그로 표시하고 흐림·모자이크·검정 중 하나를 골라 내려받으세요. 브라우저 안에서 처리되어 사진이 서버로 올라가지 않습니다.",
+      "buttonText": "사진 선택",
+      "runText": "가리기",
+      "resultName": "모자이크",
+      "noteWhole": "표시한 영역이 없어 사진 전체를 가렸습니다.",
+      "options": {
+        "regions": { "label": "가릴 영역", "help": "사진 위를 드래그해 얼굴이나 정보 위에 사각형을 그리세요. 여러 개 가능하며, 하나도 없으면 전체를 가립니다." },
+        "style": { "label": "방식", "help": "흐림은 뿌옇게, 모자이크는 네모 타일로, 검정은 단색으로 덮습니다.", "choices": { "blur": "흐림", "pixelate": "모자이크", "black": "검정" } },
+        "strength": { "label": "강도", "help": "값이 클수록 더 두껍게 가립니다. 얼굴은 보통 20이면 충분합니다." }
+      },
+      "faq": [
+        [
+          "가린 부분을 되돌릴 수 있나요?",
+          "아니요. 내려받은 파일은 해당 픽셀이 바뀐 상태라 원본을 복원할 수 없습니다. 원본 사진은 따로 보관하세요."
+        ],
+        [
+          "사진이 업로드되나요?",
+          "아니요. 사진은 내 기기의 브라우저 안에서만 편집되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "图片打码 – 免费在线给人脸和隐私打马赛克、模糊、涂黑",
+      "h1": "图片打码",
+      "line": "遮住人脸和隐私信息",
+      "description": "免费在线图片打码。在要遮住的地方拖出方框，选择模糊、马赛克或涂黑，然后下载图片。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择图片",
+      "runText": "打码",
+      "resultName": "打码图片",
+      "noteWhole": "没有画出区域，已遮住整张图片。",
+      "options": {
+        "regions": { "label": "要遮住的区域", "help": "在图片上拖动，在每个人脸或信息上画一个方框。可以画多个；没有方框时遮住整张图片。" },
+        "style": { "label": "方式", "help": "模糊让画面变朦胧，马赛克变成方块，涂黑用纯黑覆盖。", "choices": { "blur": "模糊", "pixelate": "马赛克", "black": "涂黑" } },
+        "strength": { "label": "强度", "help": "数值越大遮得越厉害。人脸一般 20 就够了。" }
+      },
+      "faq": [
+        [
+          "打码后还能恢复吗？",
+          "不能。下载的文件中这些像素已被替换，无法从中恢复原图。请自行保留原始照片。"
+        ],
+        [
+          "我的图片会被上传吗？",
+          "不会。图片只在您的设备上由浏览器编辑，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "画像モザイク・ぼかし – 顔や個人情報を隠す無料オンラインツール",
+      "h1": "画像モザイク・ぼかし",
+      "line": "顔や個人情報を隠す",
+      "description": "無料で画像にモザイク・ぼかしをかけます。隠したい場所をドラッグで囲み、ぼかし・モザイク・黒塗りを選んでダウンロード。ブラウザ内で処理するため画像はアップロードされません。",
+      "buttonText": "画像を選択",
+      "runText": "隠す",
+      "resultName": "モザイク",
+      "noteWhole": "範囲が指定されていないため、画像全体を隠しました。",
+      "options": {
+        "regions": { "label": "隠す範囲", "help": "画像上をドラッグして顔や情報の上に四角を描きます。複数可。四角がない場合は全体を隠します。" },
+        "style": { "label": "方法", "help": "ぼかしは柔らかく、モザイクはタイル状に、黒塗りは単色で覆います。", "choices": { "blur": "ぼかし", "pixelate": "モザイク", "black": "黒塗り" } },
+        "strength": { "label": "強さ", "help": "値が大きいほど強く隠れます。顔なら20で十分です。" }
+      },
+      "faq": [
+        [
+          "隠した部分は元に戻せますか？",
+          "いいえ。ダウンロードしたファイルではそのピクセルが置き換えられているため、元には戻せません。元の画像は別に保管してください。"
+        ],
+        [
+          "画像はアップロードされますか？",
+          "いいえ。画像は端末のブラウザ内だけで編集され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Difuminar foto – Ocultar caras y datos con desenfoque o pixelado gratis online",
+      "h1": "Difuminar foto",
+      "line": "Oculta caras y datos",
+      "description": "Difumina una cara o cualquier parte de una foto gratis y online. Dibuja recuadros sobre lo que quieras ocultar, elige desenfoque, pixelado o negro y descarga la imagen. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir foto",
+      "runText": "Ocultar",
+      "resultName": "difuminada",
+      "noteWhole": "No se dibujó ninguna zona, así que se cubrió toda la imagen.",
+      "options": {
+        "regions": { "label": "Zonas a ocultar", "help": "Arrastra sobre la imagen para dibujar un recuadro en cada cara o dato. Puedes añadir varios; sin recuadros se cubre toda la imagen." },
+        "style": { "label": "Estilo", "help": "Desenfoque suaviza, pixelado crea un mosaico y negro pinta un bloque sólido.", "choices": { "blur": "Desenfoque", "pixelate": "Pixelado", "black": "Negro" } },
+        "strength": { "label": "Intensidad", "help": "A mayor valor, más se oculta. Con 20 basta para la mayoría de caras." }
+      },
+      "faq": [
+        [
+          "¿Se puede deshacer el difuminado?",
+          "No. En el archivo descargado esos píxeles ya están reemplazados y no se puede recuperar el original. Conserva tu foto original."
+        ],
+        [
+          "¿Se sube mi foto?",
+          "No. La imagen se edita en tu dispositivo con tu navegador y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Desfocar foto – Esconder rostos e dados com desfoque ou pixelização grátis online",
+      "h1": "Desfocar foto",
+      "line": "Esconda rostos e dados",
+      "description": "Desfoque um rosto ou qualquer parte de uma foto grátis e online. Desenhe caixas sobre o que quer esconder, escolha desfoque, pixelização ou preto e baixe a imagem. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher foto",
+      "runText": "Esconder",
+      "resultName": "desfocada",
+      "noteWhole": "Nenhuma área foi desenhada, então a imagem inteira foi coberta.",
+      "options": {
+        "regions": { "label": "Áreas a esconder", "help": "Arraste sobre a imagem para desenhar uma caixa em cada rosto ou dado. Pode adicionar várias; sem caixas, a imagem inteira é coberta." },
+        "style": { "label": "Estilo", "help": "Desfoque suaviza, pixelização cria um mosaico e preto pinta um bloco sólido.", "choices": { "blur": "Desfoque", "pixelate": "Pixelizar", "black": "Preto" } },
+        "strength": { "label": "Intensidade", "help": "Quanto maior o valor, mais fica escondido. 20 basta para a maioria dos rostos." }
+      },
+      "faq": [
+        [
+          "Dá para desfazer o desfoque?",
+          "Não. No arquivo baixado esses pixels já foram substituídos e o original não pode ser recuperado. Guarde a sua foto original."
+        ],
+        [
+          "Minha foto é enviada?",
+          "Não. A imagem é editada no seu dispositivo pelo navegador e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "Gesicht verpixeln – Gesichter und Daten im Foto unkenntlich machen, kostenlos online",
+      "h1": "Gesicht verpixeln",
+      "line": "Gesichter verdecken",
+      "description": "Gesichter oder Bildteile kostenlos online unkenntlich machen. Rahmen über das ziehen, was verdeckt werden soll, Weichzeichnen, Verpixeln oder Schwarz wählen und das Bild herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "Bild wählen",
+      "runText": "Verdecken",
+      "resultName": "verpixelt",
+      "noteWhole": "Kein Bereich gezeichnet, deshalb wurde das ganze Bild verdeckt.",
+      "options": {
+        "regions": { "label": "Zu verdeckende Bereiche", "help": "Auf dem Bild ziehen, um über jedem Gesicht oder Detail einen Rahmen zu zeichnen. Beliebig viele möglich; ohne Rahmen wird das ganze Bild verdeckt." },
+        "style": { "label": "Art", "help": "Weichzeichnen verwischt, Verpixeln macht ein Mosaik, Schwarz malt einen Block.", "choices": { "blur": "Weichzeichnen", "pixelate": "Verpixeln", "black": "Schwarz" } },
+        "strength": { "label": "Stärke", "help": "Höhere Werte verdecken mehr. 20 reicht für die meisten Gesichter." }
+      },
+      "faq": [
+        [
+          "Lässt sich das rückgängig machen?",
+          "Nein. In der heruntergeladenen Datei sind diese Pixel ersetzt, das Original lässt sich daraus nicht wiederherstellen. Bewahre dein Originalfoto auf."
+        ],
+        [
+          "Wird mein Foto hochgeladen?",
+          "Nein. Das Bild wird auf deinem Gerät im Browser bearbeitet und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Flouter une photo – Masquer visages et données par flou ou pixellisation, gratuit en ligne",
+      "h1": "Flouter une photo",
+      "line": "Masquer des visages",
+      "description": "Floutez un visage ou une partie d'une photo gratuitement en ligne. Tracez des cadres sur ce qu'il faut masquer, choisissez flou, pixellisation ou noir, puis téléchargez l'image. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir photo",
+      "runText": "Masquer",
+      "resultName": "floutee",
+      "noteWhole": "Aucune zone tracée : toute l'image a été masquée.",
+      "options": {
+        "regions": { "label": "Zones à masquer", "help": "Faites glisser sur l'image pour tracer un cadre sur chaque visage ou donnée. Plusieurs cadres possibles ; sans cadre, toute l'image est masquée." },
+        "style": { "label": "Style", "help": "Le flou adoucit, la pixellisation fait une mosaïque, le noir peint un bloc plein.", "choices": { "blur": "Flou", "pixelate": "Pixelliser", "black": "Noir" } },
+        "strength": { "label": "Intensité", "help": "Plus la valeur est haute, plus c'est masqué. 20 suffit pour la plupart des visages." }
+      },
+      "faq": [
+        [
+          "Peut-on annuler le flou ?",
+          "Non. Dans le fichier téléchargé, ces pixels sont remplacés et l'original ne peut pas être retrouvé. Gardez votre photo d'origine."
+        ],
+        [
+          "Ma photo est-elle envoyée ?",
+          "Non. L'image est modifiée sur votre appareil par le navigateur et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

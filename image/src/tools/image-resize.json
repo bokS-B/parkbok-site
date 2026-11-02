@@ -1,0 +1,261 @@
+{
+  "id": "image-resize",
+  "order": 8,
+  "icon": "image-resize",
+  "cat": "image",
+  "next": [
+    "image-compress",
+    "image-crop",
+    "png-to-jpg"
+  ],
+  "strings": {
+    "en": {
+      "title": "Resize Image – Change Image Size by Pixels or Percent Online Free",
+      "h1": "Resize image",
+      "line": "New width and height in pixels or %",
+      "description": "Resize images online for free. Drop JPG, PNG, WebP or HEIC files, set a percentage or exact width and height, and download the resized images. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select images",
+      "runText": "Resize",
+      "resultName": "resized-images",
+      "noteSize": "{w}×{h} → {tw}×{th} px",
+      "noteCount": "{n} images resized.",
+      "errorNoSize": "Enter a width or a height.",
+      "errorTooBig": "The result would be too large (over 16384 px).",
+      "options": {
+        "mode": { "label": "Resize by", "help": "Percent scales every image by the same ratio. Pixels sets an exact size.", "choices": { "percent": "Percent", "pixel": "Pixels" } },
+        "percent": { "label": "Scale", "help": "50% halves the width and height. Over 100% enlarges." },
+        "width": { "label": "Width", "help": "Width in px" },
+        "height": { "label": "Height", "help": "Height in px" },
+        "keepRatio": { "label": "Keep aspect ratio", "help": "With one value the other is calculated. With both, the image fits inside that box." },
+        "format": { "label": "Output format", "help": "Keep uses the original format. HEIC becomes JPG.", "choices": { "keep": "Keep format", "jpg": "JPG", "png": "PNG", "webp": "WebP" } }
+      },
+      "faq": [
+        [
+          "Will the image get blurry?",
+          "Downscaling is done in steps so photos stay sharp. Enlarging past 100% cannot add detail, so a big enlargement looks softer."
+        ],
+        [
+          "Are my images uploaded?",
+          "No. Each image is resized on your device with your browser and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "이미지 크기 조절 – 픽셀·퍼센트로 사진 크기 변경 무료 온라인",
+      "h1": "이미지 크기 조절",
+      "line": "픽셀이나 % 로 크기 변경",
+      "description": "이미지 크기 조절 무료 온라인. JPG·PNG·WebP·HEIC 를 넣고 퍼센트나 가로·세로 픽셀을 정해 크기를 바꾼 이미지를 내려받습니다. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "buttonText": "이미지 선택",
+      "runText": "크기 변경",
+      "resultName": "크기조절",
+      "noteSize": "{w}×{h} → {tw}×{th} px",
+      "noteCount": "{n}장의 크기를 바꿨습니다.",
+      "errorNoSize": "가로나 세로를 입력해 주세요.",
+      "errorTooBig": "결과가 너무 큽니다(16384px 초과).",
+      "options": {
+        "mode": { "label": "조절 방식", "help": "퍼센트는 모든 이미지를 같은 비율로 줄입니다. 픽셀은 정확한 크기를 정합니다.", "choices": { "percent": "퍼센트", "pixel": "픽셀" } },
+        "percent": { "label": "비율", "help": "50% 면 가로·세로가 절반이 됩니다. 100% 를 넘기면 확대됩니다." },
+        "width": { "label": "가로", "help": "가로 px" },
+        "height": { "label": "세로", "help": "세로 px" },
+        "keepRatio": { "label": "비율 유지", "help": "한쪽만 넣으면 다른 쪽은 자동 계산됩니다. 둘 다 넣으면 그 상자 안에 맞춥니다." },
+        "format": { "label": "저장 형식", "help": "형식 유지는 원본 형식을 따릅니다. HEIC 는 JPG 로 저장됩니다.", "choices": { "keep": "형식 유지", "jpg": "JPG", "png": "PNG", "webp": "WebP" } }
+      },
+      "faq": [
+        [
+          "이미지가 흐려지나요?",
+          "축소는 단계적으로 줄여 사진이 선명하게 유지됩니다. 100% 를 넘는 확대는 없는 세부를 만들 수 없어 크게 키울수록 부드러워집니다."
+        ],
+        [
+          "이미지가 업로드되나요?",
+          "아니요. 각 이미지는 내 기기의 브라우저 안에서 처리되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "图片尺寸修改 – 按像素或百分比在线免费调整图片大小",
+      "h1": "调整图片大小",
+      "line": "按像素或百分比改尺寸",
+      "description": "免费在线调整图片大小。添加 JPG、PNG、WebP 或 HEIC 图片，设置百分比或精确的宽高，下载调整后的图片。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择图片",
+      "runText": "调整大小",
+      "resultName": "调整大小",
+      "noteSize": "{w}×{h} → {tw}×{th} 像素",
+      "noteCount": "已调整 {n} 张图片。",
+      "errorNoSize": "请输入宽度或高度。",
+      "errorTooBig": "结果太大（超过 16384 像素）。",
+      "options": {
+        "mode": { "label": "调整方式", "help": "百分比按同一比例缩放所有图片。像素设置精确尺寸。", "choices": { "percent": "百分比", "pixel": "像素" } },
+        "percent": { "label": "比例", "help": "50% 表示宽高各减半。超过 100% 为放大。" },
+        "width": { "label": "宽度", "help": "宽度（像素）" },
+        "height": { "label": "高度", "help": "高度（像素）" },
+        "keepRatio": { "label": "保持比例", "help": "只填一项时另一项自动计算。两项都填时图片会缩放到该范围内。" },
+        "format": { "label": "输出格式", "help": "保持格式沿用原格式。HEIC 会保存为 JPG。", "choices": { "keep": "保持格式", "jpg": "JPG", "png": "PNG", "webp": "WebP" } }
+      },
+      "faq": [
+        [
+          "图片会变模糊吗？",
+          "缩小时分步处理，照片保持清晰。超过 100% 的放大无法增加细节，放得越大越柔。"
+        ],
+        [
+          "我的图片会被上传吗？",
+          "不会。每张图片都在您的设备上由浏览器处理，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "画像リサイズ – ピクセル・％で画像サイズを無料オンライン変更",
+      "h1": "画像リサイズ",
+      "line": "ピクセルか％でサイズ変更",
+      "description": "無料で画像をリサイズ。JPG・PNG・WebP・HEICを追加し、％または幅・高さのピクセルを指定してサイズを変えた画像をダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "画像を選択",
+      "runText": "サイズ変更",
+      "resultName": "リサイズ",
+      "noteSize": "{w}×{h} → {tw}×{th} px",
+      "noteCount": "{n}枚のサイズを変更しました。",
+      "errorNoSize": "幅か高さを入力してください。",
+      "errorTooBig": "結果が大きすぎます（16384pxを超えています）。",
+      "options": {
+        "mode": { "label": "指定方法", "help": "％はすべての画像を同じ比率で縮小します。ピクセルは正確なサイズを指定します。", "choices": { "percent": "％", "pixel": "ピクセル" } },
+        "percent": { "label": "倍率", "help": "50％で幅と高さが半分になります。100％を超えると拡大です。" },
+        "width": { "label": "幅", "help": "幅（px）" },
+        "height": { "label": "高さ", "help": "高さ（px）" },
+        "keepRatio": { "label": "縦横比を保つ", "help": "片方だけ入力するともう片方は自動計算。両方入力するとその枠に収めます。" },
+        "format": { "label": "保存形式", "help": "形式を維持は元の形式のまま。HEICはJPGで保存されます。", "choices": { "keep": "形式を維持", "jpg": "JPG", "png": "PNG", "webp": "WebP" } }
+      },
+      "faq": [
+        [
+          "画像はぼやけますか？",
+          "縮小は段階的に行うため写真は鮮明なままです。100％を超える拡大は細部を増やせないため、大きくするほど柔らかくなります。"
+        ],
+        [
+          "画像はアップロードされますか？",
+          "いいえ。各画像は端末のブラウザ内で処理され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Redimensionar imagen – Cambiar el tamaño en píxeles o porcentaje gratis online",
+      "h1": "Redimensionar imagen",
+      "line": "Nuevo tamaño en píxeles o %",
+      "description": "Redimensiona imágenes gratis y online. Añade JPG, PNG, WebP o HEIC, indica un porcentaje o el ancho y alto exactos y descarga las imágenes. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir imágenes",
+      "runText": "Redimensionar",
+      "resultName": "imagenes-redimensionadas",
+      "noteSize": "{w}×{h} → {tw}×{th} px",
+      "noteCount": "{n} imágenes redimensionadas.",
+      "errorNoSize": "Indica un ancho o un alto.",
+      "errorTooBig": "El resultado sería demasiado grande (más de 16384 px).",
+      "options": {
+        "mode": { "label": "Ajustar por", "help": "Porcentaje escala todas las imágenes en la misma proporción. Píxeles fija un tamaño exacto.", "choices": { "percent": "Porcentaje", "pixel": "Píxeles" } },
+        "percent": { "label": "Escala", "help": "50% reduce ancho y alto a la mitad. Más de 100% amplía." },
+        "width": { "label": "Ancho", "help": "Ancho en px" },
+        "height": { "label": "Alto", "help": "Alto en px" },
+        "keepRatio": { "label": "Mantener proporción", "help": "Con un solo valor el otro se calcula. Con los dos, la imagen cabe dentro de ese cuadro." },
+        "format": { "label": "Formato de salida", "help": "Mantener usa el formato original. HEIC pasa a JPG.", "choices": { "keep": "Mantener formato", "jpg": "JPG", "png": "PNG", "webp": "WebP" } }
+      },
+      "faq": [
+        [
+          "¿La imagen quedará borrosa?",
+          "La reducción se hace por pasos para que las fotos sigan nítidas. Ampliar más del 100% no añade detalle, así que una gran ampliación se ve más suave."
+        ],
+        [
+          "¿Se suben mis imágenes?",
+          "No. Cada imagen se procesa en tu dispositivo con tu navegador y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Redimensionar imagem – Mudar o tamanho em pixels ou porcentagem grátis online",
+      "h1": "Redimensionar imagem",
+      "line": "Novo tamanho em pixels ou %",
+      "description": "Redimensione imagens grátis e online. Adicione JPG, PNG, WebP ou HEIC, defina uma porcentagem ou a largura e altura exatas e baixe as imagens. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher imagens",
+      "runText": "Redimensionar",
+      "resultName": "imagens-redimensionadas",
+      "noteSize": "{w}×{h} → {tw}×{th} px",
+      "noteCount": "{n} imagens redimensionadas.",
+      "errorNoSize": "Informe uma largura ou uma altura.",
+      "errorTooBig": "O resultado seria grande demais (mais de 16384 px).",
+      "options": {
+        "mode": { "label": "Ajustar por", "help": "Porcentagem escala todas as imagens na mesma proporção. Pixels define um tamanho exato.", "choices": { "percent": "Porcentagem", "pixel": "Pixels" } },
+        "percent": { "label": "Escala", "help": "50% reduz largura e altura pela metade. Acima de 100% amplia." },
+        "width": { "label": "Largura", "help": "Largura em px" },
+        "height": { "label": "Altura", "help": "Altura em px" },
+        "keepRatio": { "label": "Manter proporção", "help": "Com um valor só, o outro é calculado. Com os dois, a imagem cabe dentro dessa caixa." },
+        "format": { "label": "Formato de saída", "help": "Manter usa o formato original. HEIC vira JPG.", "choices": { "keep": "Manter formato", "jpg": "JPG", "png": "PNG", "webp": "WebP" } }
+      },
+      "faq": [
+        [
+          "A imagem vai ficar borrada?",
+          "A redução é feita em etapas para as fotos continuarem nítidas. Ampliar acima de 100% não cria detalhes, então uma ampliação grande fica mais suave."
+        ],
+        [
+          "Minhas imagens são enviadas?",
+          "Não. Cada imagem é processada no seu dispositivo pelo navegador e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "Bild verkleinern – Bildgröße in Pixel oder Prozent online kostenlos ändern",
+      "h1": "Bildgröße ändern",
+      "line": "Neue Größe in Pixel oder %",
+      "description": "Bildgröße kostenlos online ändern. JPG, PNG, WebP oder HEIC hinzufügen, Prozent oder genaue Breite und Höhe angeben und die Bilder herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "Bilder wählen",
+      "runText": "Größe ändern",
+      "resultName": "skalierte-bilder",
+      "noteSize": "{w}×{h} → {tw}×{th} px",
+      "noteCount": "{n} Bilder skaliert.",
+      "errorNoSize": "Gib eine Breite oder Höhe ein.",
+      "errorTooBig": "Das Ergebnis wäre zu groß (über 16384 px).",
+      "options": {
+        "mode": { "label": "Ändern nach", "help": "Prozent skaliert alle Bilder im gleichen Verhältnis. Pixel legt eine genaue Größe fest.", "choices": { "percent": "Prozent", "pixel": "Pixel" } },
+        "percent": { "label": "Maßstab", "help": "50% halbiert Breite und Höhe. Über 100% vergrößert." },
+        "width": { "label": "Breite", "help": "Breite in px" },
+        "height": { "label": "Höhe", "help": "Höhe in px" },
+        "keepRatio": { "label": "Seitenverhältnis beibehalten", "help": "Bei einem Wert wird der andere berechnet. Bei beiden passt das Bild in diesen Rahmen." },
+        "format": { "label": "Ausgabeformat", "help": "Beibehalten nutzt das Originalformat. HEIC wird zu JPG.", "choices": { "keep": "Format beibehalten", "jpg": "JPG", "png": "PNG", "webp": "WebP" } }
+      },
+      "faq": [
+        [
+          "Wird das Bild unscharf?",
+          "Verkleinern erfolgt in Stufen, damit Fotos scharf bleiben. Vergrößern über 100% erzeugt keine neuen Details, eine starke Vergrößerung wirkt weicher."
+        ],
+        [
+          "Werden meine Bilder hochgeladen?",
+          "Nein. Jedes Bild wird auf deinem Gerät im Browser verarbeitet und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Redimensionner une image – Changer la taille en pixels ou en % gratuitement",
+      "h1": "Redimensionner une image",
+      "line": "Nouvelle taille en pixels ou %",
+      "description": "Redimensionnez vos images gratuitement en ligne. Ajoutez des JPG, PNG, WebP ou HEIC, indiquez un pourcentage ou une largeur et une hauteur exactes, puis téléchargez les images. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir images",
+      "runText": "Redimensionner",
+      "resultName": "images-redimensionnees",
+      "noteSize": "{w}×{h} → {tw}×{th} px",
+      "noteCount": "{n} images redimensionnées.",
+      "errorNoSize": "Indiquez une largeur ou une hauteur.",
+      "errorTooBig": "Le résultat serait trop grand (plus de 16384 px).",
+      "options": {
+        "mode": { "label": "Ajuster par", "help": "Pourcentage applique le même rapport à toutes les images. Pixels fixe une taille exacte.", "choices": { "percent": "Pourcentage", "pixel": "Pixels" } },
+        "percent": { "label": "Échelle", "help": "50 % divise la largeur et la hauteur par deux. Au-delà de 100 %, l'image est agrandie." },
+        "width": { "label": "Largeur", "help": "Largeur en px" },
+        "height": { "label": "Hauteur", "help": "Hauteur en px" },
+        "keepRatio": { "label": "Conserver les proportions", "help": "Avec une seule valeur, l'autre est calculée. Avec les deux, l'image tient dans ce cadre." },
+        "format": { "label": "Format de sortie", "help": "Conserver garde le format d'origine. Le HEIC devient un JPG.", "choices": { "keep": "Conserver le format", "jpg": "JPG", "png": "PNG", "webp": "WebP" } }
+      },
+      "faq": [
+        [
+          "L'image sera-t-elle floue ?",
+          "La réduction se fait par étapes pour garder des photos nettes. Agrandir au-delà de 100 % n'ajoute aucun détail : un fort agrandissement paraît plus doux."
+        ],
+        [
+          "Mes images sont-elles envoyées ?",
+          "Non. Chaque image est traitée sur votre appareil par le navigateur et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

@@ -19,7 +19,7 @@ for (const p of files) {
   for (const l of ['/about.html', '/privacy.html', '/terms.html', '/guide/']) if (!s.includes(`href="${l}"`)) fails.push(rel + ': 푸터 링크 없음 ' + l);
   if (!/<a class="brand" href="\/">/.test(s)) fails.push(rel + ': 브랜드 링크가 / 가 아님');
   const lang = (s.match(/<html lang="([^"]+)"/) || [])[1] || '?';
-  const multi = rel.startsWith('wheel/') ? 'wheel' : rel.startsWith('pdf/') ? 'pdf' : '';   // 8개 언어로 생성되는 구역
+  const multi = rel.startsWith('wheel/') ? 'wheel' : rel.startsWith('pdf/') ? 'pdf' : rel.startsWith('image/') ? 'image' : '';   // 8개 언어로 생성되는 구역
   if (multi) {
     const m = rel.match(/(?:^|\/)(ko|zh|ja|es|pt|de|fr)\//); const code = m ? m[1] : 'en';   // wheel/<lang>/<preset>/, pdf/<tool>/<lang>/ 둘 다
     const home = '/' + multi + '/' + (code === 'en' ? '' : code + '/');
