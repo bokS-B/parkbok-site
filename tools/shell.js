@@ -8,7 +8,16 @@ const siteCss = fs.readFileSync(path.join(root, 'assets', 'site.css'), 'utf8').t
 const gaFile = path.join(__dirname, 'ga-id.txt');
 const gaId = fs.existsSync(gaFile) ? fs.readFileSync(gaFile, 'utf8').trim() : '';
 const ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1415309581345613" crossorigin="anonymous"></script>';
-const GA = gaId ? '<script async src="https://www.googletagmanager.com/gtag/js?id=' + gaId + '"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","' + gaId + '");</script>' : '';
+// GA4 로더(A1-02). 정적 <script src=googletagmanager> 를 두지 않고, 인라인 스크립트가 location.hostname 이 운영 allowlist
+// (parkbok.com / www.parkbok.com) 일 때만 gtag.js 를 동적으로 넣고 config 를 보낸다. localhost·127.0.0.1·*.github.io·file: 등은 아무것도 로드·전송하지 않는다.
+// 내부 트래픽 표식(A1-05 대안): 주소에 ?pb_internal=1|0 이 있으면 localStorage 'pb_internal' 에 저장하고 history.replaceState 로 쿼리를 지운다(어느 호스트에서나).
+// localStorage 'pb_internal'==='1' 이면 config 에 { traffic_type:'internal' } 을 넣는다(GA4 기본 'Internal Traffic' 데이터 필터가 보는 매개변수).
+// 콘솔 로그·UI 표시 없음. 전부 try/catch 라 분석이 막혀도 도구 기능과 무관하다. 바이트 수는 HEX 페이지 6144B 한도에 들어가야 한다(build-color-pages 참고).
+const GA_HOSTS = ['parkbok.com', 'www.parkbok.com'];
+const GA = gaId ? '<script>(function(){try{var u=new URL(location.href),v=u.searchParams.get("pb_internal");if(v==="1"||v==="0"){localStorage.setItem("pb_internal",v);u.searchParams.delete("pb_internal");history.replaceState(null,"",u.href)}}catch(e){}'
+  + 'try{if(' + JSON.stringify(GA_HOSTS) + '.indexOf(location.hostname)<0)return;var c={};try{if(localStorage.getItem("pb_internal")==="1")c.traffic_type="internal"}catch(e){}'
+  + 'var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=' + gaId + '";document.head.appendChild(s);'
+  + 'window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","' + gaId + '",c)}catch(e){}})()</script>' : '';
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 function fragment(name){
@@ -48,4 +57,4 @@ function replaceBlock(html, name, replacement, fallbackRe){
   if (fallbackRe && fallbackRe.test(html)) return html.replace(fallbackRe, () => replacement);
   return html;
 }
-module.exports = { head, header, footer, replaceBlock, strings, esc, sectionHome, langs: Object.keys(STR), ADSENSE, GA };
+module.exports = { head, header, footer, replaceBlock, strings, esc, sectionHome, langs: Object.keys(STR), ADSENSE, GA, GA_HOSTS, gaId };
