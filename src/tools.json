@@ -35,7 +35,7 @@
       "en": "Remove line breaks"
     },
     "line": {
-      "ko": "복사한 글의 줄바꿈 정리",
+      "ko": "끊긴 줄바꿈 지워 문장 잇기",
       "en": "Clean up pasted line breaks"
     },
     "langs": [
@@ -55,7 +55,7 @@
       "en": "Character count"
     },
     "line": {
-      "ko": "공백 포함·제외, 바이트",
+      "ko": "공백 포함·제외 글자수 확인",
       "en": "Characters, bytes, words"
     },
     "langs": [
@@ -75,7 +75,7 @@
       "en": "Spin the wheel"
     },
     "line": {
-      "ko": "이름 넣고 랜덤 뽑기",
+      "ko": "이름 넣고 돌려 한 명 뽑기",
       "en": "Pick a random name"
     },
     "langs": [
@@ -95,7 +95,7 @@
       "en": "Dedupe and sort lines"
     },
     "line": {
-      "ko": "겹치는 줄 지우고 정렬",
+      "ko": "겹치는 줄 지우고 가나다 정렬",
       "en": "Remove duplicates, sort"
     },
     "langs": [
@@ -135,7 +135,7 @@
       "en": "List to one line"
     },
     "line": {
-      "ko": "세로 목록 ↔ 한 줄",
+      "ko": "세로 목록 ↔ 쉼표 한 줄",
       "en": "Switch list and one line"
     },
     "langs": [
@@ -155,7 +155,7 @@
       "en": "Yes or no wheel"
     },
     "line": {
-      "ko": "결정 못 할 때 돌리기",
+      "ko": "돌려서 예·아니오로 결정",
       "en": "Decide with a spin"
     },
     "langs": [
@@ -175,7 +175,7 @@
       "en": "Number wheel"
     },
     "line": {
-      "ko": "범위 안 숫자 뽑기",
+      "ko": "정한 범위에서 숫자 하나",
       "en": "Random number in a range"
     },
     "langs": [
@@ -195,7 +195,7 @@
       "en": "What to eat wheel"
     },
     "line": {
-      "ko": "오늘 먹을 메뉴 뽑기",
+      "ko": "오늘 먹을 메뉴 돌려 뽑기",
       "en": "Let the wheel pick a meal"
     },
     "langs": [
@@ -315,7 +315,7 @@
       "en": "Merge PDF"
     },
     "line": {
-      "ko": "여러 PDF를 한 파일로",
+      "ko": "여러 PDF를 순서대로 하나로",
       "en": "Combine PDFs into one"
     },
     "langs": [
@@ -342,7 +342,7 @@
       "en": "Split PDF"
     },
     "line": {
-      "ko": "페이지 범위로 분리",
+      "ko": "쪽·범위·N쪽마다 나누기",
       "en": "Split by page ranges"
     },
     "langs": [
@@ -369,7 +369,7 @@
       "en": "Extract pages"
     },
     "line": {
-      "ko": "원하는 페이지만 새 PDF로",
+      "ko": "원하는 쪽만 골라 새 PDF로",
       "en": "Pull pages into a new PDF"
     },
     "langs": [
@@ -396,7 +396,7 @@
       "en": "Remove pages"
     },
     "line": {
-      "ko": "필요 없는 페이지 지우기",
+      "ko": "필요 없는 쪽만 골라 삭제",
       "en": "Delete unwanted pages"
     },
     "langs": [
@@ -423,7 +423,7 @@
       "en": "Organize PDF"
     },
     "line": {
-      "ko": "페이지 순서 바꾸기",
+      "ko": "쪽 순서 바꾸고 회전·삭제",
       "en": "Reorder pages"
     },
     "langs": [
@@ -450,7 +450,7 @@
       "en": "Rotate PDF"
     },
     "line": {
-      "ko": "페이지 방향 돌리기",
+      "ko": "전체 또는 고른 쪽 회전",
       "en": "Turn pages the right way"
     },
     "langs": [
@@ -477,7 +477,7 @@
       "en": "Add page numbers"
     },
     "line": {
-      "ko": "쪽번호 위치·형식 지정",
+      "ko": "원하는 자리에 쪽 번호 넣기",
       "en": "Number every page"
     },
     "langs": [
@@ -504,7 +504,7 @@
       "en": "Add watermark"
     },
     "line": {
-      "ko": "글자·이미지 워터마크 삽입",
+      "ko": "모든 쪽에 글자·이미지 찍기",
       "en": "Stamp text or an image"
     },
     "langs": [
@@ -531,7 +531,7 @@
       "en": "Crop PDF"
     },
     "line": {
-      "ko": "여백 잘라 페이지 크기 조정",
+      "ko": "모든 쪽 여백을 mm로 잘라내기",
       "en": "Trim margins"
     },
     "langs": [
@@ -558,7 +558,7 @@
       "en": "JPG to PDF"
     },
     "line": {
-      "ko": "이미지 여러 장을 PDF로",
+      "ko": "사진 여러 장을 PDF 하나로",
       "en": "Images into one PDF"
     },
     "langs": [
@@ -585,7 +585,7 @@
       "en": "PDF to JPG"
     },
     "line": {
-      "ko": "페이지를 이미지로 저장",
+      "ko": "쪽마다 JPG·PNG 이미지로",
       "en": "Save pages as images"
     },
     "langs": [
@@ -612,7 +612,7 @@
       "en": "Sign PDF"
     },
     "line": {
-      "ko": "서명·이름·날짜 넣기",
+      "ko": "서명 그려 원하는 쪽에 넣기",
       "en": "Draw or type a signature"
     },
     "langs": [
@@ -639,7 +639,7 @@
       "en": "Scan to PDF"
     },
     "line": {
-      "ko": "카메라로 찍어 PDF로",
+      "ko": "문서 사진을 A4 PDF로",
       "en": "Photograph pages into a PDF"
     },
     "langs": [
@@ -666,7 +666,7 @@
       "en": "Compress PDF"
     },
     "line": {
-      "ko": "화질 유지하며 용량 축소",
+      "ko": "이미지 줄여 PDF 용량 축소",
       "en": "Shrink file size"
     },
     "langs": [
@@ -747,7 +747,7 @@
       "en": "WebP to JPG"
     },
     "line": {
-      "ko": "WebP를 JPG로 바꾸기",
+      "ko": "WebP를 열기 쉬운 JPG로",
       "en": "WebP images into JPG"
     },
     "langs": [
@@ -774,7 +774,7 @@
       "en": "JPG to WebP"
     },
     "line": {
-      "ko": "JPG·PNG를 WebP로",
+      "ko": "JPG·PNG를 가벼운 WebP로",
       "en": "JPG and PNG into WebP"
     },
     "langs": [
@@ -801,7 +801,7 @@
       "en": "HEIC to JPG"
     },
     "line": {
-      "ko": "아이폰 사진을 JPG로",
+      "ko": "아이폰 HEIC 사진을 JPG로",
       "en": "iPhone HEIC photos as JPG"
     },
     "langs": [
@@ -855,7 +855,7 @@
       "en": "Compress image"
     },
     "line": {
-      "ko": "사진 용량 줄이기",
+      "ko": "사진 용량 가볍게 줄이기",
       "en": "Smaller JPG, PNG and WebP files"
     },
     "langs": [
@@ -882,7 +882,7 @@
       "en": "Resize image"
     },
     "line": {
-      "ko": "픽셀·%로 크기 변경",
+      "ko": "픽셀이나 %로 크기 변경",
       "en": "New width and height in pixels or %"
     },
     "langs": [
@@ -1044,7 +1044,7 @@
       "en": "Favicon generator"
     },
     "line": {
-      "ko": "한 장으로 모든 아이콘",
+      "ko": "이미지 한 장으로 파비콘 세트",
       "en": "All icon sizes at once"
     },
     "langs": [
@@ -1071,7 +1071,7 @@
       "en": "Color converter"
     },
     "line": {
-      "ko": "HEX·RGB·HSL 서로 변환",
+      "ko": "HEX·RGB·HSL 코드 변환",
       "en": "Paste any color, get HEX, RGB, HSL, HSV, CMYK and more"
     },
     "langs": [
@@ -1098,7 +1098,7 @@
       "en": "Image color picker"
     },
     "line": {
-      "ko": "사진 누르면 HEX·RGB",
+      "ko": "사진 속 색을 HEX·RGB로",
       "en": "Tap any spot on your picture to get its HEX and RGB"
     },
     "langs": [
@@ -1125,7 +1125,7 @@
       "en": "Color palette generator"
     },
     "line": {
-      "ko": "기준 색으로 배색 5종",
+      "ko": "색 하나로 배색 5종 팔레트",
       "en": "One base color, five harmonies plus lightness and saturation steps"
     },
     "langs": [
@@ -1152,7 +1152,7 @@
       "en": "CSS gradient generator"
     },
     "line": {
-      "ko": "색·각도 골라 CSS 복사",
+      "ko": "색·각도 골라 CSS·PNG로",
       "en": "Pick colors and an angle, copy the CSS or save a 1920×1080 PNG"
     },
     "langs": [
@@ -1179,7 +1179,7 @@
       "en": "Color contrast checker"
     },
     "line": {
-      "ko": "WCAG AA·AAA 통과 확인",
+      "ko": "글자·배경 대비 WCAG 확인",
       "en": "Text color and background in, contrast ratio and WCAG AA / AAA out"
     },
     "langs": [
@@ -1206,7 +1206,7 @@
       "en": "Random color generator"
     },
     "line": {
-      "ko": "스페이스바로 새 색 뽑기",
+      "ko": "스페이스바로 랜덤 5색 팔레트",
       "en": "Press space for new colors, lock the ones you like"
     },
     "langs": [
@@ -1233,7 +1233,7 @@
       "en": "Passport Photo Maker (Resize & Crop)"
     },
     "line": {
-      "ko": "규격대로 자르고 용량까지",
+      "ko": "여권·증명사진 규격으로 자르기",
       "en": "Crop to the official size and fit the file limit"
     },
     "langs": [

@@ -50,8 +50,8 @@
     "ko": {
       "title": "파비콘 만들기 – favicon.ico 와 앱 아이콘 무료 온라인 생성",
       "h1": "파비콘 만들기",
-      "line": "이미지 한 장으로 모든 아이콘",
-      "description": "파비콘 만들기 무료 온라인. PNG·JPG·SVG 한 장을 넣으면 favicon.ico 와 32·180·192·512px PNG 아이콘, 바로 붙여 넣는 link 태그까지 만들어 줍니다. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "line": "이미지 한 장을 넣고 favicon.ico와 PNG 아이콘을 한 번에 받으세요.",
+      "description": "PNG·JPG·SVG 한 장으로 favicon.ico, 32~512px PNG 아이콘, link 태그를 만듭니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다.",
       "buttonText": "이미지 선택",
       "runText": "아이콘 만들기",
       "resultName": "파비콘",

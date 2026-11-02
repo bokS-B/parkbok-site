@@ -78,8 +78,8 @@
     "ko": {
       "title": "JPG PDF 변환 – 사진·이미지를 PDF 로 무료 변환",
       "h1": "JPG PDF 변환",
-      "line": "JPG·PNG 사진을 PDF 하나로",
-      "description": "JPG, PNG 등 이미지를 PDF 로 무료 변환. 사진을 넣고 순서·용지 크기·여백을 정한 뒤 PDF 하나로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "line": "JPG·PNG 사진 여러 장을 순서대로 PDF 하나로",
+      "description": "JPG·PNG 사진을 여러 장 넣고 순서·회전·용지 크기·여백을 정한 뒤 PDF 하나로 내려받으세요. 설치 없이 무료, 사진은 브라우저 안에서만 처리됩니다.",
       "buttonText": "이미지 선택",
       "runText": "변환하기",
       "resultName": "변환",

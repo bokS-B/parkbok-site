@@ -70,8 +70,8 @@
     "ko": {
       "title": "PDF JPG 변환 – PDF 를 이미지로 무료 변환",
       "h1": "PDF JPG 변환",
-      "line": "쪽마다 JPG·PNG 이미지로",
-      "description": "PDF JPG 변환 무료 온라인. 원하는 쪽을 고르고 해상도를 정하면 이미지로 바뀝니다. 낱장 또는 ZIP 으로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "line": "PDF 전체나 고른 쪽을 JPG·PNG 이미지로 저장",
+      "description": "PDF를 넣고 변환할 쪽과 해상도, JPG·PNG 형식을 고른 뒤 쪽마다 이미지로 낱장이나 ZIP으로 내려받으세요. 무료, 브라우저 안에서 처리됩니다.",
       "buttonText": "PDF 파일 선택",
       "runText": "변환하기",
       "resultName": "쪽",

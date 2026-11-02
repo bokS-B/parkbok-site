@@ -18,7 +18,7 @@
     "before": "원본", "after": "결과", "saved": "{p}% 절감", "quality": "품질", "width": "가로", "height": "세로", "keepRatio": "비율 유지",
     "images": "{n}장", "imageN": "{n}번째", "selected": "{n}장 선택", "moreImages": "+{n}장 더 (미리보기 없음)", "selectAll": "전체 선택", "clearAll": "모두 지우기", "moveLeft": "왼쪽으로", "moveRight": "오른쪽으로", "moveUp": "위로", "moveDown": "아래로", "rotate": "회전", "delete": "삭제", "restore": "되돌리기",
     "dragHint": "이미지 위를 드래그해 영역을 정하세요", "regions": "영역 {n}개", "reset": "초기화", "drawHere": "여기에 그리세요", "upload": "PNG 올리기", "clear": "지우기", "language": "언어", "loadingLib": "불러오는 중…", "preview": "미리보기",
-    "hub": { "title": "이미지 도구 – 변환·압축·크기 조절·자르기 무료 온라인", "h1": "이미지 도구", "line": "설치 없이 브라우저에서. 이미지는 서버로 가지 않습니다.", "description": "무료 온라인 이미지 도구. PNG·JPG·WebP·HEIC 변환, 압축, 크기 조절, 자르기, 회전을 브라우저 안에서 처리합니다. 업로드 없음, 가입 없음, 제한 없음." },
+    "hub": { "title": "이미지 도구 – 변환·압축·크기 조절·자르기 무료 온라인", "h1": "이미지 도구", "line": "이미지를 넣고 변환·압축·자르기 등 원하는 작업을 골라 결과를 내려받으세요.", "description": "PNG·JPG·WebP·HEIC 변환, 압축, 크기 조절, 자르기, 회전, 워터마크 등 이미지 도구 16종. 무료, 설치 없이 브라우저 안에서만 처리됩니다." },
     "aboutLine": "이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.", "aboutTitle": "사용 방법", "nextTools": "다음 도구"
   },
   "zh": {

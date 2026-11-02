@@ -35,8 +35,8 @@
     "ko": {
       "title": "WebP JPG 변환 – WebP 이미지를 JPG 로 무료 온라인 변환",
       "h1": "WebP JPG 변환",
-      "line": "WebP 를 어디서나 열리는 JPG 로",
-      "description": "WebP JPG 변환 무료 온라인. WebP 이미지를 여러 장 넣고 품질과 배경색을 정한 뒤 어디서나 열리는 JPG 로 내려받으세요. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "line": "WebP를 여러 장 넣고 품질과 배경색을 정해 JPG로 내려받으세요.",
+      "description": "WebP 이미지를 여러 장 넣고 JPG 품질과 배경색을 정해 한 번에 변환합니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다.",
       "buttonText": "WebP 선택",
       "runText": "JPG로 변환",
       "resultName": "jpg변환",

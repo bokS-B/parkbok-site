@@ -38,8 +38,8 @@
     "ko": {
       "title": "SVG PNG 변환 – SVG 벡터 파일을 PNG 로 무료 온라인 변환",
       "h1": "SVG PNG 변환",
-      "line": "SVG 를 선명한 PNG 이미지로",
-      "description": "SVG PNG 변환 무료 온라인. SVG 파일을 여러 개 넣고 가로 크기, 2x/3x 배율, 투명 또는 배경색을 정한 뒤 PNG 로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "line": "SVG 파일을 넣고 가로 크기와 배율, 배경을 정해 PNG로 내려받으세요.",
+      "description": "SVG 파일을 여러 개 넣고 가로 픽셀, 1~3배 배율, 투명 또는 배경색을 정해 PNG로 바꿉니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다.",
       "buttonText": "SVG 선택",
       "runText": "PNG로 변환",
       "resultName": "png변환",

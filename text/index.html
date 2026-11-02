@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>텍스트 정리 도구 — 줄바꿈 제거, 글자수 세기, SQL IN절 변환 | parkbok</title>
-<meta name="description" content="한글·PDF에서 복사한 글의 줄바꿈 제거, 자소서 글자수 세기, 목록을 SQL IN절로 변환, 중복 줄 제거와 정렬, 목록↔한 줄 변환. 설치·가입 없이 브라우저 안에서만 처리되는 무료 도구.">
+<meta name="description" content="한글·PDF에서 복사한 글의 줄바꿈 제거, 글자수 세기, 중복 줄 제거·정렬, SQL IN절·한 줄 변환을 설치 없이 브라우저 안에서 처리하는 무료 텍스트 도구.">
 <link rel="canonical" href="https://parkbok.com/text/">
 <meta property="og:title" content="텍스트 정리 도구 | parkbok">
 <meta property="og:description" content="줄바꿈 제거, 글자수 세기, SQL IN절 변환, 중복 제거·정렬. 서버 전송 없음, 무료.">
@@ -249,17 +249,17 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 <!-- /shell:header -->
 <main class="wrap">
   <h1>텍스트 정리 도구</h1>
-  <p class="lead">붙여 넣으면 바로 결과가 나옵니다. 입력한 글은 서버로 보내지 않고 지금 쓰는 브라우저 안에서만 처리됩니다.</p>
+  <p class="lead">글을 붙여 넣고 줄바꿈 정리·글자수·중복 제거·목록 변환 결과를 바로 받으세요.</p>
 
   <div class="ad"></div>
 
   <!-- grid:start -->
   <div class="grid tools-grid" id="tools-grid">
-    <a class="card" href="/text/remove-line-breaks.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h26M11 22h26M11 30h14"/><path d="M37 26v6h-7"/><path d="M33 29l-3 3 3 3"/></g></svg></span><h3>줄바꿈 제거</h3><p>복사한 글의 줄바꿈 정리</p></a>
-    <a class="card" href="/text/char-count.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h26M11 22h14"/><rect x="24" y="26" width="14" height="10" rx="3"/></g><g fill="#fff"><circle cx="28" cy="31" r="1.5"/><circle cx="31" cy="31" r="1.5"/><circle cx="34" cy="31" r="1.5"/></g></svg></span><h3>글자수 세기</h3><p>공백 포함·제외, 바이트</p></a>
-    <a class="card" href="/text/dedupe-lines.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 13h26M11 21h26M11 29h12M11 37h12"/><path d="M29 28l8 8M37 28l-8 8"/></g></svg></span><h3>중복 줄 제거</h3><p>겹치는 줄 지우고 정렬</p></a>
+    <a class="card" href="/text/remove-line-breaks.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h26M11 22h26M11 30h14"/><path d="M37 26v6h-7"/><path d="M33 29l-3 3 3 3"/></g></svg></span><h3>줄바꿈 제거</h3><p>끊긴 줄바꿈 지워 문장 잇기</p></a>
+    <a class="card" href="/text/char-count.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h26M11 22h14"/><rect x="24" y="26" width="14" height="10" rx="3"/></g><g fill="#fff"><circle cx="28" cy="31" r="1.5"/><circle cx="31" cy="31" r="1.5"/><circle cx="34" cy="31" r="1.5"/></g></svg></span><h3>글자수 세기</h3><p>공백 포함·제외 글자수 확인</p></a>
+    <a class="card" href="/text/dedupe-lines.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 13h26M11 21h26M11 29h12M11 37h12"/><path d="M29 28l8 8M37 28l-8 8"/></g></svg></span><h3>중복 줄 제거</h3><p>겹치는 줄 지우고 가나다 정렬</p></a>
     <a class="card" href="/text/sql-in.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11c-6 5-6 21 0 26M31 11c6 5 6 21 0 26"/></g><g fill="#fff"><circle cx="19" cy="24" r="2"/><circle cx="24" cy="24" r="2"/><circle cx="29" cy="24" r="2"/></g></svg></span><h3>SQL IN절 변환</h3><p>목록을 ('A','B') 형태로</p></a>
-    <a class="card" href="/text/list-to-line.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="#fff"><circle cx="12" cy="14" r="2"/><circle cx="12" cy="24" r="2"/><circle cx="12" cy="34" r="2"/></g><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 14h8M18 24h8M18 34h8"/><path d="M36 13v22M32 17l4-4 4 4M32 31l4 4 4-4"/></g></svg></span><h3>목록 ↔ 한 줄 변환</h3><p>세로 목록 ↔ 한 줄</p></a>
+    <a class="card" href="/text/list-to-line.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="#fff"><circle cx="12" cy="14" r="2"/><circle cx="12" cy="24" r="2"/><circle cx="12" cy="34" r="2"/></g><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 14h8M18 24h8M18 34h8"/><path d="M36 13v22M32 17l4-4 4 4M32 31l4 4 4-4"/></g></svg></span><h3>목록 ↔ 한 줄 변환</h3><p>세로 목록 ↔ 쉼표 한 줄</p></a>
   </div>
   <!-- grid:end -->
 

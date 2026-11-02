@@ -24,8 +24,8 @@
     "ko": {
       "title": "그라데이션 생성기 – CSS 그라데이션 만들기, 코드 복사, PNG 저장",
       "h1": "그라데이션 생성기",
-      "line": "색과 각도를 고르면 CSS 코드 복사, 1920×1080 PNG 저장까지",
-      "description": "무료 CSS 그라데이션 생성기. 색 정지점을 2~6개 넣고 각도를 정하거나 원형으로 바꾸면 크게 미리 보고, background CSS 를 한 번에 복사하거나 1920×1080 PNG 로 내려받습니다. 프리셋 12개. 브라우저 안에서 처리됩니다.",
+      "line": "색 2~6개와 각도를 고르고 그라데이션 CSS를 복사하거나 PNG로 저장하세요.",
+      "description": "색 2~6개와 각도(또는 원형)를 정해 미리 보고 CSS를 복사하거나 1920×1080 PNG로 내려받으세요. 프리셋 12개. 무료, 설치 없이 브라우저 처리.",
       "linear": "선형", "radial": "원형", "angle": "각도", "stops": "색 정지점", "addStop": "정지점 추가", "remove": "삭제", "stop": "정지점 {n}", "position": "위치",
       "presets": "프리셋", "preset": "프리셋 {n}", "copyCss": "CSS 복사", "downloadPng": "PNG 저장", "cssLabel": "CSS", "direction": "방향 {deg}°", "maxStops": "정지점은 6개까지",
       "faq": [

@@ -16,7 +16,7 @@
     "contrast": "글자 대비", "whiteText": "흰 글자", "blackText": "검정 글자", "sample": "예시 글자", "pass": "통과", "fail": "미달", "large": "큰 글자만",
     "tints": "밝게", "shades": "어둡게", "harmony": "배색", "complementary": "보색", "analogous": "유사색", "triadic": "삼각 배색", "tetradic": "사각 배색",
     "randomize": "무작위", "pick": "고르기", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "색으로 읽을 수 없습니다. #ff5733, rgb(…), tomato 같은 형식으로 넣어 주세요.",
-    "hub": { "title": "무료 색상 도구 – HEX RGB HSL 변환, 팔레트, 대비 검사", "h1": "색상 도구", "line": "HEX·RGB·HSL 변환, 팔레트, 대비 – 브라우저에서 무료로.", "description": "무료 온라인 색상 도구. HEX·RGB·HSL·HSV·CMYK 변환, CSS 색 이름 찾기, 밝기 단계와 배색 만들기, 글자 대비 검사. 모두 브라우저 안에서 처리되어 업로드도 가입도 없습니다." },
+    "hub": { "title": "무료 색상 도구 – HEX RGB HSL 변환, 팔레트, 대비 검사", "h1": "색상 도구", "line": "색 코드 변환, 사진 색 추출, 배색·그라데이션·대비 검사를 설치 없이 하세요.", "description": "무료 색상 도구 6종. HEX·RGB·HSL 변환, 사진 색 추출, 배색·랜덤 색, CSS 그라데이션, 글자 대비 검사. 설치 없이 브라우저에서 처리됩니다." },
     "aboutTitle": "어떻게 동작하나요", "aboutLine": "모든 계산은 브라우저 안에서 이루어지며 서버로 아무것도 보내지 않습니다.", "nextTools": "다음 도구"
   },
   "zh": {

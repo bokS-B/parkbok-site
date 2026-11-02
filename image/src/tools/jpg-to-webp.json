@@ -37,8 +37,8 @@
     "ko": {
       "title": "JPG WebP 변환 – JPG·PNG 이미지를 WebP 로 무료 온라인 변환",
       "h1": "JPG WebP 변환",
-      "line": "JPG·PNG 를 가벼운 WebP 로",
-      "description": "JPG WebP 변환 무료 온라인. JPG 나 PNG 이미지를 여러 장 넣고 품질을 정한 뒤 더 작은 WebP 로 내려받으세요. 브라우저 안에서 처리되어 이미지가 서버로 올라가지 않습니다.",
+      "line": "JPG·PNG를 여러 장 넣고 품질을 정해 더 작은 WebP로 내려받으세요.",
+      "description": "JPG·PNG 이미지를 여러 장 넣고 품질을 정하면 투명을 유지한 채 WebP로 바뀝니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다.",
       "buttonText": "이미지 선택",
       "runText": "WebP로 변환",
       "resultName": "webp변환",
