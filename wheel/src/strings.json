@@ -13,9 +13,9 @@
     "steps": ["Type or paste your entries, one per line.", "Click Spin (or tap the wheel) and wait for it to stop.", "The winner pops up. Remove it and spin again, or share the wheel with a link."],
     "presets": {
       "index": {
-        "title": "Wheel of Names – Random Name Picker | Spin the Wheel",
+        "title": "Spin the Wheel – Random Name Picker | Free Online Spinner",
         "description": "Free online spinner wheel. Enter names, spin the wheel and pick a random winner. No sign-up, works on your phone, share your wheel with a link.",
-        "h1": "Wheel of Names – Random Name Picker", "nav": "Name picker",
+        "h1": "Spin the Wheel – Random Name Picker", "nav": "Name picker",
         "intro": "Spin the wheel to pick a random name, winner or decision. Type your entries, press Spin and let the wheel decide – fair, fast and free. Nothing is uploaded: your wheel is saved in your browser and you can share it with a link.",
         "faq": [["Is the wheel truly random?", "Yes. The winner is chosen with your browser's cryptographically secure random number generator before the animation starts, so every entry has an equal chance. The spin is just the show."], ["Can I save or share my wheel?", "Your entries are saved automatically in this browser. Press Share to copy a link that contains your entries – anyone who opens it sees the same wheel."], ["How many entries can I add?", "Up to 1,000. Labels are hidden when slices get too thin, but every entry keeps the same chance."]],
         "entries": ["Ali", "Beatriz", "Charles", "Diya", "Eric", "Fatima", "Gabriel", "Hanna"]
