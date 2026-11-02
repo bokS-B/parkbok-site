@@ -6,24 +6,14 @@
 <meta name="description" content="{{description}}">
 <link rel="canonical" href="{{canonical}}">
 {{hreflangs}}
-<meta property="og:type" content="website"><meta property="og:site_name" content="{{brand}}">
 <meta property="og:title" content="{{title}}"><meta property="og:description" content="{{description}}">
-<meta property="og:url" content="{{canonical}}"><meta property="og:image" content="https://parkbok.com/og-wheel.png">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="apple-touch-icon" href="/icon-180.png"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563eb">
-<style>{{css}}</style>
-{{adsense}}
-{{ga}}
+<meta property="og:url" content="{{canonical}}">
+{{shell_head}}
+<style id="page-css">{{css}}</style>
 <script type="application/ld+json">{{jsonld}}</script>
 </head>
-<body>
-<header class="top"><div class="wrap">
-  <a class="brand" href="{{homeUrl}}">{{brand}}</a>
-  <nav class="menu">{{presetNav}}</nav>
-  <select id="lang" aria-label="{{ui.language}}">{{langOptions}}</select>
-</div></header>
+<body class="page-wheel">
+{{shell_header}}
 <main class="wrap">
   <h1 class="sr">{{h1}}</h1>
   <div class="app">
@@ -45,13 +35,13 @@
         {{presetControls}}
         <textarea id="entries" placeholder="{{ui.placeholder}}" spellcheck="false"></textarea>
         <div class="row">
-          <button class="btn ghost" type="button" id="shuffle">{{ui.shuffle}}</button>
-          <button class="btn ghost" type="button" id="sort">{{ui.sort}}</button>
-          <button class="btn ghost" type="button" id="clear">{{ui.clear}}</button>
-          <button class="btn ghost" type="button" id="share">{{ui.share}}</button>
-          <button class="btn ghost" type="button" id="fs">{{ui.fullscreen}}</button>
+          <button class="btn ghost sm" type="button" id="shuffle">{{ui.shuffle}}</button>
+          <button class="btn ghost sm" type="button" id="sort">{{ui.sort}}</button>
+          <button class="btn ghost sm" type="button" id="clear">{{ui.clear}}</button>
+          <button class="btn ghost sm" type="button" id="share">{{ui.share}}</button>
+          <button class="btn ghost sm" type="button" id="fs">{{ui.fullscreen}}</button>
         </div>
-        <div class="opts">
+        <div class="wopts">
           <label><input type="checkbox" id="opt-remove"> {{ui.removeWinner}}</label>
           <label><input type="checkbox" id="opt-sound" checked> {{ui.sound}}</label>
           <label>{{ui.duration}} <input type="range" id="opt-dur" min="2" max="30" value="8"> <span id="dur-val">8</span>{{ui.sec}}</label>
@@ -60,12 +50,12 @@
       <div id="tab-results" class="tabpane">
         <ol id="results"></ol>
         <p id="noresults" class="muted">{{ui.noResults}}</p>
-        <button class="btn ghost" type="button" id="clear-results">{{ui.clearResults}}</button>
+        <button class="btn ghost sm" type="button" id="clear-results">{{ui.clearResults}}</button>
       </div>
     </aside>
   </div>
   <div class="ad"></div>
-  <nav class="chips" aria-label="{{ui.other}}">{{presetChips}}</nav>
+  <nav class="chips next" aria-label="{{ui.other}}">{{presetChips}}</nav>
   <details class="about">
     <summary>{{h1}}</summary>
     <p>{{intro}}</p>
@@ -85,7 +75,7 @@
   </div>
 </div>
 <canvas id="confetti" class="confetti"></canvas>
-<footer><div class="wrap">© {{brand}}</div></footer>
+{{shell_footer}}
 <script>window.WHEEL_CONFIG={{config}};</script>
 <script src="/wheel/wheel.js" defer></script>
 </body>
