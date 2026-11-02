@@ -581,7 +581,9 @@
     clip.appendChild(cv); if (!multi) clip.appendChild(mask); box.appendChild(clip); box.appendChild(layer); row.appendChild(box);
     var bar = el('div', 'rect-bar'), info = el('span', 'muted rect-info'), hint = el('span', 'muted rect-hint', t('dragHint'));
     var btn = el('button', 'btn ghost sm', multi ? t('clearAll') : t('reset')); btn.type = 'button';
-    bar.appendChild(info); bar.appendChild(hint); bar.appendChild(btn); row.appendChild(bar);
+    // 여러 영역 모드: 모서리 ✕ 대신 막대의 '삭제' 버튼으로 선택 영역을 지운다(손잡이 44px 히트 영역과 겹치지 않게)
+    var del = null; if (multi) { del = el('button', 'btn ghost sm rect-del', t('delete')); del.type = 'button'; del.disabled = true; }
+    bar.appendChild(info); bar.appendChild(hint); if (del) bar.appendChild(del); bar.appendChild(btn); row.appendChild(bar);
     var natW = 0, natH = 0, rects = [], sel = -1, ready = false, drag = null;
     var HANDLES = ['nw', 'n', 'ne', 'e', 'se', 's', 'sw', 'w'];
     function ratio(){
@@ -614,12 +616,12 @@
         if (!multi) { var m = el('div', 'rmask'); m.style.cssText = d.style.cssText; mask.appendChild(m); }   // 선택 밖을 어둡게: 클리핑되는 마스크 레이어에 따로 그린다
         HANDLES.forEach(function(h){ var s = el('span', 'rh rh-' + h); s.setAttribute('data-h', h); d.appendChild(s); });
         if (!multi && typeof o.guide === 'function') (o.guide(round(r), getValue) || []).forEach(function(g){ var gd = el('div', 'rguide' + (g.cls ? ' ' + g.cls : ''), g.text || null); gd.style.left = (g.x * 100) + '%'; gd.style.top = (g.y * 100) + '%'; gd.style.width = (g.w * 100) + '%'; gd.style.height = (g.h * 100) + '%'; d.appendChild(gd); });
-        if (multi) { var x = el('button', 'rdel', '✕'); x.type = 'button'; x.setAttribute('aria-label', t('delete')); x.setAttribute('data-del', i); d.appendChild(x); }
         layer.appendChild(d);
       });
       var cur = rects[sel] || rects[0];
       info.textContent = multi ? t('regions', { n: rects.length }) : (cur ? round(cur).w + '×' + round(cur).h + ' @ ' + round(cur).x + ',' + round(cur).y : '');
       hint.hidden = multi ? rects.length > 0 : false;
+      if (del) del.disabled = !(sel >= 0 && rects[sel]);
     }
     function pos(e){
       var r = layer.getBoundingClientRect();
@@ -628,7 +630,6 @@
     layer.addEventListener('pointerdown', function(e){
       if (!ready || busy) return;
       var tg = e.target;
-      if (tg.hasAttribute && tg.hasAttribute('data-del')) { e.preventDefault(); return; }   // 삭제는 click 에서
       e.preventDefault(); try { layer.setPointerCapture(e.pointerId); } catch (x) {}
       var p = pos(e), rs = tg.closest ? tg.closest('.rsel') : null;
       if (rs) {
@@ -675,7 +676,7 @@
       drag = null; draw();
     }
     layer.addEventListener('pointerup', endDrag); layer.addEventListener('pointercancel', endDrag);
-    layer.addEventListener('click', function(e){ var tg = e.target; if (!ready || !tg.hasAttribute || !tg.hasAttribute('data-del')) return; e.preventDefault(); rects.splice(parseInt(tg.getAttribute('data-del'), 10), 1); sel = -1; draw(); });
+    if (del) del.addEventListener('click', function(){ if (!ready || sel < 0 || !rects[sel]) return; rects.splice(sel, 1); sel = -1; draw(); });
     btn.addEventListener('click', function(){ if (multi) { rects = []; sel = -1; } else { rects = [fullRect()]; sel = 0; } draw(); });
     optListeners.push(function(){ if (!multi && ready && rects[0] && ratio()) { rects[0] = fitRatio(rects[0], true); draw(); } });
     if (files[0]) loadImage(files[0]).then(function(img){

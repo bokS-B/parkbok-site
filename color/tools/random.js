@@ -15,7 +15,7 @@
     '.rs-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;padding:56px 8px 20px;border:0;background:none;color:inherit;font:inherit;cursor:pointer;text-align:center}',
     '.rs-main:focus-visible{outline:3px solid currentColor;outline-offset:-6px;border-radius:var(--r-big)}',
     '.rs-hex{font-size:22px;line-height:1.1;font-weight:var(--fw-semibold);letter-spacing:.03em;font-variant-numeric:tabular-nums}',
-    '.rs-nm{font-size:var(--fs-caption);opacity:.8;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
+    '.rs-nm{font-size:var(--fs-caption);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
     '.rs-cp{font-size:var(--fs-caption);opacity:0;margin-top:6px;transition:opacity .15s}',
     '.rs-slot:hover .rs-cp,.rs-main:focus-visible .rs-cp{opacity:.75}',
     // 잠금 버튼: 아이콘은 항상 불투명(칸 글자색 = 흰/검). 잠금/미잠금 차이는 배경 농도와 테두리로. 배경은 아이콘과 반대 방향(흰 아이콘이면 어둡게, 검은 아이콘이면 밝게)으로 깔아 대비를 올린다
