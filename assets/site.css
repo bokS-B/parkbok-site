@@ -50,5 +50,5 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 .chips button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer}
 .chips button:hover{border-color:var(--accent);color:var(--accent)}
 @media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
-@media (max-width:600px){nav.menu{white-space:nowrap}nav.menu a{margin-left:9px;font-size:12.5px}.brand{font-size:16px}h1{font-size:22px}}
+@media (max-width:600px){header.top .wrap{gap:8px}nav.menu{white-space:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}nav.menu::-webkit-scrollbar{display:none}nav.menu a{margin-left:9px;font-size:12.5px}.brand{font-size:16px;white-space:nowrap}h1{font-size:22px}}
 @media print{header.top,footer,.card.intro,.tools,.status,.ad,.drop,.grid,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}

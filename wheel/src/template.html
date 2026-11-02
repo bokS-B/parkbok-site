@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+{{hreflangs}}
+<meta property="og:type" content="website"><meta property="og:site_name" content="{{brand}}">
+<meta property="og:title" content="{{title}}"><meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}"><meta property="og:image" content="https://parkbok.com/og-wheel.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/icon-180.png"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563eb">
+<style>{{css}}</style>
+{{adsense}}
+{{ga}}
+<script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="{{homeUrl}}">{{brand}}</a>
+  <nav class="menu">{{presetNav}}</nav>
+  <select id="lang" aria-label="{{ui.language}}">{{langOptions}}</select>
+</div></header>
+<main class="wrap">
+  <h1 class="sr">{{h1}}</h1>
+  <div class="app">
+    <section class="stage">
+      <input id="title" class="wtitle" placeholder="{{ui.titlePh}}" maxlength="60" autocomplete="off">
+      <div class="wheel-wrap" id="wheelwrap">
+        <div class="pointer"></div>
+        <canvas id="wheel" aria-label="{{h1}}"></canvas>
+        <button id="spin" class="spin-btn" type="button">{{ui.spin}}</button>
+      </div>
+      <div class="hint" id="hint">{{ui.tapToSpin}}</div>
+    </section>
+    <aside class="panel">
+      <div class="tabs">
+        <button class="tab on" type="button" data-tab="entries">{{ui.entries}} <span id="count"></span></button>
+        <button class="tab" type="button" data-tab="results">{{ui.results}} <span id="rcount"></span></button>
+      </div>
+      <div id="tab-entries" class="tabpane on">
+        {{presetControls}}
+        <textarea id="entries" placeholder="{{ui.placeholder}}" spellcheck="false"></textarea>
+        <div class="row">
+          <button class="btn ghost" type="button" id="shuffle">{{ui.shuffle}}</button>
+          <button class="btn ghost" type="button" id="sort">{{ui.sort}}</button>
+          <button class="btn ghost" type="button" id="clear">{{ui.clear}}</button>
+          <button class="btn ghost" type="button" id="share">{{ui.share}}</button>
+          <button class="btn ghost" type="button" id="fs">{{ui.fullscreen}}</button>
+        </div>
+        <div class="opts">
+          <label><input type="checkbox" id="opt-remove"> {{ui.removeWinner}}</label>
+          <label><input type="checkbox" id="opt-sound" checked> {{ui.sound}}</label>
+          <label>{{ui.duration}} <input type="range" id="opt-dur" min="2" max="30" value="8"> <span id="dur-val">8</span>{{ui.sec}}</label>
+        </div>
+      </div>
+      <div id="tab-results" class="tabpane">
+        <ol id="results"></ol>
+        <p id="noresults" class="muted">{{ui.noResults}}</p>
+        <button class="btn ghost" type="button" id="clear-results">{{ui.clearResults}}</button>
+      </div>
+    </aside>
+  </div>
+  <div class="ad"></div>
+  <nav class="chips" aria-label="{{ui.other}}">{{presetChips}}</nav>
+  <details class="about">
+    <summary>{{h1}}</summary>
+    <p>{{intro}}</p>
+    <ol>{{steps}}</ol>
+    <dl class="faq">{{faq}}</dl>
+  </details>
+</main>
+<div id="modal" class="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <div class="muted" id="modal-title"></div>
+    <div class="winner-label">{{ui.winner}}</div>
+    <div class="winner" id="winner"></div>
+    <div class="row">
+      <button class="btn ghost" type="button" id="m-remove">{{ui.remove}}</button>
+      <button class="btn" type="button" id="m-close">{{ui.close}}</button>
+    </div>
+  </div>
+</div>
+<canvas id="confetti" class="confetti"></canvas>
+<footer><div class="wrap">© {{brand}} · parkbok.com</div></footer>
+<script>window.WHEEL_CONFIG={{config}};</script>
+<script src="/wheel/wheel.js" defer></script>
+</body>
+</html>

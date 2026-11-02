@@ -35,7 +35,7 @@ const GA = gaId ? [
 let changed = 0;
 function walk(dir){
   for (const name of fs.readdirSync(dir)) {
-    if (['.git', '_build', 'node_modules', 'docs', 'tools'].includes(name)) continue;
+    if (['.git', '_build', 'node_modules', 'docs', 'tools', 'wheel'].includes(name)) continue; // wheel/ 은 build-wheel.js 가 만든다
     const p = path.join(dir, name);
     if (fs.statSync(p).isDirectory()) { walk(p); continue; }
     if (!name.endsWith('.html')) continue;

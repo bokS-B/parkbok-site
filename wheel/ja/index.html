@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ルーレット – ランダム名前選び | 回して決める</title>
+<meta name="description" content="無料のオンラインルーレット。名前を入れて回すだけでランダムに1つ選べます。登録不要、スマホ対応、リンクで共有。">
+<link rel="canonical" href="https://parkbok.com/wheel/ja/">
+<link rel="alternate" hreflang="en" href="https://parkbok.com/wheel/">
+<link rel="alternate" hreflang="ko" href="https://parkbok.com/wheel/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://parkbok.com/wheel/zh/">
+<link rel="alternate" hreflang="ja" href="https://parkbok.com/wheel/ja/">
+<link rel="alternate" hreflang="es" href="https://parkbok.com/wheel/es/">
+<link rel="alternate" hreflang="pt" href="https://parkbok.com/wheel/pt/">
+<link rel="alternate" hreflang="de" href="https://parkbok.com/wheel/de/">
+<link rel="alternate" hreflang="fr" href="https://parkbok.com/wheel/fr/">
+<link rel="alternate" hreflang="x-default" href="https://parkbok.com/wheel/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Parkbok Studio">
+<meta property="og:title" content="ルーレット – ランダム名前選び | 回して決める"><meta property="og:description" content="無料のオンラインルーレット。名前を入れて回すだけでランダムに1つ選べます。登録不要、スマホ対応、リンクで共有。">
+<meta property="og:url" content="https://parkbok.com/wheel/ja/"><meta property="og:image" content="https://parkbok.com/og-wheel.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/icon-180.png"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563eb">
+<style>:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2129;--muted:#5d6675;--line:#e3e6ea;--accent:#2563eb;--hub:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--hub:#0f172a}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Malgun Gothic","Apple SD Gothic Neo","Hiragino Sans","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.5}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+header.top{background:var(--card);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:10px;height:54px}
+.brand{font-weight:700;color:var(--ink);white-space:nowrap;font-size:15px}
+nav.menu{display:flex;gap:2px;flex:1;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+nav.menu::-webkit-scrollbar{display:none}
+nav.menu a{padding:6px 10px;border-radius:999px;color:var(--muted);font-size:14px}
+nav.menu a.on{background:var(--accent);color:#fff}
+#lang{font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);max-width:120px}
+main{padding:14px 0 32px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.app{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,1fr);gap:20px;align-items:start}
+.stage{display:flex;flex-direction:column;align-items:center;gap:8px}
+.wtitle{width:100%;max-width:560px;font:inherit;font-size:17px;font-weight:600;text-align:center;border:0;border-bottom:1px dashed var(--line);background:transparent;color:var(--ink);padding:6px;outline:none}
+.wtitle:focus{border-bottom-color:var(--accent)}
+.wheel-wrap{position:relative;width:100%;max-width:560px;aspect-ratio:1;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.wheel-wrap canvas{display:block;width:100%;height:100%;cursor:pointer;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.pointer{position:absolute;left:50%;top:-4px;transform:translateX(-50%);width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-top:36px solid var(--ink);z-index:2;filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
+.spin-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:21%;min-width:62px;aspect-ratio:1;border-radius:50%;border:4px solid #fff;background:var(--accent);color:#fff;font:700 clamp(14px,3.2vw,20px) system-ui,sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);z-index:3;padding:0}
+.spin-btn:active{transform:translate(-50%,-50%) scale(.96)}
+.spin-btn:disabled{opacity:.75;cursor:default}
+.hint{font-size:14px;color:var(--muted);min-height:20px;text-align:center;width:100%;max-width:560px}.hint.err{color:#ef4444}
+.linkbox{width:100%;font:inherit;font-size:13px;padding:6px 8px;border:1px solid var(--accent);border-radius:8px;background:var(--card);color:var(--ink)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
+.tabs{display:flex;gap:4px;margin-bottom:10px}
+.tab{flex:1;font:inherit;font-size:14px;padding:8px;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:8px;cursor:pointer}
+.tab.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tabpane{display:none}.tabpane.on{display:block}
+textarea{width:100%;min-height:250px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);color:var(--ink);resize:vertical}
+textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.row{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.btn{font:inherit;font-size:14px;padding:8px 13px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.opts{display:flex;flex-direction:column;gap:8px;font-size:14px}.opts label{display:flex;align-items:center;gap:8px}
+input[type=range]{flex:1;min-width:80px}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px;font-size:14px}
+.ctl input[type=number]{width:88px;font:inherit;padding:6px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+#results{padding-left:22px;margin:0 0 10px}#results li{padding:5px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px}#results time{color:var(--muted);font-size:12px;white-space:nowrap}
+.muted{color:var(--muted);font-size:14px}
+.ad{margin:14px 0}.ad:empty{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 8px}
+.chips a{padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink);font-size:14px;background:var(--card)}
+.chips a:hover{border-color:var(--accent);color:var(--accent)}
+.about{margin-top:8px;color:var(--muted);font-size:14px}
+.about summary{cursor:pointer;color:var(--muted);font-weight:600;list-style:none}
+.about summary::before{content:"▸ ";}.about[open] summary::before{content:"▾ ";}
+.about p,.about ol{margin:8px 0}.about ol{padding-left:20px}
+.faq dt{font-weight:600;margin-top:8px;color:var(--ink)}.faq dd{margin:2px 0 0}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal[hidden]{display:none}
+.modal-box{background:var(--card);color:var(--ink);border-radius:18px;padding:28px 24px;max-width:520px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:pop .25s ease-out}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+.winner-label{font-size:14px;color:var(--muted);margin:6px 0}
+.winner{font-size:clamp(30px,7vw,54px);font-weight:800;line-height:1.15;word-break:break-word;margin-bottom:18px}
+.modal .row{justify-content:center}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:60}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;padding:16px 0}
+:fullscreen .stage,:-webkit-full-screen .stage{background:var(--bg);justify-content:center;height:100%;padding:16px}
+:fullscreen .wheel-wrap,:-webkit-full-screen .wheel-wrap{max-width:min(82vh,90vw)}
+@media (max-width:820px){.app{grid-template-columns:1fr;gap:14px}textarea{min-height:170px}header.top .wrap{gap:6px}.brand{display:none}}</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1415309581345613" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-377MXFWS51"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-377MXFWS51");</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"ルーレット – ランダムに1つ選ぶ","url":"https://parkbok.com/wheel/ja/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"無料のオンラインルーレット。名前を入れて回すだけでランダムに1つ選べます。登録不要、スマホ対応、リンクで共有。"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"本当にランダムですか？","acceptedAnswer":{"@type":"Answer","text":"はい。アニメーションの前にブラウザの安全な乱数生成器で結果を決めるので、すべての項目が同じ確率です。回転は演出です。"}},{"@type":"Question","name":"保存や共有はできますか？","acceptedAnswer":{"@type":"Answer","text":"項目はこのブラウザに自動保存されます。「共有」を押すと項目入りのリンクがコピーされ、開いた人は同じルーレットを見られます。"}},{"@type":"Question","name":"項目は何個まで？","acceptedAnswer":{"@type":"Answer","text":"最大1,000個。扇が細くなると文字は隠れますが、確率は同じです。"}}]}]</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/wheel/ja/">Parkbok Studio</a>
+  <nav class="menu"><a href="/wheel/ja/" class="on">名前選び</a><a href="/wheel/ja/yes-or-no/">はい/いいえ</a><a href="/wheel/ja/number/">数字</a><a href="/wheel/ja/what-to-eat/">今日のご飯</a></nav>
+  <select id="lang" aria-label="言語"><option value="/wheel/" data-code="en">English</option><option value="/wheel/ko/" data-code="ko">한국어</option><option value="/wheel/zh/" data-code="zh">中文</option><option value="/wheel/ja/" data-code="ja" selected>日本語</option><option value="/wheel/es/" data-code="es">Español</option><option value="/wheel/pt/" data-code="pt">Português</option><option value="/wheel/de/" data-code="de">Deutsch</option><option value="/wheel/fr/" data-code="fr">Français</option></select>
+</div></header>
+<main class="wrap">
+  <h1 class="sr">ルーレット – ランダムに1つ選ぶ</h1>
+  <div class="app">
+    <section class="stage">
+      <input id="title" class="wtitle" placeholder="ルーレットのタイトル（任意）" maxlength="60" autocomplete="off">
+      <div class="wheel-wrap" id="wheelwrap">
+        <div class="pointer"></div>
+        <canvas id="wheel" aria-label="ルーレット – ランダムに1つ選ぶ"></canvas>
+        <button id="spin" class="spin-btn" type="button">回す</button>
+      </div>
+      <div class="hint" id="hint">ルーレットをタップするか「回す」を押してください</div>
+    </section>
+    <aside class="panel">
+      <div class="tabs">
+        <button class="tab on" type="button" data-tab="entries">項目 <span id="count"></span></button>
+        <button class="tab" type="button" data-tab="results">結果 <span id="rcount"></span></button>
+      </div>
+      <div id="tab-entries" class="tabpane on">
+        
+        <textarea id="entries" placeholder="1行に1つずつ入力" spellcheck="false"></textarea>
+        <div class="row">
+          <button class="btn ghost" type="button" id="shuffle">シャッフル</button>
+          <button class="btn ghost" type="button" id="sort">並べ替え</button>
+          <button class="btn ghost" type="button" id="clear">クリア</button>
+          <button class="btn ghost" type="button" id="share">共有</button>
+          <button class="btn ghost" type="button" id="fs">全画面</button>
+        </div>
+        <div class="opts">
+          <label><input type="checkbox" id="opt-remove"> 当たった項目を自動で除外</label>
+          <label><input type="checkbox" id="opt-sound" checked> サウンド</label>
+          <label>回転時間 <input type="range" id="opt-dur" min="2" max="30" value="8"> <span id="dur-val">8</span>秒</label>
+        </div>
+      </div>
+      <div id="tab-results" class="tabpane">
+        <ol id="results"></ol>
+        <p id="noresults" class="muted">まだ結果がありません。回してみましょう！</p>
+        <button class="btn ghost" type="button" id="clear-results">結果を消す</button>
+      </div>
+    </aside>
+  </div>
+  <div class="ad"></div>
+  <nav class="chips" aria-label="他のルーレット"><a href="/wheel/ja/yes-or-no/">はい・いいえ ルーレット</a><a href="/wheel/ja/number/">数字ルーレット</a><a href="/wheel/ja/what-to-eat/">今日何食べる？ ご飯ルーレット</a></nav>
+  <details class="about">
+    <summary>ルーレット – ランダムに1つ選ぶ</summary>
+    <p>名前や当選者、決め事をランダムに選びたいときに。項目を入れて「回す」を押せば公平に1つ選びます。サーバーに送信せずブラウザに保存、リンクで共有もできます。</p>
+    <ol><li>項目を1行に1つずつ入力または貼り付けます。</li><li>「回す」（またはルーレット）を押して、止まるまで待ちます。</li><li>結果が表示されます。除外してもう一度回すか、リンクで共有できます。</li></ol>
+    <dl class="faq"><dt>本当にランダムですか？</dt><dd>はい。アニメーションの前にブラウザの安全な乱数生成器で結果を決めるので、すべての項目が同じ確率です。回転は演出です。</dd><dt>保存や共有はできますか？</dt><dd>項目はこのブラウザに自動保存されます。「共有」を押すと項目入りのリンクがコピーされ、開いた人は同じルーレットを見られます。</dd><dt>項目は何個まで？</dt><dd>最大1,000個。扇が細くなると文字は隠れますが、確率は同じです。</dd></dl>
+  </details>
+</main>
+<div id="modal" class="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <div class="muted" id="modal-title"></div>
+    <div class="winner-label">決定！</div>
+    <div class="winner" id="winner"></div>
+    <div class="row">
+      <button class="btn ghost" type="button" id="m-remove">除外</button>
+      <button class="btn" type="button" id="m-close">閉じる</button>
+    </div>
+  </div>
+</div>
+<canvas id="confetti" class="confetti"></canvas>
+<footer><div class="wrap">© Parkbok Studio · parkbok.com</div></footer>
+<script>window.WHEEL_CONFIG={"lang":"ja","preset":"index","ui":{"entries":"項目","results":"結果","placeholder":"1行に1つずつ入力","spin":"回す","shuffle":"シャッフル","sort":"並べ替え","clear":"クリア","share":"共有","copied":"リンクをコピーしました。どこにでも貼り付けられます。","fullscreen":"全画面","removeWinner":"当たった項目を自動で除外","sound":"サウンド","duration":"回転時間","sec":"秒","noResults":"まだ結果がありません。回してみましょう！","clearResults":"結果を消す","winner":"決定！","remove":"除外","close":"閉じる","entriesCount":"{n} 件","titlePh":"ルーレットのタイトル（任意）","language":"言語","from":"から","to":"まで","ok":"適用","maybe":"「たぶん」を追加","maybeWord":"たぶん","tapToSpin":"ルーレットをタップするか「回す」を押してください","spinning":"回転中…","noEntries":"回すには項目を2つ以上入れてください。","other":"他のルーレット","howTo":"使い方","faqTitle":"よくある質問"},"entries":["さくら","ゆうと","はると","ひなた","みお","そうた","あおい","りく"],"langUrls":{"en":"/wheel/","ko":"/wheel/ko/","zh":"/wheel/zh/","ja":"/wheel/ja/","es":"/wheel/es/","pt":"/wheel/pt/","de":"/wheel/de/","fr":"/wheel/fr/"},"maybeWord":"たぶん"};</script>
+<script src="/wheel/wheel.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+// 돌림판 페이지 생성기: wheel/src/{template.html, wheel.css, strings.json} → /wheel/[언어/][프리셋/]index.html
+//   node tools/build-wheel.js
+// 언어를 추가하려면 strings.json 에 블록만 추가하면 된다. 사이트맵도 같이 갱신한다.
+const fs = require('fs'), path = require('path');
+const root = path.resolve(__dirname, '..'), src = path.join(root, 'wheel', 'src');
+const S = JSON.parse(fs.readFileSync(path.join(src, 'strings.json'), 'utf8'));
+const tpl = fs.readFileSync(path.join(src, 'template.html'), 'utf8');
+const css = fs.readFileSync(path.join(src, 'wheel.css'), 'utf8').trim();
+const gaFile = path.join(__dirname, 'ga-id.txt');
+const gaId = fs.existsSync(gaFile) ? fs.readFileSync(gaFile, 'utf8').trim() : '';
+const ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1415309581345613" crossorigin="anonymous"></script>';
+const GA = gaId ? '<script async src="https://www.googletagmanager.com/gtag/js?id=' + gaId + '"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","' + gaId + '");</script>' : '';
+const PRESETS = ['index', 'yes-or-no', 'number', 'what-to-eat'];
+const HREFLANG = { en: 'en', ko: 'ko', zh: 'zh-Hans', ja: 'ja', es: 'es', pt: 'pt', de: 'de', fr: 'fr' };
+const HTMLLANG = { zh: 'zh-Hans' };
+const langs = Object.keys(S);
+const SITE = 'https://parkbok.com';
+
+const url = (lang, preset) => '/wheel/' + (lang === 'en' ? '' : lang + '/') + (preset === 'index' ? '' : preset + '/');
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const safeJson = o => JSON.stringify(o).replace(/</g, '\\u003c');
+
+let urls = [], count = 0;
+for (const lang of langs) for (const preset of PRESETS) {
+  const L = S[lang], P = L.presets[preset], U = L.ui;
+  const canonical = SITE + url(lang, preset);
+  const hreflangs = langs.map(l => `<link rel="alternate" hreflang="${HREFLANG[l] || l}" href="${SITE}${url(l, preset)}">`).join('\n')
+    + `\n<link rel="alternate" hreflang="x-default" href="${SITE}${url('en', preset)}">`;
+  const presetNav = PRESETS.map(p => `<a href="${url(lang, p)}"${p === preset ? ' class="on"' : ''}>${esc(L.presets[p].nav)}</a>`).join('');
+  const presetChips = PRESETS.filter(p => p !== preset).map(p => `<a href="${url(lang, p)}">${esc(L.presets[p].h1)}</a>`).join('');
+  const langOptions = langs.map(l => `<option value="${url(l, preset)}" data-code="${l}"${l === lang ? ' selected' : ''}>${esc(S[l].name)}</option>`).join('');
+  const steps = L.steps.map(s => `<li>${esc(s)}</li>`).join('');
+  const faq = P.faq.map(q => `<dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd>`).join('');
+  let presetControls = '';
+  if (preset === 'number') presetControls = `<div class="ctl"><label>${esc(U.from)} <input type="number" id="num-from" value="1"></label><label>${esc(U.to)} <input type="number" id="num-to" value="10"></label><button class="btn ghost" type="button" id="num-apply">${esc(U.ok)}</button></div>`;
+  if (preset === 'yes-or-no') presetControls = `<div class="ctl"><label><input type="checkbox" id="yn-maybe"> ${esc(U.maybe)}</label></div>`;
+  const langUrls = {}; langs.forEach(l => { langUrls[l] = url(l, preset); });
+  const config = { lang, preset, ui: U, entries: P.entries || [], langUrls, maybeWord: U.maybeWord };
+  const jsonld = [
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: P.h1, url: canonical, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', inLanguage: HREFLANG[lang] || lang, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: P.description },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: P.faq.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) }
+  ];
+  const vars = {
+    lang: HTMLLANG[lang] || lang, dir: L.dir || 'ltr', title: esc(P.title), description: esc(P.description), canonical, hreflangs,
+    brand: esc(L.brand), homeUrl: url(lang, 'index'), presetNav, presetChips, langOptions, h1: esc(P.h1), intro: esc(P.intro),
+    steps, faq, presetControls, css, adsense: ADSENSE, ga: GA, jsonld: safeJson(jsonld), config: safeJson(config)
+  };
+  let html = tpl.replace(/\{\{ui\.(\w+)\}\}/g, (m, k) => esc(U[k] != null ? U[k] : m));
+  html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => vars[k] != null ? vars[k] : m);
+  const out = path.join(root, url(lang, preset).replace(/\//g, path.sep), 'index.html');
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, html, 'utf8');
+  urls.push(canonical); count++;
+}
+
+// 사이트맵 갱신 (<!-- wheel:start --> … <!-- wheel:end --> 사이)
+const smPath = path.join(root, 'sitemap.xml');
+let sm = fs.readFileSync(smPath, 'utf8');
+const block = '<!-- wheel:start -->\n' + urls.map(u => `  <url><loc>${u}</loc></url>`).join('\n') + '\n  <!-- wheel:end -->';
+if (/<!-- wheel:start -->[\s\S]*?<!-- wheel:end -->/.test(sm)) sm = sm.replace(/<!-- wheel:start -->[\s\S]*?<!-- wheel:end -->/, block);
+else sm = sm.replace(/<\/urlset>/, '  ' + block + '\n</urlset>');
+fs.writeFileSync(smPath, sm, 'utf8');
+console.log('wheel pages:', count, '| languages:', langs.join(','), '| sitemap urls:', urls.length);
