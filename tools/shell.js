@@ -29,7 +29,7 @@ function header({ lang = 'ko', section = '', wheelHome = '/wheel/ko/', pdfHome =
     brand: esc(t.brand), menu: esc(t.menu),
     'nav.hwp': esc(t.nav.hwp), 'nav.text': esc(t.nav.text), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.wheel': esc(t.nav.wheel), 'nav.guide': esc(t.nav.guide),
     'on:hwp': on('hwp'), 'on:text': on('text'), 'on:pdf': on('pdf'), 'on:wheel': on('wheel'), 'on:guide': on('guide'),
-    wheel_home: wheelHome, pdf_home: pdfHome, lang_select: langSelect, subnav
+    wheel_home: wheelHome, pdf_home: pdfHome, lang_select: langSelect, subnav, theme: esc(t.theme || 'Theme')
   });
 }
 function footer({ lang = 'ko', extra = '' } = {}){

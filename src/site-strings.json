@@ -16,7 +16,8 @@
       "guide": "Guides"
     },
     "language": "Language",
-    "footMenu": "Footer menu"
+    "footMenu": "Footer menu",
+    "theme": "Light / dark"
   },
   "ko": {
     "brand": "parkbok",
@@ -35,7 +36,8 @@
       "guide": "가이드"
     },
     "language": "언어",
-    "footMenu": "바닥글 메뉴"
+    "footMenu": "바닥글 메뉴",
+    "theme": "라이트 / 다크"
   },
   "zh": {
     "brand": "parkbok",
@@ -54,7 +56,8 @@
       "guide": "指南"
     },
     "language": "语言",
-    "footMenu": "页脚菜单"
+    "footMenu": "页脚菜单",
+    "theme": "浅色 / 深色"
   },
   "ja": {
     "brand": "parkbok",
@@ -73,7 +76,8 @@
       "guide": "ガイド"
     },
     "language": "言語",
-    "footMenu": "フッターメニュー"
+    "footMenu": "フッターメニュー",
+    "theme": "ライト / ダーク"
   },
   "es": {
     "brand": "parkbok",
@@ -92,7 +96,8 @@
       "guide": "Guías"
     },
     "language": "Idioma",
-    "footMenu": "Menú del pie"
+    "footMenu": "Menú del pie",
+    "theme": "Claro / oscuro"
   },
   "pt": {
     "brand": "parkbok",
@@ -111,7 +116,8 @@
       "guide": "Guias"
     },
     "language": "Idioma",
-    "footMenu": "Menu do rodapé"
+    "footMenu": "Menu do rodapé",
+    "theme": "Claro / escuro"
   },
   "de": {
     "brand": "parkbok",
@@ -130,7 +136,8 @@
       "guide": "Anleitungen"
     },
     "language": "Sprache",
-    "footMenu": "Fußzeilenmenü"
+    "footMenu": "Fußzeilenmenü",
+    "theme": "Hell / dunkel"
   },
   "fr": {
     "brand": "parkbok",
@@ -149,6 +156,7 @@
       "guide": "Guides"
     },
     "language": "Langue",
-    "footMenu": "Menu de pied de page"
+    "footMenu": "Menu de pied de page",
+    "theme": "Clair / sombre"
   }
 }

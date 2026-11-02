@@ -11,6 +11,7 @@
 <link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#2563eb">
+<script>try{var __t=localStorage.getItem('pb_theme');if(__t)document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="parkbok">
 <meta property="og:image" content="https://parkbok.com/og.png">
@@ -46,7 +47,10 @@
 html[lang="en"],html[lang="es"],html[lang="pt"],html[lang="de"],html[lang="fr"]{--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
 html[lang^="zh"]{--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
+/* 다크: 기기 설정을 따르되, 헤더의 ◐ 버튼으로 고른 값(data-theme)이 있으면 그것을 우선 */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
+:root[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}
+:root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light}
 
 /* ---------- 기본 ---------- */
 *{box-sizing:border-box}
@@ -77,6 +81,9 @@ nav.menu a{display:inline-block;font-size:var(--fs-small);font-weight:var(--fw-m
 nav.menu a:hover{background:var(--bg);color:var(--ink);text-decoration:none}
 nav.menu a.on{background:var(--accent);color:var(--accent-ink)}
 .lang-select{flex:none;font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
+.theme-btn{flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
+.theme-btn:hover{border-color:var(--ink)}
+.chips.filters{margin:24px 0 12px}
 .subnav{border-top:1px solid var(--line)}
 header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--subnav-h);overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .subnav .wrap::-webkit-scrollbar{display:none}
@@ -198,7 +205,7 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 </head>
 <body>
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="라이트 / 다크" title="라이트 / 다크">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});</script></header>
 <!-- /shell:header -->
 <main class="wrap"><article class="card">
 <h1>이용약관</h1>
