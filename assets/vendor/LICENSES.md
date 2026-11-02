@@ -16,3 +16,18 @@
 - JSZip: https://github.com/Stuk/jszip/blob/main/LICENSE.markdown (MIT/GPLv3), 내장 pako 는 MIT
 - libheif-js: https://github.com/catdad-experiments/libheif-js (MIT 래퍼) / libheif: https://github.com/strukturag/libheif/blob/master/COPYING (LGPL-3.0). 수정 없이 원본 번들 그대로 사용하며 HEIC 디코드에만 지연 로드한다. LGPL 에 따라 이 파일은 교체 가능한 별도 파일로 둔다.
 - piexifjs: https://github.com/hMatoba/piexifjs/blob/master/LICENSE.txt (MIT). JPEG EXIF 읽기·쓰기·삭제(/image/exif/)에만 지연 로드한다. GitHub 1.0.6 태그의 원본 파일(LF)을 그대로 둔다.
+
+## assets/hwp-bundle.js (HWP 뷰어 번들)
+
+`assets/hwp-bundle.js` 는 `_build/`(gitignore, esbuild) 에서 아래 패키지를 묶은 파일이다. 버전은 `_build/node_modules/<pkg>/package.json`, 라이선스 원문은 각 패키지의 LICENSE 파일을 `licenses/` 에 그대로 복사했다(2026-11-03). NOTICE 파일은 여섯 패키지 모두 배포본에 없다.
+
+| 패키지 | 버전 | 라이선스 | 원문 | 출처 |
+|---|---|---|---|---|
+| hwp.js | 0.0.3 | Apache-2.0 | licenses/hwp.js-LICENSE.txt | https://github.com/hahnlee/hwp.js |
+| fflate | 0.8.3 | MIT | licenses/fflate-LICENSE.txt | https://github.com/101arrowz/fflate |
+| cfb | 1.2.2 | Apache-2.0 | licenses/cfb-LICENSE.txt | https://github.com/SheetJS/js-cfb |
+| crc-32 | 1.2.2 | Apache-2.0 | licenses/crc-32-LICENSE.txt | https://github.com/SheetJS/js-crc32 |
+| adler-32 | 1.3.1 | Apache-2.0 | licenses/adler-32-LICENSE.txt | https://github.com/SheetJS/js-adler32 |
+| pako | 1.0.11 | MIT AND Zlib | licenses/pako-LICENSE.txt | https://github.com/nodeca/pako |
+
+- 공개 고지: /terms.html §5 와 홈 푸터(hwp.js). Apache-2.0 제4조에 따라 라이선스 원문을 함께 배포한다.
