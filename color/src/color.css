@@ -17,6 +17,7 @@ button.c-preview{cursor:pointer}
 .c-field input[type=text]{flex:1;min-width:0;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--bg);color:var(--ink)}
 .c-field input[type=text]:focus{outline:2px solid var(--accent);outline-offset:-1px}
 .c-field input[type=text].err{border-color:var(--err)}
+.tool select,.tool input[type=number]{min-height:44px}
 .c-pick{flex:none;width:48px;height:48px;padding:0;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);cursor:pointer}
 .c-pick::-webkit-color-swatch-wrapper{padding:4px}
 .c-pick::-webkit-color-swatch{border:0;border-radius:6px}

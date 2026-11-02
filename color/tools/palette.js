@@ -23,6 +23,12 @@
     '.ph-row .cswatch.lg{min-height:64px}',
     '.ph-row.sm .cswatch{aspect-ratio:auto;height:52px}',
     '.ph-row.sm .cswatch.base::before{content:"";position:absolute;inset:4px;border:2px solid currentColor;border-radius:5px;opacity:.7;pointer-events:none}',
+    // 재생성: 기준색 입력 옆 48×48 아이콘 버튼 (색 고르기 버튼과 같은 크기)
+    '.ph-rand{flex:none;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;padding:0;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);cursor:pointer;transition:var(--t-btn)}',
+    '.ph-rand svg{width:22px;height:22px}',
+    '.ph-rand:hover{border-color:var(--ink);background:var(--accent-tint);color:var(--accent-text)}',
+    '.ph-rand:focus-visible{outline:2px solid var(--accent);outline-offset:1px}',
+    '.ph-rand:active{background:var(--line);color:var(--ink)}',
     // 모바일: 기준색 → 입력 → 배색 → (접힌) 상세값 → 내보내기 순. c-top·c-panel 상자를 풀어 .tool 의 flex order 로 세운다
     '@media (max-width:767.98px){',
     '.c-top,.c-panel{display:contents}',
@@ -96,12 +102,13 @@
   var field = el('div', 'c-field');
   var inp = el('input'); inp.type = 'text'; inp.id = 'cin'; inp.placeholder = t('placeholder'); inp.autocomplete = 'off'; inp.spellcheck = false; inp.setAttribute('aria-label', t('base'));
   var pick = el('input', 'c-pick'); pick.type = 'color'; pick.id = 'cpick'; pick.setAttribute('aria-label', t('pick')); pick.title = t('pick');
-  field.appendChild(inp); field.appendChild(pick);
+  var btnRand = el('button', 'ph-rand'); btnRand.type = 'button'; btnRand.setAttribute('aria-label', t('randomize')); btnRand.title = t('randomize');
+  btnRand.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="m4 4 5 5"/></svg>';
+  field.appendChild(inp); field.appendChild(pick); field.appendChild(btnRand);
   var row = el('div', 'row ph-actions');
-  var btnRand = el('button', 'btn ghost sm', t('randomize')); btnRand.type = 'button';
   var btnCss = el('button', 'btn sm', t('copyCss')); btnCss.type = 'button';
   var btnJson = el('button', 'btn ghost sm', t('copyJson')); btnJson.type = 'button';
-  row.appendChild(btnRand); row.appendChild(btnCss); row.appendChild(btnJson);
+  row.appendChild(btnCss); row.appendChild(btnJson);
   var status = el('p', 'status'); status.id = 'cstatus';
   var rows = el('div', 'vrows');
   var R = { hex: U.valueRow(t('hex'), ''), rgb: U.valueRow(t('rgb'), ''), hsl: U.valueRow(t('hsl'), ''), name: U.valueRow(t('cssName'), '') };

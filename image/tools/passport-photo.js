@@ -248,9 +248,10 @@
       { id: 'custom', type: 'custom-size', showIf: { preset: 'custom' } },
       { id: 'ratio', type: 'ratio' },
       { id: 'crop', type: 'crop', ratioFrom: 'ratio', guide: function(rect, getValue){ return guides(spec(getValue('preset'), getValue('custom')), rect, window.IMGT.t); } },
-      { id: 'format', type: 'select', choices: ['jpg', 'png'], default: 'jpg' },
-      { id: 'maxKb', type: 'kb', showIf: { format: 'jpg' }, presetDefault: DEFAULT_BY_LANG[LANG] || 'us_passport' },
-      { id: 'bg', type: 'select', choices: ['keep', 'white'], default: 'keep' }
+      // 저장 옵션(group:'save'): 모바일에서는 자르기 뒤에 접힌 채로 놓인다
+      { id: 'format', type: 'select', choices: ['jpg', 'png'], default: 'jpg', group: 'save' },
+      { id: 'maxKb', type: 'kb', showIf: { format: 'jpg' }, presetDefault: DEFAULT_BY_LANG[LANG] || 'us_passport', group: 'save' },
+      { id: 'bg', type: 'select', choices: ['keep', 'white'], default: 'keep', group: 'save' }
     ],
     renderers: renderers,
     run: async function(files, opts, ctx){

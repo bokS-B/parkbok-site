@@ -22,6 +22,7 @@
       "guideChin": "chin",
       "noteOver": "Could not get under {kb} KB. Crop tighter or raise the limit.",
       "noteUpscale": "The original is small, so the result may look soft.",
+      "groups": { "save": "Save options" },
       "options": {
         "preset": {
           "label": "Format",
@@ -83,6 +84,7 @@
       "guideChin": "턱",
       "noteOver": "{kb}KB 이하로 줄이지 못했습니다. 영역을 더 작게 잡거나 상한을 올려 보세요.",
       "noteUpscale": "원본 해상도가 낮아 선명도가 떨어질 수 있습니다.",
+      "groups": { "save": "저장 옵션" },
       "options": {
         "preset": {
           "label": "규격",
@@ -144,6 +146,7 @@
       "guideChin": "下巴",
       "noteOver": "无法压缩到 {kb} KB 以下，请缩小裁剪范围或提高上限。",
       "noteUpscale": "原图分辨率较低，结果可能不够清晰。",
+      "groups": { "save": "保存选项" },
       "options": {
         "preset": {
           "label": "规格",
@@ -205,6 +208,7 @@
       "guideChin": "あご",
       "noteOver": "{kb}KB 以下にできませんでした。範囲を狭くするか上限を上げてください。",
       "noteUpscale": "元の解像度が低いため、仕上がりがぼやける場合があります。",
+      "groups": { "save": "保存オプション" },
       "options": {
         "preset": {
           "label": "規格",
@@ -266,6 +270,7 @@
       "guideChin": "mentón",
       "noteOver": "No se pudo bajar de {kb} KB. Recorta más o sube el límite.",
       "noteUpscale": "El original es pequeño; el resultado puede verse borroso.",
+      "groups": { "save": "Opciones de guardado" },
       "options": {
         "preset": {
           "label": "Formato",
@@ -327,6 +332,7 @@
       "guideChin": "queixo",
       "noteOver": "Não foi possível ficar abaixo de {kb} KB. Recorte mais ou aumente o limite.",
       "noteUpscale": "O original é pequeno; o resultado pode ficar sem nitidez.",
+      "groups": { "save": "Opções de salvamento" },
       "options": {
         "preset": {
           "label": "Formato",
@@ -388,6 +394,7 @@
       "guideChin": "Kinn",
       "noteOver": "Unter {kb} KB war nicht möglich. Enger zuschneiden oder Limit erhöhen.",
       "noteUpscale": "Das Original ist klein, das Ergebnis kann unscharf wirken.",
+      "groups": { "save": "Speicheroptionen" },
       "options": {
         "preset": {
           "label": "Format",
@@ -449,6 +456,7 @@
       "guideChin": "menton",
       "noteOver": "Impossible de descendre sous {kb} Ko. Recadrez plus serré ou augmentez la limite.",
       "noteUpscale": "L'original est petit, le résultat peut manquer de netteté.",
+      "groups": { "save": "Options d'enregistrement" },
       "options": {
         "preset": {
           "label": "Format",

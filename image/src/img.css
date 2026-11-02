@@ -32,14 +32,16 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .opts#opts[hidden]{display:none}
 .opt{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .opt[hidden]{display:none}
-.opt-label{font-weight:var(--fw-semibold);color:var(--ink);min-width:110px}
+.opts#opts .opt-label{font-weight:var(--fw-semibold);color:var(--ink);min-width:110px;min-height:0}   /* 제목용 라벨: 공통 .opts label 의 44px 최소 높이를 적용하지 않는다 */
 .opt-help{flex-basis:100%;color:var(--muted);font-size:var(--fs-caption)}
+/* 터치 크기: 선택창·글자·숫자 입력·라디오 44px */
+.opts#opts select,.opts#opts input[type=text],.opts#opts input[type=number]{min-height:44px;padding:8px 10px}
 .opt-text input[type=text]{flex:1;min-width:140px;max-width:360px}
 .opt-number input[type=number]{width:96px}
 .num-wrap{display:inline-flex;align-items:center;gap:4px}
 .num-unit{color:var(--muted);font-size:var(--fs-caption)}
 .radio-group{display:flex;flex-wrap:wrap;gap:6px}
-.radio{display:inline-flex;align-items:center;gap:6px;height:var(--chip-h);padding:var(--chip-pad);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);cursor:pointer;white-space:nowrap}
+.radio{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:var(--chip-pad);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);cursor:pointer;white-space:nowrap}
 .radio:has(input:checked){background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .radio:has(input:checked) input{accent-color:var(--accent-ink)}
 .radio input{margin:0}
@@ -47,7 +49,7 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .range-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:160px;max-width:360px}
 .range-wrap input[type=range]{flex:1;accent-color:var(--accent)}
 .range-val{min-width:44px;text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
-.opt-color input[type=color]{width:44px;height:32px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);padding:2px;cursor:pointer}
+.opt-color input[type=color]{width:44px;height:44px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);padding:2px;cursor:pointer}
 .pos-grid{display:grid;grid-template-columns:repeat(3,28px);gap:4px}
 .pos{width:28px;height:28px;border:1px solid var(--line);border-radius:6px;background:var(--card);cursor:pointer;padding:0}
 .pos.on{background:var(--accent);border-color:var(--accent)}
@@ -83,14 +85,33 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .opt-crop,.opt-blur-regions{flex-direction:column;flex-wrap:nowrap;align-items:stretch}
 /* layout:split (여권사진): 편집기 왼쪽, 나머지 옵션(.opt-side) 오른쪽 — 데스크톱만 2열 */
 .opt-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+/* 옵션 묶음(details.opt-group): 모바일은 접힌 채 44px 제목 행, 데스크톱은 제목 없이 펼친 상태 */
+.opt-group{min-width:0}
+.opt-group > summary{display:flex;align-items:center;gap:6px;min-height:44px;font-weight:var(--fw-semibold);color:var(--ink);cursor:pointer;list-style:none;user-select:none;-webkit-user-select:none}
+.opt-group > summary::-webkit-details-marker{display:none}
+.opt-group > summary::before{content:"▸";width:12px;text-align:center}
+.opt-group[open] > summary::before{content:"▾"}
+.opt-group > .opt{margin-top:14px}
+.opt-group[open] > summary{margin-bottom:-2px}
+@media (max-width:1023.98px){
+  /* 모바일 순서: 규격 → 자르기 → 저장 옵션(접힘). .opt-side 를 풀어 #opts 의 flex 항목으로 만들고 order 로 배치 */
+  .opts#opts[data-layout="split"] .opt-side{display:contents}
+  .opts#opts[data-layout="split"] .opt-crop,.opts#opts[data-layout="split"] .opt-blur-regions{order:2}
+  .opts#opts[data-layout="split"] .opt-group{order:3;border-top:1px solid var(--line)}
+  .opts#opts[data-layout="split"] .opt-crop > .opt-label{display:none}
+}
 @media (min-width:1024px){
+  .opt-group > summary{display:none}
+  .opt-group > .opt:first-of-type{margin-top:0}
   .opts#opts[data-layout="split"]{display:grid;grid-template-columns:minmax(0,1fr) var(--opts-w);gap:14px 24px;align-items:start}
   .opts#opts[data-layout="split"] .opt-crop,.opts#opts[data-layout="split"] .opt-blur-regions{grid-column:1;grid-row:1}
   .opts#opts[data-layout="split"] .opt-side{grid-column:2;grid-row:1}
   /* 2열에서는 편집기 라벨을 숨기고, 실행 버튼이 첫 화면(900px)에 들어오도록 높이 상한을 화면 높이에서 뺀 값으로도 제한 */
   .opts#opts[data-layout="split"] .opt-crop > .opt-label{display:none}
   .opts#opts[data-layout="split"] .rect-box{--rect-max-h:max(300px,min(56dvh,520px,calc(100dvh - 520px)))}
-  .opt-side .opt-label{min-width:0;flex-basis:100%}
+  /* 옵션 열: 규격 선택창만 한 줄 전체, 나머지는 라벨 옆에 컨트롤 */
+  .opts#opts .opt-side .opt-label{min-width:96px}
+  .opts#opts .opt-side .opt-preset .opt-label{min-width:0;flex-basis:100%}
   .opt-side .opt-preset select{width:100%}
 }
 /* 표시 높이는 min(56dvh,520px) 까지: 미리보기 비율(--ar, JS 가 넣음)로 너비를 줄이면 오버레이는 퍼센트 좌표라 같이 줄어든다 */
@@ -102,6 +123,8 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .opt-blur-regions .rsel{box-shadow:none;background:rgba(37,99,235,.25);border-color:var(--accent)}
 .opt-blur-regions .rsel.on{background:rgba(37,99,235,.4)}
 .rh{position:absolute;width:14px;height:14px;background:#fff;border:1px solid rgba(0,0,0,.6);border-radius:3px;box-sizing:border-box}
+/* 손잡이 보이는 크기는 그대로, 히트 영역 44×44 (::before 는 패딩 박스 기준: 12px + 16px×2) */
+.rh::before{content:"";position:absolute;inset:-16px}
 .rguide{position:absolute;box-sizing:border-box;pointer-events:none;border:1px dashed rgba(255,255,255,.9);outline:1px dashed rgba(0,0,0,.45);font-size:11px;line-height:1;color:#fff;text-shadow:0 0 3px #000;padding:2px 3px}
 .rguide.line{border-width:1px 0 0 0;outline:none}
 .rguide.oval{border-radius:50%}
@@ -141,7 +164,7 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
   .stage-out .actions{position:sticky;bottom:0;z-index:5;flex-wrap:nowrap;gap:8px;background:var(--bg);padding:8px 0 calc(8px + env(safe-area-inset-bottom));margin:8px 0 0;box-shadow:0 -8px 12px -8px rgba(0,0,0,.15)}
   .stage-out .actions .btn-big{flex:1 1 auto;width:auto;min-width:0;min-height:56px;padding:12px 16px;font-size:20px;line-height:24px}
   .stage-out .actions .btn.ghost{flex:0 0 auto;min-height:44px;padding:8px 14px}
-  .opt-label{min-width:0;flex-basis:100%}
+  .opts#opts .opt-label{min-width:0;flex-basis:100%}
   .pages-grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px}
   .pg{padding:4px 4px 22px}
   .pg.ord{padding-bottom:54px}
@@ -149,6 +172,7 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
   .file-thumb,.file-ic{width:36px;height:36px}
   .result-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
   .rh{width:18px;height:18px}
+  .rh::before{inset:-14px}
   .rh-nw,.rh-sw,.rh-w{left:-9px}.rh-ne,.rh-se,.rh-e{right:-9px}.rh-nw,.rh-ne,.rh-n{top:-9px}.rh-sw,.rh-se,.rh-s{bottom:-9px}
   .rh-n,.rh-s{margin-left:-9px}.rh-w,.rh-e{margin-top:-9px}
 }

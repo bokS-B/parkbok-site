@@ -45,10 +45,10 @@
   --fs-body:16px;--lh-body:24px;--fs-h1:32px;--lh-h1:40px;--fs-lead:18px;--lh-lead:28px;--fs-h1-compact:20px;--lh-h1-compact:28px;
   --fs-card-title:18px;--lh-card-title:26px;--fs-card-desc:13px;--lh-card-desc:18px;--ls-card-desc:.3px;
   --fs-small:14px;--lh-small:18px;--fs-caption:12px;--lh-caption:16px;
-  --header-h:60px;--header-z:100;--header-pad-x:24px;--subnav-h:40px;--wrap:1200px;--gutter:16px;
+  --header-h:60px;--header-z:100;--header-pad-x:24px;--subnav-h:44px;--wrap:1200px;--gutter:16px;
   --grid-gap:16px;--card-pad:24px;--card-icon:48px;--card-icon-mb:16px;
   --btn-pad:8px 20px;--btn-fs:16px;--btn-lh:26px;--btn-fw:600;--btn-sm-pad:8px 12px;--btn-sm-fs:14px;
-  --btn-big-pad:24px 48px;--btn-big-min-w:330px;--btn-big-min-h:80px;--btn-big-fs:24px;--btn-big-lh:28px;
+  --btn-big-pad:16px 40px;--btn-big-min-w:330px;--btn-big-min-h:60px;--btn-big-fs:20px;--btn-big-lh:24px;--touch:44px;
   --drop-compact-h:48px;--drop-home-max-h:140px;--chip-h:34px;--chip-pad:4px 16px;--chip-fs:15px;--badge-h:24px;--badge-pad:4px 8px;
   --opts-w:320px;--stage-gap:24px;--section-gap:32px;--ad-max-w:970px;
   --r-badge:4px;--r-btn:8px;--r-big:12px;--r-card:16px;--r-banner:24px;--r-pill:9999px;
@@ -92,17 +92,20 @@ header.top .wrap{display:flex;align-items:center;gap:12px;height:var(--header-h)
 .brand:hover{text-decoration:none;color:var(--accent-text)}
 nav.menu{position:relative;display:flex;align-items:center;gap:2px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 nav.menu::-webkit-scrollbar{display:none}
-nav.menu a{display:inline-block;font-size:var(--fs-small);font-weight:var(--fw-medium);line-height:18px;padding:8px 12px;border-radius:var(--r-pill);color:var(--muted);transition:var(--t-chip)}
+nav.menu a{position:relative;display:inline-block;font-size:var(--fs-small);font-weight:var(--fw-medium);line-height:18px;padding:8px 12px;border-radius:var(--r-pill);color:var(--muted);transition:var(--t-chip)}
+nav.menu a::before{content:"";position:absolute;left:0;right:0;top:calc(50% - var(--touch)/2);height:var(--touch)}
 nav.menu a:hover{background:var(--bg);color:var(--ink);text-decoration:none}
 nav.menu a.on{background:var(--accent);color:var(--accent-ink)}
-.lang-select{flex:none;margin-left:auto;font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
-.theme-btn{flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
+.lang-select{flex:none;margin-left:auto;min-height:var(--touch);font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
+.theme-btn{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
+.theme-btn::before{content:"";position:absolute;inset:-5px}
 .theme-btn:hover{border-color:var(--ink)}
 .chips.filters{margin:24px 0 12px}
 .subnav{border-top:1px solid var(--line)}
 header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--subnav-h);overflow-x:auto;white-space:nowrap;scrollbar-width:none}
 .subnav .wrap::-webkit-scrollbar{display:none}
 .subnav .chip{height:28px;padding:2px 12px;font-size:13px}
+.subnav .chip::before{top:calc(50% - var(--subnav-h)/2);height:var(--subnav-h)}
 .subnav .chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 
 /* ---------- 셸: 푸터 ---------- */
@@ -112,14 +115,14 @@ footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px s
 .foot-copy{font-size:var(--fs-caption);line-height:var(--lh-caption);opacity:.7;margin:14px 0 0}
 
 /* ---------- 버튼 ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:var(--btn-fs);line-height:var(--btn-lh);font-weight:var(--btn-fw);padding:var(--btn-pad);border:0;border-radius:var(--r-btn);background:var(--accent);color:var(--accent-ink);cursor:pointer;text-decoration:none;transition:var(--t-btn);margin:0;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:var(--touch);font:inherit;font-size:var(--btn-fs);line-height:var(--btn-lh);font-weight:var(--btn-fw);padding:var(--btn-pad);border:0;border-radius:var(--r-btn);background:var(--accent);color:var(--accent-ink);cursor:pointer;text-decoration:none;transition:var(--t-btn);margin:0;white-space:nowrap}
 .btn:hover{background:var(--accent-hover);color:var(--accent-ink);text-decoration:none}
 .btn:active{background:var(--accent-active)}
 .btn:disabled,.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
 .btn.ghost{background:var(--card);color:var(--accent-text);outline:2px solid var(--accent-text);outline-offset:-2px}
 .btn.ghost:hover{background:var(--accent-tint);color:var(--accent-text);outline-color:var(--accent-text)}
 .btn.ghost:active{color:var(--ink);outline-color:var(--ink)}
-.btn.sm{position:relative;min-width:44px;font-size:var(--btn-sm-fs);line-height:16px;padding:var(--btn-sm-pad)}
+.btn.sm{position:relative;min-width:44px;min-height:0;font-size:var(--btn-sm-fs);line-height:16px;padding:var(--btn-sm-pad)}
 .btn.sm::before{content:"";position:absolute;inset:-6px 0}
 .btn-big{display:inline-flex;align-items:center;justify-content:center;min-height:var(--btn-big-min-h);min-width:var(--btn-big-min-w);padding:var(--btn-big-pad);font:inherit;font-size:var(--btn-big-fs);line-height:var(--btn-big-lh);font-weight:var(--fw-medium);border:0;border-radius:var(--r-big);background:var(--accent);color:var(--accent-ink);box-shadow:var(--sh-btn-big);cursor:pointer;transition:var(--t-btn)}
 .btn-big:hover{background:var(--accent-hover)}.btn-big:active{background:var(--accent-active)}.btn-big:disabled{opacity:.5;pointer-events:none}
@@ -135,8 +138,8 @@ footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px s
 .status:empty{display:none}
 .status.err{color:var(--err)}.status.ok{color:var(--ok)}.status.busy,.status.empty{color:var(--muted)}
 .opts{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:var(--fs-small);margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-big);padding:10px 14px}
-.opts label{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
-.opts select,.opts input[type=text],.opts input[type=number]{font:inherit;font-size:var(--fs-small);padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+.opts label{display:inline-flex;align-items:center;gap:5px;min-height:var(--touch);white-space:nowrap}
+.opts select,.opts input[type=text],.opts input[type=number]{min-height:var(--touch);font:inherit;font-size:var(--fs-small);padding:4px 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
 .opts .sep{flex-basis:100%;height:0}
 .tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tt-grid textarea,#textout{width:100%;min-height:260px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--card);color:var(--ink)}
@@ -171,7 +174,9 @@ a.card:hover{border-color:var(--ink);text-decoration:none}
 .card.hidden{transform:scale(0);opacity:0;position:absolute;pointer-events:none}
 .badge{position:absolute;top:12px;right:12px;height:var(--badge-h);padding:var(--badge-pad);font-size:var(--fs-caption);line-height:var(--lh-caption);font-weight:var(--fw-medium);border-radius:var(--r-badge);background:var(--badge-new);border:1px solid var(--badge-new);color:var(--ink)}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 8px}
-.chip,.chips a,.chips button,.preset{display:inline-flex;align-items:center;height:var(--chip-h);padding:var(--chip-pad);font:inherit;font-size:var(--chip-fs);font-weight:var(--fw-medium);line-height:1;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);color:var(--ink);cursor:pointer;text-decoration:none;transition:var(--t-chip);white-space:nowrap}
+.chip,.chips a,.chips button,.preset{position:relative;display:inline-flex;align-items:center;height:var(--chip-h);padding:var(--chip-pad);font:inherit;font-size:var(--chip-fs);font-weight:var(--fw-medium);line-height:1;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);color:var(--ink);cursor:pointer;text-decoration:none;transition:var(--t-chip);white-space:nowrap}
+/* 보이는 높이는 작아도 터치 영역은 44px */
+.chip::before,.chips a::before,.chips button::before,.preset::before{content:"";position:absolute;left:0;right:0;top:calc(50% - var(--touch)/2);height:var(--touch)}
 .chip:hover,.chips a:hover,.chips button:hover,.preset:hover{border-color:var(--ink);color:var(--ink);text-decoration:none}
 .chip.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
 .preset.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
@@ -208,15 +213,13 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   .drop{padding:24px 16px}
   .btn-big{min-height:60px;font-size:20px;line-height:24px;padding:16px 28px}
   /* 모바일 헤더: [로고] [가로 스크롤 메뉴(언어 선택 포함)] [테마]. 오른쪽 페이드로 스크롤 단서, 끝에 닿으면(.end) 제거 */
-  header.top .wrap{gap:8px;padding-inline:16px}
-  .brand{font-size:17px}
+  header.top .wrap{gap:6px;padding-inline:16px}
+  .brand{font-size:16px;letter-spacing:-.02em}
   nav.menu{gap:8px;scroll-padding-inline:8px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
   nav.menu.end{-webkit-mask-image:none;mask-image:none}
   nav.menu a{padding:13px 12px;line-height:18px}
-  nav.menu .lang-select{margin-left:8px;height:40px}
-  .theme-btn{position:relative;width:40px;height:40px}
-  .theme-btn::before{content:"";position:absolute;inset:-2px}
-  .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  nav.menu .lang-select{margin-left:8px;height:var(--touch)}
+  .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:5px 0}
   .chips.next::-webkit-scrollbar{display:none}
 }
 @media (max-width:860px){.page-wheel .brand{display:none}}
@@ -270,8 +273,8 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 <body class="page-wheel">
 <!-- shell:header -->
 <header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="Menu principal"><a href="/">Visualizador HWP (KO)</a><a href="/text/">Ferramentas de texto (KO)</a><a href="/pdf/pt/">Ferramentas PDF</a><a href="/image/pt/">Ferramentas de imagem</a><a href="/color/pt/">Ferramentas de cor</a><a href="/wheel/pt/" class="on">Roleta</a><a href="/guide/">Guias (KO)</a><select id="lang" class="lang-select" aria-label="Idioma"><option value="/wheel/yes-or-no/" data-code="en">English</option><option value="/wheel/ko/yes-or-no/" data-code="ko">한국어</option><option value="/wheel/zh/yes-or-no/" data-code="zh">中文</option><option value="/wheel/ja/yes-or-no/" data-code="ja">日本語</option><option value="/wheel/es/yes-or-no/" data-code="es">Español</option><option value="/wheel/pt/yes-or-no/" data-code="pt" selected>Português</option><option value="/wheel/de/yes-or-no/" data-code="de">Deutsch</option><option value="/wheel/fr/yes-or-no/" data-code="fr">Français</option></select></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="Claro / escuro" title="Claro / escuro">◐</button></div><nav class="subnav" aria-label="Mais roletas"><div class="wrap"><a class="chip" href="/wheel/pt/">Nomes</a><a class="chip on" href="/wheel/pt/yes-or-no/">Sim ou Não</a><a class="chip" href="/wheel/pt/number/">Números</a><a class="chip" href="/wheel/pt/what-to-eat/">O que comer</a></div></nav><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
-// 모바일 메뉴: 현재 분류를 보이는 자리로 스크롤하고, 끝까지 스크롤되면 오른쪽 페이드를 끈다
-(function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){n.classList.toggle('end',n.scrollLeft+n.clientWidth>=n.scrollWidth-1)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',f);var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth)n.scrollLeft=Math.max(0,o.offsetLeft-(n.clientWidth-o.offsetWidth)/2);f()})();</script></header>
+// 모바일 메뉴: 현재 분류를 가운데로 스크롤(최초·창 크기 변경 시), 끝까지 스크롤되면 오른쪽 페이드를 끈다. 좌표는 getBoundingClientRect 차이라 어떤 CSS 에서도 같다
+(function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){n.classList.toggle('end',n.scrollLeft+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 <main class="wrap">
   <h1 class="sr">Roleta Sim ou Não</h1>

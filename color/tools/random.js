@@ -131,7 +131,13 @@
   paint();
   for (var m = 0; m < N; m++) setLock(m, false);
 
-  // 터치·모바일에서는 스페이스바 안내 대신 버튼·잠금 안내 문구
+  // 터치·모바일에서는 스페이스바 안내 대신 버튼·잠금 안내 문구. 창 크기·입력 방식이 바뀌면 다시 고른다
   var lead = document.querySelector('.tool-head .lead');
-  if (lead && t('lineTouch') !== 'lineTouch' && (matchMedia('(max-width:767.98px)').matches || matchMedia('(hover:none)').matches)) lead.textContent = t('lineTouch');
+  if (lead && t('lineTouch') !== 'lineTouch' && t('line') !== 'line') {
+    var mqW = matchMedia('(max-width:767.98px)'), mqH = matchMedia('(hover:none)');
+    var setLead = function(){ var v = (mqW.matches || mqH.matches) ? t('lineTouch') : t('line'); if (lead.textContent !== v) lead.textContent = v; };
+    setLead();
+    if (mqW.addEventListener) { mqW.addEventListener('change', setLead); mqH.addEventListener('change', setLead); }
+    window.addEventListener('resize', setLead);
+  }
 })();

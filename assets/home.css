@@ -8,6 +8,9 @@ main.wrap>.lead{margin:0 0 16px;word-break:keep-all;text-wrap:balance}
 .grid.tools-grid .card h3{font-size:18px;line-height:24px;font-weight:var(--fw-semibold)}
 @media (max-width:767.98px){
   main.wrap{padding-top:16px}
+  /* 제목 23px: 콘텐츠 폭 328px(세로 스크롤바 뷰포트)에서도 한 줄 */
+  main.wrap>h1{font-size:23px;line-height:32px}
+  main.wrap>.lead{margin-bottom:12px}
   /* 분류 칩: 한 줄 가로 스크롤 */
   .chips.filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter)) 12px;padding:0 var(--gutter) 2px}
   .chips.filters::-webkit-scrollbar{display:none}

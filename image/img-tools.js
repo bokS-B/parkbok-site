@@ -339,22 +339,41 @@
   }
 
   // ---------- 옵션 패널 ----------
-  var optListeners = [];
+  var optListeners = [], mqUnbind = [];
+  var DESKTOP_MQ = window.matchMedia ? window.matchMedia('(min-width:1024px)') : null;
   function renderOptions(){
     var opts = tool.options || [], box = dom.opts;
     box.innerHTML = ''; optUI = {}; optListeners = [];
+    mqUnbind.forEach(function(fn){ fn(); }); mqUnbind = [];
     if (!opts.length) { box.hidden = true; return; }
     box.setAttribute('data-tool', tool.id); box.setAttribute('data-layout', tool.layout || '');
-    // layout:'split' 이면 편집기(crop/blur) 행만 바로 넣고 나머지 옵션은 .opt-side 에 모은다 (데스크톱 2열, 모바일은 그대로 세로)
+    // layout:'split' 이면 편집기(crop/blur) 행만 바로 넣고 나머지 옵션은 .opt-side 에 모은다 (데스크톱 2열, 모바일은 CSS order 로 편집기를 앞에)
     var side = tool.layout === 'split' ? el('div', 'opt-side') : null;
     if (side) box.appendChild(side);
+    // o.group: 같은 이름끼리 <details class="opt-group"> 로 묶는다. 1024px 미만은 접힌 채 시작, 데스크톱은 항상 펼친다 (문구: 도구 strings.groups)
+    var groups = {};
+    function groupBox(name){
+      if (groups[name]) return groups[name];
+      var d = el('details', 'opt-group'), sm = el('summary', null, (TS.groups && TS.groups[name]) || name);
+      d.setAttribute('data-group', name); d.appendChild(sm);
+      var manual = false;
+      sm.addEventListener('click', function(){ manual = true; });
+      function sync(){ if (DESKTOP_MQ ? DESKTOP_MQ.matches : window.innerWidth >= 1024) d.open = true; else if (!manual) d.open = false; }
+      sync();
+      // 창 크기 변경에 따라 열림 상태를 맞춘다 (matchMedia change 와 resize 둘 다 듣는다)
+      window.addEventListener('resize', sync);
+      mqUnbind.push(function(){ window.removeEventListener('resize', sync); });
+      if (DESKTOP_MQ) { if (DESKTOP_MQ.addEventListener) DESKTOP_MQ.addEventListener('change', sync); else DESKTOP_MQ.addListener(sync); mqUnbind.push(function(){ if (DESKTOP_MQ.removeEventListener) DESKTOP_MQ.removeEventListener('change', sync); else DESKTOP_MQ.removeListener(sync); }); }
+      (side || box).appendChild(d);
+      groups[name] = d; return d;
+    }
     opts.forEach(function(o){
       var row = el('div', 'opt opt-' + o.type); row.setAttribute('data-opt', o.id);
       var r = renderers[o.type] || (tool.renderers && tool.renderers[o.type]); if (!r) return;
       r(o, row, widgetApi());
       var help = optStr(o.id, 'help');
       if (help && o.type !== 'text' && o.type !== 'number') row.appendChild(el('small', 'opt-help', help));
-      (side && o.type !== 'crop' && o.type !== 'blur-regions' ? side : box).appendChild(row);
+      (o.group ? groupBox(o.group) : (side && o.type !== 'crop' && o.type !== 'blur-regions' ? side : box)).appendChild(row);
     });
     box.hidden = false;
     if (!box.__bound) { box.__bound = true; box.addEventListener('change', onOptChange); box.addEventListener('input', onOptChange); }

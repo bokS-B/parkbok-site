@@ -14,11 +14,9 @@
 <link rel="stylesheet" href="/color/hex/hex.css">
 </head>
 <body>
-<!-- shell:header -->
 <header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="Main menu"><a href="/">HWP viewer (KO)</a><a href="/text/">Text tools (KO)</a><a href="/pdf/">PDF tools</a><a href="/image/">Image tools</a><a href="/color/" class="on">Color tools</a><a href="/wheel/">Spin the wheel</a><a href="/guide/">Guides (KO)</a></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="Light / dark" title="Light / dark">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
-// 모바일 메뉴: 현재 분류를 보이는 자리로 스크롤하고, 끝까지 스크롤되면 오른쪽 페이드를 끈다
-(function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){n.classList.toggle('end',n.scrollLeft+n.clientWidth>=n.scrollWidth-1)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',f);var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth)n.scrollLeft=Math.max(0,o.offsetLeft-(n.clientWidth-o.offsetWidth)/2);f()})();</script></header>
-<!-- /shell:header -->
+(function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){n.classList.toggle('end',n.scrollLeft+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
+
 <main class="wrap">
 <h1>#9922DD</h1><p class="lead">Closest named color: <a href="../8a2be2/"><i style="background:#8a2be2"></i>Blueviolet</a></p>
 <div class="sw" style="background:#9922dd;color:#fff">#9922DD</div>
@@ -37,9 +35,8 @@ border: 1px solid #9922dd;</pre><button aria-label="Copy CSS"></button></div>
 <h2>More colors</h2>
 <nav class="sc n5" aria-label="More colors"><a href="../7788aa/" style="background:#7788aa">7788aa</a><a href="../fffafa/" style="background:#fffafa">fffafa</a><a href="../cc1144/" style="background:#cc1144" class="d">cc1144</a><a href="../55ccdd/" style="background:#55ccdd">55ccdd</a><a href="../000022/" style="background:#000022" class="d">000022</a></nav>
 </main>
-<!-- shell:footer -->
 <footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="Footer menu"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/guide/">Guides</a></nav><p class="foot-copy">© parkbok</p></div></footer>
-<!-- /shell:footer -->
-<script>var T;onclick=function(e){var b=e.target,t=document.getElementById('tt');if(b.tagName!='BUTTON'||b.parentNode.className!='v')return;if(!t){t=document.createElement('div');t.id='tt';t.className='toast';t.setAttribute('role','status');t.textContent='Copied';document.body.appendChild(t)}navigator.clipboard&&navigator.clipboard.writeText(b.previousSibling.textContent).then(function(){t.classList.add('show');clearTimeout(T);T=setTimeout(function(){t.classList.remove('show')},1e3)})}</script>
+
+<script>var T,E;onclick=function(e){var b=e.target;if(b.tagName!='BUTTON'||b.parentNode.className!='v')return;if(!E){E=document.createElement('div');E.className='toast';E.setAttribute('role','status');E.textContent='Copied';document.body.appendChild(E)}navigator.clipboard&&navigator.clipboard.writeText(b.previousSibling.textContent).then(function(){E.className='toast show';clearTimeout(T);T=setTimeout(function(){E.className='toast'},1e3)})}</script>
 </body>
 </html>

@@ -31,12 +31,14 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .opts#opts[hidden]{display:none}
 .opt{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .opt[hidden]{display:none}
-.opt-label{font-weight:var(--fw-semibold);color:var(--ink);min-width:110px}
+.opts#opts .opt-label{font-weight:var(--fw-semibold);color:var(--ink);min-width:110px;min-height:0}   /* 제목용 라벨: 공통 .opts label 의 44px 최소 높이를 적용하지 않는다 */
 .opt-help{flex-basis:100%;color:var(--muted);font-size:var(--fs-caption)}
+/* 터치 크기: 선택창·글자·숫자 입력·라디오 44px */
+.opts#opts select,.opts#opts input[type=text],.opts#opts input[type=number]{min-height:44px;padding:8px 10px}
 .opt-text input[type=text]{flex:1;min-width:140px;max-width:360px}
 .opt-number input[type=number]{width:96px}
 .radio-group{display:flex;flex-wrap:wrap;gap:6px}
-.radio{display:inline-flex;align-items:center;gap:6px;height:var(--chip-h);padding:var(--chip-pad);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);cursor:pointer;white-space:nowrap}
+.radio{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:var(--chip-pad);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);cursor:pointer;white-space:nowrap}
 .radio:has(input:checked){background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .radio:has(input:checked) input{accent-color:var(--accent-ink)}
 .radio input{margin:0}
@@ -44,7 +46,7 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .range-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:160px;max-width:360px}
 .range-wrap input[type=range]{flex:1;accent-color:var(--accent)}
 .range-val{min-width:44px;text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
-.opt-color input[type=color]{width:44px;height:32px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);padding:2px;cursor:pointer}
+.opt-color input[type=color]{width:44px;height:44px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);padding:2px;cursor:pointer}
 .pos-grid{display:grid;grid-template-columns:repeat(3,28px);gap:4px}
 .pos{width:28px;height:28px;border:1px solid var(--line);border-radius:6px;background:var(--card);cursor:pointer;padding:0}
 .pos.on{background:var(--accent);border-color:var(--accent)}
@@ -104,7 +106,7 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
   .stage-out .actions{position:sticky;bottom:0;z-index:5;flex-wrap:nowrap;gap:8px;background:var(--bg);padding:8px 0 calc(8px + env(safe-area-inset-bottom));margin:8px 0 0;box-shadow:0 -8px 12px -8px rgba(0,0,0,.15)}
   .stage-out .actions .btn-big{flex:1 1 auto;width:auto;min-width:0;min-height:56px;padding:12px 16px;font-size:20px;line-height:24px}
   .stage-out .actions .btn.ghost{flex:0 0 auto;min-height:44px;padding:8px 14px}
-  .opt-label{min-width:0;flex-basis:100%}
+  .opts#opts .opt-label{min-width:0;flex-basis:100%}
   .pages-grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px}
   .pg{padding:4px 4px 22px}
   .pg.ord{padding-bottom:54px}

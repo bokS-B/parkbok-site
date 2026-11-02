@@ -51,8 +51,10 @@ const chip = (hex, label) => `<a href="${rel(hex)}"><i style="background:${hex}"
 // 행별 복사 버튼은 아이콘만(hex.css 의 --i-copy), 접근성 이름은 aria-label
 const row = (label, val) => `<div class="v"><b>${label}</b><code>${val}</code><button aria-label="Copy ${label}"></button></div>`;
 
-const header = shell.header({ lang: 'en', section: 'color', wheelHome: '/wheel/', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' });
-const footer = shell.footer({ lang: 'en' });
+// 셸 조각은 마커 주석과 스크립트의 // 줄 주석을 지워 6KB 를 지킨다 (한글 주석은 글자당 3B)
+const slim = h => h.replace(/<!-- \/?shell:\w+ -->\n?/g, '').replace(/^\/\/[^\n]*\n/gm, '');
+const header = slim(shell.header({ lang: 'en', section: 'color', wheelHome: '/wheel/', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' }));
+const footer = slim(shell.footer({ lang: 'en' }));
 
 function page(hex){
   const rgb = C.hexToRgb(hex), hsl = C.rgbToHsl(rgb), hsv = C.rgbToHsv(rgb), cmyk = C.rgbToCmyk(rgb);

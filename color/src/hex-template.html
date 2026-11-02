@@ -31,6 +31,6 @@
 <nav class="sc n5" aria-label="More colors">{{random}}</nav>
 </main>
 {{shell_footer}}
-<script>var T;onclick=function(e){var b=e.target,t=document.getElementById('tt');if(b.tagName!='BUTTON'||b.parentNode.className!='v')return;if(!t){t=document.createElement('div');t.id='tt';t.className='toast';t.setAttribute('role','status');t.textContent='Copied';document.body.appendChild(t)}navigator.clipboard&&navigator.clipboard.writeText(b.previousSibling.textContent).then(function(){t.classList.add('show');clearTimeout(T);T=setTimeout(function(){t.classList.remove('show')},1e3)})}</script>
+<script>var T,E;onclick=function(e){var b=e.target;if(b.tagName!='BUTTON'||b.parentNode.className!='v')return;if(!E){E=document.createElement('div');E.className='toast';E.setAttribute('role','status');E.textContent='Copied';document.body.appendChild(E)}navigator.clipboard&&navigator.clipboard.writeText(b.previousSibling.textContent).then(function(){E.className='toast show';clearTimeout(T);T=setTimeout(function(){E.className='toast'},1e3)})}</script>
 </body>
 </html>
