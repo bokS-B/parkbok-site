@@ -1,5 +1,5 @@
 // HEX 롱테일 페이지 생성기: color/src/hex-template.html + color/src/hex-lite.css + color/color.js + 공통 셸(tools/shell.js)
-//   → /color/hex/<6자리>/index.html (영어만, hreflang 없음) + /color/hex/hex.css (축약 CSS 한 장, 전 페이지 공유) + sitemap-colors.xml + robots.txt 의 Sitemap 줄
+//   → /color/hex/<6자리>/index.html (영어만, hreflang 없음) + /color/hex/hex.css (축약 CSS 한 장) + /color/hex/hex.js (헤더 스크립트 한 장, 전 페이지 공유) + sitemap-colors.xml + robots.txt 의 Sitemap 줄
 //   node tools/build-color-pages.js
 // 대상 색 = CSS 이름 색 + 3자리 단축 HEX 전개 4096 + 자체 정의 팔레트 ~300 + 사이트 기본색·회색 단계 (중복 제거). 모든 값은 빌드 때 계산한 정적 HTML.
 // 페이지 안의 모든 색 링크는 이 집합 안의 가장 가까운 색으로 맞춰(snap) 깨진 링크가 없다. 랜덤 5색은 hex 를 씨앗으로 써서 멱등.
@@ -11,7 +11,11 @@ const root = path.resolve(__dirname, '..'), src = path.join(root, 'color', 'src'
 const outDir = path.join(root, 'color', 'hex');
 const SITE = 'https://parkbok.com', SM = 'sitemap-colors.xml';
 const tpl = fs.readFileSync(path.join(src, 'hex-template.html'), 'utf8');
-const css = fs.readFileSync(path.join(src, 'hex-lite.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').split(/\r?\n/).map(l => l.trim()).filter(Boolean).join('');
+const minify = t => t.replace(/\/\*[\s\S]*?\*\//g, '').split(/\r?\n/).map(l => l.trim()).filter(Boolean).join('');
+// 브랜드 마크 규칙(토큰 --brand·.brand svg 크기)은 site.css 의 brand:start~end 블록을 그대로 가져와 hex-lite.css 뒤에 붙인다 — 헤더 마크가 바뀌어도 한 곳만 고친다
+const brandCss = (fs.readFileSync(path.join(root, 'assets', 'site.css'), 'utf8').match(/\/\* brand:start \*\/([\s\S]*?)\/\* brand:end \*\//) || [, ''])[1];
+if (!brandCss) throw new Error('site.css 에 brand:start~end 블록이 없습니다');
+const css = minify(fs.readFileSync(path.join(src, 'hex-lite.css'), 'utf8')) + minify(brandCss);
 const esc = shell.esc;
 const only = (() => { const i = process.argv.indexOf('--only'); return i > 0 ? process.argv[i + 1].split(',').map(h => C.parse(h)).filter(Boolean) : null; })();
 
@@ -53,7 +57,10 @@ const row = (label, val) => `<div class="v"><b>${label}</b><code>${val}</code><b
 
 // 셸 조각은 마커 주석과 스크립트의 // 줄 주석을 지워 6KB 를 지킨다 (한글 주석은 글자당 3B)
 const slim = h => h.replace(/<!-- \/?shell:\w+ -->\n?/g, '').replace(/^\/\/[^\n]*\n/gm, '');
-const header = slim(shell.header({ lang: 'en', section: 'color', wheelHome: '/wheel/', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' }));
+// 헤더의 인라인 스크립트(테마 버튼·모바일 메뉴)는 전 페이지 공유 /color/hex/hex.js 로 빼서 같은 자리에 동기 로드한다 — 인라인 브랜드 마크(약 1KB)가 들어오면서 6KB 를 지키기 위한 조치
+const headerFull = slim(shell.header({ lang: 'en', section: 'color', wheelHome: '/wheel/', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' }));
+const headerJs = (headerFull.match(/<script>([\s\S]*?)<\/script>/) || [, ''])[1].trim() + '\n';
+const header = headerFull.replace(/<script>[\s\S]*?<\/script>/, '<script src="/color/hex/hex.js"></script>');
 const footer = slim(shell.footer({ lang: 'en' }));
 
 function page(hex){
@@ -86,6 +93,8 @@ const targets = only || all;
 fs.mkdirSync(outDir, { recursive: true });
 const cssPath = path.join(outDir, 'hex.css');
 if (!fs.existsSync(cssPath) || fs.readFileSync(cssPath, 'utf8') !== css) fs.writeFileSync(cssPath, css, 'utf8');
+const jsPath = path.join(outDir, 'hex.js');
+if (!fs.existsSync(jsPath) || fs.readFileSync(jsPath, 'utf8') !== headerJs) fs.writeFileSync(jsPath, headerJs, 'utf8');
 let written = 0, bytes = 0, max = 0, maxHex = '';
 for (const hex of targets) {
   const html = page(hex), dir = path.join(outDir, hex.slice(1)), file = path.join(dir, 'index.html');
@@ -96,7 +105,7 @@ for (const hex of targets) {
   written++;
 }
 let removed = 0;
-if (!only && fs.existsSync(outDir)) for (const n of fs.readdirSync(outDir)) if (n !== 'hex.css' && !set.has('#' + n)) { fs.rmSync(path.join(outDir, n), { recursive: true, force: true }); removed++; }
+if (!only && fs.existsSync(outDir)) for (const n of fs.readdirSync(outDir)) if (n !== 'hex.css' && n !== 'hex.js' && !set.has('#' + n)) { fs.rmSync(path.join(outDir, n), { recursive: true, force: true }); removed++; }
 
 // ---------- sitemap-colors.xml + robots.txt ----------
 if (!only) {

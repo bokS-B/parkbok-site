@@ -54,7 +54,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-btn)
 header.top{position:sticky;top:0;z-index:var(--header-z);background:var(--card);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;align-items:center;gap:12px;height:var(--header-h)}
 .brand{font-weight:var(--fw-bold);font-size:20px;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
-.brand:hover{text-decoration:none;color:var(--accent-text)}
+.brand:hover{text-decoration:none;color:var(--brand)}
 nav.menu{position:relative;display:flex;align-items:center;gap:2px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 nav.menu::-webkit-scrollbar{display:none}
 nav.menu a{position:relative;display:inline-block;font-size:var(--fs-small);font-weight:var(--fw-medium);line-height:18px;padding:8px 12px;border-radius:var(--r-pill);color:var(--muted);transition:var(--t-chip)}
@@ -73,6 +73,18 @@ header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--su
 .subnav .chip{height:28px;padding:2px 12px;font-size:13px}
 .subnav .chip::before{top:calc(50% - var(--subnav-h)/2);height:var(--subnav-h)}
 .subnav .chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* ---------- 셸: 브랜드 마크 — brand:start~end 는 build-color-pages.js 가 그대로 hex.css 뒤에 붙인다(롱테일 페이지도 같은 마크 규칙) ---------- */
+/* brand:start */
+:root{--brand:#511919}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#e2a096}}
+:root[data-theme="dark"]{--brand:#e2a096}
+.brand{display:inline-flex;align-items:center;gap:8px}
+.brand svg{flex:none;width:37px;height:26px;color:var(--brand)}
+@media (max-width:860px){.brand svg{width:34px;height:24px}}
+@media (max-width:767.98px){.brand{gap:6px}.brand svg{width:31px;height:22px}}
+@media (max-width:480px){.brand{gap:0}.brand-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+/* brand:end */
 
 /* ---------- 셸: 푸터 ---------- */
 footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px solid var(--line);padding:32px 0 24px;margin-top:40px}
@@ -178,9 +190,10 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   p.lead,.lead{font-size:16px;line-height:24px}
   .drop{padding:24px 16px}
   .btn-big{min-height:60px;font-size:20px;line-height:24px;padding:16px 28px}
-  /* 모바일 헤더: [로고] [가로 스크롤 메뉴(언어 선택 포함)] [테마]. 오른쪽 32px 페이드로 스크롤 단서, 끝에 닿으면(.end) 제거.
-     왼쪽으로 스크롤된 뒤(.start, scrollLeft>0)에는 잘린 글자가 로고에 붙어 보이지 않게 왼쪽 12px 페이드를 더한다 */
-  header.top .wrap{gap:6px;padding-inline:16px}
+  /* 모바일 헤더: [마크+로고] [가로 스크롤 메뉴(언어 선택 포함)] [테마]. 오른쪽 32px 페이드로 스크롤 단서, 끝에 닿으면(.end) 제거.
+     왼쪽으로 스크롤된 뒤(.start, scrollLeft>0)에는 잘린 글자가 로고에 붙어 보이지 않게 왼쪽 12px 페이드를 더한다.
+     마크(31px)가 들어온 만큼 좌우 패딩 12px·간격 4px 로 메뉴 폭을 되찾는다(360px 폭에서 메뉴 약 197px, 392px 에서 229px) */
+  header.top .wrap{gap:4px;padding-inline:12px}
   .brand{font-size:16px;letter-spacing:-.02em}
   nav.menu{gap:8px;scroll-padding-inline:8px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
   nav.menu.start{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 32px),transparent)}
@@ -192,7 +205,8 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:5px 0;min-height:var(--touch)}
   .chips.next::-webkit-scrollbar{display:none}
 }
-@media (max-width:860px){.page-wheel .brand{display:none}}
+/* 돌림판은 메뉴에 언어 선택까지 있어 860px 이하에서 브랜드 글자를 숨기고 마크만 남긴다(font-size:0 — 접근성 이름 "parkbok" 은 유지, 마크 크기는 px 라 영향 없음) */
+@media (max-width:860px){.page-wheel .brand{font-size:0;gap:0}}
 @media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
 @media (max-width:640px){.card-icon{width:32px;height:32px;margin-bottom:12px}}
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
