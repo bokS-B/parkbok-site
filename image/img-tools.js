@@ -215,6 +215,7 @@
 
   // ---------- 상태 ----------
   var tool = null, files = [], pages = [], outputs = [], urls = [], busy = false, optUI = {}, inputBytes = 0;
+  var resultWarning = null, editVersion = 0;
   var dom = {};
   function setStatus(msg, kind, target){
     var s = target || dom.status; if (!s) return;
@@ -301,10 +302,13 @@
     busy = b; document.body.classList.toggle('busy', b);
     if (dom.primary) dom.primary.disabled = b || !files.length;
     if (dom.reset) dom.reset.disabled = b;
+    // 결과 조건을 검증하는 도구는 실행 도중 키보드·포인터 편집도 잠근다.
+    if (dom.opts && tool && tool.invalidateOnEdit) dom.opts.inert = b;
   }
   function afterInput(){
+    dom.primary.removeAttribute('data-warning');
     document.body.classList.add('has-input'); document.body.classList.remove('done');
-    outputs = []; revokeAll();
+    outputs = []; resultWarning = null; revokeAll();
     dom.result.hidden = true; dom.result.innerHTML = '';
     dom.progress.hidden = true;
     dom.count.textContent = files.length === 1 ? t('fileCount') : t('filesCount', { n: files.length });
@@ -379,7 +383,18 @@
     if (!box.__bound) { box.__bound = true; box.addEventListener('change', onOptChange); box.addEventListener('input', onOptChange); }
     applyShowIf();
   }
-  function onOptChange(){ applyShowIf(); optListeners.forEach(function(fn){ try { fn(); } catch (e) {} }); }
+  function invalidateResult(){
+    if (!tool || !tool.invalidateOnEdit) return;
+    editVersion++;
+    if (!outputs.length) return;
+    outputs = []; resultWarning = null; revokeAll();
+    document.body.classList.remove('done');
+    dom.primary.removeAttribute('data-warning');
+    dom.result.hidden = true; dom.result.innerHTML = ''; dom.progress.hidden = true;
+    dom.primary.textContent = t('runText'); dom.primary.disabled = busy || !files.length;
+    setStatus(t('needsRerun'), 'empty');
+  }
+  function onOptChange(){ invalidateResult(); applyShowIf(); optListeners.forEach(function(fn){ try { fn(); } catch (e) {} }); }
   function applyShowIf(){
     (tool.options || []).forEach(function(o){
       if (!o.showIf) return;
@@ -396,7 +411,7 @@
   // 도구 자체 위젯(tool.renderers)에 주는 도우미: 값 등록, 다른 옵션 읽기, 첫 파일, 문구, 변경 구독
   function widgetApi(){
     return { el: el, t: t, optStr: optStr, getValue: getValue, files: function(){ return files.slice(); }, loadImage: loadImage, scaleTo: scaleTo, release: release, dims: dims,
-      set: function(id, get, set){ optUI[id] = { get: get, set: set }; }, onChange: function(fn){ optListeners.push(fn); }, changed: onOptChange, busy: function(){ return busy; } };
+      set: function(id, get, set){ optUI[id] = { get: get, set: set }; }, onChange: function(fn){ optListeners.push(fn); }, changed: onOptChange, invalidate: invalidateResult, busy: function(){ return busy; } };
   }
   function getOpts(){ var v = {}; Object.keys(optUI).forEach(function(k){ v[k] = optUI[k].get(); }); return v; }
   function labelFor(o, row, forId){ var lb = el('label', 'opt-label', optStr(o.id, 'label')); if (forId) lb.htmlFor = forId; row.appendChild(lb); return lb; }
@@ -629,6 +644,7 @@
     }
     layer.addEventListener('pointerdown', function(e){
       if (!ready || busy) return;
+      invalidateResult();
       var tg = e.target;
       e.preventDefault(); try { layer.setPointerCapture(e.pointerId); } catch (x) {}
       var p = pos(e), rs = tg.closest ? tg.closest('.rsel') : null;
@@ -673,11 +689,11 @@
       if (drag.kind === 'new' && r && (r.w < MIN_RECT || r.h < MIN_RECT)) {
         if (multi) { rects.splice(sel, 1); sel = -1; } else rects[0] = drag.orig || fullRect();
       }
-      drag = null; draw();
+      drag = null; draw(); invalidateResult();
     }
     layer.addEventListener('pointerup', endDrag); layer.addEventListener('pointercancel', endDrag);
     if (del) del.addEventListener('click', function(){ if (!ready || sel < 0 || !rects[sel]) return; rects.splice(sel, 1); sel = -1; draw(); });
-    btn.addEventListener('click', function(){ if (multi) { rects = []; sel = -1; } else { rects = [fullRect()]; sel = 0; } draw(); });
+    btn.addEventListener('click', function(){ if (busy) return; if (multi) { rects = []; sel = -1; } else { rects = [fullRect()]; sel = 0; } draw(); invalidateResult(); });
     optListeners.push(function(){ if (!multi && ready && rects[0] && ratio()) { rects[0] = fitRatio(rects[0], true); draw(); } });
     if (files[0]) loadImage(files[0]).then(function(img){
       var d = dims(img); natW = d.w; natH = d.h;
@@ -704,19 +720,25 @@
   }
   function run(){
     if (busy || !files.length || !tool) return;
+    dom.primary.removeAttribute('data-warning');
     if (tool.minFiles > files.length) { setStatus(t('errorEmpty', { n: tool.minFiles }), 'err'); return; }
-    var opts = getOpts();
+    var opts = getOpts(), version = editVersion, optsKey = tool.invalidateOnEdit ? JSON.stringify(opts) : null;
     setBusy(true); setStatus(t('processing'), 'busy'); progress(0);
-    dom.result.hidden = true; dom.result.innerHTML = ''; outputs = []; revokeAll();
+    dom.result.hidden = true; dom.result.innerHTML = ''; outputs = []; resultWarning = null; revokeAll();
     inputBytes = 0; files.forEach(function(f){ inputBytes += f.size; });
     var inputs = files.map(function(f){ return { name: f.name, type: f.type, size: f.size, file: f.file, width: f.width, height: f.height }; });
     Promise.resolve().then(function(){ return tool.run(inputs, opts, makeCtx()); }).then(function(res){
       setBusy(false);
+      // 비동기 인코딩 중 스크립트/뒤늦은 이벤트로 조건이 바뀌어도 이전 결과를 게시하지 않는다.
+      if (tool.invalidateOnEdit && (version !== editVersion || optsKey !== JSON.stringify(getOpts()))) {
+        dom.progress.hidden = true; dom.primary.textContent = t('runText'); setStatus(t('needsRerun'), 'empty'); return;
+      }
       outputs = ((res && res.outputs) || []).filter(function(o){ return o && o.blob; });
       if (!outputs.length) throw new Error('empty');
       var seen = {};
       outputs.forEach(function(o){ var n = o.name || 'image'; if (seen[n]) { var e = extOf(n), b = e ? n.slice(0, -e.length - 1) : n; var k = 2; while (seen[b + '-' + k + (e ? '.' + e : '')]) k++; n = b + '-' + k + (e ? '.' + e : ''); } seen[n] = true; o.name = n; });
-      progress(1, t('done'));
+      resultWarning = res && res.warning || null;
+      progress(1, resultWarning ? resultWarning.message : t('done'));
       showResult((res && res.note) || '');
     }, function(e){
       setBusy(false); dom.progress.hidden = true;
@@ -737,7 +759,7 @@
       outputs.forEach(function(o){ zip.file(o.name, o.blob); });
       return zip.generateAsync({ type: 'blob', compression: 'STORE' });
     }).then(function(blob){
-      setBusy(false); setStatus(t('done'), 'ok');
+      setBusy(false); setStatus(resultWarning ? resultWarning.message : t('done'), resultWarning ? 'err' : 'ok');
       download({ name: (t('resultName') !== 'resultName' ? t('resultName') : tool.id) + '.zip', blob: blob });
     }, function(){ setBusy(false); setStatus(t('errorGeneric'), 'err'); });
   }
@@ -752,6 +774,7 @@
     return s;
   }
   function showResult(note){
+    dom.primary.toggleAttribute('data-warning', !!resultWarning);
     note = String(note || '').trim();   // 도구가 빈 문구(용량 줄은 위 stats 가 담당) 뒤에 덧붙인 메모만 남긴다
     document.body.classList.add('done');
     var r = dom.result; r.innerHTML = ''; r.hidden = false;
@@ -764,7 +787,7 @@
       box.appendChild(el('div', 'result-name', o.name));
       box.appendChild(stats(o.srcSize != null ? o.srcSize : inputBytes, o.blob.size));
       r.appendChild(box);
-      dom.primary.textContent = t('download'); dom.primary.disabled = false;
+      dom.primary.textContent = resultWarning ? resultWarning.downloadText : t('download'); dom.primary.disabled = false;
     } else {
       var list = el('ul', 'result-grid');
       outputs.forEach(function(o){
@@ -781,7 +804,7 @@
       dom.primary.textContent = t('downloadAll'); dom.primary.disabled = false;
     }
     if (note) r.appendChild(el('p', 'muted result-note', note));
-    setStatus(t('done'), 'ok');
+    setStatus(resultWarning ? resultWarning.message : t('done'), resultWarning ? 'err' : 'ok');
     try { dom.out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
   }
   function onPrimary(){
@@ -791,7 +814,8 @@
   }
   function reset(){
     if (busy) return;
-    files = []; pages = []; outputs = []; revokeAll(); optUI = {}; optListeners = [];
+    dom.primary.removeAttribute('data-warning');
+    files = []; pages = []; outputs = []; resultWarning = null; revokeAll(); optUI = {}; optListeners = [];
     document.body.classList.remove('has-input', 'done', 'busy');
     dom.files.innerHTML = ''; dom.opts.innerHTML = ''; dom.opts.hidden = true;
     dom.result.innerHTML = ''; dom.result.hidden = true; dom.progress.hidden = true; dom.out.hidden = true;

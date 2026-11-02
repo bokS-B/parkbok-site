@@ -118,6 +118,11 @@
     return out;
   }
   function bytesOf(blob){ return blob.arrayBuffer().then(function(b){ return new Uint8Array(b); }); }
+  // 메타데이터를 포함한 실제 다운로드 파일을 검사한다. 기존 KB=1024 기준을 유지한다.
+  function validateSize(blob, maxKb){
+    var limit = maxKb > 0 ? maxKb * 1024 : null;
+    return { status: limit === null ? 'not_requested' : (blob.size <= limit ? 'passed' : 'failed'), actualBytes: blob.size, limitBytes: limit, unitBytes: 1024 };
+  }
 
   // ---------- 화질: 2단계 축소 / 배경 밝게 ----------
   // 원본의 rect 영역을 (w,h) 로 그린다. 2배 이상 줄일 때는 절반씩 단계 축소해 선명도를 지킨다.
@@ -189,8 +194,10 @@
       var last = sel.value, lastRatio = -1;   // -1: 아직 첫 계산 전
       function refresh(){
         var s = spec(sel.value, api.getValue('custom')), q = s.ok ? s.w / s.h : 0;
-        line.textContent = (s.ok ? specLine(s) : '') + (notes[sel.value] ? (s.ok ? ' — ' : '') + notes[sel.value] : '');
         if (sel.value !== last) { last = sel.value; if (ui.setKb) ui.setKb(s.kb); }
+        // 기본 규격 상한 대신 현재 사용자가 선택한 상한을 요약한다(0이면 상한 표시 없음).
+        var currentKb = api.getValue('maxKb'); if (currentKb != null) s.kb = currentKb;
+        line.textContent = (s.ok ? specLine(s) : '') + (notes[sel.value] ? (s.ok ? ' — ' : '') + notes[sel.value] : '');
         // 비율이 바뀌면(잘못된 값 0 에서 되돌아온 경우 포함) 자르기 상자를 새 비율의 최대 크기로 다시 놓는다 (엔진의 맞춤은 줄이기만 하므로)
         if (q && lastRatio >= 0 && Math.abs(q - lastRatio) > 1e-6) setTimeout(function(){ var b = document.querySelector('[data-opt="crop"] .rect-bar .btn'); if (b) b.click(); }, 0);
         lastRatio = q;
@@ -216,7 +223,7 @@
       wrap2.appendChild(dpi); wrap2.appendChild(api.el('span', 'num-unit', api.optStr(o.id, null, 'dpi')));
       row.appendChild(wrap2);
       // 타이핑 중간값(예: 5, 50, 500)으로 비율이 요동치지 않도록 input 은 막고 change(확정) 만 엔진에 올린다
-      [w, h, dpi].forEach(function(i){ i.addEventListener('input', function(e){ e.stopPropagation(); }); });
+      [w, h, dpi].forEach(function(i){ i.addEventListener('input', function(e){ e.stopPropagation(); api.invalidate(); }); });
       api.set(o.id, function(){ return { unit: unit.value, w: num(w.value, 0), h: num(h.value, 0), dpi: num(dpi.value, 300) }; });
     },
     // 숨은 옵션: 현재 규격의 가로/세로 비율 (자르기 상자가 ratioFrom 으로 읽는다)
@@ -231,6 +238,8 @@
       var s0 = spec(api.getValue('preset') || o.presetDefault, null);
       var inp = numInput(api, id, s0.kb, 0, 20480, 10, '84px'), wrap = api.el('span', 'num-wrap');
       wrap.appendChild(inp); wrap.appendChild(api.el('span', 'num-unit', 'KB')); row.appendChild(wrap);   // help 는 엔진이 붙인다
+      var unitHelp = api.el('small', 'opt-help', api.t('sizeUnit')); unitHelp.id = id + '-unit'; row.appendChild(unitHelp);
+      inp.setAttribute('aria-describedby', unitHelp.id);
       ui.setKb = function(v){ inp.value = v; };
       api.set(o.id, function(){ return Math.max(0, Math.round(num(inp.value, 0))); }, function(v){ inp.value = v; });
     }
@@ -242,6 +251,7 @@
     multiple: false,
     minFiles: 1,
     needsPages: false,
+    invalidateOnEdit: true,
     layout: 'split',   // 자르기 편집기 왼쪽 + 나머지 옵션 오른쪽 (데스크톱)
     options: [
       { id: 'preset', type: 'preset', choices: PRESETS.map(function(p){ return p.id; }), default: DEFAULT_BY_LANG[LANG] || 'us_passport' },
@@ -250,7 +260,7 @@
       { id: 'crop', type: 'crop', ratioFrom: 'ratio', guide: function(rect, getValue){ return guides(spec(getValue('preset'), getValue('custom')), rect, window.IMGT.t); } },
       // 저장 옵션(group:'save'): 모바일에서는 자르기 뒤에 접힌 채로 놓인다
       { id: 'format', type: 'select', choices: ['jpg', 'png'], default: 'jpg', group: 'save' },
-      { id: 'maxKb', type: 'kb', showIf: { format: 'jpg' }, presetDefault: DEFAULT_BY_LANG[LANG] || 'us_passport', group: 'save' },
+      { id: 'maxKb', type: 'kb', presetDefault: DEFAULT_BY_LANG[LANG] || 'us_passport', group: 'save' },
       { id: 'bg', type: 'select', choices: ['keep', 'white'], default: 'keep', group: 'save' }
     ],
     renderers: renderers,
@@ -267,16 +277,19 @@
       ctx.release(img);
       if (o.bg === 'white') brightenBg(c);
       ctx.progress(0.5);
-      var bytes, over = false, mime, ext;
+      var bytes, mime, ext;
       if (o.format === 'png') { bytes = setPngDpi(await bytesOf(await ctx.toBlob(c, 'image/png')), s.dpi); mime = 'image/png'; ext = 'png'; }
-      else { var e = await encodeJpeg(ctx, c, s.dpi, o.maxKb * 1024); bytes = e.bytes; over = e.over; mime = 'image/jpeg'; ext = 'jpg'; }
+      else { var e = await encodeJpeg(ctx, c, s.dpi, o.maxKb * 1024); bytes = e.bytes; mime = 'image/jpeg'; ext = 'jpg'; }
       c.width = c.height = 1;
       ctx.progress(1);
       var blob = new Blob([bytes], { type: mime });
+      var check = validateSize(blob, o.maxKb), over = check.status === 'failed';
       var note = s.w + '×' + s.h + 'px · ' + ctx.human(blob.size) + ' · ' + s.dpi + 'dpi' + (s.mm ? ' (' + s.mm[0] + '×' + s.mm[1] + 'mm)' : '');
-      if (over) note += ' — ' + ctx.t('noteOver', { kb: o.maxKb });
+      note += ' — ' + ctx.t(check.limitBytes === null ? 'sizeUnlimited' : 'sizeLimit', { bytes: check.actualBytes, kb: o.maxKb, limit: check.limitBytes });
+      if (over) note += ' — ' + ctx.t('sizeOverHelp');
       if (r.w < s.w * 0.67 || r.h < s.h * 0.67) note += ' — ' + ctx.t('noteUpscale');
-      return { outputs: [{ name: baseName(f.name) + '-passport-' + s.w + 'x' + s.h + '.' + ext, blob: blob, srcSize: f.size }], note: note };
+      return { outputs: [{ name: baseName(f.name) + '-passport-' + s.w + 'x' + s.h + '.' + ext, blob: blob, srcSize: f.size }], note: note,
+        validation: { size: check }, warning: over ? { message: ctx.t('sizeExceeded'), downloadText: ctx.t('downloadOver') } : null };
     }
   };
   tool.parseOpts = parseOpts;
@@ -284,6 +297,7 @@
   tool.guides = guides;
   tool.setJpegDpi = setJpegDpi;
   tool.setPngDpi = setPngDpi;
+  tool.validateSize = validateSize;
   tool.PRESETS = PRESETS;
   if (typeof window !== 'undefined' && window.IMGT) window.IMGT.register(tool);
   if (typeof module !== 'undefined') module.exports = tool;
