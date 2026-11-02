@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>소개 | parkbok</title>
-<meta name="description" content="parkbok(박복한 스튜디오)은 설치 없이 브라우저에서 HWP 문서를 열어 보는 무료 도구 사이트입니다. 왜 만들었고 어떻게 동작하는지 설명합니다.">
+<meta name="description" content="PARKBOK은 파일·문서·텍스트·색상 작업을 브라우저에서 간단하게 처리하는 무료 도구 모음입니다. 만든 이유, 지키려는 약속, 자주 묻는 질문과 문의 방법을 안내합니다.">
 <link rel="canonical" href="https://parkbok.com/about.html">
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#2563eb">
+<meta name="theme-color" content="#511919">
 <script>try{var __t=localStorage.getItem('pb_theme');if(__t)document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="parkbok">
@@ -78,7 +78,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-btn)
 header.top{position:sticky;top:0;z-index:var(--header-z);background:var(--card);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;align-items:center;gap:12px;height:var(--header-h)}
 .brand{font-weight:var(--fw-bold);font-size:20px;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
-.brand:hover{text-decoration:none;color:var(--accent-text)}
+.brand:hover{text-decoration:none;color:var(--brand)}
 nav.menu{position:relative;display:flex;align-items:center;gap:2px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 nav.menu::-webkit-scrollbar{display:none}
 nav.menu a{position:relative;display:inline-block;font-size:var(--fs-small);font-weight:var(--fw-medium);line-height:18px;padding:8px 12px;border-radius:var(--r-pill);color:var(--muted);transition:var(--t-chip)}
@@ -97,6 +97,18 @@ header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--su
 .subnav .chip{height:28px;padding:2px 12px;font-size:13px}
 .subnav .chip::before{top:calc(50% - var(--subnav-h)/2);height:var(--subnav-h)}
 .subnav .chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* ---------- 셸: 브랜드 마크 — brand:start~end 는 build-color-pages.js 가 그대로 hex.css 뒤에 붙인다(롱테일 페이지도 같은 마크 규칙) ---------- */
+/* brand:start */
+:root{--brand:#511919}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#e2a096}}
+:root[data-theme="dark"]{--brand:#e2a096}
+.brand{display:inline-flex;align-items:center;gap:8px}
+.brand svg{flex:none;width:37px;height:26px;color:var(--brand)}
+@media (max-width:860px){.brand svg{width:34px;height:24px}}
+@media (max-width:767.98px){.brand{gap:6px}.brand svg{width:31px;height:22px}}
+@media (max-width:480px){.brand{gap:0}.brand-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+/* brand:end */
 
 /* ---------- 셸: 푸터 ---------- */
 footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px solid var(--line);padding:32px 0 24px;margin-top:40px}
@@ -202,9 +214,10 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   p.lead,.lead{font-size:16px;line-height:24px}
   .drop{padding:24px 16px}
   .btn-big{min-height:60px;font-size:20px;line-height:24px;padding:16px 28px}
-  /* 모바일 헤더: [로고] [가로 스크롤 메뉴(언어 선택 포함)] [테마]. 오른쪽 32px 페이드로 스크롤 단서, 끝에 닿으면(.end) 제거.
-     왼쪽으로 스크롤된 뒤(.start, scrollLeft>0)에는 잘린 글자가 로고에 붙어 보이지 않게 왼쪽 12px 페이드를 더한다 */
-  header.top .wrap{gap:6px;padding-inline:16px}
+  /* 모바일 헤더: [마크+로고] [가로 스크롤 메뉴(언어 선택 포함)] [테마]. 오른쪽 32px 페이드로 스크롤 단서, 끝에 닿으면(.end) 제거.
+     왼쪽으로 스크롤된 뒤(.start, scrollLeft>0)에는 잘린 글자가 로고에 붙어 보이지 않게 왼쪽 12px 페이드를 더한다.
+     마크(31px)가 들어온 만큼 좌우 패딩 12px·간격 4px 로 메뉴 폭을 되찾는다(360px 폭에서 메뉴 약 197px, 392px 에서 229px) */
+  header.top .wrap{gap:4px;padding-inline:12px}
   .brand{font-size:16px;letter-spacing:-.02em}
   nav.menu{gap:8px;scroll-padding-inline:8px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
   nav.menu.start{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 32px),transparent)}
@@ -216,7 +229,8 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:5px 0;min-height:var(--touch)}
   .chips.next::-webkit-scrollbar{display:none}
 }
-@media (max-width:860px){.page-wheel .brand{display:none}}
+/* 돌림판은 메뉴에 언어 선택까지 있어 860px 이하에서 브랜드 글자를 숨기고 마크만 남긴다(font-size:0 — 접근성 이름 "parkbok" 은 유지, 마크 크기는 px 라 영향 없음) */
+@media (max-width:860px){.page-wheel .brand{font-size:0;gap:0}}
 @media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
 @media (max-width:640px){.card-icon{width:32px;height:32px;margin-bottom:12px}}
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
@@ -224,31 +238,139 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 @media print{header.top,footer.foot,.subnav,.card.intro,.tools,.status,.ad,.drop,.grid,.chips,details.about,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}
 </style>
 <!-- /shell:head-common -->
+<style id="page-css">
+/* 소개(about.html) 전용. tools/build-site.js 가 <style id="page-css"> 로 인라인한다 — 공통 규칙은 assets/site.css */
+/* 본문 720px. 로고 색은 site.css 의 --brand(라이트 #511919 / 다크 #e2a096, 헤더 마크와 같음). fallback #511919 는 공식 원본(assets/brand/logo-source.png)에서 샘플링한 값 */
+.about{max-width:720px;margin:0 auto}
+.about p{line-height:26px}
+.about h2{margin:0 0 12px}
+.about-sec+.about-sec{margin-top:40px}
+
+/* 첫 화면: 로고(비율 1080:759.3, 최대 240×64) → 보조 제목 → 제목 → 소개 → 주 버튼 */
+.about-logo{display:block;width:auto;height:64px;max-width:240px;aspect-ratio:1080/759.3;color:var(--brand,#511919);margin:0 0 20px}
+.about-eyebrow{font-size:var(--fs-small);line-height:var(--lh-small);font-weight:var(--fw-semibold);letter-spacing:.04em;color:var(--accent-text);margin:0 0 8px}
+.about h1{margin:0 0 16px}
+.about .btn-big{min-height:56px;min-width:0;padding:0 32px;font-size:var(--fs-lead);line-height:var(--lh-lead);margin-top:8px}
+
+/* 약속 3개: 데스크톱 3열 → 모바일 1열 */
+.pledges{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gap);list-style:none;margin:0;padding:0}
+.pledge{background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--card-pad)}
+.pledge .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--accent-tint);color:var(--accent-label);font-size:var(--fs-small);font-weight:var(--fw-semibold);margin-bottom:12px}
+.pledge h3{margin:0 0 8px}
+.pledge p{color:var(--muted);margin:0}
+
+/* FAQ: 네이티브 details — 키보드(Tab·Enter·Space) 그대로. summary 패딩 12px 로 실제 클릭 높이 50px */
+.qa{border-top:1px solid var(--line)}
+.qa:last-of-type{border-bottom:1px solid var(--line)}
+.qa summary{display:flex;align-items:flex-start;gap:10px;padding:12px 0;min-height:var(--touch);font-weight:var(--fw-semibold);line-height:26px;cursor:pointer;list-style:none}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::before{content:"▸";flex:none;width:16px;color:var(--muted)}
+.qa[open] summary::before{content:"▾"}
+.qa summary:hover{color:var(--accent-text)}
+.qa summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-badge)}
+.qa p{color:var(--muted);margin:0 0 14px 26px}
+.qa p:last-child{margin-bottom:16px}
+/* 답변 속 링크: 실제 클릭 높이 44px(음수 마진으로 줄 간격은 유지) */
+.qa p a{display:inline-flex;align-items:center;min-height:var(--touch);margin:-9px 0;font-weight:var(--fw-medium)}
+
+/* 운영·문의 링크: 실제 클릭 높이 44px */
+.about-links{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:0 28px}
+.about-links a{display:inline-flex;align-items:center;min-height:var(--touch);font-weight:var(--fw-medium)}
+.about-links .muted{margin-left:8px}
+.about-ops p.muted{font-size:var(--fs-small);line-height:var(--lh-small)}
+
+/* 최근 개선 내역: 작은 목록 */
+.changes{list-style:none;margin:0;padding:0;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--muted)}
+.changes li{display:flex;gap:12px;padding:6px 0}
+.changes time{flex:none;width:52px;color:var(--ink);font-weight:var(--fw-medium);font-variant-numeric:tabular-nums}
+
+
+@media (max-width:767.98px){
+  /* main.wrap 좌우 16px + 4px = 본문 20px */
+  .about{padding-inline:4px}
+  .about-sec+.about-sec{margin-top:32px}
+  .about .btn-big{min-height:56px;font-size:var(--fs-lead);line-height:var(--lh-lead);padding:0 24px}
+  .pledges{grid-template-columns:1fr}
+  .about-links{flex-direction:column;gap:0}
+  .about-links li{display:flex;flex-wrap:wrap;align-items:center}
+}
+</style>
 </head>
 <body>
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/image/ko/">이미지 도구</a><a href="/color/ko/">색상 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="라이트 / 다크" title="라이트 / 다크">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
+<header class="top"><div class="wrap"><a class="brand" href="/"><svg width="37" height="26" viewBox="0 0 98 68" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M39 65C33 61 31 57 31 50C30 43 29 42 22 44C12 48 5 45 5 36C5 33 4 30 3 27C0 23 1 20 5 15C7 13 9 10 10 9C12 7 13 7 16 7C20 8 21 7 24 4C31-1 42 2 42 10C42 12 42 12 45 12C48 11 50 11 53 13C58 15 58 15 61 10C69-2 86 3 86 17C86 23 86 23 89 25C99 31 99 42 91 48C88 50 87 51 87 54C87 65 76 70 67 64C64 62 61 61 61 61C60 61 57 62 54 64C48 68 44 68 39 65ZM52 57C56 54 57 53 57 48C57 43 61 36 64 35C67 35 68 37 66 41C62 49 62 52 67 56C75 61 80 59 80 52C80 47 81 45 85 43C91 39 91 33 84 30C78 28 77 26 78 20C80 9 72 7 65 17C61 22 57 23 52 21C51 20 50 21 50 24C50 27 49 29 48 31C46 33 45 36 45 37C45 39 43 42 42 44C34 53 42 63 52 57ZM19 38C20 37 21 36 21 34C21 28 27 19 31 21C33 21 32 23 30 28C26 33 26 35 32 37C37 39 38 39 38 34C38 32 39 30 40 29C44 26 44 24 39 21C37 20 36 18 35 16C34 7 32 6 27 12C23 15 23 15 19 14C12 13 7 20 11 26C13 28 13 30 13 32C12 38 14 40 19 38Z"/></svg><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/image/ko/">이미지 도구</a><a href="/color/ko/">색상 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="라이트 / 다크" title="라이트 / 다크">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
 // 모바일 메뉴: 현재 분류를 가운데로 스크롤(최초·창 크기 변경 시). 끝까지 스크롤되면 .end(오른쪽 페이드 끔), scrollLeft>0 이면 .start(왼쪽 페이드 켬). 좌표는 getBoundingClientRect 차이라 어떤 CSS 에서도 같다
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
-<main class="wrap"><article class="card">
-<h1>parkbok (박복한 스튜디오) 소개</h1>
-<p>parkbok(박복한 스튜디오)은 "한글 프로그램이 없는데 HWP 파일을 급히 봐야 할 때"를 위해 만든 사이트입니다. 맥북, 회사 밖 노트북, 휴대폰에서 공문·이력서·계약서를 받았는데 열 수 없어 당황한 경험에서 출발했습니다.</p>
+<main class="wrap"><div class="about">
 
-<h2>어떻게 동작하나요</h2>
-<p>대부분의 온라인 변환 사이트는 파일을 자기 서버에 올려서 변환합니다. 이 사이트는 다릅니다. HWP 파일 구조를 해석하는 코드가 웹페이지와 함께 내려와서, 변환은 사용자의 브라우저 안에서 끝납니다. 그래서 파일을 받을 서버가 아예 없고, 운영자도 어떤 파일이 열렸는지 알 수 없습니다.</p>
-<ul>
-<li><strong>HWP(5.0)</strong>: 한글과컴퓨터가 공개한 HWP 5.0 파일 형식 명세를 구현한 오픈소스 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>로 페이지를 그립니다.</li>
-<li><strong>HWPX</strong>: 압축된 XML 표준 문서를 브라우저에서 풀어 본문과 표를 읽습니다.</li>
-<li><strong>PDF</strong>: 브라우저의 인쇄 기능을 사용합니다. 별도 변환 서버가 없습니다.</li>
+<!-- 첫 화면: 공식 로고(assets/brand/logo.svg 의 path 를 인라인, 색은 about.css 의 --brand) -->
+<section class="about-sec about-hero">
+<svg class="about-logo" viewBox="0 0 1080 759.3" role="img" aria-label="parkbok" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M488.1 718.1C454.8 713.9 425.7 698.6 401.3 672.5C357.3 625.3 343.8 566.6 363.7 508.4C366.6 499.9 369 492.5 369 492.1C369 491.7 366.3 490 363 488.3C359.8 486.7 351.6 481.8 344.9 477.4C309.8 454.7 299.4 454.8 245.5 478.8C218.3 490.9 207.8 494.5 192.6 496.8C158.9 502 126.9 491 103.6 466.2C79.3 440.4 74 412 84.6 365.2C89.7 342.8 87.7 335.3 73.5 323.2C51.5 304.5 41.2 283.7 41.2 257.9C41.2 227.5 54.8 203.4 83.3 183.8C99.3 172.7 101.3 170.3 110.8 151.3C128.1 116.8 149.2 101.4 179.5 101.3C192.5 101.2 199.5 102.9 215.7 109.8C239.9 120.1 249.8 115.5 271.6 83.3C284.1 64.9 304.9 49.6 325 44C338 40.4 366.5 41 380 45.1C399.5 51.1 414 59.9 426.5 73.4C444.8 93.2 452.1 114.5 452.1 147.7C452.1 163.6 453.3 170.7 456.9 175.4L459.1 178.3L462 176C463.6 174.7 467.9 171.2 471.6 168.2C491 152.4 518.4 145.9 543.5 151C560.7 154.4 572.3 160.3 597.1 177.9C632.3 203 646.4 198 671.3 151.5C699.2 99.6 727.7 76.2 775.7 66C784.9 64 814 64 823.3 66C865.8 74.9 898 101.1 912.7 138.6C918.7 153.7 920.5 164.3 920.5 183.7C920.6 204.7 919.2 212.8 911.6 236.1C908.6 245.1 906.5 254.1 906.1 259.3C905.2 272.1 907.8 274.4 932.5 283C982.3 300.2 1007.9 320.5 1025.3 356.5C1054.3 416.8 1036.5 485.5 984.2 514.8C980.6 516.8 970.7 521.5 962.2 525.1C936.5 536.2 936.2 536.7 936.6 572.4C936.9 609.3 933.5 626.9 921.8 649.9C891.4 709.4 822.8 734.5 762.3 708.4C751.3 703.6 734.3 692.3 715.6 677.5C708 671.4 698.6 664.6 694.9 662.4C671.8 648.4 645.2 652.6 611.9 675.4C580.6 696.8 567.8 704.1 550.6 710.3C530.1 717.7 507.4 720.5 488.1 718.1ZM527.9 663.5C542.8 659.4 555.7 652.1 586.9 630.4C605.7 617.3 615.9 612.1 636.3 605C638 604.4 638.1 603.6 636.8 598.6C633.1 584.2 633.7 547.7 638.1 519.8C647.7 458.4 682 396.3 706.3 396.3C717.1 396.3 725.3 404.3 725.3 414.8C725.3 421 723.9 423.9 716.5 433.6C699.6 455.8 686.7 489.5 681.2 526.3C678.7 542.8 678.6 546.6 679.4 592.3L679.5 601.2L690.2 603.3C708.1 606.8 721 613.8 744.7 632.8C775.6 657.7 789 664.4 809.7 665.6C839.1 667.2 863.5 651.6 876.7 622.9C882.3 610.6 883.6 601.1 882.5 579.8C880.4 541.6 882.1 528.5 890.5 515.8C899.8 501.7 909.1 495.2 936.9 483.2C954.9 475.4 959.7 472.5 968.3 464.8C992.9 442.6 995 399.4 972.9 368.4C959 348.8 941.3 337.5 904.6 324.5C879 315.5 868.6 308.9 860.8 296.8C850.7 281 851.3 264.7 863.6 222.3C875.2 182.2 870.8 155.8 848.8 133.8C822.6 107.6 781.7 105.8 748.6 129.5C735 139.2 724.5 152 710.9 175.4C687.4 216 671.3 232.7 649.4 239.6C624.7 247.4 605.3 241.8 569.7 216.8C546.2 200.4 527.9 194.7 512.1 199C502.1 201.7 502 202.8 511 209.3C549.1 237.3 554.9 294.6 523.6 335.7C517.9 343.3 509.2 351.4 496.3 361.5C484.1 371 481 378.6 483 394.2C488.5 437 470.7 473.6 436.3 490L428.8 493.6L422.1 507.6C406.9 539.4 404.7 568.4 415.5 595.6C428.8 629.2 460.2 658.6 489.5 664.6C499.1 666.6 518.7 666 527.9 663.5ZM198.7 446.2C205.8 444.4 252.6 422.6 255.8 419.6C255.9 419.5 255.2 417 254.2 414.1C251.7 407 252.6 369.2 255.6 355.9C263.6 319.9 280.6 287.4 304 263.4C320.3 246.7 327.4 242.9 337.1 245.5C346.1 247.9 351.6 256.7 349.4 265.3C349 267 343.2 274.1 336.5 281C321.3 296.8 318.6 300.3 310.4 314.9C303.1 327.9 297.7 341.6 294 356.5C291.5 366.6 289.6 397.3 291 404.9L291.8 409L302.9 408.4C323.7 407.4 340.7 413.6 366.2 431.7C391.9 449.9 406.9 451.9 421.6 439C430.2 431.4 432.6 424.5 432.1 408.8C430.8 372.4 430.9 370.5 435.7 360.4C440.6 350.2 445.9 344.3 466.3 326.8C485.5 310.3 492.7 298.1 492.8 281.7C492.9 271.7 490.3 263.3 484.9 255.6C478 246 471.6 241.9 438.7 226.5C427.2 221.1 416.4 210.7 411.1 199.9C405.8 189.2 403.6 177.4 402.7 155.4C401.6 129.7 399 120.2 389.6 107.9C380.8 96.4 369.4 90.6 352.7 89.2C330.9 87.4 314.4 97.6 295.1 125.1C278.5 148.6 260.7 161 242.1 162.1C229.4 162.8 223.2 161.2 204.8 152.6C187 144.3 180.5 143 171 146.2C161 149.5 156.3 155.7 148.1 176.4C142.3 191 136.4 198.3 120.5 210.1C113.1 215.7 105 222.5 102.6 225.3C87 243.5 88.5 267.9 106.2 284C132.7 308.2 136.3 313 139.4 328.1C141.8 339.8 140.5 351.6 134.8 371.4C129.2 390.8 129.1 408.7 134.4 419.5C140.8 432.3 155.5 444 169.2 447.3C176.9 449.1 188.9 448.6 198.7 446.2Z"/></svg>
+<p class="about-eyebrow">PARKBOK 소개</p>
+<h1>필요한 도구를, 걱정 없이 한곳에서.</h1>
+<p>PARKBOK은 파일·문서·텍스트·색상 작업을 브라우저에서 간단하게 처리하는 무료 도구 모음입니다.</p>
+<p>필요한 일을 처리할 때마다 새로운 사이트를 찾고, 무료인지와 어떻게 사용하는지 다시 확인하는 수고를 줄이고자 합니다.</p>
+<a class="btn-big" href="/">도구 둘러보기</a>
+</section>
+
+<section class="about-sec">
+<h2>만든 이유</h2>
+<p>PARKBOK은 한글 프로그램이 없는 환경에서 HWP 파일을 급히 확인해야 하는 불편에서 시작했습니다. 지금은 PDF, 이미지, 텍스트, 색상처럼 자주 필요한 작업을 한곳에서 처리할 수 있도록 도구를 넓혀 가고 있습니다.</p>
+<p>도구를 찾은 뒤에도 괜찮은 사이트인지, 가입이 필요한지, 결과를 받을 때 결제해야 하는지 다시 확인해야 할 때가 있습니다. PARKBOK은 이런 확인에 쓰는 시간을 줄이고, 하려던 작업을 바로 시작할 수 있는 곳을 목표로 합니다.</p>
+</section>
+
+<section class="about-sec">
+<h2>PARKBOK이 지키려는 약속</h2>
+<ol class="pledges">
+<li class="pledge"><span class="num" aria-hidden="true">1</span><h3>사용 조건을 먼저 알 수 있게</h3><p>무료 범위와 지원 형식, 파일 크기 제한을 작업 전에 확인할 수 있도록 안내하겠습니다. 결과를 받는 단계에서 예상하지 못한 조건을 만나지 않도록 운영하겠습니다.</p></li>
+<li class="pledge"><span class="num" aria-hidden="true">2</span><h3>파일 처리 방식을 분명하게</h3><p>파일이 어디에서 처리되는지와 지원 범위를 정확하게 설명하겠습니다. 처리할 수 없는 파일이나 충족하지 못한 조건도 결과에서 알 수 있게 하겠습니다.</p></li>
+<li class="pledge"><span class="num" aria-hidden="true">3</span><h3>다른 도구도 익숙하게</h3><p>도구가 바뀌어도 입력하고, 필요한 옵션을 고르고, 결과를 받는 흐름을 일정하게 유지하겠습니다. 모바일에서도 같은 작업을 마칠 수 있도록 다듬겠습니다.</p></li>
+</ol>
+</section>
+
+<section class="about-sec">
+<h2>자주 묻는 질문</h2>
+<details class="qa"><summary>가입하거나 결제해야 하나요?</summary>
+<p>현재 제공하는 도구는 회원가입과 결제 없이 사용할 수 있습니다. 지원 형식과 파일 크기 등 사용 가능한 범위는 각 도구의 안내를 확인해 주세요.</p>
+</details>
+<details class="qa"><summary>파일은 어디에서 처리되나요?</summary>
+<p>브라우저 내부 처리로 안내된 도구는 내 기기에서 파일을 처리합니다. 파일 처리 방식과 지원 범위는 각 도구에서 확인할 수 있습니다. 광고·이용 통계 등 사이트 운영을 위한 통신에 대해서는 개인정보처리방침을 확인해 주세요.</p>
+<p><a href="/privacy.html">개인정보처리방침</a></p>
+</details>
+<details class="qa"><summary>파일이 열리지 않거나 결과가 이상하면 어떻게 하나요?</summary>
+<p>사용한 도구, 기기와 브라우저, 문제가 생긴 과정을 알려 주세요. 파일 내용 없이 오류 상황만 설명해도 됩니다. 지원하지 않는 형식이나 복잡한 문서에서는 일부 기능이 제한될 수 있습니다.</p>
+<p><a href="mailto:bsb94399@gmail.com?subject=%5BPARKBOK%20%EC%98%A4%EB%A5%98%20%EC%A0%9C%EB%B3%B4%5D%20%EB%8F%84%EA%B5%AC%20%EC%9D%B4%EB%A6%84&amp;body=%EC%82%AC%EC%9A%A9%ED%95%9C%20%EB%8F%84%EA%B5%AC%20URL%3A%20%0A%EC%96%B4%EB%96%A4%20%EC%9E%91%EC%97%85%EC%9D%84%20%ED%96%88%EB%8A%94%EC%A7%80%3A%20%0A%EA%B8%B0%EB%8C%80%ED%95%9C%20%EA%B2%B0%EA%B3%BC%3A%20%0A%EC%8B%A4%EC%A0%9C%20%EA%B2%B0%EA%B3%BC%3A%20%0A%EA%B8%B0%EA%B8%B0%EC%99%80%20%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%3A%20">오류 제보하기</a></p>
+</details>
+</section>
+
+<section class="about-sec about-ops">
+<h2>운영과 문의</h2>
+<p>PARKBOK은 개인이 운영하는 서비스입니다. 자주 필요한 작업을 넓혀 가면서 결과의 정확성과 모바일 사용성을 함께 개선하고 있습니다.</p>
+<p>무료 도구를 지속적으로 운영하기 위해 광고를 활용할 수 있습니다. 사용 조건과 파일 처리 방식은 실제 동작에 맞춰 안내하겠습니다.</p>
+<p>불편한 점이나 필요한 도구가 있다면 알려 주세요.</p>
+<p class="muted">운영: 박복한 스튜디오(개인)</p>
+<ul class="about-links">
+<li><a href="mailto:bsb94399@gmail.com?subject=%5BPARKBOK%20%EC%98%A4%EB%A5%98%20%EC%A0%9C%EB%B3%B4%5D%20%EB%8F%84%EA%B5%AC%20%EC%9D%B4%EB%A6%84&amp;body=%EC%82%AC%EC%9A%A9%ED%95%9C%20%EB%8F%84%EA%B5%AC%20URL%3A%20%0A%EC%96%B4%EB%96%A4%20%EC%9E%91%EC%97%85%EC%9D%84%20%ED%96%88%EB%8A%94%EC%A7%80%3A%20%0A%EA%B8%B0%EB%8C%80%ED%95%9C%20%EA%B2%B0%EA%B3%BC%3A%20%0A%EC%8B%A4%EC%A0%9C%20%EA%B2%B0%EA%B3%BC%3A%20%0A%EA%B8%B0%EA%B8%B0%EC%99%80%20%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%3A%20">오류 제보 · 기능 제안</a><span class="muted">bsb94399@gmail.com</span></li>
+<li><a href="/privacy.html">개인정보처리방침</a></li>
+<li><a href="/terms.html">이용약관</a></li>
+<li><a href="/">도구 둘러보기</a></li>
 </ul>
+</section>
 
-<h2>한계</h2>
-<p>글꼴 대체, 수식, 복잡한 개체, 일부 표 병합은 원본과 다르게 보일 수 있습니다. 내용 확인, 복사, 간단한 PDF 저장에 맞는 도구이며, 인쇄·제출용 최종본은 원본 프로그램에서 확인하는 것을 권합니다.</p>
+<!-- 최근 개선 내역: git log(origin/main 에 반영된 커밋)로 날짜가 확인되는 항목만 -->
+<section class="about-sec">
+<h2>최근 개선 내역</h2>
+<ul class="changes">
+<li><time datetime="2026-11-03">11.03</time><span>모바일 헤더 메뉴와 터치 크기(44px) 다듬기 — 크롭 손잡이·필터 칩·테마 버튼·HEX 색상 페이지</span></li>
+<li><time datetime="2026-11-02">11.02</time><span>색상 도구 6종과 HEX 색상 페이지 추가</span></li>
+<li><time datetime="2026-11-02">11.02</time><span>여권·증명사진 규격 맞추기, EXIF 보기·수정·삭제 도구 추가</span></li>
+<li><time datetime="2026-11-02">11.02</time><span>이미지 도구 14종 추가 (8개 언어)</span></li>
+<li><time datetime="2026-11-02">11.02</time><span>PDF 도구 14종 추가 (8개 언어)</span></li>
+</ul>
+</section>
 
-<h2>운영</h2>
-<p>사이트는 개인이 운영하며 광고 수익으로 도메인과 유지 비용을 충당합니다. 오류 제보나 요청은 <a href="mailto:bsb94399@gmail.com">bsb94399@gmail.com</a>으로 보내 주세요.</p>
-</article></main>
+</div></main>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="바닥글 메뉴"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->

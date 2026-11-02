@@ -14,6 +14,7 @@ const FOOT_EXTRA = {
 // 페이지 전용 CSS: <style id="page-css"> 로 site-css 다음에 인라인
 const PAGE_CSS = {
   'index.html': ['assets/home.css', 'assets/hwp.css'],
+  'about.html': 'assets/about.css',
   'text/remove-line-breaks.html': 'assets/tool.css', 'text/char-count.html': 'assets/tool.css', 'text/sql-in.html': 'assets/tool.css',
   'text/dedupe-lines.html': 'assets/tool.css', 'text/list-to-line.html': 'assets/tool.css'
 };

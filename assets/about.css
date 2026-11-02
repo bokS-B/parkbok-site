@@ -1,0 +1,55 @@
+/* 소개(about.html) 전용. tools/build-site.js 가 <style id="page-css"> 로 인라인한다 — 공통 규칙은 assets/site.css */
+/* 본문 720px. 로고 색은 site.css 의 --brand(라이트 #511919 / 다크 #e2a096, 헤더 마크와 같음). fallback #511919 는 공식 원본(assets/brand/logo-source.png)에서 샘플링한 값 */
+.about{max-width:720px;margin:0 auto}
+.about p{line-height:26px}
+.about h2{margin:0 0 12px}
+.about-sec+.about-sec{margin-top:40px}
+
+/* 첫 화면: 로고(비율 1080:759.3, 최대 240×64) → 보조 제목 → 제목 → 소개 → 주 버튼 */
+.about-logo{display:block;width:auto;height:64px;max-width:240px;aspect-ratio:1080/759.3;color:var(--brand,#511919);margin:0 0 20px}
+.about-eyebrow{font-size:var(--fs-small);line-height:var(--lh-small);font-weight:var(--fw-semibold);letter-spacing:.04em;color:var(--accent-text);margin:0 0 8px}
+.about h1{margin:0 0 16px}
+.about .btn-big{min-height:56px;min-width:0;padding:0 32px;font-size:var(--fs-lead);line-height:var(--lh-lead);margin-top:8px}
+
+/* 약속 3개: 데스크톱 3열 → 모바일 1열 */
+.pledges{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gap);list-style:none;margin:0;padding:0}
+.pledge{background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--card-pad)}
+.pledge .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--accent-tint);color:var(--accent-label);font-size:var(--fs-small);font-weight:var(--fw-semibold);margin-bottom:12px}
+.pledge h3{margin:0 0 8px}
+.pledge p{color:var(--muted);margin:0}
+
+/* FAQ: 네이티브 details — 키보드(Tab·Enter·Space) 그대로. summary 패딩 12px 로 실제 클릭 높이 50px */
+.qa{border-top:1px solid var(--line)}
+.qa:last-of-type{border-bottom:1px solid var(--line)}
+.qa summary{display:flex;align-items:flex-start;gap:10px;padding:12px 0;min-height:var(--touch);font-weight:var(--fw-semibold);line-height:26px;cursor:pointer;list-style:none}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::before{content:"▸";flex:none;width:16px;color:var(--muted)}
+.qa[open] summary::before{content:"▾"}
+.qa summary:hover{color:var(--accent-text)}
+.qa summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-badge)}
+.qa p{color:var(--muted);margin:0 0 14px 26px}
+.qa p:last-child{margin-bottom:16px}
+/* 답변 속 링크: 실제 클릭 높이 44px(음수 마진으로 줄 간격은 유지) */
+.qa p a{display:inline-flex;align-items:center;min-height:var(--touch);margin:-9px 0;font-weight:var(--fw-medium)}
+
+/* 운영·문의 링크: 실제 클릭 높이 44px */
+.about-links{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:0 28px}
+.about-links a{display:inline-flex;align-items:center;min-height:var(--touch);font-weight:var(--fw-medium)}
+.about-links .muted{margin-left:8px}
+.about-ops p.muted{font-size:var(--fs-small);line-height:var(--lh-small)}
+
+/* 최근 개선 내역: 작은 목록 */
+.changes{list-style:none;margin:0;padding:0;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--muted)}
+.changes li{display:flex;gap:12px;padding:6px 0}
+.changes time{flex:none;width:52px;color:var(--ink);font-weight:var(--fw-medium);font-variant-numeric:tabular-nums}
+
+
+@media (max-width:767.98px){
+  /* main.wrap 좌우 16px + 4px = 본문 20px */
+  .about{padding-inline:4px}
+  .about-sec+.about-sec{margin-top:32px}
+  .about .btn-big{min-height:56px;font-size:var(--fs-lead);line-height:var(--lh-lead);padding:0 24px}
+  .pledges{grid-template-columns:1fr}
+  .about-links{flex-direction:column;gap:0}
+  .about-links li{display:flex;flex-wrap:wrap;align-items:center}
+}
