@@ -55,7 +55,7 @@
       "en": "Character count"
     },
     "line": {
-      "ko": "공백 포함·제외 글자수·바이트",
+      "ko": "공백 포함·제외, 바이트",
       "en": "Characters, bytes, words"
     },
     "langs": [
@@ -71,11 +71,11 @@
     "url": "/wheel/ko/",
     "icon": "wheel",
     "name": {
-      "ko": "돌림판 룰렛 – 랜덤 뽑기",
+      "ko": "돌림판 룰렛",
       "en": "Spin the wheel"
     },
     "line": {
-      "ko": "이름 넣고 돌려서 랜덤 뽑기",
+      "ko": "이름 넣고 랜덤 뽑기",
       "en": "Pick a random name"
     },
     "langs": [
@@ -91,7 +91,7 @@
     "url": "/text/dedupe-lines.html",
     "icon": "text-dedupe",
     "name": {
-      "ko": "중복 줄 제거 · 정렬",
+      "ko": "중복 줄 제거",
       "en": "Dedupe and sort lines"
     },
     "line": {
@@ -111,11 +111,11 @@
     "url": "/text/sql-in.html",
     "icon": "text-sql",
     "name": {
-      "ko": "목록 → SQL IN절 변환",
+      "ko": "SQL IN절 변환",
       "en": "List to SQL IN clause"
     },
     "line": {
-      "ko": "목록을 ('A', 'B') 형태로",
+      "ko": "목록을 ('A','B') 형태로",
       "en": "Turn a list into IN ('a','b')"
     },
     "langs": [
@@ -135,7 +135,7 @@
       "en": "List to one line"
     },
     "line": {
-      "ko": "세로 목록과 한 줄 서로 변환",
+      "ko": "세로 목록 ↔ 한 줄",
       "en": "Switch list and one line"
     },
     "langs": [
@@ -171,11 +171,11 @@
     "url": "/wheel/ko/number/",
     "icon": "wheel-number",
     "name": {
-      "ko": "숫자 룰렛 – 랜덤 숫자 뽑기",
+      "ko": "숫자 룰렛",
       "en": "Number wheel"
     },
     "line": {
-      "ko": "범위 안 숫자 하나 뽑기",
+      "ko": "범위 안 숫자 뽑기",
       "en": "Random number in a range"
     },
     "langs": [
@@ -191,11 +191,11 @@
     "url": "/wheel/ko/what-to-eat/",
     "icon": "wheel-food",
     "name": {
-      "ko": "오늘 뭐 먹지? 메뉴 룰렛",
+      "ko": "메뉴 룰렛",
       "en": "What to eat wheel"
     },
     "line": {
-      "ko": "메뉴 돌려서 정하기",
+      "ko": "오늘 먹을 메뉴 뽑기",
       "en": "Let the wheel pick a meal"
     },
     "langs": [
@@ -693,7 +693,7 @@
       "en": "PNG to JPG"
     },
     "line": {
-      "ko": "PNG 를 가벼운 JPG 로",
+      "ko": "PNG를 가벼운 JPG로",
       "en": "PNG images into smaller JPG files"
     },
     "langs": [
@@ -720,7 +720,7 @@
       "en": "JPG to PNG"
     },
     "line": {
-      "ko": "JPG 를 무손실 PNG 로",
+      "ko": "JPG를 무손실 PNG로",
       "en": "JPG into lossless PNG"
     },
     "langs": [
@@ -747,7 +747,7 @@
       "en": "WebP to JPG"
     },
     "line": {
-      "ko": "WebP 를 어디서나 열리는 JPG 로",
+      "ko": "WebP를 JPG로 바꾸기",
       "en": "WebP images into JPG"
     },
     "langs": [
@@ -774,7 +774,7 @@
       "en": "JPG to WebP"
     },
     "line": {
-      "ko": "JPG·PNG 를 가벼운 WebP 로",
+      "ko": "JPG·PNG를 WebP로",
       "en": "JPG and PNG into WebP"
     },
     "langs": [
@@ -801,7 +801,7 @@
       "en": "HEIC to JPG"
     },
     "line": {
-      "ko": "아이폰 HEIC 사진을 JPG 로",
+      "ko": "아이폰 사진을 JPG로",
       "en": "iPhone HEIC photos as JPG"
     },
     "langs": [
@@ -828,7 +828,7 @@
       "en": "SVG to PNG"
     },
     "line": {
-      "ko": "SVG 를 선명한 PNG 이미지로",
+      "ko": "SVG를 선명한 PNG로",
       "en": "SVG files as sharp PNG"
     },
     "langs": [
@@ -855,7 +855,7 @@
       "en": "Compress image"
     },
     "line": {
-      "ko": "JPG·PNG·WebP 용량 줄이기",
+      "ko": "사진 용량 줄이기",
       "en": "Smaller JPG, PNG and WebP files"
     },
     "langs": [
@@ -882,7 +882,7 @@
       "en": "Resize image"
     },
     "line": {
-      "ko": "픽셀이나 % 로 크기 변경",
+      "ko": "픽셀·%로 크기 변경",
       "en": "New width and height in pixels or %"
     },
     "langs": [
@@ -963,7 +963,7 @@
       "en": "Watermark image"
     },
     "line": {
-      "ko": "사진에 글자·로고 워터마크",
+      "ko": "사진에 글자·로고 넣기",
       "en": "Text or logo on your photos"
     },
     "langs": [
@@ -1044,7 +1044,7 @@
       "en": "Favicon generator"
     },
     "line": {
-      "ko": "이미지 한 장으로 모든 아이콘",
+      "ko": "한 장으로 모든 아이콘",
       "en": "All icon sizes at once"
     },
     "langs": [
@@ -1071,7 +1071,7 @@
       "en": "Color converter"
     },
     "line": {
-      "ko": "아무 색이나 붙여 넣으면 HEX·RGB·HSL·HSV·CMYK 로",
+      "ko": "HEX·RGB·HSL 서로 변환",
       "en": "Paste any color, get HEX, RGB, HSL, HSV, CMYK and more"
     },
     "langs": [
@@ -1098,7 +1098,7 @@
       "en": "Image color picker"
     },
     "line": {
-      "ko": "사진의 아무 곳이나 누르면 그 지점의 HEX·RGB 로",
+      "ko": "사진 누르면 HEX·RGB",
       "en": "Tap any spot on your picture to get its HEX and RGB"
     },
     "langs": [
@@ -1125,7 +1125,7 @@
       "en": "Color palette generator"
     },
     "line": {
-      "ko": "기준 색 하나로 배색 5종과 명도·채도 단계까지",
+      "ko": "기준 색으로 배색 5종",
       "en": "One base color, five harmonies plus lightness and saturation steps"
     },
     "langs": [
@@ -1152,7 +1152,7 @@
       "en": "CSS gradient generator"
     },
     "line": {
-      "ko": "색과 각도를 고르면 CSS 코드 복사, 1920×1080 PNG 저장까지",
+      "ko": "색·각도 골라 CSS 복사",
       "en": "Pick colors and an angle, copy the CSS or save a 1920×1080 PNG"
     },
     "langs": [
@@ -1179,7 +1179,7 @@
       "en": "Color contrast checker"
     },
     "line": {
-      "ko": "글자색과 배경색을 넣으면 대비비와 WCAG AA·AAA 통과 여부가 바로",
+      "ko": "WCAG AA·AAA 통과 확인",
       "en": "Text color and background in, contrast ratio and WCAG AA / AAA out"
     },
     "langs": [
@@ -1206,7 +1206,7 @@
       "en": "Random color generator"
     },
     "line": {
-      "ko": "스페이스바로 새 색, 마음에 드는 색은 잠그기",
+      "ko": "스페이스바로 새 색 뽑기",
       "en": "Press space for new colors, lock the ones you like"
     },
     "langs": [
@@ -1229,11 +1229,11 @@
     "url": "/image/passport-photo/",
     "icon": "passport-photo",
     "name": {
-      "ko": "여권사진 규격 맞추기",
+      "ko": "여권사진 규격",
       "en": "Passport Photo Maker (Resize & Crop)"
     },
     "line": {
-      "ko": "여권·증명사진 규격대로 자르고 용량까지 맞추기",
+      "ko": "규격대로 자르고 용량까지",
       "en": "Crop to the official size and fit the file limit"
     },
     "langs": [
@@ -1256,11 +1256,11 @@
     "url": "/image/exif/",
     "icon": "exif",
     "name": {
-      "ko": "EXIF 보기·수정·삭제 (사진 정보)",
+      "ko": "EXIF 사진 정보",
       "en": "EXIF Viewer & Editor (Remove Metadata)"
     },
     "line": {
-      "ko": "사진 정보 확인·수정·지우기",
+      "ko": "사진 정보 보기·수정·지우기",
       "en": "See, change or strip photo metadata"
     },
     "langs": [

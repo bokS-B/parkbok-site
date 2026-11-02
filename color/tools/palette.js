@@ -23,14 +23,24 @@
     '.ph-row .cswatch.lg{min-height:64px}',
     '.ph-row.sm .cswatch{aspect-ratio:auto;height:52px}',
     '.ph-row.sm .cswatch.base::before{content:"";position:absolute;inset:4px;border:2px solid currentColor;border-radius:5px;opacity:.7;pointer-events:none}',
-    '.ph-row .btn.sm{padding:6px 12px}',
+    // 모바일: 기준색 → 입력 → 배색 → (접힌) 상세값 → 내보내기 순. c-top·c-panel 상자를 풀어 .tool 의 flex order 로 세운다
     '@media (max-width:767.98px){',
+    '.c-top,.c-panel{display:contents}',
+    '.c-preview{order:0;min-height:104px;padding:12px 16px}',
+    '.c-preview .c-hex{font-size:24px}',
+    '.c-field,#cstatus{order:1}',
+    '.ph-sec{order:2}',
+    '.c-more{order:3}',
+    '.ph-actions{order:4}',
     '.ph-row{grid-template-columns:minmax(0,1fr) auto;gap:8px}',
-    '.ph-row .cpal{grid-column:1/-1}',
-    '.ph-name{min-height:38px;padding:6px 10px}',
+    '.ph-row .ph-name{grid-row:1;grid-column:1}',
+    '.ph-row .icp{grid-row:1;grid-column:2}',
+    '.ph-row .cpal{grid-row:2;grid-column:1/-1}',
+    '.ph-row.sm .cpal{grid-template-columns:repeat(5,minmax(0,1fr))}',
+    '.ph-name{min-height:44px;padding:6px 10px}',
     '.ph-row .cswatch.lg{min-height:56px}',
-    '.ph-row.sm .cswatch{height:40px}',
-    '.ph-row.sm .cswatch .cl{display:none}',
+    '.ph-row.sm .cswatch{height:44px}',
+    '.ph-row.sm .cswatch .cl{padding-bottom:8px}',
     '}'
   ].join('\n');
   var st = el('style'); st.textContent = CSS; document.head.appendChild(st);
@@ -77,17 +87,17 @@
 
   // ---------- 미리보기 + 입력 ----------
   var top = el('div', 'c-top');
-  var prev = el('button', 'c-preview'); prev.type = 'button'; prev.setAttribute('aria-label', t('copy') + ' HEX');
-  var prevHex = el('div', 'c-hex'), prevName = el('div', 'c-nm'), prevCopy = el('span', 'c-copy', t('copy'));
-  prev.appendChild(prevHex); prev.appendChild(prevName); prev.appendChild(prevCopy);
-  prev.addEventListener('click', function(){ U.copy(cur); });
+  // 미리보기는 보기만 한다. 복사는 행별 아이콘과 'CSS 복사'(대표)로
+  var prev = el('div', 'c-preview');
+  var prevHex = el('div', 'c-hex'), prevName = el('div', 'c-nm');
+  prev.appendChild(prevHex); prev.appendChild(prevName);
 
   var panel = el('div', 'c-panel');
   var field = el('div', 'c-field');
   var inp = el('input'); inp.type = 'text'; inp.id = 'cin'; inp.placeholder = t('placeholder'); inp.autocomplete = 'off'; inp.spellcheck = false; inp.setAttribute('aria-label', t('base'));
   var pick = el('input', 'c-pick'); pick.type = 'color'; pick.id = 'cpick'; pick.setAttribute('aria-label', t('pick')); pick.title = t('pick');
   field.appendChild(inp); field.appendChild(pick);
-  var row = el('div', 'row');
+  var row = el('div', 'row ph-actions');
   var btnRand = el('button', 'btn ghost sm', t('randomize')); btnRand.type = 'button';
   var btnCss = el('button', 'btn sm', t('copyCss')); btnCss.type = 'button';
   var btnJson = el('button', 'btn ghost sm', t('copyJson')); btnJson.type = 'button';
@@ -96,7 +106,14 @@
   var rows = el('div', 'vrows');
   var R = { hex: U.valueRow(t('hex'), ''), rgb: U.valueRow(t('rgb'), ''), hsl: U.valueRow(t('hsl'), ''), name: U.valueRow(t('cssName'), '') };
   ['hex', 'rgb', 'hsl', 'name'].forEach(function(k){ rows.appendChild(R[k].el); });
-  panel.appendChild(field); panel.appendChild(row); panel.appendChild(status); panel.appendChild(rows);
+  // 상세 변환값: 모바일에서는 접힌 채 배색 아래, 데스크톱은 펼쳐진 채 입력 아래
+  var more = el('details', 'c-more');
+  var mq = matchMedia('(max-width:767.98px)');
+  more.open = !mq.matches;
+  if (mq.addEventListener) mq.addEventListener('change', function(e){ more.open = !e.matches; });
+  more.appendChild(el('summary', null, [t('hex'), t('rgb'), t('hsl'), t('cssName')].join(' · ')));
+  more.appendChild(rows);
+  panel.appendChild(field); panel.appendChild(row); panel.appendChild(status); panel.appendChild(more);
   top.appendChild(prev); top.appendChild(panel);
   app.appendChild(top);
 
@@ -108,13 +125,13 @@
     name.addEventListener('click', function(){ select(s.id); });
     var pal = U.palette(s.hexes, s.small ? { cols: STEPS } : { large: true, cols: s.hexes.length });
     if (s.id === 'light') pal.children[4].classList.add('base');
-    var cp = el('button', 'btn ghost sm', t('copy')); cp.type = 'button'; cp.setAttribute('aria-label', t('copy') + ' ' + t(s.key));
-    cp.addEventListener('click', function(){ U.copy(s.hexes.join(', ')); });
+    var cp = U.copyBtn(t(s.key), function(){ return s.hexes.join(', '); });
     r.appendChild(name); r.appendChild(pal); r.appendChild(cp);
     s.el = r; s.nameEl = name; s.pal = pal;
     list.appendChild(r);
   });
-  app.appendChild(U.section(t('harmony'), list));
+  var harmSec = U.section(t('harmony'), list); harmSec.classList.add('ph-sec');
+  app.appendChild(harmSec);
 
   // ---------- 내보내기 ----------
   function cssText(){ return ':root{' + byId[scheme].hexes.map(function(x, i){ return '--c' + (i + 1) + ':' + x + ';'; }).join('') + '}'; }

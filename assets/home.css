@@ -1,7 +1,17 @@
 /* 홈(index.html) 전용. tools/build-site.js 가 <style id="page-css"> 로 인라인한다 — 공통 규칙은 assets/site.css */
-.drop.home{padding:16px;max-height:var(--drop-home-max-h)}
-.drop.home strong{font-size:16px;margin-bottom:4px}
-.chips.filters{margin:28px 0 20px}
+main.wrap>h1{margin:0 0 4px}
+main.wrap>.lead{margin:0 0 16px;word-break:keep-all;text-wrap:balance}
+.chips.filters{margin:0 0 16px}
+/* 카드: 제목 18px/600, 호버 150ms */
+.grid.tools-grid .card{transition:border-color .15s ease,box-shadow .15s ease}
+.grid.tools-grid .card-icon svg{transition:transform .15s ease}
+.grid.tools-grid .card h3{font-size:18px;line-height:24px;font-weight:var(--fw-semibold)}
+@media (max-width:767.98px){
+  main.wrap{padding-top:16px}
+  /* 분류 칩: 한 줄 가로 스크롤 */
+  .chips.filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter)) 12px;padding:0 var(--gutter) 2px}
+  .chips.filters::-webkit-scrollbar{display:none}
+}
 @media (max-width:440px){
   .grid.tools-grid .card{display:flex;flex-wrap:wrap;align-items:center}
   .grid.tools-grid .card-icon{margin:0 12px 0 0}

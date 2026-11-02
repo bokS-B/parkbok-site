@@ -5,9 +5,9 @@
 <title>Color #BBEE11 – RGB, HSL, Shades &amp; CSS | parkbok</title>
 <meta name="description" content="#BBEE11 – rgb(187, 238, 17), hsl(73.8, 86.7%, 50%). Shades, harmonies, white/black contrast and CSS code.">
 <link rel="canonical" href="https://parkbok.com/color/hex/bbee11/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg">
 <meta name="theme-color" content="#bbee11">
-<script>try{var __t=localStorage.getItem('pb_theme');if(__t)document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
+<script>try{var t=localStorage.pb_theme;t&&document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1415309581345613" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-377MXFWS51"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-377MXFWS51");</script>
@@ -15,29 +15,31 @@
 </head>
 <body>
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="Main menu"><a href="/">HWP viewer (KO)</a><a href="/text/">Text tools (KO)</a><a href="/pdf/">PDF tools</a><a href="/image/">Image tools</a><a href="/color/" class="on">Color tools</a><a href="/wheel/">Spin the wheel</a><a href="/guide/">Guides (KO)</a></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="Light / dark" title="Light / dark">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});</script></header>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="Main menu"><a href="/">HWP viewer (KO)</a><a href="/text/">Text tools (KO)</a><a href="/pdf/">PDF tools</a><a href="/image/">Image tools</a><a href="/color/" class="on">Color tools</a><a href="/wheel/">Spin the wheel</a><a href="/guide/">Guides (KO)</a></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="Light / dark" title="Light / dark">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
+// 모바일 메뉴: 현재 분류를 보이는 자리로 스크롤하고, 끝까지 스크롤되면 오른쪽 페이드를 끈다
+(function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){n.classList.toggle('end',n.scrollLeft+n.clientWidth>=n.scrollWidth-1)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',f);var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth)n.scrollLeft=Math.max(0,o.offsetLeft-(n.clientWidth-o.offsetWidth)/2);f()})();</script></header>
 <!-- /shell:header -->
 <main class="wrap">
-<h1>#BBEE11</h1><p class="lead">Closest named color: <a href="/color/hex/adff2f/"><i style="background:#adff2f"></i>Greenyellow</a></p>
+<h1>#BBEE11</h1><p class="lead">Closest named color: <a href="../adff2f/"><i style="background:#adff2f"></i>Greenyellow</a></p>
 <div class="sw" style="background:#bbee11;color:#000">#BBEE11</div>
-<div class="v"><b>HEX</b><code>#BBEE11</code><button>Copy</button></div><div class="v"><b>RGB</b><code>rgb(187, 238, 17)</code><button>Copy</button></div><div class="v"><b>HSL</b><code>hsl(73.8, 86.7%, 50%)</code><button>Copy</button></div><div class="v"><b>HSV</b><code>hsv(73.8, 92.9%, 93.3%)</code><button>Copy</button></div><div class="v"><b>CMYK</b><code>cmyk(21%, 0%, 93%, 7%)</code><button>Copy</button></div>
+<div class="v"><b>HEX</b><code>#BBEE11</code><button aria-label="Copy HEX"></button></div><div class="v"><b>RGB</b><code>rgb(187, 238, 17)</code><button aria-label="Copy RGB"></button></div><div class="v"><b>HSL</b><code>hsl(73.8, 86.7%, 50%)</code><button aria-label="Copy HSL"></button></div><div class="v"><b>HSV</b><code>hsv(73.8, 92.9%, 93.3%)</code><button aria-label="Copy HSV"></button></div><div class="v"><b>CMYK</b><code>cmyk(21%, 0%, 93%, 7%)</code><button aria-label="Copy CMYK"></button></div>
 <div class="ct"><div style="background:#bbee11;color:#fff">White text<b>1.37 : 1</b><span>Fail</span></div><div style="background:#bbee11;color:#000">Black text<b>15.35 : 1</b><span>AAA</span></div></div>
 <h2>Shades<span>light → dark</span></h2>
-<div class="sc"><a href="/color/hex/f9feec/" style="background:#f9feec">f9feec</a><a href="/color/hex/e8f9b3/" style="background:#e8f9b3">e8f9b3</a><a href="/color/hex/d9f485/" style="background:#d9f485">d9f485</a><a href="/color/hex/ccee55/" style="background:#ccee55">ccee55</a><a href="/color/hex/bbee22/" style="background:#bbee22">bbee22</a><a href="/color/hex/aadd11/" style="background:#aadd11">aadd11</a><a href="/color/hex/88aa11/" style="background:#88aa11">88aa11</a><a href="/color/hex/667700/" style="background:#667700" class="d">667700</a><a href="/color/hex/334400/" style="background:#334400" class="d">334400</a><a href="/color/hex/111100/" style="background:#111100" class="d">111100</a></div>
+<div class="sc"><a href="../f9feec/" style="background:#f9feec">f9feec</a><a href="../e8f9b3/" style="background:#e8f9b3">e8f9b3</a><a href="../d9f485/" style="background:#d9f485">d9f485</a><a href="../ccee55/" style="background:#ccee55">ccee55</a><a href="../bbee22/" style="background:#bbee22">bbee22</a><a href="../aadd11/" style="background:#aadd11">aadd11</a><a href="../88aa11/" style="background:#88aa11">88aa11</a><a href="../667700/" style="background:#667700" class="d">667700</a><a href="../334400/" style="background:#334400" class="d">334400</a><a href="../111100/" style="background:#111100" class="d">111100</a></div>
 <h2>Harmonies<span>complement · analogous ×2 · triadic ×2</span></h2>
-<div class="chips"><a href="/color/hex/4411ee/"><i style="background:#4411ee"></i>#4411EE</a><a href="/color/hex/eeaa11/"><i style="background:#eeaa11"></i>#EEAA11</a><a href="/color/hex/55ee11/"><i style="background:#55ee11"></i>#55EE11</a><a href="/color/hex/11bbee/"><i style="background:#11bbee"></i>#11BBEE</a><a href="/color/hex/ee11bb/"><i style="background:#ee11bb"></i>#EE11BB</a></div>
+<div class="chips"><a href="../4411ee/"><i style="background:#4411ee"></i>#4411EE</a><a href="../eeaa11/"><i style="background:#eeaa11"></i>#EEAA11</a><a href="../55ee11/"><i style="background:#55ee11"></i>#55EE11</a><a href="../11bbee/"><i style="background:#11bbee"></i>#11BBEE</a><a href="../ee11bb/"><i style="background:#ee11bb"></i>#EE11BB</a></div>
 <h2>CSS</h2>
 <div class="v"><pre>color: #bbee11;
 background: #bbee11;
-border: 1px solid #bbee11;</pre><button>Copy</button></div>
+border: 1px solid #bbee11;</pre><button aria-label="Copy CSS"></button></div>
 <p class="actions"><a class="btn" href="/color/converter/#bbee11">Edit color</a></p>
 <div class="ad"></div>
 <h2>More colors</h2>
-<nav class="sc n5" aria-label="More colors"><a href="/color/hex/aa0055/" style="background:#aa0055" class="d">aa0055</a><a href="/color/hex/bb7788/" style="background:#bb7788">bb7788</a><a href="/color/hex/fcd4de/" style="background:#fcd4de">fcd4de</a><a href="/color/hex/77bbcc/" style="background:#77bbcc">77bbcc</a><a href="/color/hex/11eeff/" style="background:#11eeff">11eeff</a></nav>
+<nav class="sc n5" aria-label="More colors"><a href="../aa0055/" style="background:#aa0055" class="d">aa0055</a><a href="../bb7788/" style="background:#bb7788">bb7788</a><a href="../fcd4de/" style="background:#fcd4de">fcd4de</a><a href="../77bbcc/" style="background:#77bbcc">77bbcc</a><a href="../11eeff/" style="background:#11eeff">11eeff</a></nav>
 </main>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="Footer menu"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/guide/">Guides</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->
-<script>document.onclick=function(e){var b=e.target;if(b.tagName!='BUTTON'||b.parentNode.className!='v')return;navigator.clipboard&&navigator.clipboard.writeText(b.previousSibling.textContent);b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},900)}</script>
+<script>var T;onclick=function(e){var b=e.target,t=document.getElementById('tt');if(b.tagName!='BUTTON'||b.parentNode.className!='v')return;if(!t){t=document.createElement('div');t.id='tt';t.className='toast';t.setAttribute('role','status');t.textContent='Copied';document.body.appendChild(t)}navigator.clipboard&&navigator.clipboard.writeText(b.previousSibling.textContent).then(function(){t.classList.add('show');clearTimeout(T);T=setTimeout(function(){t.classList.remove('show')},1e3)})}</script>
 </body>
 </html>

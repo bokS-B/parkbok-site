@@ -42,12 +42,14 @@ function snap(hex){
 function rng(seed){ let a = seed >>> 0; return () => { a = (a + 0x6d2b79f5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 const namesOf = hex => C.names.filter(n => C.NAMES[n] === hex).map(cap);
-const href = hex => '/color/hex/' + hex.slice(1) + '/';
+const href = hex => '/color/hex/' + hex.slice(1) + '/';           // 정식 주소(canonical·사이트맵)
+const rel = hex => '../' + hex.slice(1) + '/';                        // 페이지 안 링크는 상대 경로로 줄여 6KB 를 지킨다
 const UP = hex => hex.toUpperCase();
 const level = r => { const l = C.contrastLevel(r); return l === 'fail' ? 'Fail' : l === 'AA-large' ? 'AA large' : l; };
-const cell = (hex, cur) => { const cls = (C.textOn(hex) === '#ffffff' ? 'd' : '') + (hex === cur ? ' on' : ''); return `<a href="${href(hex)}" style="background:${hex}"${cls.trim() ? ' class="' + cls.trim() + '"' : ''}>${hex.slice(1)}</a>`; };
-const chip = (hex, label) => `<a href="${href(hex)}"><i style="background:${hex}"></i>${label || UP(hex)}</a>`;
-const row = (label, val) => `<div class="v"><b>${label}</b><code>${val}</code><button>Copy</button></div>`;
+const cell = (hex, cur) => { const cls = (C.textOn(hex) === '#ffffff' ? 'd' : '') + (hex === cur ? ' on' : ''); return `<a href="${rel(hex)}" style="background:${hex}"${cls.trim() ? ' class="' + cls.trim() + '"' : ''}>${hex.slice(1)}</a>`; };
+const chip = (hex, label) => `<a href="${rel(hex)}"><i style="background:${hex}"></i>${label || UP(hex)}</a>`;
+// 행별 복사 버튼은 아이콘만(hex.css 의 --i-copy), 접근성 이름은 aria-label
+const row = (label, val) => `<div class="v"><b>${label}</b><code>${val}</code><button aria-label="Copy ${label}"></button></div>`;
 
 const header = shell.header({ lang: 'en', section: 'color', wheelHome: '/wheel/', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' });
 const footer = shell.footer({ lang: 'en' });

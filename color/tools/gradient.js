@@ -35,7 +35,7 @@
     '.g-pre{aspect-ratio:4/3;min-width:0;padding:0;border:1px solid rgba(0,0,0,.1);border-radius:var(--r-btn);cursor:pointer;transition:transform .12s}',
     '.g-pre:hover,.g-pre:focus-visible{transform:scale(1.05);z-index:1;outline:2px solid var(--ink);outline-offset:1px}',
     '.g-actions{display:flex;flex-wrap:wrap;gap:8px;margin:0}',
-    '@media (max-width:767.98px){.g-top{grid-template-columns:minmax(0,1fr)}.g-preview{min-height:200px}.g-pres{grid-template-columns:repeat(4,minmax(0,1fr))}.g-dirs .btn{font-size:15px}}'
+    '@media (max-width:767.98px){.g-top{grid-template-columns:minmax(0,1fr)}.g-preview{min-height:200px}.g-pres{grid-template-columns:repeat(4,minmax(0,1fr))}.g-dirs .btn{font-size:15px}.g-stop .g-del{width:44px;height:44px}}'
   ].join('\n');
   document.head.appendChild(style);
 
@@ -90,7 +90,8 @@
   var stopsBox = el('div', 'g-stops');
   var btnAdd = el('button', 'btn ghost sm', '+ ' + t('addStop')); btnAdd.type = 'button';
 
-  var cssRow = U.valueRow(t('cssLabel'), '');
+  // 코드 행은 보기만, 복사는 아래 'CSS 복사' 버튼 하나로
+  var cssRow = U.valueRow(t('cssLabel'), '', { noCopy: true });
   var actions = el('div', 'g-actions');
   var btnCopy = el('button', 'btn', t('copyCss')), btnPng = el('button', 'btn ghost', t('downloadPng')), btnRand = el('button', 'btn ghost', t('randomize'));
   btnCopy.type = btnPng.type = btnRand.type = 'button';

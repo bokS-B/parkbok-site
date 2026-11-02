@@ -19,8 +19,11 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .file-ic{flex:none;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:var(--fw-bold);letter-spacing:.04em;color:var(--accent-ink);background:var(--cat-image);border-radius:6px}
 .file-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink)}
 .file-meta{flex:none;color:var(--muted);font-size:var(--fs-caption);white-space:nowrap}
-.file-ctl{flex:none;display:flex;gap:2px}
-.ibtn{width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:15px;line-height:1;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);cursor:pointer;padding:0}
+.file-ctl{flex:none;display:flex;gap:12px}
+.ibtn{position:relative;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:15px;line-height:1;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);cursor:pointer;padding:0}
+/* 시각 32px, 터치 영역 44px (::before 는 패딩 박스 기준이라 테두리 1px 포함 7px 씩 넓힘) */
+.ibtn::before{content:"";position:absolute;inset:-7px}
+.pg-ctl .ibtn::before{inset:-1px}
 .ibtn:hover{border-color:var(--ink)}
 .ibtn:disabled{opacity:.35;cursor:default}
 .ibtn.rm:hover{color:var(--err);border-color:var(--err)}
@@ -37,7 +40,8 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .num-unit{color:var(--muted);font-size:var(--fs-caption)}
 .radio-group{display:flex;flex-wrap:wrap;gap:6px}
 .radio{display:inline-flex;align-items:center;gap:6px;height:var(--chip-h);padding:var(--chip-pad);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);cursor:pointer;white-space:nowrap}
-.radio:has(input:checked){background:var(--accent-tint);border-color:var(--accent);color:var(--accent)}
+.radio:has(input:checked){background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.radio:has(input:checked) input{accent-color:var(--accent-ink)}
 .radio input{margin:0}
 .check{display:inline-flex;align-items:center;gap:8px;cursor:pointer}
 .range-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:160px;max-width:360px}
@@ -77,7 +81,21 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .pages-more{grid-column:1/-1;text-align:center;padding:8px}
 /* 사각형 편집기 (crop / blur-regions): 첫 이미지 위에 드래그 */
 .opt-crop,.opt-blur-regions{flex-direction:column;flex-wrap:nowrap;align-items:stretch}
-.rect-box{position:relative;width:100%;max-width:720px;margin:0 auto;background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px;border:1px solid var(--line);border-radius:var(--r-btn);overflow:hidden;line-height:0}
+/* layout:split (여권사진): 편집기 왼쪽, 나머지 옵션(.opt-side) 오른쪽 — 데스크톱만 2열 */
+.opt-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+@media (min-width:1024px){
+  .opts#opts[data-layout="split"]{display:grid;grid-template-columns:minmax(0,1fr) var(--opts-w);gap:14px 24px;align-items:start}
+  .opts#opts[data-layout="split"] .opt-crop,.opts#opts[data-layout="split"] .opt-blur-regions{grid-column:1;grid-row:1}
+  .opts#opts[data-layout="split"] .opt-side{grid-column:2;grid-row:1}
+  /* 2열에서는 편집기 라벨을 숨기고, 실행 버튼이 첫 화면(900px)에 들어오도록 높이 상한을 화면 높이에서 뺀 값으로도 제한 */
+  .opts#opts[data-layout="split"] .opt-crop > .opt-label{display:none}
+  .opts#opts[data-layout="split"] .rect-box{--rect-max-h:max(300px,min(56dvh,520px,calc(100dvh - 520px)))}
+  .opt-side .opt-label{min-width:0;flex-basis:100%}
+  .opt-side .opt-preset select{width:100%}
+}
+/* 표시 높이는 min(56dvh,520px) 까지: 미리보기 비율(--ar, JS 가 넣음)로 너비를 줄이면 오버레이는 퍼센트 좌표라 같이 줄어든다 */
+.rect-box{position:relative;width:100%;--ar:1;--rect-max-h:min(56vh,520px);max-width:min(720px,calc(var(--rect-max-h) * var(--ar)));margin:0 auto;background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px;border:1px solid var(--line);border-radius:var(--r-btn);overflow:hidden;line-height:0}
+@supports (height:1dvh){.rect-box{--rect-max-h:min(56dvh,520px)}}
 .rect-bg{display:block;width:100%;height:auto}
 .rect-layer{position:absolute;inset:0;touch-action:none;cursor:crosshair;user-select:none;-webkit-user-select:none}
 .rsel{position:absolute;box-sizing:border-box;border:2px solid #fff;outline:1px solid rgba(0,0,0,.6);box-shadow:0 0 0 9999px rgba(0,0,0,.35);cursor:move}
@@ -112,15 +130,17 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .result-grid .result-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .result-stats{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 8px;margin-top:10px;font-size:var(--fs-small);color:var(--muted)}
 .result-stats .after{color:var(--ink);font-weight:var(--fw-semibold)}
-.result-stats .saved{color:var(--accent);font-weight:var(--fw-semibold)}
+.result-stats .saved{color:var(--accent-text);font-weight:var(--fw-semibold)}
 .result-note{text-align:center;margin:8px 0 0}
 .stage-out .actions{justify-content:center;margin:14px 0 6px}
 .stage-out .status{text-align:center}
 body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 /* 모바일 */
 @media (max-width:767.98px){
-  .stage-out .actions{position:sticky;bottom:0;z-index:5;background:var(--bg);padding:10px 0;margin:8px 0 0;box-shadow:0 -8px 12px -8px rgba(0,0,0,.15)}
-  .stage-out .actions .btn-big{flex:1 1 auto}
+  /* 결과 작업대: 주 56px + 보조 44px 한 줄, 전체 72px + 안전 영역 */
+  .stage-out .actions{position:sticky;bottom:0;z-index:5;flex-wrap:nowrap;gap:8px;background:var(--bg);padding:8px 0 calc(8px + env(safe-area-inset-bottom));margin:8px 0 0;box-shadow:0 -8px 12px -8px rgba(0,0,0,.15)}
+  .stage-out .actions .btn-big{flex:1 1 auto;width:auto;min-width:0;min-height:56px;padding:12px 16px;font-size:20px;line-height:24px}
+  .stage-out .actions .btn.ghost{flex:0 0 auto;min-height:44px;padding:8px 14px}
   .opt-label{min-width:0;flex-basis:100%}
   .pages-grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px}
   .pg{padding:4px 4px 22px}

@@ -344,13 +344,17 @@
     var opts = tool.options || [], box = dom.opts;
     box.innerHTML = ''; optUI = {}; optListeners = [];
     if (!opts.length) { box.hidden = true; return; }
+    box.setAttribute('data-tool', tool.id); box.setAttribute('data-layout', tool.layout || '');
+    // layout:'split' 이면 편집기(crop/blur) 행만 바로 넣고 나머지 옵션은 .opt-side 에 모은다 (데스크톱 2열, 모바일은 그대로 세로)
+    var side = tool.layout === 'split' ? el('div', 'opt-side') : null;
+    if (side) box.appendChild(side);
     opts.forEach(function(o){
       var row = el('div', 'opt opt-' + o.type); row.setAttribute('data-opt', o.id);
       var r = renderers[o.type] || (tool.renderers && tool.renderers[o.type]); if (!r) return;
       r(o, row, widgetApi());
       var help = optStr(o.id, 'help');
       if (help && o.type !== 'text' && o.type !== 'number') row.appendChild(el('small', 'opt-help', help));
-      box.appendChild(row);
+      (side && o.type !== 'crop' && o.type !== 'blur-regions' ? side : box).appendChild(row);
     });
     box.hidden = false;
     if (!box.__bound) { box.__bound = true; box.addEventListener('change', onOptChange); box.addEventListener('input', onOptChange); }
@@ -657,6 +661,7 @@
       var d = dims(img); natW = d.w; natH = d.h;
       var pv = scaleTo(img, EDIT_W, EDIT_W); release(img);
       cv.width = pv.width; cv.height = pv.height; cv.getContext('2d').drawImage(pv, 0, 0);
+      box.style.setProperty('--ar', (pv.width / pv.height).toFixed(4));   // CSS 가 높이 상한에 맞춰 너비를 줄일 때 쓰는 비율
       ready = true; if (!multi) { rects = [fullRect()]; sel = 0; } draw();
     }, function(){ info.textContent = t('errorBroken'); });
     optUI[o.id] = { get: function(){
@@ -715,16 +720,17 @@
     }, function(){ setBusy(false); setStatus(t('errorGeneric'), 'err'); });
   }
   function isImageOut(o){ return /^image\//.test(o.blob.type || '') || /\.(png|jpe?g|webp|gif|bmp|svg|avif|ico)$/i.test(o.name); }
-  // 원본 → 결과 용량과 절감률
+  // 원본 → 결과 용량과 절감률 한 줄: "60 KB → 19 KB · 69% 절감"
   function stats(before, after){
     var s = el('div', 'result-stats');
-    s.appendChild(el('span', null, t('before') + ' ' + human(before)));
+    s.appendChild(el('span', null, human(before)));
     s.appendChild(el('span', 'arrow', '→'));
-    s.appendChild(el('span', 'after', t('after') + ' ' + human(after)));
-    if (before > 0 && after < before) s.appendChild(el('span', 'saved', t('saved', { p: Math.round((1 - after / before) * 100) })));
+    s.appendChild(el('span', 'after', human(after)));
+    if (before > 0 && after < before) { s.appendChild(el('span', 'dot', '·')); s.appendChild(el('span', 'saved', t('saved', { p: Math.round((1 - after / before) * 100) }))); }
     return s;
   }
   function showResult(note){
+    note = String(note || '').trim();   // 도구가 빈 문구(용량 줄은 위 stats 가 담당) 뒤에 덧붙인 메모만 남긴다
     document.body.classList.add('done');
     var r = dom.result; r.innerHTML = ''; r.hidden = false;
     setTimeout(function(){ dom.progress.hidden = true; }, 600);

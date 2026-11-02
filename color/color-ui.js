@@ -100,16 +100,24 @@
     for (var i = 0; i < hexes.length; i++) setSwatch(kids[i], hexes[i], opts);
   }
 
-  // ---------- 값 행: 라벨 · 값 · 복사 버튼 ----------
+  // ---------- 행별 복사: 중립 아이콘 버튼 44×44 (아이콘은 color.css 의 --i-copy). 대표 복사만 파란 .btn 을 쓴다 ----------
+  function copyBtn(label, getText){
+    var b = el('button', 'icp');
+    b.type = 'button';
+    b.title = t('copy');
+    b.setAttribute('aria-label', t('copy') + ' ' + label);
+    if (getText) b.addEventListener('click', function(){ copy(getText()); });
+    return b;
+  }
+
+  // ---------- 값 행: 라벨 · 값 · 복사 아이콘 (opts.noCopy 면 아이콘 없음) ----------
   function valueRow(label, value, opts){
     opts = opts || {};
     var row = el('div', 'vrow');
-    var l = el('span', 'vl', label), v = el('code', 'vv', value), b = el('button', 'btn ghost sm', t('copy'));
-    b.type = 'button';
-    b.setAttribute('aria-label', t('copy') + ' ' + label);
-    b.addEventListener('click', function(){ copy(v.textContent); });
+    var l = el('span', 'vl', label), v = el('code', 'vv', value);
     if (opts.swatch) { var sw = el('span', 'vs'); sw.setAttribute('aria-hidden', 'true'); row.appendChild(sw); }
-    row.appendChild(l); row.appendChild(v); row.appendChild(b);
+    row.appendChild(l); row.appendChild(v);
+    if (!opts.noCopy) row.appendChild(copyBtn(label, function(){ return v.textContent; }));
     return { el: row, set: function(val, hex){ v.textContent = val; if (opts.swatch && hex) row.firstChild.style.background = hex; } };
   }
 
@@ -123,5 +131,5 @@
     return s;
   }
 
-  window.COLOR_UI = { t: t, el: el, $: $, store: store, read: read, toast: toast, copy: copy, swatch: swatch, setSwatch: setSwatch, palette: palette, setPalette: setPalette, valueRow: valueRow, section: section };
+  window.COLOR_UI = { t: t, el: el, $: $, store: store, read: read, toast: toast, copy: copy, swatch: swatch, setSwatch: setSwatch, palette: palette, setPalette: setPalette, valueRow: valueRow, copyBtn: copyBtn, section: section };
 })();

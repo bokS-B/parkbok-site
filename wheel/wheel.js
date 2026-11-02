@@ -38,7 +38,8 @@
   var wrap = $('wheelwrap'), ta = $('entries'), spinBtn = $('spin'), hintEl = $('hint'), titleEl = $('title');
   var entries = [], results = [], angle = rnd() * TWO_PI, spinning = false, pendingRemove = -1;
   var dur = 8, sound = true, removeAfter = false, lastTick = 0, actx = null;
-  var PALETTE = ['#2563eb', '#ef4444', '#f59e0b', '#10b981', '#8b5cf6', '#ec4899', '#06b6d4', '#f97316'];
+  var PALETTE = ['#2563eb', '#dc2626', '#f59e0b', '#10b981', '#7c3aed', '#ec4899', '#06b6d4', '#f97316'];
+  var INK_DARK = '#1d2129', INK_LIGHT = '#ffffff', inkCache = {};
 
   function parse(t){ return String(t).split(/\r?\n/).map(function(s){ return s.trim(); }).filter(Boolean).slice(0, 1000); }
   function range(a, b){ var r = []; for (var i = a; i <= b; i++) r.push(String(i)); return r; }
@@ -64,15 +65,27 @@
   }
 
   // ---------- 그리기 ----------
-  function cssSize(){ return canvas.width / (window.devicePixelRatio || 1); }
+  // CSS 크기는 스타일시트(width:100%)가 정하고, 여기서는 해상도(canvas.width/height)만 맞춘다
+  var cssW = 0;
+  function cssSize(){ return cssW; }
   function resize(){
-    var size = Math.min(wrap.clientWidth || 0, 600);
+    var size = Math.min(wrap.clientWidth || 0, 1600);
     if (!size) return;
-    var dpr = window.devicePixelRatio || 1;
-    canvas.style.width = size + 'px'; canvas.style.height = size + 'px';
-    canvas.width = Math.round(size * dpr); canvas.height = Math.round(size * dpr);
+    var dpr = window.devicePixelRatio || 1, px = Math.round(size * dpr);
+    if (size === cssW && canvas.width === px) return;
+    cssW = size; canvas.width = px; canvas.height = px;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     draw();
+  }
+  // 조각 밝기에 따라 글자색 선택: 대비가 더 큰 쪽(#1d2129 / #ffffff)
+  function lum(hex){
+    var n = parseInt(hex.slice(1), 16), c = [n >> 16 & 255, n >> 8 & 255, n & 255].map(function(v){ v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  function inkFor(hex){
+    if (inkCache[hex]) return inkCache[hex];
+    var L = lum(hex), onWhite = 1.05 / (L + 0.05), onDark = (L + 0.05) / (lum(INK_DARK) + 0.05);
+    return (inkCache[hex] = onWhite >= onDark ? INK_LIGHT : INK_DARK);
   }
   function segColor(i, n){ var c = PALETTE[i % PALETTE.length]; if (n > 1 && i === n - 1 && c === PALETTE[0]) c = PALETTE[1]; return c; }
   function fit(txt, maxW){
@@ -93,13 +106,14 @@
     var fontSize = Math.min(26, 0.78 * r * step * 0.62);
     if (fontSize >= 8) {
       fontSize = Math.max(10, fontSize);
-      ctx.fillStyle = '#fff'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
       ctx.font = '600 ' + fontSize + 'px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Malgun Gothic","Apple SD Gothic Neo","Hiragino Sans","PingFang SC","Microsoft YaHei",sans-serif';
       var maxW = r * 0.74;
       for (i = 0; i < n; i++) {
+        var ink = inkFor(segColor(i, n));
         ctx.save(); ctx.translate(cx, cy); ctx.rotate(angle + i * step + step / 2);
-        ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 3;
-        ctx.fillText(fit(entries[i], maxW), r - 16, 0);
+        if (ink === INK_LIGHT) { ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 3; }
+        ctx.fillStyle = ink; ctx.fillText(fit(entries[i], maxW), r - 16, 0);
         ctx.restore();
       }
     }
@@ -258,7 +272,7 @@
     if (t === 'TEXTAREA' || t === 'INPUT' || t === 'SELECT' || t === 'BUTTON') return;
     if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); if (!$('modal').hidden) closeModal(); else spin(); }
   });
-  window.addEventListener('resize', resize);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(wrap); else window.addEventListener('resize', resize);
   if (window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
 
   // ---------- 프리셋 ----------

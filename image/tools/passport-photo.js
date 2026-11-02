@@ -242,6 +242,7 @@
     multiple: false,
     minFiles: 1,
     needsPages: false,
+    layout: 'split',   // 자르기 편집기 왼쪽 + 나머지 옵션 오른쪽 (데스크톱)
     options: [
       { id: 'preset', type: 'preset', choices: PRESETS.map(function(p){ return p.id; }), default: DEFAULT_BY_LANG[LANG] || 'us_passport' },
       { id: 'custom', type: 'custom-size', showIf: { preset: 'custom' } },

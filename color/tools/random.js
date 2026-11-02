@@ -18,7 +18,7 @@
     '.rs-nm{font-size:var(--fs-caption);opacity:.8;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
     '.rs-cp{font-size:var(--fs-caption);opacity:0;margin-top:6px;transition:opacity .15s}',
     '.rs-slot:hover .rs-cp,.rs-main:focus-visible .rs-cp{opacity:.75}',
-    '.rs-lock{position:absolute;top:10px;right:10px;display:flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:rgba(127,127,127,.22);color:inherit;cursor:pointer;opacity:.55;transition:opacity .15s,background .15s}',
+    '.rs-lock{position:absolute;top:10px;right:10px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:rgba(127,127,127,.22);color:inherit;cursor:pointer;opacity:.55;transition:opacity .15s,background .15s}',
     '.rs-lock svg{width:20px;height:20px}',
     '.rs-lock:hover,.rs-lock:focus-visible{opacity:1}',
     '.rs-lock:focus-visible{outline:2px solid currentColor;outline-offset:2px}',
@@ -33,6 +33,9 @@
     '.rs-hex{font-size:19px}',
     '.rs-lock{top:50%;transform:translateY(-50%);right:14px}',
     '.rs-cp{display:none}',
+    '.rs-actions{flex-wrap:nowrap;gap:8px}',
+    '.rs-actions .btn{flex:1;min-width:0;padding:10px 8px;font-size:15px}',
+    '.rs-actions kbd{display:none}',
     '}'
   ].join('\n');
   var st = el('style'); st.textContent = CSS; document.head.appendChild(st);
@@ -127,4 +130,8 @@
   for (var j = 0; j < N; j++) locks.push(false);
   paint();
   for (var m = 0; m < N; m++) setLock(m, false);
+
+  // 터치·모바일에서는 스페이스바 안내 대신 버튼·잠금 안내 문구
+  var lead = document.querySelector('.tool-head .lead');
+  if (lead && t('lineTouch') !== 'lineTouch' && (matchMedia('(max-width:767.98px)').matches || matchMedia('(hover:none)').matches)) lead.textContent = t('lineTouch');
 })();

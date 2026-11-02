@@ -15,10 +15,10 @@
 
   // ---------- 미리보기 + 입력 ----------
   var top = el('div', 'c-top');
-  var prev = el('button', 'c-preview'); prev.type = 'button'; prev.setAttribute('aria-label', t('copy') + ' HEX');
-  var prevHex = el('div', 'c-hex'), prevName = el('div', 'c-nm'), prevCopy = el('span', 'c-copy', t('copy'));
-  prev.appendChild(prevHex); prev.appendChild(prevName); prev.appendChild(prevCopy);
-  prev.addEventListener('click', function(){ U.copy(cur); });
+  // 미리보기는 보기만 한다. HEX 복사는 상단 'HEX 복사' 버튼(대표)과 행별 아이콘으로
+  var prev = el('div', 'c-preview');
+  var prevHex = el('div', 'c-hex'), prevName = el('div', 'c-nm');
+  prev.appendChild(prevHex); prev.appendChild(prevName);
 
   var panel = el('div', 'c-panel');
   var field = el('div', 'c-field');
