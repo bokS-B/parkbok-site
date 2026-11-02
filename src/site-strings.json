@@ -7,7 +7,8 @@
       "text": "Text tools (KO)",
       "wheel": "Spin the wheel",
       "guide": "Guides (KO)",
-      "pdf": "PDF tools"
+      "pdf": "PDF tools",
+      "image": "Image tools"
     },
     "foot": {
       "about": "About",
@@ -27,7 +28,8 @@
       "text": "텍스트 도구",
       "wheel": "룰렛",
       "guide": "가이드",
-      "pdf": "PDF 도구"
+      "pdf": "PDF 도구",
+      "image": "이미지 도구"
     },
     "foot": {
       "about": "소개",
@@ -47,7 +49,8 @@
       "text": "文本工具 (KO)",
       "wheel": "幸运转盘",
       "guide": "指南 (KO)",
-      "pdf": "PDF 工具"
+      "pdf": "PDF 工具",
+      "image": "图片工具"
     },
     "foot": {
       "about": "关于",
@@ -67,7 +70,8 @@
       "text": "テキストツール (KO)",
       "wheel": "ルーレット",
       "guide": "ガイド (KO)",
-      "pdf": "PDFツール"
+      "pdf": "PDFツール",
+      "image": "画像ツール"
     },
     "foot": {
       "about": "サイトについて",
@@ -87,7 +91,8 @@
       "text": "Herramientas de texto (KO)",
       "wheel": "Ruleta",
       "guide": "Guías (KO)",
-      "pdf": "Herramientas PDF"
+      "pdf": "Herramientas PDF",
+      "image": "Herramientas de imagen"
     },
     "foot": {
       "about": "Acerca de",
@@ -107,7 +112,8 @@
       "text": "Ferramentas de texto (KO)",
       "wheel": "Roleta",
       "guide": "Guias (KO)",
-      "pdf": "Ferramentas PDF"
+      "pdf": "Ferramentas PDF",
+      "image": "Ferramentas de imagem"
     },
     "foot": {
       "about": "Sobre",
@@ -127,7 +133,8 @@
       "text": "Textwerkzeuge (KO)",
       "wheel": "Glücksrad",
       "guide": "Anleitungen (KO)",
-      "pdf": "PDF-Werkzeuge"
+      "pdf": "PDF-Werkzeuge",
+      "image": "Bild-Werkzeuge"
     },
     "foot": {
       "about": "Über",
@@ -147,7 +154,8 @@
       "text": "Outils texte (KO)",
       "wheel": "Roue",
       "guide": "Guides (KO)",
-      "pdf": "Outils PDF"
+      "pdf": "Outils PDF",
+      "image": "Outils image"
     },
     "foot": {
       "about": "À propos",
