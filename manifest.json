@@ -1,6 +1,6 @@
 {
-  "name": "parkbok HWP 뷰어 · 텍스트 도구",
-  "short_name": "parkbok",
+  "name": "박복판 스튜디오 — HWP 뷰어 · 텍스트 도구",
+  "short_name": "박복판",
   "description": "설치 없이 HWP·HWPX를 열고, 줄바꿈 제거·글자수 세기 같은 텍스트 정리를 브라우저에서 바로",
   "start_url": "/",
   "scope": "/",
