@@ -346,8 +346,8 @@
     if (!opts.length) { box.hidden = true; return; }
     opts.forEach(function(o){
       var row = el('div', 'opt opt-' + o.type); row.setAttribute('data-opt', o.id);
-      var r = renderers[o.type]; if (!r) return;
-      r(o, row);
+      var r = renderers[o.type] || (tool.renderers && tool.renderers[o.type]); if (!r) return;
+      r(o, row, widgetApi());
       var help = optStr(o.id, 'help');
       if (help && o.type !== 'text' && o.type !== 'number') row.appendChild(el('small', 'opt-help', help));
       box.appendChild(row);
@@ -370,6 +370,11 @@
     });
   }
   function getValue(id){ var u = optUI[id]; return u ? u.get() : undefined; }
+  // 도구 자체 위젯(tool.renderers)에 주는 도우미: 값 등록, 다른 옵션 읽기, 첫 파일, 문구, 변경 구독
+  function widgetApi(){
+    return { el: el, t: t, optStr: optStr, getValue: getValue, files: function(){ return files.slice(); }, loadImage: loadImage, scaleTo: scaleTo, release: release, dims: dims,
+      set: function(id, get, set){ optUI[id] = { get: get, set: set }; }, onChange: function(fn){ optListeners.push(fn); }, changed: onOptChange, busy: function(){ return busy; } };
+  }
   function getOpts(){ var v = {}; Object.keys(optUI).forEach(function(k){ v[k] = optUI[k].get(); }); return v; }
   function labelFor(o, row, forId){ var lb = el('label', 'opt-label', optStr(o.id, 'label')); if (forId) lb.htmlFor = forId; row.appendChild(lb); return lb; }
 
@@ -583,6 +588,7 @@
         var d = el('div', 'rsel' + (i === sel ? ' on' : '')); d.setAttribute('data-i', i);
         d.style.left = pct(r.x, natW); d.style.top = pct(r.y, natH); d.style.width = pct(r.w, natW); d.style.height = pct(r.h, natH);
         HANDLES.forEach(function(h){ var s = el('span', 'rh rh-' + h); s.setAttribute('data-h', h); d.appendChild(s); });
+        if (!multi && typeof o.guide === 'function') (o.guide(round(r), getValue) || []).forEach(function(g){ var gd = el('div', 'rguide' + (g.cls ? ' ' + g.cls : ''), g.text || null); gd.style.left = (g.x * 100) + '%'; gd.style.top = (g.y * 100) + '%'; gd.style.width = (g.w * 100) + '%'; gd.style.height = (g.h * 100) + '%'; d.appendChild(gd); });
         if (multi) { var x = el('button', 'rdel', '✕'); x.type = 'button'; x.setAttribute('aria-label', t('delete')); x.setAttribute('data-del', i); d.appendChild(x); }
         layer.appendChild(d);
       });

@@ -1,0 +1,109 @@
+{
+  "id": "gradient",
+  "order": 4,
+  "icon": "color-gradient",
+  "cat": "color",
+  "next": [
+    "palette",
+    "picker",
+    "contrast"
+  ],
+  "strings": {
+    "en": {
+      "title": "CSS Gradient Generator – Linear & Radial, Copy CSS, Download PNG",
+      "h1": "CSS gradient generator",
+      "line": "Pick colors and an angle, copy the CSS or save a 1920×1080 PNG",
+      "description": "Free CSS gradient generator. Add 2 to 6 color stops, set the angle or choose radial, preview it large, copy the background CSS with one click or download a 1920×1080 PNG. Twelve ready-made presets. Runs in your browser.",
+      "linear": "Linear", "radial": "Radial", "angle": "Angle", "stops": "Color stops", "addStop": "Add stop", "remove": "Remove", "stop": "Stop {n}", "position": "Position",
+      "presets": "Presets", "preset": "Preset {n}", "copyCss": "Copy CSS", "downloadPng": "Save PNG", "cssLabel": "CSS", "direction": "Direction {deg}°", "maxStops": "Up to 6 stops",
+      "faq": [
+        [ "How do I use the CSS?", "Copy the line and paste it into any CSS rule, for example on body or a .hero element. It uses only standard linear-gradient and radial-gradient, so every current browser supports it." ],
+        [ "What size is the PNG?", "1920×1080 pixels, drawn in your browser with the same colors and angle as the preview. Nothing is uploaded." ]
+      ]
+    },
+    "ko": {
+      "title": "그라데이션 생성기 – CSS 그라데이션 만들기, 코드 복사, PNG 저장",
+      "h1": "그라데이션 생성기",
+      "line": "색과 각도를 고르면 CSS 코드 복사, 1920×1080 PNG 저장까지",
+      "description": "무료 CSS 그라데이션 생성기. 색 정지점을 2~6개 넣고 각도를 정하거나 원형으로 바꾸면 크게 미리 보고, background CSS 를 한 번에 복사하거나 1920×1080 PNG 로 내려받습니다. 프리셋 12개. 브라우저 안에서 처리됩니다.",
+      "linear": "선형", "radial": "원형", "angle": "각도", "stops": "색 정지점", "addStop": "정지점 추가", "remove": "삭제", "stop": "정지점 {n}", "position": "위치",
+      "presets": "프리셋", "preset": "프리셋 {n}", "copyCss": "CSS 복사", "downloadPng": "PNG 저장", "cssLabel": "CSS", "direction": "방향 {deg}°", "maxStops": "정지점은 6개까지",
+      "faq": [
+        [ "CSS 코드는 어떻게 쓰나요?", "복사한 한 줄을 body 나 .hero 같은 CSS 규칙 안에 붙여 넣으면 됩니다. 표준 linear-gradient·radial-gradient 만 쓰므로 최신 브라우저 모두에서 동작합니다." ],
+        [ "PNG 크기는 얼마인가요?", "1920×1080 픽셀이며 미리보기와 같은 색·각도로 브라우저 안에서 그립니다. 업로드는 없습니다." ]
+      ]
+    },
+    "zh": {
+      "title": "CSS 渐变生成器 – 线性与径向渐变，复制代码，下载 PNG",
+      "h1": "渐变生成器",
+      "line": "选好颜色和角度，一键复制 CSS 或保存 1920×1080 PNG",
+      "description": "免费 CSS 渐变生成器。添加 2 到 6 个色标，设置角度或改为径向，大图预览，一键复制 background CSS 或下载 1920×1080 PNG。内置 12 个预设。全部在浏览器中完成。",
+      "linear": "线性", "radial": "径向", "angle": "角度", "stops": "色标", "addStop": "添加色标", "remove": "删除", "stop": "色标 {n}", "position": "位置",
+      "presets": "预设", "preset": "预设 {n}", "copyCss": "复制 CSS", "downloadPng": "保存 PNG", "cssLabel": "CSS", "direction": "方向 {deg}°", "maxStops": "最多 6 个色标",
+      "faq": [
+        [ "CSS 代码怎么用？", "把复制的一行粘贴到任意 CSS 规则里，例如 body 或 .hero。只用标准的 linear-gradient 和 radial-gradient，所有现代浏览器都支持。" ],
+        [ "PNG 有多大？", "1920×1080 像素，与预览使用相同的颜色和角度，在浏览器中绘制，不会上传。" ]
+      ]
+    },
+    "ja": {
+      "title": "グラデーション生成 – CSS グラデーション作成、コードコピー、PNG 保存",
+      "h1": "グラデーション生成",
+      "line": "色と角度を選ぶだけで CSS コピー、1920×1080 PNG 保存まで",
+      "description": "無料の CSS グラデーション生成ツール。カラーストップを 2〜6 個入れて角度を決めるか円形に切り替えると、大きくプレビューして background CSS をワンクリックでコピー、または 1920×1080 PNG で保存できます。プリセット 12 種。ブラウザ内で処理します。",
+      "linear": "線形", "radial": "円形", "angle": "角度", "stops": "カラーストップ", "addStop": "ストップ追加", "remove": "削除", "stop": "ストップ {n}", "position": "位置",
+      "presets": "プリセット", "preset": "プリセット {n}", "copyCss": "CSS コピー", "downloadPng": "PNG 保存", "cssLabel": "CSS", "direction": "方向 {deg}°", "maxStops": "ストップは 6 個まで",
+      "faq": [
+        [ "CSS コードはどう使いますか？", "コピーした 1 行を body や .hero などの CSS ルールに貼り付けるだけです。標準の linear-gradient と radial-gradient のみを使うので、最新ブラウザすべてで動作します。" ],
+        [ "PNG のサイズは？", "1920×1080 ピクセルで、プレビューと同じ色・角度でブラウザ内に描画します。アップロードはありません。" ]
+      ]
+    },
+    "es": {
+      "title": "Generador de degradados CSS – Lineal y radial, copiar CSS, descargar PNG",
+      "h1": "Generador de degradados",
+      "line": "Elige colores y ángulo, copia el CSS o guarda un PNG de 1920×1080",
+      "description": "Generador de degradados CSS gratis. Añade de 2 a 6 paradas de color, ajusta el ángulo o cambia a radial, míralo en grande, copia el CSS de background con un clic o descarga un PNG de 1920×1080. Doce ajustes listos. Funciona en tu navegador.",
+      "linear": "Lineal", "radial": "Radial", "angle": "Ángulo", "stops": "Paradas de color", "addStop": "Añadir parada", "remove": "Quitar", "stop": "Parada {n}", "position": "Posición",
+      "presets": "Ajustes", "preset": "Ajuste {n}", "copyCss": "Copiar CSS", "downloadPng": "Guardar PNG", "cssLabel": "CSS", "direction": "Dirección {deg}°", "maxStops": "Hasta 6 paradas",
+      "faq": [
+        [ "¿Cómo uso el CSS?", "Copia la línea y pégala en cualquier regla CSS, por ejemplo en body o en un elemento .hero. Solo usa linear-gradient y radial-gradient estándar, así que todos los navegadores actuales lo admiten." ],
+        [ "¿De qué tamaño es el PNG?", "1920×1080 píxeles, dibujado en tu navegador con los mismos colores y ángulo que la vista previa. No se sube nada." ]
+      ]
+    },
+    "pt": {
+      "title": "Gerador de gradiente CSS – Linear e radial, copiar CSS, baixar PNG",
+      "h1": "Gerador de gradiente",
+      "line": "Escolha cores e ângulo, copie o CSS ou salve um PNG de 1920×1080",
+      "description": "Gerador de gradiente CSS grátis. Adicione de 2 a 6 pontos de cor, defina o ângulo ou mude para radial, veja em tamanho grande, copie o CSS de background com um clique ou baixe um PNG de 1920×1080. Doze predefinições prontas. Funciona no navegador.",
+      "linear": "Linear", "radial": "Radial", "angle": "Ângulo", "stops": "Pontos de cor", "addStop": "Adicionar ponto", "remove": "Remover", "stop": "Ponto {n}", "position": "Posição",
+      "presets": "Predefinições", "preset": "Predefinição {n}", "copyCss": "Copiar CSS", "downloadPng": "Salvar PNG", "cssLabel": "CSS", "direction": "Direção {deg}°", "maxStops": "Até 6 pontos",
+      "faq": [
+        [ "Como uso o CSS?", "Copie a linha e cole em qualquer regra CSS, por exemplo em body ou num elemento .hero. Usa apenas linear-gradient e radial-gradient padrão, então todos os navegadores atuais suportam." ],
+        [ "Qual é o tamanho do PNG?", "1920×1080 pixels, desenhado no seu navegador com as mesmas cores e ângulo da pré-visualização. Nada é enviado." ]
+      ]
+    },
+    "de": {
+      "title": "CSS-Verlauf-Generator – Linear & radial, CSS kopieren, PNG laden",
+      "h1": "Verlauf-Generator",
+      "line": "Farben und Winkel wählen, CSS kopieren oder PNG in 1920×1080 speichern",
+      "description": "Kostenloser CSS-Verlauf-Generator. 2 bis 6 Farbstopps setzen, Winkel wählen oder auf radial umschalten, groß ansehen, das background-CSS mit einem Klick kopieren oder als 1920×1080-PNG herunterladen. Zwölf fertige Vorlagen. Läuft im Browser.",
+      "linear": "Linear", "radial": "Radial", "angle": "Winkel", "stops": "Farbstopps", "addStop": "Stopp hinzufügen", "remove": "Entfernen", "stop": "Stopp {n}", "position": "Position",
+      "presets": "Vorlagen", "preset": "Vorlage {n}", "copyCss": "CSS kopieren", "downloadPng": "PNG speichern", "cssLabel": "CSS", "direction": "Richtung {deg}°", "maxStops": "Bis zu 6 Stopps",
+      "faq": [
+        [ "Wie nutze ich das CSS?", "Die Zeile kopieren und in eine beliebige CSS-Regel einfügen, etwa bei body oder einem .hero-Element. Es werden nur linear-gradient und radial-gradient verwendet, die jeder aktuelle Browser kennt." ],
+        [ "Wie groß ist das PNG?", "1920×1080 Pixel, im Browser mit denselben Farben und demselben Winkel wie die Vorschau gezeichnet. Nichts wird hochgeladen." ]
+      ]
+    },
+    "fr": {
+      "title": "Générateur de dégradé CSS – Linéaire et radial, copier le CSS, PNG",
+      "h1": "Générateur de dégradé",
+      "line": "Choisissez couleurs et angle, copiez le CSS ou enregistrez un PNG 1920×1080",
+      "description": "Générateur de dégradé CSS gratuit. Ajoutez 2 à 6 arrêts de couleur, réglez l'angle ou passez en radial, voyez-le en grand, copiez le CSS background en un clic ou téléchargez un PNG 1920×1080. Douze préréglages prêts. Tout se passe dans votre navigateur.",
+      "linear": "Linéaire", "radial": "Radial", "angle": "Angle", "stops": "Arrêts de couleur", "addStop": "Ajouter un arrêt", "remove": "Retirer", "stop": "Arrêt {n}", "position": "Position",
+      "presets": "Préréglages", "preset": "Préréglage {n}", "copyCss": "Copier le CSS", "downloadPng": "Enregistrer PNG", "cssLabel": "CSS", "direction": "Direction {deg}°", "maxStops": "Jusqu'à 6 arrêts",
+      "faq": [
+        [ "Comment utiliser le CSS ?", "Copiez la ligne et collez-la dans n'importe quelle règle CSS, par exemple sur body ou un élément .hero. Seuls linear-gradient et radial-gradient standard sont utilisés : tous les navigateurs actuels les prennent en charge." ],
+        [ "Quelle est la taille du PNG ?", "1920×1080 pixels, dessiné dans votre navigateur avec les mêmes couleurs et le même angle que l'aperçu. Rien n'est envoyé." ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,66 @@
+/* 색 도구 전용 스타일. 토큰·셸·버튼·.chips·.card·.ad 는 assets/site.css 에서 온다. */
+.tool-head{text-align:center;margin:8px 0 20px}
+.tool-head h1{margin-bottom:4px}
+.tool-head .lead{margin-bottom:0}
+.tool{display:flex;flex-direction:column;gap:22px}
+/* 미리보기 + 입력 */
+.c-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch}
+.c-preview{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:260px;padding:24px;border:1px solid var(--line);border-radius:var(--r-card);text-align:center;cursor:pointer;font:inherit;transition:background .15s}
+.c-preview:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.c-preview .c-hex{font-size:34px;line-height:1.1;font-weight:var(--fw-semibold);letter-spacing:.03em;font-variant-numeric:tabular-nums}
+.c-preview .c-nm{font-size:var(--fs-small);opacity:.85}
+.c-preview .c-copy{position:absolute;right:12px;bottom:10px;font-size:var(--fs-caption);opacity:.75}
+.c-panel{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);padding:16px}
+.c-field{display:flex;gap:8px;align-items:center}
+.c-field input[type=text]{flex:1;min-width:0;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--bg);color:var(--ink)}
+.c-field input[type=text]:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.c-field input[type=text].err{border-color:var(--err)}
+.c-pick{flex:none;width:48px;height:48px;padding:0;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);cursor:pointer}
+.c-pick::-webkit-color-swatch-wrapper{padding:4px}
+.c-pick::-webkit-color-swatch{border:0;border-radius:6px}
+.c-pick::-moz-color-swatch{border:0;border-radius:6px}
+.c-panel .row{margin:0}
+.c-panel .status{margin:0}
+/* 값 행 */
+.vrows{display:flex;flex-direction:column;gap:6px}
+.vrow{display:flex;align-items:center;gap:10px;min-width:0;padding:6px 6px 6px 12px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--bg)}
+.vrow .vl{flex:none;width:52px;white-space:nowrap;font-size:var(--fs-caption);font-weight:var(--fw-semibold);color:var(--muted);letter-spacing:.04em}
+.vrow .vv{flex:1;min-width:0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;color:var(--ink);background:none;border:0;padding:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vrow .btn.sm{flex:none;padding:6px 12px}
+/* 구역 제목 + 색 칩 */
+.c-sec{display:flex;flex-direction:column;gap:8px}
+.c-sec-title{display:flex;align-items:baseline;gap:8px;font-size:var(--fs-small);font-weight:var(--fw-semibold);color:var(--ink)}
+.c-sec-title .muted{font-weight:var(--fw-regular);font-size:var(--fs-caption)}
+.cpal{display:grid;grid-template-columns:repeat(var(--cols,10),minmax(0,1fr));gap:6px}
+.cswatch{position:relative;display:flex;align-items:flex-end;justify-content:center;aspect-ratio:1;min-width:0;padding:0;border:1px solid rgba(0,0,0,.1);border-radius:var(--r-btn);font:inherit;cursor:pointer;overflow:hidden;transition:transform .12s}
+.cswatch:hover,.cswatch:focus-visible{transform:scale(1.06);z-index:1;outline:2px solid var(--ink);outline-offset:1px}
+.cswatch .cl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;line-height:1;letter-spacing:.02em;padding:0 0 6px;opacity:.9}
+.cswatch.lg{aspect-ratio:auto;min-height:88px}
+.cswatch.lg .cl{font-size:13px;padding-bottom:10px}
+.c-harm{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.c-harm .c-sec{gap:6px}
+/* 대비 */
+.c-contrast{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.c-ct{display:flex;flex-direction:column;align-items:center;gap:4px;padding:18px 14px;border:1px solid var(--line);border-radius:var(--r-big);text-align:center}
+.c-ct .ct-sample{font-size:22px;line-height:1.2;font-weight:var(--fw-semibold)}
+.c-ct .ct-ratio{font-size:28px;line-height:1.1;font-weight:var(--fw-bold);font-variant-numeric:tabular-nums;margin-top:6px}
+.c-ct .ct-level{display:inline-block;padding:3px 12px;border-radius:var(--r-pill);font-size:var(--fs-caption);font-weight:var(--fw-semibold);background:rgba(127,127,127,.22)}
+/* 토스트 */
+.c-toast{position:fixed;left:50%;bottom:28px;z-index:200;transform:translateX(-50%) translateY(8px);padding:8px 18px;border-radius:var(--r-pill);background:var(--ink);color:var(--bg);font-size:var(--fs-small);font-weight:var(--fw-medium);opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+.c-toast.show{opacity:1;transform:translateX(-50%)}
+/* 모바일 */
+@media (max-width:767.98px){
+  .c-top{grid-template-columns:minmax(0,1fr)}
+  .c-preview{min-height:170px}
+  .c-preview .c-hex{font-size:28px}
+  .cpal{gap:4px}
+  .cpal.n10{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .cswatch .cl{font-size:10px;padding-bottom:4px}
+  .cswatch.lg{min-height:72px}
+  .c-harm{grid-template-columns:minmax(0,1fr)}
+  .c-contrast{gap:8px}
+  .c-ct{padding:14px 8px}
+  .c-ct .ct-sample{font-size:18px}
+  .c-ct .ct-ratio{font-size:24px}
+  .vrow .vl{width:46px}
+}

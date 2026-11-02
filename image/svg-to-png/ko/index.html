@@ -39,7 +39,7 @@
   --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
-  --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;
+  --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;--cat-color:#ec4899;
   --font:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
   --fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
   --fs-body:16px;--lh-body:24px;--fs-h1:32px;--lh-h1:40px;--fs-lead:18px;--lh-lead:28px;--fs-h1-compact:20px;--lh-h1-compact:28px;
@@ -67,7 +67,7 @@ html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh}
-body>main{flex:1 0 auto}
+body>main{flex:1 0 auto;width:100%;min-width:0}
 footer.foot{margin-top:auto}
 a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
 img,svg{vertical-align:middle}
@@ -301,6 +301,9 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .opt-blur-regions .rsel{box-shadow:none;background:rgba(37,99,235,.25);border-color:var(--accent)}
 .opt-blur-regions .rsel.on{background:rgba(37,99,235,.4)}
 .rh{position:absolute;width:14px;height:14px;background:#fff;border:1px solid rgba(0,0,0,.6);border-radius:3px;box-sizing:border-box}
+.rguide{position:absolute;box-sizing:border-box;pointer-events:none;border:1px dashed rgba(255,255,255,.9);outline:1px dashed rgba(0,0,0,.45);font-size:11px;line-height:1;color:#fff;text-shadow:0 0 3px #000;padding:2px 3px}
+.rguide.line{border-width:1px 0 0 0;outline:none}
+.rguide.oval{border-radius:50%}
 .rh-nw{left:-7px;top:-7px;cursor:nwse-resize}.rh-ne{right:-7px;top:-7px;cursor:nesw-resize}.rh-sw{left:-7px;bottom:-7px;cursor:nesw-resize}.rh-se{right:-7px;bottom:-7px;cursor:nwse-resize}
 .rh-n{left:50%;top:-7px;margin-left:-7px;cursor:ns-resize}.rh-s{left:50%;bottom:-7px;margin-left:-7px;cursor:ns-resize}
 .rh-w{left:-7px;top:50%;margin-top:-7px;cursor:ew-resize}.rh-e{right:-7px;top:50%;margin-top:-7px;cursor:ew-resize}
@@ -350,7 +353,7 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 </head>
 <body class="page-image">
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/image/ko/" class="on">이미지 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav><select id="lang" class="lang-select" aria-label="언어"><option value="/image/svg-to-png/" data-code="en">English</option><option value="/image/svg-to-png/ko/" data-code="ko" selected>한국어</option><option value="/image/svg-to-png/zh/" data-code="zh">中文</option><option value="/image/svg-to-png/ja/" data-code="ja">日本語</option><option value="/image/svg-to-png/es/" data-code="es">Español</option><option value="/image/svg-to-png/pt/" data-code="pt">Português</option><option value="/image/svg-to-png/de/" data-code="de">Deutsch</option><option value="/image/svg-to-png/fr/" data-code="fr">Français</option></select><button type="button" class="theme-btn" id="theme-btn" aria-label="라이트 / 다크" title="라이트 / 다크">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});</script></header>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/image/ko/" class="on">이미지 도구</a><a href="/color/ko/">색상 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav><select id="lang" class="lang-select" aria-label="언어"><option value="/image/svg-to-png/" data-code="en">English</option><option value="/image/svg-to-png/ko/" data-code="ko" selected>한국어</option><option value="/image/svg-to-png/zh/" data-code="zh">中文</option><option value="/image/svg-to-png/ja/" data-code="ja">日本語</option><option value="/image/svg-to-png/es/" data-code="es">Español</option><option value="/image/svg-to-png/pt/" data-code="pt">Português</option><option value="/image/svg-to-png/de/" data-code="de">Deutsch</option><option value="/image/svg-to-png/fr/" data-code="fr">Français</option></select><button type="button" class="theme-btn" id="theme-btn" aria-label="라이트 / 다크" title="라이트 / 다크">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});</script></header>
 <!-- /shell:header -->
 <main class="wrap">
   <div class="tool-head"><h1>SVG PNG 변환</h1><p class="lead">SVG 를 선명한 PNG 이미지로</p></div>

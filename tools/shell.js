@@ -24,14 +24,14 @@ function head({ og = 'og.png' } = {}){
 }
 // 언어별 구역 루트: 영어는 /<section>/, 그 외는 /<section>/<lang>/
 const sectionHome = (section, lang) => '/' + section + '/' + (lang === 'en' ? '' : lang + '/');
-function header({ lang = 'ko', section = '', wheelHome = '/wheel/ko/', pdfHome = '/pdf/ko/', imageHome = '/image/ko/', langSelect = '', subnav = '' } = {}){
+function header({ lang = 'ko', section = '', wheelHome = '/wheel/ko/', pdfHome = '/pdf/ko/', imageHome = '/image/ko/', colorHome = '/color/ko/', langSelect = '', subnav = '' } = {}){
   const t = strings(lang);
   const on = s => (section === s ? ' class="on"' : '');
   return fill(fragment('header'), {
     brand: esc(t.brand), menu: esc(t.menu),
-    'nav.hwp': esc(t.nav.hwp), 'nav.text': esc(t.nav.text), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.image': esc(t.nav.image || 'Image'), 'nav.wheel': esc(t.nav.wheel), 'nav.guide': esc(t.nav.guide),
-    'on:hwp': on('hwp'), 'on:text': on('text'), 'on:pdf': on('pdf'), 'on:image': on('image'), 'on:wheel': on('wheel'), 'on:guide': on('guide'),
-    wheel_home: wheelHome, pdf_home: pdfHome, image_home: imageHome, lang_select: langSelect, subnav, theme: esc(t.theme || 'Theme')
+    'nav.hwp': esc(t.nav.hwp), 'nav.text': esc(t.nav.text), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.image': esc(t.nav.image || 'Image'), 'nav.color': esc(t.nav.color || 'Color'), 'nav.wheel': esc(t.nav.wheel), 'nav.guide': esc(t.nav.guide),
+    'on:hwp': on('hwp'), 'on:text': on('text'), 'on:pdf': on('pdf'), 'on:image': on('image'), 'on:color': on('color'), 'on:wheel': on('wheel'), 'on:guide': on('guide'),
+    wheel_home: wheelHome, pdf_home: pdfHome, image_home: imageHome, color_home: colorHome, lang_select: langSelect, subnav, theme: esc(t.theme || 'Theme')
   });
 }
 function footer({ lang = 'ko', extra = '' } = {}){

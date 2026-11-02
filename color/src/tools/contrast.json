@@ -1,0 +1,117 @@
+{
+  "id": "contrast",
+  "order": 5,
+  "icon": "color-contrast",
+  "cat": "color",
+  "next": [
+    "converter",
+    "palette",
+    "gradient"
+  ],
+  "strings": {
+    "en": {
+      "title": "Color Contrast Checker – WCAG AA / AAA Ratio for Text and Background",
+      "h1": "Color contrast checker",
+      "line": "Text color and background in, contrast ratio and WCAG AA / AAA out",
+      "description": "Free WCAG color contrast checker. Enter a text color and a background color to get the contrast ratio, AA and AAA results for normal and large text, and a live preview. One click swaps the colors or adjusts the lightness until it passes. Runs in your browser.",
+      "textColor": "Text color", "bgColor": "Background", "swap": "Swap colors", "fix": "Auto fix", "ratio": "Contrast ratio", "normalText": "Normal text", "largeText": "Large text",
+      "sampleTitle": "The quick brown fox", "sampleText": "Jumps over the lazy dog while the river keeps flowing quietly under the old stone bridge.",
+      "fixed": "Adjusted to {level}", "alreadyPass": "Already passes AAA", "fixNone": "Cannot reach it by lightness alone",
+      "faq": [
+        [ "What do AA and AAA mean?", "WCAG levels. AA needs a ratio of 4.5:1 for normal text and 3:1 for large text (24px, or 19px bold). AAA needs 7:1 and 4.5:1." ],
+        [ "What does Auto fix change?", "Only the lightness of the text color. It moves it darker or lighter until the next level passes, keeping the hue." ]
+      ]
+    },
+    "ko": {
+      "title": "색 대비 검사 – 글자색·배경색 대비비, WCAG AA / AAA 확인",
+      "h1": "색 대비 검사",
+      "line": "글자색과 배경색을 넣으면 대비비와 WCAG AA·AAA 통과 여부가 바로",
+      "description": "무료 WCAG 색 대비 검사기. 글자색과 배경색을 넣으면 대비비, 일반·큰 글자의 AA·AAA 결과와 실제 미리보기를 보여 줍니다. 한 번 눌러 색을 서로 바꾸거나 통과할 때까지 밝기를 자동 보정합니다. 브라우저 안에서 처리됩니다.",
+      "textColor": "글자색", "bgColor": "배경색", "swap": "서로 바꾸기", "fix": "자동 보정", "ratio": "대비비", "normalText": "일반 글자", "largeText": "큰 글자",
+      "sampleTitle": "다람쥐 헌 쳇바퀴에 타고파", "sampleText": "키스의 고유 조건은 입술끼리 만나야 하고 특별한 기술은 필요치 않다. 작은 글자도 이 정도는 읽혀야 합니다.",
+      "fixed": "{level} 로 보정했습니다", "alreadyPass": "이미 AAA 통과", "fixNone": "밝기만으로는 닿지 않습니다",
+      "faq": [
+        [ "AA 와 AAA 는 무엇인가요?", "WCAG 등급입니다. AA 는 일반 글자 4.5:1, 큰 글자(24px 또는 굵은 19px) 3:1 이 필요하고, AAA 는 7:1 과 4.5:1 이 필요합니다." ],
+        [ "자동 보정은 무엇을 바꾸나요?", "글자색의 밝기만 바꿉니다. 색상은 그대로 두고 다음 등급을 통과할 때까지 어둡게 또는 밝게 옮깁니다." ]
+      ]
+    },
+    "zh": {
+      "title": "颜色对比度检查 – 文字与背景对比度，WCAG AA / AAA",
+      "h1": "对比度检查",
+      "line": "输入文字色和背景色，立即得到对比度和 WCAG AA / AAA 结果",
+      "description": "免费 WCAG 颜色对比度检查器。输入文字颜色和背景颜色，即可得到对比度、普通与大号文字的 AA / AAA 结果和实时预览。一键交换颜色或自动调整亮度直到通过。全部在浏览器中完成。",
+      "textColor": "文字颜色", "bgColor": "背景颜色", "swap": "交换颜色", "fix": "自动修正", "ratio": "对比度", "normalText": "普通文字", "largeText": "大号文字",
+      "sampleTitle": "山光悦鸟性，潭影空人心", "sampleText": "清晨入古寺，初日照高林。曲径通幽处，禅房花木深。小字也应当清晰可读。",
+      "fixed": "已调整到 {level}", "alreadyPass": "已通过 AAA", "fixNone": "仅靠亮度无法达到",
+      "faq": [
+        [ "AA 和 AAA 是什么？", "WCAG 等级。AA 要求普通文字 4.5:1、大号文字（24px 或 19px 粗体）3:1；AAA 要求 7:1 和 4.5:1。" ],
+        [ "自动修正会改什么？", "只改文字颜色的亮度。保持色相不变，把它调暗或调亮，直到通过下一个等级。" ]
+      ]
+    },
+    "ja": {
+      "title": "コントラスト比チェック – 文字色と背景色の WCAG AA / AAA 判定",
+      "h1": "コントラストチェック",
+      "line": "文字色と背景色を入れるだけでコントラスト比と WCAG AA・AAA 判定",
+      "description": "無料の WCAG コントラストチェッカー。文字色と背景色を入力すると、コントラスト比、通常・大きな文字の AA・AAA 判定、実際のプレビューを表示します。ワンクリックで色を入れ替えたり、合格するまで明るさを自動調整できます。ブラウザ内で処理します。",
+      "textColor": "文字色", "bgColor": "背景色", "swap": "入れ替え", "fix": "自動調整", "ratio": "コントラスト比", "normalText": "通常の文字", "largeText": "大きな文字",
+      "sampleTitle": "いろはにほへと ちりぬるを", "sampleText": "わかよたれそ つねならむ うゐのおくやま けふこえて。小さな文字もこのくらいは読めるはずです。",
+      "fixed": "{level} に調整しました", "alreadyPass": "すでに AAA 合格", "fixNone": "明るさだけでは届きません",
+      "faq": [
+        [ "AA と AAA とは？", "WCAG の等級です。AA は通常の文字で 4.5:1、大きな文字（24px または太字 19px）で 3:1、AAA は 7:1 と 4.5:1 が必要です。" ],
+        [ "自動調整は何を変えますか？", "文字色の明るさだけです。色相はそのままに、次の等級に合格するまで暗く、または明るく動かします。" ]
+      ]
+    },
+    "es": {
+      "title": "Comprobador de contraste – Ratio texto y fondo, WCAG AA / AAA",
+      "h1": "Comprobador de contraste",
+      "line": "Color de texto y fondo dentro, ratio de contraste y WCAG AA / AAA fuera",
+      "description": "Comprobador de contraste WCAG gratis. Introduce un color de texto y un fondo para obtener el ratio de contraste, los resultados AA y AAA para texto normal y grande y una vista previa real. Un clic intercambia los colores o ajusta la luminosidad hasta aprobar. Funciona en tu navegador.",
+      "textColor": "Color del texto", "bgColor": "Fondo", "swap": "Intercambiar", "fix": "Ajustar", "ratio": "Ratio de contraste", "normalText": "Texto normal", "largeText": "Texto grande",
+      "sampleTitle": "El veloz murciélago hindú", "sampleText": "Comía feliz cardillo y kiwi mientras el río seguía fluyendo bajo el viejo puente de piedra.",
+      "fixed": "Ajustado a {level}", "alreadyPass": "Ya aprueba AAA", "fixNone": "No se alcanza solo con la luminosidad",
+      "faq": [
+        [ "¿Qué significan AA y AAA?", "Niveles WCAG. AA exige un ratio de 4.5:1 para texto normal y 3:1 para texto grande (24px o 19px en negrita). AAA exige 7:1 y 4.5:1." ],
+        [ "¿Qué cambia Ajustar?", "Solo la luminosidad del color del texto. Lo oscurece o aclara hasta aprobar el siguiente nivel, manteniendo el tono." ]
+      ]
+    },
+    "pt": {
+      "title": "Verificador de contraste – Texto e fundo, WCAG AA / AAA",
+      "h1": "Verificador de contraste",
+      "line": "Cor do texto e fundo entram, razão de contraste e WCAG AA / AAA saem",
+      "description": "Verificador de contraste WCAG grátis. Informe a cor do texto e a cor de fundo para ver a razão de contraste, os resultados AA e AAA para texto normal e grande e uma pré-visualização real. Um clique troca as cores ou ajusta a luminosidade até aprovar. Funciona no navegador.",
+      "textColor": "Cor do texto", "bgColor": "Fundo", "swap": "Trocar cores", "fix": "Ajustar", "ratio": "Razão de contraste", "normalText": "Texto normal", "largeText": "Texto grande",
+      "sampleTitle": "Um pequeno jabuti xereta", "sampleText": "Viu dez cegonhas felizes enquanto o rio seguia correndo sob a velha ponte de pedra.",
+      "fixed": "Ajustado para {level}", "alreadyPass": "Já aprova AAA", "fixNone": "Não dá para alcançar só com a luminosidade",
+      "faq": [
+        [ "O que são AA e AAA?", "Níveis WCAG. AA exige razão de 4.5:1 para texto normal e 3:1 para texto grande (24px ou 19px em negrito). AAA exige 7:1 e 4.5:1." ],
+        [ "O que o Ajustar muda?", "Só a luminosidade da cor do texto. Escurece ou clareia até aprovar o próximo nível, mantendo o matiz." ]
+      ]
+    },
+    "de": {
+      "title": "Kontrast-Checker – Textfarbe und Hintergrund, WCAG AA / AAA",
+      "h1": "Kontrast-Checker",
+      "line": "Textfarbe und Hintergrund rein, Kontrastverhältnis und WCAG AA / AAA raus",
+      "description": "Kostenloser WCAG-Kontrast-Checker. Textfarbe und Hintergrundfarbe eingeben und Kontrastverhältnis, AA- und AAA-Ergebnis für normalen und großen Text sowie eine echte Vorschau sehen. Ein Klick tauscht die Farben oder passt die Helligkeit an, bis es besteht. Läuft im Browser.",
+      "textColor": "Textfarbe", "bgColor": "Hintergrund", "swap": "Tauschen", "fix": "Anpassen", "ratio": "Kontrastverhältnis", "normalText": "Normaler Text", "largeText": "Großer Text",
+      "sampleTitle": "Falsches Üben von Xylophonmusik", "sampleText": "Quält jeden größeren Zwerg, während der Fluss leise unter der alten Steinbrücke weiterfließt.",
+      "fixed": "Auf {level} angepasst", "alreadyPass": "Besteht bereits AAA", "fixNone": "Mit Helligkeit allein nicht erreichbar",
+      "faq": [
+        [ "Was bedeuten AA und AAA?", "WCAG-Stufen. AA verlangt 4.5:1 für normalen Text und 3:1 für großen Text (24px oder 19px fett). AAA verlangt 7:1 und 4.5:1." ],
+        [ "Was ändert Anpassen?", "Nur die Helligkeit der Textfarbe. Sie wird dunkler oder heller, bis die nächste Stufe besteht; der Farbton bleibt." ]
+      ]
+    },
+    "fr": {
+      "title": "Vérificateur de contraste – Texte et fond, WCAG AA / AAA",
+      "h1": "Vérificateur de contraste",
+      "line": "Couleur du texte et fond en entrée, ratio de contraste et WCAG AA / AAA en sortie",
+      "description": "Vérificateur de contraste WCAG gratuit. Saisissez une couleur de texte et un fond pour obtenir le ratio de contraste, les résultats AA et AAA pour texte normal et grand, et un aperçu réel. Un clic échange les couleurs ou ajuste la luminosité jusqu'à la conformité. Tout se passe dans votre navigateur.",
+      "textColor": "Couleur du texte", "bgColor": "Fond", "swap": "Échanger", "fix": "Ajuster", "ratio": "Ratio de contraste", "normalText": "Texte normal", "largeText": "Grand texte",
+      "sampleTitle": "Portez ce vieux whisky", "sampleText": "Au juge blond qui fume, pendant que la rivière coule doucement sous le vieux pont de pierre.",
+      "fixed": "Ajusté à {level}", "alreadyPass": "Déjà conforme AAA", "fixNone": "Impossible avec la seule luminosité",
+      "faq": [
+        [ "Que signifient AA et AAA ?", "Des niveaux WCAG. AA exige un ratio de 4.5:1 pour le texte normal et 3:1 pour le grand texte (24px ou 19px gras). AAA exige 7:1 et 4.5:1." ],
+        [ "Que change Ajuster ?", "Seulement la luminosité de la couleur du texte. Elle est assombrie ou éclaircie jusqu'au niveau suivant, en gardant la teinte." ]
+      ]
+    }
+  }
+}

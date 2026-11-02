@@ -8,7 +8,8 @@
       "wheel": "Spin the wheel",
       "guide": "Guides (KO)",
       "pdf": "PDF tools",
-      "image": "Image tools"
+      "image": "Image tools",
+      "color": "Color tools"
     },
     "foot": {
       "about": "About",
@@ -29,7 +30,8 @@
       "wheel": "룰렛",
       "guide": "가이드",
       "pdf": "PDF 도구",
-      "image": "이미지 도구"
+      "image": "이미지 도구",
+      "color": "색상 도구"
     },
     "foot": {
       "about": "소개",
@@ -50,7 +52,8 @@
       "wheel": "幸运转盘",
       "guide": "指南 (KO)",
       "pdf": "PDF 工具",
-      "image": "图片工具"
+      "image": "图片工具",
+      "color": "颜色工具"
     },
     "foot": {
       "about": "关于",
@@ -71,7 +74,8 @@
       "wheel": "ルーレット",
       "guide": "ガイド (KO)",
       "pdf": "PDFツール",
-      "image": "画像ツール"
+      "image": "画像ツール",
+      "color": "カラーツール"
     },
     "foot": {
       "about": "サイトについて",
@@ -92,7 +96,8 @@
       "wheel": "Ruleta",
       "guide": "Guías (KO)",
       "pdf": "Herramientas PDF",
-      "image": "Herramientas de imagen"
+      "image": "Herramientas de imagen",
+      "color": "Herramientas de color"
     },
     "foot": {
       "about": "Acerca de",
@@ -113,7 +118,8 @@
       "wheel": "Roleta",
       "guide": "Guias (KO)",
       "pdf": "Ferramentas PDF",
-      "image": "Ferramentas de imagem"
+      "image": "Ferramentas de imagem",
+      "color": "Ferramentas de cor"
     },
     "foot": {
       "about": "Sobre",
@@ -134,7 +140,8 @@
       "wheel": "Glücksrad",
       "guide": "Anleitungen (KO)",
       "pdf": "PDF-Werkzeuge",
-      "image": "Bild-Werkzeuge"
+      "image": "Bild-Werkzeuge",
+      "color": "Farb-Werkzeuge"
     },
     "foot": {
       "about": "Über",
@@ -155,7 +162,8 @@
       "wheel": "Roue",
       "guide": "Guides (KO)",
       "pdf": "Outils PDF",
-      "image": "Outils image"
+      "image": "Outils image",
+      "color": "Outils couleur"
     },
     "foot": {
       "about": "À propos",

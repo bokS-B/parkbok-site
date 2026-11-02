@@ -1057,5 +1057,167 @@
       "de",
       "fr"
     ]
+  },
+  {
+    "id": "color-converter",
+    "cat": "color",
+    "section": "color",
+    "status": "live",
+    "order": 44,
+    "url": "/color/converter/",
+    "icon": "color-converter",
+    "name": {
+      "ko": "색상 변환기",
+      "en": "Color converter"
+    },
+    "line": {
+      "ko": "아무 색이나 붙여 넣으면 HEX·RGB·HSL·HSV·CMYK 로",
+      "en": "Paste any color, get HEX, RGB, HSL, HSV, CMYK and more"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "color-picker",
+    "cat": "color",
+    "section": "color",
+    "status": "live",
+    "order": 45,
+    "url": "/color/picker/",
+    "icon": "color-picker",
+    "name": {
+      "ko": "이미지 색상 추출",
+      "en": "Image color picker"
+    },
+    "line": {
+      "ko": "사진의 아무 곳이나 누르면 그 지점의 HEX·RGB 로",
+      "en": "Tap any spot on your picture to get its HEX and RGB"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "color-palette",
+    "cat": "color",
+    "section": "color",
+    "status": "live",
+    "order": 46,
+    "url": "/color/palette/",
+    "icon": "color-palette",
+    "name": {
+      "ko": "색 조합",
+      "en": "Color palette generator"
+    },
+    "line": {
+      "ko": "기준 색 하나로 배색 5종과 명도·채도 단계까지",
+      "en": "One base color, five harmonies plus lightness and saturation steps"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "color-gradient",
+    "cat": "color",
+    "section": "color",
+    "status": "live",
+    "order": 47,
+    "url": "/color/gradient/",
+    "icon": "color-gradient",
+    "name": {
+      "ko": "그라데이션 생성기",
+      "en": "CSS gradient generator"
+    },
+    "line": {
+      "ko": "색과 각도를 고르면 CSS 코드 복사, 1920×1080 PNG 저장까지",
+      "en": "Pick colors and an angle, copy the CSS or save a 1920×1080 PNG"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "color-contrast",
+    "cat": "color",
+    "section": "color",
+    "status": "live",
+    "order": 48,
+    "url": "/color/contrast/",
+    "icon": "color-contrast",
+    "name": {
+      "ko": "색 대비 검사",
+      "en": "Color contrast checker"
+    },
+    "line": {
+      "ko": "글자색과 배경색을 넣으면 대비비와 WCAG AA·AAA 통과 여부가 바로",
+      "en": "Text color and background in, contrast ratio and WCAG AA / AAA out"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "color-random",
+    "cat": "color",
+    "section": "color",
+    "status": "live",
+    "order": 49,
+    "url": "/color/random/",
+    "icon": "color-random",
+    "name": {
+      "ko": "랜덤 색상",
+      "en": "Random color generator"
+    },
+    "line": {
+      "ko": "스페이스바로 새 색, 마음에 드는 색은 잠그기",
+      "en": "Press space for new colors, lock the ones you like"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
   }
 ]

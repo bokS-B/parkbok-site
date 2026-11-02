@@ -1,0 +1,82 @@
+{
+  "en": {
+    "name": "English", "dir": "ltr", "language": "Language",
+    "hex": "HEX", "rgb": "RGB", "hsl": "HSL", "hsv": "HSV", "cmyk": "CMYK",
+    "copy": "Copy", "copied": "Copied", "preview": "Preview", "cssName": "Name", "nearest": "Nearest name", "exactName": "CSS name",
+    "contrast": "Text contrast", "whiteText": "White text", "blackText": "Black text", "sample": "Sample text", "pass": "Pass", "fail": "Fail", "large": "Large text only",
+    "tints": "Tints", "shades": "Shades", "harmony": "Harmonies", "complementary": "Complementary", "analogous": "Analogous", "triadic": "Triadic", "tetradic": "Tetradic",
+    "randomize": "Random", "pick": "Pick", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "Not a color. Try #ff5733, rgb(…) or a name like tomato.",
+    "hub": { "title": "Free Color Tools Online – HEX, RGB, HSL Converter, Palettes, Contrast", "h1": "Color tools", "line": "HEX, RGB, HSL, palettes and contrast – free, in your browser.", "description": "Free online color tools: convert HEX, RGB, HSL, HSV and CMYK, find CSS color names, build tints, shades and harmonies, and check text contrast. Everything runs in your browser – no upload, no sign-up." },
+    "aboutTitle": "How it works", "aboutLine": "Everything is calculated in your browser. Nothing is sent to a server.", "nextTools": "Next tools"
+  },
+  "ko": {
+    "name": "한국어", "dir": "ltr", "language": "언어",
+    "hex": "HEX", "rgb": "RGB", "hsl": "HSL", "hsv": "HSV", "cmyk": "CMYK",
+    "copy": "복사", "copied": "복사 완료", "preview": "미리보기", "cssName": "이름", "nearest": "가까운 이름", "exactName": "CSS 이름",
+    "contrast": "글자 대비", "whiteText": "흰 글자", "blackText": "검정 글자", "sample": "예시 글자", "pass": "통과", "fail": "미달", "large": "큰 글자만",
+    "tints": "밝게", "shades": "어둡게", "harmony": "배색", "complementary": "보색", "analogous": "유사색", "triadic": "삼각 배색", "tetradic": "사각 배색",
+    "randomize": "무작위", "pick": "고르기", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "색으로 읽을 수 없습니다. #ff5733, rgb(…), tomato 같은 형식으로 넣어 주세요.",
+    "hub": { "title": "무료 색상 도구 – HEX RGB HSL 변환, 팔레트, 대비 검사", "h1": "색상 도구", "line": "HEX·RGB·HSL 변환, 팔레트, 대비 – 브라우저에서 무료로.", "description": "무료 온라인 색상 도구. HEX·RGB·HSL·HSV·CMYK 변환, CSS 색 이름 찾기, 밝기 단계와 배색 만들기, 글자 대비 검사. 모두 브라우저 안에서 처리되어 업로드도 가입도 없습니다." },
+    "aboutTitle": "어떻게 동작하나요", "aboutLine": "모든 계산은 브라우저 안에서 이루어지며 서버로 아무것도 보내지 않습니다.", "nextTools": "다음 도구"
+  },
+  "zh": {
+    "name": "简体中文", "dir": "ltr", "language": "语言",
+    "hex": "HEX", "rgb": "RGB", "hsl": "HSL", "hsv": "HSV", "cmyk": "CMYK",
+    "copy": "复制", "copied": "已复制", "preview": "预览", "cssName": "名称", "nearest": "最接近的名称", "exactName": "CSS 名称",
+    "contrast": "文字对比度", "whiteText": "白色文字", "blackText": "黑色文字", "sample": "示例文字", "pass": "通过", "fail": "不足", "large": "仅大号文字",
+    "tints": "变亮", "shades": "变暗", "harmony": "配色", "complementary": "互补色", "analogous": "类似色", "triadic": "三色配色", "tetradic": "四色配色",
+    "randomize": "随机", "pick": "选取", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "无法识别为颜色。请输入 #ff5733、rgb(…) 或 tomato 之类的名称。",
+    "hub": { "title": "免费在线颜色工具 – HEX RGB HSL 转换、配色、对比度", "h1": "颜色工具", "line": "HEX、RGB、HSL 转换、配色与对比度，在浏览器中免费使用。", "description": "免费在线颜色工具：HEX、RGB、HSL、HSV、CMYK 互转，查找 CSS 颜色名称，生成明暗层次与配色方案，检查文字对比度。全部在浏览器中完成，无需上传或注册。" },
+    "aboutTitle": "工作原理", "aboutLine": "所有计算都在您的浏览器中完成，不会向服务器发送任何内容。", "nextTools": "更多工具"
+  },
+  "ja": {
+    "name": "日本語", "dir": "ltr", "language": "言語",
+    "hex": "HEX", "rgb": "RGB", "hsl": "HSL", "hsv": "HSV", "cmyk": "CMYK",
+    "copy": "コピー", "copied": "コピーしました", "preview": "プレビュー", "cssName": "名前", "nearest": "近い色名", "exactName": "CSS 色名",
+    "contrast": "文字のコントラスト", "whiteText": "白い文字", "blackText": "黒い文字", "sample": "サンプル文字", "pass": "合格", "fail": "不足", "large": "大きな文字のみ",
+    "tints": "明るく", "shades": "暗く", "harmony": "配色", "complementary": "補色", "analogous": "類似色", "triadic": "トライアド", "tetradic": "テトラード",
+    "randomize": "ランダム", "pick": "選ぶ", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "色として読み取れません。#ff5733、rgb(…)、tomato のような形式で入力してください。",
+    "hub": { "title": "無料カラーツール – HEX RGB HSL 変換・配色・コントラスト", "h1": "カラーツール", "line": "HEX・RGB・HSL 変換、配色、コントラストをブラウザで無料で。", "description": "無料のオンラインカラーツール。HEX・RGB・HSL・HSV・CMYK の相互変換、CSS 色名の検索、明暗の段階や配色の作成、文字コントラストの確認。すべてブラウザ内で処理され、アップロードも登録も不要です。" },
+    "aboutTitle": "仕組み", "aboutLine": "すべての計算はブラウザ内で行われ、サーバーには何も送信されません。", "nextTools": "次のツール"
+  },
+  "es": {
+    "name": "Español", "dir": "ltr", "language": "Idioma",
+    "hex": "HEX", "rgb": "RGB", "hsl": "HSL", "hsv": "HSV", "cmyk": "CMYK",
+    "copy": "Copiar", "copied": "Copiado", "preview": "Vista previa", "cssName": "Nombre", "nearest": "Nombre más cercano", "exactName": "Nombre CSS",
+    "contrast": "Contraste del texto", "whiteText": "Texto blanco", "blackText": "Texto negro", "sample": "Texto de ejemplo", "pass": "Aprobado", "fail": "Insuficiente", "large": "Solo texto grande",
+    "tints": "Más claro", "shades": "Más oscuro", "harmony": "Armonías", "complementary": "Complementario", "analogous": "Análogos", "triadic": "Triádico", "tetradic": "Tetrádico",
+    "randomize": "Aleatorio", "pick": "Elegir", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "No es un color. Prueba #ff5733, rgb(…) o un nombre como tomato.",
+    "hub": { "title": "Herramientas de color gratis – Convertir HEX RGB HSL, paletas, contraste", "h1": "Herramientas de color", "line": "HEX, RGB, HSL, paletas y contraste: gratis, en tu navegador.", "description": "Herramientas de color online gratis: convierte HEX, RGB, HSL, HSV y CMYK, busca nombres de color CSS, crea tintes, sombras y armonías y comprueba el contraste del texto. Todo en tu navegador, sin subir nada ni registrarte." },
+    "aboutTitle": "Cómo funciona", "aboutLine": "Todo se calcula en tu navegador. No se envía nada a ningún servidor.", "nextTools": "Más herramientas"
+  },
+  "pt": {
+    "name": "Português", "dir": "ltr", "language": "Idioma",
+    "hex": "HEX", "rgb": "RGB", "hsl": "HSL", "hsv": "HSV", "cmyk": "CMYK",
+    "copy": "Copiar", "copied": "Copiado", "preview": "Pré-visualização", "cssName": "Nome", "nearest": "Nome mais próximo", "exactName": "Nome CSS",
+    "contrast": "Contraste do texto", "whiteText": "Texto branco", "blackText": "Texto preto", "sample": "Texto de exemplo", "pass": "Aprovado", "fail": "Insuficiente", "large": "Só texto grande",
+    "tints": "Mais claro", "shades": "Mais escuro", "harmony": "Harmonias", "complementary": "Complementar", "analogous": "Análogas", "triadic": "Triádica", "tetradic": "Tetrádica",
+    "randomize": "Aleatório", "pick": "Escolher", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "Não é uma cor. Tente #ff5733, rgb(…) ou um nome como tomato.",
+    "hub": { "title": "Ferramentas de cor grátis – Converter HEX RGB HSL, paletas, contraste", "h1": "Ferramentas de cor", "line": "HEX, RGB, HSL, paletas e contraste: grátis, no seu navegador.", "description": "Ferramentas de cor online grátis: converta HEX, RGB, HSL, HSV e CMYK, encontre nomes de cor CSS, crie tons claros, escuros e harmonias e verifique o contraste do texto. Tudo no navegador, sem envio nem cadastro." },
+    "aboutTitle": "Como funciona", "aboutLine": "Tudo é calculado no seu navegador. Nada é enviado a um servidor.", "nextTools": "Mais ferramentas"
+  },
+  "de": {
+    "name": "Deutsch", "dir": "ltr", "language": "Sprache",
+    "hex": "HEX", "rgb": "RGB", "hsl": "HSL", "hsv": "HSV", "cmyk": "CMYK",
+    "copy": "Kopieren", "copied": "Kopiert", "preview": "Vorschau", "cssName": "Name", "nearest": "Nächster Name", "exactName": "CSS-Name",
+    "contrast": "Textkontrast", "whiteText": "Weißer Text", "blackText": "Schwarzer Text", "sample": "Beispieltext", "pass": "Bestanden", "fail": "Zu gering", "large": "Nur großer Text",
+    "tints": "Heller", "shades": "Dunkler", "harmony": "Harmonien", "complementary": "Komplementär", "analogous": "Analog", "triadic": "Triade", "tetradic": "Tetrade",
+    "randomize": "Zufall", "pick": "Wählen", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "Keine Farbe. Versuche #ff5733, rgb(…) oder einen Namen wie tomato.",
+    "hub": { "title": "Kostenlose Farb-Werkzeuge – HEX RGB HSL umrechnen, Paletten, Kontrast", "h1": "Farb-Werkzeuge", "line": "HEX, RGB, HSL, Paletten und Kontrast – kostenlos im Browser.", "description": "Kostenlose Online-Farbwerkzeuge: HEX, RGB, HSL, HSV und CMYK umrechnen, CSS-Farbnamen finden, Aufhellungen, Abdunklungen und Harmonien erstellen und den Textkontrast prüfen. Alles läuft im Browser – kein Upload, keine Anmeldung." },
+    "aboutTitle": "So funktioniert es", "aboutLine": "Alles wird in deinem Browser berechnet. Nichts wird an einen Server gesendet.", "nextTools": "Weitere Werkzeuge"
+  },
+  "fr": {
+    "name": "Français", "dir": "ltr", "language": "Langue",
+    "hex": "HEX", "rgb": "RGB", "hsl": "HSL", "hsv": "HSV", "cmyk": "CMYK",
+    "copy": "Copier", "copied": "Copié", "preview": "Aperçu", "cssName": "Nom", "nearest": "Nom le plus proche", "exactName": "Nom CSS",
+    "contrast": "Contraste du texte", "whiteText": "Texte blanc", "blackText": "Texte noir", "sample": "Texte d'exemple", "pass": "Conforme", "fail": "Insuffisant", "large": "Grand texte seulement",
+    "tints": "Plus clair", "shades": "Plus foncé", "harmony": "Harmonies", "complementary": "Complémentaire", "analogous": "Analogues", "triadic": "Triadique", "tetradic": "Tétradique",
+    "randomize": "Aléatoire", "pick": "Choisir", "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato", "invalid": "Ce n'est pas une couleur. Essayez #ff5733, rgb(…) ou un nom comme tomato.",
+    "hub": { "title": "Outils couleur gratuits – Convertir HEX RGB HSL, palettes, contraste", "h1": "Outils couleur", "line": "HEX, RGB, HSL, palettes et contraste : gratuit, dans votre navigateur.", "description": "Outils couleur en ligne gratuits : convertissez HEX, RGB, HSL, HSV et CMYK, trouvez les noms de couleur CSS, créez des teintes, des ombres et des harmonies et vérifiez le contraste du texte. Tout se passe dans votre navigateur, sans envoi ni inscription." },
+    "aboutTitle": "Comment ça marche", "aboutLine": "Tout est calculé dans votre navigateur. Rien n'est envoyé à un serveur.", "nextTools": "Autres outils"
+  }
+}

@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path');
 const root = path.resolve(__dirname, '..');
 const SKIP = ['.git', '_build', 'node_modules', 'docs', 'tools', 'src'];
 const files = [];
-(function walk(dir){ for (const n of fs.readdirSync(dir)) { if (SKIP.includes(n)) continue; const p = path.join(dir, n); if (fs.statSync(p).isDirectory()) walk(p); else if (n.endsWith('.html')) files.push(p); } })(root);
+(function walk(dir){ for (const n of fs.readdirSync(dir)) { if (SKIP.includes(n) || (n === 'hex' && path.basename(dir) === 'color')) continue; /* color/hex/ 롱테일은 전용 축약 CSS 라 제외 */ const p = path.join(dir, n); if (fs.statSync(p).isDirectory()) walk(p); else if (n.endsWith('.html')) files.push(p); } })(root);
 const fails = [];
 const byLang = {};
 for (const p of files) {
@@ -19,7 +19,7 @@ for (const p of files) {
   for (const l of ['/about.html', '/privacy.html', '/terms.html', '/guide/']) if (!s.includes(`href="${l}"`)) fails.push(rel + ': 푸터 링크 없음 ' + l);
   if (!/<a class="brand" href="\/">/.test(s)) fails.push(rel + ': 브랜드 링크가 / 가 아님');
   const lang = (s.match(/<html lang="([^"]+)"/) || [])[1] || '?';
-  const multi = rel.startsWith('wheel/') ? 'wheel' : rel.startsWith('pdf/') ? 'pdf' : rel.startsWith('image/') ? 'image' : '';   // 8개 언어로 생성되는 구역
+  const multi = rel.startsWith('wheel/') ? 'wheel' : rel.startsWith('pdf/') ? 'pdf' : rel.startsWith('image/') ? 'image' : rel.startsWith('color/') ? 'color' : '';   // 8개 언어로 생성되는 구역
   if (multi) {
     const m = rel.match(/(?:^|\/)(ko|zh|ja|es|pt|de|fr)\//); const code = m ? m[1] : 'en';   // wheel/<lang>/<preset>/, pdf/<tool>/<lang>/ 둘 다
     const home = '/' + multi + '/' + (code === 'en' ? '' : code + '/');

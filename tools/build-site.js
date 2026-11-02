@@ -7,7 +7,7 @@
 const fs = require('fs'), path = require('path');
 const shell = require('./shell');
 const root = path.resolve(__dirname, '..');
-const SKIP = ['.git', '_build', 'node_modules', 'docs', 'tools', 'wheel', 'pdf', 'image', 'src'];   // wheel/pdf/image 는 자체 생성기가 셸을 넣는다
+const SKIP = ['.git', '_build', 'node_modules', 'docs', 'tools', 'wheel', 'pdf', 'image', 'color', 'src'];   // wheel/pdf/image 는 자체 생성기가 셸을 넣는다
 const FOOT_EXTRA = {
   'index.html': ' · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.'
 };
@@ -22,8 +22,8 @@ const PAGE_CSS = {
 const TOOLS = JSON.parse(fs.readFileSync(path.join(root, 'src', 'tools.json'), 'utf8'));
 const ICONS = JSON.parse(fs.readFileSync(path.join(root, 'src', 'icons.json'), 'utf8'));
 const esc = shell.esc;
-const CAT_LABEL = { all: '전체', hwp: 'HWP', text: '텍스트', pdf: 'PDF', image: '이미지', wheel: '룰렛', guide: '가이드' };
-const CHIP_ORDER = ['all', 'hwp', 'text', 'pdf', 'image', 'wheel', 'guide'];
+const CAT_LABEL = { all: '전체', hwp: 'HWP', text: '텍스트', pdf: 'PDF', image: '이미지', color: '색상', wheel: '룰렛', guide: '가이드' };
+const CHIP_ORDER = ['all', 'hwp', 'text', 'pdf', 'image', 'color', 'wheel', 'guide'];
 // 그리드를 넣는 페이지: 홈은 필터 칩 + 전체 카드, /text/ 는 텍스트 카드만(칩 없음)
 const GRIDS = { 'index.html': { chips: true }, 'text/index.html': { cat: 'text' } };
 const pagePath = rel => '/' + rel.replace(/(^|\/)index\.html$/, '$1');
@@ -110,7 +110,7 @@ for (const p of pages) {
     if (!/<!-- grid:start -->[\s\S]*?<!-- grid:end -->/.test(s)) console.warn(rel + ': grid 마커가 없어 그리드를 넣지 못했습니다');
     else s = s.replace(/<!-- grid:start -->[\s\S]*?<!-- grid:end -->/, () => gridHtml(rel, GRIDS[rel]));
   }
-  const header = shell.header({ lang: 'ko', section: sectionOf(rel), wheelHome: '/wheel/ko/', pdfHome: '/pdf/ko/' });
+  const header = shell.header({ lang: 'ko', section: sectionOf(rel), wheelHome: '/wheel/ko/', pdfHome: '/pdf/ko/', imageHome: '/image/ko/', colorHome: '/color/ko/' });
   s = shell.replaceBlock(s, 'header', header, /<header class="top">[\s\S]*?<\/header>/);
   if (!s.includes('<!-- shell:header -->')) s = s.replace(/<body([^>]*)>/, (m) => m + '\n' + header);
   const footer = shell.footer({ lang: 'ko', extra: FOOT_EXTRA[rel] || '' });
@@ -127,7 +127,7 @@ const siteUrls = pages.map(toUrl).sort((a, b) => { const x = order(a), y = order
 const smPath = path.join(root, 'sitemap.xml');
 let sm = fs.existsSync(smPath) ? fs.readFileSync(smPath, 'utf8') : '';
 // 다른 생성기의 블록(wheel/pdf/image …)은 그대로 보존
-const otherBlocks = ['wheel', 'pdf', 'image'].map(k => (sm.match(new RegExp('<!-- ' + k + ':start -->[\\s\\S]*?<!-- ' + k + ':end -->')) || [''])[0]).filter(Boolean);
+const otherBlocks = ['wheel', 'pdf', 'image', 'color'].map(k => (sm.match(new RegExp('<!-- ' + k + ':start -->[\\s\\S]*?<!-- ' + k + ':end -->')) || [''])[0]).filter(Boolean);
 const siteBlock = '<!-- site:start -->\n' + siteUrls.map(u => `  <url><loc>${u}</loc></url>`).join('\n') + '\n  <!-- site:end -->';
 const out = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  ' + siteBlock + otherBlocks.map(b => '\n  ' + b).join('') + '\n</urlset>\n';
 if (out !== sm) { fs.writeFileSync(smPath, out, 'utf8'); console.log('sitemap updated'); }

@@ -39,7 +39,7 @@
   --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
-  --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;
+  --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;--cat-color:#ec4899;
   --font:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
   --fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
   --fs-body:16px;--lh-body:24px;--fs-h1:32px;--lh-h1:40px;--fs-lead:18px;--lh-lead:28px;--fs-h1-compact:20px;--lh-h1-compact:28px;
@@ -67,7 +67,7 @@ html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh}
-body>main{flex:1 0 auto}
+body>main{flex:1 0 auto;width:100%;min-width:0}
 footer.foot{margin-top:auto}
 a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
 img,svg{vertical-align:middle}
@@ -255,7 +255,7 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 </head>
 <body class="page-wheel">
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="Menu principal"><a href="/">Visionneuse HWP (KO)</a><a href="/text/">Outils texte (KO)</a><a href="/pdf/fr/">Outils PDF</a><a href="/image/fr/">Outils image</a><a href="/wheel/fr/" class="on">Roue</a><a href="/guide/">Guides (KO)</a></nav><select id="lang" class="lang-select" aria-label="Langue"><option value="/wheel/what-to-eat/" data-code="en">English</option><option value="/wheel/ko/what-to-eat/" data-code="ko">한국어</option><option value="/wheel/zh/what-to-eat/" data-code="zh">中文</option><option value="/wheel/ja/what-to-eat/" data-code="ja">日本語</option><option value="/wheel/es/what-to-eat/" data-code="es">Español</option><option value="/wheel/pt/what-to-eat/" data-code="pt">Português</option><option value="/wheel/de/what-to-eat/" data-code="de">Deutsch</option><option value="/wheel/fr/what-to-eat/" data-code="fr" selected>Français</option></select><button type="button" class="theme-btn" id="theme-btn" aria-label="Clair / sombre" title="Clair / sombre">◐</button></div><nav class="subnav" aria-label="Autres roues"><div class="wrap"><a class="chip" href="/wheel/fr/">Noms</a><a class="chip" href="/wheel/fr/yes-or-no/">Oui ou Non</a><a class="chip" href="/wheel/fr/number/">Nombres</a><a class="chip on" href="/wheel/fr/what-to-eat/">Quoi manger</a></div></nav><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});</script></header>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="Menu principal"><a href="/">Visionneuse HWP (KO)</a><a href="/text/">Outils texte (KO)</a><a href="/pdf/fr/">Outils PDF</a><a href="/image/fr/">Outils image</a><a href="/color/fr/">Outils couleur</a><a href="/wheel/fr/" class="on">Roue</a><a href="/guide/">Guides (KO)</a></nav><select id="lang" class="lang-select" aria-label="Langue"><option value="/wheel/what-to-eat/" data-code="en">English</option><option value="/wheel/ko/what-to-eat/" data-code="ko">한국어</option><option value="/wheel/zh/what-to-eat/" data-code="zh">中文</option><option value="/wheel/ja/what-to-eat/" data-code="ja">日本語</option><option value="/wheel/es/what-to-eat/" data-code="es">Español</option><option value="/wheel/pt/what-to-eat/" data-code="pt">Português</option><option value="/wheel/de/what-to-eat/" data-code="de">Deutsch</option><option value="/wheel/fr/what-to-eat/" data-code="fr" selected>Français</option></select><button type="button" class="theme-btn" id="theme-btn" aria-label="Clair / sombre" title="Clair / sombre">◐</button></div><nav class="subnav" aria-label="Autres roues"><div class="wrap"><a class="chip" href="/wheel/fr/">Noms</a><a class="chip" href="/wheel/fr/yes-or-no/">Oui ou Non</a><a class="chip" href="/wheel/fr/number/">Nombres</a><a class="chip on" href="/wheel/fr/what-to-eat/">Quoi manger</a></div></nav><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});</script></header>
 <!-- /shell:header -->
 <main class="wrap">
   <h1 class="sr">Quoi Manger ? Roue de la Nourriture</h1>

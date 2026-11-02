@@ -1,0 +1,93 @@
+{
+  "id": "converter",
+  "order": 1,
+  "icon": "color-converter",
+  "cat": "color",
+  "next": [
+    "picker",
+    "palette",
+    "contrast"
+  ],
+  "strings": {
+    "en": {
+      "title": "Color Converter – HEX to RGB, HSL, HSV, CMYK Online Free",
+      "h1": "Color converter",
+      "line": "Paste any color, get HEX, RGB, HSL, HSV, CMYK and more",
+      "description": "Convert colors between HEX, RGB, HSL, HSV and CMYK online for free. Paste any value or pick a color, copy every format with one click, and see tints, shades, harmonies and text contrast. Runs in your browser.",
+      "faq": [
+        [ "Which formats can I paste?", "HEX (#f53, #ff5733), rgb() and rgba(), hsl() and hsla(), hsv(), cmyk(), bare numbers like 255, 87, 51, and the 148 CSS color names such as tomato." ],
+        [ "How do I share a color?", "The page address ends with the color, for example #ff5733. Copy the address and the same color opens for anyone." ]
+      ]
+    },
+    "ko": {
+      "title": "색상 변환기 – HEX RGB HSL HSV CMYK 무료 온라인 변환",
+      "h1": "색상 변환기",
+      "line": "아무 색이나 붙여 넣으면 HEX·RGB·HSL·HSV·CMYK 로",
+      "description": "HEX·RGB·HSL·HSV·CMYK 색상 코드를 무료 온라인 변환. 값을 붙여 넣거나 색을 고르면 모든 형식을 한 번에 복사하고, 밝기 단계·배색·글자 대비까지 바로 봅니다. 브라우저 안에서 처리됩니다.",
+      "faq": [
+        [ "어떤 형식을 넣을 수 있나요?", "HEX(#f53, #ff5733), rgb()·rgba(), hsl()·hsla(), hsv(), cmyk(), 255, 87, 51 같은 숫자만, 그리고 tomato 같은 CSS 색 이름 148개입니다." ],
+        [ "색을 공유하려면?", "페이지 주소 끝에 색이 붙습니다(예: #ff5733). 주소를 복사해 보내면 같은 색이 열립니다." ]
+      ]
+    },
+    "zh": {
+      "title": "颜色转换器 – HEX 转 RGB、HSL、HSV、CMYK 免费在线",
+      "h1": "颜色转换器",
+      "line": "粘贴任意颜色，得到 HEX、RGB、HSL、HSV、CMYK",
+      "description": "免费在线转换 HEX、RGB、HSL、HSV 和 CMYK 颜色。粘贴任意值或选取颜色，一键复制每种格式，并查看明暗层次、配色和文字对比度。全部在浏览器中完成。",
+      "faq": [
+        [ "可以粘贴哪些格式？", "HEX（#f53、#ff5733）、rgb() 与 rgba()、hsl() 与 hsla()、hsv()、cmyk()、255, 87, 51 这样的纯数字，以及 tomato 等 148 个 CSS 颜色名称。" ],
+        [ "如何分享颜色？", "页面地址以颜色结尾，例如 #ff5733。复制地址发送，对方打开就是同一个颜色。" ]
+      ]
+    },
+    "ja": {
+      "title": "カラーコード変換 – HEX RGB HSL HSV CMYK 無料オンライン",
+      "h1": "カラーコード変換",
+      "line": "好きな色を貼り付けると HEX・RGB・HSL・HSV・CMYK に",
+      "description": "HEX・RGB・HSL・HSV・CMYK のカラーコードを無料でオンライン変換。値を貼り付けるか色を選ぶだけで、すべての形式をワンクリックでコピーし、明暗の段階・配色・文字コントラストも確認できます。ブラウザ内で処理します。",
+      "faq": [
+        [ "どんな形式を入力できますか？", "HEX（#f53、#ff5733）、rgb()・rgba()、hsl()・hsla()、hsv()、cmyk()、255, 87, 51 のような数字だけ、そして tomato のような CSS 色名 148 種です。" ],
+        [ "色を共有するには？", "ページのアドレスの末尾に色が付きます（例: #ff5733）。アドレスをコピーして送れば同じ色が開きます。" ]
+      ]
+    },
+    "es": {
+      "title": "Convertidor de colores – HEX a RGB, HSL, HSV, CMYK gratis online",
+      "h1": "Convertidor de colores",
+      "line": "Pega cualquier color y obtén HEX, RGB, HSL, HSV y CMYK",
+      "description": "Convierte colores entre HEX, RGB, HSL, HSV y CMYK gratis y online. Pega cualquier valor o elige un color, copia cada formato con un clic y mira tintes, sombras, armonías y contraste del texto. Funciona en tu navegador.",
+      "faq": [
+        [ "¿Qué formatos puedo pegar?", "HEX (#f53, #ff5733), rgb() y rgba(), hsl() y hsla(), hsv(), cmyk(), números sueltos como 255, 87, 51 y los 148 nombres de color CSS como tomato." ],
+        [ "¿Cómo comparto un color?", "La dirección de la página termina con el color, por ejemplo #ff5733. Copia la dirección y cualquiera verá el mismo color." ]
+      ]
+    },
+    "pt": {
+      "title": "Conversor de cores – HEX para RGB, HSL, HSV, CMYK grátis online",
+      "h1": "Conversor de cores",
+      "line": "Cole qualquer cor e receba HEX, RGB, HSL, HSV e CMYK",
+      "description": "Converta cores entre HEX, RGB, HSL, HSV e CMYK grátis e online. Cole qualquer valor ou escolha uma cor, copie cada formato com um clique e veja tons claros, escuros, harmonias e contraste do texto. Funciona no navegador.",
+      "faq": [
+        [ "Quais formatos posso colar?", "HEX (#f53, #ff5733), rgb() e rgba(), hsl() e hsla(), hsv(), cmyk(), números soltos como 255, 87, 51 e os 148 nomes de cor CSS, como tomato." ],
+        [ "Como compartilho uma cor?", "O endereço da página termina com a cor, por exemplo #ff5733. Copie o endereço e a mesma cor abre para qualquer pessoa." ]
+      ]
+    },
+    "de": {
+      "title": "Farbumrechner – HEX in RGB, HSL, HSV, CMYK online kostenlos",
+      "h1": "Farbumrechner",
+      "line": "Beliebige Farbe einfügen, HEX, RGB, HSL, HSV und CMYK erhalten",
+      "description": "Farben kostenlos online zwischen HEX, RGB, HSL, HSV und CMYK umrechnen. Wert einfügen oder Farbe wählen, jedes Format mit einem Klick kopieren und Aufhellungen, Abdunklungen, Harmonien und Textkontrast sehen. Läuft im Browser.",
+      "faq": [
+        [ "Welche Formate kann ich einfügen?", "HEX (#f53, #ff5733), rgb() und rgba(), hsl() und hsla(), hsv(), cmyk(), bloße Zahlen wie 255, 87, 51 und die 148 CSS-Farbnamen wie tomato." ],
+        [ "Wie teile ich eine Farbe?", "Die Seitenadresse endet mit der Farbe, zum Beispiel #ff5733. Adresse kopieren – bei jedem öffnet sich dieselbe Farbe." ]
+      ]
+    },
+    "fr": {
+      "title": "Convertisseur de couleurs – HEX en RGB, HSL, HSV, CMYK gratuit",
+      "h1": "Convertisseur de couleurs",
+      "line": "Collez n'importe quelle couleur, obtenez HEX, RGB, HSL, HSV et CMYK",
+      "description": "Convertissez des couleurs entre HEX, RGB, HSL, HSV et CMYK gratuitement en ligne. Collez une valeur ou choisissez une couleur, copiez chaque format en un clic et voyez les teintes, les ombres, les harmonies et le contraste du texte. Tout se passe dans votre navigateur.",
+      "faq": [
+        [ "Quels formats puis-je coller ?", "HEX (#f53, #ff5733), rgb() et rgba(), hsl() et hsla(), hsv(), cmyk(), des nombres seuls comme 255, 87, 51 et les 148 noms de couleur CSS comme tomato." ],
+        [ "Comment partager une couleur ?", "L'adresse de la page se termine par la couleur, par exemple #ff5733. Copiez l'adresse : la même couleur s'ouvre chez tout le monde." ]
+      ]
+    }
+  }
+}
