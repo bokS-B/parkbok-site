@@ -1,0 +1,229 @@
+{
+  "id": "merge",
+  "order": 1,
+  "icon": "merge",
+  "cat": "pdf",
+  "next": [
+    "split",
+    "compress",
+    "rotate"
+  ],
+  "strings": {
+    "en": {
+      "title": "Merge PDF – Combine PDF Files Online Free",
+      "h1": "Merge PDF",
+      "line": "Combine several PDFs into one file.",
+      "description": "Merge PDF files online for free. Drop your PDFs, put them in order and download one combined file. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF files",
+      "runText": "Merge",
+      "resultName": "merged",
+      "faq": [
+        [
+          "How do I change the order?",
+          "Use the arrows next to each file in the list. The top file comes first in the merged PDF."
+        ],
+        [
+          "Is there a file size or count limit?",
+          "No fixed limit. Everything runs in your browser, so very large files are only limited by your device's memory."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDFs are read and merged on your device and never sent to a server."
+        ],
+        [
+          "Will bookmarks and form fields survive?",
+          "Pages, text and images are kept as they are. Bookmarks and interactive form fields are not carried over."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 합치기 – 여러 PDF 파일을 하나로 무료 병합",
+      "h1": "PDF 합치기",
+      "line": "여러 PDF를 한 파일로",
+      "description": "PDF 합치기 무료 온라인. PDF 파일을 넣고 순서를 정한 뒤 하나로 합쳐 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "합치기",
+      "resultName": "합친파일",
+      "faq": [
+        [
+          "순서는 어떻게 바꾸나요?",
+          "파일 목록 옆의 화살표로 위아래로 옮기세요. 목록 맨 위 파일이 합친 PDF 의 첫 부분이 됩니다."
+        ],
+        [
+          "파일 크기나 개수 제한이 있나요?",
+          "정해진 제한은 없습니다. 브라우저 안에서 처리하므로 아주 큰 파일은 기기 메모리에 따라 달라집니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 읽고 합쳐지며 서버로 전송되지 않습니다."
+        ],
+        [
+          "책갈피나 입력 양식은 유지되나요?",
+          "페이지·글자·이미지는 그대로 유지됩니다. 책갈피와 입력 양식 칸은 옮겨지지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "合并 PDF – 免费在线将多个 PDF 合并为一个",
+      "h1": "合并 PDF",
+      "line": "把多个 PDF 合并成一个文件。",
+      "description": "免费在线合并 PDF。添加 PDF 文件、调整顺序，然后下载合并后的文件。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "合并",
+      "resultName": "合并",
+      "faq": [
+        [
+          "如何调整顺序？",
+          "使用文件列表旁的箭头上下移动。列表最上方的文件会成为合并后 PDF 的开头。"
+        ],
+        [
+          "有文件大小或数量限制吗？",
+          "没有固定限制。所有处理都在浏览器中进行，超大文件只受设备内存影响。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上读取和合并，不会发送到任何服务器。"
+        ],
+        [
+          "书签和表单会保留吗？",
+          "页面、文字和图片保持不变。书签和可填写的表单字段不会被保留。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDF結合 – 複数のPDFを1つにまとめる 無料オンライン",
+      "h1": "PDF結合",
+      "line": "複数のPDFを1つのファイルにまとめます。",
+      "description": "無料でPDFを結合。PDFを追加して順番を決め、1つにまとめたファイルをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "結合する",
+      "resultName": "結合",
+      "faq": [
+        [
+          "順番はどう変えますか？",
+          "ファイル一覧の横にある矢印で上下に動かします。一覧の一番上のファイルが結合後の先頭になります。"
+        ],
+        [
+          "ファイルサイズや数の上限は？",
+          "決まった上限はありません。ブラウザ内で処理するため、非常に大きなファイルは端末のメモリ次第です。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で読み込んで結合され、サーバーには送信されません。"
+        ],
+        [
+          "しおりやフォームは残りますか？",
+          "ページ・文字・画像はそのまま残ります。しおりと入力フォームは引き継がれません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Unir PDF – Combinar varios PDF en uno gratis online",
+      "h1": "Unir PDF",
+      "line": "Combina varios PDF en un solo archivo.",
+      "description": "Une archivos PDF gratis y online. Añade tus PDF, ordénalos y descarga un único archivo. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Unir",
+      "resultName": "unido",
+      "faq": [
+        [
+          "¿Cómo cambio el orden?",
+          "Usa las flechas junto a cada archivo de la lista. El primero de la lista será el principio del PDF unido."
+        ],
+        [
+          "¿Hay límite de tamaño o cantidad?",
+          "No hay un límite fijo. Todo se procesa en tu navegador, así que los archivos muy grandes solo dependen de la memoria de tu dispositivo."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. Los PDF se leen y se unen en tu dispositivo y nunca se envían a un servidor."
+        ],
+        [
+          "¿Se conservan marcadores y formularios?",
+          "Las páginas, el texto y las imágenes se mantienen. Los marcadores y los campos de formulario no se conservan."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Juntar PDF – Combinar vários PDF em um grátis online",
+      "h1": "Juntar PDF",
+      "line": "Combine vários PDF em um único arquivo.",
+      "description": "Junte arquivos PDF grátis e online. Adicione seus PDF, coloque em ordem e baixe um único arquivo. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Juntar",
+      "resultName": "juntado",
+      "faq": [
+        [
+          "Como mudo a ordem?",
+          "Use as setas ao lado de cada arquivo da lista. O primeiro da lista será o início do PDF final."
+        ],
+        [
+          "Há limite de tamanho ou quantidade?",
+          "Não há limite fixo. Tudo roda no navegador, então arquivos muito grandes dependem só da memória do seu dispositivo."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. Os PDF são lidos e juntados no seu dispositivo e nunca vão para um servidor."
+        ],
+        [
+          "Marcadores e formulários são mantidos?",
+          "Páginas, texto e imagens são mantidos. Marcadores e campos de formulário não são preservados."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF zusammenfügen – Mehrere PDFs online kostenlos verbinden",
+      "h1": "PDF zusammenfügen",
+      "line": "Mehrere PDFs zu einer Datei verbinden.",
+      "description": "PDF-Dateien kostenlos online zusammenfügen. PDFs hinzufügen, Reihenfolge festlegen und eine gemeinsame Datei herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "PDF auswählen",
+      "runText": "Zusammenfügen",
+      "resultName": "zusammengefuegt",
+      "faq": [
+        [
+          "Wie ändere ich die Reihenfolge?",
+          "Mit den Pfeilen neben jeder Datei in der Liste. Die oberste Datei bildet den Anfang der neuen PDF."
+        ],
+        [
+          "Gibt es ein Limit für Größe oder Anzahl?",
+          "Kein festes Limit. Alles läuft im Browser, sehr große Dateien hängen nur vom Speicher deines Geräts ab."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDFs werden auf deinem Gerät gelesen und verbunden und nie an einen Server gesendet."
+        ],
+        [
+          "Bleiben Lesezeichen und Formulare erhalten?",
+          "Seiten, Text und Bilder bleiben unverändert. Lesezeichen und Formularfelder werden nicht übernommen."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Fusionner PDF – Combiner plusieurs PDF en un seul gratuitement",
+      "h1": "Fusionner PDF",
+      "line": "Réunissez plusieurs PDF en un seul fichier.",
+      "description": "Fusionnez des fichiers PDF gratuitement en ligne. Ajoutez vos PDF, mettez-les dans l'ordre et téléchargez un seul fichier. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir des PDF",
+      "runText": "Fusionner",
+      "resultName": "fusionne",
+      "faq": [
+        [
+          "Comment changer l'ordre ?",
+          "Avec les flèches à côté de chaque fichier de la liste. Le premier de la liste ouvre le PDF fusionné."
+        ],
+        [
+          "Y a-t-il une limite de taille ou de nombre ?",
+          "Pas de limite fixe. Tout se fait dans votre navigateur, les très gros fichiers ne dépendent que de la mémoire de votre appareil."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Les PDF sont lus et fusionnés sur votre appareil et ne partent jamais vers un serveur."
+        ],
+        [
+          "Les signets et formulaires sont-ils conservés ?",
+          "Les pages, le texte et les images sont conservés. Les signets et les champs de formulaire ne sont pas repris."
+        ]
+      ]
+    }
+  }
+}

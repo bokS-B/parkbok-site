@@ -35,7 +35,7 @@
 /* parkbok site.css — 토큰 · 셸(헤더/푸터) · 공통 컴포넌트. tools/build-site.js 가 모든 페이지 <head> 에 인라인한다. */
 :root{
   --bg:#f6f7f9;--card:#fff;--ink:#1d2129;--muted:#5d6675;--line:#e3e6ea;
-  --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;
+  --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
   --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;
@@ -57,13 +57,13 @@
 html[lang="en"],html[lang="es"],html[lang="pt"],html[lang="de"],html[lang="fr"]{--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
 html[lang^="zh"]{--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
+@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
 
 /* ---------- 기본 ---------- */
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
 img,svg{vertical-align:middle}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--header-pad-x)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -105,8 +105,8 @@ footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px s
 .btn:hover{background:var(--accent-hover);color:var(--accent-ink);text-decoration:none}
 .btn:active{background:var(--accent-active)}
 .btn:disabled,.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
-.btn.ghost{background:var(--card);color:var(--accent);outline:2px solid var(--accent);outline-offset:-2px}
-.btn.ghost:hover{background:var(--card);color:var(--accent-hover);outline-color:var(--accent-hover)}
+.btn.ghost{background:var(--card);color:var(--accent-text);outline:2px solid var(--accent-text);outline-offset:-2px}
+.btn.ghost:hover{background:var(--accent-tint);color:var(--accent-text);outline-color:var(--accent-text)}
 .btn.ghost:active{color:var(--ink);outline-color:var(--ink)}
 .btn.sm{font-size:var(--btn-sm-fs);line-height:16px;padding:var(--btn-sm-pad)}
 .btn-big{display:inline-flex;align-items:center;justify-content:center;min-height:var(--btn-big-min-h);min-width:var(--btn-big-min-w);padding:var(--btn-big-pad);font:inherit;font-size:var(--btn-big-fs);line-height:var(--btn-big-lh);font-weight:var(--fw-medium);border:0;border-radius:var(--r-big);background:var(--accent);color:var(--accent-ink);box-shadow:var(--sh-btn-big);cursor:pointer;transition:var(--t-btn)}
@@ -132,7 +132,7 @@ footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px s
 .tt-grid textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
 .tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
 #textout{min-height:200px;max-height:60vh;white-space:pre-wrap}
-#viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh}
+#viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh;color:#1d2129}
 #viewer:empty{display:none}
 .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:12px 0}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-btn);padding:8px 12px}
@@ -164,6 +164,8 @@ a.card:hover svg{transform:scale(var(--icon-hover-scale))}
 .chip:hover,.chips a:hover,.chips button:hover,.preset:hover{border-color:var(--ink);color:var(--ink);text-decoration:none}
 .chip.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
 .preset.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chips button,.preset{height:28px;padding:2px 12px;font-size:13px}
+.opts .chips{margin:0;flex-wrap:wrap;overflow:visible}
 .next-title{font-size:var(--fs-small);color:var(--muted);margin-right:4px}
 
 /* ---------- 설명·FAQ·광고 ---------- */
@@ -193,9 +195,10 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   p.lead,.lead{font-size:16px;line-height:24px}
   .drop{padding:24px 16px}
   .btn-big{font-size:22px;line-height:26px;padding:24px 32px}
-  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
-  .chips::-webkit-scrollbar{display:none}
+  .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .chips.next::-webkit-scrollbar{display:none}
 }
+@media (max-width:860px){.page-wheel .brand{display:none}}
 @media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
 @media (max-width:640px){.card-icon{width:32px;height:32px;margin-bottom:12px}}
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
@@ -243,7 +246,7 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 </head>
 <body class="page-wheel">
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/wheel/ko/" class="on">룰렛</a><a href="/guide/">가이드</a></nav><select id="lang" class="lang-select" aria-label="언어"><option value="/wheel/number/" data-code="en">English</option><option value="/wheel/ko/number/" data-code="ko" selected>한국어</option><option value="/wheel/zh/number/" data-code="zh">中文</option><option value="/wheel/ja/number/" data-code="ja">日本語</option><option value="/wheel/es/number/" data-code="es">Español</option><option value="/wheel/pt/number/" data-code="pt">Português</option><option value="/wheel/de/number/" data-code="de">Deutsch</option><option value="/wheel/fr/number/" data-code="fr">Français</option></select></div><nav class="subnav"><div class="wrap"><a class="chip" href="/wheel/ko/">이름 뽑기</a><a class="chip" href="/wheel/ko/yes-or-no/">예/아니오</a><a class="chip on" href="/wheel/ko/number/">숫자</a><a class="chip" href="/wheel/ko/what-to-eat/">오늘 뭐 먹지</a></div></nav></header>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/wheel/ko/" class="on">룰렛</a><a href="/guide/">가이드</a></nav><select id="lang" class="lang-select" aria-label="언어"><option value="/wheel/number/" data-code="en">English</option><option value="/wheel/ko/number/" data-code="ko" selected>한국어</option><option value="/wheel/zh/number/" data-code="zh">中文</option><option value="/wheel/ja/number/" data-code="ja">日本語</option><option value="/wheel/es/number/" data-code="es">Español</option><option value="/wheel/pt/number/" data-code="pt">Português</option><option value="/wheel/de/number/" data-code="de">Deutsch</option><option value="/wheel/fr/number/" data-code="fr">Français</option></select></div><nav class="subnav" aria-label="다른 룰렛"><div class="wrap"><a class="chip" href="/wheel/ko/">이름 뽑기</a><a class="chip" href="/wheel/ko/yes-or-no/">예/아니오</a><a class="chip on" href="/wheel/ko/number/">숫자</a><a class="chip" href="/wheel/ko/what-to-eat/">오늘 뭐 먹지</a></div></nav></header>
 <!-- /shell:header -->
 <main class="wrap">
   <h1 class="sr">숫자 룰렛 – 랜덤 숫자 뽑기</h1>
@@ -307,7 +310,7 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 </div>
 <canvas id="confetti" class="confetti"></canvas>
 <!-- shell:footer -->
-<footer class="foot"><div class="wrap"><nav class="foot-links"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a></nav><p class="foot-copy">© parkbok</p></div></footer>
+<footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="바닥글 메뉴"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->
 <script>window.WHEEL_CONFIG={"lang":"ko","preset":"number","ui":{"entries":"항목","results":"결과","placeholder":"한 줄에 하나씩 입력","spin":"돌리기","shuffle":"섞기","sort":"정렬","clear":"지우기","share":"공유","copied":"링크를 복사했습니다. 어디든 붙여 넣으세요.","fullscreen":"전체화면","removeWinner":"당첨 항목 자동 제거","sound":"소리","duration":"회전 시간","sec":"초","noResults":"아직 결과가 없습니다. 룰렛을 돌려 보세요!","clearResults":"결과 지우기","winner":"당첨!","remove":"제거","close":"닫기","entriesCount":"{n}개 항목","titlePh":"룰렛 제목 (선택)","language":"언어","from":"부터","to":"까지","ok":"적용","maybe":"“글쎄” 추가","maybeWord":"글쎄","tapToSpin":"룰렛을 누르거나 돌리기 버튼을 누르세요","spinning":"돌아가는 중…","noEntries":"항목을 2개 이상 넣어야 돌릴 수 있습니다.","other":"다른 룰렛","howTo":"사용 방법","faqTitle":"자주 묻는 질문"},"entries":[],"langUrls":{"en":"/wheel/number/","ko":"/wheel/ko/number/","zh":"/wheel/zh/number/","ja":"/wheel/ja/number/","es":"/wheel/es/number/","pt":"/wheel/pt/number/","de":"/wheel/de/number/","fr":"/wheel/fr/number/"},"maybeWord":"글쎄"};</script>
 <script src="/wheel/wheel.js" defer></script>

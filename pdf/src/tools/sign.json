@@ -1,0 +1,493 @@
+{
+  "id": "sign",
+  "order": 12,
+  "icon": "sign",
+  "cat": "pdf",
+  "next": [
+    "watermark",
+    "page-numbers",
+    "merge"
+  ],
+  "strings": {
+    "en": {
+      "title": "Sign PDF – Add Your Signature to a PDF Online Free",
+      "h1": "Sign PDF",
+      "line": "Draw a signature and place it on a page.",
+      "description": "Sign a PDF online for free. Draw your signature or upload a PNG, pick the page and position, then download the signed file. In your browser – no upload.",
+      "buttonText": "Select PDF file",
+      "runText": "Sign",
+      "resultName": "signed",
+      "options": {
+        "signature": {
+          "label": "Signature",
+          "help": "Draw with your finger or mouse, or upload a PNG with a transparent background."
+        },
+        "page": {
+          "label": "Page",
+          "choices": {
+            "last": "Last page",
+            "first": "First page",
+            "number": "Page number",
+            "all": "Every page"
+          }
+        },
+        "pageNumber": {
+          "label": "Page number",
+          "help": "e.g. 3"
+        },
+        "position": {
+          "label": "Position"
+        },
+        "size": {
+          "label": "Size (of page width)"
+        },
+        "margin": {
+          "label": "Margin (mm)",
+          "help": "Distance from the edge"
+        }
+      },
+      "errors": {
+        "noSignature": "Draw or upload a signature first.",
+        "badPage": "Enter a page number between 1 and {n}."
+      },
+      "faq": [
+        [
+          "Is this a legally binding e-signature?",
+          "It places an image of your signature on the page. Whether that counts as a valid signature depends on the recipient and your local rules; it does not add a cryptographic certificate."
+        ],
+        [
+          "Can I sign more than one page?",
+          "Yes. Choose \"Every page\" to put the same signature on all pages, or pick a single page by number."
+        ],
+        [
+          "Why does my uploaded signature have a white box?",
+          "Upload a PNG with a transparent background. JPG files always have an opaque background."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF and your signature stay on your device and are never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 서명 – PDF 에 서명 넣기 무료 온라인",
+      "h1": "PDF 서명",
+      "line": "서명 그려서 원하는 자리에",
+      "description": "PDF 서명 무료 온라인. 서명을 직접 그리거나 PNG 를 올리고 쪽과 위치를 고른 뒤 서명된 파일을 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "서명 넣기",
+      "resultName": "서명",
+      "options": {
+        "signature": {
+          "label": "서명",
+          "help": "손가락이나 마우스로 그리거나, 배경이 투명한 PNG 를 올리세요."
+        },
+        "page": {
+          "label": "쪽",
+          "choices": {
+            "last": "마지막 쪽",
+            "first": "첫 쪽",
+            "number": "쪽 번호 지정",
+            "all": "모든 쪽"
+          }
+        },
+        "pageNumber": {
+          "label": "쪽 번호",
+          "help": "예: 3"
+        },
+        "position": {
+          "label": "위치"
+        },
+        "size": {
+          "label": "크기 (쪽 너비 기준)"
+        },
+        "margin": {
+          "label": "여백 (mm)",
+          "help": "가장자리에서 띄우는 거리"
+        }
+      },
+      "errors": {
+        "noSignature": "먼저 서명을 그리거나 올려 주세요.",
+        "badPage": "쪽 번호는 1~{n} 사이로 입력해 주세요."
+      },
+      "faq": [
+        [
+          "법적 효력이 있는 전자서명인가요?",
+          "서명 이미지를 쪽 위에 올리는 방식입니다. 효력 인정 여부는 받는 쪽과 해당 규정에 따르며, 인증서 기반 전자서명은 아닙니다."
+        ],
+        [
+          "여러 쪽에 넣을 수 있나요?",
+          "네. \"모든 쪽\"을 고르면 같은 서명이 모든 쪽에 들어가고, 쪽 번호를 지정하면 한 쪽에만 들어갑니다."
+        ],
+        [
+          "올린 서명 뒤에 흰 네모가 생겨요.",
+          "배경이 투명한 PNG 를 올리세요. JPG 는 항상 배경이 불투명합니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 와 서명은 내 기기 안에만 있고 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "PDF 签名 – 免费在线给 PDF 添加签名",
+      "h1": "PDF 签名",
+      "line": "手写签名并放到页面上。",
+      "description": "免费在线 PDF 签名。手写签名或上传 PNG，选择页码和位置，然后下载已签名的文件。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "签名",
+      "resultName": "签名",
+      "options": {
+        "signature": {
+          "label": "签名",
+          "help": "用手指或鼠标书写，或上传透明背景的 PNG。"
+        },
+        "page": {
+          "label": "页面",
+          "choices": {
+            "last": "最后一页",
+            "first": "第一页",
+            "number": "指定页码",
+            "all": "每一页"
+          }
+        },
+        "pageNumber": {
+          "label": "页码",
+          "help": "例如 3"
+        },
+        "position": {
+          "label": "位置"
+        },
+        "size": {
+          "label": "大小（占页面宽度）"
+        },
+        "margin": {
+          "label": "边距（mm）",
+          "help": "与页边的距离"
+        }
+      },
+      "errors": {
+        "noSignature": "请先书写或上传签名。",
+        "badPage": "请输入 1 到 {n} 之间的页码。"
+      },
+      "faq": [
+        [
+          "这是具有法律效力的电子签名吗？",
+          "本工具把签名图片放到页面上。是否被认可取决于接收方和当地规定，它不包含数字证书。"
+        ],
+        [
+          "可以签多页吗？",
+          "可以。选择“每一页”会在所有页面放上同一签名，也可以指定某一页。"
+        ],
+        [
+          "上传的签名为什么带白色方块？",
+          "请上传透明背景的 PNG。JPG 文件的背景总是不透明的。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 和签名都只保存在您的设备上，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDFに署名 – PDFにサインを入れる 無料オンライン",
+      "h1": "PDFに署名",
+      "line": "署名を書いて好きな位置に入れます。",
+      "description": "無料でPDFに署名。手書きするかPNGを選び、ページと位置を決めて署名入りファイルをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "署名する",
+      "resultName": "署名",
+      "options": {
+        "signature": {
+          "label": "署名",
+          "help": "指やマウスで書くか、背景が透明なPNGを選んでください。"
+        },
+        "page": {
+          "label": "ページ",
+          "choices": {
+            "last": "最後のページ",
+            "first": "最初のページ",
+            "number": "ページ番号を指定",
+            "all": "すべてのページ"
+          }
+        },
+        "pageNumber": {
+          "label": "ページ番号",
+          "help": "例: 3"
+        },
+        "position": {
+          "label": "位置"
+        },
+        "size": {
+          "label": "大きさ（ページ幅に対して）"
+        },
+        "margin": {
+          "label": "余白（mm）",
+          "help": "端からの距離"
+        }
+      },
+      "errors": {
+        "noSignature": "先に署名を書くか選んでください。",
+        "badPage": "ページ番号は1〜{n}の範囲で入力してください。"
+      },
+      "faq": [
+        [
+          "法的に有効な電子署名ですか？",
+          "署名の画像をページに置く方式です。有効かどうかは相手先や規定によります。証明書付きの電子署名ではありません。"
+        ],
+        [
+          "複数ページに入れられますか？",
+          "はい。「すべてのページ」を選ぶと全ページに同じ署名が入ります。ページ番号を指定すれば1ページだけに入ります。"
+        ],
+        [
+          "選んだ署名の後ろに白い四角が出ます",
+          "背景が透明なPNGを使ってください。JPGは背景が必ず不透明になります。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFと署名は端末内だけで処理され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Firmar PDF – Añadir tu firma a un PDF gratis online",
+      "h1": "Firmar PDF",
+      "line": "Dibuja tu firma y ponla en la página.",
+      "description": "Firma un PDF gratis y online. Dibuja tu firma o sube un PNG, elige página y posición y descarga el archivo firmado. En tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Firmar",
+      "resultName": "firmado",
+      "options": {
+        "signature": {
+          "label": "Firma",
+          "help": "Dibuja con el dedo o el ratón, o sube un PNG con fondo transparente."
+        },
+        "page": {
+          "label": "Página",
+          "choices": {
+            "last": "Última página",
+            "first": "Primera página",
+            "number": "Número de página",
+            "all": "Todas las páginas"
+          }
+        },
+        "pageNumber": {
+          "label": "Número de página",
+          "help": "p. ej. 3"
+        },
+        "position": {
+          "label": "Posición"
+        },
+        "size": {
+          "label": "Tamaño (del ancho de página)"
+        },
+        "margin": {
+          "label": "Margen (mm)",
+          "help": "Distancia al borde"
+        }
+      },
+      "errors": {
+        "noSignature": "Primero dibuja o sube una firma.",
+        "badPage": "Escribe un número de página entre 1 y {n}."
+      },
+      "faq": [
+        [
+          "¿Es una firma electrónica con validez legal?",
+          "Coloca una imagen de tu firma en la página. Que sea válida depende del destinatario y de las normas locales; no añade un certificado digital."
+        ],
+        [
+          "¿Puedo firmar varias páginas?",
+          "Sí. Elige \"Todas las páginas\" para poner la misma firma en todas, o indica una sola página por su número."
+        ],
+        [
+          "¿Por qué mi firma subida tiene un recuadro blanco?",
+          "Sube un PNG con fondo transparente. Los JPG siempre tienen fondo opaco."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF y tu firma se quedan en tu dispositivo y nunca se envían a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Assinar PDF – Colocar sua assinatura em um PDF grátis online",
+      "h1": "Assinar PDF",
+      "line": "Desenhe sua assinatura na página do PDF.",
+      "description": "Assine um PDF grátis e online. Desenhe sua assinatura ou envie um PNG, escolha página e posição e baixe o arquivo assinado. No navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Assinar",
+      "resultName": "assinado",
+      "options": {
+        "signature": {
+          "label": "Assinatura",
+          "help": "Desenhe com o dedo ou o mouse, ou envie um PNG com fundo transparente."
+        },
+        "page": {
+          "label": "Página",
+          "choices": {
+            "last": "Última página",
+            "first": "Primeira página",
+            "number": "Número da página",
+            "all": "Todas as páginas"
+          }
+        },
+        "pageNumber": {
+          "label": "Número da página",
+          "help": "ex.: 3"
+        },
+        "position": {
+          "label": "Posição"
+        },
+        "size": {
+          "label": "Tamanho (da largura da página)"
+        },
+        "margin": {
+          "label": "Margem (mm)",
+          "help": "Distância da borda"
+        }
+      },
+      "errors": {
+        "noSignature": "Primeiro desenhe ou envie uma assinatura.",
+        "badPage": "Digite um número de página entre 1 e {n}."
+      },
+      "faq": [
+        [
+          "É uma assinatura eletrônica com valor legal?",
+          "A ferramenta coloca uma imagem da sua assinatura na página. Se ela vale depende de quem recebe e das regras locais; não é adicionado certificado digital."
+        ],
+        [
+          "Posso assinar várias páginas?",
+          "Sim. Escolha \"Todas as páginas\" para repetir a assinatura em todas, ou indique uma página pelo número."
+        ],
+        [
+          "Por que minha assinatura enviada tem um quadrado branco?",
+          "Envie um PNG com fundo transparente. Arquivos JPG sempre têm fundo opaco."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF e a assinatura ficam no seu dispositivo e nunca vão para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF unterschreiben – Unterschrift einfügen, kostenlos online",
+      "h1": "PDF unterschreiben",
+      "line": "Unterschrift zeichnen und platzieren.",
+      "description": "PDF kostenlos online unterschreiben: Unterschrift zeichnen oder als PNG hochladen, Seite und Position wählen, signierte Datei herunterladen. Kein Upload.",
+      "buttonText": "PDF auswählen",
+      "runText": "Unterschreiben",
+      "resultName": "unterschrieben",
+      "options": {
+        "signature": {
+          "label": "Unterschrift",
+          "help": "Mit Finger oder Maus zeichnen oder ein PNG mit transparentem Hintergrund hochladen."
+        },
+        "page": {
+          "label": "Seite",
+          "choices": {
+            "last": "Letzte Seite",
+            "first": "Erste Seite",
+            "number": "Seitenzahl",
+            "all": "Jede Seite"
+          }
+        },
+        "pageNumber": {
+          "label": "Seitenzahl",
+          "help": "z. B. 3"
+        },
+        "position": {
+          "label": "Position"
+        },
+        "size": {
+          "label": "Größe (der Seitenbreite)"
+        },
+        "margin": {
+          "label": "Rand (mm)",
+          "help": "Abstand zum Seitenrand"
+        }
+      },
+      "errors": {
+        "noSignature": "Zeichne zuerst eine Unterschrift oder lade eine hoch.",
+        "badPage": "Gib eine Seitenzahl zwischen 1 und {n} ein."
+      },
+      "faq": [
+        [
+          "Ist das eine rechtsgültige elektronische Signatur?",
+          "Das Tool legt ein Bild deiner Unterschrift auf die Seite. Ob das anerkannt wird, hängt vom Empfänger und den geltenden Regeln ab; ein Zertifikat wird nicht hinzugefügt."
+        ],
+        [
+          "Kann ich mehrere Seiten unterschreiben?",
+          "Ja. Mit \"Jede Seite\" kommt dieselbe Unterschrift auf alle Seiten, oder du wählst eine einzelne Seite per Seitenzahl."
+        ],
+        [
+          "Warum hat meine hochgeladene Unterschrift einen weißen Kasten?",
+          "Lade ein PNG mit transparentem Hintergrund hoch. JPG-Dateien haben immer einen undurchsichtigen Hintergrund."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. PDF und Unterschrift bleiben auf deinem Gerät und werden nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Signer un PDF – Ajouter sa signature à un PDF gratuitement",
+      "h1": "Signer un PDF",
+      "line": "Dessinez votre signature et placez-la.",
+      "description": "Signez un PDF gratuitement en ligne : dessinez votre signature ou importez un PNG, choisissez page et position, téléchargez le PDF signé. Aucun envoi.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Signer",
+      "resultName": "signe",
+      "options": {
+        "signature": {
+          "label": "Signature",
+          "help": "Dessinez au doigt ou à la souris, ou importez un PNG à fond transparent."
+        },
+        "page": {
+          "label": "Page",
+          "choices": {
+            "last": "Dernière page",
+            "first": "Première page",
+            "number": "Numéro de page",
+            "all": "Toutes les pages"
+          }
+        },
+        "pageNumber": {
+          "label": "Numéro de page",
+          "help": "ex. 3"
+        },
+        "position": {
+          "label": "Position"
+        },
+        "size": {
+          "label": "Taille (de la largeur de page)"
+        },
+        "margin": {
+          "label": "Marge (mm)",
+          "help": "Distance depuis le bord"
+        }
+      },
+      "errors": {
+        "noSignature": "Dessinez ou importez d'abord une signature.",
+        "badPage": "Saisissez un numéro de page entre 1 et {n}."
+      },
+      "faq": [
+        [
+          "Est-ce une signature électronique à valeur légale ?",
+          "L'outil place une image de votre signature sur la page. Sa validité dépend du destinataire et des règles en vigueur ; aucun certificat numérique n'est ajouté."
+        ],
+        [
+          "Puis-je signer plusieurs pages ?",
+          "Oui. Choisissez « Toutes les pages » pour répéter la même signature partout, ou indiquez une seule page par son numéro."
+        ],
+        [
+          "Pourquoi ma signature importée a-t-elle un cadre blanc ?",
+          "Importez un PNG à fond transparent. Les fichiers JPG ont toujours un fond opaque."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF et votre signature restent sur votre appareil et ne partent jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

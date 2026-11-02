@@ -1,0 +1,53 @@
+/* HWP 뷰어(index.html) 도구 영역 전용. 토큰·.drop·.btn·.status·.actions 는 assets/site.css 에서 온다. */
+/* 뼈대: h1 → p.lead → .drop#drop → p.status → .actions#tools → #viewer → #textwrap → .ad → 칩·그리드 → details.about */
+
+/* ---------- 숨김 ---------- */
+.actions[hidden],.drop-compact[hidden],#textwrap[hidden]{display:none}
+body.has-input .lead{display:none}
+
+/* ---------- 드롭존(홈: 높이 140px 이하) ---------- */
+.drop.home{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px 16px;max-height:var(--drop-home-max-h);position:relative;outline:none}
+.drop.home:focus-visible{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
+.drop.home .droptxt{display:block;margin:0}
+
+/* ---------- 파일 연 뒤: 한 줄(48px) ---------- */
+.drop-compact{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-width:0;font-size:var(--fs-small);color:var(--ink)}
+.drop-compact .fname{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.drop-compact .btn{flex:none}
+body.has-input .drop.home{min-height:var(--drop-compact-h);max-height:var(--drop-compact-h);padding:0 12px;border-style:solid;border-color:var(--line);cursor:default}
+body.has-input .drop.home .btn-big,body.has-input .drop.home .droptxt{display:none}
+
+/* ---------- 상태 ---------- */
+.status{margin:8px 0 0;min-height:0}
+body.busy .drop.home{opacity:.6;pointer-events:none}
+body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:none}
+
+/* ---------- 버튼 줄: PC 한 줄 ---------- */
+.actions{margin:12px 0 0}
+.actions .btn-big{min-width:0;flex:none}
+.actions .btn{flex:none}
+
+/* ---------- 뷰어·본문 ---------- */
+#viewer{margin:12px 0 0}
+#textwrap{margin:16px 0 0}
+#textwrap h2{margin:0 0 8px;font-size:16px;line-height:24px}
+#textwrap #textout{display:block}
+
+/* ---------- 휴대폰: 버튼 세로 100%, 뷰어 다음에 아래 고정 ---------- */
+@media (max-width:767.98px){
+  main.wrap{display:flex;flex-direction:column}
+  main.wrap>h1{order:-5}
+  main.wrap>.lead{order:-4}
+  main.wrap>.drop{order:-3}
+  main.wrap>.status{order:-2}
+  main.wrap>#viewer{order:-1}
+  .actions{position:sticky;bottom:0;z-index:5;flex-direction:column;align-items:stretch;gap:6px;background:var(--bg);padding:10px 0;margin:8px 0 0;box-shadow:0 -8px 12px -8px rgba(0,0,0,.15)}
+  .actions .btn-big{width:100%;min-height:56px;padding:14px 24px;font-size:20px;line-height:24px}
+  .actions .btn{width:100%}
+}
+
+/* ---------- 인쇄: 뷰어만 ---------- */
+@media print{
+  .actions,.drop-compact,#textwrap{display:none!important}
+  #viewer{height:auto!important;margin:0}
+}

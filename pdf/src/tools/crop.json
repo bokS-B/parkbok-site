@@ -1,0 +1,509 @@
+{
+  "id": "crop",
+  "order": 9,
+  "icon": "crop",
+  "cat": "pdf",
+  "next": [
+    "rotate",
+    "organize",
+    "compress"
+  ],
+  "strings": {
+    "en": {
+      "title": "Crop PDF – Trim Page Margins Online Free",
+      "h1": "Crop PDF",
+      "line": "Cut the white margins off every page.",
+      "description": "Crop PDF margins online for free. Trim 10, 15 or 20 mm from every side or enter your own values, then download. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF file",
+      "runText": "Crop",
+      "resultName": "cropped",
+      "options": {
+        "preset": {
+          "label": "Trim from each side",
+          "choices": {
+            "10": "10 mm",
+            "15": "15 mm",
+            "20": "20 mm",
+            "none": "Custom (enter below)"
+          }
+        },
+        "top": {
+          "label": "Top (mm)",
+          "help": "0"
+        },
+        "right": {
+          "label": "Right (mm)",
+          "help": "0"
+        },
+        "bottom": {
+          "label": "Bottom (mm)",
+          "help": "0"
+        },
+        "left": {
+          "label": "Left (mm)",
+          "help": "0"
+        },
+        "permanent": {
+          "label": "Cut for good (cannot be undone later)",
+          "help": "Off: the margin is only hidden and can be restored in a PDF editor."
+        }
+      },
+      "errors": {
+        "noMargin": "Enter at least one margin greater than 0.",
+        "tooLarge": "The margins are larger than the page. Use smaller values."
+      },
+      "faq": [
+        [
+          "Does cropping delete the content in the margin?",
+          "By default it is only hidden – the page shows the smaller area but the full page still exists. Turn on \"Cut for good\" to remove it permanently."
+        ],
+        [
+          "Does cropping lower the quality?",
+          "No. Only the visible area changes; text and images stay as they are."
+        ],
+        [
+          "Can I crop each page differently?",
+          "The same margins are applied to every page. For rotated pages the top, right, bottom and left refer to what you see on screen."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is cropped on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 자르기 – 페이지 여백 잘라내기 무료 온라인",
+      "h1": "PDF 자르기",
+      "line": "모든 쪽 흰 여백 잘라내기",
+      "description": "PDF 여백 자르기 무료 온라인. 모든 쪽에서 10·15·20mm 를 잘라내거나 위·오른쪽·아래·왼쪽 값을 직접 넣고 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "자르기",
+      "resultName": "자름",
+      "options": {
+        "preset": {
+          "label": "각 쪽에서 잘라낼 여백",
+          "choices": {
+            "10": "10mm",
+            "15": "15mm",
+            "20": "20mm",
+            "none": "직접 입력"
+          }
+        },
+        "top": {
+          "label": "위 (mm)",
+          "help": "0"
+        },
+        "right": {
+          "label": "오른쪽 (mm)",
+          "help": "0"
+        },
+        "bottom": {
+          "label": "아래 (mm)",
+          "help": "0"
+        },
+        "left": {
+          "label": "왼쪽 (mm)",
+          "help": "0"
+        },
+        "permanent": {
+          "label": "완전히 잘라내기 (나중에 되돌릴 수 없음)",
+          "help": "끄면 여백을 숨기기만 하므로 PDF 편집기에서 다시 되살릴 수 있습니다."
+        }
+      },
+      "errors": {
+        "noMargin": "여백을 0 보다 크게 한 곳 이상 넣어 주세요.",
+        "tooLarge": "여백이 쪽 크기보다 큽니다. 값을 줄여 주세요."
+      },
+      "faq": [
+        [
+          "자르면 여백의 내용이 지워지나요?",
+          "기본값에서는 숨기기만 합니다. 쪽은 작아 보이지만 원래 내용은 남아 있습니다. '완전히 잘라내기' 를 켜면 영구히 제거됩니다."
+        ],
+        [
+          "자르면 화질이 떨어지나요?",
+          "아니요. 보이는 영역만 바뀌고 글자와 이미지는 그대로 유지됩니다."
+        ],
+        [
+          "쪽마다 다르게 자를 수 있나요?",
+          "모든 쪽에 같은 여백이 적용됩니다. 돌아간 쪽도 화면에 보이는 위·오른쪽·아래·왼쪽 기준으로 잘립니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 잘리며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "裁剪 PDF – 免费在线裁掉页面边距",
+      "h1": "裁剪 PDF",
+      "line": "裁掉每一页的白边。",
+      "description": "免费在线裁剪 PDF 边距。可从每边裁掉 10、15 或 20 毫米，或自行输入上、右、下、左的数值后下载。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "裁剪",
+      "resultName": "裁剪",
+      "options": {
+        "preset": {
+          "label": "每边裁掉",
+          "choices": {
+            "10": "10 毫米",
+            "15": "15 毫米",
+            "20": "20 毫米",
+            "none": "自定义（在下方输入）"
+          }
+        },
+        "top": {
+          "label": "上（毫米）",
+          "help": "0"
+        },
+        "right": {
+          "label": "右（毫米）",
+          "help": "0"
+        },
+        "bottom": {
+          "label": "下（毫米）",
+          "help": "0"
+        },
+        "left": {
+          "label": "左（毫米）",
+          "help": "0"
+        },
+        "permanent": {
+          "label": "永久裁掉（之后无法恢复）",
+          "help": "关闭时只是隐藏边距，可在 PDF 编辑器中恢复。"
+        }
+      },
+      "errors": {
+        "noMargin": "请至少输入一个大于 0 的边距。",
+        "tooLarge": "边距超过了页面大小，请改用更小的数值。"
+      },
+      "faq": [
+        [
+          "裁剪会删除边距里的内容吗？",
+          "默认只是隐藏：页面显示较小的区域，但完整页面仍然存在。打开“永久裁掉”才会彻底删除。"
+        ],
+        [
+          "裁剪会降低清晰度吗？",
+          "不会。只改变可见区域，文字和图片保持原样。"
+        ],
+        [
+          "可以给每页设置不同的裁剪吗？",
+          "所有页面使用相同的边距。已旋转的页面按屏幕上看到的上、右、下、左来裁剪。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上裁剪，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDFトリミング – ページの余白をカット 無料オンライン",
+      "h1": "PDFトリミング",
+      "line": "全ページの白い余白を切り取ります。",
+      "description": "無料でPDFの余白をトリミング。各辺から10・15・20mmをカット、または上・右・下・左の値を自分で指定してダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "切り取る",
+      "resultName": "トリミング",
+      "options": {
+        "preset": {
+          "label": "各辺から切り取る幅",
+          "choices": {
+            "10": "10mm",
+            "15": "15mm",
+            "20": "20mm",
+            "none": "自分で指定（下に入力）"
+          }
+        },
+        "top": {
+          "label": "上 (mm)",
+          "help": "0"
+        },
+        "right": {
+          "label": "右 (mm)",
+          "help": "0"
+        },
+        "bottom": {
+          "label": "下 (mm)",
+          "help": "0"
+        },
+        "left": {
+          "label": "左 (mm)",
+          "help": "0"
+        },
+        "permanent": {
+          "label": "完全に削除する（後から戻せません）",
+          "help": "オフの場合は余白を隠すだけなので、PDF編集ソフトで元に戻せます。"
+        }
+      },
+      "errors": {
+        "noMargin": "0より大きい余白を1つ以上入力してください。",
+        "tooLarge": "余白がページより大きいです。値を小さくしてください。"
+      },
+      "faq": [
+        [
+          "余白の中身は消えますか？",
+          "標準では隠すだけです。ページは小さく表示されますが、元の内容は残っています。「完全に削除する」をオンにすると消去されます。"
+        ],
+        [
+          "トリミングで画質は落ちますか？",
+          "いいえ。表示される範囲が変わるだけで、文字や画像はそのままです。"
+        ],
+        [
+          "ページごとに違う幅で切れますか？",
+          "全ページに同じ余白が適用されます。回転したページも画面で見える上・右・下・左を基準に切り取ります。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で処理され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Recortar PDF – Quitar los márgenes de las páginas gratis",
+      "h1": "Recortar PDF",
+      "line": "Quita el margen blanco de cada página.",
+      "description": "Recorta los márgenes de un PDF gratis online. Quita 10, 15 o 20 mm de cada lado o indica tus valores y descarga. Todo en tu navegador, sin subir nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Recortar",
+      "resultName": "recortado",
+      "options": {
+        "preset": {
+          "label": "Recortar de cada lado",
+          "choices": {
+            "10": "10 mm",
+            "15": "15 mm",
+            "20": "20 mm",
+            "none": "Personalizado (indicar abajo)"
+          }
+        },
+        "top": {
+          "label": "Arriba (mm)",
+          "help": "0"
+        },
+        "right": {
+          "label": "Derecha (mm)",
+          "help": "0"
+        },
+        "bottom": {
+          "label": "Abajo (mm)",
+          "help": "0"
+        },
+        "left": {
+          "label": "Izquierda (mm)",
+          "help": "0"
+        },
+        "permanent": {
+          "label": "Recortar de forma definitiva (no se puede deshacer)",
+          "help": "Desactivado: el margen solo se oculta y se puede recuperar con un editor de PDF."
+        }
+      },
+      "errors": {
+        "noMargin": "Indica al menos un margen mayor que 0.",
+        "tooLarge": "Los márgenes son mayores que la página. Usa valores más pequeños."
+      },
+      "faq": [
+        [
+          "¿Se borra el contenido del margen?",
+          "Por defecto solo se oculta: la página muestra un área más pequeña, pero la página completa sigue existiendo. Activa \"Recortar de forma definitiva\" para eliminarlo."
+        ],
+        [
+          "¿Recortar reduce la calidad?",
+          "No. Solo cambia el área visible; el texto y las imágenes quedan igual."
+        ],
+        [
+          "¿Puedo recortar cada página de forma distinta?",
+          "Se aplican los mismos márgenes a todas las páginas. En páginas giradas, arriba, derecha, abajo e izquierda son los que ves en pantalla."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se recorta en tu dispositivo y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Cortar PDF – Remover as margens das páginas grátis online",
+      "h1": "Cortar PDF",
+      "line": "Remova a margem branca de cada página.",
+      "description": "Corte as margens de um PDF grátis online. Remova 10, 15 ou 20 mm de cada lado ou informe seus próprios valores e baixe. Tudo no navegador, nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Cortar",
+      "resultName": "cortado",
+      "options": {
+        "preset": {
+          "label": "Cortar de cada lado",
+          "choices": {
+            "10": "10 mm",
+            "15": "15 mm",
+            "20": "20 mm",
+            "none": "Personalizado (informar abaixo)"
+          }
+        },
+        "top": {
+          "label": "Cima (mm)",
+          "help": "0"
+        },
+        "right": {
+          "label": "Direita (mm)",
+          "help": "0"
+        },
+        "bottom": {
+          "label": "Baixo (mm)",
+          "help": "0"
+        },
+        "left": {
+          "label": "Esquerda (mm)",
+          "help": "0"
+        },
+        "permanent": {
+          "label": "Cortar de vez (não dá para desfazer)",
+          "help": "Desligado: a margem só fica escondida e pode ser recuperada num editor de PDF."
+        }
+      },
+      "errors": {
+        "noMargin": "Informe pelo menos uma margem maior que 0.",
+        "tooLarge": "As margens são maiores que a página. Use valores menores."
+      },
+      "faq": [
+        [
+          "O conteúdo da margem é apagado?",
+          "Por padrão ele só fica escondido: a página mostra uma área menor, mas a página inteira continua existindo. Ligue \"Cortar de vez\" para remover definitivamente."
+        ],
+        [
+          "Cortar reduz a qualidade?",
+          "Não. Só a área visível muda; texto e imagens ficam como estão."
+        ],
+        [
+          "Posso cortar cada página de um jeito?",
+          "As mesmas margens valem para todas as páginas. Em páginas giradas, cima, direita, baixo e esquerda são o que você vê na tela."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é cortado no seu dispositivo e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF zuschneiden – Seitenränder abschneiden, kostenlos online",
+      "h1": "PDF zuschneiden",
+      "line": "Weißen Rand jeder Seite abschneiden.",
+      "description": "PDF-Ränder kostenlos online zuschneiden: 10, 15 oder 20 mm je Seite oder eigene Werte entfernen, dann herunterladen. Läuft im Browser – kein Upload.",
+      "buttonText": "PDF auswählen",
+      "runText": "Zuschneiden",
+      "resultName": "zugeschnitten",
+      "options": {
+        "preset": {
+          "label": "An jeder Seite abschneiden",
+          "choices": {
+            "10": "10 mm",
+            "15": "15 mm",
+            "20": "20 mm",
+            "none": "Eigene Werte (unten eingeben)"
+          }
+        },
+        "top": {
+          "label": "Oben (mm)",
+          "help": "0"
+        },
+        "right": {
+          "label": "Rechts (mm)",
+          "help": "0"
+        },
+        "bottom": {
+          "label": "Unten (mm)",
+          "help": "0"
+        },
+        "left": {
+          "label": "Links (mm)",
+          "help": "0"
+        },
+        "permanent": {
+          "label": "Endgültig abschneiden (nicht rückgängig zu machen)",
+          "help": "Aus: Der Rand wird nur ausgeblendet und lässt sich in einem PDF-Editor wiederherstellen."
+        }
+      },
+      "errors": {
+        "noMargin": "Gib mindestens einen Rand größer als 0 ein.",
+        "tooLarge": "Die Ränder sind größer als die Seite. Verwende kleinere Werte."
+      },
+      "faq": [
+        [
+          "Wird der Inhalt im Rand gelöscht?",
+          "Standardmäßig wird er nur ausgeblendet: Die Seite zeigt einen kleineren Bereich, die ganze Seite bleibt aber erhalten. Mit „Endgültig abschneiden“ wird er dauerhaft entfernt."
+        ],
+        [
+          "Verliert die PDF beim Zuschneiden an Qualität?",
+          "Nein. Nur der sichtbare Bereich ändert sich; Text und Bilder bleiben unverändert."
+        ],
+        [
+          "Kann ich jede Seite anders zuschneiden?",
+          "Dieselben Ränder gelten für alle Seiten. Bei gedrehten Seiten beziehen sich oben, rechts, unten und links auf die Ansicht am Bildschirm."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät zugeschnitten und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Rogner PDF – Couper les marges des pages gratuitement",
+      "h1": "Rogner PDF",
+      "line": "Retirez la marge blanche de chaque page.",
+      "description": "Rognez les marges d'un PDF gratuitement : 10, 15 ou 20 mm de chaque côté ou vos propres valeurs, puis téléchargez. Tout se passe dans votre navigateur.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Rogner",
+      "resultName": "rogne",
+      "options": {
+        "preset": {
+          "label": "Retirer de chaque côté",
+          "choices": {
+            "10": "10 mm",
+            "15": "15 mm",
+            "20": "20 mm",
+            "none": "Personnalisé (saisir ci-dessous)"
+          }
+        },
+        "top": {
+          "label": "Haut (mm)",
+          "help": "0"
+        },
+        "right": {
+          "label": "Droite (mm)",
+          "help": "0"
+        },
+        "bottom": {
+          "label": "Bas (mm)",
+          "help": "0"
+        },
+        "left": {
+          "label": "Gauche (mm)",
+          "help": "0"
+        },
+        "permanent": {
+          "label": "Couper définitivement (irréversible)",
+          "help": "Désactivé : la marge est seulement masquée et peut être rétablie dans un éditeur PDF."
+        }
+      },
+      "errors": {
+        "noMargin": "Saisissez au moins une marge supérieure à 0.",
+        "tooLarge": "Les marges dépassent la taille de la page. Utilisez des valeurs plus petites."
+      },
+      "faq": [
+        [
+          "Le contenu de la marge est-il supprimé ?",
+          "Par défaut il est seulement masqué : la page affiche une zone plus petite, mais la page entière existe toujours. Activez « Couper définitivement » pour le retirer pour de bon."
+        ],
+        [
+          "Le rognage réduit-il la qualité ?",
+          "Non. Seule la zone visible change ; le texte et les images restent intacts."
+        ],
+        [
+          "Puis-je rogner chaque page différemment ?",
+          "Les mêmes marges s'appliquent à toutes les pages. Pour les pages pivotées, haut, droite, bas et gauche correspondent à ce que vous voyez à l'écran."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est rogné sur votre appareil et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

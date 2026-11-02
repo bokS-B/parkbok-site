@@ -45,9 +45,9 @@ for (const lang of langs) for (const preset of PRESETS) {
   html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
   // 셸은 마지막에 끼운다 (site.css 안의 중괄호가 위 치환에 걸리지 않도록)
   const langSelect = `<select id="lang" class="lang-select" aria-label="${esc(shell.strings(lang).language || U.language)}">${langOptions}</select>`;
-  const subnav = `<nav class="subnav"><div class="wrap">${subnavChips}</div></nav>`;
+  const subnav = `<nav class="subnav" aria-label="${esc(U.other)}"><div class="wrap">${subnavChips}</div></nav>`;
   html = html.split('{{shell_head}}').join(shell.head({ og: 'og-wheel.png' }));
-  html = html.split('{{shell_header}}').join(shell.header({ lang, section: 'wheel', wheelHome: url(lang, 'index'), langSelect, subnav }));
+  html = html.split('{{shell_header}}').join(shell.header({ lang, section: 'wheel', wheelHome: url(lang, 'index'), pdfHome: lang === 'en' ? '/pdf/' : '/pdf/' + lang + '/', langSelect, subnav }));
   html = html.split('{{shell_footer}}').join(shell.footer({ lang }));
   const out = path.join(root, url(lang, preset).replace(/\//g, path.sep), 'index.html');
   fs.mkdirSync(path.dirname(out), { recursive: true });

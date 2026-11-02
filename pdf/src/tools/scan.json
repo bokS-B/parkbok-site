@@ -1,0 +1,373 @@
+{
+  "id": "scan",
+  "order": 21,
+  "icon": "scan",
+  "cat": "pdf",
+  "next": [
+    "jpg-to-pdf",
+    "merge",
+    "compress"
+  ],
+  "strings": {
+    "en": {
+      "title": "Scan to PDF – Turn Photos of Documents into a PDF Free",
+      "h1": "Scan to PDF",
+      "line": "Photograph a document, get an A4 PDF.",
+      "description": "Scan documents to PDF with your phone camera for free. Photograph each page, clean up shadows and contrast, download one A4 PDF. Nothing is uploaded.",
+      "buttonText": "Take photo",
+      "runText": "Make PDF",
+      "resultName": "scan",
+      "options": {
+        "pages": {
+          "label": "Pages"
+        },
+        "enhance": {
+          "label": "Clean up (shadows and contrast)"
+        },
+        "mode": {
+          "label": "Color",
+          "choices": {
+            "gray": "Black and white",
+            "color": "Keep color"
+          }
+        }
+      },
+      "errors": {
+        "image": "This photo could not be read. Use JPG or PNG."
+      },
+      "faq": [
+        [
+          "How do I scan several pages?",
+          "On a phone the button opens the camera; take one photo, then tap \"Add more\" for the next page. On a computer it opens the file picker instead."
+        ],
+        [
+          "What does \"Clean up\" do?",
+          "It evens out lighting and shadows, makes the paper white and the text darker. Turn it off to keep the photo as it is."
+        ],
+        [
+          "Is the page straightened or cropped automatically?",
+          "No. Hold the phone flat above the page and fill the frame; use the rotate button if a page is sideways."
+        ],
+        [
+          "Are my photos uploaded?",
+          "No. Everything happens on your device and nothing is sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "문서 스캔 PDF 변환 – 사진 찍어 PDF 만들기 무료",
+      "h1": "문서 스캔 PDF",
+      "line": "문서 찍어 깔끔한 A4 PDF로",
+      "description": "휴대폰 카메라로 문서를 찍어 PDF 로 무료 스캔. 쪽마다 사진을 찍고 그림자·대비를 보정해 A4 PDF 하나로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "사진 찍기",
+      "runText": "PDF 만들기",
+      "resultName": "스캔",
+      "options": {
+        "pages": {
+          "label": "쪽 순서"
+        },
+        "enhance": {
+          "label": "보정하기 (그림자·대비)"
+        },
+        "mode": {
+          "label": "색상",
+          "choices": {
+            "gray": "흑백",
+            "color": "컬러 유지"
+          }
+        }
+      },
+      "errors": {
+        "image": "사진을 읽을 수 없습니다. JPG 나 PNG 를 넣어 주세요."
+      },
+      "faq": [
+        [
+          "여러 쪽을 스캔하려면?",
+          "휴대폰에서는 버튼을 누르면 카메라가 열립니다. 한 장 찍은 뒤 \"더 추가\" 를 눌러 다음 쪽을 찍으세요. 컴퓨터에서는 파일 선택 창이 열립니다."
+        ],
+        [
+          "\"보정하기\" 는 무엇을 하나요?",
+          "조명과 그림자를 고르게 하고 종이는 희게, 글자는 진하게 만듭니다. 끄면 사진 그대로 넣습니다."
+        ],
+        [
+          "기울기나 테두리를 자동으로 잘라 주나요?",
+          "아니요. 종이 위에서 휴대폰을 수평으로 들고 화면에 꽉 차게 찍으세요. 옆으로 누운 쪽은 회전 버튼으로 돌립니다."
+        ],
+        [
+          "사진이 업로드되나요?",
+          "아니요. 모든 처리는 내 기기 안에서 이루어지며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "扫描成 PDF – 用手机拍照把文件转为 PDF 免费",
+      "h1": "扫描成 PDF",
+      "line": "拍下文件，生成清晰的 A4 PDF。",
+      "description": "免费用手机相机把文件扫描成 PDF。逐页拍照，去除阴影、增强对比度，然后下载一个 A4 PDF。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "拍照",
+      "runText": "生成 PDF",
+      "resultName": "扫描",
+      "options": {
+        "pages": {
+          "label": "页面顺序"
+        },
+        "enhance": {
+          "label": "优化（去阴影、增强对比）"
+        },
+        "mode": {
+          "label": "颜色",
+          "choices": {
+            "gray": "黑白",
+            "color": "保留彩色"
+          }
+        }
+      },
+      "errors": {
+        "image": "无法读取这张照片，请使用 JPG 或 PNG。"
+      },
+      "faq": [
+        [
+          "如何扫描多页？",
+          "在手机上点按钮会打开相机，拍完一页后点“继续添加”再拍下一页。在电脑上则会打开文件选择窗口。"
+        ],
+        [
+          "“优化”做了什么？",
+          "让光线和阴影均匀，纸面变白、文字变深。关闭后将按原照片放入。"
+        ],
+        [
+          "会自动校正倾斜或裁边吗？",
+          "不会。请把手机平放在纸张上方并让页面充满画面；横着的页面可用旋转按钮调整。"
+        ],
+        [
+          "我的照片会被上传吗？",
+          "不会。所有处理都在您的设备上完成，不会发送到服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "スキャンしてPDF – 書類を撮影してPDFにする 無料",
+      "h1": "スキャンしてPDF",
+      "line": "書類を撮るだけで、きれいなA4のPDFに。",
+      "description": "スマホのカメラで書類を無料でPDFにスキャン。ページごとに撮影し、影と明るさを補正してA4のPDF1つをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "写真を撮る",
+      "runText": "PDFにする",
+      "resultName": "スキャン",
+      "options": {
+        "pages": {
+          "label": "ページの順番"
+        },
+        "enhance": {
+          "label": "補正する（影・コントラスト）"
+        },
+        "mode": {
+          "label": "色",
+          "choices": {
+            "gray": "白黒",
+            "color": "カラーのまま"
+          }
+        }
+      },
+      "errors": {
+        "image": "この写真を読み込めません。JPGまたはPNGをお使いください。"
+      },
+      "faq": [
+        [
+          "複数ページをスキャンするには？",
+          "スマホではボタンを押すとカメラが開きます。1枚撮ったら「さらに追加」で次のページを撮ってください。パソコンではファイル選択が開きます。"
+        ],
+        [
+          "「補正する」は何をしますか？",
+          "照明や影のムラをならし、紙を白く、文字を濃くします。オフにすると写真をそのまま入れます。"
+        ],
+        [
+          "傾きや余白は自動で直りますか？",
+          "いいえ。書類の真上からスマホを水平に構え、画面いっぱいに撮ってください。横向きのページは回転ボタンで直せます。"
+        ],
+        [
+          "写真はアップロードされますか？",
+          "いいえ。すべて端末内で処理され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Escanear a PDF – Convierte fotos de documentos en PDF gratis",
+      "h1": "Escanear a PDF",
+      "line": "Fotografía un documento, obtén un PDF A4.",
+      "description": "Escanea documentos a PDF con la cámara del móvil gratis. Fotografía cada página, corrige sombras y contraste y descarga un PDF A4. No se sube nada.",
+      "buttonText": "Hacer foto",
+      "runText": "Crear PDF",
+      "resultName": "escaneado",
+      "options": {
+        "pages": {
+          "label": "Páginas"
+        },
+        "enhance": {
+          "label": "Mejorar (sombras y contraste)"
+        },
+        "mode": {
+          "label": "Color",
+          "choices": {
+            "gray": "Blanco y negro",
+            "color": "Mantener color"
+          }
+        }
+      },
+      "errors": {
+        "image": "No se pudo leer esta foto. Usa JPG o PNG."
+      },
+      "faq": [
+        [
+          "¿Cómo escaneo varias páginas?",
+          "En el móvil el botón abre la cámara; haz una foto y pulsa «Añadir más» para la siguiente página. En un ordenador se abre el selector de archivos."
+        ],
+        [
+          "¿Qué hace «Mejorar»?",
+          "Iguala la iluminación y las sombras, deja el papel blanco y el texto más oscuro. Desactívalo para conservar la foto tal cual."
+        ],
+        [
+          "¿Endereza o recorta la página automáticamente?",
+          "No. Sujeta el móvil plano sobre la hoja y llena el encuadre; usa el botón de girar si una página está de lado."
+        ],
+        [
+          "¿Se suben mis fotos?",
+          "No. Todo ocurre en tu dispositivo y nada se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Digitalizar para PDF – Fotos de documentos em PDF grátis",
+      "h1": "Digitalizar para PDF",
+      "line": "Fotografe um documento, receba um PDF A4.",
+      "description": "Digitalize documentos para PDF com a câmera do celular grátis. Fotografe cada página, corrija sombras e contraste e baixe um PDF A4. Nada é enviado.",
+      "buttonText": "Tirar foto",
+      "runText": "Criar PDF",
+      "resultName": "digitalizado",
+      "options": {
+        "pages": {
+          "label": "Páginas"
+        },
+        "enhance": {
+          "label": "Melhorar (sombras e contraste)"
+        },
+        "mode": {
+          "label": "Cor",
+          "choices": {
+            "gray": "Preto e branco",
+            "color": "Manter cores"
+          }
+        }
+      },
+      "errors": {
+        "image": "Não foi possível ler esta foto. Use JPG ou PNG."
+      },
+      "faq": [
+        [
+          "Como digitalizo várias páginas?",
+          "No celular o botão abre a câmera; tire uma foto e toque em “Adicionar mais” para a próxima página. No computador abre o seletor de arquivos."
+        ],
+        [
+          "O que faz “Melhorar”?",
+          "Uniformiza a iluminação e as sombras, deixa o papel branco e o texto mais escuro. Desative para manter a foto como está."
+        ],
+        [
+          "A página é endireitada ou cortada automaticamente?",
+          "Não. Segure o celular reto sobre a folha e preencha o enquadramento; use o botão de girar se uma página estiver de lado."
+        ],
+        [
+          "Minhas fotos são enviadas?",
+          "Não. Tudo acontece no seu dispositivo e nada vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "Scannen als PDF – Dokumente mit dem Handy als PDF speichern",
+      "h1": "Scannen als PDF",
+      "line": "Dokument fotografieren, A4-PDF erhalten.",
+      "description": "Dokumente kostenlos mit der Handykamera als PDF scannen. Seiten fotografieren, Schatten und Kontrast korrigieren, A4-PDF herunterladen. Kein Upload.",
+      "buttonText": "Foto aufnehmen",
+      "runText": "PDF erstellen",
+      "resultName": "scan",
+      "options": {
+        "pages": {
+          "label": "Seiten"
+        },
+        "enhance": {
+          "label": "Aufbessern (Schatten und Kontrast)"
+        },
+        "mode": {
+          "label": "Farbe",
+          "choices": {
+            "gray": "Schwarz-weiß",
+            "color": "Farbe behalten"
+          }
+        }
+      },
+      "errors": {
+        "image": "Dieses Foto konnte nicht gelesen werden. Verwende JPG oder PNG."
+      },
+      "faq": [
+        [
+          "Wie scanne ich mehrere Seiten?",
+          "Am Handy öffnet der Knopf die Kamera; ein Foto machen und dann „Mehr hinzufügen“ für die nächste Seite antippen. Am Computer öffnet sich die Dateiauswahl."
+        ],
+        [
+          "Was macht „Aufbessern“?",
+          "Es gleicht Beleuchtung und Schatten aus, macht das Papier weiß und die Schrift dunkler. Ausschalten, um das Foto unverändert zu lassen."
+        ],
+        [
+          "Wird die Seite automatisch begradigt oder zugeschnitten?",
+          "Nein. Halte das Handy flach über das Blatt und fülle den Bildausschnitt; eine quer liegende Seite drehst du mit dem Drehen-Knopf."
+        ],
+        [
+          "Werden meine Fotos hochgeladen?",
+          "Nein. Alles passiert auf deinem Gerät, nichts wird an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Scanner en PDF – Photographier un document, obtenir un PDF",
+      "h1": "Scanner en PDF",
+      "line": "Photographiez un document, obtenez un PDF A4.",
+      "description": "Scannez des documents en PDF avec l'appareil photo du téléphone. Photographiez chaque page, corrigez ombres et contraste, téléchargez un PDF A4.",
+      "buttonText": "Prendre une photo",
+      "runText": "Créer le PDF",
+      "resultName": "scan",
+      "options": {
+        "pages": {
+          "label": "Pages"
+        },
+        "enhance": {
+          "label": "Améliorer (ombres et contraste)"
+        },
+        "mode": {
+          "label": "Couleur",
+          "choices": {
+            "gray": "Noir et blanc",
+            "color": "Garder la couleur"
+          }
+        }
+      },
+      "errors": {
+        "image": "Impossible de lire cette photo. Utilisez un JPG ou un PNG."
+      },
+      "faq": [
+        [
+          "Comment scanner plusieurs pages ?",
+          "Sur téléphone, le bouton ouvre l'appareil photo ; prenez une photo puis touchez « Ajouter » pour la page suivante. Sur ordinateur, il ouvre le sélecteur de fichiers."
+        ],
+        [
+          "Que fait « Améliorer » ?",
+          "Il uniformise l'éclairage et les ombres, blanchit le papier et fonce le texte. Désactivez-le pour garder la photo telle quelle."
+        ],
+        [
+          "La page est-elle redressée ou recadrée automatiquement ?",
+          "Non. Tenez le téléphone bien à plat au-dessus de la feuille et remplissez le cadre ; utilisez le bouton de rotation si une page est de côté."
+        ],
+        [
+          "Mes photos sont-elles envoyées ?",
+          "Non. Tout se passe sur votre appareil, rien n'est envoyé à un serveur."
+        ]
+      ]
+    }
+  }
+}

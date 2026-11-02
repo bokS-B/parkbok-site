@@ -1,0 +1,541 @@
+{
+  "id": "jpg-to-pdf",
+  "order": 20,
+  "icon": "jpg-to-pdf",
+  "cat": "pdf",
+  "next": [
+    "scan",
+    "merge",
+    "pdf-to-jpg"
+  ],
+  "strings": {
+    "en": {
+      "title": "JPG to PDF – Convert Images to PDF Online Free",
+      "h1": "JPG to PDF",
+      "line": "Turn JPG and PNG photos into one PDF.",
+      "description": "Convert JPG, PNG and other images to one PDF for free. Set the order, page size and margins, then download. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select images",
+      "runText": "Convert",
+      "resultName": "converted",
+      "options": {
+        "pages": {
+          "label": "Order and rotate"
+        },
+        "pageSize": {
+          "label": "Page size",
+          "choices": {
+            "auto": "Same as image",
+            "a4": "A4",
+            "letter": "Letter"
+          }
+        },
+        "orientation": {
+          "label": "Orientation",
+          "choices": {
+            "auto": "Auto",
+            "portrait": "Portrait",
+            "landscape": "Landscape"
+          }
+        },
+        "margin": {
+          "label": "Margin",
+          "choices": {
+            "none": "None",
+            "small": "Small",
+            "big": "Large"
+          }
+        },
+        "fit": {
+          "label": "Image fit",
+          "choices": {
+            "fit": "Fit inside page",
+            "fill": "Fill page (crop)"
+          }
+        }
+      },
+      "errors": {
+        "image": "This image could not be read. Use JPG or PNG."
+      },
+      "faq": [
+        [
+          "Which image formats work?",
+          "JPG and PNG are placed into the PDF as they are. WebP, GIF, BMP and HEIC are converted by your browser first – if your browser cannot open a format, that file is skipped with an error."
+        ],
+        [
+          "How do I change the order or rotate a photo?",
+          "Use the arrows under each thumbnail to move it, the rotate button to turn it and ✕ to leave it out."
+        ],
+        [
+          "Do photos lose quality?",
+          "No. JPG and PNG files are embedded without re-encoding, so the PDF keeps the original pixels."
+        ],
+        [
+          "Are my photos uploaded?",
+          "No. Everything happens on your device and nothing is sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "JPG PDF 변환 – 사진·이미지를 PDF 로 무료 변환",
+      "h1": "JPG PDF 변환",
+      "line": "JPG·PNG 사진을 PDF 하나로",
+      "description": "JPG, PNG 등 이미지를 PDF 로 무료 변환. 사진을 넣고 순서·용지 크기·여백을 정한 뒤 PDF 하나로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "이미지 선택",
+      "runText": "변환하기",
+      "resultName": "변환",
+      "options": {
+        "pages": {
+          "label": "순서·회전"
+        },
+        "pageSize": {
+          "label": "용지 크기",
+          "choices": {
+            "auto": "이미지 비율대로",
+            "a4": "A4",
+            "letter": "레터"
+          }
+        },
+        "orientation": {
+          "label": "방향",
+          "choices": {
+            "auto": "자동",
+            "portrait": "세로",
+            "landscape": "가로"
+          }
+        },
+        "margin": {
+          "label": "여백",
+          "choices": {
+            "none": "없음",
+            "small": "좁게",
+            "big": "넓게"
+          }
+        },
+        "fit": {
+          "label": "이미지 맞춤",
+          "choices": {
+            "fit": "페이지 안에 맞춤",
+            "fill": "페이지 꽉 채움(잘림)"
+          }
+        }
+      },
+      "errors": {
+        "image": "이미지를 읽을 수 없습니다. JPG 나 PNG 를 넣어 주세요."
+      },
+      "faq": [
+        [
+          "어떤 이미지 형식이 되나요?",
+          "JPG 와 PNG 는 그대로 PDF 에 들어갑니다. WebP·GIF·BMP·HEIC 는 브라우저가 먼저 변환하며, 브라우저가 열지 못하는 형식은 오류로 알려 줍니다."
+        ],
+        [
+          "순서를 바꾸거나 사진을 돌리려면?",
+          "썸네일 아래 화살표로 자리를 옮기고, 회전 버튼으로 돌리고, ✕ 로 뺄 수 있습니다."
+        ],
+        [
+          "화질이 떨어지나요?",
+          "아니요. JPG·PNG 는 다시 압축하지 않고 원본 그대로 넣어 화질이 유지됩니다."
+        ],
+        [
+          "사진이 업로드되나요?",
+          "아니요. 모든 처리는 내 기기 안에서 이루어지며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "JPG转PDF – 免费在线将图片转换为 PDF",
+      "h1": "JPG 转 PDF",
+      "line": "把 JPG、PNG 图片合成一个 PDF。",
+      "description": "免费在线将 JPG、PNG 等图片转换为 PDF。添加图片，设置顺序、页面大小和边距，然后下载一个 PDF 文件。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择图片",
+      "runText": "转换",
+      "resultName": "转换",
+      "options": {
+        "pages": {
+          "label": "排序与旋转"
+        },
+        "pageSize": {
+          "label": "页面大小",
+          "choices": {
+            "auto": "与图片相同",
+            "a4": "A4",
+            "letter": "Letter"
+          }
+        },
+        "orientation": {
+          "label": "方向",
+          "choices": {
+            "auto": "自动",
+            "portrait": "纵向",
+            "landscape": "横向"
+          }
+        },
+        "margin": {
+          "label": "边距",
+          "choices": {
+            "none": "无",
+            "small": "小",
+            "big": "大"
+          }
+        },
+        "fit": {
+          "label": "图片适应",
+          "choices": {
+            "fit": "完整放入页面",
+            "fill": "填满页面（裁切）"
+          }
+        }
+      },
+      "errors": {
+        "image": "无法读取这张图片，请使用 JPG 或 PNG。"
+      },
+      "faq": [
+        [
+          "支持哪些图片格式？",
+          "JPG 和 PNG 会原样放入 PDF。WebP、GIF、BMP、HEIC 会先由浏览器转换；浏览器打不开的格式会提示错误。"
+        ],
+        [
+          "如何调整顺序或旋转图片？",
+          "用缩略图下方的箭头移动位置，用旋转按钮旋转，用 ✕ 去掉不需要的图片。"
+        ],
+        [
+          "图片质量会下降吗？",
+          "不会。JPG 和 PNG 不会重新压缩，PDF 保留原始像素。"
+        ],
+        [
+          "我的图片会被上传吗？",
+          "不会。所有处理都在您的设备上完成，不会发送到服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "JPG PDF 変換 – 画像・写真をPDFに無料で変換",
+      "h1": "JPGをPDFに変換",
+      "line": "JPG・PNGの写真を1つのPDFにします。",
+      "description": "JPG・PNGなどの画像を無料でPDFに変換。写真を追加して順番・用紙サイズ・余白を決め、1つのPDFをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "画像を選択",
+      "runText": "変換する",
+      "resultName": "変換",
+      "options": {
+        "pages": {
+          "label": "順番と回転"
+        },
+        "pageSize": {
+          "label": "用紙サイズ",
+          "choices": {
+            "auto": "画像と同じ比率",
+            "a4": "A4",
+            "letter": "レター"
+          }
+        },
+        "orientation": {
+          "label": "向き",
+          "choices": {
+            "auto": "自動",
+            "portrait": "縦",
+            "landscape": "横"
+          }
+        },
+        "margin": {
+          "label": "余白",
+          "choices": {
+            "none": "なし",
+            "small": "小",
+            "big": "大"
+          }
+        },
+        "fit": {
+          "label": "画像の配置",
+          "choices": {
+            "fit": "ページ内に収める",
+            "fill": "ページいっぱい（切り抜き）"
+          }
+        }
+      },
+      "errors": {
+        "image": "この画像を読み込めません。JPGまたはPNGをお使いください。"
+      },
+      "faq": [
+        [
+          "対応している画像形式は？",
+          "JPGとPNGはそのままPDFに入ります。WebP・GIF・BMP・HEICはブラウザが先に変換し、開けない形式はエラーでお知らせします。"
+        ],
+        [
+          "順番を変えたり回転したりするには？",
+          "サムネイル下の矢印で移動、回転ボタンで回転、✕で除外できます。"
+        ],
+        [
+          "画質は落ちますか？",
+          "いいえ。JPG・PNGは再圧縮せずそのまま埋め込むため、元の画質が保たれます。"
+        ],
+        [
+          "写真はアップロードされますか？",
+          "いいえ。すべて端末内で処理され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "JPG a PDF – Convertir imágenes a PDF gratis online",
+      "h1": "JPG a PDF",
+      "line": "Convierte fotos JPG y PNG en un solo PDF.",
+      "description": "Convierte imágenes JPG y PNG en un solo PDF gratis. Elige orden, tamaño de página y márgenes y descarga. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir imágenes",
+      "runText": "Convertir",
+      "resultName": "convertido",
+      "options": {
+        "pages": {
+          "label": "Orden y giro"
+        },
+        "pageSize": {
+          "label": "Tamaño de página",
+          "choices": {
+            "auto": "Igual que la imagen",
+            "a4": "A4",
+            "letter": "Carta"
+          }
+        },
+        "orientation": {
+          "label": "Orientación",
+          "choices": {
+            "auto": "Automática",
+            "portrait": "Vertical",
+            "landscape": "Horizontal"
+          }
+        },
+        "margin": {
+          "label": "Margen",
+          "choices": {
+            "none": "Sin margen",
+            "small": "Pequeño",
+            "big": "Grande"
+          }
+        },
+        "fit": {
+          "label": "Ajuste de imagen",
+          "choices": {
+            "fit": "Dentro de la página",
+            "fill": "Llenar la página (recorta)"
+          }
+        }
+      },
+      "errors": {
+        "image": "No se pudo leer esta imagen. Usa JPG o PNG."
+      },
+      "faq": [
+        [
+          "¿Qué formatos de imagen admite?",
+          "JPG y PNG se colocan en el PDF tal cual. WebP, GIF, BMP y HEIC los convierte primero tu navegador; si no puede abrir un formato, verás un error."
+        ],
+        [
+          "¿Cómo cambio el orden o giro una foto?",
+          "Usa las flechas bajo cada miniatura para moverla, el botón de girar para rotarla y ✕ para quitarla."
+        ],
+        [
+          "¿Las fotos pierden calidad?",
+          "No. Los JPG y PNG se incrustan sin recomprimir, así que el PDF conserva los píxeles originales."
+        ],
+        [
+          "¿Se suben mis fotos?",
+          "No. Todo ocurre en tu dispositivo y nada se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "JPG para PDF – Converter imagens em PDF grátis online",
+      "h1": "JPG para PDF",
+      "line": "Transforme fotos JPG e PNG em um único PDF.",
+      "description": "Converta imagens JPG e PNG em um único PDF grátis. Defina a ordem, o tamanho da página e as margens e baixe. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher imagens",
+      "runText": "Converter",
+      "resultName": "convertido",
+      "options": {
+        "pages": {
+          "label": "Ordem e rotação"
+        },
+        "pageSize": {
+          "label": "Tamanho da página",
+          "choices": {
+            "auto": "Igual à imagem",
+            "a4": "A4",
+            "letter": "Carta"
+          }
+        },
+        "orientation": {
+          "label": "Orientação",
+          "choices": {
+            "auto": "Automática",
+            "portrait": "Retrato",
+            "landscape": "Paisagem"
+          }
+        },
+        "margin": {
+          "label": "Margem",
+          "choices": {
+            "none": "Sem margem",
+            "small": "Pequena",
+            "big": "Grande"
+          }
+        },
+        "fit": {
+          "label": "Ajuste da imagem",
+          "choices": {
+            "fit": "Caber na página",
+            "fill": "Preencher a página (corta)"
+          }
+        }
+      },
+      "errors": {
+        "image": "Não foi possível ler esta imagem. Use JPG ou PNG."
+      },
+      "faq": [
+        [
+          "Quais formatos de imagem funcionam?",
+          "JPG e PNG entram no PDF como estão. WebP, GIF, BMP e HEIC são convertidos antes pelo navegador; se ele não abrir o formato, você verá um erro."
+        ],
+        [
+          "Como mudo a ordem ou giro uma foto?",
+          "Use as setas abaixo de cada miniatura para mover, o botão de girar para rotacionar e ✕ para remover."
+        ],
+        [
+          "As fotos perdem qualidade?",
+          "Não. JPG e PNG são incorporados sem recompressão, então o PDF mantém os pixels originais."
+        ],
+        [
+          "Minhas fotos são enviadas?",
+          "Não. Tudo acontece no seu dispositivo e nada vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "JPG in PDF umwandeln – Bilder online kostenlos als PDF",
+      "h1": "JPG in PDF",
+      "line": "JPG- und PNG-Fotos in eine PDF umwandeln.",
+      "description": "JPG- und PNG-Bilder kostenlos in eine PDF umwandeln. Reihenfolge, Seitengröße und Ränder festlegen, herunterladen. Läuft im Browser, kein Upload.",
+      "buttonText": "Bilder auswählen",
+      "runText": "Umwandeln",
+      "resultName": "umgewandelt",
+      "options": {
+        "pages": {
+          "label": "Reihenfolge und Drehen"
+        },
+        "pageSize": {
+          "label": "Seitengröße",
+          "choices": {
+            "auto": "Wie das Bild",
+            "a4": "A4",
+            "letter": "Letter"
+          }
+        },
+        "orientation": {
+          "label": "Ausrichtung",
+          "choices": {
+            "auto": "Automatisch",
+            "portrait": "Hochformat",
+            "landscape": "Querformat"
+          }
+        },
+        "margin": {
+          "label": "Rand",
+          "choices": {
+            "none": "Kein Rand",
+            "small": "Schmal",
+            "big": "Breit"
+          }
+        },
+        "fit": {
+          "label": "Bildanpassung",
+          "choices": {
+            "fit": "In die Seite einpassen",
+            "fill": "Seite füllen (beschneiden)"
+          }
+        }
+      },
+      "errors": {
+        "image": "Dieses Bild konnte nicht gelesen werden. Verwende JPG oder PNG."
+      },
+      "faq": [
+        [
+          "Welche Bildformate funktionieren?",
+          "JPG und PNG werden unverändert in die PDF eingefügt. WebP, GIF, BMP und HEIC wandelt dein Browser vorher um; kann er ein Format nicht öffnen, erscheint ein Fehler."
+        ],
+        [
+          "Wie ändere ich die Reihenfolge oder drehe ein Foto?",
+          "Mit den Pfeilen unter jedem Vorschaubild verschieben, mit dem Drehen-Knopf drehen und mit ✕ weglassen."
+        ],
+        [
+          "Verlieren die Fotos an Qualität?",
+          "Nein. JPG und PNG werden ohne erneute Komprimierung eingebettet, die PDF behält die Originalpixel."
+        ],
+        [
+          "Werden meine Fotos hochgeladen?",
+          "Nein. Alles passiert auf deinem Gerät, nichts wird an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "JPG en PDF – Convertir des images en PDF gratuitement",
+      "h1": "JPG en PDF",
+      "line": "Vos photos JPG et PNG dans un seul PDF.",
+      "description": "Convertissez vos images JPG et PNG en un seul PDF gratuitement. Choisissez l'ordre, le format et les marges, puis téléchargez. Rien n'est envoyé.",
+      "buttonText": "Choisir des images",
+      "runText": "Convertir",
+      "resultName": "converti",
+      "options": {
+        "pages": {
+          "label": "Ordre et rotation"
+        },
+        "pageSize": {
+          "label": "Format de page",
+          "choices": {
+            "auto": "Comme l'image",
+            "a4": "A4",
+            "letter": "Lettre"
+          }
+        },
+        "orientation": {
+          "label": "Orientation",
+          "choices": {
+            "auto": "Automatique",
+            "portrait": "Portrait",
+            "landscape": "Paysage"
+          }
+        },
+        "margin": {
+          "label": "Marge",
+          "choices": {
+            "none": "Aucune",
+            "small": "Petite",
+            "big": "Grande"
+          }
+        },
+        "fit": {
+          "label": "Ajustement",
+          "choices": {
+            "fit": "Dans la page",
+            "fill": "Remplir la page (rogne)"
+          }
+        }
+      },
+      "errors": {
+        "image": "Impossible de lire cette image. Utilisez un JPG ou un PNG."
+      },
+      "faq": [
+        [
+          "Quels formats d'image sont acceptés ?",
+          "Les JPG et PNG sont placés tels quels dans le PDF. WebP, GIF, BMP et HEIC sont d'abord convertis par votre navigateur ; s'il ne peut pas ouvrir un format, une erreur s'affiche."
+        ],
+        [
+          "Comment changer l'ordre ou pivoter une photo ?",
+          "Les flèches sous chaque vignette la déplacent, le bouton de rotation la fait pivoter et ✕ l'écarte."
+        ],
+        [
+          "Les photos perdent-elles en qualité ?",
+          "Non. Les JPG et PNG sont intégrés sans recompression, le PDF garde les pixels d'origine."
+        ],
+        [
+          "Mes photos sont-elles envoyées ?",
+          "Non. Tout se passe sur votre appareil, rien n'est envoyé à un serveur."
+        ]
+      ]
+    }
+  }
+}

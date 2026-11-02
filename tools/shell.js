@@ -22,21 +22,21 @@ const strings = lang => STR[lang] || STR.en;
 function head({ og = 'og.png' } = {}){
   return fill(fragment('head-common'), { og, adsense: ADSENSE, ga: GA, site_css: siteCss });
 }
-function header({ lang = 'ko', section = '', wheelHome = '/wheel/ko/', langSelect = '', subnav = '' } = {}){
+function header({ lang = 'ko', section = '', wheelHome = '/wheel/ko/', pdfHome = '/pdf/ko/', langSelect = '', subnav = '' } = {}){
   const t = strings(lang);
   const on = s => (section === s ? ' class="on"' : '');
   return fill(fragment('header'), {
     brand: esc(t.brand), menu: esc(t.menu),
-    'nav.hwp': esc(t.nav.hwp), 'nav.text': esc(t.nav.text), 'nav.wheel': esc(t.nav.wheel), 'nav.guide': esc(t.nav.guide),
-    'on:hwp': on('hwp'), 'on:text': on('text'), 'on:wheel': on('wheel'), 'on:guide': on('guide'),
-    wheel_home: wheelHome, lang_select: langSelect, subnav
+    'nav.hwp': esc(t.nav.hwp), 'nav.text': esc(t.nav.text), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.wheel': esc(t.nav.wheel), 'nav.guide': esc(t.nav.guide),
+    'on:hwp': on('hwp'), 'on:text': on('text'), 'on:pdf': on('pdf'), 'on:wheel': on('wheel'), 'on:guide': on('guide'),
+    wheel_home: wheelHome, pdf_home: pdfHome, lang_select: langSelect, subnav
   });
 }
 function footer({ lang = 'ko', extra = '' } = {}){
   const t = strings(lang);
   return fill(fragment('footer'), {
     'foot.about': esc(t.foot.about), 'foot.privacy': esc(t.foot.privacy), 'foot.terms': esc(t.foot.terms), 'foot.guide': esc(t.foot.guide),
-    foot_extra: extra
+    footMenu: esc(t.footMenu || t.menu), foot_extra: extra
   });
 }
 // 페이지 안의 마커 블록을 새 조각으로 바꾼다 (없으면 fallback 정규식으로 기존 요소를 찾아 바꾸고, 그것도 없으면 그대로)

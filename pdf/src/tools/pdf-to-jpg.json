@@ -1,0 +1,477 @@
+{
+  "id": "pdf-to-jpg",
+  "order": 7,
+  "icon": "image",
+  "cat": "pdf",
+  "next": [
+    "jpg-to-pdf",
+    "compress",
+    "split"
+  ],
+  "strings": {
+    "en": {
+      "title": "PDF to JPG – Convert PDF Pages to Images Online Free",
+      "h1": "PDF to JPG",
+      "line": "Save every page as a JPG or PNG image.",
+      "description": "Convert PDF to JPG or PNG for free. Pick the pages and resolution, then download the images or a ZIP. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF file",
+      "runText": "Convert",
+      "resultName": "page",
+      "options": {
+        "format": {
+          "label": "Image format",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "quality": {
+          "label": "Resolution",
+          "choices": {
+            "1": "1x · 72 dpi (small)",
+            "2": "2x · 144 dpi (standard)",
+            "3": "3x · 216 dpi (sharp)"
+          }
+        },
+        "pageMode": {
+          "label": "Pages",
+          "choices": {
+            "all": "All pages",
+            "select": "Choose pages"
+          }
+        },
+        "pages": {
+          "label": "Tap the pages to convert"
+        }
+      },
+      "errors": {
+        "noPages": "Choose at least one page.",
+        "noRender": "Your browser cannot render this PDF."
+      },
+      "faq": [
+        [
+          "JPG or PNG?",
+          "JPG is smaller and fine for photos and scans. PNG keeps text and line art perfectly sharp but the files are larger."
+        ],
+        [
+          "Which resolution should I pick?",
+          "2x (144 dpi) is sharp enough for screens and slides. Use 3x for printing or zooming in; 1x for quick previews."
+        ],
+        [
+          "How do I get all images at once?",
+          "With more than one page, the main button downloads a ZIP containing every image."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is rendered on your device and the images never leave it."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF JPG 변환 – PDF 를 이미지로 무료 변환",
+      "h1": "PDF JPG 변환",
+      "line": "쪽마다 JPG·PNG 이미지로",
+      "description": "PDF JPG 변환 무료 온라인. 원하는 쪽을 고르고 해상도를 정하면 이미지로 바뀝니다. 낱장 또는 ZIP 으로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "변환하기",
+      "resultName": "쪽",
+      "options": {
+        "format": {
+          "label": "이미지 형식",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "quality": {
+          "label": "해상도",
+          "choices": {
+            "1": "1배 · 72dpi (작게)",
+            "2": "2배 · 144dpi (보통)",
+            "3": "3배 · 216dpi (선명)"
+          }
+        },
+        "pageMode": {
+          "label": "변환할 쪽",
+          "choices": {
+            "all": "전체",
+            "select": "직접 고르기"
+          }
+        },
+        "pages": {
+          "label": "변환할 쪽을 누르세요"
+        }
+      },
+      "errors": {
+        "noPages": "쪽을 하나 이상 골라 주세요.",
+        "noRender": "이 브라우저에서는 PDF 를 그릴 수 없습니다."
+      },
+      "faq": [
+        [
+          "JPG 와 PNG 중 뭘 고를까요?",
+          "JPG 는 용량이 작아 사진·스캔본에 알맞습니다. PNG 는 글자와 선이 또렷하지만 파일이 큽니다."
+        ],
+        [
+          "해상도는 어떻게 고르나요?",
+          "2배(144dpi)면 화면·발표 자료에 충분합니다. 인쇄하거나 크게 확대하려면 3배, 빠른 미리보기는 1배를 쓰세요."
+        ],
+        [
+          "이미지를 한 번에 받으려면?",
+          "쪽이 두 장 이상이면 큰 버튼이 모든 이미지를 담은 ZIP 을 내려받습니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 그려지며 이미지도 밖으로 나가지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "PDF 转 JPG – 免费在线将 PDF 页面转为图片",
+      "h1": "PDF 转 JPG",
+      "line": "把每一页保存为 JPG 或 PNG 图片。",
+      "description": "免费在线 PDF 转 JPG / PNG。选择页面和分辨率，逐张下载或打包为 ZIP。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "转换",
+      "resultName": "页",
+      "options": {
+        "format": {
+          "label": "图片格式",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "quality": {
+          "label": "分辨率",
+          "choices": {
+            "1": "1x · 72 dpi（小）",
+            "2": "2x · 144 dpi（标准）",
+            "3": "3x · 216 dpi（清晰）"
+          }
+        },
+        "pageMode": {
+          "label": "页面",
+          "choices": {
+            "all": "全部页面",
+            "select": "自选页面"
+          }
+        },
+        "pages": {
+          "label": "点击要转换的页面"
+        }
+      },
+      "errors": {
+        "noPages": "请至少选择一页。",
+        "noRender": "当前浏览器无法渲染此 PDF。"
+      },
+      "faq": [
+        [
+          "选 JPG 还是 PNG？",
+          "JPG 体积小，适合照片和扫描件。PNG 的文字和线条更清晰，但文件更大。"
+        ],
+        [
+          "分辨率怎么选？",
+          "2x（144 dpi）足够用于屏幕和演示。打印或放大请选 3x，快速预览选 1x。"
+        ],
+        [
+          "如何一次下载全部图片？",
+          "页数超过一页时，主按钮会下载包含所有图片的 ZIP。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上渲染，图片也不会离开设备。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDF JPG 変換 – PDFの各ページを画像に 無料オンライン",
+      "h1": "PDF JPG 変換",
+      "line": "各ページをJPGまたはPNG画像で保存します。",
+      "description": "無料でPDFをJPG・PNGに変換。ページと解像度を選び、1枚ずつまたはZIPでダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "変換する",
+      "resultName": "ページ",
+      "options": {
+        "format": {
+          "label": "画像形式",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "quality": {
+          "label": "解像度",
+          "choices": {
+            "1": "1倍 · 72dpi（小さめ）",
+            "2": "2倍 · 144dpi（標準）",
+            "3": "3倍 · 216dpi（高精細）"
+          }
+        },
+        "pageMode": {
+          "label": "ページ",
+          "choices": {
+            "all": "すべて",
+            "select": "選んで変換"
+          }
+        },
+        "pages": {
+          "label": "変換するページをタップ"
+        }
+      },
+      "errors": {
+        "noPages": "ページを1つ以上選んでください。",
+        "noRender": "このブラウザではPDFを描画できません。"
+      },
+      "faq": [
+        [
+          "JPGとPNGどちらを選ぶ？",
+          "JPGは容量が小さく、写真やスキャンに向いています。PNGは文字や線がくっきりしますがファイルが大きくなります。"
+        ],
+        [
+          "解像度はどれを選ぶ？",
+          "2倍（144dpi）なら画面表示やスライドに十分です。印刷や拡大には3倍、確認用には1倍を。"
+        ],
+        [
+          "画像をまとめて受け取るには？",
+          "2ページ以上なら、メインのボタンで全画像入りのZIPをダウンロードできます。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で描画され、画像も外には出ません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "PDF a JPG – Convertir PDF en imágenes gratis online",
+      "h1": "PDF a JPG",
+      "line": "Cada página como imagen JPG o PNG.",
+      "description": "Convierte PDF a JPG o PNG gratis. Elige páginas y resolución y descarga las imágenes o un ZIP. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Convertir",
+      "resultName": "pagina",
+      "options": {
+        "format": {
+          "label": "Formato de imagen",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "quality": {
+          "label": "Resolución",
+          "choices": {
+            "1": "1x · 72 ppp (pequeña)",
+            "2": "2x · 144 ppp (estándar)",
+            "3": "3x · 216 ppp (nítida)"
+          }
+        },
+        "pageMode": {
+          "label": "Páginas",
+          "choices": {
+            "all": "Todas",
+            "select": "Elegir páginas"
+          }
+        },
+        "pages": {
+          "label": "Toca las páginas a convertir"
+        }
+      },
+      "errors": {
+        "noPages": "Elige al menos una página.",
+        "noRender": "Tu navegador no puede dibujar este PDF."
+      },
+      "faq": [
+        [
+          "¿JPG o PNG?",
+          "JPG pesa menos y va bien para fotos y escaneos. PNG mantiene el texto y las líneas perfectamente nítidos, pero los archivos son más grandes."
+        ],
+        [
+          "¿Qué resolución elijo?",
+          "2x (144 ppp) basta para pantallas y presentaciones. Usa 3x para imprimir o ampliar y 1x para vistas rápidas."
+        ],
+        [
+          "¿Cómo descargo todas las imágenes a la vez?",
+          "Si hay más de una página, el botón principal descarga un ZIP con todas las imágenes."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se dibuja en tu dispositivo y las imágenes nunca salen de él."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "PDF para JPG – Converter PDF em imagens grátis online",
+      "h1": "PDF para JPG",
+      "line": "Cada página como imagem JPG ou PNG.",
+      "description": "Converta PDF em JPG ou PNG grátis. Escolha páginas e resolução e baixe as imagens ou um ZIP. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Converter",
+      "resultName": "pagina",
+      "options": {
+        "format": {
+          "label": "Formato da imagem",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "quality": {
+          "label": "Resolução",
+          "choices": {
+            "1": "1x · 72 dpi (pequena)",
+            "2": "2x · 144 dpi (padrão)",
+            "3": "3x · 216 dpi (nítida)"
+          }
+        },
+        "pageMode": {
+          "label": "Páginas",
+          "choices": {
+            "all": "Todas",
+            "select": "Escolher páginas"
+          }
+        },
+        "pages": {
+          "label": "Toque nas páginas a converter"
+        }
+      },
+      "errors": {
+        "noPages": "Escolha pelo menos uma página.",
+        "noRender": "Seu navegador não consegue desenhar este PDF."
+      },
+      "faq": [
+        [
+          "JPG ou PNG?",
+          "JPG é menor e serve bem para fotos e digitalizações. PNG mantém texto e linhas bem nítidos, mas os arquivos ficam maiores."
+        ],
+        [
+          "Qual resolução escolher?",
+          "2x (144 dpi) é suficiente para telas e apresentações. Use 3x para imprimir ou ampliar e 1x para uma prévia rápida."
+        ],
+        [
+          "Como baixar todas as imagens de uma vez?",
+          "Com mais de uma página, o botão principal baixa um ZIP com todas as imagens."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é desenhado no seu dispositivo e as imagens nunca saem dele."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF in JPG umwandeln – PDF-Seiten online kostenlos als Bild",
+      "h1": "PDF in JPG",
+      "line": "Jede Seite als JPG- oder PNG-Bild.",
+      "description": "PDF kostenlos in JPG oder PNG umwandeln. Seiten und Auflösung wählen, Bilder einzeln oder als ZIP laden. Läuft im Browser – kein Upload.",
+      "buttonText": "PDF auswählen",
+      "runText": "Umwandeln",
+      "resultName": "seite",
+      "options": {
+        "format": {
+          "label": "Bildformat",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "quality": {
+          "label": "Auflösung",
+          "choices": {
+            "1": "1x · 72 dpi (klein)",
+            "2": "2x · 144 dpi (Standard)",
+            "3": "3x · 216 dpi (scharf)"
+          }
+        },
+        "pageMode": {
+          "label": "Seiten",
+          "choices": {
+            "all": "Alle Seiten",
+            "select": "Seiten wählen"
+          }
+        },
+        "pages": {
+          "label": "Seiten zum Umwandeln antippen"
+        }
+      },
+      "errors": {
+        "noPages": "Wähle mindestens eine Seite.",
+        "noRender": "Dein Browser kann diese PDF nicht darstellen."
+      },
+      "faq": [
+        [
+          "JPG oder PNG?",
+          "JPG ist kleiner und passt zu Fotos und Scans. PNG hält Text und Linien gestochen scharf, die Dateien sind aber größer."
+        ],
+        [
+          "Welche Auflösung soll ich nehmen?",
+          "2x (144 dpi) reicht für Bildschirm und Präsentationen. 3x zum Drucken oder Vergrößern, 1x für eine schnelle Vorschau."
+        ],
+        [
+          "Wie bekomme ich alle Bilder auf einmal?",
+          "Bei mehr als einer Seite lädt der Hauptbutton eine ZIP mit allen Bildern herunter."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät gerendert, und die Bilder verlassen es nie."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "PDF en JPG – Convertir un PDF en images gratuitement",
+      "h1": "PDF en JPG",
+      "line": "Chaque page en image JPG ou PNG.",
+      "description": "Convertissez un PDF en JPG ou PNG gratuitement. Choisissez pages et résolution, puis téléchargez les images ou un ZIP. Tout reste dans votre navigateur.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Convertir",
+      "resultName": "page",
+      "options": {
+        "format": {
+          "label": "Format d'image",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "quality": {
+          "label": "Résolution",
+          "choices": {
+            "1": "1x · 72 ppp (légère)",
+            "2": "2x · 144 ppp (standard)",
+            "3": "3x · 216 ppp (nette)"
+          }
+        },
+        "pageMode": {
+          "label": "Pages",
+          "choices": {
+            "all": "Toutes les pages",
+            "select": "Choisir les pages"
+          }
+        },
+        "pages": {
+          "label": "Touchez les pages à convertir"
+        }
+      },
+      "errors": {
+        "noPages": "Choisissez au moins une page.",
+        "noRender": "Votre navigateur ne peut pas afficher ce PDF."
+      },
+      "faq": [
+        [
+          "JPG ou PNG ?",
+          "Le JPG est plus léger et convient aux photos et aux scans. Le PNG garde le texte et les traits parfaitement nets, mais les fichiers sont plus lourds."
+        ],
+        [
+          "Quelle résolution choisir ?",
+          "2x (144 ppp) suffit pour l'écran et les présentations. Prenez 3x pour imprimer ou zoomer, 1x pour un aperçu rapide."
+        ],
+        [
+          "Comment récupérer toutes les images d'un coup ?",
+          "S'il y a plusieurs pages, le bouton principal télécharge un ZIP contenant toutes les images."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est dessiné sur votre appareil et les images n'en sortent jamais."
+        ]
+      ]
+    }
+  }
+}

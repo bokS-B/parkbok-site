@@ -32,7 +32,7 @@
 /* parkbok site.css — 토큰 · 셸(헤더/푸터) · 공통 컴포넌트. tools/build-site.js 가 모든 페이지 <head> 에 인라인한다. */
 :root{
   --bg:#f6f7f9;--card:#fff;--ink:#1d2129;--muted:#5d6675;--line:#e3e6ea;
-  --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;
+  --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
   --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;
@@ -54,13 +54,13 @@
 html[lang="en"],html[lang="es"],html[lang="pt"],html[lang="de"],html[lang="fr"]{--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
 html[lang^="zh"]{--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
+@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
 
 /* ---------- 기본 ---------- */
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
 img,svg{vertical-align:middle}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--header-pad-x)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -102,8 +102,8 @@ footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px s
 .btn:hover{background:var(--accent-hover);color:var(--accent-ink);text-decoration:none}
 .btn:active{background:var(--accent-active)}
 .btn:disabled,.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
-.btn.ghost{background:var(--card);color:var(--accent);outline:2px solid var(--accent);outline-offset:-2px}
-.btn.ghost:hover{background:var(--card);color:var(--accent-hover);outline-color:var(--accent-hover)}
+.btn.ghost{background:var(--card);color:var(--accent-text);outline:2px solid var(--accent-text);outline-offset:-2px}
+.btn.ghost:hover{background:var(--accent-tint);color:var(--accent-text);outline-color:var(--accent-text)}
 .btn.ghost:active{color:var(--ink);outline-color:var(--ink)}
 .btn.sm{font-size:var(--btn-sm-fs);line-height:16px;padding:var(--btn-sm-pad)}
 .btn-big{display:inline-flex;align-items:center;justify-content:center;min-height:var(--btn-big-min-h);min-width:var(--btn-big-min-w);padding:var(--btn-big-pad);font:inherit;font-size:var(--btn-big-fs);line-height:var(--btn-big-lh);font-weight:var(--fw-medium);border:0;border-radius:var(--r-big);background:var(--accent);color:var(--accent-ink);box-shadow:var(--sh-btn-big);cursor:pointer;transition:var(--t-btn)}
@@ -129,7 +129,7 @@ footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px s
 .tt-grid textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
 .tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
 #textout{min-height:200px;max-height:60vh;white-space:pre-wrap}
-#viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh}
+#viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh;color:#1d2129}
 #viewer:empty{display:none}
 .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:12px 0}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-btn);padding:8px 12px}
@@ -161,6 +161,8 @@ a.card:hover svg{transform:scale(var(--icon-hover-scale))}
 .chip:hover,.chips a:hover,.chips button:hover,.preset:hover{border-color:var(--ink);color:var(--ink);text-decoration:none}
 .chip.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
 .preset.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chips button,.preset{height:28px;padding:2px 12px;font-size:13px}
+.opts .chips{margin:0;flex-wrap:wrap;overflow:visible}
 .next-title{font-size:var(--fs-small);color:var(--muted);margin-right:4px}
 
 /* ---------- 설명·FAQ·광고 ---------- */
@@ -190,9 +192,10 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   p.lead,.lead{font-size:16px;line-height:24px}
   .drop{padding:24px 16px}
   .btn-big{font-size:22px;line-height:26px;padding:24px 32px}
-  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
-  .chips::-webkit-scrollbar{display:none}
+  .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .chips.next::-webkit-scrollbar{display:none}
 }
+@media (max-width:860px){.page-wheel .brand{display:none}}
 @media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
 @media (max-width:640px){.card-icon{width:32px;height:32px;margin-bottom:12px}}
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
@@ -200,65 +203,143 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 @media print{header.top,footer.foot,.subnav,.card.intro,.tools,.status,.ad,.drop,.grid,.chips,details.about,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}
 </style>
 <!-- /shell:head-common -->
+<style id="page-css">
+/* 홈(index.html) 전용. tools/build-site.js 가 <style id="page-css"> 로 인라인한다 — 공통 규칙은 assets/site.css */
+.drop.home{padding:16px;max-height:var(--drop-home-max-h)}
+.drop.home strong{font-size:16px;margin-bottom:4px}
+.chips.filters{margin:0 0 24px}
+@media (max-width:440px){
+  .grid.tools-grid .card{display:flex;flex-wrap:wrap;align-items:center}
+  .grid.tools-grid .card-icon{margin:0 12px 0 0}
+  .grid.tools-grid .card h3{margin:0}
+  .grid.tools-grid .card p{flex:0 0 100%;margin-top:6px}
+}
+/* HWP 뷰어(index.html) 도구 영역 전용. 토큰·.drop·.btn·.status·.actions 는 assets/site.css 에서 온다. */
+/* 뼈대: h1 → p.lead → .drop#drop → p.status → .actions#tools → #viewer → #textwrap → .ad → 칩·그리드 → details.about */
+
+/* ---------- 숨김 ---------- */
+.actions[hidden],.drop-compact[hidden],#textwrap[hidden]{display:none}
+body.has-input .lead{display:none}
+
+/* ---------- 드롭존(홈: 높이 140px 이하) ---------- */
+.drop.home{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px 16px;max-height:var(--drop-home-max-h);position:relative;outline:none}
+.drop.home:focus-visible{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
+.drop.home .droptxt{display:block;margin:0}
+
+/* ---------- 파일 연 뒤: 한 줄(48px) ---------- */
+.drop-compact{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-width:0;font-size:var(--fs-small);color:var(--ink)}
+.drop-compact .fname{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.drop-compact .btn{flex:none}
+body.has-input .drop.home{min-height:var(--drop-compact-h);max-height:var(--drop-compact-h);padding:0 12px;border-style:solid;border-color:var(--line);cursor:default}
+body.has-input .drop.home .btn-big,body.has-input .drop.home .droptxt{display:none}
+
+/* ---------- 상태 ---------- */
+.status{margin:8px 0 0;min-height:0}
+body.busy .drop.home{opacity:.6;pointer-events:none}
+body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:none}
+
+/* ---------- 버튼 줄: PC 한 줄 ---------- */
+.actions{margin:12px 0 0}
+.actions .btn-big{min-width:0;flex:none}
+.actions .btn{flex:none}
+
+/* ---------- 뷰어·본문 ---------- */
+#viewer{margin:12px 0 0}
+#textwrap{margin:16px 0 0}
+#textwrap h2{margin:0 0 8px;font-size:16px;line-height:24px}
+#textwrap #textout{display:block}
+
+/* ---------- 휴대폰: 버튼 세로 100%, 뷰어 다음에 아래 고정 ---------- */
+@media (max-width:767.98px){
+  main.wrap{display:flex;flex-direction:column}
+  main.wrap>h1{order:-5}
+  main.wrap>.lead{order:-4}
+  main.wrap>.drop{order:-3}
+  main.wrap>.status{order:-2}
+  main.wrap>#viewer{order:-1}
+  .actions{position:sticky;bottom:0;z-index:5;flex-direction:column;align-items:stretch;gap:6px;background:var(--bg);padding:10px 0;margin:8px 0 0;box-shadow:0 -8px 12px -8px rgba(0,0,0,.15)}
+  .actions .btn-big{width:100%;min-height:56px;padding:14px 24px;font-size:20px;line-height:24px}
+  .actions .btn{width:100%}
+}
+
+/* ---------- 인쇄: 뷰어만 ---------- */
+@media print{
+  .actions,.drop-compact,#textwrap{display:none!important}
+  #viewer{height:auto!important;margin:0}
+}
+</style>
 </head>
 <body>
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/" class="on">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/" class="on">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav></div></header>
 <!-- /shell:header -->
 
 <main class="wrap">
   <h1>HWP 뷰어 · 변환기</h1>
   <p class="lead">한글 프로그램 없이 HWP·HWPX 파일을 바로 열어 보고 PDF·텍스트·HTML로 저장합니다. 파일은 서버로 올라가지 않고 내 브라우저 안에서만 처리됩니다.</p>
 
-  <div class="drop" id="drop">
-    <strong>여기에 HWP 또는 HWPX 파일을 끌어다 놓거나 클릭해서 선택</strong>
-    <span>설치·가입 없음 · 무료 · 파일 전송 없음</span>
+  <div class="drop home" id="drop" tabindex="0" role="button" aria-label="HWP 파일 선택">
+    <button class="btn-big" type="button" id="btn-select">HWP 파일 선택</button>
+    <div class="droptxt">또는 여기에 파일을 끌어다 놓기</div>
+    <div class="drop-compact" id="drop-compact" hidden><span class="fname" id="file-name"></span><button class="btn sm ghost" type="button" id="btn-change">다른 파일 선택</button></div>
     <input type="file" id="file" accept=".hwp,.hwpx" hidden>
   </div>
-  <div class="status" id="status">파일을 선택하면 바로 변환됩니다.</div>
+  <p class="status" id="status" aria-live="polite"></p>
 
-  <div class="tools" id="tools" style="display:none">
-    <button class="btn" id="btn-pdf">PDF로 저장 (인쇄)</button>
-    <button class="btn ghost" id="btn-txt">텍스트(.txt) 다운로드</button>
-    <button class="btn ghost" id="btn-html">HTML 다운로드</button>
-    <button class="btn ghost" id="btn-copy">본문 복사</button>
+  <div class="actions" id="tools" hidden>
+    <button class="btn-big" type="button" id="btn-primary">PDF로 저장</button>
+    <button class="btn ghost" type="button" id="btn-txt">텍스트 저장</button>
+    <button class="btn ghost" type="button" id="btn-html">HTML 저장</button>
+    <button class="btn ghost" type="button" id="btn-copy">본문 복사</button>
+    <button class="btn ghost" type="button" id="btn-reset">다시 시작</button>
   </div>
 
   <div id="viewer"></div>
 
-  <div id="textwrap" style="display:none">
+  <div id="textwrap" hidden>
     <h2>추출된 본문 텍스트</h2>
-    <textarea id="textout" readonly></textarea>
-    <p style="font-size:14px;color:var(--muted);margin:8px 0 0">복사한 본문의 줄바꿈이 지저분하면 <a href="/text/remove-line-breaks.html">줄바꿈 제거 도구</a>로 정리하고, <a href="/text/char-count.html">글자수 세기</a>로 분량을 확인하세요.</p>
+    <textarea id="textout" readonly aria-label="추출된 본문 텍스트"></textarea>
   </div>
 
   <div class="ad" id="ad-top"></div>
 
-  <h2>텍스트 정리 도구</h2>
-  <div class="grid">
-    <a class="card" href="/text/remove-line-breaks.html"><h3>줄바꿈 제거</h3><p>한글·PDF에서 복사한 글의 줄바꿈·공백 정리</p></a>
-    <a class="card" href="/text/char-count.html"><h3>글자수 세기</h3><p>공백 포함·제외, 바이트, 자소서 제한 확인</p></a>
-    <a class="card" href="/text/sql-in.html"><h3>목록 → SQL IN절</h3><p>('A', 'B', 'C') 형태로 변환</p></a>
-    <a class="card" href="/text/dedupe-lines.html"><h3>중복 줄 제거 · 정렬</h3><p>명단 중복 지우기, 가나다순 정렬</p></a>
+  <!-- grid:start -->
+  <nav class="chips filters" aria-label="도구 분류"><a class="chip on" href="#all" data-cat="all">전체</a><a class="chip" href="#text" data-cat="text">텍스트</a><a class="chip" href="#pdf" data-cat="pdf">PDF</a><a class="chip" href="#wheel" data-cat="wheel">룰렛</a><a class="chip" href="#guide" data-cat="guide">가이드</a></nav>
+  <div class="grid tools-grid" id="tools-grid">
+    <a class="card" href="/text/remove-line-breaks.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h26M11 22h26M11 30h14"/><path d="M37 26v6h-7"/><path d="M33 29l-3 3 3 3"/></g></svg></span><h3>줄바꿈 제거</h3><p>복사한 글의 줄바꿈 정리</p></a>
+    <a class="card" href="/text/char-count.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h26M11 22h14"/><rect x="24" y="26" width="14" height="10" rx="3"/></g><g fill="#fff"><circle cx="28" cy="31" r="1.5"/><circle cx="31" cy="31" r="1.5"/><circle cx="34" cy="31" r="1.5"/></g></svg></span><h3>글자수 세기</h3><p>공백 포함·제외 글자수·바이트</p></a>
+    <a class="card" href="/wheel/ko/" data-cat="wheel"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-wheel)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="26" r="12"/><path d="M24 14v24M12 26h24M15.5 17.5l17 17M32.5 17.5l-17 17"/></g><path d="M24 7l-3.5 5h7z" fill="#fff"/></svg></span><h3>돌림판 룰렛 – 랜덤 뽑기</h3><p>이름 넣고 돌려서 랜덤 뽑기</p></a>
+    <a class="card" href="/text/dedupe-lines.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 13h26M11 21h26M11 29h12M11 37h12"/><path d="M29 28l8 8M37 28l-8 8"/></g></svg></span><h3>중복 줄 제거 · 정렬</h3><p>겹치는 줄 지우고 정렬</p></a>
+    <a class="card" href="/text/sql-in.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11c-6 5-6 21 0 26M31 11c6 5 6 21 0 26"/></g><g fill="#fff"><circle cx="19" cy="24" r="2"/><circle cx="24" cy="24" r="2"/><circle cx="29" cy="24" r="2"/></g></svg></span><h3>목록 → SQL IN절 변환</h3><p>목록을 ('A', 'B') 형태로</p></a>
+    <a class="card" href="/text/list-to-line.html" data-cat="text"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-text)"/><g fill="#fff"><circle cx="12" cy="14" r="2"/><circle cx="12" cy="24" r="2"/><circle cx="12" cy="34" r="2"/></g><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 14h8M18 24h8M18 34h8"/><path d="M36 13v22M32 17l4-4 4 4M32 31l4 4 4-4"/></g></svg></span><h3>목록 ↔ 한 줄 변환</h3><p>세로 목록과 한 줄 서로 변환</p></a>
+    <a class="card" href="/wheel/ko/yes-or-no/" data-cat="wheel"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-wheel)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="13"/><path d="M24 11v26"/><path d="M13.5 24l3 3 5-6"/><path d="M29 21l6 6M35 21l-6 6"/></g></svg></span><h3>예 아니오 룰렛</h3><p>결정 못 할 때 돌리기</p></a>
+    <a class="card" href="/wheel/ko/number/" data-cat="wheel"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-wheel)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="13"/><path d="M21 17l-2 14M29 17l-2 14M16.5 21h15M15.5 27h15"/></g></svg></span><h3>숫자 룰렛 – 랜덤 숫자 뽑기</h3><p>범위 안 숫자 하나 뽑기</p></a>
+    <a class="card" href="/wheel/ko/what-to-eat/" data-cat="wheel"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-wheel)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h28c0 8-6 14-14 14S10 32 10 24z"/><path d="M16 9l5 12M23 9l4 12"/></g></svg></span><h3>오늘 뭐 먹지? 메뉴 룰렛</h3><p>메뉴 돌려서 정하기</p></a>
+    <a class="card hidden" href="/guide/hwp-vs-hwpx.html" data-cat="guide"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-guide)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13c4-2 9-2 14 0 5-2 10-2 14 0v23c-4-2-9-2-14 0-5-2-10-2-14 0z"/><path d="M24 13v23"/></g></svg></span><h3>HWP와 HWPX의 차이</h3><p>두 형식 차이와 선택 기준</p></a>
+    <a class="card hidden" href="/guide/hwp-to-pdf.html" data-cat="guide"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-guide)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13c4-2 9-2 14 0 5-2 10-2 14 0v23c-4-2-9-2-14 0-5-2-10-2-14 0z"/><path d="M24 13v23"/></g></svg></span><h3>HWP를 PDF로 바꾸기</h3><p>프로그램 없이 PDF 만들기</p></a>
+    <a class="card hidden" href="/guide/open-hwp-on-mac.html" data-cat="guide"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-guide)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13c4-2 9-2 14 0 5-2 10-2 14 0v23c-4-2-9-2-14 0-5-2-10-2-14 0z"/><path d="M24 13v23"/></g></svg></span><h3>맥에서 HWP 열기</h3><p>한글 없이 맥에서 보는 방법</p></a>
+    <a class="card hidden" href="/guide/open-hwp-on-phone.html" data-cat="guide"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-guide)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13c4-2 9-2 14 0 5-2 10-2 14 0v23c-4-2-9-2-14 0-5-2-10-2-14 0z"/><path d="M24 13v23"/></g></svg></span><h3>휴대폰에서 HWP 열기</h3><p>안드로이드·아이폰 확인법</p></a>
+    <a class="card hidden" href="/guide/hwp-wont-open.html" data-cat="guide"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-guide)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13c4-2 9-2 14 0 5-2 10-2 14 0v23c-4-2-9-2-14 0-5-2-10-2-14 0z"/><path d="M24 13v23"/></g></svg></span><h3>HWP 안 열릴 때</h3><p>원인별 확인과 해결</p></a>
+    <a class="card" href="/pdf/merge/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14h8l6 10M10 34h8l6-10M24 24h13"/><path d="M33 20l4 4-4 4"/></g></svg></span><h3>PDF 합치기</h3><p>여러 PDF를 한 파일로</p></a>
+    <a class="card" href="/pdf/split/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h12l8-10h8M22 24l8 10h8"/><path d="M34 10l4 4-4 4M34 30l4 4-4 4"/></g></svg></span><h3>PDF 나누기</h3><p>PDF 하나를 여러 파일로</p></a>
+    <a class="card" href="/pdf/extract-pages/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 9h12l8 8v6M25 9v8h8M13 9v30h9"/><path d="M31 25v13M26 33l5 5 5-5"/></g></svg></span><h3>PDF 페이지 추출</h3><p>원하는 쪽만 새 PDF로</p></a>
+    <a class="card" href="/pdf/remove-pages/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9h12l8 8v22H14z"/><path d="M26 9v8h8"/><path d="M19 27h10"/></g></svg></span><h3>PDF 페이지 삭제</h3><p>필요 없는 쪽 골라 삭제</p></a>
+    <a class="card" href="/pdf/organize/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="20" width="9" height="12" rx="2"/><rect x="19.5" y="20" width="9" height="12" rx="2"/><rect x="31" y="20" width="9" height="12" rx="2"/><path d="M12 14c7-5 17-5 24 0"/><path d="M34 10l2 4-4 2"/></g></svg></span><h3>PDF 페이지 정리</h3><p>쪽 순서 바꾸기·회전·삭제</p></a>
+    <a class="card" href="/pdf/rotate/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M37 24a13 13 0 1 1-4-9.4"/><path d="M37 10v5.5h-5.5"/><rect x="18" y="18" width="12" height="12" rx="2"/></g></svg></span><h3>PDF 회전</h3><p>모든 쪽 또는 선택한 쪽 회전</p></a>
+    <a class="card" href="/pdf/page-numbers/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9h12l8 8v22H14z"/><path d="M26 9v8h8"/><path d="M21 22l-1.5 11M27 22l-1.5 11M18.5 26h10M17.5 30h10"/></g></svg></span><h3>페이지 번호 넣기</h3><p>원하는 자리에 쪽 번호</p></a>
+    <a class="card" href="/pdf/watermark/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9h12l8 8v22H14z"/><path d="M26 9v8h8"/><path d="M24 20c-3.5 4.5-5.5 7.5-5.5 10a5.5 5.5 0 0 0 11 0c0-2.5-2-5.5-5.5-10z"/></g></svg></span><h3>워터마크 넣기</h3><p>모든 쪽에 글자·로고 찍기</p></a>
+    <a class="card" href="/pdf/crop/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7v25a2 2 0 0 0 2 2h25"/><path d="M7 14h25a2 2 0 0 1 2 2v25"/></g></svg></span><h3>PDF 자르기</h3><p>모든 쪽 흰 여백 잘라내기</p></a>
+    <a class="card" href="/pdf/jpg-to-pdf/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="15" height="15" rx="2"/><path d="M8 26l3.5-4 3 3 2-2 3.5 3"/><path d="M24 21.5h5M27 18.5l3 3-3 3"/><path d="M33 14h5l4 4v11h-9z"/><path d="M38 14v4h4"/></g><circle cx="16.5" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>JPG PDF 변환</h3><p>JPG·PNG 사진을 PDF 하나로</p></a>
+    <a class="card" href="/pdf/pdf-to-jpg/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14h5l4 4v11H6z"/><path d="M11 14v4h4"/><path d="M18 21.5h5M21 18.5l3 3-3 3"/><rect x="27" y="14" width="15" height="15" rx="2"/><path d="M29 26l3.5-4 3 3 2-2 3.5 3"/></g><circle cx="37.5" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>PDF JPG 변환</h3><p>쪽마다 JPG·PNG 이미지로</p></a>
+    <a class="card" href="/pdf/sign/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 30c4-6 7-6 9 0s5 6 9 0 6-6 10 0"/><path d="M9 38h30"/></g></svg></span><h3>PDF 서명</h3><p>서명 그려서 원하는 자리에</p></a>
+    <a class="card" href="/pdf/scan/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 16v-4a3 3 0 0 1 3-3h4M32 9h4a3 3 0 0 1 3 3v4M39 32v4a3 3 0 0 1-3 3h-4M16 39h-4a3 3 0 0 1-3-3v-4"/><path d="M12 24h24"/></g></svg></span><h3>문서 스캔 PDF</h3><p>문서 찍어 깔끔한 A4 PDF로</p></a>
+    <a class="card" href="/pdf/compress/ko/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 7v10M19.5 12.5l4.5 4.5 4.5-4.5M24 41V31M19.5 35.5l4.5-4.5 4.5 4.5"/><path d="M11 24h26"/></g></svg></span><h3>PDF 압축</h3><p>PDF 용량 줄이기</p></a>
   </div>
+  <!-- grid:end -->
 
-  <h2>룰렛</h2>
-  <div class="grid" id="wheel-cards">
-    <a class="card" href="/wheel/ko/"><h3>돌림판 룰렛</h3><p>이름 넣고 돌려서 랜덤 뽑기</p></a>
-    <a class="card" href="/wheel/ko/what-to-eat/"><h3>오늘 뭐 먹지</h3><p>메뉴 룰렛</p></a>
-    <a class="card" href="/wheel/ko/yes-or-no/"><h3>예 아니오 룰렛</h3><p>돌려서 결정</p></a>
-    <a class="card" href="/wheel/ko/number/"><h3>숫자 룰렛</h3><p>범위 안에서 랜덤 숫자</p></a>
-  </div>
-
-  <h2>가이드</h2>
-  <div class="grid">
-    <a class="card" href="/guide/hwp-vs-hwpx.html"><h3>HWP와 HWPX의 차이</h3><p>왜 두 가지 확장자가 있고 무엇을 써야 하는지</p></a>
-    <a class="card" href="/guide/open-hwp-on-mac.html"><h3>맥에서 HWP 여는 방법</h3><p>한글 없이 맥북에서 HWP를 보는 4가지 방법</p></a>
-    <a class="card" href="/guide/hwp-to-pdf.html"><h3>HWP를 PDF로 바꾸기</h3><p>프로그램 없이 무료로 PDF 만드는 법</p></a>
-    <a class="card" href="/guide/open-hwp-on-phone.html"><h3>휴대폰에서 HWP 열기</h3><p>안드로이드·아이폰에서 HWP 확인하기</p></a>
-  </div>
   <details class="about">
     <summary>HWP 뷰어 안내 · 자주 묻는 질문</summary>
+    <p>파일은 서버로 올라가지 않고 내 브라우저 안에서만 처리됩니다. 복사한 본문의 줄바꿈이 지저분하면 <a href="/text/remove-line-breaks.html">줄바꿈 제거 도구</a>로 정리하고, <a href="/text/char-count.html">글자수 세기</a>로 분량을 확인하세요.</p>
 <div class="card intro">
     <h2 style="margin-top:0">이 도구로 할 수 있는 것</h2>
     <div class="grid">
@@ -283,10 +364,11 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 </main>
 
 <!-- shell:footer -->
-<footer class="foot"><div class="wrap"><nav class="foot-links"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a></nav><p class="foot-copy">© parkbok · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.</p></div></footer>
+<footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="바닥글 메뉴"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a></nav><p class="foot-copy">© parkbok · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.</p></div></footer>
 <!-- /shell:footer -->
 
 <link rel="prefetch" href="/assets/hwp-bundle.js" as="script">
 <script src="/assets/app.js" defer></script>
+<script src="/assets/home.js" defer></script>
 </body>
 </html>

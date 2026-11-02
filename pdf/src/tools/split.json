@@ -1,0 +1,421 @@
+{
+  "id": "split",
+  "order": 2,
+  "icon": "split",
+  "cat": "pdf",
+  "next": [
+    "merge",
+    "extract-pages",
+    "remove-pages"
+  ],
+  "strings": {
+    "en": {
+      "title": "Split PDF – Separate Pages or Ranges into Files Online Free",
+      "h1": "Split PDF",
+      "line": "Cut one PDF into several files.",
+      "description": "Split a PDF online for free. Separate every page, cut by ranges or every N pages, or pick pages from thumbnails. Runs in your browser – no upload.",
+      "buttonText": "Select PDF file",
+      "runText": "Split",
+      "resultName": "split",
+      "options": {
+        "mode": {
+          "label": "Split by",
+          "choices": {
+            "all": "Every page",
+            "ranges": "Page ranges",
+            "every": "Every N pages",
+            "pages": "Pick pages"
+          }
+        },
+        "ranges": {
+          "label": "Ranges",
+          "help": "e.g. 1-3,5,8-"
+        },
+        "every": {
+          "label": "Pages per file"
+        },
+        "pages": {
+          "label": "Pages to keep"
+        }
+      },
+      "errorRanges": "Enter page ranges like 1-3,5.",
+      "errorNoPages": "Select at least one page.",
+      "errorEveryTooBig": "The number is larger than the page count.",
+      "faq": [
+        [
+          "How do I write ranges?",
+          "Separate ranges with commas: 1-3,5,8- means pages 1 to 3, page 5, and page 8 to the end. Each range becomes its own file."
+        ],
+        [
+          "What does Every N pages do?",
+          "It cuts the document into chunks of N pages: with 2, a 7-page PDF becomes 4 files."
+        ],
+        [
+          "How do I download several files at once?",
+          "When there is more than one result, the main button downloads all of them as one ZIP."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is read and split on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 나누기 – 쪽별·범위별로 분할해 여러 파일로 무료 저장",
+      "h1": "PDF 나누기",
+      "line": "PDF 하나를 여러 파일로",
+      "description": "PDF 나누기 무료 온라인. 쪽마다, 범위마다, N쪽마다 나누거나 썸네일에서 쪽을 골라 저장하세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "나누기",
+      "resultName": "나눔",
+      "options": {
+        "mode": {
+          "label": "나누는 기준",
+          "choices": {
+            "all": "쪽마다",
+            "ranges": "쪽 범위",
+            "every": "N쪽마다",
+            "pages": "쪽 고르기"
+          }
+        },
+        "ranges": {
+          "label": "범위",
+          "help": "예: 1-3,5,8-"
+        },
+        "every": {
+          "label": "파일당 쪽 수"
+        },
+        "pages": {
+          "label": "남길 쪽"
+        }
+      },
+      "errorRanges": "1-3,5 처럼 쪽 범위를 적어 주세요.",
+      "errorNoPages": "쪽을 하나 이상 골라 주세요.",
+      "errorEveryTooBig": "쪽 수보다 큰 숫자입니다.",
+      "faq": [
+        [
+          "범위는 어떻게 적나요?",
+          "쉼표로 구분합니다. 1-3,5,8- 은 1~3쪽, 5쪽, 8쪽부터 끝까지를 뜻하고 범위마다 파일이 하나씩 만들어집니다."
+        ],
+        [
+          "N쪽마다는 무엇인가요?",
+          "문서를 N쪽씩 끊습니다. 2로 두면 7쪽짜리 PDF 가 4개 파일이 됩니다."
+        ],
+        [
+          "여러 파일을 한 번에 받으려면?",
+          "결과가 2개 이상이면 큰 버튼이 모두 ZIP 하나로 내려받습니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 읽고 나누며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "拆分 PDF – 按页或按范围免费在线分割成多个文件",
+      "h1": "拆分 PDF",
+      "line": "把一个 PDF 拆成多个文件。",
+      "description": "免费在线拆分 PDF。按每页、按页码范围、每 N 页拆分，或从缩略图中挑选页面。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "拆分",
+      "resultName": "拆分",
+      "options": {
+        "mode": {
+          "label": "拆分方式",
+          "choices": {
+            "all": "每页一个文件",
+            "ranges": "页码范围",
+            "every": "每 N 页",
+            "pages": "挑选页面"
+          }
+        },
+        "ranges": {
+          "label": "范围",
+          "help": "例如 1-3,5,8-"
+        },
+        "every": {
+          "label": "每个文件的页数"
+        },
+        "pages": {
+          "label": "要保留的页面"
+        }
+      },
+      "errorRanges": "请按 1-3,5 的格式输入页码范围。",
+      "errorNoPages": "请至少选择一页。",
+      "errorEveryTooBig": "数字大于总页数。",
+      "faq": [
+        [
+          "范围怎么写？",
+          "用逗号分隔：1-3,5,8- 表示第 1 到 3 页、第 5 页，以及第 8 页到末尾。每个范围生成一个文件。"
+        ],
+        [
+          "“每 N 页”是什么意思？",
+          "把文档按每 N 页切开。设为 2 时，7 页的 PDF 会变成 4 个文件。"
+        ],
+        [
+          "如何一次下载多个文件？",
+          "结果多于一个时，主按钮会把全部文件打包成一个 ZIP 下载。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上读取和拆分，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDF分割 – ページごと・範囲ごとに複数ファイルへ 無料オンライン",
+      "h1": "PDF分割",
+      "line": "1つのPDFを複数のファイルに分けます。",
+      "description": "無料でPDFを分割。1ページずつ、ページ範囲ごと、Nページごとに分けるか、サムネイルからページを選択。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "分割する",
+      "resultName": "分割",
+      "options": {
+        "mode": {
+          "label": "分け方",
+          "choices": {
+            "all": "1ページずつ",
+            "ranges": "ページ範囲",
+            "every": "Nページごと",
+            "pages": "ページを選ぶ"
+          }
+        },
+        "ranges": {
+          "label": "範囲",
+          "help": "例: 1-3,5,8-"
+        },
+        "every": {
+          "label": "1ファイルのページ数"
+        },
+        "pages": {
+          "label": "残すページ"
+        }
+      },
+      "errorRanges": "1-3,5 のようにページ範囲を入力してください。",
+      "errorNoPages": "ページを1つ以上選んでください。",
+      "errorEveryTooBig": "総ページ数より大きい数です。",
+      "faq": [
+        [
+          "範囲はどう書きますか？",
+          "カンマで区切ります。1-3,5,8- は1〜3ページ、5ページ、8ページから最後までを指し、範囲ごとに1ファイルになります。"
+        ],
+        [
+          "「Nページごと」とは？",
+          "文書をNページずつ区切ります。2にすると7ページのPDFは4ファイルになります。"
+        ],
+        [
+          "複数のファイルをまとめて保存するには？",
+          "結果が2つ以上のときは、大きなボタンで全部を1つのZIPとして保存できます。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で読み込んで分割され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Dividir PDF – Separar páginas o rangos en varios archivos",
+      "h1": "Dividir PDF",
+      "line": "Corta un PDF en varios archivos.",
+      "description": "Divide un PDF gratis y online. Separa cada página, corta por rangos o cada N páginas, o elige páginas en las miniaturas. En tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Dividir",
+      "resultName": "dividido",
+      "options": {
+        "mode": {
+          "label": "Dividir por",
+          "choices": {
+            "all": "Cada página",
+            "ranges": "Rangos de páginas",
+            "every": "Cada N páginas",
+            "pages": "Elegir páginas"
+          }
+        },
+        "ranges": {
+          "label": "Rangos",
+          "help": "p. ej. 1-3,5,8-"
+        },
+        "every": {
+          "label": "Páginas por archivo"
+        },
+        "pages": {
+          "label": "Páginas a conservar"
+        }
+      },
+      "errorRanges": "Escribe rangos de páginas como 1-3,5.",
+      "errorNoPages": "Selecciona al menos una página.",
+      "errorEveryTooBig": "El número es mayor que el total de páginas.",
+      "faq": [
+        [
+          "¿Cómo escribo los rangos?",
+          "Sepáralos con comas: 1-3,5,8- significa páginas 1 a 3, página 5 y de la 8 hasta el final. Cada rango genera un archivo."
+        ],
+        [
+          "¿Qué hace Cada N páginas?",
+          "Corta el documento en bloques de N páginas: con 2, un PDF de 7 páginas se convierte en 4 archivos."
+        ],
+        [
+          "¿Cómo descargo varios archivos a la vez?",
+          "Cuando hay más de un resultado, el botón principal los descarga todos en un ZIP."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se lee y se divide en tu dispositivo y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Dividir PDF – Separar páginas em vários arquivos grátis",
+      "h1": "Dividir PDF",
+      "line": "Corte um PDF em vários arquivos.",
+      "description": "Divida um PDF grátis online. Separe cada página, corte por intervalos ou a cada N páginas, ou escolha páginas na prévia. Roda no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Dividir",
+      "resultName": "dividido",
+      "options": {
+        "mode": {
+          "label": "Dividir por",
+          "choices": {
+            "all": "Cada página",
+            "ranges": "Intervalos de páginas",
+            "every": "A cada N páginas",
+            "pages": "Escolher páginas"
+          }
+        },
+        "ranges": {
+          "label": "Intervalos",
+          "help": "ex.: 1-3,5,8-"
+        },
+        "every": {
+          "label": "Páginas por arquivo"
+        },
+        "pages": {
+          "label": "Páginas a manter"
+        }
+      },
+      "errorRanges": "Digite intervalos como 1-3,5.",
+      "errorNoPages": "Selecione pelo menos uma página.",
+      "errorEveryTooBig": "O número é maior que o total de páginas.",
+      "faq": [
+        [
+          "Como escrevo os intervalos?",
+          "Separe com vírgulas: 1-3,5,8- significa páginas 1 a 3, página 5 e da 8 até o fim. Cada intervalo vira um arquivo."
+        ],
+        [
+          "O que faz A cada N páginas?",
+          "Corta o documento em blocos de N páginas: com 2, um PDF de 7 páginas vira 4 arquivos."
+        ],
+        [
+          "Como baixo vários arquivos de uma vez?",
+          "Quando há mais de um resultado, o botão principal baixa todos em um ZIP."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é lido e dividido no seu dispositivo e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF teilen – Seiten in mehrere Dateien aufteilen, kostenlos",
+      "h1": "PDF teilen",
+      "line": "Eine PDF in mehrere Dateien aufteilen.",
+      "description": "PDF kostenlos online teilen. Jede Seite einzeln, nach Bereichen oder alle N Seiten, oder Seiten per Vorschau auswählen. Läuft im Browser – kein Upload.",
+      "buttonText": "PDF auswählen",
+      "runText": "Teilen",
+      "resultName": "geteilt",
+      "options": {
+        "mode": {
+          "label": "Teilen nach",
+          "choices": {
+            "all": "Jede Seite",
+            "ranges": "Seitenbereiche",
+            "every": "Alle N Seiten",
+            "pages": "Seiten auswählen"
+          }
+        },
+        "ranges": {
+          "label": "Bereiche",
+          "help": "z. B. 1-3,5,8-"
+        },
+        "every": {
+          "label": "Seiten pro Datei"
+        },
+        "pages": {
+          "label": "Zu behaltende Seiten"
+        }
+      },
+      "errorRanges": "Gib Seitenbereiche wie 1-3,5 ein.",
+      "errorNoPages": "Wähle mindestens eine Seite.",
+      "errorEveryTooBig": "Die Zahl ist größer als die Seitenanzahl.",
+      "faq": [
+        [
+          "Wie schreibe ich Bereiche?",
+          "Mit Kommas trennen: 1-3,5,8- bedeutet Seite 1 bis 3, Seite 5 und ab Seite 8 bis zum Ende. Jeder Bereich wird eine eigene Datei."
+        ],
+        [
+          "Was macht Alle N Seiten?",
+          "Das Dokument wird in Blöcke von N Seiten geschnitten: mit 2 werden aus einer 7-seitigen PDF 4 Dateien."
+        ],
+        [
+          "Wie lade ich mehrere Dateien auf einmal herunter?",
+          "Bei mehr als einem Ergebnis lädt der große Button alle zusammen als ZIP herunter."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät gelesen und geteilt und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Diviser PDF – Séparer des pages en plusieurs fichiers gratuit",
+      "h1": "Diviser PDF",
+      "line": "Découpez un PDF en plusieurs fichiers.",
+      "description": "Divisez un PDF gratuitement en ligne : chaque page, des plages, toutes les N pages ou des pages choisies. Dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Diviser",
+      "resultName": "divise",
+      "options": {
+        "mode": {
+          "label": "Diviser par",
+          "choices": {
+            "all": "Chaque page",
+            "ranges": "Plages de pages",
+            "every": "Toutes les N pages",
+            "pages": "Choisir des pages"
+          }
+        },
+        "ranges": {
+          "label": "Plages",
+          "help": "ex. 1-3,5,8-"
+        },
+        "every": {
+          "label": "Pages par fichier"
+        },
+        "pages": {
+          "label": "Pages à garder"
+        }
+      },
+      "errorRanges": "Indiquez des plages comme 1-3,5.",
+      "errorNoPages": "Sélectionnez au moins une page.",
+      "errorEveryTooBig": "Le nombre dépasse le total de pages.",
+      "faq": [
+        [
+          "Comment écrire les plages ?",
+          "Séparez-les par des virgules : 1-3,5,8- signifie pages 1 à 3, page 5 et de la page 8 à la fin. Chaque plage donne un fichier."
+        ],
+        [
+          "Que fait Toutes les N pages ?",
+          "Le document est découpé en blocs de N pages : avec 2, un PDF de 7 pages donne 4 fichiers."
+        ],
+        [
+          "Comment télécharger plusieurs fichiers d'un coup ?",
+          "Quand il y a plus d'un résultat, le bouton principal les télécharge tous dans un ZIP."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est lu et divisé sur votre appareil et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

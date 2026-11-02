@@ -1,26 +1,154 @@
 {
-  "en": { "brand": "parkbok", "menu": "Main menu",
-    "nav": { "hwp": "HWP viewer (KO)", "text": "Text tools (KO)", "wheel": "Spin the wheel", "guide": "Guides (KO)" },
-    "foot": { "about": "About", "privacy": "Privacy", "terms": "Terms", "guide": "Guides" }, "language": "Language" },
-  "ko": { "brand": "parkbok", "menu": "주 메뉴",
-    "nav": { "hwp": "HWP 뷰어", "text": "텍스트 도구", "wheel": "룰렛", "guide": "가이드" },
-    "foot": { "about": "소개", "privacy": "개인정보처리방침", "terms": "이용약관", "guide": "가이드" }, "language": "언어" },
-  "zh": { "brand": "parkbok", "menu": "主菜单",
-    "nav": { "hwp": "HWP 查看器 (KO)", "text": "文本工具 (KO)", "wheel": "幸运转盘", "guide": "指南 (KO)" },
-    "foot": { "about": "关于", "privacy": "隐私政策", "terms": "使用条款", "guide": "指南" }, "language": "语言" },
-  "ja": { "brand": "parkbok", "menu": "メインメニュー",
-    "nav": { "hwp": "HWPビューア (KO)", "text": "テキストツール (KO)", "wheel": "ルーレット", "guide": "ガイド (KO)" },
-    "foot": { "about": "サイトについて", "privacy": "プライバシー", "terms": "利用規約", "guide": "ガイド" }, "language": "言語" },
-  "es": { "brand": "parkbok", "menu": "Menú principal",
-    "nav": { "hwp": "Visor HWP (KO)", "text": "Herramientas de texto (KO)", "wheel": "Ruleta", "guide": "Guías (KO)" },
-    "foot": { "about": "Acerca de", "privacy": "Privacidad", "terms": "Términos", "guide": "Guías" }, "language": "Idioma" },
-  "pt": { "brand": "parkbok", "menu": "Menu principal",
-    "nav": { "hwp": "Visualizador HWP (KO)", "text": "Ferramentas de texto (KO)", "wheel": "Roleta", "guide": "Guias (KO)" },
-    "foot": { "about": "Sobre", "privacy": "Privacidade", "terms": "Termos", "guide": "Guias" }, "language": "Idioma" },
-  "de": { "brand": "parkbok", "menu": "Hauptmenü",
-    "nav": { "hwp": "HWP-Viewer (KO)", "text": "Textwerkzeuge (KO)", "wheel": "Glücksrad", "guide": "Anleitungen (KO)" },
-    "foot": { "about": "Über", "privacy": "Datenschutz", "terms": "Nutzungsbedingungen", "guide": "Anleitungen" }, "language": "Sprache" },
-  "fr": { "brand": "parkbok", "menu": "Menu principal",
-    "nav": { "hwp": "Visionneuse HWP (KO)", "text": "Outils texte (KO)", "wheel": "Roue", "guide": "Guides (KO)" },
-    "foot": { "about": "À propos", "privacy": "Confidentialité", "terms": "Conditions", "guide": "Guides" }, "language": "Langue" }
+  "en": {
+    "brand": "parkbok",
+    "menu": "Main menu",
+    "nav": {
+      "hwp": "HWP viewer (KO)",
+      "text": "Text tools (KO)",
+      "wheel": "Spin the wheel",
+      "guide": "Guides (KO)",
+      "pdf": "PDF tools"
+    },
+    "foot": {
+      "about": "About",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "guide": "Guides"
+    },
+    "language": "Language",
+    "footMenu": "Footer menu"
+  },
+  "ko": {
+    "brand": "parkbok",
+    "menu": "주 메뉴",
+    "nav": {
+      "hwp": "HWP 뷰어",
+      "text": "텍스트 도구",
+      "wheel": "룰렛",
+      "guide": "가이드",
+      "pdf": "PDF 도구"
+    },
+    "foot": {
+      "about": "소개",
+      "privacy": "개인정보처리방침",
+      "terms": "이용약관",
+      "guide": "가이드"
+    },
+    "language": "언어",
+    "footMenu": "바닥글 메뉴"
+  },
+  "zh": {
+    "brand": "parkbok",
+    "menu": "主菜单",
+    "nav": {
+      "hwp": "HWP 查看器 (KO)",
+      "text": "文本工具 (KO)",
+      "wheel": "幸运转盘",
+      "guide": "指南 (KO)",
+      "pdf": "PDF 工具"
+    },
+    "foot": {
+      "about": "关于",
+      "privacy": "隐私政策",
+      "terms": "使用条款",
+      "guide": "指南"
+    },
+    "language": "语言",
+    "footMenu": "页脚菜单"
+  },
+  "ja": {
+    "brand": "parkbok",
+    "menu": "メインメニュー",
+    "nav": {
+      "hwp": "HWPビューア (KO)",
+      "text": "テキストツール (KO)",
+      "wheel": "ルーレット",
+      "guide": "ガイド (KO)",
+      "pdf": "PDFツール"
+    },
+    "foot": {
+      "about": "サイトについて",
+      "privacy": "プライバシー",
+      "terms": "利用規約",
+      "guide": "ガイド"
+    },
+    "language": "言語",
+    "footMenu": "フッターメニュー"
+  },
+  "es": {
+    "brand": "parkbok",
+    "menu": "Menú principal",
+    "nav": {
+      "hwp": "Visor HWP (KO)",
+      "text": "Herramientas de texto (KO)",
+      "wheel": "Ruleta",
+      "guide": "Guías (KO)",
+      "pdf": "Herramientas PDF"
+    },
+    "foot": {
+      "about": "Acerca de",
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "guide": "Guías"
+    },
+    "language": "Idioma",
+    "footMenu": "Menú del pie"
+  },
+  "pt": {
+    "brand": "parkbok",
+    "menu": "Menu principal",
+    "nav": {
+      "hwp": "Visualizador HWP (KO)",
+      "text": "Ferramentas de texto (KO)",
+      "wheel": "Roleta",
+      "guide": "Guias (KO)",
+      "pdf": "Ferramentas PDF"
+    },
+    "foot": {
+      "about": "Sobre",
+      "privacy": "Privacidade",
+      "terms": "Termos",
+      "guide": "Guias"
+    },
+    "language": "Idioma",
+    "footMenu": "Menu do rodapé"
+  },
+  "de": {
+    "brand": "parkbok",
+    "menu": "Hauptmenü",
+    "nav": {
+      "hwp": "HWP-Viewer (KO)",
+      "text": "Textwerkzeuge (KO)",
+      "wheel": "Glücksrad",
+      "guide": "Anleitungen (KO)",
+      "pdf": "PDF-Werkzeuge"
+    },
+    "foot": {
+      "about": "Über",
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen",
+      "guide": "Anleitungen"
+    },
+    "language": "Sprache",
+    "footMenu": "Fußzeilenmenü"
+  },
+  "fr": {
+    "brand": "parkbok",
+    "menu": "Menu principal",
+    "nav": {
+      "hwp": "Visionneuse HWP (KO)",
+      "text": "Outils texte (KO)",
+      "wheel": "Roue",
+      "guide": "Guides (KO)",
+      "pdf": "Outils PDF"
+    },
+    "foot": {
+      "about": "À propos",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "guide": "Guides"
+    },
+    "language": "Langue",
+    "footMenu": "Menu de pied de page"
+  }
 }

@@ -1,0 +1,301 @@
+{
+  "id": "organize",
+  "order": 5,
+  "icon": "organize",
+  "cat": "pdf",
+  "next": [
+    "remove-pages",
+    "rotate",
+    "merge"
+  ],
+  "strings": {
+    "en": {
+      "title": "Organize PDF – Reorder, Rotate & Delete Pages Online Free",
+      "h1": "Organize PDF",
+      "line": "Reorder, rotate or drop pages.",
+      "description": "Organize PDF pages free. Move, rotate and delete pages, combine several files, then download one tidy PDF. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF files",
+      "runText": "Apply",
+      "resultName": "organized",
+      "options": {
+        "pages": {
+          "label": "Arrange the pages",
+          "help": "Use ← → to move, ⟳ to rotate, ✕ to drop a page."
+        }
+      },
+      "errors": {
+        "allDeleted": "At least one page has to stay."
+      },
+      "faq": [
+        [
+          "How do I change the order?",
+          "Use the arrows under each page to move it left or right. The first page in the grid becomes page 1."
+        ],
+        [
+          "Can I rotate just one page?",
+          "Yes. Tap the rotate button under a page; each tap turns it 90 degrees. Other pages stay as they are."
+        ],
+        [
+          "Can I combine several PDFs?",
+          "Yes. Add more files – their pages appear in file order and you can rearrange everything before applying."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDFs are opened and rewritten on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 페이지 정리 – 순서 바꾸기·회전·삭제 무료 온라인",
+      "h1": "PDF 페이지 정리",
+      "line": "쪽 순서 바꾸기·회전·삭제",
+      "description": "PDF 페이지 정리 무료 온라인. 쪽을 좌우로 옮기고 회전하고 필요 없는 쪽을 지운 뒤 깔끔한 PDF 한 개로 내려받으세요. 여러 파일을 먼저 이어 붙일 수도 있습니다. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "적용하기",
+      "resultName": "정리",
+      "options": {
+        "pages": {
+          "label": "쪽 배치",
+          "help": "← → 로 옮기고 ⟳ 로 회전, ✕ 로 지웁니다."
+        }
+      },
+      "errors": {
+        "allDeleted": "최소 한 쪽은 남겨야 합니다."
+      },
+      "faq": [
+        [
+          "순서는 어떻게 바꾸나요?",
+          "각 쪽 아래 화살표로 왼쪽·오른쪽으로 옮기세요. 격자에서 맨 앞 쪽이 1쪽이 됩니다."
+        ],
+        [
+          "한 쪽만 회전할 수 있나요?",
+          "네. 쪽 아래 회전 버튼을 누르면 90도씩 돌아갑니다. 다른 쪽은 그대로입니다."
+        ],
+        [
+          "여러 PDF 를 합칠 수 있나요?",
+          "네. 파일을 더 추가하면 파일 순서대로 쪽이 나타나고, 적용 전에 전부 다시 배치할 수 있습니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 열고 다시 저장되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "整理 PDF 页面 – 免费在线调整顺序、旋转、删除",
+      "h1": "整理 PDF 页面",
+      "line": "调整页面顺序、旋转或删除。",
+      "description": "免费在线整理 PDF 页面。左右移动页面、旋转、删除不需要的页，然后下载一个整理好的 PDF。可以先合并多个文件。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "应用",
+      "resultName": "已整理",
+      "options": {
+        "pages": {
+          "label": "排列页面",
+          "help": "用 ← → 移动，⟳ 旋转，✕ 删除。"
+        }
+      },
+      "errors": {
+        "allDeleted": "至少要保留一页。"
+      },
+      "faq": [
+        [
+          "如何调整顺序？",
+          "用每页下方的箭头向左或向右移动。网格中最前面的页就是第 1 页。"
+        ],
+        [
+          "可以只旋转某一页吗？",
+          "可以。点该页下方的旋转按钮，每点一次转 90 度，其他页不受影响。"
+        ],
+        [
+          "可以合并多个 PDF 吗？",
+          "可以。继续添加文件，页面会按文件顺序排列，应用前可以随意重新排列。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上打开并重新保存，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDFページ整理 – 並べ替え・回転・削除 無料オンライン",
+      "h1": "PDFページ整理",
+      "line": "ページを並べ替え、回転・削除します。",
+      "description": "無料でPDFのページを整理。ページを左右に動かし、回転し、不要なページを消して1つのPDFでダウンロード。複数ファイルをまとめることもできます。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "適用する",
+      "resultName": "整理済み",
+      "options": {
+        "pages": {
+          "label": "ページの配置",
+          "help": "← → で移動、⟳ で回転、✕ で削除。"
+        }
+      },
+      "errors": {
+        "allDeleted": "少なくとも1ページは残してください。"
+      },
+      "faq": [
+        [
+          "順番はどう変えますか？",
+          "各ページの下の矢印で左右に動かします。並びの先頭が1ページ目になります。"
+        ],
+        [
+          "1ページだけ回転できますか？",
+          "はい。ページ下の回転ボタンを押すたびに90度回ります。他のページはそのままです。"
+        ],
+        [
+          "複数のPDFをまとめられますか？",
+          "はい。ファイルを追加するとファイル順にページが並び、適用前に自由に並べ替えられます。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で開いて保存し直され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Organizar PDF – Ordenar, girar y eliminar páginas gratis",
+      "h1": "Organizar PDF",
+      "line": "Ordena, gira o quita páginas.",
+      "description": "Organiza páginas de PDF gratis. Mueve, gira y quita páginas, combina varios archivos y descarga un PDF ordenado. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Aplicar",
+      "resultName": "organizado",
+      "options": {
+        "pages": {
+          "label": "Ordena las páginas",
+          "help": "Usa ← → para mover, ⟳ para girar y ✕ para quitar."
+        }
+      },
+      "errors": {
+        "allDeleted": "Debe quedar al menos una página."
+      },
+      "faq": [
+        [
+          "¿Cómo cambio el orden?",
+          "Usa las flechas bajo cada página para moverla a la izquierda o a la derecha. La primera de la cuadrícula será la página 1."
+        ],
+        [
+          "¿Puedo girar solo una página?",
+          "Sí. Toca el botón de girar bajo la página; cada toque la gira 90 grados. Las demás no cambian."
+        ],
+        [
+          "¿Puedo combinar varios PDF?",
+          "Sí. Añade más archivos: sus páginas aparecen en orden de archivo y puedes reorganizarlo todo antes de aplicar."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. Los PDF se abren y se reescriben en tu dispositivo y nunca se envían a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Organizar PDF – Reordenar, girar e excluir páginas grátis",
+      "h1": "Organizar PDF",
+      "line": "Reordene, gire ou tire páginas.",
+      "description": "Organize as páginas de um PDF grátis. Mova, gire e exclua páginas, junte vários arquivos e baixe um PDF arrumado. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Aplicar",
+      "resultName": "organizado",
+      "options": {
+        "pages": {
+          "label": "Arrume as páginas",
+          "help": "Use ← → para mover, ⟳ para girar e ✕ para excluir."
+        }
+      },
+      "errors": {
+        "allDeleted": "Pelo menos uma página precisa ficar."
+      },
+      "faq": [
+        [
+          "Como mudo a ordem?",
+          "Use as setas embaixo de cada página para movê-la para a esquerda ou direita. A primeira da grade vira a página 1."
+        ],
+        [
+          "Posso girar só uma página?",
+          "Sim. Toque no botão de girar embaixo da página; cada toque gira 90 graus. As outras ficam como estão."
+        ],
+        [
+          "Posso juntar vários PDF?",
+          "Sim. Adicione mais arquivos: as páginas aparecem na ordem dos arquivos e você pode reorganizar tudo antes de aplicar."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. Os PDF são abertos e regravados no seu dispositivo e nunca vão para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF-Seiten sortieren – Umsortieren, drehen und löschen",
+      "h1": "PDF-Seiten sortieren",
+      "line": "Seiten sortieren, drehen, löschen.",
+      "description": "PDF-Seiten kostenlos sortieren: verschieben, drehen, löschen, Dateien verbinden und eine PDF herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "PDF auswählen",
+      "runText": "Anwenden",
+      "resultName": "sortiert",
+      "options": {
+        "pages": {
+          "label": "Seiten anordnen",
+          "help": "← → verschiebt, ⟳ dreht, ✕ entfernt eine Seite."
+        }
+      },
+      "errors": {
+        "allDeleted": "Mindestens eine Seite muss bleiben."
+      },
+      "faq": [
+        [
+          "Wie ändere ich die Reihenfolge?",
+          "Mit den Pfeilen unter jeder Seite nach links oder rechts schieben. Die erste Seite im Raster wird Seite 1."
+        ],
+        [
+          "Kann ich nur eine Seite drehen?",
+          "Ja. Tippe unter der Seite auf Drehen; jeder Tipp dreht um 90 Grad. Die anderen Seiten bleiben unverändert."
+        ],
+        [
+          "Kann ich mehrere PDFs verbinden?",
+          "Ja. Füge weitere Dateien hinzu – ihre Seiten erscheinen in Dateireihenfolge und du kannst alles vor dem Anwenden umsortieren."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDFs werden auf deinem Gerät geöffnet und neu gespeichert und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Organiser PDF – Réordonner, pivoter, supprimer des pages",
+      "h1": "Organiser PDF",
+      "line": "Réordonnez ou retirez des pages.",
+      "description": "Organisez un PDF gratuitement : déplacez, pivotez, retirez des pages, réunissez des fichiers et téléchargez-le. Dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir des PDF",
+      "runText": "Appliquer",
+      "resultName": "organise",
+      "options": {
+        "pages": {
+          "label": "Disposez les pages",
+          "help": "← → pour déplacer, ⟳ pour pivoter, ✕ pour retirer."
+        }
+      },
+      "errors": {
+        "allDeleted": "Au moins une page doit rester."
+      },
+      "faq": [
+        [
+          "Comment changer l'ordre ?",
+          "Avec les flèches sous chaque page, déplacez-la à gauche ou à droite. La première de la grille devient la page 1."
+        ],
+        [
+          "Puis-je pivoter une seule page ?",
+          "Oui. Touchez le bouton pivoter sous la page ; chaque touche la tourne de 90 degrés. Les autres pages ne bougent pas."
+        ],
+        [
+          "Puis-je réunir plusieurs PDF ?",
+          "Oui. Ajoutez d'autres fichiers : leurs pages apparaissent dans l'ordre des fichiers et vous pouvez tout réorganiser avant d'appliquer."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Les PDF sont ouverts et réenregistrés sur votre appareil et ne partent jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

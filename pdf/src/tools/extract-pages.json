@@ -1,0 +1,397 @@
+{
+  "id": "extract-pages",
+  "order": 3,
+  "icon": "extract-pages",
+  "cat": "pdf",
+  "next": [
+    "remove-pages",
+    "split",
+    "organize"
+  ],
+  "strings": {
+    "en": {
+      "title": "Extract PDF Pages – Save Selected Pages as a New PDF, Free",
+      "h1": "Extract PDF pages",
+      "line": "Pick pages and save them as a new PDF.",
+      "description": "Extract pages from a PDF online for free. Tap the pages you want or type ranges like 1-3,5 and download one new PDF. Runs in your browser – no upload.",
+      "buttonText": "Select PDF file",
+      "runText": "Extract",
+      "resultName": "pages",
+      "options": {
+        "mode": {
+          "label": "Choose pages by",
+          "choices": {
+            "pages": "Tap pages",
+            "ranges": "Type ranges"
+          }
+        },
+        "pages": {
+          "label": "Pages to extract"
+        },
+        "ranges": {
+          "label": "Pages",
+          "help": "e.g. 1-3,5,8-"
+        },
+        "keepOrder": {
+          "label": "Keep original order"
+        }
+      },
+      "errorRanges": "Enter page ranges like 1-3,5.",
+      "errorNoPages": "Select at least one page.",
+      "faq": [
+        [
+          "How do I pick pages?",
+          "Tap the thumbnails you want, or switch to Type ranges and write 1-3,5,8- (pages 1 to 3, page 5, and 8 to the end)."
+        ],
+        [
+          "Can I change the page order?",
+          "Turn off Keep original order: pages are then placed in the order you typed, and a page may be repeated."
+        ],
+        [
+          "Is the original file changed?",
+          "No. A new PDF with only the chosen pages is created; your original stays as it is."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is read and processed on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 페이지 추출 – 원하는 쪽만 골라 새 PDF 로 무료 저장",
+      "h1": "PDF 페이지 추출",
+      "line": "원하는 쪽만 새 PDF로",
+      "description": "PDF 페이지 추출 무료 온라인. 썸네일에서 쪽을 누르거나 1-3,5 처럼 범위를 적어 새 PDF 하나로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "추출하기",
+      "resultName": "추출",
+      "options": {
+        "mode": {
+          "label": "쪽 고르는 방법",
+          "choices": {
+            "pages": "쪽 누르기",
+            "ranges": "범위 적기"
+          }
+        },
+        "pages": {
+          "label": "추출할 쪽"
+        },
+        "ranges": {
+          "label": "쪽",
+          "help": "예: 1-3,5,8-"
+        },
+        "keepOrder": {
+          "label": "원본 순서 유지"
+        }
+      },
+      "errorRanges": "1-3,5 처럼 쪽 범위를 적어 주세요.",
+      "errorNoPages": "쪽을 하나 이상 골라 주세요.",
+      "faq": [
+        [
+          "쪽은 어떻게 고르나요?",
+          "썸네일을 눌러 고르거나, 범위 적기로 바꿔 1-3,5,8- 처럼 적으세요(1~3쪽, 5쪽, 8쪽부터 끝까지)."
+        ],
+        [
+          "쪽 순서를 바꿀 수 있나요?",
+          "원본 순서 유지를 끄면 적은 순서대로 담기고, 같은 쪽을 여러 번 넣을 수도 있습니다."
+        ],
+        [
+          "원본 파일이 바뀌나요?",
+          "아니요. 고른 쪽만 담은 새 PDF 가 만들어지고 원본은 그대로입니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 읽고 처리되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "提取 PDF 页面 – 挑选页面另存为新 PDF 免费在线",
+      "h1": "提取 PDF 页面",
+      "line": "挑选页面并保存为新的 PDF。",
+      "description": "免费在线提取 PDF 页面。点选需要的页面或输入 1-3,5 这样的范围，下载为一个新的 PDF。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "提取",
+      "resultName": "提取",
+      "options": {
+        "mode": {
+          "label": "选页方式",
+          "choices": {
+            "pages": "点选页面",
+            "ranges": "输入范围"
+          }
+        },
+        "pages": {
+          "label": "要提取的页面"
+        },
+        "ranges": {
+          "label": "页码",
+          "help": "例如 1-3,5,8-"
+        },
+        "keepOrder": {
+          "label": "保持原顺序"
+        }
+      },
+      "errorRanges": "请按 1-3,5 的格式输入页码范围。",
+      "errorNoPages": "请至少选择一页。",
+      "faq": [
+        [
+          "如何挑选页面？",
+          "点击需要的缩略图，或切换到“输入范围”并填写 1-3,5,8-（第 1 到 3 页、第 5 页、第 8 页到末尾）。"
+        ],
+        [
+          "可以改变页面顺序吗？",
+          "关闭“保持原顺序”后，页面会按您输入的顺序排列，同一页也可以重复。"
+        ],
+        [
+          "原文件会被改动吗？",
+          "不会。只会生成一个包含所选页面的新 PDF，原文件保持不变。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上读取和处理，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDFページ抽出 – 必要なページだけ新しいPDFに保存 無料オンライン",
+      "h1": "PDFページ抽出",
+      "line": "必要なページだけ新しいPDFに保存。",
+      "description": "無料でPDFのページを抽出。サムネイルをタップするか 1-3,5 のように範囲を入力し、1つの新しいPDFとしてダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "抽出する",
+      "resultName": "抽出",
+      "options": {
+        "mode": {
+          "label": "ページの選び方",
+          "choices": {
+            "pages": "ページをタップ",
+            "ranges": "範囲を入力"
+          }
+        },
+        "pages": {
+          "label": "抽出するページ"
+        },
+        "ranges": {
+          "label": "ページ",
+          "help": "例: 1-3,5,8-"
+        },
+        "keepOrder": {
+          "label": "元の順番を保つ"
+        }
+      },
+      "errorRanges": "1-3,5 のようにページ範囲を入力してください。",
+      "errorNoPages": "ページを1つ以上選んでください。",
+      "faq": [
+        [
+          "ページはどう選びますか？",
+          "サムネイルをタップするか、「範囲を入力」に切り替えて 1-3,5,8- のように書きます（1〜3ページ、5ページ、8ページから最後まで）。"
+        ],
+        [
+          "ページの順番は変えられますか？",
+          "「元の順番を保つ」をオフにすると入力した順に並び、同じページを何度も入れることもできます。"
+        ],
+        [
+          "元のファイルは変わりますか？",
+          "いいえ。選んだページだけの新しいPDFが作られ、元のファイルはそのままです。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で読み込んで処理され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Extraer páginas PDF – Guardar páginas elegidas como nuevo PDF",
+      "h1": "Extraer páginas de PDF",
+      "line": "Elige páginas y guárdalas en PDF nuevo.",
+      "description": "Extrae páginas de un PDF gratis. Toca las páginas que quieras o escribe rangos como 1-3,5 y descarga un PDF nuevo. En tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Extraer",
+      "resultName": "paginas",
+      "options": {
+        "mode": {
+          "label": "Elegir páginas por",
+          "choices": {
+            "pages": "Tocar páginas",
+            "ranges": "Escribir rangos"
+          }
+        },
+        "pages": {
+          "label": "Páginas a extraer"
+        },
+        "ranges": {
+          "label": "Páginas",
+          "help": "p. ej. 1-3,5,8-"
+        },
+        "keepOrder": {
+          "label": "Mantener el orden original"
+        }
+      },
+      "errorRanges": "Escribe rangos de páginas como 1-3,5.",
+      "errorNoPages": "Selecciona al menos una página.",
+      "faq": [
+        [
+          "¿Cómo elijo las páginas?",
+          "Toca las miniaturas que quieras o cambia a Escribir rangos y pon 1-3,5,8- (páginas 1 a 3, página 5 y de la 8 al final)."
+        ],
+        [
+          "¿Puedo cambiar el orden de las páginas?",
+          "Desactiva Mantener el orden original: las páginas irán en el orden que escribas y una página puede repetirse."
+        ],
+        [
+          "¿Se modifica el archivo original?",
+          "No. Se crea un PDF nuevo solo con las páginas elegidas; el original queda igual."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se lee y se procesa en tu dispositivo y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Extrair páginas PDF – Salvar páginas escolhidas em novo PDF",
+      "h1": "Extrair páginas de PDF",
+      "line": "Escolha páginas e salve como novo PDF.",
+      "description": "Extraia páginas de um PDF grátis. Toque nas páginas que quiser ou digite intervalos como 1-3,5 e baixe um novo PDF. Roda no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Extrair",
+      "resultName": "paginas",
+      "options": {
+        "mode": {
+          "label": "Escolher páginas por",
+          "choices": {
+            "pages": "Tocar nas páginas",
+            "ranges": "Digitar intervalos"
+          }
+        },
+        "pages": {
+          "label": "Páginas a extrair"
+        },
+        "ranges": {
+          "label": "Páginas",
+          "help": "ex.: 1-3,5,8-"
+        },
+        "keepOrder": {
+          "label": "Manter a ordem original"
+        }
+      },
+      "errorRanges": "Digite intervalos como 1-3,5.",
+      "errorNoPages": "Selecione pelo menos uma página.",
+      "faq": [
+        [
+          "Como escolho as páginas?",
+          "Toque nas miniaturas que quiser ou mude para Digitar intervalos e escreva 1-3,5,8- (páginas 1 a 3, página 5 e da 8 até o fim)."
+        ],
+        [
+          "Posso mudar a ordem das páginas?",
+          "Desligue Manter a ordem original: as páginas ficam na ordem digitada e uma página pode se repetir."
+        ],
+        [
+          "O arquivo original é alterado?",
+          "Não. É criado um novo PDF só com as páginas escolhidas; o original continua igual."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é lido e processado no seu dispositivo e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF-Seiten extrahieren – Seiten als neue PDF speichern",
+      "h1": "PDF-Seiten extrahieren",
+      "line": "Seiten wählen, als neue PDF speichern.",
+      "description": "Seiten aus einer PDF kostenlos extrahieren. Seiten antippen oder Bereiche wie 1-3,5 eingeben und als neue PDF herunterladen. Im Browser, kein Upload.",
+      "buttonText": "PDF auswählen",
+      "runText": "Extrahieren",
+      "resultName": "seiten",
+      "options": {
+        "mode": {
+          "label": "Seiten wählen per",
+          "choices": {
+            "pages": "Seiten antippen",
+            "ranges": "Bereiche eingeben"
+          }
+        },
+        "pages": {
+          "label": "Zu extrahierende Seiten"
+        },
+        "ranges": {
+          "label": "Seiten",
+          "help": "z. B. 1-3,5,8-"
+        },
+        "keepOrder": {
+          "label": "Originalreihenfolge behalten"
+        }
+      },
+      "errorRanges": "Gib Seitenbereiche wie 1-3,5 ein.",
+      "errorNoPages": "Wähle mindestens eine Seite.",
+      "faq": [
+        [
+          "Wie wähle ich Seiten aus?",
+          "Tippe die gewünschten Vorschaubilder an oder wechsle zu Bereiche eingeben und schreibe 1-3,5,8- (Seite 1 bis 3, Seite 5 und ab 8 bis zum Ende)."
+        ],
+        [
+          "Kann ich die Reihenfolge ändern?",
+          "Schalte Originalreihenfolge behalten aus: Die Seiten folgen dann deiner Eingabe, und eine Seite kann mehrfach vorkommen."
+        ],
+        [
+          "Wird die Originaldatei verändert?",
+          "Nein. Es entsteht eine neue PDF nur mit den gewählten Seiten; das Original bleibt unverändert."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät gelesen und verarbeitet und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Extraire des pages PDF – Pages choisies dans un nouveau PDF",
+      "h1": "Extraire des pages PDF",
+      "line": "Extrayez des pages dans un nouveau PDF.",
+      "description": "Extrayez des pages d'un PDF gratuitement. Touchez les pages voulues ou saisissez des plages comme 1-3,5 et téléchargez un nouveau PDF. Rien n'est envoyé.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Extraire",
+      "resultName": "pages",
+      "options": {
+        "mode": {
+          "label": "Choisir les pages par",
+          "choices": {
+            "pages": "Toucher les pages",
+            "ranges": "Saisir des plages"
+          }
+        },
+        "pages": {
+          "label": "Pages à extraire"
+        },
+        "ranges": {
+          "label": "Pages",
+          "help": "ex. 1-3,5,8-"
+        },
+        "keepOrder": {
+          "label": "Garder l'ordre d'origine"
+        }
+      },
+      "errorRanges": "Indiquez des plages comme 1-3,5.",
+      "errorNoPages": "Sélectionnez au moins une page.",
+      "faq": [
+        [
+          "Comment choisir les pages ?",
+          "Touchez les miniatures voulues ou passez en Saisir des plages et écrivez 1-3,5,8- (pages 1 à 3, page 5 et de la 8 à la fin)."
+        ],
+        [
+          "Puis-je changer l'ordre des pages ?",
+          "Désactivez Garder l'ordre d'origine : les pages suivent alors votre saisie et une page peut être répétée."
+        ],
+        [
+          "Le fichier d'origine est-il modifié ?",
+          "Non. Un nouveau PDF ne contenant que les pages choisies est créé ; l'original reste intact."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est lu et traité sur votre appareil et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,62 @@
+/* parkbok 텍스트 도구 공통 뼈대 CSS. 각 text/*.html 의 <head> 끝에 있는 style#page-css 안에 그대로 인라인한다(빌드 아님). */
+/* 뼈대: div.tool-head → section.stage-in → div.ad → section.opts → section.stage-out → nav.next → details.about */
+
+/* ---------- 상태 전환 ---------- */
+body.has-input .lead{display:none}
+.stage-out[hidden],.opts[hidden],.stats[hidden]{display:none}
+body.busy .actions .btn{opacity:.6;pointer-events:none}
+
+/* ---------- 머리 ---------- */
+.type-text .tool-head{margin:0 0 16px}
+.type-text .tool-head h1{margin:0 0 6px}
+.type-text .tool-head .lead{margin:0}
+
+/* ---------- 입력 ---------- */
+.type-text .stage-in .tt-grid{grid-template-columns:1fr}
+.type-text .tt-grid textarea{min-height:280px}
+
+/* ---------- 옵션 ---------- */
+.type-text .opts{margin:16px 0 0}
+.type-text .opts .presets{display:flex;flex-wrap:wrap;gap:6px;flex-basis:100%}
+.type-text .opts .presets .preset{height:30px;padding:2px 12px;font-size:13px}
+
+/* ---------- 결과 ---------- */
+.type-text .stage-out{margin:16px 0 0}
+.type-text .result{padding:0;border:0;background:transparent}
+.type-text .result textarea{display:block;width:100%;min-height:280px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--bg);color:var(--ink)}
+.type-text .result textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.type-text .result .stats{margin:0}
+.type-text .actions{margin:12px 0 0}
+.type-text .status{margin:8px 0 0;min-height:18px}
+
+/* ---------- 다음 도구 ---------- */
+.type-text nav.next{margin:24px 0 8px}
+
+/* ---------- 2열 (PC) ---------- */
+@media (min-width:960px){
+  body.type-text main.wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;align-items:start}
+  body.type-text main.wrap>*{margin:0}
+  .type-text .tool-head{grid-column:1/-1;grid-row:1}
+  .type-text .stage-in{grid-column:1;grid-row:2}
+  .type-text .stage-out{grid-column:2;grid-row:2}
+  body.type-text:not(.has-input) .stage-in{grid-column:1/-1}
+  .type-text .ad{grid-column:1/-1;grid-row:3}
+  .type-text .opts{grid-column:1/-1;grid-row:4}
+  .type-text nav.next{grid-column:1/-1;grid-row:5}
+  .type-text details.about{grid-column:1/-1;grid-row:6}
+  .type-text .tt-grid textarea,.type-text .result textarea{min-height:360px}
+}
+
+/* ---------- 1열 (태블릿 이하) ---------- */
+@media (max-width:959.98px){
+  body.type-text main.wrap{display:block}
+}
+
+/* ---------- 휴대폰: 결과 버튼 고정 ---------- */
+@media (max-width:767.98px){
+  .type-text .actions{position:sticky;bottom:0;background:var(--card);padding:12px 0;border-top:1px solid var(--line);z-index:2;margin:12px 0 0}
+  .type-text #btn-primary{width:100%}
+  .type-text .tt-grid textarea,.type-text .result textarea{min-height:200px}
+  .type-text .opts .presets{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .type-text .opts .presets::-webkit-scrollbar{display:none}
+}

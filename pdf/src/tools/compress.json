@@ -1,0 +1,341 @@
+{
+  "id": "compress",
+  "order": 3,
+  "icon": "compress",
+  "cat": "pdf",
+  "next": [
+    "merge",
+    "split",
+    "rotate"
+  ],
+  "strings": {
+    "en": {
+      "title": "Compress PDF – Reduce PDF File Size Online Free",
+      "h1": "Compress PDF",
+      "line": "Shrink a PDF to send or upload it.",
+      "description": "Compress PDF files online for free. Pick a level, shrink the images inside the PDF and download a smaller file. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF file",
+      "runText": "Compress",
+      "resultName": "compressed",
+      "options": {
+        "level": {
+          "label": "Compression",
+          "choices": {
+            "low": "Light – best quality",
+            "medium": "Balanced – recommended",
+            "high": "Strong – smallest file"
+          },
+          "help": "Images inside the PDF are resized and re-saved as JPEG. Text stays sharp."
+        }
+      },
+      "noteSaved": "{before} → {after} (−{pct}%)",
+      "noteSame": "This PDF can't be made smaller ({size}). It is returned unchanged.",
+      "noteNoImages": "No images to compress – a text-only PDF is already small ({size}).",
+      "faq": [
+        [
+          "Why didn't my file get smaller?",
+          "Compression works on photos and scans. A PDF made of text and vector graphics has little to shrink, so you get it back unchanged."
+        ],
+        [
+          "Does the text stay sharp?",
+          "Yes. Only images are resized and re-encoded; text, fonts and vector drawings are untouched."
+        ],
+        [
+          "Which level should I choose?",
+          "Balanced suits email and the web. Strong gives the smallest file when quality matters less; Light keeps images close to the original."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is compressed on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 압축 – PDF 용량 줄이기 무료 온라인",
+      "h1": "PDF 압축",
+      "line": "PDF 용량 줄이기",
+      "description": "PDF 압축 무료 온라인. 압축 강도를 고르면 PDF 안의 이미지를 줄여 더 작은 파일로 내려받을 수 있습니다. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "압축하기",
+      "resultName": "압축",
+      "options": {
+        "level": {
+          "label": "압축 강도",
+          "choices": {
+            "low": "약하게 – 화질 우선",
+            "medium": "보통 – 추천",
+            "high": "강하게 – 최소 용량"
+          },
+          "help": "PDF 안의 이미지를 줄이고 JPEG 로 다시 저장합니다. 글자는 그대로 선명합니다."
+        }
+      },
+      "noteSaved": "{before} → {after} (−{pct}%)",
+      "noteSame": "더 줄일 수 없는 PDF 입니다 ({size}). 원본 그대로 내려받습니다.",
+      "noteNoImages": "압축할 이미지가 없습니다. 글자만 있는 PDF 는 이미 작습니다 ({size}).",
+      "faq": [
+        [
+          "왜 용량이 안 줄었나요?",
+          "압축은 사진·스캔 이미지에 효과가 있습니다. 글자와 도형만 있는 PDF 는 줄일 것이 거의 없어 원본 그대로 돌려드립니다."
+        ],
+        [
+          "글자도 흐려지나요?",
+          "아니요. 이미지만 줄이고 다시 저장하며 글자·글꼴·도형은 건드리지 않습니다."
+        ],
+        [
+          "어떤 강도를 고르나요?",
+          "보통은 이메일·웹용으로 알맞습니다. 강하게는 화질보다 용량이 중요할 때, 약하게는 원본에 가까운 화질을 원할 때 고르세요."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 압축되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "压缩 PDF – 免费在线减小 PDF 文件大小",
+      "h1": "压缩 PDF",
+      "line": "减小 PDF 体积，方便发送和上传。",
+      "description": "免费在线压缩 PDF。选择压缩强度，缩小 PDF 中的图片，然后下载更小的文件。全部在浏览器中完成，不上传任何文件，无需注册。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "压缩",
+      "resultName": "压缩",
+      "options": {
+        "level": {
+          "label": "压缩强度",
+          "choices": {
+            "low": "轻度 – 画质优先",
+            "medium": "标准 – 推荐",
+            "high": "强力 – 文件最小"
+          },
+          "help": "缩小 PDF 中的图片并重新保存为 JPEG，文字保持清晰。"
+        }
+      },
+      "noteSaved": "{before} → {after}（−{pct}%）",
+      "noteSame": "此 PDF 无法再缩小（{size}），将按原样下载。",
+      "noteNoImages": "没有可压缩的图片。纯文字 PDF 本身已经很小（{size}）。",
+      "faq": [
+        [
+          "为什么文件没有变小？",
+          "压缩主要作用于照片和扫描件。只有文字和矢量图形的 PDF 几乎没有可缩减的内容，因此会原样返回。"
+        ],
+        [
+          "文字会变模糊吗？",
+          "不会。只有图片会被缩小和重新编码，文字、字体和矢量图形保持不变。"
+        ],
+        [
+          "该选哪个强度？",
+          "标准适合邮件和网页。强力用于追求最小文件、对画质要求不高的情况；轻度让图片尽量接近原样。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上压缩，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDF圧縮 – PDFのファイルサイズを小さくする 無料オンライン",
+      "h1": "PDF圧縮",
+      "line": "PDFを軽くしてメールや共有をしやすく。",
+      "description": "無料でPDFを圧縮。圧縮の強さを選び、PDF内の画像を小さくして軽いファイルをダウンロード。ブラウザ内で処理するためファイルはアップロードされません。登録も不要です。",
+      "buttonText": "PDFを選択",
+      "runText": "圧縮する",
+      "resultName": "圧縮",
+      "options": {
+        "level": {
+          "label": "圧縮の強さ",
+          "choices": {
+            "low": "弱め – 画質優先",
+            "medium": "標準 – おすすめ",
+            "high": "強め – 最小サイズ"
+          },
+          "help": "PDF内の画像を縮小してJPEGで保存し直します。文字はそのまま鮮明です。"
+        }
+      },
+      "noteSaved": "{before} → {after}（−{pct}%）",
+      "noteSame": "これ以上小さくできないPDFです（{size}）。元のままダウンロードします。",
+      "noteNoImages": "圧縮できる画像がありません。文字だけのPDFはすでに軽量です（{size}）。",
+      "faq": [
+        [
+          "なぜ小さくならないのですか？",
+          "圧縮が効くのは写真やスキャン画像です。文字と図形だけのPDFは減らせる部分がほとんどなく、元のまま返されます。"
+        ],
+        [
+          "文字はぼやけませんか？",
+          "いいえ。縮小・再保存するのは画像だけで、文字・フォント・図形には手を加えません。"
+        ],
+        [
+          "どの強さを選べばいいですか？",
+          "標準はメールやウェブ向けです。強めは画質より容量を優先したいとき、弱めは元に近い画質を残したいときに選びます。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で圧縮され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Comprimir PDF – Reducir el tamaño de un PDF gratis online",
+      "h1": "Comprimir PDF",
+      "line": "Reduce el peso de tu PDF para enviarlo.",
+      "description": "Comprime PDF gratis y online. Elige un nivel, reduce las imágenes del PDF y descarga un archivo más ligero. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Comprimir",
+      "resultName": "comprimido",
+      "options": {
+        "level": {
+          "label": "Nivel de compresión",
+          "choices": {
+            "low": "Suave – mejor calidad",
+            "medium": "Equilibrado – recomendado",
+            "high": "Fuerte – archivo mínimo"
+          },
+          "help": "Las imágenes del PDF se reducen y se guardan como JPEG. El texto sigue nítido."
+        }
+      },
+      "noteSaved": "{before} → {after} (−{pct}%)",
+      "noteSame": "Este PDF no se puede reducir más ({size}). Se devuelve sin cambios.",
+      "noteNoImages": "No hay imágenes que comprimir: un PDF solo de texto ya es pequeño ({size}).",
+      "faq": [
+        [
+          "¿Por qué no se redujo mi archivo?",
+          "La compresión actúa sobre fotos y escaneos. Un PDF de texto y gráficos vectoriales apenas tiene qué reducir, así que se devuelve igual."
+        ],
+        [
+          "¿El texto sigue nítido?",
+          "Sí. Solo las imágenes se reducen y se recodifican; el texto, las fuentes y los dibujos vectoriales no se tocan."
+        ],
+        [
+          "¿Qué nivel elijo?",
+          "Equilibrado va bien para correo y web. Fuerte da el archivo más pequeño cuando la calidad importa menos; Suave deja las imágenes casi como el original."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se comprime en tu dispositivo y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Comprimir PDF – Reduzir o tamanho do PDF grátis online",
+      "h1": "Comprimir PDF",
+      "line": "Diminua o tamanho do PDF para enviar.",
+      "description": "Comprima arquivos PDF grátis e online. Escolha um nível, reduza as imagens do PDF e baixe um arquivo mais leve. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Comprimir",
+      "resultName": "comprimido",
+      "options": {
+        "level": {
+          "label": "Nível de compressão",
+          "choices": {
+            "low": "Leve – melhor qualidade",
+            "medium": "Equilibrado – recomendado",
+            "high": "Forte – menor arquivo"
+          },
+          "help": "As imagens do PDF são reduzidas e salvas como JPEG. O texto continua nítido."
+        }
+      },
+      "noteSaved": "{before} → {after} (−{pct}%)",
+      "noteSame": "Este PDF não pode ficar menor ({size}). Ele é devolvido sem alterações.",
+      "noteNoImages": "Não há imagens para comprimir: um PDF só de texto já é pequeno ({size}).",
+      "faq": [
+        [
+          "Por que meu arquivo não diminuiu?",
+          "A compressão age em fotos e digitalizações. Um PDF de texto e gráficos vetoriais tem pouco a reduzir, então ele volta igual."
+        ],
+        [
+          "O texto continua nítido?",
+          "Sim. Só as imagens são reduzidas e recodificadas; texto, fontes e desenhos vetoriais não são alterados."
+        ],
+        [
+          "Qual nível escolher?",
+          "Equilibrado serve para e-mail e web. Forte dá o menor arquivo quando a qualidade importa menos; Leve mantém as imagens quase como o original."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é comprimido no seu dispositivo e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF komprimieren – PDF verkleinern online kostenlos",
+      "h1": "PDF komprimieren",
+      "line": "PDF verkleinern, um sie leichter zu senden.",
+      "description": "PDF kostenlos online komprimieren. Stufe wählen, Bilder in der PDF verkleinern und die kleinere Datei herunterladen. Läuft im Browser – kein Upload.",
+      "buttonText": "PDF auswählen",
+      "runText": "Komprimieren",
+      "resultName": "komprimiert",
+      "options": {
+        "level": {
+          "label": "Komprimierung",
+          "choices": {
+            "low": "Leicht – beste Qualität",
+            "medium": "Ausgewogen – empfohlen",
+            "high": "Stark – kleinste Datei"
+          },
+          "help": "Bilder in der PDF werden verkleinert und als JPEG neu gespeichert. Text bleibt scharf."
+        }
+      },
+      "noteSaved": "{before} → {after} (−{pct}%)",
+      "noteSame": "Diese PDF lässt sich nicht weiter verkleinern ({size}). Sie wird unverändert zurückgegeben.",
+      "noteNoImages": "Keine Bilder zum Komprimieren – eine reine Text-PDF ist schon klein ({size}).",
+      "faq": [
+        [
+          "Warum wurde meine Datei nicht kleiner?",
+          "Die Komprimierung wirkt auf Fotos und Scans. Eine PDF aus Text und Vektorgrafik hat kaum etwas zu verkleinern, deshalb kommt sie unverändert zurück."
+        ],
+        [
+          "Bleibt der Text scharf?",
+          "Ja. Nur Bilder werden verkleinert und neu kodiert; Text, Schriften und Vektorzeichnungen bleiben unberührt."
+        ],
+        [
+          "Welche Stufe soll ich wählen?",
+          "Ausgewogen passt für E-Mail und Web. Stark liefert die kleinste Datei, wenn Qualität weniger wichtig ist; Leicht hält Bilder nah am Original."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät komprimiert und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Compresser PDF – Réduire la taille d'un PDF gratuitement",
+      "h1": "Compresser PDF",
+      "line": "Allégez votre PDF pour l'envoyer facilement.",
+      "description": "Compressez un PDF gratuitement en ligne. Choisissez un niveau, réduisez les images du PDF et téléchargez un fichier plus léger. Rien n'est envoyé.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Compresser",
+      "resultName": "compresse",
+      "options": {
+        "level": {
+          "label": "Niveau de compression",
+          "choices": {
+            "low": "Léger – meilleure qualité",
+            "medium": "Équilibré – recommandé",
+            "high": "Fort – fichier minimal"
+          },
+          "help": "Les images du PDF sont réduites et réenregistrées en JPEG. Le texte reste net."
+        }
+      },
+      "noteSaved": "{before} → {after} (−{pct}%)",
+      "noteSame": "Ce PDF ne peut pas être réduit davantage ({size}). Il est renvoyé tel quel.",
+      "noteNoImages": "Aucune image à compresser : un PDF composé uniquement de texte est déjà léger ({size}).",
+      "faq": [
+        [
+          "Pourquoi mon fichier n'a-t-il pas rétréci ?",
+          "La compression agit sur les photos et les scans. Un PDF fait de texte et de dessins vectoriels n'a presque rien à réduire, il est donc renvoyé tel quel."
+        ],
+        [
+          "Le texte reste-t-il net ?",
+          "Oui. Seules les images sont réduites et réencodées ; le texte, les polices et les dessins vectoriels ne sont pas touchés."
+        ],
+        [
+          "Quel niveau choisir ?",
+          "Équilibré convient pour l'e-mail et le web. Fort donne le fichier le plus petit quand la qualité compte moins ; Léger garde les images proches de l'original."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est compressé sur votre appareil et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "en": {
+    "name": "English", "dir": "ltr",
+    "selectFiles": "Select PDF file", "selectImages": "Select images", "dropText": "or drop files here · paste works too", "addMore": "Add more", "remove": "Remove",
+    "filesCount": "{n} files", "fileCount": "1 file", "processing": "Processing…", "done": "Done", "download": "Download", "downloadAll": "Download ZIP", "startOver": "Start over",
+    "errorType": "Only {type} files are supported.", "errorEncrypted": "This PDF is password-protected. Remove the password first.", "errorBroken": "This file is damaged or is not a valid PDF.", "errorEmpty": "Select at least {n} file(s).", "errorGeneric": "Something went wrong. Try again with another file.",
+    "pages": "{n} pages", "page": "Page", "selectAll": "Select all", "clearAll": "Clear all", "moveLeft": "Move left", "moveRight": "Move right", "moveUp": "Move up", "moveDown": "Move down", "rotate": "Rotate", "delete": "Delete", "restore": "Restore",
+    "drawHere": "Draw your signature here", "upload": "Upload PNG", "clear": "Clear", "language": "Language", "loadingLib": "Loading…", "selected": "{n} selected", "morePages": "+{n} more pages (no preview)", "pageN": "Page {n}", "preview": "Preview",
+    "hub": { "title": "Free PDF Tools Online – Merge, Split, Compress, Convert", "h1": "PDF tools", "line": "Free, in your browser. Files never leave your device.", "description": "Free online PDF tools: merge, split, compress, rotate, convert and more. Everything runs in your browser – no upload, no sign-up, no limits." },
+    "aboutLine": "Your files are processed on your device and are never uploaded to a server.", "aboutTitle": "How it works", "nextTools": "Next tools"
+  },
+  "ko": {
+    "name": "한국어", "dir": "ltr",
+    "selectFiles": "PDF 파일 선택", "selectImages": "이미지 선택", "dropText": "또는 여기에 끌어다 놓기 · 붙여넣기도 됩니다", "addMore": "더 추가", "remove": "삭제",
+    "filesCount": "파일 {n}개", "fileCount": "파일 1개", "processing": "처리 중…", "done": "완료", "download": "내려받기", "downloadAll": "ZIP 내려받기", "startOver": "다시 시작",
+    "errorType": "{type} 파일만 넣을 수 있습니다.", "errorEncrypted": "암호가 걸린 PDF 입니다. 먼저 암호를 풀어 주세요.", "errorBroken": "파일이 손상되었거나 PDF 가 아닙니다.", "errorEmpty": "파일을 {n}개 이상 넣어 주세요.", "errorGeneric": "처리에 실패했습니다. 다른 파일로 다시 시도해 주세요.",
+    "pages": "{n}쪽", "page": "쪽", "selectAll": "전체 선택", "clearAll": "선택 해제", "moveLeft": "왼쪽으로", "moveRight": "오른쪽으로", "moveUp": "위로", "moveDown": "아래로", "rotate": "회전", "delete": "삭제", "restore": "되돌리기",
+    "drawHere": "여기에 서명을 그리세요", "upload": "PNG 올리기", "clear": "지우기", "language": "언어", "loadingLib": "불러오는 중…", "selected": "{n}쪽 선택", "morePages": "+{n}쪽 더 (미리보기 없음)", "pageN": "{n}쪽", "preview": "미리보기",
+    "hub": { "title": "PDF 도구 – 합치기·나누기·압축·변환 무료 온라인", "h1": "PDF 도구", "line": "설치 없이 브라우저에서. 파일은 서버로 가지 않습니다.", "description": "무료 온라인 PDF 도구. 합치기, 나누기, 압축, 회전, 변환을 브라우저 안에서 처리합니다. 업로드 없음, 가입 없음, 제한 없음." },
+    "aboutLine": "파일은 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.", "aboutTitle": "사용 방법", "nextTools": "다음 도구"
+  },
+  "zh": {
+    "name": "中文", "dir": "ltr",
+    "selectFiles": "选择 PDF 文件", "selectImages": "选择图片", "dropText": "或将文件拖到这里 · 也支持粘贴", "addMore": "继续添加", "remove": "移除",
+    "filesCount": "{n} 个文件", "fileCount": "1 个文件", "processing": "处理中…", "done": "完成", "download": "下载", "downloadAll": "下载 ZIP", "startOver": "重新开始",
+    "errorType": "仅支持 {type} 文件。", "errorEncrypted": "此 PDF 已加密，请先移除密码。", "errorBroken": "文件已损坏或不是有效的 PDF。", "errorEmpty": "请至少选择 {n} 个文件。", "errorGeneric": "处理失败，请换一个文件重试。",
+    "pages": "{n} 页", "page": "页", "selectAll": "全选", "clearAll": "清除选择", "moveLeft": "左移", "moveRight": "右移", "moveUp": "上移", "moveDown": "下移", "rotate": "旋转", "delete": "删除", "restore": "恢复",
+    "drawHere": "在此手写签名", "upload": "上传 PNG", "clear": "清除", "language": "语言", "loadingLib": "加载中…", "selected": "已选 {n} 页", "morePages": "还有 {n} 页（无预览）", "pageN": "第 {n} 页", "preview": "预览",
+    "hub": { "title": "免费在线 PDF 工具 – 合并、拆分、压缩、转换", "h1": "PDF 工具", "line": "免费、在浏览器中完成，文件不会离开您的设备。", "description": "免费在线 PDF 工具：合并、拆分、压缩、旋转、转换等。全部在浏览器中运行，无需上传，无需注册，没有限制。" },
+    "aboutLine": "文件只在您的设备上处理，不会上传到任何服务器。", "aboutTitle": "使用方法", "nextTools": "下一步工具"
+  },
+  "ja": {
+    "name": "日本語", "dir": "ltr",
+    "selectFiles": "PDFを選択", "selectImages": "画像を選択", "dropText": "またはここにドロップ · 貼り付けも可", "addMore": "さらに追加", "remove": "削除",
+    "filesCount": "{n}ファイル", "fileCount": "1ファイル", "processing": "処理中…", "done": "完了", "download": "ダウンロード", "downloadAll": "ZIPで保存", "startOver": "やり直す",
+    "errorType": "{type} ファイルのみ対応しています。", "errorEncrypted": "このPDFはパスワード付きです。先にパスワードを解除してください。", "errorBroken": "ファイルが壊れているか、PDFではありません。", "errorEmpty": "ファイルを{n}個以上選んでください。", "errorGeneric": "処理に失敗しました。別のファイルでお試しください。",
+    "pages": "{n}ページ", "page": "ページ", "selectAll": "すべて選択", "clearAll": "選択解除", "moveLeft": "左へ", "moveRight": "右へ", "moveUp": "上へ", "moveDown": "下へ", "rotate": "回転", "delete": "削除", "restore": "元に戻す",
+    "drawHere": "ここに署名を書いてください", "upload": "PNGを選択", "clear": "消す", "language": "言語", "loadingLib": "読み込み中…", "selected": "{n}ページ選択", "morePages": "他{n}ページ（プレビューなし）", "pageN": "{n}ページ", "preview": "プレビュー",
+    "hub": { "title": "無料PDFツール – 結合・分割・圧縮・変換をブラウザで", "h1": "PDFツール", "line": "無料・インストール不要。ファイルは端末の外に出ません。", "description": "無料のオンラインPDFツール。結合、分割、圧縮、回転、変換などをブラウザ内で処理。アップロードなし、登録なし、制限なし。" },
+    "aboutLine": "ファイルはお使いの端末内だけで処理され、サーバーには送信されません。", "aboutTitle": "使い方", "nextTools": "次のツール"
+  },
+  "es": {
+    "name": "Español", "dir": "ltr",
+    "selectFiles": "Elegir PDF", "selectImages": "Elegir imágenes", "dropText": "o arrastra los archivos aquí · también puedes pegar", "addMore": "Añadir más", "remove": "Quitar",
+    "filesCount": "{n} archivos", "fileCount": "1 archivo", "processing": "Procesando…", "done": "Listo", "download": "Descargar", "downloadAll": "Descargar ZIP", "startOver": "Empezar de nuevo",
+    "errorType": "Solo se admiten archivos {type}.", "errorEncrypted": "Este PDF tiene contraseña. Quítala primero.", "errorBroken": "El archivo está dañado o no es un PDF válido.", "errorEmpty": "Elige al menos {n} archivo(s).", "errorGeneric": "Algo salió mal. Prueba con otro archivo.",
+    "pages": "{n} páginas", "page": "Página", "selectAll": "Seleccionar todo", "clearAll": "Quitar selección", "moveLeft": "Mover a la izquierda", "moveRight": "Mover a la derecha", "moveUp": "Subir", "moveDown": "Bajar", "rotate": "Girar", "delete": "Eliminar", "restore": "Restaurar",
+    "drawHere": "Dibuja tu firma aquí", "upload": "Subir PNG", "clear": "Borrar", "language": "Idioma", "loadingLib": "Cargando…", "selected": "{n} seleccionadas", "morePages": "+{n} páginas más (sin vista previa)", "pageN": "Página {n}", "preview": "Vista previa",
+    "hub": { "title": "Herramientas PDF gratis online – Unir, dividir, comprimir, convertir", "h1": "Herramientas PDF", "line": "Gratis y en tu navegador. Tus archivos no salen de tu dispositivo.", "description": "Herramientas PDF gratuitas: unir, dividir, comprimir, girar, convertir y más. Todo se procesa en tu navegador, sin subir archivos, sin registro y sin límites." },
+    "aboutLine": "Tus archivos se procesan en tu dispositivo y nunca se suben a un servidor.", "aboutTitle": "Cómo funciona", "nextTools": "Siguientes herramientas"
+  },
+  "pt": {
+    "name": "Português", "dir": "ltr",
+    "selectFiles": "Escolher PDF", "selectImages": "Escolher imagens", "dropText": "ou arraste os arquivos para cá · colar também funciona", "addMore": "Adicionar mais", "remove": "Remover",
+    "filesCount": "{n} arquivos", "fileCount": "1 arquivo", "processing": "Processando…", "done": "Pronto", "download": "Baixar", "downloadAll": "Baixar ZIP", "startOver": "Recomeçar",
+    "errorType": "Só são aceitos arquivos {type}.", "errorEncrypted": "Este PDF tem senha. Remova a senha primeiro.", "errorBroken": "O arquivo está danificado ou não é um PDF válido.", "errorEmpty": "Escolha pelo menos {n} arquivo(s).", "errorGeneric": "Algo deu errado. Tente com outro arquivo.",
+    "pages": "{n} páginas", "page": "Página", "selectAll": "Selecionar tudo", "clearAll": "Limpar seleção", "moveLeft": "Mover para a esquerda", "moveRight": "Mover para a direita", "moveUp": "Subir", "moveDown": "Descer", "rotate": "Girar", "delete": "Excluir", "restore": "Restaurar",
+    "drawHere": "Desenhe sua assinatura aqui", "upload": "Enviar PNG", "clear": "Apagar", "language": "Idioma", "loadingLib": "Carregando…", "selected": "{n} selecionadas", "morePages": "+{n} páginas (sem prévia)", "pageN": "Página {n}", "preview": "Prévia",
+    "hub": { "title": "Ferramentas PDF grátis online – Juntar, dividir, comprimir, converter", "h1": "Ferramentas PDF", "line": "Grátis e no seu navegador. Seus arquivos não saem do seu dispositivo.", "description": "Ferramentas PDF gratuitas: juntar, dividir, comprimir, girar, converter e mais. Tudo roda no navegador, sem upload, sem cadastro e sem limites." },
+    "aboutLine": "Seus arquivos são processados no seu dispositivo e nunca são enviados a um servidor.", "aboutTitle": "Como funciona", "nextTools": "Próximas ferramentas"
+  },
+  "de": {
+    "name": "Deutsch", "dir": "ltr",
+    "selectFiles": "PDF auswählen", "selectImages": "Bilder auswählen", "dropText": "oder Dateien hierher ziehen · Einfügen geht auch", "addMore": "Mehr hinzufügen", "remove": "Entfernen",
+    "filesCount": "{n} Dateien", "fileCount": "1 Datei", "processing": "Wird verarbeitet…", "done": "Fertig", "download": "Herunterladen", "downloadAll": "ZIP herunterladen", "startOver": "Neu beginnen",
+    "errorType": "Nur {type}-Dateien werden unterstützt.", "errorEncrypted": "Diese PDF ist passwortgeschützt. Entferne zuerst das Passwort.", "errorBroken": "Die Datei ist beschädigt oder keine gültige PDF.", "errorEmpty": "Wähle mindestens {n} Datei(en).", "errorGeneric": "Etwas ist schiefgelaufen. Versuche es mit einer anderen Datei.",
+    "pages": "{n} Seiten", "page": "Seite", "selectAll": "Alle auswählen", "clearAll": "Auswahl aufheben", "moveLeft": "Nach links", "moveRight": "Nach rechts", "moveUp": "Nach oben", "moveDown": "Nach unten", "rotate": "Drehen", "delete": "Löschen", "restore": "Wiederherstellen",
+    "drawHere": "Unterschrift hier zeichnen", "upload": "PNG hochladen", "clear": "Löschen", "language": "Sprache", "loadingLib": "Wird geladen…", "selected": "{n} ausgewählt", "morePages": "+{n} weitere Seiten (ohne Vorschau)", "pageN": "Seite {n}", "preview": "Vorschau",
+    "hub": { "title": "Kostenlose PDF-Tools online – Zusammenfügen, Teilen, Komprimieren, Umwandeln", "h1": "PDF-Tools", "line": "Kostenlos, direkt im Browser. Deine Dateien verlassen dein Gerät nicht.", "description": "Kostenlose PDF-Tools: zusammenfügen, teilen, komprimieren, drehen, umwandeln und mehr. Alles läuft im Browser – kein Upload, keine Anmeldung, keine Limits." },
+    "aboutLine": "Deine Dateien werden auf deinem Gerät verarbeitet und nie auf einen Server hochgeladen.", "aboutTitle": "So funktioniert es", "nextTools": "Weitere Tools"
+  },
+  "fr": {
+    "name": "Français", "dir": "ltr",
+    "selectFiles": "Choisir un PDF", "selectImages": "Choisir des images", "dropText": "ou déposez les fichiers ici · le collage fonctionne aussi", "addMore": "Ajouter", "remove": "Retirer",
+    "filesCount": "{n} fichiers", "fileCount": "1 fichier", "processing": "Traitement…", "done": "Terminé", "download": "Télécharger", "downloadAll": "Télécharger le ZIP", "startOver": "Recommencer",
+    "errorType": "Seuls les fichiers {type} sont acceptés.", "errorEncrypted": "Ce PDF est protégé par un mot de passe. Retirez-le d'abord.", "errorBroken": "Le fichier est endommagé ou n'est pas un PDF valide.", "errorEmpty": "Choisissez au moins {n} fichier(s).", "errorGeneric": "Une erreur est survenue. Réessayez avec un autre fichier.",
+    "pages": "{n} pages", "page": "Page", "selectAll": "Tout sélectionner", "clearAll": "Tout désélectionner", "moveLeft": "Vers la gauche", "moveRight": "Vers la droite", "moveUp": "Monter", "moveDown": "Descendre", "rotate": "Pivoter", "delete": "Supprimer", "restore": "Rétablir",
+    "drawHere": "Dessinez votre signature ici", "upload": "Importer un PNG", "clear": "Effacer", "language": "Langue", "loadingLib": "Chargement…", "selected": "{n} sélectionnées", "morePages": "+{n} pages (sans aperçu)", "pageN": "Page {n}", "preview": "Aperçu",
+    "hub": { "title": "Outils PDF gratuits en ligne – Fusionner, diviser, compresser, convertir", "h1": "Outils PDF", "line": "Gratuit, dans votre navigateur. Vos fichiers ne quittent pas votre appareil.", "description": "Outils PDF gratuits : fusionner, diviser, compresser, pivoter, convertir et plus. Tout se passe dans votre navigateur – sans envoi, sans inscription, sans limite." },
+    "aboutLine": "Vos fichiers sont traités sur votre appareil et ne sont jamais envoyés à un serveur.", "aboutTitle": "Comment ça marche", "nextTools": "Outils suivants"
+  }
+}

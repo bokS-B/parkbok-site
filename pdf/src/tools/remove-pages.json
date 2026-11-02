@@ -1,0 +1,397 @@
+{
+  "id": "remove-pages",
+  "order": 4,
+  "icon": "remove-pages",
+  "cat": "pdf",
+  "next": [
+    "organize",
+    "extract-pages",
+    "split"
+  ],
+  "strings": {
+    "en": {
+      "title": "Remove Pages from PDF – Delete PDF Pages Online Free",
+      "h1": "Remove PDF pages",
+      "line": "Delete the pages you don't need.",
+      "description": "Remove pages from a PDF free. Tap the pages to delete or type page numbers, then download the rest as one PDF. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF file",
+      "runText": "Remove",
+      "resultName": "removed",
+      "options": {
+        "mode": {
+          "label": "Pick pages by",
+          "choices": {
+            "pages": "Tapping thumbnails",
+            "ranges": "Page numbers"
+          }
+        },
+        "pages": {
+          "label": "Tap the pages to remove"
+        },
+        "ranges": {
+          "label": "Pages to remove",
+          "help": "e.g. 1-3,5"
+        }
+      },
+      "errors": {
+        "noneSelected": "Pick at least one page to remove.",
+        "allRemoved": "At least one page has to stay.",
+        "badRanges": "Check the page numbers, e.g. 1-3,5."
+      },
+      "faq": [
+        [
+          "How do I pick the pages?",
+          "Tap the thumbnails of the pages you want gone – they turn marked. Or switch to page numbers and type something like 2,5-7."
+        ],
+        [
+          "Can I remove every page?",
+          "No. At least one page has to stay, otherwise the PDF would be empty."
+        ],
+        [
+          "Does this change my original file?",
+          "No. You get a new PDF; the file on your device stays as it was."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is opened and rewritten on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 페이지 삭제 – 필요 없는 쪽 지우기 무료 온라인",
+      "h1": "PDF 페이지 삭제",
+      "line": "필요 없는 쪽 골라 삭제",
+      "description": "PDF 페이지 삭제 무료 온라인. 지울 쪽을 썸네일에서 누르거나 쪽 번호를 적고, 나머지를 PDF 한 개로 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "쪽 지우기",
+      "resultName": "쪽삭제",
+      "options": {
+        "mode": {
+          "label": "고르는 방법",
+          "choices": {
+            "pages": "썸네일 누르기",
+            "ranges": "쪽 번호 입력"
+          }
+        },
+        "pages": {
+          "label": "지울 쪽을 누르세요"
+        },
+        "ranges": {
+          "label": "지울 쪽",
+          "help": "예: 1-3,5"
+        }
+      },
+      "errors": {
+        "noneSelected": "지울 쪽을 하나 이상 고르세요.",
+        "allRemoved": "최소 한 쪽은 남겨야 합니다.",
+        "badRanges": "쪽 번호를 확인하세요. 예: 1-3,5"
+      },
+      "faq": [
+        [
+          "지울 쪽은 어떻게 고르나요?",
+          "썸네일에서 지울 쪽을 누르면 표시가 생깁니다. 쪽 번호 입력으로 바꿔 2,5-7 처럼 적어도 됩니다."
+        ],
+        [
+          "모든 쪽을 지울 수 있나요?",
+          "아니요. PDF 가 비어 버리므로 최소 한 쪽은 남겨야 합니다."
+        ],
+        [
+          "원본 파일이 바뀌나요?",
+          "아니요. 새 PDF 를 만들어 드리고, 기기에 있던 원본은 그대로 남습니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 열고 다시 저장되며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "删除 PDF 页面 – 免费在线删除 PDF 中的页",
+      "h1": "删除 PDF 页面",
+      "line": "挑出不需要的页并删除。",
+      "description": "免费在线删除 PDF 页面。点选要删除的页或输入页码，然后把剩下的页下载为一个 PDF。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "删除页面",
+      "resultName": "已删页",
+      "options": {
+        "mode": {
+          "label": "选页方式",
+          "choices": {
+            "pages": "点选缩略图",
+            "ranges": "输入页码"
+          }
+        },
+        "pages": {
+          "label": "点选要删除的页"
+        },
+        "ranges": {
+          "label": "要删除的页",
+          "help": "例如 1-3,5"
+        }
+      },
+      "errors": {
+        "noneSelected": "请至少选择一页要删除的页。",
+        "allRemoved": "至少要保留一页。",
+        "badRanges": "请检查页码，例如 1-3,5。"
+      },
+      "faq": [
+        [
+          "如何选择要删除的页？",
+          "点一下缩略图即可标记该页。也可以切换到输入页码，填写 2,5-7 这样的范围。"
+        ],
+        [
+          "可以删除全部页面吗？",
+          "不可以。至少要保留一页，否则 PDF 会是空的。"
+        ],
+        [
+          "会改动我的原文件吗？",
+          "不会。您会得到一个新的 PDF，设备上的原文件保持不变。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上打开并重新保存，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDFページ削除 – 不要なページを消す 無料オンライン",
+      "h1": "PDFページ削除",
+      "line": "いらないページを選んで消します。",
+      "description": "無料でPDFのページを削除。消したいページをタップするかページ番号を入力し、残りを1つのPDFでダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "削除する",
+      "resultName": "削除済み",
+      "options": {
+        "mode": {
+          "label": "選び方",
+          "choices": {
+            "pages": "サムネイルをタップ",
+            "ranges": "ページ番号を入力"
+          }
+        },
+        "pages": {
+          "label": "消すページをタップ"
+        },
+        "ranges": {
+          "label": "消すページ",
+          "help": "例: 1-3,5"
+        }
+      },
+      "errors": {
+        "noneSelected": "消すページを1つ以上選んでください。",
+        "allRemoved": "少なくとも1ページは残してください。",
+        "badRanges": "ページ番号を確認してください。例: 1-3,5"
+      },
+      "faq": [
+        [
+          "ページはどう選びますか？",
+          "サムネイルをタップすると印が付きます。ページ番号入力に切り替えて 2,5-7 のように書くこともできます。"
+        ],
+        [
+          "全ページを消せますか？",
+          "いいえ。PDFが空になるため、少なくとも1ページは残す必要があります。"
+        ],
+        [
+          "元のファイルは変わりますか？",
+          "いいえ。新しいPDFを作成します。端末内の元ファイルはそのままです。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で開いて保存し直され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Eliminar páginas de PDF – Quitar páginas online gratis",
+      "h1": "Eliminar páginas PDF",
+      "line": "Quita las páginas que no necesitas.",
+      "description": "Elimina páginas de un PDF gratis. Toca las que sobran o escribe sus números y descarga el resto como PDF. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Eliminar",
+      "resultName": "sin-paginas",
+      "options": {
+        "mode": {
+          "label": "Elegir páginas",
+          "choices": {
+            "pages": "Tocando miniaturas",
+            "ranges": "Por números"
+          }
+        },
+        "pages": {
+          "label": "Toca las páginas a quitar"
+        },
+        "ranges": {
+          "label": "Páginas a quitar",
+          "help": "p. ej. 1-3,5"
+        }
+      },
+      "errors": {
+        "noneSelected": "Elige al menos una página para quitar.",
+        "allRemoved": "Debe quedar al menos una página.",
+        "badRanges": "Revisa los números de página, p. ej. 1-3,5."
+      },
+      "faq": [
+        [
+          "¿Cómo elijo las páginas?",
+          "Toca las miniaturas de las páginas que quieres quitar y quedarán marcadas. O cambia a números y escribe algo como 2,5-7."
+        ],
+        [
+          "¿Puedo quitar todas las páginas?",
+          "No. Debe quedar al menos una, si no el PDF estaría vacío."
+        ],
+        [
+          "¿Se modifica mi archivo original?",
+          "No. Obtienes un PDF nuevo; el archivo de tu dispositivo no cambia."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se abre y se reescribe en tu dispositivo y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Remover páginas de PDF – Excluir páginas online grátis",
+      "h1": "Remover páginas PDF",
+      "line": "Tire as páginas que você não precisa.",
+      "description": "Remova páginas de um PDF grátis. Toque nas páginas que sobram ou digite os números e baixe o restante como PDF. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Remover",
+      "resultName": "sem-paginas",
+      "options": {
+        "mode": {
+          "label": "Escolher páginas",
+          "choices": {
+            "pages": "Tocando nas miniaturas",
+            "ranges": "Por números"
+          }
+        },
+        "pages": {
+          "label": "Toque nas páginas a remover"
+        },
+        "ranges": {
+          "label": "Páginas a remover",
+          "help": "ex.: 1-3,5"
+        }
+      },
+      "errors": {
+        "noneSelected": "Escolha pelo menos uma página para remover.",
+        "allRemoved": "Pelo menos uma página precisa ficar.",
+        "badRanges": "Confira os números das páginas, ex.: 1-3,5."
+      },
+      "faq": [
+        [
+          "Como escolho as páginas?",
+          "Toque nas miniaturas das páginas que quer tirar e elas ficam marcadas. Ou mude para números e digite algo como 2,5-7."
+        ],
+        [
+          "Posso remover todas as páginas?",
+          "Não. Pelo menos uma precisa ficar, senão o PDF ficaria vazio."
+        ],
+        [
+          "Meu arquivo original muda?",
+          "Não. Você recebe um PDF novo; o arquivo no seu dispositivo continua igual."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é aberto e regravado no seu dispositivo e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF-Seiten löschen – Seiten aus PDF entfernen kostenlos",
+      "h1": "PDF-Seiten löschen",
+      "line": "Überflüssige Seiten entfernen.",
+      "description": "Seiten aus einer PDF kostenlos löschen. Seiten antippen oder Seitenzahlen eingeben, Rest als PDF herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "PDF auswählen",
+      "runText": "Entfernen",
+      "resultName": "ohne-seiten",
+      "options": {
+        "mode": {
+          "label": "Seiten wählen per",
+          "choices": {
+            "pages": "Vorschau antippen",
+            "ranges": "Seitenzahlen"
+          }
+        },
+        "pages": {
+          "label": "Zu löschende Seiten antippen"
+        },
+        "ranges": {
+          "label": "Zu löschende Seiten",
+          "help": "z. B. 1-3,5"
+        }
+      },
+      "errors": {
+        "noneSelected": "Wähle mindestens eine Seite zum Löschen.",
+        "allRemoved": "Mindestens eine Seite muss bleiben.",
+        "badRanges": "Prüfe die Seitenzahlen, z. B. 1-3,5."
+      },
+      "faq": [
+        [
+          "Wie wähle ich die Seiten aus?",
+          "Tippe die Vorschaubilder der Seiten an, die weg sollen – sie werden markiert. Oder wechsle zu Seitenzahlen und gib z. B. 2,5-7 ein."
+        ],
+        [
+          "Kann ich alle Seiten löschen?",
+          "Nein. Mindestens eine Seite muss bleiben, sonst wäre die PDF leer."
+        ],
+        [
+          "Wird meine Originaldatei verändert?",
+          "Nein. Du bekommst eine neue PDF; die Datei auf deinem Gerät bleibt wie sie ist."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät geöffnet und neu gespeichert und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Supprimer des pages PDF – Retirer des pages gratuitement",
+      "h1": "Supprimer des pages PDF",
+      "line": "Retirez les pages inutiles.",
+      "description": "Supprimez des pages d'un PDF gratuitement : touchez-les ou saisissez leurs numéros, puis téléchargez le reste. Dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Supprimer",
+      "resultName": "sans-pages",
+      "options": {
+        "mode": {
+          "label": "Choisir les pages",
+          "choices": {
+            "pages": "En touchant les vignettes",
+            "ranges": "Par numéros"
+          }
+        },
+        "pages": {
+          "label": "Touchez les pages à retirer"
+        },
+        "ranges": {
+          "label": "Pages à retirer",
+          "help": "ex. 1-3,5"
+        }
+      },
+      "errors": {
+        "noneSelected": "Choisissez au moins une page à retirer.",
+        "allRemoved": "Au moins une page doit rester.",
+        "badRanges": "Vérifiez les numéros de page, ex. 1-3,5."
+      },
+      "faq": [
+        [
+          "Comment choisir les pages ?",
+          "Touchez les vignettes des pages à retirer : elles sont marquées. Ou passez aux numéros et saisissez par exemple 2,5-7."
+        ],
+        [
+          "Puis-je retirer toutes les pages ?",
+          "Non. Au moins une page doit rester, sinon le PDF serait vide."
+        ],
+        [
+          "Mon fichier d'origine est-il modifié ?",
+          "Non. Vous obtenez un nouveau PDF ; le fichier sur votre appareil reste tel quel."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est ouvert et réenregistré sur votre appareil et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

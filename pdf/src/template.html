@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+{{hreflangs}}
+<meta property="og:title" content="{{title}}"><meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+{{shell_head}}
+<style id="page-css">{{css}}</style>
+<script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body class="page-pdf">
+{{shell_header}}
+<!-- tool:start -->
+<main class="wrap">
+  <div class="tool-head"><h1>{{h1}}</h1><p class="lead">{{line}}</p></div>
+  <section class="stage stage-in" id="in">
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="{{buttonText}}">
+      <button class="btn-big" type="button" id="btn-select">{{buttonText}}</button>
+      <div class="droptxt">{{dropText}}</div>
+      <div class="drop-compact" id="drop-compact" hidden><span id="file-count"></span><button class="btn ghost sm" type="button" id="btn-add">{{addMore}}</button><button class="btn ghost sm" type="button" id="btn-reset-top">{{startOver}}</button></div>
+      <input type="file" id="file-input" hidden>
+    </div>
+    <ul class="file-list" id="files"></ul>
+    <p class="status" id="in-status"></p>
+  </section>
+  <div class="ad"></div>
+  <section class="opts" id="opts" hidden></section>
+  <section class="stage stage-out" id="out" hidden>
+    <div class="result" id="result" hidden></div>
+    <div class="progress" id="progress" hidden role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="bar"></div></div><span class="ptxt"></span></div>
+    <div class="actions"><button class="btn-big" type="button" id="btn-primary" disabled>{{runText}}</button><button class="btn ghost" type="button" id="btn-reset">{{startOver}}</button></div>
+    <p class="status" id="status"></p>
+  </section>
+  <nav class="chips next" aria-label="{{nextTools}}">{{nextChips}}</nav>
+  <details class="about">
+    <summary>{{aboutTitle}}</summary>
+    <p>{{aboutLine}}</p>
+    <dl class="faq">{{faq}}</dl>
+  </details>
+</main>
+{{shell_footer}}
+<script>window.PDFT_STRINGS={{strings}};window.PDFT_TOOL={{tool}};</script>
+<script src="/pdf/pdf-tools.js" defer></script>
+<script src="/pdf/tools/{{toolId}}.js" defer></script>
+<!-- tool:end -->
+<!-- hub:start -->
+<main class="wrap">
+  <div class="tool-head"><h1>{{h1}}</h1><p class="lead">{{line}}</p></div>
+  <div class="grid tools-grid">{{cards}}</div>
+  <div class="ad"></div>
+  <details class="about">
+    <summary>{{aboutTitle}}</summary>
+    <p>{{aboutLine}}</p>
+  </details>
+</main>
+{{shell_footer}}
+<script>window.PDFT_STRINGS={{strings}};window.PDFT_TOOL={{tool}};</script>
+<script src="/pdf/pdf-tools.js" defer></script>
+<!-- hub:end -->
+</body>
+</html>

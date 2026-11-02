@@ -1,0 +1,581 @@
+{
+  "id": "watermark",
+  "order": 11,
+  "icon": "watermark",
+  "cat": "pdf",
+  "next": [
+    "page-numbers",
+    "sign",
+    "merge"
+  ],
+  "strings": {
+    "en": {
+      "title": "Add Watermark to PDF – Text or Image, Free Online",
+      "h1": "Add watermark",
+      "line": "Stamp text or a logo on every page.",
+      "description": "Add a text or image watermark to a PDF for free. Set opacity, size, angle and tiling, then download. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF file",
+      "runText": "Add watermark",
+      "resultName": "watermark",
+      "options": {
+        "type": {
+          "label": "Watermark",
+          "choices": {
+            "text": "Text",
+            "image": "Image"
+          }
+        },
+        "text": {
+          "label": "Text",
+          "help": "Latin letters and digits · for other scripts use an image"
+        },
+        "image": {
+          "label": "Image",
+          "help": "PNG with a transparent background works best. For Korean, Chinese or Japanese text, upload it as an image."
+        },
+        "layout": {
+          "label": "Layout",
+          "choices": {
+            "center": "Centre",
+            "tile": "Repeat"
+          }
+        },
+        "rotation": {
+          "label": "Angle",
+          "choices": {
+            "0": "0°",
+            "45": "45°",
+            "-45": "-45°"
+          }
+        },
+        "size": {
+          "label": "Size",
+          "help": "Text in points · image as % of page width"
+        },
+        "opacity": {
+          "label": "Opacity"
+        },
+        "color": {
+          "label": "Colour"
+        }
+      },
+      "errorText": "Enter watermark text using Latin letters. For other scripts, use an image.",
+      "errorImage": "Upload a PNG or JPG image for the watermark.",
+      "faq": [
+        [
+          "Can I write Korean, Chinese or Japanese?",
+          "Text mode only has a Latin font. Make an image of your text (a screenshot or a PNG with a transparent background) and choose Image."
+        ],
+        [
+          "How do I make a diagonal pattern across the page?",
+          "Choose Repeat and 45°. The watermark is repeated in a staggered grid over the whole page."
+        ],
+        [
+          "Can the watermark be removed later?",
+          "It is drawn into the page content like any other text or image, so it stays with the file. It is not a secure protection."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is opened and stamped on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 워터마크 넣기 – 글자·이미지 무료 온라인",
+      "h1": "워터마크 넣기",
+      "line": "모든 쪽에 글자·로고 찍기",
+      "description": "PDF 워터마크 넣기 무료. 글자 또는 이미지를 고르고 투명도·크기·각도·반복을 정한 뒤 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "워터마크 넣기",
+      "resultName": "워터마크",
+      "options": {
+        "type": {
+          "label": "워터마크",
+          "choices": {
+            "text": "글자",
+            "image": "이미지"
+          }
+        },
+        "text": {
+          "label": "글자",
+          "help": "영문·숫자만 · 한글은 이미지로 넣어 주세요"
+        },
+        "image": {
+          "label": "이미지",
+          "help": "배경이 투명한 PNG 가 가장 좋습니다. 한글·한자 등 글자는 이미지로 만들어 올리세요."
+        },
+        "layout": {
+          "label": "배치",
+          "choices": {
+            "center": "가운데",
+            "tile": "반복"
+          }
+        },
+        "rotation": {
+          "label": "각도",
+          "choices": {
+            "0": "0°",
+            "45": "45°",
+            "-45": "-45°"
+          }
+        },
+        "size": {
+          "label": "크기",
+          "help": "글자는 pt · 이미지는 쪽 너비의 %"
+        },
+        "opacity": {
+          "label": "투명도"
+        },
+        "color": {
+          "label": "색"
+        }
+      },
+      "errorText": "워터마크 글자를 영문으로 입력해 주세요. 한글 등은 이미지로 넣을 수 있습니다.",
+      "errorImage": "워터마크로 쓸 PNG 또는 JPG 이미지를 올려 주세요.",
+      "faq": [
+        [
+          "한글 워터마크는 어떻게 넣나요?",
+          "글자 모드에는 영문 글꼴만 들어 있습니다. 한글을 이미지(화면 캡처나 배경이 투명한 PNG)로 만든 뒤 이미지 모드로 넣으세요."
+        ],
+        [
+          "쪽 전체에 비스듬히 반복하려면?",
+          "배치를 반복, 각도를 45° 로 고르세요. 쪽 전체에 엇갈린 격자로 반복됩니다."
+        ],
+        [
+          "나중에 지울 수 있나요?",
+          "일반 글자·이미지처럼 쪽 내용에 그려지므로 파일과 함께 남습니다. 보안 보호 기능은 아닙니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 열고 워터마크를 찍으며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "PDF 添加水印 – 文字或图片水印 免费在线",
+      "h1": "添加水印",
+      "line": "给每一页加上文字或 Logo。",
+      "description": "免费为 PDF 添加文字或图片水印。设置透明度、大小、角度和平铺后下载。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "添加水印",
+      "resultName": "水印",
+      "options": {
+        "type": {
+          "label": "水印",
+          "choices": {
+            "text": "文字",
+            "image": "图片"
+          }
+        },
+        "text": {
+          "label": "文字",
+          "help": "仅支持英文字母和数字 · 中文请用图片"
+        },
+        "image": {
+          "label": "图片",
+          "help": "透明背景的 PNG 效果最好。中文、日文、韩文文字请先做成图片再上传。"
+        },
+        "layout": {
+          "label": "排列",
+          "choices": {
+            "center": "居中",
+            "tile": "平铺"
+          }
+        },
+        "rotation": {
+          "label": "角度",
+          "choices": {
+            "0": "0°",
+            "45": "45°",
+            "-45": "-45°"
+          }
+        },
+        "size": {
+          "label": "大小",
+          "help": "文字为 pt · 图片为页面宽度的 %"
+        },
+        "opacity": {
+          "label": "透明度"
+        },
+        "color": {
+          "label": "颜色"
+        }
+      },
+      "errorText": "请用英文字母输入水印文字。中文等请使用图片。",
+      "errorImage": "请上传用作水印的 PNG 或 JPG 图片。",
+      "faq": [
+        [
+          "可以加中文水印吗？",
+          "文字模式只内置英文字体。请把文字做成图片（截图或透明背景 PNG），然后选择图片模式。"
+        ],
+        [
+          "怎样做整页斜向平铺？",
+          "选择平铺和 45°。水印会以交错网格铺满整页。"
+        ],
+        [
+          "以后能去掉水印吗？",
+          "水印像普通文字和图片一样画进页面内容，会随文件保留。它不是安全保护措施。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上打开并添加水印，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDFに透かしを追加 – 文字・画像ウォーターマーク 無料",
+      "h1": "透かしを追加",
+      "line": "全ページに文字やロゴを入れます。",
+      "description": "PDFに文字または画像の透かし（ウォーターマーク）を無料で追加。不透明度・サイズ・角度・繰り返しを決めてダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "透かしを入れる",
+      "resultName": "透かし",
+      "options": {
+        "type": {
+          "label": "透かし",
+          "choices": {
+            "text": "文字",
+            "image": "画像"
+          }
+        },
+        "text": {
+          "label": "文字",
+          "help": "英数字のみ · 日本語は画像で入れてください"
+        },
+        "image": {
+          "label": "画像",
+          "help": "背景が透明なPNGが最適です。日本語・中国語・韓国語の文字は画像にしてアップロードしてください。"
+        },
+        "layout": {
+          "label": "配置",
+          "choices": {
+            "center": "中央",
+            "tile": "繰り返し"
+          }
+        },
+        "rotation": {
+          "label": "角度",
+          "choices": {
+            "0": "0°",
+            "45": "45°",
+            "-45": "-45°"
+          }
+        },
+        "size": {
+          "label": "サイズ",
+          "help": "文字はpt · 画像はページ幅の%"
+        },
+        "opacity": {
+          "label": "不透明度"
+        },
+        "color": {
+          "label": "色"
+        }
+      },
+      "errorText": "透かしの文字は英数字で入力してください。日本語などは画像で入れられます。",
+      "errorImage": "透かしに使うPNGまたはJPG画像を選んでください。",
+      "faq": [
+        [
+          "日本語の透かしは入れられますか？",
+          "文字モードには英字フォントしかありません。文字を画像（スクリーンショットや背景透明のPNG）にして、画像モードで入れてください。"
+        ],
+        [
+          "ページ全体に斜めで繰り返すには？",
+          "配置を繰り返し、角度を45°にします。ページ全体に互い違いの格子で繰り返されます。"
+        ],
+        [
+          "あとで消せますか？",
+          "通常の文字や画像と同じようにページ内容に描かれるので、ファイルに残ります。セキュリティ保護ではありません。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で開いて透かしを入れ、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Añadir marca de agua a PDF – Texto o imagen, gratis online",
+      "h1": "Marca de agua",
+      "line": "Texto o logo en todas las páginas.",
+      "description": "Añade una marca de agua de texto o imagen a un PDF gratis. Ajusta opacidad, tamaño, ángulo y repetición y descarga. En tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Añadir marca",
+      "resultName": "marca-de-agua",
+      "options": {
+        "type": {
+          "label": "Marca de agua",
+          "choices": {
+            "text": "Texto",
+            "image": "Imagen"
+          }
+        },
+        "text": {
+          "label": "Texto",
+          "help": "Letras latinas y números · otros alfabetos como imagen"
+        },
+        "image": {
+          "label": "Imagen",
+          "help": "Un PNG con fondo transparente funciona mejor. Para texto en coreano, chino o japonés, súbelo como imagen."
+        },
+        "layout": {
+          "label": "Disposición",
+          "choices": {
+            "center": "Centrado",
+            "tile": "Repetir"
+          }
+        },
+        "rotation": {
+          "label": "Ángulo",
+          "choices": {
+            "0": "0°",
+            "45": "45°",
+            "-45": "-45°"
+          }
+        },
+        "size": {
+          "label": "Tamaño",
+          "help": "Texto en puntos · imagen como % del ancho"
+        },
+        "opacity": {
+          "label": "Opacidad"
+        },
+        "color": {
+          "label": "Color"
+        }
+      },
+      "errorText": "Escribe el texto de la marca con letras latinas. Para otros alfabetos usa una imagen.",
+      "errorImage": "Sube una imagen PNG o JPG para la marca de agua.",
+      "faq": [
+        [
+          "¿Puedo escribir en coreano, chino o japonés?",
+          "El modo texto solo tiene una fuente latina. Crea una imagen con tu texto (una captura o un PNG con fondo transparente) y elige Imagen."
+        ],
+        [
+          "¿Cómo hago un patrón diagonal en toda la página?",
+          "Elige Repetir y 45°. La marca se repite en una cuadrícula escalonada por toda la página."
+        ],
+        [
+          "¿Se puede quitar después?",
+          "Se dibuja en el contenido de la página como cualquier texto o imagen, así que queda en el archivo. No es una protección de seguridad."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se abre y se marca en tu dispositivo y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Marca d'água em PDF – Texto ou imagem, grátis online",
+      "h1": "Marca d'água",
+      "line": "Texto ou logo em todas as páginas.",
+      "description": "Adicione uma marca d'água de texto ou imagem a um PDF grátis. Ajuste opacidade, tamanho, ângulo e repetição e baixe. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Adicionar marca",
+      "resultName": "marca-dagua",
+      "options": {
+        "type": {
+          "label": "Marca d'água",
+          "choices": {
+            "text": "Texto",
+            "image": "Imagem"
+          }
+        },
+        "text": {
+          "label": "Texto",
+          "help": "Letras latinas e números · outros alfabetos como imagem"
+        },
+        "image": {
+          "label": "Imagem",
+          "help": "Um PNG com fundo transparente funciona melhor. Para texto em coreano, chinês ou japonês, envie como imagem."
+        },
+        "layout": {
+          "label": "Disposição",
+          "choices": {
+            "center": "Centralizado",
+            "tile": "Repetir"
+          }
+        },
+        "rotation": {
+          "label": "Ângulo",
+          "choices": {
+            "0": "0°",
+            "45": "45°",
+            "-45": "-45°"
+          }
+        },
+        "size": {
+          "label": "Tamanho",
+          "help": "Texto em pontos · imagem como % da largura"
+        },
+        "opacity": {
+          "label": "Opacidade"
+        },
+        "color": {
+          "label": "Cor"
+        }
+      },
+      "errorText": "Digite o texto da marca com letras latinas. Para outros alfabetos use uma imagem.",
+      "errorImage": "Envie uma imagem PNG ou JPG para a marca d'água.",
+      "faq": [
+        [
+          "Posso escrever em coreano, chinês ou japonês?",
+          "O modo texto só tem uma fonte latina. Crie uma imagem com o texto (uma captura ou um PNG com fundo transparente) e escolha Imagem."
+        ],
+        [
+          "Como faço um padrão diagonal na página inteira?",
+          "Escolha Repetir e 45°. A marca se repete em uma grade escalonada por toda a página."
+        ],
+        [
+          "Dá para remover depois?",
+          "Ela é desenhada no conteúdo da página como qualquer texto ou imagem, então fica no arquivo. Não é uma proteção de segurança."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é aberto e marcado no seu dispositivo e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "Wasserzeichen in PDF – Text oder Bild, kostenlos online",
+      "h1": "Wasserzeichen einfügen",
+      "line": "Text oder Logo auf jede Seite setzen.",
+      "description": "Text- oder Bild-Wasserzeichen kostenlos in eine PDF einfügen. Deckkraft, Größe, Winkel und Wiederholung wählen. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "PDF auswählen",
+      "runText": "Einfügen",
+      "resultName": "wasserzeichen",
+      "options": {
+        "type": {
+          "label": "Wasserzeichen",
+          "choices": {
+            "text": "Text",
+            "image": "Bild"
+          }
+        },
+        "text": {
+          "label": "Text",
+          "help": "Lateinische Buchstaben und Ziffern · andere Schriften als Bild"
+        },
+        "image": {
+          "label": "Bild",
+          "help": "Ein PNG mit transparentem Hintergrund eignet sich am besten. Koreanischen, chinesischen oder japanischen Text als Bild hochladen."
+        },
+        "layout": {
+          "label": "Anordnung",
+          "choices": {
+            "center": "Mittig",
+            "tile": "Wiederholen"
+          }
+        },
+        "rotation": {
+          "label": "Winkel",
+          "choices": {
+            "0": "0°",
+            "45": "45°",
+            "-45": "-45°"
+          }
+        },
+        "size": {
+          "label": "Größe",
+          "help": "Text in Punkt · Bild in % der Seitenbreite"
+        },
+        "opacity": {
+          "label": "Deckkraft"
+        },
+        "color": {
+          "label": "Farbe"
+        }
+      },
+      "errorText": "Gib den Wasserzeichen-Text mit lateinischen Buchstaben ein. Für andere Schriften ein Bild verwenden.",
+      "errorImage": "Lade ein PNG- oder JPG-Bild für das Wasserzeichen hoch.",
+      "faq": [
+        [
+          "Geht auch Koreanisch, Chinesisch oder Japanisch?",
+          "Der Textmodus hat nur eine lateinische Schrift. Erstelle ein Bild deines Textes (Screenshot oder PNG mit transparentem Hintergrund) und wähle Bild."
+        ],
+        [
+          "Wie bekomme ich ein diagonales Muster über die ganze Seite?",
+          "Wähle Wiederholen und 45°. Das Wasserzeichen wird versetzt über die ganze Seite wiederholt."
+        ],
+        [
+          "Kann man es später entfernen?",
+          "Es wird wie jeder andere Text oder jedes Bild in den Seiteninhalt gezeichnet und bleibt in der Datei. Es ist kein Sicherheitsschutz."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät geöffnet und gestempelt und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Filigrane sur PDF – Texte ou image, gratuit en ligne",
+      "h1": "Ajouter un filigrane",
+      "line": "Un texte ou un logo sur chaque page.",
+      "description": "Ajoutez un filigrane texte ou image à un PDF gratuitement. Opacité, taille, angle et répétition au choix, puis téléchargez. Tout reste dans le navigateur.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Ajouter",
+      "resultName": "filigrane",
+      "options": {
+        "type": {
+          "label": "Filigrane",
+          "choices": {
+            "text": "Texte",
+            "image": "Image"
+          }
+        },
+        "text": {
+          "label": "Texte",
+          "help": "Lettres latines et chiffres · autres écritures en image"
+        },
+        "image": {
+          "label": "Image",
+          "help": "Un PNG à fond transparent donne le meilleur résultat. Pour du texte coréen, chinois ou japonais, importez-le en image."
+        },
+        "layout": {
+          "label": "Disposition",
+          "choices": {
+            "center": "Centré",
+            "tile": "Répéter"
+          }
+        },
+        "rotation": {
+          "label": "Angle",
+          "choices": {
+            "0": "0°",
+            "45": "45°",
+            "-45": "-45°"
+          }
+        },
+        "size": {
+          "label": "Taille",
+          "help": "Texte en points · image en % de la largeur"
+        },
+        "opacity": {
+          "label": "Opacité"
+        },
+        "color": {
+          "label": "Couleur"
+        }
+      },
+      "errorText": "Saisissez le texte du filigrane en lettres latines. Pour d'autres écritures, utilisez une image.",
+      "errorImage": "Importez une image PNG ou JPG pour le filigrane.",
+      "faq": [
+        [
+          "Puis-je écrire en coréen, chinois ou japonais ?",
+          "Le mode texte n'a qu'une police latine. Créez une image de votre texte (capture d'écran ou PNG à fond transparent) et choisissez Image."
+        ],
+        [
+          "Comment faire un motif en diagonale sur toute la page ?",
+          "Choisissez Répéter et 45°. Le filigrane est répété en quinconce sur toute la page."
+        ],
+        [
+          "Peut-on le retirer ensuite ?",
+          "Il est dessiné dans le contenu de la page comme tout texte ou image, il reste donc dans le fichier. Ce n'est pas une protection de sécurité."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est ouvert et marqué sur votre appareil et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

@@ -30,7 +30,7 @@
 /* parkbok site.css — 토큰 · 셸(헤더/푸터) · 공통 컴포넌트. tools/build-site.js 가 모든 페이지 <head> 에 인라인한다. */
 :root{
   --bg:#f6f7f9;--card:#fff;--ink:#1d2129;--muted:#5d6675;--line:#e3e6ea;
-  --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;
+  --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
   --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;
@@ -52,13 +52,13 @@
 html[lang="en"],html[lang="es"],html[lang="pt"],html[lang="de"],html[lang="fr"]{--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
 html[lang^="zh"]{--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
+@media (prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
 
 /* ---------- 기본 ---------- */
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
 img,svg{vertical-align:middle}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--header-pad-x)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -100,8 +100,8 @@ footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px s
 .btn:hover{background:var(--accent-hover);color:var(--accent-ink);text-decoration:none}
 .btn:active{background:var(--accent-active)}
 .btn:disabled,.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
-.btn.ghost{background:var(--card);color:var(--accent);outline:2px solid var(--accent);outline-offset:-2px}
-.btn.ghost:hover{background:var(--card);color:var(--accent-hover);outline-color:var(--accent-hover)}
+.btn.ghost{background:var(--card);color:var(--accent-text);outline:2px solid var(--accent-text);outline-offset:-2px}
+.btn.ghost:hover{background:var(--accent-tint);color:var(--accent-text);outline-color:var(--accent-text)}
 .btn.ghost:active{color:var(--ink);outline-color:var(--ink)}
 .btn.sm{font-size:var(--btn-sm-fs);line-height:16px;padding:var(--btn-sm-pad)}
 .btn-big{display:inline-flex;align-items:center;justify-content:center;min-height:var(--btn-big-min-h);min-width:var(--btn-big-min-w);padding:var(--btn-big-pad);font:inherit;font-size:var(--btn-big-fs);line-height:var(--btn-big-lh);font-weight:var(--fw-medium);border:0;border-radius:var(--r-big);background:var(--accent);color:var(--accent-ink);box-shadow:var(--sh-btn-big);cursor:pointer;transition:var(--t-btn)}
@@ -127,7 +127,7 @@ footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px s
 .tt-grid textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
 .tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
 #textout{min-height:200px;max-height:60vh;white-space:pre-wrap}
-#viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh}
+#viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh;color:#1d2129}
 #viewer:empty{display:none}
 .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:12px 0}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-btn);padding:8px 12px}
@@ -159,6 +159,8 @@ a.card:hover svg{transform:scale(var(--icon-hover-scale))}
 .chip:hover,.chips a:hover,.chips button:hover,.preset:hover{border-color:var(--ink);color:var(--ink);text-decoration:none}
 .chip.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
 .preset.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chips button,.preset{height:28px;padding:2px 12px;font-size:13px}
+.opts .chips{margin:0;flex-wrap:wrap;overflow:visible}
 .next-title{font-size:var(--fs-small);color:var(--muted);margin-right:4px}
 
 /* ---------- 설명·FAQ·광고 ---------- */
@@ -188,9 +190,10 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   p.lead,.lead{font-size:16px;line-height:24px}
   .drop{padding:24px 16px}
   .btn-big{font-size:22px;line-height:26px;padding:24px 32px}
-  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
-  .chips::-webkit-scrollbar{display:none}
+  .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .chips.next::-webkit-scrollbar{display:none}
 }
+@media (max-width:860px){.page-wheel .brand{display:none}}
 @media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
 @media (max-width:640px){.card-icon{width:32px;height:32px;margin-bottom:12px}}
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
@@ -198,59 +201,129 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 @media print{header.top,footer.foot,.subnav,.card.intro,.tools,.status,.ad,.drop,.grid,.chips,details.about,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}
 </style>
 <!-- /shell:head-common -->
+<style id="page-css">
+/* parkbok 텍스트 도구 공통 뼈대 CSS. 각 text/*.html 의 <head> 끝에 있는 style#page-css 안에 그대로 인라인한다(빌드 아님). */
+/* 뼈대: div.tool-head → section.stage-in → div.ad → section.opts → section.stage-out → nav.next → details.about */
+
+/* ---------- 상태 전환 ---------- */
+body.has-input .lead{display:none}
+.stage-out[hidden],.opts[hidden],.stats[hidden]{display:none}
+body.busy .actions .btn{opacity:.6;pointer-events:none}
+
+/* ---------- 머리 ---------- */
+.type-text .tool-head{margin:0 0 16px}
+.type-text .tool-head h1{margin:0 0 6px}
+.type-text .tool-head .lead{margin:0}
+
+/* ---------- 입력 ---------- */
+.type-text .stage-in .tt-grid{grid-template-columns:1fr}
+.type-text .tt-grid textarea{min-height:280px}
+
+/* ---------- 옵션 ---------- */
+.type-text .opts{margin:16px 0 0}
+.type-text .opts .presets{display:flex;flex-wrap:wrap;gap:6px;flex-basis:100%}
+.type-text .opts .presets .preset{height:30px;padding:2px 12px;font-size:13px}
+
+/* ---------- 결과 ---------- */
+.type-text .stage-out{margin:16px 0 0}
+.type-text .result{padding:0;border:0;background:transparent}
+.type-text .result textarea{display:block;width:100%;min-height:280px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--bg);color:var(--ink)}
+.type-text .result textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.type-text .result .stats{margin:0}
+.type-text .actions{margin:12px 0 0}
+.type-text .status{margin:8px 0 0;min-height:18px}
+
+/* ---------- 다음 도구 ---------- */
+.type-text nav.next{margin:24px 0 8px}
+
+/* ---------- 2열 (PC) ---------- */
+@media (min-width:960px){
+  body.type-text main.wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;align-items:start}
+  body.type-text main.wrap>*{margin:0}
+  .type-text .tool-head{grid-column:1/-1;grid-row:1}
+  .type-text .stage-in{grid-column:1;grid-row:2}
+  .type-text .stage-out{grid-column:2;grid-row:2}
+  body.type-text:not(.has-input) .stage-in{grid-column:1/-1}
+  .type-text .ad{grid-column:1/-1;grid-row:3}
+  .type-text .opts{grid-column:1/-1;grid-row:4}
+  .type-text nav.next{grid-column:1/-1;grid-row:5}
+  .type-text details.about{grid-column:1/-1;grid-row:6}
+  .type-text .tt-grid textarea,.type-text .result textarea{min-height:360px}
+}
+
+/* ---------- 1열 (태블릿 이하) ---------- */
+@media (max-width:959.98px){
+  body.type-text main.wrap{display:block}
+}
+
+/* ---------- 휴대폰: 결과 버튼 고정 ---------- */
+@media (max-width:767.98px){
+  .type-text .actions{position:sticky;bottom:0;background:var(--card);padding:12px 0;border-top:1px solid var(--line);z-index:2;margin:12px 0 0}
+  .type-text #btn-primary{width:100%}
+  .type-text .tt-grid textarea,.type-text .result textarea{min-height:200px}
+  .type-text .opts .presets{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .type-text .opts .presets::-webkit-scrollbar{display:none}
+}
+</style>
 </head>
-<body>
+<body class="type-text">
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/" class="on">텍스트 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok</a><nav class="menu" aria-label="주 메뉴"><a href="/">HWP 뷰어</a><a href="/text/" class="on">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/wheel/ko/">룰렛</a><a href="/guide/">가이드</a></nav></div></header>
 <!-- /shell:header -->
 <main class="wrap">
-  <h1>글자수 세기</h1>
-  <p class="lead">붙여 넣는 즉시 공백 포함·제외 글자수와 바이트를 보여 줍니다. 입력한 글은 서버로 보내지 않습니다.</p>
+  <div class="tool-head">
+    <h1>글자수 세기</h1>
+    <p class="lead">공백 포함·제외 글자수와 바이트를 바로 셉니다.</p>
+  </div>
 
-  <div class="opts">
+  <section class="stage stage-in">
+    <div class="tt-grid">
+      <div><label class="sr" for="in">글</label><textarea id="in" placeholder="글 붙여넣기" spellcheck="false"></textarea></div>
+    </div>
+  </section>
+
+  <div class="ad"></div>
+
+  <section class="opts" id="opts" hidden>
     <label>글자수 제한 <input type="number" id="limit" data-opt min="0" step="100" placeholder="예: 1000" style="width:110px"></label>
-    <span class="chips" id="presets">
-      <button type="button" data-n="500">500자</button><button type="button" data-n="700">700자</button><button type="button" data-n="1000">1000자</button><button type="button" data-n="1500">1500자</button><button type="button" data-n="2000">2000자</button><button type="button" data-n="">해제</button>
-    </span>
+    <div class="presets" id="presets">
+      <button class="preset" type="button" data-n="500">500자</button><button class="preset" type="button" data-n="700">700자</button><button class="preset" type="button" data-n="1000">1000자</button><button class="preset" type="button" data-n="1500">1500자</button><button class="preset" type="button" data-n="2000">2000자</button><button class="preset" type="button" data-n="">제한 해제</button>
+    </div>
     <span class="sep"></span>
     <label><input type="radio" name="basis" value="with" data-opt checked> 제한 기준: 공백 포함</label>
     <label><input type="radio" name="basis" value="without" data-opt> 공백 제외</label>
     <label><input type="radio" name="basis" value="bytes2" data-opt> 바이트(한글 2byte)</label>
     <label><input type="checkbox" id="o-nl" data-opt> 줄바꿈도 글자로 세기</label>
-  </div>
+  </section>
 
-  <div class="stats" id="stats">
-    <div class="stat" id="s-with"><b>0</b><span>공백 포함 글자</span></div>
-    <div class="stat" id="s-without"><b>0</b><span>공백 제외 글자</span></div>
-    <div class="stat" id="s-left" style="display:none"><b>0</b><span>남은 글자</span></div>
-    <div class="stat" id="s-b2"><b>0</b><span>바이트 (한글 2byte)</span></div>
-    <div class="stat" id="s-b3"><b>0</b><span>바이트 (UTF-8, 한글 3byte)</span></div>
-    <div class="stat" id="s-words"><b>0</b><span>단어</span></div>
-    <div class="stat" id="s-lines"><b>0</b><span>줄</span></div>
-    <div class="stat" id="s-paras"><b>0</b><span>문단</span></div>
-    <div class="stat" id="s-sent"><b>0</b><span>문장</span></div>
-    <div class="stat" id="s-sheets"><b>0</b><span>원고지 (200자)</span></div>
-  </div>
+  <section class="stage stage-out" id="out" hidden>
+    <div class="result">
+      <div class="stats" id="stats" hidden>
+        <div class="stat" id="s-with"><b>0</b><span>공백 포함 글자</span></div>
+        <div class="stat" id="s-without"><b>0</b><span>공백 제외 글자</span></div>
+        <div class="stat" id="s-left" style="display:none"><b>0</b><span>남은 글자</span></div>
+        <div class="stat" id="s-b2"><b>0</b><span>바이트 (한글 2byte)</span></div>
+        <div class="stat" id="s-b3"><b>0</b><span>바이트 (UTF-8, 한글 3byte)</span></div>
+        <div class="stat" id="s-words"><b>0</b><span>단어</span></div>
+        <div class="stat" id="s-lines"><b>0</b><span>줄</span></div>
+        <div class="stat" id="s-paras"><b>0</b><span>문단</span></div>
+        <div class="stat" id="s-sent"><b>0</b><span>문장</span></div>
+        <div class="stat" id="s-sheets"><b>0</b><span>원고지 (200자)</span></div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn" id="btn-primary" type="button" disabled>결과 복사</button>
+      <button class="btn ghost" id="btn-restart" type="button">다시 시작</button>
+    </div>
+    <p class="status" id="status"></p>
+  </section>
 
-  <div class="tt-grid" style="grid-template-columns:1fr">
-    <div><label class="lbl" for="in">글 (여기에 붙여 넣기)</label><textarea id="in" placeholder="자소서, 보고서, 블로그 글을 붙여 넣으세요." style="min-height:300px"></textarea></div>
-  </div>
-  <div class="tools">
-    <button class="btn ghost" id="btn-paste">클립보드 붙여넣기</button>
-    <button class="btn ghost" id="btn-copy">글 복사</button>
-    <button class="btn ghost" id="btn-clear">지우기</button>
-  </div>
-  <div class="status" id="status">글을 붙여 넣으면 바로 셉니다.</div>
+  <nav class="chips next" aria-label="다른 텍스트 도구">
+    <a class="chip" href="/text/remove-line-breaks.html">줄바꿈 제거</a>
+    <a class="chip" href="/text/dedupe-lines.html">중복 줄 제거</a>
+    <a class="chip" href="/text/list-to-line.html">목록 ↔ 한 줄</a>
+  </nav>
 
-  <div class="ad"></div>
-
-  <h2>다른 텍스트 도구</h2>
-  <div class="grid">
-    <a class="card" href="/text/remove-line-breaks.html"><h3>줄바꿈 제거</h3><p>복사한 글의 줄바꿈·공백 정리</p></a>
-    <a class="card" href="/text/sql-in.html"><h3>목록 → SQL IN절</h3><p>('A', 'B', 'C') 형태로 변환</p></a>
-    <a class="card" href="/text/dedupe-lines.html"><h3>중복 줄 제거 · 정렬</h3><p>같은 줄 지우고 가나다순 정렬</p></a>
-    <a class="card" href="/text/list-to-line.html"><h3>목록 ↔ 한 줄</h3><p>세로 목록을 쉼표 한 줄로</p></a>
-  </div>
   <details class="about">
     <summary>사용법 · 자주 묻는 질문</summary>
 <article class="card">
@@ -261,9 +334,11 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
       <li><strong>바이트 (한글 2byte):</strong> 한글·한자 2바이트, 영문·숫자·기호 1바이트. 일부 공공기관·대학 입력 칸과 문자 메시지 제한이 이 기준입니다.</li>
       <li><strong>바이트 (UTF-8):</strong> 한글 3바이트. 웹 데이터베이스 글자 제한은 보통 이 기준입니다.</li>
       <li><strong>단어:</strong> 띄어쓰기로 나뉜 덩어리 수. <strong>문장:</strong> 마침표·물음표·느낌표 기준.</li>
+      <li><strong>결과 복사:</strong> 위 수치를 한 줄 요약으로 복사합니다(Ctrl+Enter 도 같습니다).</li>
     </ul>
     <h2>자주 묻는 질문</h2>
     <dl class="faq">
+      <dt>글자수 제한은 어떻게 쓰나요?</dt><dd>글을 붙여 넣으면 나오는 옵션에서 제한 숫자를 적거나 500·700·1000자 버튼을 누르세요. 남은 글자 타일이 생기고, 넘으면 빨간색으로 바뀝니다.</dd>
       <dt>이모지나 특수문자는 어떻게 세나요?</dt><dd>이모지 하나를 한 글자로 셉니다. 일부 사이트는 이모지를 2글자로 세기도 하니 제출 전 해당 사이트에서 한 번 더 확인하세요.</dd>
       <dt>복사한 글의 줄바꿈이 지저분해요.</dt><dd><a href="/text/remove-line-breaks.html">줄바꿈 제거</a>로 먼저 정리한 뒤 다시 붙여 넣으세요.</dd>
       <dt>글이 서버에 저장되나요?</dt><dd>아니요. 세는 작업은 전부 이 페이지 안의 자바스크립트가 하고, 네트워크로 글을 보내는 코드가 없습니다.</dd>
@@ -272,12 +347,13 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   </details>
 </main>
 <!-- shell:footer -->
-<footer class="foot"><div class="wrap"><nav class="foot-links"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a></nav><p class="foot-copy">© parkbok</p></div></footer>
+<footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="바닥글 메뉴"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->
 <script src="/assets/text-tools.js"></script>
 <script>
 (function(){
   var $ = TT.$;
+  var last = null;
   function set(id, n, over){ var el = $(id); el.querySelector('b').textContent = TT.fmt(n); el.className = 'stat' + (over ? ' over' : ''); }
   function utf8(s){ if (window.TextEncoder) return new TextEncoder().encode(s).length; return unescape(encodeURIComponent(s)).length; }
 
@@ -297,6 +373,7 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
     var sheets = Math.ceil(withSp / 200);
     set('s-with', withSp); set('s-without', withoutSp); set('s-b2', b2); set('s-b3', b3);
     set('s-words', words); set('s-lines', lines); set('s-paras', paras); set('s-sent', sents); set('s-sheets', sheets);
+    last = { withSp: withSp, withoutSp: withoutSp, b2: b2, b3: b3, words: words, lines: lines, paras: paras, sents: sents, sheets: sheets, limit: 0, used: 0, remain: 0 };
 
     var limit = parseInt($('limit').value, 10);
     var left = $('s-left');
@@ -304,22 +381,50 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
       var basis = TT.val('basis');
       var used = basis === 'without' ? withoutSp : basis === 'bytes2' ? b2 : withSp;
       var remain = limit - used;
+      last.limit = limit; last.used = used; last.remain = remain;
       left.style.display = '';
       left.querySelector('b').textContent = (remain < 0 ? '−' : '') + TT.fmt(Math.abs(remain));
       left.querySelector('span').textContent = remain < 0 ? '초과 (' + TT.fmt(limit) + ' 제한)' : '남은 글자 (' + TT.fmt(limit) + ' 제한)';
       left.className = 'stat' + (remain < 0 ? ' over' : '');
-      TT.say(remain < 0 ? '제한을 ' + TT.fmt(-remain) + ' 넘었습니다.' : TT.fmt(used) + ' / ' + TT.fmt(limit) + ' 사용, ' + TT.fmt(remain) + ' 남음');
     } else {
       left.style.display = 'none';
-      TT.say(src ? '공백 포함 ' + TT.fmt(withSp) + '자 · 공백 제외 ' + TT.fmt(withoutSp) + '자' : '글을 붙여 넣으면 바로 셉니다.');
     }
     return undefined;
   }
 
-  var run = TT.setup({ convert: convert, output: null });
-  Array.prototype.forEach.call(document.querySelectorAll('#presets button'), function(b){
-    b.addEventListener('click', function(){ $('limit').value = b.getAttribute('data-n'); run(); });
+  function after(r, src){
+    if (!last) return;
+    if (last.limit > 0) {
+      if (last.remain < 0) TT.say('제한을 ' + TT.fmt(-last.remain) + ' 넘었습니다.', 'err');
+      else TT.say(TT.fmt(last.used) + ' / ' + TT.fmt(last.limit) + ' 사용, ' + TT.fmt(last.remain) + ' 남음', 'ok');
+    } else {
+      TT.say('공백 포함 ' + TT.fmt(last.withSp) + '자 · 공백 제외 ' + TT.fmt(last.withoutSp) + '자');
+    }
+  }
+
+  // '결과 복사' 는 통계 요약 한 줄을 복사한다
+  function summary(){
+    if (!last) return '';
+    var s = '공백 포함 ' + TT.fmt(last.withSp) + '자 · 공백 제외 ' + TT.fmt(last.withoutSp) + '자 · 바이트(한글 2byte) ' + TT.fmt(last.b2)
+      + ' · 바이트(UTF-8) ' + TT.fmt(last.b3) + ' · 단어 ' + TT.fmt(last.words) + ' · 줄 ' + TT.fmt(last.lines)
+      + ' · 문단 ' + TT.fmt(last.paras) + ' · 문장 ' + TT.fmt(last.sents) + ' · 원고지 ' + TT.fmt(last.sheets) + '매';
+    if (last.limit > 0) s += ' · 제한 ' + TT.fmt(last.limit) + ' 중 ' + TT.fmt(last.used) + ' 사용' + (last.remain < 0 ? ' (' + TT.fmt(-last.remain) + ' 초과)' : ' (' + TT.fmt(last.remain) + ' 남음)');
+    return s;
+  }
+
+  var run = TT.setup({ convert: convert, after: after, output: null, result: summary });
+
+  // 프리셋 버튼: 누른 것에 .on, 제한 칸을 직접 고치면 같은 값의 버튼에 .on
+  var presets = Array.prototype.slice.call(document.querySelectorAll('#presets .preset'));
+  function mark(){
+    var v = $('limit').value;
+    presets.forEach(function(b){ var n = b.getAttribute('data-n'); b.className = 'preset' + (n && n === v ? ' on' : ''); });
+  }
+  presets.forEach(function(b){
+    b.addEventListener('click', function(){ $('limit').value = b.getAttribute('data-n'); mark(); run(); });
   });
+  $('limit').addEventListener('input', mark);
+  mark();
 })();
 </script>
 </body>

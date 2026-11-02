@@ -1,0 +1,429 @@
+{
+  "id": "rotate",
+  "order": 5,
+  "icon": "rotate",
+  "cat": "pdf",
+  "next": [
+    "organize",
+    "crop",
+    "merge"
+  ],
+  "strings": {
+    "en": {
+      "title": "Rotate PDF – Turn Pages 90°, 180° or 270° Online Free",
+      "h1": "Rotate PDF",
+      "line": "Turn all pages or only some of them.",
+      "description": "Rotate PDF pages online for free. Turn all, odd, even or selected pages by 90, 180 or 270 degrees and download. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF file",
+      "runText": "Rotate",
+      "resultName": "rotated",
+      "options": {
+        "angle": {
+          "label": "Angle",
+          "choices": {
+            "90": "90° clockwise",
+            "180": "180°",
+            "270": "90° counter-clockwise"
+          }
+        },
+        "target": {
+          "label": "Pages to rotate",
+          "choices": {
+            "all": "All pages",
+            "odd": "Odd pages",
+            "even": "Even pages",
+            "pages": "Selected pages"
+          }
+        },
+        "pages": {
+          "label": "Tap the pages to rotate"
+        }
+      },
+      "errors": {
+        "noPages": "Select at least one page to rotate."
+      },
+      "faq": [
+        [
+          "Does rotating lower the quality?",
+          "No. Only the page orientation flag changes; text and images stay exactly as they were."
+        ],
+        [
+          "Can I rotate just one page?",
+          "Yes. Choose \"Selected pages\" and tap the thumbnails of the pages you want to turn."
+        ],
+        [
+          "My page was already rotated. What happens?",
+          "The new angle is added to the existing one, so the page ends up the way it looks on screen plus your rotation."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is rotated on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 회전 – 페이지를 90°·180°·270° 돌리기 무료 온라인",
+      "h1": "PDF 회전",
+      "line": "모든 쪽 또는 선택한 쪽 회전",
+      "description": "PDF 회전 무료 온라인. 전체 쪽, 홀수·짝수 쪽, 또는 직접 고른 쪽만 90·180·270도 돌려서 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "회전하기",
+      "resultName": "회전",
+      "options": {
+        "angle": {
+          "label": "각도",
+          "choices": {
+            "90": "시계 방향 90°",
+            "180": "180°",
+            "270": "반시계 방향 90°"
+          }
+        },
+        "target": {
+          "label": "돌릴 쪽",
+          "choices": {
+            "all": "모든 쪽",
+            "odd": "홀수 쪽",
+            "even": "짝수 쪽",
+            "pages": "선택한 쪽"
+          }
+        },
+        "pages": {
+          "label": "돌릴 쪽을 누르세요"
+        }
+      },
+      "errors": {
+        "noPages": "돌릴 쪽을 한 쪽 이상 선택해 주세요."
+      },
+      "faq": [
+        [
+          "회전하면 화질이 떨어지나요?",
+          "아니요. 쪽의 방향 값만 바뀌고 글자와 이미지는 그대로 유지됩니다."
+        ],
+        [
+          "한 쪽만 돌릴 수 있나요?",
+          "네. '선택한 쪽' 을 고른 뒤 돌릴 쪽의 미리보기를 누르세요."
+        ],
+        [
+          "이미 돌아가 있던 쪽은 어떻게 되나요?",
+          "기존 각도에 더해집니다. 화면에 보이는 모습에서 선택한 만큼 더 돌아갑니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 돌려지며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "旋转 PDF – 免费在线将页面旋转 90°、180° 或 270°",
+      "h1": "旋转 PDF",
+      "line": "旋转全部页面或只旋转部分页面。",
+      "description": "免费在线旋转 PDF 页面。可将所有页面、奇数页、偶数页或您选中的页面旋转 90、180 或 270 度后下载。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "旋转",
+      "resultName": "旋转",
+      "options": {
+        "angle": {
+          "label": "角度",
+          "choices": {
+            "90": "顺时针 90°",
+            "180": "180°",
+            "270": "逆时针 90°"
+          }
+        },
+        "target": {
+          "label": "要旋转的页面",
+          "choices": {
+            "all": "全部页面",
+            "odd": "奇数页",
+            "even": "偶数页",
+            "pages": "选中的页面"
+          }
+        },
+        "pages": {
+          "label": "点击要旋转的页面"
+        }
+      },
+      "errors": {
+        "noPages": "请至少选择一页进行旋转。"
+      },
+      "faq": [
+        [
+          "旋转会降低清晰度吗？",
+          "不会。只改变页面的方向标记，文字和图片保持原样。"
+        ],
+        [
+          "可以只旋转一页吗？",
+          "可以。选择“选中的页面”，然后点击要旋转的页面缩略图。"
+        ],
+        [
+          "页面原本已经旋转过怎么办？",
+          "新的角度会叠加在原有角度上，页面会在当前显示方向的基础上再旋转。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上旋转，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDF回転 – ページを90°・180°・270°回転 無料オンライン",
+      "h1": "PDF回転",
+      "line": "全ページまたは一部のページだけを回転します。",
+      "description": "無料でPDFのページを回転。全ページ、奇数・偶数ページ、または選んだページだけを90・180・270度回転してダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "回転する",
+      "resultName": "回転",
+      "options": {
+        "angle": {
+          "label": "角度",
+          "choices": {
+            "90": "時計回りに90°",
+            "180": "180°",
+            "270": "反時計回りに90°"
+          }
+        },
+        "target": {
+          "label": "回転するページ",
+          "choices": {
+            "all": "すべてのページ",
+            "odd": "奇数ページ",
+            "even": "偶数ページ",
+            "pages": "選んだページ"
+          }
+        },
+        "pages": {
+          "label": "回転するページをタップ"
+        }
+      },
+      "errors": {
+        "noPages": "回転するページを1つ以上選んでください。"
+      },
+      "faq": [
+        [
+          "回転すると画質は落ちますか？",
+          "いいえ。ページの向きの情報だけが変わり、文字や画像はそのままです。"
+        ],
+        [
+          "1ページだけ回転できますか？",
+          "できます。「選んだページ」を選び、回転したいページのサムネイルをタップしてください。"
+        ],
+        [
+          "すでに回転していたページはどうなりますか？",
+          "元の角度に加算されます。画面で見えている向きから、指定した分だけさらに回転します。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で回転され、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Girar PDF – Rotar páginas 90°, 180° o 270° gratis online",
+      "h1": "Girar PDF",
+      "line": "Gira todas las páginas o solo algunas.",
+      "description": "Gira páginas de PDF gratis online. Rota todas, pares, impares o las que elijas 90, 180 o 270 grados y descarga. Todo en tu navegador, sin subir nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Girar",
+      "resultName": "girado",
+      "options": {
+        "angle": {
+          "label": "Ángulo",
+          "choices": {
+            "90": "90° a la derecha",
+            "180": "180°",
+            "270": "90° a la izquierda"
+          }
+        },
+        "target": {
+          "label": "Páginas a girar",
+          "choices": {
+            "all": "Todas las páginas",
+            "odd": "Páginas impares",
+            "even": "Páginas pares",
+            "pages": "Páginas elegidas"
+          }
+        },
+        "pages": {
+          "label": "Toca las páginas que quieres girar"
+        }
+      },
+      "errors": {
+        "noPages": "Elige al menos una página para girar."
+      },
+      "faq": [
+        [
+          "¿Girar reduce la calidad?",
+          "No. Solo cambia la orientación de la página; el texto y las imágenes quedan igual."
+        ],
+        [
+          "¿Puedo girar una sola página?",
+          "Sí. Elige \"Páginas elegidas\" y toca las miniaturas de las páginas que quieras girar."
+        ],
+        [
+          "Mi página ya estaba girada. ¿Qué pasa?",
+          "El nuevo ángulo se suma al existente, así que la página gira a partir de cómo se ve en pantalla."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se gira en tu dispositivo y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Girar PDF – Rotacionar páginas 90°, 180° ou 270° grátis",
+      "h1": "Girar PDF",
+      "line": "Gire todas as páginas ou só algumas.",
+      "description": "Gire páginas de PDF grátis online. Rotacione todas, ímpares, pares ou as que escolher em 90, 180 ou 270 graus e baixe. Tudo no navegador, nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Girar",
+      "resultName": "girado",
+      "options": {
+        "angle": {
+          "label": "Ângulo",
+          "choices": {
+            "90": "90° para a direita",
+            "180": "180°",
+            "270": "90° para a esquerda"
+          }
+        },
+        "target": {
+          "label": "Páginas a girar",
+          "choices": {
+            "all": "Todas as páginas",
+            "odd": "Páginas ímpares",
+            "even": "Páginas pares",
+            "pages": "Páginas escolhidas"
+          }
+        },
+        "pages": {
+          "label": "Toque nas páginas que quer girar"
+        }
+      },
+      "errors": {
+        "noPages": "Escolha pelo menos uma página para girar."
+      },
+      "faq": [
+        [
+          "Girar reduz a qualidade?",
+          "Não. Só a orientação da página muda; texto e imagens ficam exatamente iguais."
+        ],
+        [
+          "Posso girar só uma página?",
+          "Sim. Escolha \"Páginas escolhidas\" e toque nas miniaturas das páginas que quer girar."
+        ],
+        [
+          "Minha página já estava girada. O que acontece?",
+          "O novo ângulo é somado ao existente, então a página gira a partir de como aparece na tela."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é girado no seu dispositivo e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "PDF drehen – Seiten um 90°, 180° oder 270° drehen, kostenlos",
+      "h1": "PDF drehen",
+      "line": "Alle Seiten oder nur einzelne drehen.",
+      "description": "PDF-Seiten kostenlos online drehen: alle, gerade, ungerade oder ausgewählte um 90, 180 oder 270 Grad, dann herunterladen. Läuft im Browser – kein Upload.",
+      "buttonText": "PDF auswählen",
+      "runText": "Drehen",
+      "resultName": "gedreht",
+      "options": {
+        "angle": {
+          "label": "Winkel",
+          "choices": {
+            "90": "90° im Uhrzeigersinn",
+            "180": "180°",
+            "270": "90° gegen den Uhrzeigersinn"
+          }
+        },
+        "target": {
+          "label": "Welche Seiten",
+          "choices": {
+            "all": "Alle Seiten",
+            "odd": "Ungerade Seiten",
+            "even": "Gerade Seiten",
+            "pages": "Ausgewählte Seiten"
+          }
+        },
+        "pages": {
+          "label": "Tippe auf die Seiten, die gedreht werden sollen"
+        }
+      },
+      "errors": {
+        "noPages": "Wähle mindestens eine Seite zum Drehen."
+      },
+      "faq": [
+        [
+          "Verliert die PDF beim Drehen an Qualität?",
+          "Nein. Nur die Ausrichtung der Seite ändert sich; Text und Bilder bleiben unverändert."
+        ],
+        [
+          "Kann ich nur eine Seite drehen?",
+          "Ja. Wähle „Ausgewählte Seiten“ und tippe auf die Vorschaubilder der Seiten, die du drehen willst."
+        ],
+        [
+          "Meine Seite war schon gedreht. Was passiert?",
+          "Der neue Winkel wird zum vorhandenen addiert. Die Seite dreht sich also ausgehend von der Ansicht auf dem Bildschirm."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät gedreht und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Pivoter PDF – Tourner les pages de 90°, 180° ou 270° gratuit",
+      "h1": "Pivoter PDF",
+      "line": "Tournez toutes les pages ou certaines.",
+      "description": "Pivotez des pages PDF gratuitement : toutes, paires, impaires ou au choix, de 90, 180 ou 270°. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Pivoter",
+      "resultName": "pivote",
+      "options": {
+        "angle": {
+          "label": "Angle",
+          "choices": {
+            "90": "90° vers la droite",
+            "180": "180°",
+            "270": "90° vers la gauche"
+          }
+        },
+        "target": {
+          "label": "Pages à pivoter",
+          "choices": {
+            "all": "Toutes les pages",
+            "odd": "Pages impaires",
+            "even": "Pages paires",
+            "pages": "Pages choisies"
+          }
+        },
+        "pages": {
+          "label": "Touchez les pages à pivoter"
+        }
+      },
+      "errors": {
+        "noPages": "Choisissez au moins une page à pivoter."
+      },
+      "faq": [
+        [
+          "La rotation réduit-elle la qualité ?",
+          "Non. Seule l'orientation de la page change ; le texte et les images restent intacts."
+        ],
+        [
+          "Puis-je pivoter une seule page ?",
+          "Oui. Choisissez « Pages choisies » et touchez les vignettes des pages à tourner."
+        ],
+        [
+          "Ma page était déjà pivotée. Que se passe-t-il ?",
+          "Le nouvel angle s'ajoute à l'existant : la page tourne à partir de ce que vous voyez à l'écran."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est pivoté sur votre appareil et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}

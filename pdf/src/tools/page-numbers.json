@@ -1,0 +1,453 @@
+{
+  "id": "page-numbers",
+  "order": 12,
+  "icon": "page-numbers",
+  "cat": "pdf",
+  "next": [
+    "watermark",
+    "merge",
+    "organize"
+  ],
+  "strings": {
+    "en": {
+      "title": "Add Page Numbers to PDF – Free Online",
+      "h1": "Add page numbers",
+      "line": "Number every page where you want.",
+      "description": "Add page numbers to a PDF for free. Pick position, size and first number, choose a page range and download. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select PDF file",
+      "runText": "Add numbers",
+      "resultName": "numbered",
+      "options": {
+        "position": {
+          "label": "Position"
+        },
+        "format": {
+          "label": "Format",
+          "choices": {
+            "n": "1",
+            "total": "1 / 10",
+            "page": "Page 1"
+          }
+        },
+        "start": {
+          "label": "First number",
+          "help": "Number given to page 1"
+        },
+        "size": {
+          "label": "Size"
+        },
+        "margin": {
+          "label": "Margin (mm)"
+        },
+        "range": {
+          "label": "Pages",
+          "help": "e.g. 2-10, 15 · empty = all pages"
+        }
+      },
+      "errorRange": "Check the page range, e.g. 2-10, 15.",
+      "faq": [
+        [
+          "Where do the numbers go?",
+          "Tap one of the nine cells to pick a corner, an edge or the centre. The distance from the edge is the margin in millimetres."
+        ],
+        [
+          "Can I skip the cover page?",
+          "Yes. Type 2- in Pages to start on page 2. The number printed is still the real page number, so set First number to 0 if the cover should not count."
+        ],
+        [
+          "Does it work with rotated or mixed-size pages?",
+          "Yes. Each page is handled on its own, so the number always sits where you chose, even on landscape pages."
+        ],
+        [
+          "Are my files uploaded?",
+          "No. The PDF is opened and stamped on your device and never sent to a server."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "PDF 페이지 번호 넣기 – 무료 온라인 쪽 번호 매기기",
+      "h1": "페이지 번호 넣기",
+      "line": "원하는 자리에 쪽 번호",
+      "description": "PDF 페이지 번호 넣기 무료. 위치·크기·시작 번호를 고르고 쪽 범위를 정한 뒤 내려받으세요. 브라우저 안에서 처리되어 파일이 서버로 올라가지 않습니다.",
+      "buttonText": "PDF 파일 선택",
+      "runText": "번호 넣기",
+      "resultName": "페이지번호",
+      "options": {
+        "position": {
+          "label": "위치"
+        },
+        "format": {
+          "label": "표시 형식",
+          "choices": {
+            "n": "1",
+            "total": "1 / 10",
+            "page": "Page 1"
+          }
+        },
+        "start": {
+          "label": "시작 번호",
+          "help": "1쪽에 찍을 번호"
+        },
+        "size": {
+          "label": "글자 크기"
+        },
+        "margin": {
+          "label": "여백 (mm)"
+        },
+        "range": {
+          "label": "쪽 범위",
+          "help": "예: 2-10, 15 · 비우면 전체"
+        }
+      },
+      "errorRange": "쪽 범위를 확인해 주세요. 예: 2-10, 15",
+      "faq": [
+        [
+          "번호는 어디에 찍히나요?",
+          "아홉 칸 중 하나를 눌러 모서리·가장자리·가운데를 고릅니다. 가장자리에서 떨어진 거리는 여백(mm) 값입니다."
+        ],
+        [
+          "표지는 건너뛸 수 있나요?",
+          "네. 쪽 범위에 2- 라고 적으면 2쪽부터 찍습니다. 번호는 실제 쪽 번호를 따르므로 표지를 세지 않으려면 시작 번호를 0으로 하세요."
+        ],
+        [
+          "가로 쪽이나 크기가 다른 쪽도 되나요?",
+          "네. 쪽마다 따로 계산하므로 가로 쪽에서도 고른 자리에 번호가 들어갑니다."
+        ],
+        [
+          "파일이 업로드되나요?",
+          "아니요. PDF 는 내 기기 안에서 열고 번호를 찍으며 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "PDF 添加页码 – 免费在线给 PDF 加页码",
+      "h1": "添加页码",
+      "line": "在您想要的位置给每页加上页码。",
+      "description": "免费为 PDF 添加页码。选择位置、大小和起始数字，设定页面范围后下载。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择 PDF 文件",
+      "runText": "添加页码",
+      "resultName": "页码",
+      "options": {
+        "position": {
+          "label": "位置"
+        },
+        "format": {
+          "label": "格式",
+          "choices": {
+            "n": "1",
+            "total": "1 / 10",
+            "page": "Page 1"
+          }
+        },
+        "start": {
+          "label": "起始数字",
+          "help": "第 1 页显示的数字"
+        },
+        "size": {
+          "label": "字号"
+        },
+        "margin": {
+          "label": "边距 (mm)"
+        },
+        "range": {
+          "label": "页面范围",
+          "help": "例如 2-10, 15 · 留空表示全部"
+        }
+      },
+      "errorRange": "请检查页面范围，例如 2-10, 15。",
+      "faq": [
+        [
+          "页码放在哪里？",
+          "点击九宫格中的一格，选择角落、边缘或中心。到页边的距离就是边距（毫米）。"
+        ],
+        [
+          "可以跳过封面吗？",
+          "可以。在页面范围里填 2-，就从第 2 页开始。显示的数字仍是实际页数，若封面不计数，把起始数字设为 0。"
+        ],
+        [
+          "横向页面或大小不一的页面也可以吗？",
+          "可以。每页单独计算，横向页面上页码也会出现在您选的位置。"
+        ],
+        [
+          "我的文件会被上传吗？",
+          "不会。PDF 在您的设备上打开并添加页码，不会发送到任何服务器。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "PDFにページ番号を追加 – 無料オンライン",
+      "h1": "ページ番号を追加",
+      "line": "好きな位置に全ページの番号を入れます。",
+      "description": "PDFにページ番号を無料で追加。位置・サイズ・開始番号を選び、ページ範囲を決めてダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "PDFを選択",
+      "runText": "番号を入れる",
+      "resultName": "ページ番号",
+      "options": {
+        "position": {
+          "label": "位置"
+        },
+        "format": {
+          "label": "表示形式",
+          "choices": {
+            "n": "1",
+            "total": "1 / 10",
+            "page": "Page 1"
+          }
+        },
+        "start": {
+          "label": "開始番号",
+          "help": "1ページ目に付ける番号"
+        },
+        "size": {
+          "label": "文字サイズ"
+        },
+        "margin": {
+          "label": "余白 (mm)"
+        },
+        "range": {
+          "label": "ページ範囲",
+          "help": "例: 2-10, 15 · 空欄なら全ページ"
+        }
+      },
+      "errorRange": "ページ範囲を確認してください。例: 2-10, 15",
+      "faq": [
+        [
+          "番号はどこに入りますか？",
+          "9つのマスのどれかを押して、角・辺・中央を選びます。端からの距離が余白(mm)です。"
+        ],
+        [
+          "表紙を飛ばせますか？",
+          "はい。ページ範囲に 2- と入れると2ページ目から入ります。番号は実際のページ数なので、表紙を数えないなら開始番号を0にしてください。"
+        ],
+        [
+          "横向きやサイズの違うページでも大丈夫ですか？",
+          "はい。ページごとに計算するので、横向きページでも選んだ位置に番号が入ります。"
+        ],
+        [
+          "ファイルはアップロードされますか？",
+          "いいえ。PDFは端末内で開いて番号を入れ、サーバーには送信されません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Añadir números de página a PDF – Gratis online",
+      "h1": "Numerar páginas",
+      "line": "Pon el número de página donde quieras.",
+      "description": "Añade números de página a un PDF gratis. Elige posición, tamaño y primer número, define las páginas y descarga. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir PDF",
+      "runText": "Numerar",
+      "resultName": "numerado",
+      "options": {
+        "position": {
+          "label": "Posición"
+        },
+        "format": {
+          "label": "Formato",
+          "choices": {
+            "n": "1",
+            "total": "1 / 10",
+            "page": "Page 1"
+          }
+        },
+        "start": {
+          "label": "Primer número",
+          "help": "Número de la página 1"
+        },
+        "size": {
+          "label": "Tamaño"
+        },
+        "margin": {
+          "label": "Margen (mm)"
+        },
+        "range": {
+          "label": "Páginas",
+          "help": "p. ej. 2-10, 15 · vacío = todas"
+        }
+      },
+      "errorRange": "Revisa el rango de páginas, p. ej. 2-10, 15.",
+      "faq": [
+        [
+          "¿Dónde se colocan los números?",
+          "Toca una de las nueve casillas para elegir esquina, borde o centro. La distancia al borde es el margen en milímetros."
+        ],
+        [
+          "¿Puedo saltar la portada?",
+          "Sí. Escribe 2- en Páginas para empezar en la página 2. El número impreso sigue siendo el real, así que pon 0 como primer número si la portada no debe contar."
+        ],
+        [
+          "¿Funciona con páginas giradas o de distinto tamaño?",
+          "Sí. Cada página se calcula por separado, así que el número queda donde elegiste incluso en páginas apaisadas."
+        ],
+        [
+          "¿Se suben mis archivos?",
+          "No. El PDF se abre y se numera en tu dispositivo y nunca se envía a un servidor."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Adicionar números de página ao PDF – Grátis online",
+      "h1": "Numerar páginas",
+      "line": "Coloque o número da página onde quiser.",
+      "description": "Adicione números de página a um PDF grátis. Escolha posição, tamanho e primeiro número, defina as páginas e baixe. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher PDF",
+      "runText": "Numerar",
+      "resultName": "numerado",
+      "options": {
+        "position": {
+          "label": "Posição"
+        },
+        "format": {
+          "label": "Formato",
+          "choices": {
+            "n": "1",
+            "total": "1 / 10",
+            "page": "Page 1"
+          }
+        },
+        "start": {
+          "label": "Primeiro número",
+          "help": "Número da página 1"
+        },
+        "size": {
+          "label": "Tamanho"
+        },
+        "margin": {
+          "label": "Margem (mm)"
+        },
+        "range": {
+          "label": "Páginas",
+          "help": "ex.: 2-10, 15 · vazio = todas"
+        }
+      },
+      "errorRange": "Confira o intervalo de páginas, ex.: 2-10, 15.",
+      "faq": [
+        [
+          "Onde os números ficam?",
+          "Toque em uma das nove células para escolher canto, borda ou centro. A distância até a borda é a margem em milímetros."
+        ],
+        [
+          "Posso pular a capa?",
+          "Sim. Digite 2- em Páginas para começar na página 2. O número impresso continua sendo o real, então use 0 como primeiro número se a capa não deve contar."
+        ],
+        [
+          "Funciona com páginas giradas ou de tamanhos diferentes?",
+          "Sim. Cada página é calculada separadamente, então o número fica onde você escolheu mesmo em páginas em paisagem."
+        ],
+        [
+          "Meus arquivos são enviados?",
+          "Não. O PDF é aberto e numerado no seu dispositivo e nunca vai para um servidor."
+        ]
+      ]
+    },
+    "de": {
+      "title": "Seitenzahlen in PDF einfügen – Kostenlos online",
+      "h1": "Seitenzahlen einfügen",
+      "line": "Seitenzahlen an der gewünschten Stelle.",
+      "description": "Seitenzahlen kostenlos in eine PDF einfügen. Position, Größe, Startnummer und Seiten wählen, dann herunterladen. Läuft im Browser, nichts wird hochgeladen.",
+      "buttonText": "PDF auswählen",
+      "runText": "Nummerieren",
+      "resultName": "nummeriert",
+      "options": {
+        "position": {
+          "label": "Position"
+        },
+        "format": {
+          "label": "Format",
+          "choices": {
+            "n": "1",
+            "total": "1 / 10",
+            "page": "Page 1"
+          }
+        },
+        "start": {
+          "label": "Erste Nummer",
+          "help": "Nummer für Seite 1"
+        },
+        "size": {
+          "label": "Größe"
+        },
+        "margin": {
+          "label": "Rand (mm)"
+        },
+        "range": {
+          "label": "Seiten",
+          "help": "z. B. 2-10, 15 · leer = alle"
+        }
+      },
+      "errorRange": "Bitte den Seitenbereich prüfen, z. B. 2-10, 15.",
+      "faq": [
+        [
+          "Wo stehen die Seitenzahlen?",
+          "Tippe auf eines der neun Felder, um Ecke, Rand oder Mitte zu wählen. Der Abstand zum Rand ist der Wert in Millimetern."
+        ],
+        [
+          "Kann ich das Deckblatt überspringen?",
+          "Ja. Trage bei Seiten 2- ein, dann beginnt es auf Seite 2. Gedruckt wird weiterhin die echte Seitennummer – setze die erste Nummer auf 0, wenn das Deckblatt nicht zählen soll."
+        ],
+        [
+          "Geht das auch bei gedrehten oder unterschiedlich großen Seiten?",
+          "Ja. Jede Seite wird einzeln berechnet, die Zahl sitzt auch auf Querformat-Seiten an der gewählten Stelle."
+        ],
+        [
+          "Werden meine Dateien hochgeladen?",
+          "Nein. Die PDF wird auf deinem Gerät geöffnet und nummeriert und nie an einen Server gesendet."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Ajouter des numéros de page à un PDF – Gratuit en ligne",
+      "h1": "Numéroter les pages",
+      "line": "Placez le numéro de page où vous voulez.",
+      "description": "Ajoutez des numéros de page à un PDF gratuitement. Position, taille, premier numéro et pages au choix. Tout se passe dans le navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir un PDF",
+      "runText": "Numéroter",
+      "resultName": "numerote",
+      "options": {
+        "position": {
+          "label": "Position"
+        },
+        "format": {
+          "label": "Format",
+          "choices": {
+            "n": "1",
+            "total": "1 / 10",
+            "page": "Page 1"
+          }
+        },
+        "start": {
+          "label": "Premier numéro",
+          "help": "Numéro de la page 1"
+        },
+        "size": {
+          "label": "Taille"
+        },
+        "margin": {
+          "label": "Marge (mm)"
+        },
+        "range": {
+          "label": "Pages",
+          "help": "ex. 2-10, 15 · vide = toutes"
+        }
+      },
+      "errorRange": "Vérifiez la plage de pages, ex. 2-10, 15.",
+      "faq": [
+        [
+          "Où sont placés les numéros ?",
+          "Touchez l'une des neuf cases pour choisir un coin, un bord ou le centre. La distance au bord est la marge en millimètres."
+        ],
+        [
+          "Puis-je sauter la couverture ?",
+          "Oui. Saisissez 2- dans Pages pour commencer à la page 2. Le numéro imprimé reste le vrai numéro de page : mettez 0 comme premier numéro si la couverture ne doit pas compter."
+        ],
+        [
+          "Ça marche avec des pages pivotées ou de tailles différentes ?",
+          "Oui. Chaque page est calculée séparément, le numéro reste à l'endroit choisi même sur les pages en paysage."
+        ],
+        [
+          "Mes fichiers sont-ils envoyés ?",
+          "Non. Le PDF est ouvert et numéroté sur votre appareil et ne part jamais vers un serveur."
+        ]
+      ]
+    }
+  }
+}
