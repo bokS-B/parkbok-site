@@ -1219,5 +1219,59 @@
       "de",
       "fr"
     ]
+  },
+  {
+    "id": "passport-photo",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 50,
+    "url": "/image/passport-photo/",
+    "icon": "passport-photo",
+    "name": {
+      "ko": "여권사진 규격 맞추기",
+      "en": "Passport Photo Maker (Resize & Crop)"
+    },
+    "line": {
+      "ko": "여권·증명사진 규격대로 자르고 용량까지 맞추기",
+      "en": "Crop to the official size and fit the file limit"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "exif",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 51,
+    "url": "/image/exif/",
+    "icon": "exif",
+    "name": {
+      "ko": "EXIF 보기·수정·삭제 (사진 정보)",
+      "en": "EXIF Viewer & Editor (Remove Metadata)"
+    },
+    "line": {
+      "ko": "사진 정보 확인·수정·지우기",
+      "en": "See, change or strip photo metadata"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
   }
 ]

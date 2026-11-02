@@ -1,0 +1,405 @@
+{
+  "id": "exif",
+  "order": 60,
+  "icon": "exif",
+  "cat": "image",
+  "next": [
+    "image-compress",
+    "image-rotate",
+    "heic-to-jpg"
+  ],
+  "strings": {
+    "en": {
+      "title": "EXIF Viewer & Editor – View, Edit or Remove Photo Metadata Online Free",
+      "h1": "EXIF Viewer & Editor (Remove Metadata)",
+      "line": "See, change or strip photo metadata",
+      "description": "View, edit and remove EXIF metadata from JPEG photos online for free: date taken, camera, lens, GPS location, author. Fix a wrong camera clock or strip location data for privacy. The image itself is not re-encoded. Runs in your browser – nothing is uploaded.",
+      "buttonText": "Select photos",
+      "runText": "Apply",
+      "resultName": "exif-photos",
+      "noteAll": "All metadata removed",
+      "noteDate": "{label} changed to {value}",
+      "noteDates": "Date & time",
+      "noteArtist": "Author set to {value}",
+      "noteDesc": "Description changed",
+      "noteGps": "GPS removed",
+      "noteNoGps": "No GPS data found",
+      "noteNone": "Nothing changed – original returned",
+      "orient": { "90": "rotate 90° CW", "180": "rotate 180°", "270": "rotate 90° CCW", "mirror": "mirrored" },
+      "options": {
+        "exif": { "label": "Photo info", "choices": { "none": "No EXIF data in this photo.", "dateOriginal": "Date taken", "dateModified": "Date modified", "dateDigitized": "Date digitized", "make": "Camera maker", "model": "Camera model", "lens": "Lens", "exposure": "Exposure", "aperture": "Aperture", "iso": "ISO", "focal": "Focal length", "size": "Resolution", "orientation": "Orientation", "software": "Software", "artist": "Author", "description": "Description", "gps": "GPS (lat, long)" } },
+        "mode": { "label": "Metadata", "help": "Remove all keeps only the rotation flag so the photo is not displayed sideways.", "choices": { "keep": "Keep", "gps": "Remove GPS only", "all": "Remove all (privacy)" } },
+        "date": { "label": "Date & time", "help": "Changes all three dates together. Leave as is to keep them.", "choices": { "each": "Set separately", "original": "Date taken", "modified": "Date modified", "digitized": "Date digitized" } },
+        "artist": { "label": "Author", "help": "Leave empty to keep" },
+        "description": { "label": "Description", "help": "Leave empty to keep" }
+      },
+      "errors": {
+        "notJpeg": "Only JPEG is supported. PNG, WebP and HEIC are not.",
+        "read": "The metadata in this photo could not be read.",
+        "write": "The metadata could not be written. Try Remove all instead.",
+        "lib": "The EXIF library could not be loaded. Check your connection and try again."
+      },
+      "faq": [
+        [
+          "Is it okay to change the date a photo was taken?",
+          "Yes for everyday reasons: a camera clock that was set wrong, a missing time zone after travel, or scanned photos with no real date. If you submit photos as evidence or to an official body, you are responsible for the metadata being truthful."
+        ],
+        [
+          "What does Remove all delete?",
+          "Everything in the EXIF, XMP and IPTC blocks: date, camera, lens, GPS location, author, software and the embedded thumbnail. Only the rotation flag is kept so the photo still shows the right way up. The pixels are untouched, so quality and file size stay the same."
+        ],
+        [
+          "Why remove GPS data?",
+          "Phones store the exact location where a photo was taken. Removing it before you share a photo keeps your home, school or workplace private."
+        ],
+        [
+          "Which files work?",
+          "JPEG only (JPG/JPEG). PNG, WebP and HEIC store metadata differently; convert HEIC to JPG first with the HEIC to JPG tool. Photos are processed on your device and never uploaded."
+        ]
+      ]
+    },
+    "ko": {
+      "title": "EXIF 보기·수정·삭제 – 사진 정보(촬영일시·GPS·카메라) 확인과 삭제 무료 온라인",
+      "h1": "EXIF 보기·수정·삭제 (사진 정보)",
+      "line": "사진 정보 확인·수정·지우기",
+      "description": "JPEG 사진의 EXIF 정보를 무료로 확인·수정·삭제합니다. 촬영일시, 카메라·렌즈, GPS 위치, 작성자를 보고, 잘못된 카메라 시계를 고치거나 위치 정보를 지웁니다. 이미지는 다시 압축하지 않습니다. 브라우저 안에서 처리되어 사진이 서버로 올라가지 않습니다.",
+      "buttonText": "사진 선택",
+      "runText": "적용하기",
+      "resultName": "사진정보",
+      "noteAll": "메타데이터 전체 삭제",
+      "noteDate": "{label} {value} 로 변경",
+      "noteDates": "촬영일시",
+      "noteArtist": "작성자 {value}",
+      "noteDesc": "설명 변경",
+      "noteGps": "GPS 삭제",
+      "noteNoGps": "GPS 정보 없음",
+      "noteNone": "바꾼 것이 없어 원본 그대로",
+      "orient": { "90": "시계방향 90°", "180": "180° 회전", "270": "반시계 90°", "mirror": "반전" },
+      "options": {
+        "exif": { "label": "사진 정보", "choices": { "none": "이 사진에는 EXIF 정보가 없습니다.", "dateOriginal": "촬영일시", "dateModified": "수정일시", "dateDigitized": "디지털화 일시", "make": "제조사", "model": "카메라", "lens": "렌즈", "exposure": "노출", "aperture": "조리개", "iso": "ISO", "focal": "초점거리", "size": "해상도", "orientation": "방향", "software": "소프트웨어", "artist": "작성자", "description": "설명", "gps": "GPS (위도, 경도)" } },
+        "mode": { "label": "메타데이터", "help": "전체 삭제는 회전 방향만 남겨 사진이 돌아가 보이지 않게 합니다.", "choices": { "keep": "원본 유지", "gps": "GPS 만 삭제", "all": "전체 삭제(개인정보 보호)" } },
+        "date": { "label": "날짜·시간", "help": "촬영·수정·디지털화 일시가 함께 바뀝니다. 그대로 두면 바꾸지 않습니다.", "choices": { "each": "따로 바꾸기", "original": "촬영일시", "modified": "수정일시", "digitized": "디지털화 일시" } },
+        "artist": { "label": "작성자", "help": "비우면 그대로" },
+        "description": { "label": "설명", "help": "비우면 그대로" }
+      },
+      "errors": {
+        "notJpeg": "JPEG 만 지원합니다. PNG·WebP·HEIC 는 넣을 수 없습니다.",
+        "read": "이 사진의 메타데이터를 읽지 못했습니다.",
+        "write": "메타데이터를 쓰지 못했습니다. 전체 삭제를 써 보세요.",
+        "lib": "EXIF 라이브러리를 불러오지 못했습니다. 연결을 확인하고 다시 시도해 주세요."
+      },
+      "faq": [
+        [
+          "촬영일시를 바꿔도 되나요?",
+          "카메라 시계가 틀렸거나, 여행 뒤 시간대가 맞지 않거나, 스캔한 사진에 실제 날짜가 없는 경우처럼 일상적인 용도라면 괜찮습니다. 공문서·증빙으로 제출하는 사진의 정보를 사실과 다르게 적는 것은 본인 책임입니다."
+        ],
+        [
+          "전체 삭제하면 무엇이 지워지나요?",
+          "EXIF·XMP·IPTC 블록 전부입니다. 촬영일시, 카메라·렌즈, GPS 위치, 작성자, 소프트웨어, 내장 썸네일이 사라집니다. 사진이 돌아가 보이지 않도록 회전 방향만 남깁니다. 픽셀은 건드리지 않아 화질과 용량이 그대로입니다."
+        ],
+        [
+          "GPS 정보는 왜 지우나요?",
+          "스마트폰 사진에는 촬영한 정확한 위치가 들어 있습니다. 공유하기 전에 지우면 집·학교·직장 위치가 노출되지 않습니다."
+        ],
+        [
+          "어떤 파일이 되나요?",
+          "JPEG(JPG) 만 됩니다. PNG·WebP·HEIC 는 메타데이터 구조가 달라 지원하지 않으며, HEIC 는 HEIC → JPG 도구로 먼저 변환하세요. 사진은 내 기기 안에서만 처리되고 서버로 전송되지 않습니다."
+        ]
+      ]
+    },
+    "zh": {
+      "title": "EXIF 查看 修改 删除 – 在线免费查看、编辑、清除照片元数据",
+      "h1": "EXIF 查看 修改 删除",
+      "line": "查看、修改或清除照片信息",
+      "description": "免费在线查看、修改和删除 JPEG 照片的 EXIF 信息：拍摄时间、相机、镜头、GPS 位置、作者。修正错误的相机时钟，或为保护隐私清除位置信息。图片本身不会被重新压缩。全部在浏览器中完成，不上传任何文件。",
+      "buttonText": "选择照片",
+      "runText": "应用",
+      "resultName": "exif-照片",
+      "noteAll": "已清除全部元数据",
+      "noteDate": "{label}已改为 {value}",
+      "noteDates": "日期时间",
+      "noteArtist": "作者改为 {value}",
+      "noteDesc": "已修改描述",
+      "noteGps": "已删除 GPS",
+      "noteNoGps": "没有 GPS 信息",
+      "noteNone": "没有改动，返回原图",
+      "orient": { "90": "顺时针 90°", "180": "旋转 180°", "270": "逆时针 90°", "mirror": "镜像" },
+      "options": {
+        "exif": { "label": "照片信息", "choices": { "none": "这张照片没有 EXIF 信息。", "dateOriginal": "拍摄时间", "dateModified": "修改时间", "dateDigitized": "数字化时间", "make": "相机品牌", "model": "相机型号", "lens": "镜头", "exposure": "曝光", "aperture": "光圈", "iso": "ISO", "focal": "焦距", "size": "分辨率", "orientation": "方向", "software": "软件", "artist": "作者", "description": "描述", "gps": "GPS（纬度, 经度）" } },
+        "mode": { "label": "元数据", "help": "清除全部时只保留旋转标记，照片不会显示成横的。", "choices": { "keep": "保持原样", "gps": "仅删除 GPS", "all": "全部清除（隐私）" } },
+        "date": { "label": "日期时间", "help": "三个日期一起修改。不改动则保持原样。", "choices": { "each": "分别设置", "original": "拍摄时间", "modified": "修改时间", "digitized": "数字化时间" } },
+        "artist": { "label": "作者", "help": "留空则不变" },
+        "description": { "label": "描述", "help": "留空则不变" }
+      },
+      "errors": {
+        "notJpeg": "仅支持 JPEG。不支持 PNG、WebP、HEIC。",
+        "read": "无法读取这张照片的元数据。",
+        "write": "无法写入元数据，请改用全部清除。",
+        "lib": "无法加载 EXIF 库，请检查网络后重试。"
+      },
+      "faq": [
+        [
+          "可以修改拍摄时间吗？",
+          "相机时钟设错、旅行后时区不对、扫描照片没有真实日期等日常情况都可以。若照片用于官方或证明用途，元数据是否真实由您本人负责。"
+        ],
+        [
+          "全部清除会删掉什么？",
+          "EXIF、XMP、IPTC 中的全部内容：日期、相机、镜头、GPS 位置、作者、软件和内嵌缩略图。只保留旋转标记，照片方向不变。像素不变，画质和大小也不变。"
+        ],
+        [
+          "为什么要删除 GPS？",
+          "手机会把拍摄的精确位置写进照片。分享前删除，可避免暴露家、学校或公司的位置。"
+        ],
+        [
+          "支持哪些文件？",
+          "仅 JPEG（JPG）。PNG、WebP、HEIC 的元数据结构不同，暂不支持；HEIC 请先用 HEIC 转 JPG 工具转换。照片仅在您的设备上处理，不会上传。"
+        ]
+      ]
+    },
+    "ja": {
+      "title": "Exif 編集・削除 – 写真の撮影日時・GPS・カメラ情報を無料オンラインで確認・変更",
+      "h1": "Exif 編集・削除",
+      "line": "写真情報の確認・変更・削除",
+      "description": "JPEG 写真の Exif 情報を無料で確認・編集・削除。撮影日時、カメラ・レンズ、GPS 位置情報、作者を表示し、カメラの時計のずれを直したり位置情報を消したりできます。画像は再圧縮しません。ブラウザ内で処理するためファイルはアップロードされません。",
+      "buttonText": "写真を選択",
+      "runText": "適用する",
+      "resultName": "exif-写真",
+      "noteAll": "メタデータをすべて削除",
+      "noteDate": "{label}を {value} に変更",
+      "noteDates": "日時",
+      "noteArtist": "作者を {value} に変更",
+      "noteDesc": "説明を変更",
+      "noteGps": "GPS を削除",
+      "noteNoGps": "GPS 情報なし",
+      "noteNone": "変更がないため元のまま",
+      "orient": { "90": "時計回り 90°", "180": "180° 回転", "270": "反時計回り 90°", "mirror": "反転" },
+      "options": {
+        "exif": { "label": "写真情報", "choices": { "none": "この写真に Exif 情報はありません。", "dateOriginal": "撮影日時", "dateModified": "更新日時", "dateDigitized": "デジタル化日時", "make": "メーカー", "model": "カメラ", "lens": "レンズ", "exposure": "露出", "aperture": "絞り", "iso": "ISO", "focal": "焦点距離", "size": "解像度", "orientation": "向き", "software": "ソフトウェア", "artist": "作者", "description": "説明", "gps": "GPS（緯度, 経度）" } },
+        "mode": { "label": "メタデータ", "help": "すべて削除では向きの情報だけ残し、写真が横向きに見えないようにします。", "choices": { "keep": "そのまま", "gps": "GPS だけ削除", "all": "すべて削除（プライバシー）" } },
+        "date": { "label": "日時", "help": "撮影・更新・デジタル化の3つの日時をまとめて変更します。触らなければ変わりません。", "choices": { "each": "個別に設定", "original": "撮影日時", "modified": "更新日時", "digitized": "デジタル化日時" } },
+        "artist": { "label": "作者", "help": "空欄ならそのまま" },
+        "description": { "label": "説明", "help": "空欄ならそのまま" }
+      },
+      "errors": {
+        "notJpeg": "JPEG のみ対応です。PNG・WebP・HEIC は使えません。",
+        "read": "この写真のメタデータを読み込めませんでした。",
+        "write": "メタデータを書き込めませんでした。すべて削除をお試しください。",
+        "lib": "Exif ライブラリを読み込めませんでした。接続を確認して再試行してください。"
+      },
+      "faq": [
+        [
+          "撮影日時を変えてもいいですか？",
+          "カメラの時計が間違っていた、旅行先の時差が反映されていない、スキャンした写真に本当の日付がない、といった日常的な用途なら問題ありません。公的機関や証拠として提出する写真の情報を事実と違う内容にすることは、ご本人の責任です。"
+        ],
+        [
+          "すべて削除では何が消えますか？",
+          "Exif・XMP・IPTC のすべて：日時、カメラ・レンズ、GPS 位置、作者、ソフトウェア、内蔵サムネイルです。写真の向きだけは残します。ピクセルには触れないので画質と容量は変わりません。"
+        ],
+        [
+          "GPS 情報を消す理由は？",
+          "スマホの写真には撮影した正確な場所が記録されています。共有前に消せば、自宅・学校・職場の場所が知られずに済みます。"
+        ],
+        [
+          "対応ファイルは？",
+          "JPEG（JPG）のみです。PNG・WebP・HEIC はメタデータの構造が違うため未対応です。HEIC は HEIC → JPG ツールで先に変換してください。写真は端末内だけで処理され、アップロードされません。"
+        ]
+      ]
+    },
+    "es": {
+      "title": "Editor EXIF – Ver, editar o borrar los metadatos de una foto online gratis",
+      "h1": "Editor EXIF",
+      "line": "Ver, cambiar o borrar los datos de la foto",
+      "description": "Ver, editar y eliminar los metadatos EXIF de fotos JPEG gratis y online: fecha de captura, cámara, objetivo, ubicación GPS, autor. Corrige el reloj de la cámara o borra la ubicación por privacidad. La imagen no se vuelve a comprimir. Funciona en tu navegador: no se sube nada.",
+      "buttonText": "Elegir fotos",
+      "runText": "Aplicar",
+      "resultName": "fotos-exif",
+      "noteAll": "Todos los metadatos eliminados",
+      "noteDate": "{label} cambiada a {value}",
+      "noteDates": "Fecha y hora",
+      "noteArtist": "Autor: {value}",
+      "noteDesc": "Descripción cambiada",
+      "noteGps": "GPS eliminado",
+      "noteNoGps": "Sin datos GPS",
+      "noteNone": "Sin cambios: se devuelve el original",
+      "orient": { "90": "girar 90° horario", "180": "girar 180°", "270": "girar 90° antihorario", "mirror": "reflejada" },
+      "options": {
+        "exif": { "label": "Datos de la foto", "choices": { "none": "Esta foto no tiene datos EXIF.", "dateOriginal": "Fecha de captura", "dateModified": "Fecha de modificación", "dateDigitized": "Fecha de digitalización", "make": "Marca", "model": "Cámara", "lens": "Objetivo", "exposure": "Exposición", "aperture": "Apertura", "iso": "ISO", "focal": "Distancia focal", "size": "Resolución", "orientation": "Orientación", "software": "Software", "artist": "Autor", "description": "Descripción", "gps": "GPS (lat, long)" } },
+        "mode": { "label": "Metadatos", "help": "Borrar todo conserva solo la orientación para que la foto no se vea girada.", "choices": { "keep": "Mantener", "gps": "Borrar solo GPS", "all": "Borrar todo (privacidad)" } },
+        "date": { "label": "Fecha y hora", "help": "Cambia las tres fechas a la vez. Déjala como está para no tocarlas.", "choices": { "each": "Por separado", "original": "Fecha de captura", "modified": "Fecha de modificación", "digitized": "Fecha de digitalización" } },
+        "artist": { "label": "Autor", "help": "Vacío = sin cambios" },
+        "description": { "label": "Descripción", "help": "Vacío = sin cambios" }
+      },
+      "errors": {
+        "notJpeg": "Solo se admite JPEG. PNG, WebP y HEIC no.",
+        "read": "No se pudieron leer los metadatos de esta foto.",
+        "write": "No se pudieron escribir los metadatos. Prueba Borrar todo.",
+        "lib": "No se pudo cargar la librería EXIF. Revisa la conexión y vuelve a intentarlo."
+      },
+      "faq": [
+        [
+          "¿Está bien cambiar la fecha de captura?",
+          "Sí para usos cotidianos: un reloj de cámara mal puesto, una zona horaria distinta tras un viaje o fotos escaneadas sin fecha real. Si entregas fotos como prueba o a un organismo oficial, eres responsable de que los metadatos sean veraces."
+        ],
+        [
+          "¿Qué elimina Borrar todo?",
+          "Todo el contenido EXIF, XMP e IPTC: fecha, cámara, objetivo, ubicación GPS, autor, software y la miniatura incrustada. Solo se conserva la orientación para que la foto se vea bien. Los píxeles no se tocan: la calidad y el tamaño no cambian."
+        ],
+        [
+          "¿Por qué borrar el GPS?",
+          "El móvil guarda el lugar exacto donde se hizo la foto. Borrarlo antes de compartirla evita revelar tu casa, colegio o trabajo."
+        ],
+        [
+          "¿Qué archivos acepta?",
+          "Solo JPEG (JPG). PNG, WebP y HEIC guardan los metadatos de otra forma; convierte HEIC a JPG primero con la herramienta HEIC a JPG. Las fotos se procesan en tu dispositivo y nunca se suben."
+        ]
+      ]
+    },
+    "pt": {
+      "title": "Editor EXIF – Ver, editar ou apagar os metadados de uma foto online grátis",
+      "h1": "Editor EXIF",
+      "line": "Ver, alterar ou apagar os dados da foto",
+      "description": "Veja, edite e remova os metadados EXIF de fotos JPEG grátis e online: data da foto, câmera, lente, localização GPS, autor. Corrija o relógio da câmera ou apague a localização por privacidade. A imagem não é recomprimida. Funciona no navegador: nada é enviado.",
+      "buttonText": "Escolher fotos",
+      "runText": "Aplicar",
+      "resultName": "fotos-exif",
+      "noteAll": "Todos os metadados removidos",
+      "noteDate": "{label} alterada para {value}",
+      "noteDates": "Data e hora",
+      "noteArtist": "Autor: {value}",
+      "noteDesc": "Descrição alterada",
+      "noteGps": "GPS removido",
+      "noteNoGps": "Sem dados GPS",
+      "noteNone": "Nada mudou: o original foi devolvido",
+      "orient": { "90": "girar 90° horário", "180": "girar 180°", "270": "girar 90° anti-horário", "mirror": "espelhada" },
+      "options": {
+        "exif": { "label": "Dados da foto", "choices": { "none": "Esta foto não tem dados EXIF.", "dateOriginal": "Data da foto", "dateModified": "Data de modificação", "dateDigitized": "Data de digitalização", "make": "Fabricante", "model": "Câmera", "lens": "Lente", "exposure": "Exposição", "aperture": "Abertura", "iso": "ISO", "focal": "Distância focal", "size": "Resolução", "orientation": "Orientação", "software": "Software", "artist": "Autor", "description": "Descrição", "gps": "GPS (lat, long)" } },
+        "mode": { "label": "Metadados", "help": "Remover tudo mantém só a orientação para a foto não aparecer deitada.", "choices": { "keep": "Manter", "gps": "Remover só GPS", "all": "Remover tudo (privacidade)" } },
+        "date": { "label": "Data e hora", "help": "Altera as três datas de uma vez. Deixe como está para não mexer.", "choices": { "each": "Separadamente", "original": "Data da foto", "modified": "Data de modificação", "digitized": "Data de digitalização" } },
+        "artist": { "label": "Autor", "help": "Vazio = sem alteração" },
+        "description": { "label": "Descrição", "help": "Vazio = sem alteração" }
+      },
+      "errors": {
+        "notJpeg": "Só JPEG é aceito. PNG, WebP e HEIC não.",
+        "read": "Não foi possível ler os metadados desta foto.",
+        "write": "Não foi possível gravar os metadados. Tente Remover tudo.",
+        "lib": "Não foi possível carregar a biblioteca EXIF. Verifique a conexão e tente de novo."
+      },
+      "faq": [
+        [
+          "Posso mudar a data da foto?",
+          "Sim para usos do dia a dia: relógio da câmera errado, fuso horário diferente depois de uma viagem ou fotos digitalizadas sem data real. Se enviar fotos como prova ou a um órgão oficial, você é responsável por os metadados serem verdadeiros."
+        ],
+        [
+          "O que Remover tudo apaga?",
+          "Todo o conteúdo EXIF, XMP e IPTC: data, câmera, lente, localização GPS, autor, software e a miniatura embutida. Só a orientação é mantida para a foto aparecer certa. Os pixels não são tocados: qualidade e tamanho ficam iguais."
+        ],
+        [
+          "Por que remover o GPS?",
+          "O celular grava o local exato onde a foto foi tirada. Remover antes de compartilhar evita expor sua casa, escola ou trabalho."
+        ],
+        [
+          "Quais arquivos funcionam?",
+          "Só JPEG (JPG). PNG, WebP e HEIC guardam metadados de outro jeito; converta HEIC para JPG antes com a ferramenta HEIC para JPG. As fotos são processadas no seu aparelho e nunca enviadas."
+        ]
+      ]
+    },
+    "de": {
+      "title": "EXIF-Daten bearbeiten – Foto-Metadaten online anzeigen, ändern oder löschen",
+      "h1": "EXIF-Daten bearbeiten",
+      "line": "Fotodaten ansehen, ändern oder entfernen",
+      "description": "EXIF-Metadaten von JPEG-Fotos kostenlos online anzeigen, bearbeiten und löschen: Aufnahmedatum, Kamera, Objektiv, GPS-Position, Autor. Falsche Kamerauhr korrigieren oder Standort aus Datenschutzgründen entfernen. Das Bild wird nicht neu komprimiert. Läuft im Browser – nichts wird hochgeladen.",
+      "buttonText": "Fotos wählen",
+      "runText": "Anwenden",
+      "resultName": "exif-fotos",
+      "noteAll": "Alle Metadaten entfernt",
+      "noteDate": "{label} auf {value} geändert",
+      "noteDates": "Datum und Uhrzeit",
+      "noteArtist": "Autor: {value}",
+      "noteDesc": "Beschreibung geändert",
+      "noteGps": "GPS entfernt",
+      "noteNoGps": "Keine GPS-Daten",
+      "noteNone": "Nichts geändert – Original zurückgegeben",
+      "orient": { "90": "90° im Uhrzeigersinn", "180": "180° gedreht", "270": "90° gegen den Uhrzeigersinn", "mirror": "gespiegelt" },
+      "options": {
+        "exif": { "label": "Fotodaten", "choices": { "none": "Dieses Foto enthält keine EXIF-Daten.", "dateOriginal": "Aufnahmedatum", "dateModified": "Änderungsdatum", "dateDigitized": "Digitalisierungsdatum", "make": "Hersteller", "model": "Kamera", "lens": "Objektiv", "exposure": "Belichtung", "aperture": "Blende", "iso": "ISO", "focal": "Brennweite", "size": "Auflösung", "orientation": "Ausrichtung", "software": "Software", "artist": "Autor", "description": "Beschreibung", "gps": "GPS (Breite, Länge)" } },
+        "mode": { "label": "Metadaten", "help": "Alles entfernen behält nur die Ausrichtung, damit das Foto nicht gedreht erscheint.", "choices": { "keep": "Behalten", "gps": "Nur GPS entfernen", "all": "Alles entfernen (Datenschutz)" } },
+        "date": { "label": "Datum und Uhrzeit", "help": "Ändert alle drei Daten zusammen. Unverändert lassen, um sie zu behalten.", "choices": { "each": "Einzeln setzen", "original": "Aufnahmedatum", "modified": "Änderungsdatum", "digitized": "Digitalisierungsdatum" } },
+        "artist": { "label": "Autor", "help": "Leer = unverändert" },
+        "description": { "label": "Beschreibung", "help": "Leer = unverändert" }
+      },
+      "errors": {
+        "notJpeg": "Nur JPEG wird unterstützt. PNG, WebP und HEIC nicht.",
+        "read": "Die Metadaten dieses Fotos konnten nicht gelesen werden.",
+        "write": "Die Metadaten konnten nicht geschrieben werden. Versuche Alles entfernen.",
+        "lib": "Die EXIF-Bibliothek konnte nicht geladen werden. Verbindung prüfen und erneut versuchen."
+      },
+      "faq": [
+        [
+          "Darf ich das Aufnahmedatum ändern?",
+          "Für alltägliche Zwecke ja: eine falsch gestellte Kamerauhr, eine fehlende Zeitzone nach einer Reise oder gescannte Fotos ohne echtes Datum. Wer Fotos als Beweis oder bei einer Behörde einreicht, ist selbst dafür verantwortlich, dass die Metadaten wahr sind."
+        ],
+        [
+          "Was löscht Alles entfernen?",
+          "Alles in den EXIF-, XMP- und IPTC-Blöcken: Datum, Kamera, Objektiv, GPS-Position, Autor, Software und das eingebettete Vorschaubild. Nur die Ausrichtung bleibt, damit das Foto richtig herum angezeigt wird. Die Pixel bleiben unberührt, Qualität und Dateigröße ändern sich nicht."
+        ],
+        [
+          "Warum GPS-Daten entfernen?",
+          "Smartphones speichern den genauen Aufnahmeort im Foto. Wer ihn vor dem Teilen entfernt, gibt Wohnort, Schule oder Arbeitsplatz nicht preis."
+        ],
+        [
+          "Welche Dateien funktionieren?",
+          "Nur JPEG (JPG). PNG, WebP und HEIC speichern Metadaten anders; HEIC zuerst mit dem Werkzeug HEIC zu JPG umwandeln. Fotos werden auf deinem Gerät verarbeitet und nie hochgeladen."
+        ]
+      ]
+    },
+    "fr": {
+      "title": "Éditeur EXIF – Voir, modifier ou supprimer les métadonnées d'une photo en ligne gratuitement",
+      "h1": "Éditeur EXIF",
+      "line": "Voir, modifier ou effacer les données d'une photo",
+      "description": "Affichez, modifiez et supprimez les métadonnées EXIF de photos JPEG gratuitement en ligne : date de prise de vue, appareil, objectif, position GPS, auteur. Corrigez l'horloge de l'appareil ou effacez la position pour protéger votre vie privée. L'image n'est pas recompressée. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "buttonText": "Choisir photos",
+      "runText": "Appliquer",
+      "resultName": "photos-exif",
+      "noteAll": "Toutes les métadonnées supprimées",
+      "noteDate": "{label} remplacée par {value}",
+      "noteDates": "Date et heure",
+      "noteArtist": "Auteur : {value}",
+      "noteDesc": "Description modifiée",
+      "noteGps": "GPS supprimé",
+      "noteNoGps": "Aucune donnée GPS",
+      "noteNone": "Rien n'a changé : original renvoyé",
+      "orient": { "90": "rotation 90° horaire", "180": "rotation 180°", "270": "rotation 90° antihoraire", "mirror": "en miroir" },
+      "options": {
+        "exif": { "label": "Données de la photo", "choices": { "none": "Cette photo ne contient pas de données EXIF.", "dateOriginal": "Date de prise de vue", "dateModified": "Date de modification", "dateDigitized": "Date de numérisation", "make": "Marque", "model": "Appareil", "lens": "Objectif", "exposure": "Exposition", "aperture": "Ouverture", "iso": "ISO", "focal": "Focale", "size": "Résolution", "orientation": "Orientation", "software": "Logiciel", "artist": "Auteur", "description": "Description", "gps": "GPS (lat, long)" } },
+        "mode": { "label": "Métadonnées", "help": "Tout supprimer ne garde que l'orientation pour que la photo ne s'affiche pas de travers.", "choices": { "keep": "Conserver", "gps": "Supprimer le GPS", "all": "Tout supprimer (vie privée)" } },
+        "date": { "label": "Date et heure", "help": "Modifie les trois dates en même temps. Laissez tel quel pour ne rien changer.", "choices": { "each": "Régler séparément", "original": "Date de prise de vue", "modified": "Date de modification", "digitized": "Date de numérisation" } },
+        "artist": { "label": "Auteur", "help": "Vide = inchangé" },
+        "description": { "label": "Description", "help": "Vide = inchangé" }
+      },
+      "errors": {
+        "notJpeg": "Seul le JPEG est pris en charge. Pas de PNG, WebP ni HEIC.",
+        "read": "Impossible de lire les métadonnées de cette photo.",
+        "write": "Impossible d'écrire les métadonnées. Essayez Tout supprimer.",
+        "lib": "Impossible de charger la bibliothèque EXIF. Vérifiez la connexion et réessayez."
+      },
+      "faq": [
+        [
+          "Puis-je changer la date de prise de vue ?",
+          "Oui pour un usage courant : horloge de l'appareil mal réglée, fuseau horaire non pris en compte après un voyage, photos numérisées sans vraie date. Si vous remettez des photos comme preuve ou à une administration, vous êtes responsable de l'exactitude des métadonnées."
+        ],
+        [
+          "Que supprime Tout supprimer ?",
+          "Tout le contenu EXIF, XMP et IPTC : date, appareil, objectif, position GPS, auteur, logiciel et miniature intégrée. Seule l'orientation est conservée pour que la photo s'affiche dans le bon sens. Les pixels ne sont pas touchés : qualité et taille restent identiques."
+        ],
+        [
+          "Pourquoi supprimer le GPS ?",
+          "Le téléphone enregistre l'endroit exact de la prise de vue. Le supprimer avant de partager une photo évite de révéler votre domicile, votre école ou votre lieu de travail."
+        ],
+        [
+          "Quels fichiers sont acceptés ?",
+          "Uniquement le JPEG (JPG). PNG, WebP et HEIC stockent les métadonnées autrement ; convertissez d'abord le HEIC avec l'outil HEIC vers JPG. Les photos sont traitées sur votre appareil et ne sont jamais envoyées."
+        ]
+      ]
+    }
+  }
+}
