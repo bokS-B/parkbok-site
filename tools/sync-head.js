@@ -17,7 +17,7 @@ const COMMON = [
   '<link rel="manifest" href="/manifest.json">',
   '<meta name="theme-color" content="#2563eb">',
   '<meta property="og:type" content="website">',
-  '<meta property="og:site_name" content="박복판 스튜디오">',
+  '<meta property="og:site_name" content="parkbok">',
   '<meta property="og:image" content="https://parkbok.com/og.png">',
   '<meta property="og:image:width" content="1200">',
   '<meta property="og:image:height" content="630">',

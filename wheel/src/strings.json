@@ -1,6 +1,6 @@
 {
   "en": {
-    "name": "English", "dir": "ltr", "brand": "Parkbok Studio",
+    "name": "English", "dir": "ltr", "brand": "parkbok",
     "ui": {
       "entries": "Entries", "results": "Results", "placeholder": "Type one entry per line",
       "spin": "Spin", "shuffle": "Shuffle", "sort": "Sort", "clear": "Clear", "share": "Share", "copied": "Link copied! Paste it anywhere.",
@@ -47,7 +47,7 @@
     }
   },
   "ko": {
-    "name": "한국어", "dir": "ltr", "brand": "박복판 스튜디오",
+    "name": "한국어", "dir": "ltr", "brand": "parkbok",
     "ui": {
       "entries": "항목", "results": "결과", "placeholder": "한 줄에 하나씩 입력",
       "spin": "돌리기", "shuffle": "섞기", "sort": "정렬", "clear": "지우기", "share": "공유", "copied": "링크를 복사했습니다. 어디든 붙여 넣으세요.",
@@ -94,7 +94,7 @@
     }
   },
   "zh": {
-    "name": "中文", "dir": "ltr", "brand": "Parkbok Studio",
+    "name": "中文", "dir": "ltr", "brand": "parkbok",
     "ui": {
       "entries": "选项", "results": "结果", "placeholder": "每行输入一个选项",
       "spin": "开始", "shuffle": "打乱", "sort": "排序", "clear": "清空", "share": "分享", "copied": "链接已复制，可以粘贴到任何地方。",
@@ -141,7 +141,7 @@
     }
   },
   "ja": {
-    "name": "日本語", "dir": "ltr", "brand": "Parkbok Studio",
+    "name": "日本語", "dir": "ltr", "brand": "parkbok",
     "ui": {
       "entries": "項目", "results": "結果", "placeholder": "1行に1つずつ入力",
       "spin": "回す", "shuffle": "シャッフル", "sort": "並べ替え", "clear": "クリア", "share": "共有", "copied": "リンクをコピーしました。どこにでも貼り付けられます。",
@@ -188,7 +188,7 @@
     }
   },
   "es": {
-    "name": "Español", "dir": "ltr", "brand": "Parkbok Studio",
+    "name": "Español", "dir": "ltr", "brand": "parkbok",
     "ui": {
       "entries": "Opciones", "results": "Resultados", "placeholder": "Escribe una opción por línea",
       "spin": "Girar", "shuffle": "Mezclar", "sort": "Ordenar", "clear": "Borrar", "share": "Compartir", "copied": "¡Enlace copiado! Pégalo donde quieras.",
@@ -235,7 +235,7 @@
     }
   },
   "pt": {
-    "name": "Português", "dir": "ltr", "brand": "Parkbok Studio",
+    "name": "Português", "dir": "ltr", "brand": "parkbok",
     "ui": {
       "entries": "Opções", "results": "Resultados", "placeholder": "Digite uma opção por linha",
       "spin": "Girar", "shuffle": "Embaralhar", "sort": "Ordenar", "clear": "Limpar", "share": "Compartilhar", "copied": "Link copiado! Cole onde quiser.",
@@ -282,7 +282,7 @@
     }
   },
   "de": {
-    "name": "Deutsch", "dir": "ltr", "brand": "Parkbok Studio",
+    "name": "Deutsch", "dir": "ltr", "brand": "parkbok",
     "ui": {
       "entries": "Einträge", "results": "Ergebnisse", "placeholder": "Pro Zeile ein Eintrag",
       "spin": "Drehen", "shuffle": "Mischen", "sort": "Sortieren", "clear": "Leeren", "share": "Teilen", "copied": "Link kopiert! Überall einfügbar.",
@@ -329,7 +329,7 @@
     }
   },
   "fr": {
-    "name": "Français", "dir": "ltr", "brand": "Parkbok Studio",
+    "name": "Français", "dir": "ltr", "brand": "parkbok",
     "ui": {
       "entries": "Entrées", "results": "Résultats", "placeholder": "Une entrée par ligne",
       "spin": "Tourner", "shuffle": "Mélanger", "sort": "Trier", "clear": "Effacer", "share": "Partager", "copied": "Lien copié ! Collez-le où vous voulez.",
