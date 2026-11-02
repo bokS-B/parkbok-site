@@ -18,11 +18,15 @@
     '.rs-nm{font-size:var(--fs-caption);opacity:.8;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
     '.rs-cp{font-size:var(--fs-caption);opacity:0;margin-top:6px;transition:opacity .15s}',
     '.rs-slot:hover .rs-cp,.rs-main:focus-visible .rs-cp{opacity:.75}',
-    '.rs-lock{position:absolute;top:10px;right:10px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:rgba(127,127,127,.22);color:inherit;cursor:pointer;opacity:.55;transition:opacity .15s,background .15s}',
+    // 잠금 버튼: 아이콘은 항상 불투명(칸 글자색 = 흰/검). 잠금/미잠금 차이는 배경 농도와 테두리로. 배경은 아이콘과 반대 방향(흰 아이콘이면 어둡게, 검은 아이콘이면 밝게)으로 깔아 대비를 올린다
+    '.rs-lock{position:absolute;top:10px;right:10px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:rgba(0,0,0,.2);color:inherit;cursor:pointer;transition:background .15s,box-shadow .15s}',
+    '.rs-slot.ink-dark .rs-lock{background:rgba(255,255,255,.3)}',
     '.rs-lock svg{width:20px;height:20px}',
-    '.rs-lock:hover,.rs-lock:focus-visible{opacity:1}',
+    '.rs-lock:hover,.rs-lock:focus-visible{background:rgba(0,0,0,.32)}',
+    '.rs-slot.ink-dark .rs-lock:hover,.rs-slot.ink-dark .rs-lock:focus-visible{background:rgba(255,255,255,.45)}',
     '.rs-lock:focus-visible{outline:2px solid currentColor;outline-offset:2px}',
-    '.rs-slot.locked .rs-lock{opacity:1;background:rgba(127,127,127,.4)}',
+    '.rs-slot.locked .rs-lock{background:rgba(0,0,0,.45);box-shadow:0 0 0 2px currentColor}',
+    '.rs-slot.ink-dark.locked .rs-lock{background:rgba(255,255,255,.6)}',
     '.rs-slot.locked .rs-main::after{content:"";position:absolute;inset:0;border:3px solid currentColor;opacity:.35;pointer-events:none}',
     '.rs-actions{justify-content:center;margin:0}',
     '.rs-actions kbd{font:inherit;font-size:var(--fs-caption);padding:1px 7px;border-radius:5px;background:rgba(255,255,255,.22)}',
@@ -97,7 +101,8 @@
   function paint(){
     for (var i = 0; i < N; i++) {
       var s = slots[i], hex = cols[i], near = C.nearestName(hex);
-      s.el.style.background = hex; s.el.style.color = C.textOn(hex);
+      var ink = C.textOn(hex);
+      s.el.style.background = hex; s.el.style.color = ink; s.el.classList.toggle('ink-dark', ink === '#000000');
       s.hex.textContent = hex;
       s.nm.textContent = near.exact ? near.name : '≈ ' + near.name;
       s.main.setAttribute('aria-label', t('copy') + ' ' + hex);

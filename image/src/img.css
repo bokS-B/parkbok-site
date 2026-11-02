@@ -115,12 +115,16 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
   .opt-side .opt-preset select{width:100%}
 }
 /* 표시 높이는 min(56dvh,520px) 까지: 미리보기 비율(--ar, JS 가 넣음)로 너비를 줄이면 오버레이는 퍼센트 좌표라 같이 줄어든다 */
-.rect-box{position:relative;width:100%;--ar:1;--rect-max-h:min(56vh,520px);max-width:min(720px,calc(var(--rect-max-h) * var(--ar)));margin:0 auto;background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px;border:1px solid var(--line);border-radius:var(--r-btn);overflow:hidden;line-height:0}
+/* 클리핑은 안쪽 .rect-clip(이미지·어둡게 마스크)에만 둔다. 손잡이 레이어 .rect-layer 는 넘침을 보이게 해서 이미지 가장자리에서도 44px 히트 영역이 상자 밖으로 살아 있다 */
+.rect-box{position:relative;width:100%;--ar:1;--rect-max-h:min(56vh,520px);max-width:min(720px,calc(var(--rect-max-h) * var(--ar)));margin:0 auto;border:1px solid var(--line);border-radius:var(--r-btn);line-height:0}
 @supports (height:1dvh){.rect-box{--rect-max-h:min(56dvh,520px)}}
+.rect-clip{position:relative;overflow:hidden;border-radius:calc(var(--r-btn) - 1px);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px}
 .rect-bg{display:block;width:100%;height:auto}
+.rect-mask{position:absolute;inset:0;pointer-events:none}
+.rmask{position:absolute;box-shadow:0 0 0 9999px rgba(0,0,0,.35)}
 .rect-layer{position:absolute;inset:0;touch-action:none;cursor:crosshair;user-select:none;-webkit-user-select:none}
-.rsel{position:absolute;box-sizing:border-box;border:2px solid #fff;outline:1px solid rgba(0,0,0,.6);box-shadow:0 0 0 9999px rgba(0,0,0,.35);cursor:move}
-.opt-blur-regions .rsel{box-shadow:none;background:rgba(37,99,235,.25);border-color:var(--accent)}
+.rsel{position:absolute;box-sizing:border-box;border:2px solid #fff;outline:1px solid rgba(0,0,0,.6);cursor:move}
+.opt-blur-regions .rsel{background:rgba(37,99,235,.25);border-color:var(--accent)}
 .opt-blur-regions .rsel.on{background:rgba(37,99,235,.4)}
 .rh{position:absolute;width:14px;height:14px;background:#fff;border:1px solid rgba(0,0,0,.6);border-radius:3px;box-sizing:border-box}
 /* 손잡이 보이는 크기는 그대로, 히트 영역 44×44 (::before 는 패딩 박스 기준: 12px + 16px×2) */

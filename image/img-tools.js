@@ -575,9 +575,10 @@
   // 사각형은 원본 좌표로 저장하고 퍼센트로 그려서 창 크기가 바뀌어도 그대로 맞는다.
   function rectEditor(o, row, multi){
     labelFor(o, row);
-    var box = el('div', 'rect-box'), cv = el('canvas', 'rect-bg'), layer = el('div', 'rect-layer');
-    layer.setAttribute('aria-hidden', 'true');
-    box.appendChild(cv); box.appendChild(layer); row.appendChild(box);
+    // .rect-clip 은 이미지와 어둡게 마스크만 잘라내고, 손잡이가 있는 .rect-layer 는 그 밖에 둔다(가장자리 손잡이 44px 히트 영역 유지)
+    var box = el('div', 'rect-box'), clip = el('div', 'rect-clip'), cv = el('canvas', 'rect-bg'), mask = el('div', 'rect-mask'), layer = el('div', 'rect-layer');
+    layer.setAttribute('aria-hidden', 'true'); mask.setAttribute('aria-hidden', 'true');
+    clip.appendChild(cv); if (!multi) clip.appendChild(mask); box.appendChild(clip); box.appendChild(layer); row.appendChild(box);
     var bar = el('div', 'rect-bar'), info = el('span', 'muted rect-info'), hint = el('span', 'muted rect-hint', t('dragHint'));
     var btn = el('button', 'btn ghost sm', multi ? t('clearAll') : t('reset')); btn.type = 'button';
     bar.appendChild(info); bar.appendChild(hint); bar.appendChild(btn); row.appendChild(bar);
@@ -605,11 +606,12 @@
     function round(r){ return { x: Math.round(r.x), y: Math.round(r.y), w: Math.max(1, Math.round(r.w)), h: Math.max(1, Math.round(r.h)) }; }
     function pct(v, n){ return (v / n * 100) + '%'; }
     function draw(){
-      layer.innerHTML = '';
+      layer.innerHTML = ''; mask.innerHTML = '';
       if (!ready) return;
       rects.forEach(function(r, i){
         var d = el('div', 'rsel' + (i === sel ? ' on' : '')); d.setAttribute('data-i', i);
         d.style.left = pct(r.x, natW); d.style.top = pct(r.y, natH); d.style.width = pct(r.w, natW); d.style.height = pct(r.h, natH);
+        if (!multi) { var m = el('div', 'rmask'); m.style.cssText = d.style.cssText; mask.appendChild(m); }   // 선택 밖을 어둡게: 클리핑되는 마스크 레이어에 따로 그린다
         HANDLES.forEach(function(h){ var s = el('span', 'rh rh-' + h); s.setAttribute('data-h', h); d.appendChild(s); });
         if (!multi && typeof o.guide === 'function') (o.guide(round(r), getValue) || []).forEach(function(g){ var gd = el('div', 'rguide' + (g.cls ? ' ' + g.cls : ''), g.text || null); gd.style.left = (g.x * 100) + '%'; gd.style.top = (g.y * 100) + '%'; gd.style.width = (g.w * 100) + '%'; gd.style.height = (g.h * 100) + '%'; d.appendChild(gd); });
         if (multi) { var x = el('button', 'rdel', '✕'); x.type = 'button'; x.setAttribute('aria-label', t('delete')); x.setAttribute('data-del', i); d.appendChild(x); }

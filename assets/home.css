@@ -10,9 +10,9 @@ main.wrap>.lead{margin:0 0 16px;word-break:keep-all;text-wrap:balance}
   main.wrap{padding-top:16px}
   /* 제목 23px: 콘텐츠 폭 328px(세로 스크롤바 뷰포트)에서도 한 줄 */
   main.wrap>h1{font-size:23px;line-height:32px}
-  main.wrap>.lead{margin-bottom:12px}
-  /* 분류 칩: 한 줄 가로 스크롤 */
-  .chips.filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter)) 12px;padding:0 var(--gutter) 2px}
+  main.wrap>.lead{margin-bottom:8px}
+  /* 분류 칩: 한 줄 가로 스크롤. overflow 가 칩의 44px 가상 영역을 자르므로 패딩 5px 로 컨테이너를 44px 로 — 실제 클릭 높이 44px */
+  .chips.filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter)) 8px;padding:5px var(--gutter);min-height:var(--touch)}
   .chips.filters::-webkit-scrollbar{display:none}
 }
 @media (max-width:440px){
