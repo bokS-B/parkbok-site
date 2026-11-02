@@ -31,7 +31,7 @@ p.lead{color:var(--muted);margin:0 0 20px}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;padding:20px 0}
 footer a{color:var(--muted);margin-right:12px}
 .faq dt{font-weight:600;margin-top:14px}.faq dd{margin:4px 0 0;color:var(--muted)}
-.ad{min-height:90px;margin:16px 0}
+.ad{margin:16px 0}.ad:empty{display:none}
 article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{margin:4px 0}
 .tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tt-grid textarea{width:100%;min-height:260px;font:14px/1.6 inherit;border:1px solid var(--line);border-radius:8px;padding:12px;resize:vertical;background:var(--card)}

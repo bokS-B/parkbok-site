@@ -5,14 +5,86 @@
 <title>개인정보처리방침 | parkbok.com</title>
 <meta name="description" content="parkbok.com의 개인정보처리방침. 업로드한 파일은 서버로 전송되지 않으며, 광고와 통계를 위한 쿠키 사용 내용을 안내합니다.">
 <link rel="canonical" href="https://parkbok.com/privacy.html">
-<link rel="stylesheet" href="/assets/site.css">
+<style id="site-css">
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2129;--muted:#5d6675;--line:#e3e6ea;--accent:#2563eb;--accent-ink:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.6}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+header.top{background:var(--card);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-weight:700;font-size:18px;color:var(--ink)}
+nav.menu a{margin-left:16px;color:var(--muted);font-size:14px}
+main{padding:28px 0 48px}
+h1{font-size:26px;margin:0 0 8px}h2{font-size:20px;margin:28px 0 8px}
+p.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0}
+.drop{border:2px dashed #b9c2d0;border-radius:12px;padding:36px 16px;text-align:center;background:#fbfcfe;cursor:pointer}
+.drop.on{border-color:var(--accent);background:#eef3ff}
+.drop strong{display:block;font-size:17px;margin-bottom:6px}
+.drop span{color:var(--muted);font-size:14px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:10px 16px;font-size:14px;cursor:pointer;margin:4px 6px 4px 0}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:default}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:12px 0}
+.status{font-size:14px;color:var(--muted);margin:8px 0}
+.status.err{color:#b91c1c}
+#viewer{min-height:200px;background:#e8eaed;border-radius:8px;overflow:auto;max-height:80vh}
+#viewer:empty{display:none}
+#textout{width:100%;min-height:200px;max-height:60vh;font:14px/1.6 inherit;border:1px solid var(--line);border-radius:8px;padding:12px;white-space:pre-wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.grid .card{margin:0}
+.grid .card h3{margin:0 0 6px;font-size:16px}
+.grid .card p{margin:0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;padding:20px 0}
+footer a{color:var(--muted);margin-right:12px}
+.faq dt{font-weight:600;margin-top:14px}.faq dd{margin:4px 0 0;color:var(--muted)}
+.ad{margin:16px 0}.ad:empty{display:none}
+article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{margin:4px 0}
+.tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tt-grid textarea{width:100%;min-height:260px;font:14px/1.6 inherit;border:1px solid var(--line);border-radius:8px;padding:12px;resize:vertical;background:var(--card)}
+.tt-grid textarea[readonly]{background:#fbfcfe}
+.tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
+.opts{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:14px;margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.opts label{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.opts select,.opts input[type=text],.opts input[type=number]{font:inherit;font-size:14px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.opts .sep{flex-basis:100%;height:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:12px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.stat b{display:block;font-size:22px;line-height:1.2}
+.stat span{font-size:12px;color:var(--muted)}
+.stat.over b{color:#b91c1c}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer}
+.chips button:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
+@media (max-width:600px){nav.menu{white-space:nowrap}nav.menu a{margin-left:9px;font-size:12.5px}.brand{font-size:16px}h1{font-size:22px}}
+@media print{header.top,footer,.card.intro,.tools,.status,.ad,.drop,.grid,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}
+</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1415309581345613" crossorigin="anonymous"></script>
+<!-- head:common -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="parkbok.com">
+<meta property="og:image" content="https://parkbok.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /head:common -->
+<!-- head:ga -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-377MXFWS51"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-377MXFWS51");</script>
+<!-- /head:ga -->
 </head>
 <body>
 <header class="top"><div class="wrap"><a class="brand" href="/">parkbok<span style="color:#2563eb">.com</span></a><nav class="menu"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/guide/">가이드</a><a href="/about.html">소개</a></nav></div></header>
 <main class="wrap"><article class="card">
 <h1>개인정보처리방침</h1>
-<p>시행일: 2026년 10월 22일</p>
+<p>시행일: 2026년 10월 22일 · 최근 변경: 2026년 11월 2일 (방문 통계 항목 추가)</p>
 
 <h2>1. 처리하는 파일</h2>
 <p>parkbok.com(이하 "사이트")의 HWP 뷰어는 사용자가 선택한 파일을 사용자의 브라우저 안에서만 읽고 변환합니다. 파일, 파일 이름, 문서 내용은 사이트 운영자의 서버나 제3자에게 전송·저장되지 않습니다. 사이트는 파일을 받는 서버를 운영하지 않습니다.</p>
@@ -21,11 +93,12 @@
 <p>사이트는 회원 가입을 받지 않으며 이름, 이메일, 전화번호 등 개인정보를 직접 수집하지 않습니다. 다만 아래 제3자 서비스가 자동으로 수집하는 정보가 있습니다.</p>
 <ul>
 <li><strong>호스팅(GitHub Pages)</strong>: 접속 IP 주소, 접속 시각, 요청한 페이지가 서버 로그에 남을 수 있습니다. <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub 개인정보 보호 정책</a></li>
+<li><strong>방문 통계(Google Analytics)</strong>: 어떤 페이지가 얼마나 방문되는지 알기 위해 Google Analytics를 사용합니다. 접속 기기·브라우저 종류, 대략적인 지역, 방문한 페이지가 익명 통계로 수집되며, 입력한 글이나 파일 내용은 포함되지 않습니다. <a href="https://policies.google.com/technologies/partner-sites?hl=ko" rel="noopener">Google의 데이터 사용 안내</a>, <a href="https://tools.google.com/dlpage/gaoptout?hl=ko" rel="noopener">수집 거부 브라우저 부가기능</a></li>
 <li><strong>광고(Google AdSense)</strong>: Google 및 광고 파트너는 쿠키를 사용해 사용자의 이 사이트 및 다른 사이트 방문 기록을 바탕으로 광고를 게재할 수 있습니다. 사용자는 <a href="https://www.google.com/settings/ads" rel="noopener">Google 광고 설정</a>에서 맞춤 광고를 해제할 수 있습니다. <a href="https://policies.google.com/technologies/ads?hl=ko" rel="noopener">Google 광고 정책</a></li>
 </ul>
 
 <h2>3. 쿠키</h2>
-<p>사이트 자체는 쿠키를 만들지 않습니다. 광고 제공을 위해 Google이 쿠키를 설정할 수 있으며, 브라우저 설정에서 쿠키를 차단할 수 있습니다. 차단해도 뷰어 기능은 정상 동작합니다.</p>
+<p>사이트 자체는 쿠키를 만들지 않습니다. 광고 제공과 방문 통계를 위해 Google이 쿠키를 설정할 수 있으며, 브라우저 설정에서 쿠키를 차단할 수 있습니다. 차단해도 뷰어와 텍스트 도구는 정상 동작합니다.</p>
 
 <h2>4. 보관 및 파기</h2>
 <p>사이트는 파일이나 개인정보를 보관하지 않으므로 파기할 정보도 없습니다. 브라우저를 닫으면 변환 결과는 사라집니다.</p>

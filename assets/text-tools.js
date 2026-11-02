@@ -67,6 +67,12 @@
       TT.download(o.filename || 'result.txt', t);
     });
     if ((b = $('btn-swap'))) b.addEventListener('click', function(){ inp.value = out.value; run(); TT.say('결과를 원본 칸으로 옮겼습니다. 이어서 다른 설정으로 처리할 수 있습니다.'); });
+    // Ctrl+Enter(맥은 ⌘+Enter)로 결과 복사
+    document.addEventListener('keydown', function(e){
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); TT.copy(out ? out.value : inp.value); }
+    });
+    // PC에서는 열리자마자 입력칸에 커서 (휴대폰은 키보드가 화면을 가리므로 제외)
+    if (window.innerWidth > 700 && !inp.value) inp.focus();
     run();
     return run;
   };

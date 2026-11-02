@@ -1,5 +1,18 @@
 (function(){
-  var L = window.HWPLib;
+  var L = null;
+  // 130KB 해석 모듈은 첫 화면에서 받지 않고, 파일을 고르려 할 때 불러온다.
+  function loadLib(){
+    if (window.HWPLib) return Promise.resolve(window.HWPLib);
+    if (loadLib.p) return loadLib.p;
+    loadLib.p = new Promise(function(resolve, reject){
+      var s = document.createElement('script');
+      s.src = '/assets/hwp-bundle.js';
+      s.onload = function(){ resolve(window.HWPLib); };
+      s.onerror = function(){ loadLib.p = null; reject(new Error('변환 모듈을 불러오지 못했습니다. 인터넷 연결을 확인하고 다시 시도하세요.')); };
+      document.head.appendChild(s);
+    });
+    return loadLib.p;
+  }
   var drop = document.getElementById('drop');
   var fileInput = document.getElementById('file');
   var status = document.getElementById('status');
@@ -150,13 +163,14 @@
         tools.style.display = 'flex';
         textWrap.style.display = 'block';
         say('완료: ' + file.name + ' (파일은 이 브라우저 안에서만 처리됐고 어디에도 전송되지 않았습니다)');
+        if (tools.scrollIntoView) tools.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } catch (e) {
         console.error(e);
         say('이 파일은 열 수 없습니다. 암호가 걸렸거나 배포용(DRM) 문서, 또는 아주 오래된 HWP 3.0 형식일 수 있습니다. (' + (e && e.message ? e.message : e) + ')', true);
       }
     };
     reader.onerror = function(){ say('파일을 읽지 못했습니다.', true); };
-    reader.readAsArrayBuffer(file);
+    loadLib().then(function(lib){ L = lib; reader.readAsArrayBuffer(file); }, function(e){ say(e.message, true); });
   }
 
   function download(name, content, type){
@@ -167,9 +181,11 @@
     setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
   }
 
-  drop.addEventListener('click', function(){ fileInput.click(); });
+  drop.addEventListener('click', function(){ loadLib(); fileInput.click(); });
+  drop.addEventListener('mouseenter', function(){ loadLib(); });
+  drop.addEventListener('touchstart', function(){ loadLib(); }, { passive: true });
   fileInput.addEventListener('change', function(){ handle(fileInput.files[0]); fileInput.value = ''; });
-  ['dragenter','dragover'].forEach(function(ev){ drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.add('on'); }); });
+  ['dragenter','dragover'].forEach(function(ev){ drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.add('on'); loadLib(); }); });
   ['dragleave','drop'].forEach(function(ev){ drop.addEventListener(ev, function(e){ e.preventDefault(); drop.classList.remove('on'); }); });
   drop.addEventListener('drop', function(e){ handle(e.dataTransfer.files[0]); });
   document.addEventListener('paste', function(e){ var f = e.clipboardData && e.clipboardData.files && e.clipboardData.files[0]; if (f) handle(f); });
