@@ -19,7 +19,7 @@
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="/">parkbok<span style="color:#2563eb">.com</span></a>
-  <nav class="menu"><a href="/">HWP 뷰어</a><a href="/guide/">가이드</a><a href="/about.html">소개</a></nav>
+  <nav class="menu"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/guide/">가이드</a><a href="/about.html">소개</a></nav>
 </div></header>
 
 <main class="wrap">
@@ -45,6 +45,7 @@
   <div id="textwrap" style="display:none">
     <h2>추출된 본문 텍스트</h2>
     <textarea id="textout" readonly></textarea>
+    <p style="font-size:14px;color:var(--muted);margin:8px 0 0">복사한 본문의 줄바꿈이 지저분하면 <a href="/text/remove-line-breaks.html">줄바꿈 제거 도구</a>로 정리하고, <a href="/text/char-count.html">글자수 세기</a>로 분량을 확인하세요.</p>
   </div>
 
   <div class="ad" id="ad-top"></div>
@@ -68,6 +69,14 @@
       <dt>DOCX(워드)로도 바꿀 수 있나요?</dt><dd>현재는 PDF·텍스트·HTML까지 지원합니다. HTML 파일을 워드에서 열면 대부분의 본문과 표가 그대로 들어옵니다.</dd>
       <dt>휴대폰에서도 되나요?</dt><dd>네. 안드로이드 Chrome, 아이폰 Safari에서 파일을 선택하면 똑같이 동작합니다.</dd>
     </dl>
+  </div>
+
+  <h2>텍스트 정리 도구</h2>
+  <div class="grid">
+    <a class="card" href="/text/remove-line-breaks.html"><h3>줄바꿈 제거</h3><p>한글·PDF에서 복사한 글의 줄바꿈·공백 정리</p></a>
+    <a class="card" href="/text/char-count.html"><h3>글자수 세기</h3><p>공백 포함·제외, 바이트, 자소서 제한 확인</p></a>
+    <a class="card" href="/text/sql-in.html"><h3>목록 → SQL IN절</h3><p>('A', 'B', 'C') 형태로 변환</p></a>
+    <a class="card" href="/text/dedupe-lines.html"><h3>중복 줄 제거 · 정렬</h3><p>명단 중복 지우기, 가나다순 정렬</p></a>
   </div>
 
   <h2>가이드</h2>

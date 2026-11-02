@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>목록을 SQL IN절로 변환 — ('A', 'B', 'C') 만들기 | parkbok.com</title>
+<meta name="description" content="한 줄씩 적힌 값이나 엑셀 한 열을 SQL WHERE col IN ('A', 'B', 'C') 형태로 바로 바꿉니다. 작은따옴표·큰따옴표 선택, 숫자 자동 감지, 중복 제거, 한 줄에 N개씩 줄바꿈. 서버 전송 없이 브라우저에서 처리, 무료.">
+<link rel="canonical" href="https://parkbok.com/text/sql-in.html">
+<meta property="og:title" content="목록을 SQL IN절로 변환">
+<meta property="og:description" content="세로 목록을 ('A', 'B', 'C') 형태로. 따옴표·중복 제거·숫자 자동 감지. 서버 전송 없음.">
+<meta property="og:url" content="https://parkbok.com/text/sql-in.html">
+<link rel="stylesheet" href="/assets/site.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1415309581345613" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"SQL IN절 변환기","url":"https://parkbok.com/text/sql-in.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"목록을 SQL IN절 형태로 바꾸는 무료 브라우저 도구"}
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok<span style="color:#2563eb">.com</span></a><nav class="menu"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/guide/">가이드</a><a href="/about.html">소개</a></nav></div></header>
+<main class="wrap">
+  <h1>목록 → SQL IN절 변환</h1>
+  <p class="lead">엑셀 한 열이나 한 줄씩 적힌 값을 붙여 넣으면 <code>('A', 'B', 'C')</code> 형태로 바꿔 줍니다. 따옴표 안의 작은따옴표는 자동으로 <code>''</code>로 바꿉니다.</p>
+
+  <div class="opts">
+    <label>따옴표 <select id="quote" data-opt><option value="auto">자동 (숫자만이면 없음)</option><option value="single">작은따옴표 '...'</option><option value="double">큰따옴표 "..."</option><option value="none">없음</option></select></label>
+    <label>열 이름 <input type="text" id="col" data-opt placeholder="예: user_id (비우면 괄호만)" style="width:190px"></label>
+    <label><select id="kw" data-opt><option value="IN">IN</option><option value="NOT IN">NOT IN</option></select></label>
+    <span class="sep"></span>
+    <label><input type="checkbox" id="o-split" data-opt checked> 쉼표·탭·세미콜론도 구분자로</label>
+    <label><input type="checkbox" id="o-dedupe" data-opt checked> 중복 제거</label>
+    <label>한 줄에 <input type="number" id="perline" data-opt min="0" value="0" style="width:64px"> 개씩 (0 = 한 줄)</label>
+  </div>
+
+  <div class="tt-grid">
+    <div><label class="lbl" for="in">값 목록 (한 줄에 하나)</label><textarea id="in" placeholder="A001&#10;A002&#10;A003&#10;&#10;엑셀에서 열을 복사해 붙여 넣어도 됩니다."></textarea></div>
+    <div><label class="lbl" for="out">SQL IN절</label><textarea id="out" readonly placeholder="('A001', 'A002', 'A003')"></textarea></div>
+  </div>
+  <div class="tools">
+    <button class="btn" id="btn-copy">결과 복사</button>
+    <button class="btn ghost" id="btn-paste">클립보드 붙여넣기</button>
+    <button class="btn ghost" id="btn-download">.txt 저장</button>
+    <button class="btn ghost" id="btn-clear">지우기</button>
+  </div>
+  <div class="status" id="status">값을 붙여 넣으면 바로 변환됩니다. 입력한 내용은 어디에도 전송되지 않습니다.</div>
+
+  <div class="ad"></div>
+
+  <article class="card">
+    <h2 style="margin-top:0">사용 예</h2>
+    <p>엑셀에서 주문번호 열을 복사해 붙여 넣고 열 이름에 <code>order_no</code>를 적으면 아래처럼 나옵니다.</p>
+    <pre style="background:#f3f4f6;padding:12px;border-radius:8px;overflow:auto;font-size:13px">order_no IN ('20240101-001', '20240101-002', '20240102-003')</pre>
+    <p>숫자만 있으면 "자동" 설정에서 따옴표를 붙이지 않습니다: <code>id IN (1001, 1002, 1003)</code></p>
+    <h2>주의할 점</h2>
+    <ul>
+      <li><strong>Oracle</strong>은 IN절에 1,000개까지만 넣을 수 있습니다. 넘으면 이 도구가 경고를 띄우며, 그때는 임시 테이블이나 여러 조건으로 나누세요.</li>
+      <li>값 안의 작은따옴표(<code>O'Brien</code>)는 <code>'O''Brien'</code>으로 자동 처리합니다. 큰따옴표 모드에서는 큰따옴표를 두 번 씁니다.</li>
+      <li>앞에 0이 붙는 번호(<code>0012</code>)는 "자동"에서 숫자로 보고 따옴표를 뺍니다. 문자열 열이면 "작은따옴표"를 직접 고르세요.</li>
+      <li>앞뒤 공백은 지웁니다. 빈 줄은 무시합니다.</li>
+    </ul>
+    <h2>자주 묻는 질문</h2>
+    <dl class="faq">
+      <dt>반대로 IN절을 세로 목록으로 풀 수 있나요?</dt><dd><a href="/text/list-to-line.html">목록 ↔ 한 줄</a>에서 "한 줄 → 목록"을 고르고 붙여 넣으면 쉼표 기준으로 나뉩니다. 따옴표는 찾아 바꾸기로 지우세요.</dd>
+      <dt>Excel 수식이나 Python 리스트 형태도 되나요?</dt><dd>따옴표를 "큰따옴표"로, 열 이름을 비우면 <code>("A", "B")</code>가 되어 Python·JSON 배열에 거의 그대로 쓸 수 있습니다. 괄호만 대괄호로 바꾸세요.</dd>
+    </dl>
+  </article>
+
+  <h2>다른 텍스트 도구</h2>
+  <div class="grid">
+    <a class="card" href="/text/remove-line-breaks.html"><h3>줄바꿈 제거</h3><p>복사한 글의 줄바꿈·공백 정리</p></a>
+    <a class="card" href="/text/char-count.html"><h3>글자수 세기</h3><p>공백 포함·제외, 바이트</p></a>
+    <a class="card" href="/text/dedupe-lines.html"><h3>중복 줄 제거 · 정렬</h3><p>같은 줄 지우고 가나다순 정렬</p></a>
+    <a class="card" href="/text/list-to-line.html"><h3>목록 ↔ 한 줄</h3><p>세로 목록을 쉼표 한 줄로</p></a>
+  </div>
+</main>
+<footer><div class="wrap"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a><div style="margin-top:8px">© parkbok.com</div></div></footer>
+<script src="/assets/text-tools.js"></script>
+<script>
+(function(){
+  var $ = TT.$;
+  var last = { n: 0, dup: 0 };
+  function convert(src){
+    var quote = $('quote').value, col = $('col').value.trim(), kw = $('kw').value;
+    var split = $('o-split').checked, dedupe = $('o-dedupe').checked;
+    var per = parseInt($('perline').value, 10) || 0;
+    var items = src.replace(/\r\n?/g, '\n').split(split ? /[\n,\t;]+/ : /\n/)
+      .map(function(x){ return x.trim(); }).filter(function(x){ return x !== ''; });
+    var before = items.length;
+    if (dedupe) { var seen = {}; items = items.filter(function(x){ if (seen[x]) return false; seen[x] = 1; return true; }); }
+    last = { n: items.length, dup: before - items.length };
+    if (!items.length) return '';
+    var allNum = items.every(function(x){ return /^-?\d+(\.\d+)?$/.test(x); });
+    var q = quote === 'single' ? "'" : quote === 'double' ? '"' : quote === 'auto' ? (allNum ? '' : "'") : '';
+    var vals = items.map(function(x){ return q ? q + x.split(q).join(q + q) + q : x; });
+    var body;
+    if (per > 0) {
+      var rows = [];
+      for (var i = 0; i < vals.length; i += per) rows.push('  ' + vals.slice(i, i + per).join(', '));
+      body = '\n' + rows.join(',\n') + '\n';
+    } else body = vals.join(', ');
+    return (col ? col + ' ' + kw + ' ' : '') + '(' + body + ')';
+  }
+  function after(r, src){
+    if (!src) { TT.say('값을 붙여 넣으면 바로 변환됩니다. 입력한 내용은 어디에도 전송되지 않습니다.'); return; }
+    var msg = TT.fmt(last.n) + '개 항목' + (last.dup ? ' (중복 ' + TT.fmt(last.dup) + '개 제거)' : '');
+    if (last.n > 1000) TT.say(msg + ' — Oracle은 IN절 항목이 1,000개를 넘으면 오류(ORA-01795)가 납니다.', true);
+    else TT.say(msg);
+  }
+  TT.setup({ convert: convert, after: after, filename: 'sql-in.txt' });
+})();
+</script>
+</body>
+</html>

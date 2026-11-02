@@ -33,5 +33,22 @@ footer a{color:var(--muted);margin-right:12px}
 .faq dt{font-weight:600;margin-top:14px}.faq dd{margin:4px 0 0;color:var(--muted)}
 .ad{min-height:90px;margin:16px 0}
 article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{margin:4px 0}
-@media (max-width:600px){nav.menu a{margin-left:10px;font-size:13px}h1{font-size:22px}}
+.tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tt-grid textarea{width:100%;min-height:260px;font:14px/1.6 inherit;border:1px solid var(--line);border-radius:8px;padding:12px;resize:vertical;background:var(--card)}
+.tt-grid textarea[readonly]{background:#fbfcfe}
+.tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
+.opts{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:14px;margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.opts label{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.opts select,.opts input[type=text],.opts input[type=number]{font:inherit;font-size:14px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.opts .sep{flex-basis:100%;height:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:12px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.stat b{display:block;font-size:22px;line-height:1.2}
+.stat span{font-size:12px;color:var(--muted)}
+.stat.over b{color:#b91c1c}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer}
+.chips button:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
+@media (max-width:600px){nav.menu{white-space:nowrap}nav.menu a{margin-left:9px;font-size:12.5px}.brand{font-size:16px}h1{font-size:22px}}
 @media print{header.top,footer,.card.intro,.tools,.status,.ad,.drop,.grid,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}

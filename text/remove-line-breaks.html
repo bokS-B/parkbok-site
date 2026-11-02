@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>줄바꿈 제거 — 한글·PDF 복사 줄바꿈 지우기 (문단 유지) | parkbok.com</title>
+<meta name="description" content="한글(HWP)·PDF에서 복사한 글의 불필요한 줄바꿈과 공백을 한 번에 제거합니다. 문단은 그대로 두는 스마트 모드, 모두 한 줄로 잇기, 빈 줄만 지우기. 서버 전송 없이 브라우저에서 바로 처리, 무료.">
+<link rel="canonical" href="https://parkbok.com/text/remove-line-breaks.html">
+<meta property="og:title" content="줄바꿈 제거 — 한글·PDF 복사 줄바꿈 지우기">
+<meta property="og:description" content="복사한 글의 줄바꿈·공백을 한 번에 정리. 문단 유지 스마트 모드. 서버 전송 없음.">
+<meta property="og:url" content="https://parkbok.com/text/remove-line-breaks.html">
+<link rel="stylesheet" href="/assets/site.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1415309581345613" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"줄바꿈 제거","url":"https://parkbok.com/text/remove-line-breaks.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"복사한 글의 불필요한 줄바꿈과 공백을 제거하는 무료 브라우저 도구"}
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok<span style="color:#2563eb">.com</span></a><nav class="menu"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/guide/">가이드</a><a href="/about.html">소개</a></nav></div></header>
+<main class="wrap">
+  <h1>줄바꿈 제거</h1>
+  <p class="lead">한글·PDF·메일에서 복사할 때 줄마다 끊긴 줄바꿈을 지우고 문장을 이어 줍니다. 붙여 넣는 순간 결과가 나옵니다.</p>
+
+  <div class="opts">
+    <label><input type="radio" name="mode" value="smart" data-opt checked> 스마트 (문단은 유지)</label>
+    <label><input type="radio" name="mode" value="all" data-opt> 모두 이어서 한 문단으로</label>
+    <label><input type="radio" name="mode" value="blank" data-opt> 빈 줄만 제거</label>
+    <span class="sep"></span>
+    <label>줄을 이을 때 <select id="joiner" data-opt><option value=" ">공백 한 칸 넣기</option><option value="">바로 붙이기</option></select></label>
+    <label><input type="checkbox" id="o-space" data-opt checked> 연속 공백 하나로</label>
+    <label><input type="checkbox" id="o-trim" data-opt checked> 줄 앞뒤 공백 제거</label>
+    <label><input type="checkbox" id="o-blank" data-opt> 문단 사이 빈 줄 넣기</label>
+    <label><input type="checkbox" id="o-hyphen" data-opt checked> 영어 하이픈 끊김 잇기</label>
+  </div>
+
+  <div class="tt-grid">
+    <div><label class="lbl" for="in">원본 (여기에 붙여 넣기)</label><textarea id="in" placeholder="한글이나 PDF에서 복사한 글을 붙여 넣으세요.&#10;&#10;줄바꿈이 줄마다 끊긴 글이&#10;이렇게 되어 있으면&#10;문장이 이어집니다."></textarea></div>
+    <div><label class="lbl" for="out">결과</label><textarea id="out" readonly placeholder="결과가 여기에 나옵니다."></textarea></div>
+  </div>
+  <div class="tools">
+    <button class="btn" id="btn-copy">결과 복사</button>
+    <button class="btn ghost" id="btn-paste">클립보드 붙여넣기</button>
+    <button class="btn ghost" id="btn-download">.txt 저장</button>
+    <button class="btn ghost" id="btn-clear">지우기</button>
+  </div>
+  <div class="status" id="status">글을 붙여 넣으면 바로 정리됩니다. 입력한 글은 어디에도 전송되지 않습니다.</div>
+
+  <div class="ad"></div>
+
+  <article class="card">
+    <h2 style="margin-top:0">언제 쓰나요</h2>
+    <ul>
+      <li><strong>한글(HWP)·워드에서 복사한 글</strong>을 자소서 입력 칸, 메일, 메신저에 붙일 때 줄마다 끊겨 보이는 문제</li>
+      <li><strong>PDF 논문·보고서</strong>에서 복사한 영어·한국어 문장이 줄 끝마다 잘리고, 영어 단어가 하이픈(-)으로 끊긴 경우</li>
+      <li><strong>메일·카톡</strong>에서 받은 글의 공백과 빈 줄이 지저분할 때</li>
+    </ul>
+    <h2>모드 설명</h2>
+    <dl class="faq">
+      <dt>스마트 (문단은 유지)</dt><dd>빈 줄, 번호·기호로 시작하는 줄, 문장 부호로 끝나는 짧은 줄을 문단 경계로 보고 그 사이의 줄바꿈만 지웁니다. 자소서·보고서 본문에 가장 잘 맞습니다.</dd>
+      <dt>모두 이어서 한 문단으로</dt><dd>줄바꿈을 전부 지우고 한 덩어리로 만듭니다. 한 문단만 복사했을 때 쓰세요.</dd>
+      <dt>빈 줄만 제거</dt><dd>줄바꿈은 그대로 두고 비어 있는 줄만 지웁니다. 목록이나 코드처럼 줄 구조를 지켜야 할 때 쓰세요.</dd>
+    </dl>
+    <h2>자주 묻는 질문</h2>
+    <dl class="faq">
+      <dt>한글 파일을 바로 올릴 수는 없나요?</dt><dd><a href="/">HWP 뷰어</a>에서 파일을 열고 "본문 복사"를 누른 뒤 여기에 붙여 넣으세요. 두 도구 모두 파일과 글을 서버로 보내지 않습니다.</dd>
+      <dt>단어 중간에 공백이 들어가요.</dt><dd>한글(HWP)은 기본 설정에서 줄을 글자 단위로 끊기 때문에 단어 한가운데서 줄이 바뀐 글이 많습니다. 이때는 "줄을 이을 때"를 <strong>바로 붙이기</strong>로 바꾸세요. 반대로 PDF·워드처럼 단어 단위로 끊긴 글은 "공백 한 칸 넣기"가 맞습니다.</dd>
+      <dt>문단이 잘못 합쳐졌어요.</dt><dd>원본에서 문단 사이에 빈 줄을 하나 넣고 다시 붙여 넣으면 정확히 나뉩니다. 반대로 너무 많이 나뉘면 "모두 이어서" 모드를 쓰세요.</dd>
+      <dt>글자수도 함께 보고 싶어요.</dt><dd>결과를 복사해 <a href="/text/char-count.html">글자수 세기</a>에 붙이면 공백 포함·제외 글자수가 나옵니다.</dd>
+    </dl>
+  </article>
+
+  <h2>다른 텍스트 도구</h2>
+  <div class="grid">
+    <a class="card" href="/text/char-count.html"><h3>글자수 세기</h3><p>공백 포함·제외, 바이트, 자소서 제한 확인</p></a>
+    <a class="card" href="/text/sql-in.html"><h3>목록 → SQL IN절</h3><p>('A', 'B', 'C') 형태로 변환</p></a>
+    <a class="card" href="/text/dedupe-lines.html"><h3>중복 줄 제거 · 정렬</h3><p>같은 줄 지우고 가나다순 정렬</p></a>
+    <a class="card" href="/text/list-to-line.html"><h3>목록 ↔ 한 줄</h3><p>세로 목록을 쉼표 한 줄로</p></a>
+  </div>
+</main>
+<footer><div class="wrap"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a><div style="margin-top:8px">© parkbok.com</div></div></footer>
+<script src="/assets/text-tools.js"></script>
+<script>
+(function(){
+  var $ = TT.$;
+  var PARA_START = /^(\s*[-–—•·▪▶■□○●◦‣∙*※]|\s*\(?\d{1,3}[.)]\s|\s*[가-힣][.)]\s|\s*[①-⑳㉠-㉭㈀-㈜]|\s*제\s?\d+\s?(조|항|장|절|편)|\s*[IVXivx]+\.\s|\s*#|\s*\[)/;
+  var SENT_END = /[.。!?！？:：」』”"’)\]]\s*$/;
+
+  function convert(src){
+    var mode = TT.val('mode');
+    var joiner = $('joiner').value;
+    var squash = $('o-space').checked, trim = $('o-trim').checked;
+    var blankBetween = $('o-blank').checked, hyphen = $('o-hyphen').checked;
+    var raw = src.replace(/\r\n?/g, '\n').split('\n');
+    var lines = raw.map(function(l){ return trim ? l.replace(/^[ \t 　]+|[ \t 　]+$/g, '') : l; });
+    var r;
+
+    function join(a, b){
+      if (hyphen && /[A-Za-z]-$/.test(a) && /^[a-z]/.test(b)) return a.slice(0, -1) + b;
+      if (joiner === '' || /\s$/.test(a) || /^\s/.test(b)) return a + b;
+      return a + ' ' + b;
+    }
+
+    if (mode === 'blank') {
+      r = lines.filter(function(l){ return l.trim() !== ''; }).join('\n');
+    } else if (mode === 'all') {
+      r = lines.filter(function(l){ return l.trim() !== ''; }).reduce(function(acc, l){ return acc === null ? l : join(acc, l); }, null) || '';
+    } else {
+      var lens = lines.filter(function(l){ return l.trim() !== ''; }).map(function(l){ return TT.count(l); }).sort(function(a, b){ return a - b; });
+      var typical = lens.length ? lens[Math.floor(lens.length * 0.75)] : 0;
+      var useLen = lens.length >= 4;
+      var paras = [], cur = null, curLen = 0;
+      for (var i = 0; i < lines.length; i++) {
+        var l = lines[i];
+        if (l.trim() === '') { if (cur !== null) paras.push(cur); cur = null; continue; }
+        if (cur === null) { cur = l; curLen = TT.count(l); continue; }
+        var startsNew = PARA_START.test(raw[i]) || /^[ \t　]{2,}/.test(raw[i]);
+        var endsPara = SENT_END.test(cur) && (!useLen || curLen < typical * 0.75);
+        if (startsNew || endsPara) { paras.push(cur); cur = l; curLen = TT.count(l); }
+        else { cur = join(cur, l); curLen = TT.count(l); }
+      }
+      if (cur !== null) paras.push(cur);
+      r = paras.join(blankBetween ? '\n\n' : '\n');
+    }
+    if (squash) r = r.replace(/[ \t 　]{2,}/g, ' ');
+    return r;
+  }
+
+  function after(r, src){
+    if (!src) { TT.say('글을 붙여 넣으면 바로 정리됩니다. 입력한 글은 어디에도 전송되지 않습니다.'); return; }
+    var a = src.split(/\r\n?|\n/).length, b = r ? r.split('\n').length : 0;
+    TT.say('줄 ' + TT.fmt(a) + ' → ' + TT.fmt(b) + ' · 글자 ' + TT.fmt(TT.count(src)) + ' → ' + TT.fmt(TT.count(r)) + ' (공백 포함)');
+  }
+
+  TT.setup({ convert: convert, after: after, filename: '줄바꿈정리.txt' });
+})();
+</script>
+</body>
+</html>

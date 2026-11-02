@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>목록 ↔ 한 줄 변환 — 세로 목록을 쉼표로 잇기, 쉼표 목록 세로로 풀기 | parkbok.com</title>
+<meta name="description" content="엑셀 한 열처럼 세로로 된 목록을 쉼표·공백·탭으로 이은 한 줄로 바꾸거나, 쉼표로 나열된 한 줄을 세로 목록으로 풉니다. 구분자 직접 지정, 중복·빈 항목 제거. 서버 전송 없이 브라우저에서 처리, 무료.">
+<link rel="canonical" href="https://parkbok.com/text/list-to-line.html">
+<meta property="og:title" content="목록 ↔ 한 줄 변환">
+<meta property="og:description" content="세로 목록을 쉼표 한 줄로, 쉼표 목록을 세로로. 서버 전송 없음.">
+<meta property="og:url" content="https://parkbok.com/text/list-to-line.html">
+<link rel="stylesheet" href="/assets/site.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1415309581345613" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"목록 ↔ 한 줄 변환","url":"https://parkbok.com/text/list-to-line.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"세로 목록과 구분자로 이은 한 줄을 서로 바꾸는 무료 브라우저 도구"}
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/">parkbok<span style="color:#2563eb">.com</span></a><nav class="menu"><a href="/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/guide/">가이드</a><a href="/about.html">소개</a></nav></div></header>
+<main class="wrap">
+  <h1>목록 ↔ 한 줄 변환</h1>
+  <p class="lead">세로 목록을 쉼표로 이은 한 줄로, 또는 쉼표·공백으로 나열된 한 줄을 세로 목록으로 바꿉니다.</p>
+
+  <div class="opts">
+    <label><input type="radio" name="dir" value="join" data-opt checked> 목록 → 한 줄</label>
+    <label><input type="radio" name="dir" value="split" data-opt> 한 줄 → 목록</label>
+    <span class="sep"></span>
+    <label>구분자 <select id="sep" data-opt><option value=", ">쉼표 + 공백 (a, b)</option><option value=",">쉼표 (a,b)</option><option value=" ">공백</option><option value="&#9;">탭</option><option value=" | ">세로줄 ( | )</option><option value=";">세미콜론</option><option value="/">슬래시</option><option value="custom">직접 입력</option></select></label>
+    <label id="custom-wrap" style="display:none">직접 <input type="text" id="custom" data-opt placeholder="예: ·" style="width:80px"></label>
+    <label><input type="checkbox" id="o-trim" data-opt checked> 앞뒤 공백 제거</label>
+    <label><input type="checkbox" id="o-empty" data-opt checked> 빈 항목 제거</label>
+    <label><input type="checkbox" id="o-dedupe" data-opt> 중복 제거</label>
+  </div>
+
+  <div class="tt-grid">
+    <div><label class="lbl" for="in">원본</label><textarea id="in" placeholder="사과&#10;배&#10;포도&#10;&#10;→ 사과, 배, 포도"></textarea></div>
+    <div><label class="lbl" for="out">결과</label><textarea id="out" readonly placeholder="결과가 여기에 나옵니다."></textarea></div>
+  </div>
+  <div class="tools">
+    <button class="btn" id="btn-copy">결과 복사</button>
+    <button class="btn ghost" id="btn-swap">결과를 원본으로</button>
+    <button class="btn ghost" id="btn-paste">클립보드 붙여넣기</button>
+    <button class="btn ghost" id="btn-download">.txt 저장</button>
+    <button class="btn ghost" id="btn-clear">지우기</button>
+  </div>
+  <div class="status" id="status">목록을 붙여 넣으면 바로 변환됩니다. 입력한 내용은 어디에도 전송되지 않습니다.</div>
+
+  <div class="ad"></div>
+
+  <article class="card">
+    <h2 style="margin-top:0">이럴 때 씁니다</h2>
+    <ul>
+      <li>엑셀 한 열에 있는 <strong>이메일 주소</strong>를 복사해 메일 받는 사람 칸에 넣을 <code>a@x.com, b@x.com</code> 형태로 만들기 (구분자 쉼표 또는 세미콜론)</li>
+      <li>쉼표로 나열된 <strong>해시태그·키워드</strong>를 한 줄에 하나씩 풀어 엑셀에 붙이기</li>
+      <li>세로 목록을 <strong>검색창·필터</strong>에 넣을 공백 구분 한 줄로 만들기</li>
+    </ul>
+    <h2>자주 묻는 질문</h2>
+    <dl class="faq">
+      <dt>"한 줄 → 목록"에서 구분자는 어떻게 정하나요?</dt><dd>고른 구분자로 자릅니다. 쉼표·세미콜론·탭·세로줄이 섞여 있으면 "쉼표"를 고르세요 — 이때는 쉼표·세미콜론·탭·세로줄·줄바꿈을 모두 구분자로 봅니다.</dd>
+      <dt>SQL IN절처럼 따옴표도 붙이고 싶어요.</dt><dd><a href="/text/sql-in.html">목록 → SQL IN절</a>을 쓰세요. 따옴표·괄호·열 이름까지 한 번에 붙습니다.</dd>
+      <dt>결과를 다시 다른 설정으로 바꾸고 싶어요.</dt><dd>"결과를 원본으로" 버튼을 누르면 결과가 원본 칸으로 옮겨져 이어서 처리할 수 있습니다.</dd>
+    </dl>
+  </article>
+
+  <h2>다른 텍스트 도구</h2>
+  <div class="grid">
+    <a class="card" href="/text/remove-line-breaks.html"><h3>줄바꿈 제거</h3><p>복사한 글의 줄바꿈·공백 정리</p></a>
+    <a class="card" href="/text/char-count.html"><h3>글자수 세기</h3><p>공백 포함·제외, 바이트</p></a>
+    <a class="card" href="/text/sql-in.html"><h3>목록 → SQL IN절</h3><p>('A', 'B', 'C') 형태로 변환</p></a>
+    <a class="card" href="/text/dedupe-lines.html"><h3>중복 줄 제거 · 정렬</h3><p>같은 줄 지우고 가나다순 정렬</p></a>
+  </div>
+</main>
+<footer><div class="wrap"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a><div style="margin-top:8px">© parkbok.com</div></div></footer>
+<script src="/assets/text-tools.js"></script>
+<script>
+(function(){
+  var $ = TT.$;
+  var last = 0;
+  function sepValue(){ var v = $('sep').value; return v === 'custom' ? $('custom').value : v; }
+  function esc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function convert(src){
+    var dir = TT.val('dir'), sep = sepValue();
+    var trim = $('o-trim').checked, dropEmpty = $('o-empty').checked, dedupe = $('o-dedupe').checked;
+    $('custom-wrap').style.display = $('sep').value === 'custom' ? '' : 'none';
+    var items;
+    var s = src.replace(/\r\n?/g, '\n');
+    if (dir === 'join') items = s.split('\n');
+    else {
+      var v = $('sep').value, re;
+      if (v === ',' || v === ', ') re = /[,;\t|\n]+/;
+      else if (v === ' ') re = /\s+/;
+      else if (v === '\t') re = /[\t\n]+/;
+      else if (v === ' | ' || v === '|') re = /\s*\|\s*|\n+/;
+      else re = new RegExp(esc(sep.trim() || sep) + '|\\n+');
+      items = sep || v === ' ' ? s.split(re) : s.split('\n');
+    }
+    if (trim) items = items.map(function(x){ return x.trim(); });
+    if (dropEmpty) items = items.filter(function(x){ return x.trim() !== ''; });
+    if (dedupe) { var seen = {}; items = items.filter(function(x){ if (seen[x]) return false; seen[x] = 1; return true; }); }
+    last = items.length;
+    return dir === 'join' ? items.join(sep) : items.join('\n');
+  }
+  function after(r, src){
+    if (!src) { TT.say('목록을 붙여 넣으면 바로 변환됩니다. 입력한 내용은 어디에도 전송되지 않습니다.'); return; }
+    TT.say(TT.fmt(last) + '개 항목');
+  }
+  TT.setup({ convert: convert, after: after, filename: '목록변환.txt' });
+})();
+</script>
+</body>
+</html>
