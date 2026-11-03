@@ -1,9 +1,9 @@
 // Run with Playwright browser_run_code_unsafe. Local responses, production hostname,
 // public/synthetic input, all measurement endpoints intercepted before transmission.
 async page => {
-  const base = 'http://127.0.0.1:8800';
-  const out = 'C:/Users/boksb/Documents/ChatGPT/산업화/parkbok-adsense-readiness/output/adsense';
-  const report = { choices: [], layouts: [], collect: [], errors: [] }, requests = [];
+  const base = 'http://127.0.0.1:8803';
+  const out = 'C:/Users/boksb/Documents/ChatGPT/산업화/parkbok-cmp-integration/output/cmp';
+  const report = { choices: [], layouts: [], collect: [], errors: [], cmpRequests: 0 }, requests = [];
   const assert = (v, m) => { if (!v) throw Error(m); };
   page.on('pageerror', e => report.errors.push(String(e)));
   await page.context().route('https://parkbok.com/**', async r => {
@@ -12,7 +12,10 @@ async page => {
     await r.fulfill({ response });
   });
   await page.context().route(/googletagmanager\.com|google-analytics\.com|googlesyndication\.com|doubleclick\.net|https:\/\/(?:[^/]*\.)?google\.com\//, async r => {
-    const req = r.request(); requests.push({ url: req.url(), body: req.postData() || '' });
+    const req = r.request();
+    if (new URL(req.url()).hostname === 'fundingchoicesmessages.google.com') { report.cmpRequests++; return r.continue(); }
+    if (new URL(req.url()).hostname === 'pagead2.googlesyndication.com' && new URL(req.url()).pathname.endsWith('.js')) { report.cmpRequests++; return r.continue(); }
+    requests.push({ url: req.url(), body: req.postData() || '' });
     if (req.url().startsWith('https://www.googletagmanager.com/gtag/js?')) return r.continue();
     return r.abort();
   });
@@ -21,13 +24,13 @@ async page => {
   await page.goto('https://parkbok.com/');
   await page.evaluate(() => localStorage.removeItem('pb_statistics_v1'));
   await page.reload(); requests.length = 0;
-  await page.waitForTimeout(500);
+  await page.locator('#pb-statistics').waitFor({ state: 'visible' });
   assert(await page.locator('#pb-statistics').isVisible(), 'Missing initial choice');
   assert(requests.length === 0, 'Google request before consent');
   await page.locator('[data-choice=deny]').click();
   await page.reload(); await page.waitForTimeout(200);
   assert(requests.length === 0, 'Google request after saved refusal');
-  report.choices.push('initial + saved refusal: zero Google requests');
+  report.choices.push('outside Europe: real Google CMP bootstrap + initial/saved refusal: zero GA/ad requests');
 
   await page.goto('https://parkbok.com/image/image-compress/?maxKb=100&private_test=PB_QUERY_SENTINEL#PB_FRAGMENT_SENTINEL');
   await page.locator('.pb-statistics-settings').click(); await page.locator('[data-choice=allow]').click();
@@ -43,7 +46,7 @@ async page => {
   assert(collects.length > 0, 'No GA request observed after opt-in');
   assert(!collects.some(r => /PB_(QUERY|FRAGMENT|HISTORY|PRIVATE)/.test(decodeURIComponent(r.url) + r.body)), 'Raw URL leaked to GA');
   report.collect = collects.map(r => { const u = new URL(r.url); return { event: u.searchParams.get('en'), page: u.searchParams.get('dl'), referrer: u.searchParams.get('dr'), body: r.body }; });
-  assert(!requests.some(r => /googlesyndication|doubleclick/.test(r.url)), 'Unexpected ad request');
+  assert(!requests.some(r => /googlesyndication|doubleclick/.test(r.url)), 'Unexpected ad request: ' + requests.filter(r => /googlesyndication|doubleclick/.test(r.url)).map(r => new URL(r.url).origin + new URL(r.url).pathname).join(', '));
   report.choices.push('opt-in: real GA tag + sanitized collect + compression/download work');
 
   await page.locator('.pb-statistics-settings').click(); await page.locator('[data-choice=deny]').click();
@@ -74,7 +77,7 @@ async page => {
   await page.goto('https://parkbok.com/color/hex/ff5733/');
   await page.locator('.pb-statistics-settings').click(); assert(await page.locator('#pb-statistics').isVisible(), 'HEX choice');
   await page.locator('[data-choice=deny]').click();
-  await page.goto('http://127.0.0.1:8800/');
+  await page.goto(base + '/');
   await page.evaluate(() => localStorage.setItem('pb_statistics_v1', JSON.stringify({ choice: 'allow', at: Date.now() })));
   requests.length = 0; await page.reload(); await page.waitForTimeout(300);
   assert(requests.length === 0, 'Local preview collected after stored opt-in');

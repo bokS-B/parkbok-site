@@ -8,11 +8,11 @@ const siteCss = fs.readFileSync(path.join(root, 'assets', 'site.css'), 'utf8').t
 const gaFile = path.join(__dirname, 'ga-id.txt');
 const gaId = fs.existsSync(gaFile) ? fs.readFileSync(gaFile, 'utf8').trim() : '';
 // Ownership verification is separate from ad serving. No ad units or Auto ads are enabled.
-// Keep ads.txt + this supported verification method while certified CMP setup is pending.
+// Keep ads.txt + this supported verification method independently of CMP/ad serving.
 // Do not restore the ad loader on every route: review eligible placements + CMP first.
 const ADSENSE = '<meta name="google-adsense-account" content="ca-pub-1415309581345613">';
 // Shared basic-consent loader: production hosts only; pb_internal is preserved.
-// No third-party tag is fetched before opt-in. URL query/hash are excluded from GA.
+// Google consent bootstrap runs before consent; GA waits for opt-in. GA excludes query/hash.
 const GA_HOSTS = ['parkbok.com', 'www.parkbok.com'];
 const GA = gaId ? '<script defer src="/assets/usage-privacy.js" data-ga="' + gaId + '"></script>' : '';
 
