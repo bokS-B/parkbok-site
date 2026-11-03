@@ -228,6 +228,7 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
 @media (max-width:440px){.grid.tools-grid .card{padding:12px}.badge{display:none}}
 @media print{header.top,footer.foot,.subnav,.card.intro,.tools,.status,.ad,.drop,.grid,.chips,details.about,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:2px 6px;margin:0 0 12px;padding:0;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--muted)}.crumbs li+li::before{content:"›";margin-right:6px}.crumbs a{color:var(--muted)}
 </style>
 <!-- /shell:head-common -->
 <style id="page-css">
@@ -304,6 +305,6 @@ html,body{overflow-x:clip}
 <!-- /shell:header --><main class="wrap game-wrap"><h1>숫자 맞히기</h1><p class="lead">더 크다, 더 작다 힌트를 보고 1부터 100 사이의 숫자를 찾아보세요.</p><section class="game-panel" id="game-app" data-game="guess" aria-label="숫자 맞히기 게임"><form id="guess-form" novalidate><label class="guess-label" for="guess-number">예상 숫자</label><div class="guess-entry"><input id="guess-number" name="guess" type="number" min="1" max="100" step="1" inputmode="numeric" autocomplete="off" required aria-describedby="game-message"><button class="btn" id="guess-submit" type="submit">확인</button></div></form>
 <p class="guess-count">시도 <strong id="guess-count">0</strong>회</p><p class="game-message" id="game-message" role="status">1부터 100 사이의 숫자를 입력하세요.</p>
 <ol class="guess-history" id="guess-history" aria-label="시도한 숫자와 힌트"></ol><div class="game-actions"><button class="btn ghost" type="button" id="guess-reset">새 게임</button></div></section><noscript><p>게임을 하려면 JavaScript를 켜 주세요.</p></noscript><nav class="game-links" aria-label="다른 게임"><a href="/games/">모든 게임</a><a href="/wheel/ko/">돌림판</a><a href="/games/rock-paper-scissors/">가위바위보</a><a href="/games/reaction-time/">반응속도 테스트</a></nav></main><script src="/assets/games-core.js" defer></script><script src="/assets/games.js" defer></script><!-- shell:footer -->
-<footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="바닥글 메뉴"><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a><a href="/guide/">가이드</a></nav><p class="foot-copy">© parkbok</p></div></footer>
+<footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="바닥글 메뉴"><a href="/image/ko/">이미지 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/color/ko/">색상 도구</a><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/about.html#contact">문의</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->
 </body></html>

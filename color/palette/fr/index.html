@@ -246,6 +246,7 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
 @media (max-width:440px){.grid.tools-grid .card{padding:12px}.badge{display:none}}
 @media print{header.top,footer.foot,.subnav,.card.intro,.tools,.status,.ad,.drop,.grid,.chips,details.about,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:2px 6px;margin:0 0 12px;padding:0;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--muted)}.crumbs li+li::before{content:"›";margin-right:6px}.crumbs a{color:var(--muted)}
 </style>
 <!-- /shell:head-common -->
 <style id="page-css">/* 색 도구 전용 스타일. 토큰·셸·버튼·.chips·.card·.ad 는 assets/site.css 에서 온다. */
@@ -332,8 +333,14 @@ button.c-preview{cursor:pointer}
   .vrow .vl{width:46px}
   .vrow .vv{white-space:normal;overflow:visible;overflow-wrap:anywhere;font-size:14px;line-height:18px;padding:12px 0}
   .c-more>summary{display:block}
-}</style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Générateur de palettes","url":"https://parkbok.com/color/palette/fr/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"fr","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Créez cinq couleurs aléatoires, verrouillez vos favorites et testez trois modèles. Choisissez parmi 24 palettes, vérifiez le contraste et copiez HEX, HTML et CSS. Gratuit dans le navigateur."}]</script>
+}
+/* 허브: 인기 색상(큐레이션 HEX 페이지 링크) */
+.popular-colors{margin:32px 0 0}.popular-colors h2{margin:0 0 4px}
+.swatches{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.swatches a{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px 0 6px;font-size:14px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--ink)}
+.swatches a:hover{border-color:var(--ink)}
+.swatches i{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.12);flex:none}</style>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Générateur de palettes","url":"https://parkbok.com/color/palette/fr/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"fr","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Créez cinq couleurs aléatoires, verrouillez vos favorites et testez trois modèles. Choisissez parmi 24 palettes, vérifiez le contraste et copiez HEX, HTML et CSS. Gratuit dans le navigateur."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"Outils couleur","item":"https://parkbok.com/color/fr/"},{"@type":"ListItem","position":3,"name":"Générateur de palettes","item":"https://parkbok.com/color/palette/fr/"}]}]</script>
 </head>
 <body class="page-color">
 <!-- shell:header -->
@@ -342,24 +349,25 @@ button.c-preview{cursor:pointer}
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 <main class="wrap">
+  <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/color/fr/">Outils couleur</a></li><li aria-current="page">Générateur de palettes</li></ol></nav>
   <div class="tool-head"><h1>Générateur de palettes</h1><p class="lead">Créez cinq couleurs, verrouillez vos favorites et testez trois modèles. Emportez le HTML et CSS.</p></div>
   <section class="tool" id="app"></section>
   <div class="ad"></div>
-  <nav class="chips next" aria-label="Autres outils"><a class="chip" href="/color/converter/fr/">Convertisseur de couleurs</a><a class="chip" href="/color/gradient/fr/">Générateur de dégradé</a><a class="chip" href="/color/contrast/fr/">Vérificateur de contraste</a></nav>
+  <nav class="chips next" aria-label="Autres outils"><a class="chip" href="/color/converter/fr/">Convertisseur de couleurs</a><a class="chip" href="/color/gradient/fr/">Générateur de dégradé</a><a class="chip" href="/color/contrast/fr/">Vérificateur de contraste</a><a class="chip" href="/color/picker/fr/">Pipette couleur d'image</a></nav>
 
 </main>
 <!-- shell:footer -->
-<footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="Menu de pied de page"><a href="/about.html">À propos</a><a href="/privacy.html">Confidentialité</a><a href="/terms.html">Conditions</a><a href="/guide/">Guides</a></nav><p class="foot-copy">© parkbok</p></div></footer>
+<footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="Menu de pied de page"><a href="/image/fr/">Outils image</a><a href="/pdf/fr/">Outils PDF</a><a href="/color/fr/">Outils couleur</a><a href="/about.html">À propos</a><a href="/privacy.html">Confidentialité</a><a href="/about.html#contact">Contact</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->
-<script>window.COLOR_STRINGS={"name":"Français","dir":"ltr","language":"Langue","hex":"HEX","rgb":"RGB","hsl":"HSL","hsv":"HSV","cmyk":"CMYK","copy":"Copier","copied":"Copié","preview":"Aperçu","cssName":"Nom","nearest":"Nom le plus proche","exactName":"Nom CSS","contrast":"Contraste du texte","whiteText":"Texte blanc","blackText":"Texte noir","sample":"Texte d'exemple","pass":"Conforme","fail":"Insuffisant","large":"Grand texte seulement","tints":"Plus clair","shades":"Plus foncé","harmony":"Harmonies","complementary":"Complémentaire","analogous":"Analogues","triadic":"Triadique","tetradic":"Tétradique","randomize":"Aléatoire","pick":"Choisir","placeholder":"#ff5733 · rgb(255, 87, 51) · tomato","invalid":"Ce n'est pas une couleur. Essayez #ff5733, rgb(…) ou un nom comme tomato.","aboutTitle":"Comment ça marche","aboutLine":"Tout est calculé dans votre navigateur. Rien n'est envoyé à un serveur.","nextTools":"Autres outils"};window.COLOR_TOOL={"id":"palette","lang":"fr","langUrls":{"en":"/color/palette/","ko":"/color/palette/ko/","zh":"/color/palette/zh/","ja":"/color/palette/ja/","es":"/color/palette/es/","pt":"/color/palette/pt/","de":"/color/palette/de/","fr":"/color/palette/fr/"},"next":[{"id":"converter","url":"/color/converter/fr/","h1":"Convertisseur de couleurs"},{"id":"gradient","url":"/color/gradient/fr/","h1":"Générateur de dégradé"},{"id":"contrast","url":"/color/contrast/fr/","h1":"Vérificateur de contraste"}],"strings":{"title":"Générateur de palettes – Couleurs aléatoires, verrouillage et aperçu","h1":"Générateur de palettes","line":"Créez cinq couleurs, verrouillez vos favorites et testez trois modèles. Emportez le HTML et CSS.","description":"Créez cinq couleurs aléatoires, verrouillez vos favorites et testez trois modèles. Choisissez parmi 24 palettes, vérifiez le contraste et copiez HEX, HTML et CSS. Gratuit dans le navigateur.","base":"Couleur de base","splitComp":"Complémentaire divisé","lightness":"Luminosité","saturation":"Saturation","copyCss":"Copier CSS","copyJson":"Copier JSON"}};</script>
+<script>window.COLOR_STRINGS={"name":"Français","dir":"ltr","language":"Langue","hex":"HEX","rgb":"RGB","hsl":"HSL","hsv":"HSV","cmyk":"CMYK","copy":"Copier","copied":"Copié","preview":"Aperçu","cssName":"Nom","nearest":"Nom le plus proche","exactName":"Nom CSS","contrast":"Contraste du texte","whiteText":"Texte blanc","blackText":"Texte noir","sample":"Texte d'exemple","pass":"Conforme","fail":"Insuffisant","large":"Grand texte seulement","tints":"Plus clair","shades":"Plus foncé","harmony":"Harmonies","complementary":"Complémentaire","analogous":"Analogues","triadic":"Triadique","tetradic":"Tétradique","randomize":"Aléatoire","pick":"Choisir","placeholder":"#ff5733 · rgb(255, 87, 51) · tomato","invalid":"Ce n'est pas une couleur. Essayez #ff5733, rgb(…) ou un nom comme tomato.","aboutTitle":"Comment ça marche","aboutLine":"Tout est calculé dans votre navigateur. Rien n'est envoyé à un serveur.","nextTools":"Autres outils"};window.COLOR_TOOL={"id":"palette","lang":"fr","langUrls":{"en":"/color/palette/","ko":"/color/palette/ko/","zh":"/color/palette/zh/","ja":"/color/palette/ja/","es":"/color/palette/es/","pt":"/color/palette/pt/","de":"/color/palette/de/","fr":"/color/palette/fr/"},"next":[{"id":"converter","url":"/color/converter/fr/","h1":"Convertisseur de couleurs"},{"id":"gradient","url":"/color/gradient/fr/","h1":"Générateur de dégradé"},{"id":"contrast","url":"/color/contrast/fr/","h1":"Vérificateur de contraste"},{"id":"picker","url":"/color/picker/fr/","h1":"Pipette couleur d'image"}],"strings":{"title":"Générateur de palettes – Couleurs aléatoires, verrouillage et aperçu","h1":"Générateur de palettes","line":"Créez cinq couleurs, verrouillez vos favorites et testez trois modèles. Emportez le HTML et CSS.","description":"Créez cinq couleurs aléatoires, verrouillez vos favorites et testez trois modèles. Choisissez parmi 24 palettes, vérifiez le contraste et copiez HEX, HTML et CSS. Gratuit dans le navigateur.","base":"Couleur de base","splitComp":"Complémentaire divisé","lightness":"Luminosité","saturation":"Saturation","copyCss":"Copier CSS","copyJson":"Copier JSON"}};</script>
 <script src="/color/color.js" defer></script>
 <script src="/color/color-ui.js" defer></script>
-<link rel="stylesheet" href="/color/palette-studio.css?v=6c709f2f">
+<link rel="stylesheet" href="/color/palette-studio.css?v=7560005c">
 <script src="/color/palette-data.js?v=3a465771" defer></script>
 <script src="/color/palette-core.js?v=49c2a468" defer></script>
 <script src="/color/palette-strings.js?v=7f65b500" defer></script>
 <script src="/color/palette-template-style.js?v=42fc9330" defer></script>
 <script src="/color/palette-templates.js?v=84e77517" defer></script>
-<script src="/color/tools/palette.js?v=b355216f" defer></script>
+<script src="/color/tools/palette.js?v=0991d695" defer></script>
 </body>
 </html>

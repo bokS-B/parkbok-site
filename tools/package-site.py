@@ -81,8 +81,16 @@ def validate(directory, require_runtime=True):
     maps = {}
     for name in sorted(files):
         if re.fullmatch(r'sitemap(?:-[\w-]+)?\.xml', name):
-            locs = [e.text for e in ET.parse(directory / name).iter() if e.tag.endswith('}loc') or e.tag == 'loc']
+            tree = ET.parse(directory / name)
+            locs = [e.text for e in tree.iter() if e.tag.endswith('}loc') or e.tag == 'loc']
             maps[name] = len(locs)
+            if tree.getroot().tag.endswith('sitemapindex'):
+                # A sitemap index lists child sitemaps, not pages.
+                for url in locs:
+                    target = local_path(url, 'index.html')
+                    if not target or not re.fullmatch(r'sitemap(?:-[\w-]+)?\.xml', target): errors.append('Unexpected sitemap index entry: ' + str(url))
+                    elif target not in files: errors.append('Missing child sitemap: ' + url)
+                continue
             for url in locs:
                 target = local_path(url, 'index.html')
                 if not url or not url.startswith(ORIGIN + '/') or not target: errors.append('Unexpected sitemap origin: ' + str(url))

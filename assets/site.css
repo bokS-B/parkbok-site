@@ -212,3 +212,4 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
 @media (max-width:440px){.grid.tools-grid .card{padding:12px}.badge{display:none}}
 @media print{header.top,footer.foot,.subnav,.card.intro,.tools,.status,.ad,.drop,.grid,.chips,details.about,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:2px 6px;margin:0 0 12px;padding:0;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--muted)}.crumbs li+li::before{content:"›";margin-right:6px}.crumbs a{color:var(--muted)}

@@ -83,3 +83,9 @@ button.c-preview{cursor:pointer}
   .vrow .vv{white-space:normal;overflow:visible;overflow-wrap:anywhere;font-size:14px;line-height:18px;padding:12px 0}
   .c-more>summary{display:block}
 }
+/* 허브: 인기 색상(큐레이션 HEX 페이지 링크) */
+.popular-colors{margin:32px 0 0}.popular-colors h2{margin:0 0 4px}
+.swatches{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.swatches a{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px 0 6px;font-size:14px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--ink)}
+.swatches a:hover{border-color:var(--ink)}
+.swatches i{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.12);flex:none}

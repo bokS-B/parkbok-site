@@ -1,0 +1,2134 @@
+{
+ "/": {
+  "hash": "3d439a7c9f06a3ff",
+  "lastmod": "2026-11-03"
+ },
+ "/about.html": {
+  "hash": "a638f22bb69f200f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/": {
+  "hash": "0b35efba383b317a",
+  "lastmod": "2026-11-03"
+ },
+ "/color/contrast/": {
+  "hash": "ce2044d11bd9c3a2",
+  "lastmod": "2026-11-03"
+ },
+ "/color/contrast/de/": {
+  "hash": "555f8a660113a041",
+  "lastmod": "2026-11-03"
+ },
+ "/color/contrast/es/": {
+  "hash": "303d9f9fbd40b670",
+  "lastmod": "2026-11-03"
+ },
+ "/color/contrast/fr/": {
+  "hash": "700af8e03f607694",
+  "lastmod": "2026-11-03"
+ },
+ "/color/contrast/ja/": {
+  "hash": "ed5142789db1c668",
+  "lastmod": "2026-11-03"
+ },
+ "/color/contrast/ko/": {
+  "hash": "1c6267f55043c9db",
+  "lastmod": "2026-11-03"
+ },
+ "/color/contrast/pt/": {
+  "hash": "d28a3463e682985b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/contrast/zh/": {
+  "hash": "362b7fe22357c32a",
+  "lastmod": "2026-11-03"
+ },
+ "/color/converter/": {
+  "hash": "d205cd56ee76eff3",
+  "lastmod": "2026-11-03"
+ },
+ "/color/converter/de/": {
+  "hash": "31aa4f35a49cf050",
+  "lastmod": "2026-11-03"
+ },
+ "/color/converter/es/": {
+  "hash": "53ab1f303c8e64e9",
+  "lastmod": "2026-11-03"
+ },
+ "/color/converter/fr/": {
+  "hash": "ae5aac8f4af8eb1a",
+  "lastmod": "2026-11-03"
+ },
+ "/color/converter/ja/": {
+  "hash": "bcb4b4bced3b2cd3",
+  "lastmod": "2026-11-03"
+ },
+ "/color/converter/ko/": {
+  "hash": "d5d285c3f3f929e9",
+  "lastmod": "2026-11-03"
+ },
+ "/color/converter/pt/": {
+  "hash": "0a40a7970da67627",
+  "lastmod": "2026-11-03"
+ },
+ "/color/converter/zh/": {
+  "hash": "58362b6edb38e113",
+  "lastmod": "2026-11-03"
+ },
+ "/color/de/": {
+  "hash": "f5a99d1cf2cd1b64",
+  "lastmod": "2026-11-03"
+ },
+ "/color/es/": {
+  "hash": "2b8b81067c4f5cde",
+  "lastmod": "2026-11-03"
+ },
+ "/color/fr/": {
+  "hash": "0426316332ab90f9",
+  "lastmod": "2026-11-03"
+ },
+ "/color/gradient/": {
+  "hash": "d8f131831a9e49d1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/gradient/de/": {
+  "hash": "6df2ab3e8884f266",
+  "lastmod": "2026-11-03"
+ },
+ "/color/gradient/es/": {
+  "hash": "bbdf379e8311cdd9",
+  "lastmod": "2026-11-03"
+ },
+ "/color/gradient/fr/": {
+  "hash": "f0099f41eb8f3a09",
+  "lastmod": "2026-11-03"
+ },
+ "/color/gradient/ja/": {
+  "hash": "9d5d16fadf9d8e28",
+  "lastmod": "2026-11-03"
+ },
+ "/color/gradient/ko/": {
+  "hash": "54f528bc89b114ca",
+  "lastmod": "2026-11-03"
+ },
+ "/color/gradient/pt/": {
+  "hash": "1b0ff221cb43fe19",
+  "lastmod": "2026-11-03"
+ },
+ "/color/gradient/zh/": {
+  "hash": "1d1396397595635d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/000000/": {
+  "hash": "d90473fcf13163fa",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/000080/": {
+  "hash": "15ace7e2b5bd74d1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/00008b/": {
+  "hash": "dca4c064f04b0111",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/0000cd/": {
+  "hash": "d3371c8c169fe4b7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/0000ff/": {
+  "hash": "449606a7340a3a63",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/0047ab/": {
+  "hash": "1ba816e4e671b3c5",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/006400/": {
+  "hash": "835095ce99352d9d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/00704a/": {
+  "hash": "26faabc8be67321d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/008000/": {
+  "hash": "91ec2d8b3409e194",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/008080/": {
+  "hash": "973160a9c371e6e5",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/008b8b/": {
+  "hash": "98a878f6d4bba218",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/00bfff/": {
+  "hash": "cff644c6e8186100",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/00ced1/": {
+  "hash": "0fe9002e666baf00",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/00fa9a/": {
+  "hash": "b680bac7a3de30bb",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/00ff00/": {
+  "hash": "5f38d1b0f9b94e7f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/00ff7f/": {
+  "hash": "03cc091fc3e485f7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/00ffff/": {
+  "hash": "779f13da7c0e0b8c",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/03c75a/": {
+  "hash": "7d951fe4d4064fad",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/0a66c2/": {
+  "hash": "bbc00fa0708d88f4",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/0abab5/": {
+  "hash": "5b53ec684e6f0cb2",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/1877f2/": {
+  "hash": "6bdfaded1e3d4238",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/191970/": {
+  "hash": "87618fc546393fd1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/1da1f2/": {
+  "hash": "7d8c039ae0f30ea6",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/1db954/": {
+  "hash": "d955d29d1e0b00b7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/1e90ff/": {
+  "hash": "2e2da245b3c7c5c5",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/20b2aa/": {
+  "hash": "9ed5553a103b95a8",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/228b22/": {
+  "hash": "75cefc6d4b052913",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/25d366/": {
+  "hash": "ba0d1d86da990bac",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/2e8b57/": {
+  "hash": "18d7e885af239b68",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/2f4f4f/": {
+  "hash": "7d50610cee091145",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/32cd32/": {
+  "hash": "c1d2ef27bebbe238",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/36454f/": {
+  "hash": "d48acd4f0ca70fc4",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/39ff14/": {
+  "hash": "9702ead12414a81b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/3cb371/": {
+  "hash": "9ea5da27915745f7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/40e0d0/": {
+  "hash": "ba7de19665ceeb2a",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/4169e1/": {
+  "hash": "936b2a2ed9220e63",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/4285f4/": {
+  "hash": "332185b7cc5665f1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/4682b4/": {
+  "hash": "a04e02fa979d6a55",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/483d8b/": {
+  "hash": "26f480881d4987e4",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/48d1cc/": {
+  "hash": "5f19801dd8f15619",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/4b0082/": {
+  "hash": "bac50d501e5f9d78",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/50c878/": {
+  "hash": "31092da3499ef04f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/556b2f/": {
+  "hash": "f3d910959496989d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/5865f2/": {
+  "hash": "4fd661150003c48b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/5f9ea0/": {
+  "hash": "2986c95963988154",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/6495ed/": {
+  "hash": "68760d684b701b35",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/663399/": {
+  "hash": "c11ffdb5ff0affc3",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/66cdaa/": {
+  "hash": "0103b457bf21f7ff",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/696969/": {
+  "hash": "3d2cb31c06044c70",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/6a5acd/": {
+  "hash": "0246687f786a6b7c",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/6b8e23/": {
+  "hash": "00e65388dae5172b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/708090/": {
+  "hash": "038f30a5830d0277",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/778899/": {
+  "hash": "48895226caf927c8",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/77dd77/": {
+  "hash": "b399757a8eaa2a4f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/7b68ee/": {
+  "hash": "ab8f409d6d185a69",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/7cfc00/": {
+  "hash": "3d26cf92bd5a9523",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/7fff00/": {
+  "hash": "1ed9b7015638b193",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/7fffd4/": {
+  "hash": "6560da7ce163cfd0",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/800000/": {
+  "hash": "2ecea1396be24a46",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/800020/": {
+  "hash": "8bab8e2e58f8a77b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/800080/": {
+  "hash": "5c07d65c6741611b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/808000/": {
+  "hash": "6470c8c121bd6e2e",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/808080/": {
+  "hash": "53e567f13795bf04",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/87ceeb/": {
+  "hash": "56b85f00cc91b51f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/87cefa/": {
+  "hash": "110ed2b88ba7eefb",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/89cff0/": {
+  "hash": "a38b380305c8c984",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/8a2be2/": {
+  "hash": "6c11da641dc355ec",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/8b0000/": {
+  "hash": "c42616327266db1b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/8b008b/": {
+  "hash": "2c2c1507efe452df",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/8b4513/": {
+  "hash": "2d7f37ef3d3a04d0",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/8fbc8f/": {
+  "hash": "666d4f914c226844",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/90ee90/": {
+  "hash": "6effa539c9c6a9ab",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/9146ff/": {
+  "hash": "7c801498c5fe711c",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/9370db/": {
+  "hash": "fa20fb1f02c2efb4",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/9400d3/": {
+  "hash": "dca3dd731da16833",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/98fb98/": {
+  "hash": "80d6f027fab40628",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/98ff98/": {
+  "hash": "a841c1977ff0e5df",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/9932cc/": {
+  "hash": "148fa587cebcc43f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/9acd32/": {
+  "hash": "4e01425e0be4c20b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/a0522d/": {
+  "hash": "4ab8e47a0b72bad3",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/a52a2a/": {
+  "hash": "e692af852d495242",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/a9a9a9/": {
+  "hash": "9b046aa8a8277dc1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/add8e6/": {
+  "hash": "16a1b1f7def73550",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/adff2f/": {
+  "hash": "acc4bbc3e21b2e88",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/aec6cf/": {
+  "hash": "668c05d7c4ad182c",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/afeeee/": {
+  "hash": "2cee7a27e30722f7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/b0c4de/": {
+  "hash": "cd921c814cdfc1ea",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/b0e0e6/": {
+  "hash": "4432e11108f571f2",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/b22222/": {
+  "hash": "93b87a3638c5579b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/b2ac88/": {
+  "hash": "44d327609eb05164",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/b39eb5/": {
+  "hash": "86e42736418ab6db",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/b76e79/": {
+  "hash": "61fbe72ad85c6378",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/b8860b/": {
+  "hash": "e4b84f83ea8a0f09",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ba55d3/": {
+  "hash": "a16294c7a86e93ca",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/bc8f8f/": {
+  "hash": "c321930076c7e158",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/bdb76b/": {
+  "hash": "aaa4c39822ac8b2e",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/c0c0c0/": {
+  "hash": "44aa352ec266340a",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/c71585/": {
+  "hash": "c2dfcb92fd1e4a12",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/c8a2c8/": {
+  "hash": "b6ac2f5b1c4ee93b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/cd5c5c/": {
+  "hash": "dedf27d0816793ae",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/cd853f/": {
+  "hash": "e2e9bf229956ae51",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/d2691e/": {
+  "hash": "59b3afd2b3980b0d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/d2b48c/": {
+  "hash": "2b6537bf662ca389",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/d3d3d3/": {
+  "hash": "48968e0c19b57d3b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/d8bfd8/": {
+  "hash": "0c8979c3e05641fe",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/da70d6/": {
+  "hash": "1307eac3cfa4cd8d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/daa520/": {
+  "hash": "a5eb6f6a7f53dca8",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/db7093/": {
+  "hash": "f75d6d201e47e516",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/dc143c/": {
+  "hash": "8519e0e16055c956",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/dcdcdc/": {
+  "hash": "9095b18715049b64",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/dda0dd/": {
+  "hash": "5bd2113cbc2be7ba",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/deb887/": {
+  "hash": "27b1d31853f3a11d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/e0115f/": {
+  "hash": "d843c13e4a18e1a7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/e0b0ff/": {
+  "hash": "b9c3cd03598c4f6b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/e0ffff/": {
+  "hash": "3862c322463beaaf",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/e2725b/": {
+  "hash": "9b1cfa3ee303cb99",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/e50914/": {
+  "hash": "83e5a4c081ed2375",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/e60023/": {
+  "hash": "118543bb17b83a76",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/e6e6fa/": {
+  "hash": "14166b79f3167f0c",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/e9967a/": {
+  "hash": "4aeb4fe0a9622ba9",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ee82ee/": {
+  "hash": "897dc030a4481718",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/eee8aa/": {
+  "hash": "027cf09c50a0c1b7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f08080/": {
+  "hash": "376cd9e0c2db6349",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f0e68c/": {
+  "hash": "638002e5a582bd23",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f0f8ff/": {
+  "hash": "196fe0f58d32b9f8",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f0fff0/": {
+  "hash": "bc5d3934498efab7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f0ffff/": {
+  "hash": "65beb4c38f851f85",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f4a460/": {
+  "hash": "4df78aeb84224a48",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f5deb3/": {
+  "hash": "75aa8309bd09cabd",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f5f5dc/": {
+  "hash": "e831e6357f4c9e39",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f5f5f5/": {
+  "hash": "c8a48f783990b286",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f5fffa/": {
+  "hash": "e9c6b1e10c7eae1b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f7e7ce/": {
+  "hash": "c865ffd25b8bc6cf",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/f8f8ff/": {
+  "hash": "9cbd5c9ba947ef1b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fa8072/": {
+  "hash": "ea0f7d4a325284a1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/faebd7/": {
+  "hash": "193f66328e749021",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/faf0e6/": {
+  "hash": "67cb89c855d7272f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fafad2/": {
+  "hash": "97167cb5cea28d76",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fdf5e6/": {
+  "hash": "52be7285c1467937",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fdfd96/": {
+  "hash": "b25b1ec46a679f57",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fee500/": {
+  "hash": "c457e676db14af7b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff0000/": {
+  "hash": "08d5886e64647523",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff00ff/": {
+  "hash": "74e3d944e0c68e16",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff1493/": {
+  "hash": "13810166adecbb80",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff4500/": {
+  "hash": "07c3e33a4424476e",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff6347/": {
+  "hash": "c64665a0ae294ebc",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff69b4/": {
+  "hash": "a1144330cc4f0cd3",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff7f50/": {
+  "hash": "9e1578e5de4e2c17",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff8c00/": {
+  "hash": "f0b5fe56f4fefeba",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ff9900/": {
+  "hash": "a7cdb5b920f77470",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffa07a/": {
+  "hash": "8a0fba32a0037b0c",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffa500/": {
+  "hash": "8c30ba926f697024",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffb6c1/": {
+  "hash": "b4f78a21fb06df58",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffc0cb/": {
+  "hash": "ffb0ba88a6456a2c",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffd1dc/": {
+  "hash": "1d2644b062541a7c",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffd700/": {
+  "hash": "9858fa44819dea68",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffdab9/": {
+  "hash": "f7916ff478c0c652",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffdb58/": {
+  "hash": "666061727f6e59a1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffdead/": {
+  "hash": "53eb3f7ce49cf668",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffe4b5/": {
+  "hash": "85d3b4b921272387",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffe4c4/": {
+  "hash": "be50284a1699f90f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffe4e1/": {
+  "hash": "6f25bba325383d8b",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffe5b4/": {
+  "hash": "a6c563983d21e4be",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffebcd/": {
+  "hash": "bd752fae3d48f2e1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffefd5/": {
+  "hash": "a6a244ad90edd846",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fff0f5/": {
+  "hash": "3127a3a09ffc03a1",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fff5ee/": {
+  "hash": "f3ddd963ce2d715d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fff8dc/": {
+  "hash": "39719345b63762bc",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fffacd/": {
+  "hash": "ab39f99c0502e0b9",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fffaf0/": {
+  "hash": "95e22eda6552a128",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fffafa/": {
+  "hash": "93f77e5604ce6689",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fffdd0/": {
+  "hash": "de75a7b285ad1574",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffff00/": {
+  "hash": "d2d14dd8b7f2f680",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffffe0/": {
+  "hash": "31322d18ea74a566",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/fffff0/": {
+  "hash": "ca2779c56e7ec462",
+  "lastmod": "2026-11-03"
+ },
+ "/color/hex/ffffff/": {
+  "hash": "0a4437a694811d85",
+  "lastmod": "2026-11-03"
+ },
+ "/color/ja/": {
+  "hash": "fbe822f278b3a2c8",
+  "lastmod": "2026-11-03"
+ },
+ "/color/ko/": {
+  "hash": "6c7ff88d08a4e145",
+  "lastmod": "2026-11-03"
+ },
+ "/color/palette/": {
+  "hash": "9afe5d0a79aa57a5",
+  "lastmod": "2026-11-03"
+ },
+ "/color/palette/de/": {
+  "hash": "dc89fd3223fed0c7",
+  "lastmod": "2026-11-03"
+ },
+ "/color/palette/es/": {
+  "hash": "ce5b03b10b3cece4",
+  "lastmod": "2026-11-03"
+ },
+ "/color/palette/fr/": {
+  "hash": "d0aba8e8e844bb9e",
+  "lastmod": "2026-11-03"
+ },
+ "/color/palette/ja/": {
+  "hash": "8a85f15a32c505ee",
+  "lastmod": "2026-11-03"
+ },
+ "/color/palette/ko/": {
+  "hash": "7ae41a881e8a8b6a",
+  "lastmod": "2026-11-03"
+ },
+ "/color/palette/pt/": {
+  "hash": "601a444f8fd909cf",
+  "lastmod": "2026-11-03"
+ },
+ "/color/palette/zh/": {
+  "hash": "9e8b3143284e2a1f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/picker/": {
+  "hash": "31f3067fae84a5cb",
+  "lastmod": "2026-11-03"
+ },
+ "/color/picker/de/": {
+  "hash": "53895d48feffc617",
+  "lastmod": "2026-11-03"
+ },
+ "/color/picker/es/": {
+  "hash": "55baab0168d4498f",
+  "lastmod": "2026-11-03"
+ },
+ "/color/picker/fr/": {
+  "hash": "14243cb38270784d",
+  "lastmod": "2026-11-03"
+ },
+ "/color/picker/ja/": {
+  "hash": "e8053bbc2581eb10",
+  "lastmod": "2026-11-03"
+ },
+ "/color/picker/ko/": {
+  "hash": "4f291d852d9de214",
+  "lastmod": "2026-11-03"
+ },
+ "/color/picker/pt/": {
+  "hash": "56891f98a0c0669a",
+  "lastmod": "2026-11-03"
+ },
+ "/color/picker/zh/": {
+  "hash": "0c5b610b0a7fb9b3",
+  "lastmod": "2026-11-03"
+ },
+ "/color/pt/": {
+  "hash": "c273acf76d5b0c37",
+  "lastmod": "2026-11-03"
+ },
+ "/color/zh/": {
+  "hash": "e1703e88b308a439",
+  "lastmod": "2026-11-03"
+ },
+ "/games/": {
+  "hash": "b7582d74de5570b2",
+  "lastmod": "2026-11-03"
+ },
+ "/games/number-guess/": {
+  "hash": "e37c9c42f46ae001",
+  "lastmod": "2026-11-03"
+ },
+ "/games/reaction-time/": {
+  "hash": "0e5ba02d4a64433e",
+  "lastmod": "2026-11-03"
+ },
+ "/games/rock-paper-scissors/": {
+  "hash": "3bfba2cc0d4d5873",
+  "lastmod": "2026-11-03"
+ },
+ "/guide/": {
+  "hash": "0ca46f543cc5dae3",
+  "lastmod": "2026-11-03"
+ },
+ "/guide/hwp-to-pdf.html": {
+  "hash": "4467fedfbe038734",
+  "lastmod": "2026-11-03"
+ },
+ "/guide/hwp-vs-hwpx.html": {
+  "hash": "6aaf7689551399c6",
+  "lastmod": "2026-11-03"
+ },
+ "/guide/hwp-wont-open.html": {
+  "hash": "2d75c08eed4d8f94",
+  "lastmod": "2026-11-03"
+ },
+ "/guide/open-hwp-on-mac.html": {
+  "hash": "cb5ae7963171c398",
+  "lastmod": "2026-11-03"
+ },
+ "/guide/open-hwp-on-phone.html": {
+  "hash": "f8e4f71d593d0294",
+  "lastmod": "2026-11-03"
+ },
+ "/hwp/": {
+  "hash": "b0545530c33d7ede",
+  "lastmod": "2026-11-03"
+ },
+ "/image/": {
+  "hash": "11ff320f8c850a91",
+  "lastmod": "2026-11-03"
+ },
+ "/image/blur/": {
+  "hash": "b981f6eccf5ac2e7",
+  "lastmod": "2026-11-03"
+ },
+ "/image/blur/de/": {
+  "hash": "0625042dcd929164",
+  "lastmod": "2026-11-03"
+ },
+ "/image/blur/es/": {
+  "hash": "7a5a99a011ad395d",
+  "lastmod": "2026-11-03"
+ },
+ "/image/blur/fr/": {
+  "hash": "67188915dc406595",
+  "lastmod": "2026-11-03"
+ },
+ "/image/blur/ja/": {
+  "hash": "9729a79d435e9247",
+  "lastmod": "2026-11-03"
+ },
+ "/image/blur/ko/": {
+  "hash": "664371e676eb358a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/blur/pt/": {
+  "hash": "d9ab27ea97ec3888",
+  "lastmod": "2026-11-03"
+ },
+ "/image/blur/zh/": {
+  "hash": "966034efd0aff410",
+  "lastmod": "2026-11-03"
+ },
+ "/image/de/": {
+  "hash": "43ff58811e05d067",
+  "lastmod": "2026-11-03"
+ },
+ "/image/es/": {
+  "hash": "fd007d766c47718e",
+  "lastmod": "2026-11-03"
+ },
+ "/image/exif/": {
+  "hash": "e76c77e454102efd",
+  "lastmod": "2026-11-03"
+ },
+ "/image/exif/de/": {
+  "hash": "2707bd7da8e0c20b",
+  "lastmod": "2026-11-03"
+ },
+ "/image/exif/es/": {
+  "hash": "36807f86aac13cf9",
+  "lastmod": "2026-11-03"
+ },
+ "/image/exif/fr/": {
+  "hash": "098c7726b1ecb9d6",
+  "lastmod": "2026-11-03"
+ },
+ "/image/exif/ja/": {
+  "hash": "b21e197e250c34ef",
+  "lastmod": "2026-11-03"
+ },
+ "/image/exif/ko/": {
+  "hash": "89605fd7e6d0443a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/exif/pt/": {
+  "hash": "edca25f683d24617",
+  "lastmod": "2026-11-03"
+ },
+ "/image/exif/zh/": {
+  "hash": "0b53cc71763e800b",
+  "lastmod": "2026-11-03"
+ },
+ "/image/favicon/": {
+  "hash": "b7f230452c4a813a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/favicon/de/": {
+  "hash": "ec9187fe3436110c",
+  "lastmod": "2026-11-03"
+ },
+ "/image/favicon/es/": {
+  "hash": "7cb84c015efa8145",
+  "lastmod": "2026-11-03"
+ },
+ "/image/favicon/fr/": {
+  "hash": "563a3b87cb0deb5a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/favicon/ja/": {
+  "hash": "99fa5a0914b6af30",
+  "lastmod": "2026-11-03"
+ },
+ "/image/favicon/ko/": {
+  "hash": "96a91e6d3ccfa03f",
+  "lastmod": "2026-11-03"
+ },
+ "/image/favicon/pt/": {
+  "hash": "0752adcf125b2470",
+  "lastmod": "2026-11-03"
+ },
+ "/image/favicon/zh/": {
+  "hash": "ead2d5b775e7f9d2",
+  "lastmod": "2026-11-03"
+ },
+ "/image/fr/": {
+  "hash": "3e0e10533d205512",
+  "lastmod": "2026-11-03"
+ },
+ "/image/heic-to-jpg/": {
+  "hash": "00fc79f8f3f7f7e5",
+  "lastmod": "2026-11-03"
+ },
+ "/image/heic-to-jpg/de/": {
+  "hash": "592c6a58c3bd6a88",
+  "lastmod": "2026-11-03"
+ },
+ "/image/heic-to-jpg/es/": {
+  "hash": "9e0ebab1b9b9692f",
+  "lastmod": "2026-11-03"
+ },
+ "/image/heic-to-jpg/fr/": {
+  "hash": "e067502bdad62d9e",
+  "lastmod": "2026-11-03"
+ },
+ "/image/heic-to-jpg/ja/": {
+  "hash": "74bc3e607ec4d64f",
+  "lastmod": "2026-11-03"
+ },
+ "/image/heic-to-jpg/ko/": {
+  "hash": "fac0e2b5d446f4c7",
+  "lastmod": "2026-11-03"
+ },
+ "/image/heic-to-jpg/pt/": {
+  "hash": "f4e5abf4a15d0118",
+  "lastmod": "2026-11-03"
+ },
+ "/image/heic-to-jpg/zh/": {
+  "hash": "8d1b3cf0faf45754",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-compress/": {
+  "hash": "aca66593360a3bb7",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-compress/de/": {
+  "hash": "66df389a92e94989",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-compress/es/": {
+  "hash": "4ec6f7d9b1732c19",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-compress/fr/": {
+  "hash": "b8fb986d0062f44b",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-compress/ja/": {
+  "hash": "9710a1586117e8a0",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-compress/ko/": {
+  "hash": "aa91eb44f0707a06",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-compress/pt/": {
+  "hash": "1397ebf62e444d53",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-compress/zh/": {
+  "hash": "d503d34638d1ec96",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-crop/": {
+  "hash": "af6ff70eb9c383d1",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-crop/de/": {
+  "hash": "6c6acd7ebdb1690a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-crop/es/": {
+  "hash": "4069758a7ca7ec66",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-crop/fr/": {
+  "hash": "d9685bebc3be4fb6",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-crop/ja/": {
+  "hash": "572efc34f667dea0",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-crop/ko/": {
+  "hash": "0c21a55409121643",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-crop/pt/": {
+  "hash": "802ce03f71e6d88c",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-crop/zh/": {
+  "hash": "801e7a520977829a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-resize/": {
+  "hash": "99e6f943ddcd05b3",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-resize/de/": {
+  "hash": "2c41fbcb1f80d2d2",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-resize/es/": {
+  "hash": "d0fe744543742c0a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-resize/fr/": {
+  "hash": "3fa764301dec2968",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-resize/ja/": {
+  "hash": "477aa27bac9f01cc",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-resize/ko/": {
+  "hash": "33e1254a3750deaf",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-resize/pt/": {
+  "hash": "5a4cc8ea16062580",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-resize/zh/": {
+  "hash": "20f2cac0048ce9f1",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-rotate/": {
+  "hash": "038a0e134bcc3aaa",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-rotate/de/": {
+  "hash": "04daf3acec7efcb2",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-rotate/es/": {
+  "hash": "5b534790975ff17b",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-rotate/fr/": {
+  "hash": "acef6dd415ae92a0",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-rotate/ja/": {
+  "hash": "05552a8277b3b809",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-rotate/ko/": {
+  "hash": "ce337144ef142d1f",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-rotate/pt/": {
+  "hash": "39c4acb30c2d0846",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-rotate/zh/": {
+  "hash": "8712fb9623c73d33",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-watermark/": {
+  "hash": "1f5b208f87eea05d",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-watermark/de/": {
+  "hash": "0f589465b9e08c13",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-watermark/es/": {
+  "hash": "df114bbc11ecbf02",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-watermark/fr/": {
+  "hash": "31db130e7935e348",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-watermark/ja/": {
+  "hash": "715754480d22f44c",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-watermark/ko/": {
+  "hash": "c5f856f5ee7a5783",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-watermark/pt/": {
+  "hash": "1fe304ccdbd9df39",
+  "lastmod": "2026-11-03"
+ },
+ "/image/image-watermark/zh/": {
+  "hash": "30870731049ae9c0",
+  "lastmod": "2026-11-03"
+ },
+ "/image/ja/": {
+  "hash": "8383312331a7d8bf",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-png/": {
+  "hash": "8f7b7ce221d6176a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-png/de/": {
+  "hash": "92a57fccc8c8a279",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-png/es/": {
+  "hash": "f6e12e51323788b1",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-png/fr/": {
+  "hash": "6b5e693099a16c78",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-png/ja/": {
+  "hash": "d160ddda966fd021",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-png/ko/": {
+  "hash": "f00fdc3c166df518",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-png/pt/": {
+  "hash": "73c93d320c1205ea",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-png/zh/": {
+  "hash": "46d77e31b67ef933",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-webp/": {
+  "hash": "786f00636fbfca61",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-webp/de/": {
+  "hash": "8cf8d95a46c7404f",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-webp/es/": {
+  "hash": "07b67784bacf04ca",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-webp/fr/": {
+  "hash": "7c40a895efc49006",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-webp/ja/": {
+  "hash": "8262fe998ebdf6ff",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-webp/ko/": {
+  "hash": "f2d97a4626d4f13c",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-webp/pt/": {
+  "hash": "cccf1ebfb04ff349",
+  "lastmod": "2026-11-03"
+ },
+ "/image/jpg-to-webp/zh/": {
+  "hash": "17c5f9b9c53aad33",
+  "lastmod": "2026-11-03"
+ },
+ "/image/ko/": {
+  "hash": "453e45a076ed8f76",
+  "lastmod": "2026-11-03"
+ },
+ "/image/meme/": {
+  "hash": "a1a66d9896e9fe0a",
+  "lastmod": "2026-11-03"
+ },
+ "/image/meme/de/": {
+  "hash": "431b5f32b220ba95",
+  "lastmod": "2026-11-03"
+ },
+ "/image/meme/es/": {
+  "hash": "670ed8b58a26a18d",
+  "lastmod": "2026-11-03"
+ },
+ "/image/meme/fr/": {
+  "hash": "6db8e0329ee8c20d",
+  "lastmod": "2026-11-03"
+ },
+ "/image/meme/ja/": {
+  "hash": "ec23506317fe8b1e",
+  "lastmod": "2026-11-03"
+ },
+ "/image/meme/ko/": {
+  "hash": "3ed85196e2c81217",
+  "lastmod": "2026-11-03"
+ },
+ "/image/meme/pt/": {
+  "hash": "3a4118d128a45138",
+  "lastmod": "2026-11-03"
+ },
+ "/image/meme/zh/": {
+  "hash": "aca69e86982f4569",
+  "lastmod": "2026-11-03"
+ },
+ "/image/passport-photo/": {
+  "hash": "b406b23129c031ef",
+  "lastmod": "2026-11-03"
+ },
+ "/image/passport-photo/de/": {
+  "hash": "338c7e74622f3714",
+  "lastmod": "2026-11-03"
+ },
+ "/image/passport-photo/es/": {
+  "hash": "fc1bedee9ed712ec",
+  "lastmod": "2026-11-03"
+ },
+ "/image/passport-photo/fr/": {
+  "hash": "6e7c4d0cb7739198",
+  "lastmod": "2026-11-03"
+ },
+ "/image/passport-photo/ja/": {
+  "hash": "4cfbf4ef59c34e0e",
+  "lastmod": "2026-11-03"
+ },
+ "/image/passport-photo/ko/": {
+  "hash": "31211cbc5cf75d00",
+  "lastmod": "2026-11-03"
+ },
+ "/image/passport-photo/pt/": {
+  "hash": "a9651d77347be479",
+  "lastmod": "2026-11-03"
+ },
+ "/image/passport-photo/zh/": {
+  "hash": "882c4321ca0faa35",
+  "lastmod": "2026-11-03"
+ },
+ "/image/png-to-jpg/": {
+  "hash": "e6b554a0ea702583",
+  "lastmod": "2026-11-03"
+ },
+ "/image/png-to-jpg/de/": {
+  "hash": "455333b46ba8e898",
+  "lastmod": "2026-11-03"
+ },
+ "/image/png-to-jpg/es/": {
+  "hash": "9b26053c37957013",
+  "lastmod": "2026-11-03"
+ },
+ "/image/png-to-jpg/fr/": {
+  "hash": "6e813117af19c05f",
+  "lastmod": "2026-11-03"
+ },
+ "/image/png-to-jpg/ja/": {
+  "hash": "f674e14d61a6d604",
+  "lastmod": "2026-11-03"
+ },
+ "/image/png-to-jpg/ko/": {
+  "hash": "a472dabd92fd36fa",
+  "lastmod": "2026-11-03"
+ },
+ "/image/png-to-jpg/pt/": {
+  "hash": "832424940f3c2155",
+  "lastmod": "2026-11-03"
+ },
+ "/image/png-to-jpg/zh/": {
+  "hash": "658a69ed917ede6c",
+  "lastmod": "2026-11-03"
+ },
+ "/image/pt/": {
+  "hash": "8e1fb24cbe4a6e73",
+  "lastmod": "2026-11-03"
+ },
+ "/image/svg-to-png/": {
+  "hash": "4b4537a0a43e1453",
+  "lastmod": "2026-11-03"
+ },
+ "/image/svg-to-png/de/": {
+  "hash": "34647e9cf410519f",
+  "lastmod": "2026-11-03"
+ },
+ "/image/svg-to-png/es/": {
+  "hash": "f51d0868b17cda72",
+  "lastmod": "2026-11-03"
+ },
+ "/image/svg-to-png/fr/": {
+  "hash": "d11cce3ebb009e85",
+  "lastmod": "2026-11-03"
+ },
+ "/image/svg-to-png/ja/": {
+  "hash": "bde09d4370ceda0e",
+  "lastmod": "2026-11-03"
+ },
+ "/image/svg-to-png/ko/": {
+  "hash": "14910877876a4493",
+  "lastmod": "2026-11-03"
+ },
+ "/image/svg-to-png/pt/": {
+  "hash": "d38335156b950e7d",
+  "lastmod": "2026-11-03"
+ },
+ "/image/svg-to-png/zh/": {
+  "hash": "b0b3e6e9b3fd3f6f",
+  "lastmod": "2026-11-03"
+ },
+ "/image/webp-to-jpg/": {
+  "hash": "5cf485bdce42368d",
+  "lastmod": "2026-11-03"
+ },
+ "/image/webp-to-jpg/de/": {
+  "hash": "0b7223610e9115d3",
+  "lastmod": "2026-11-03"
+ },
+ "/image/webp-to-jpg/es/": {
+  "hash": "9114f12f0443e8a4",
+  "lastmod": "2026-11-03"
+ },
+ "/image/webp-to-jpg/fr/": {
+  "hash": "d08f6726ae7976a8",
+  "lastmod": "2026-11-03"
+ },
+ "/image/webp-to-jpg/ja/": {
+  "hash": "7017b689e8489bb0",
+  "lastmod": "2026-11-03"
+ },
+ "/image/webp-to-jpg/ko/": {
+  "hash": "e20a138d8af75497",
+  "lastmod": "2026-11-03"
+ },
+ "/image/webp-to-jpg/pt/": {
+  "hash": "79c1275dd68ee7c8",
+  "lastmod": "2026-11-03"
+ },
+ "/image/webp-to-jpg/zh/": {
+  "hash": "3bfb307643f0849c",
+  "lastmod": "2026-11-03"
+ },
+ "/image/zh/": {
+  "hash": "62709d460ee7737d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/": {
+  "hash": "aabddf6158edf31e",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/compress/": {
+  "hash": "086a5b106c17e0bb",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/compress/de/": {
+  "hash": "085b0388a8284e63",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/compress/es/": {
+  "hash": "65b55e7ca4ff7fdb",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/compress/fr/": {
+  "hash": "fe7e0ca71b647740",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/compress/ja/": {
+  "hash": "3d3640ace6a4de9e",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/compress/ko/": {
+  "hash": "732a6a552c9d9209",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/compress/pt/": {
+  "hash": "1042d7375c1f03d3",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/compress/zh/": {
+  "hash": "5cd99b64efccc987",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/crop/": {
+  "hash": "d7a3c08df7cd4980",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/crop/de/": {
+  "hash": "50a8bb82eb239f20",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/crop/es/": {
+  "hash": "714be1c93b225f08",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/crop/fr/": {
+  "hash": "8c31b503fd9eb47f",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/crop/ja/": {
+  "hash": "03085e04c6fc0066",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/crop/ko/": {
+  "hash": "b24f2b6dd9f8da38",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/crop/pt/": {
+  "hash": "7fec254203afc696",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/crop/zh/": {
+  "hash": "c0ac6da3abf924a4",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/de/": {
+  "hash": "1e38635ba50f9bfc",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/es/": {
+  "hash": "a1361719fec7db1d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/extract-pages/": {
+  "hash": "7094cfb454b2398d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/extract-pages/de/": {
+  "hash": "4bfabeb46cdfe25d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/extract-pages/es/": {
+  "hash": "08fcd093f4e2a76e",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/extract-pages/fr/": {
+  "hash": "281d67c7ed825822",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/extract-pages/ja/": {
+  "hash": "9a012698fe01799c",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/extract-pages/ko/": {
+  "hash": "8c565fac894523dd",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/extract-pages/pt/": {
+  "hash": "d25e50f7d0cc3b2a",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/extract-pages/zh/": {
+  "hash": "eface36ccc072d73",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/fr/": {
+  "hash": "2ed72b4c9d6002ae",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/ja/": {
+  "hash": "51123455785e004b",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/jpg-to-pdf/": {
+  "hash": "b5c87767a2f0b1b4",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/jpg-to-pdf/de/": {
+  "hash": "6545f5edc454b616",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/jpg-to-pdf/es/": {
+  "hash": "3daf81f2f0a6cd19",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/jpg-to-pdf/fr/": {
+  "hash": "d532faff5037fac7",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/jpg-to-pdf/ja/": {
+  "hash": "2cc1e37536c50f96",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/jpg-to-pdf/ko/": {
+  "hash": "981090c66fc21243",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/jpg-to-pdf/pt/": {
+  "hash": "989122adcbb39c62",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/jpg-to-pdf/zh/": {
+  "hash": "0c1d783e472f1c87",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/ko/": {
+  "hash": "4abdebcfef44c7bb",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/merge/": {
+  "hash": "b5cc28fa87456d33",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/merge/de/": {
+  "hash": "d325d692eb382ba9",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/merge/es/": {
+  "hash": "4ad6bc16dd377b6d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/merge/fr/": {
+  "hash": "d343c90ba34108be",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/merge/ja/": {
+  "hash": "4b682d68e6a2854b",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/merge/ko/": {
+  "hash": "2bb01e42085b1947",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/merge/pt/": {
+  "hash": "f60757bffd7786ab",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/merge/zh/": {
+  "hash": "e6cab0351849dc14",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/organize/": {
+  "hash": "9428737621d83886",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/organize/de/": {
+  "hash": "d87f611e17f1862f",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/organize/es/": {
+  "hash": "f767ed21d44075a8",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/organize/fr/": {
+  "hash": "73719af5ace61b1f",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/organize/ja/": {
+  "hash": "68c72e6210924a65",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/organize/ko/": {
+  "hash": "36281802bb0b2bd4",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/organize/pt/": {
+  "hash": "dbde0a8adb58dedf",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/organize/zh/": {
+  "hash": "c0d8aa8273799cbb",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/page-numbers/": {
+  "hash": "c86f068f5cebfc8c",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/page-numbers/de/": {
+  "hash": "9a3fa144a64692e0",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/page-numbers/es/": {
+  "hash": "402016ee73549f2b",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/page-numbers/fr/": {
+  "hash": "88b5c02deca65deb",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/page-numbers/ja/": {
+  "hash": "621eca3bd714dfca",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/page-numbers/ko/": {
+  "hash": "85dae79042519773",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/page-numbers/pt/": {
+  "hash": "fc9c3092331c19e9",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/page-numbers/zh/": {
+  "hash": "684674bddc8a26c0",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pdf-to-jpg/": {
+  "hash": "fe3ac7ce99854c23",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pdf-to-jpg/de/": {
+  "hash": "82f5c1de2a35932a",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pdf-to-jpg/es/": {
+  "hash": "ae2ff1fc9f647fbf",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pdf-to-jpg/fr/": {
+  "hash": "0935226ca525b34f",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pdf-to-jpg/ja/": {
+  "hash": "ac6cda5e38cde69d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pdf-to-jpg/ko/": {
+  "hash": "5a43827c85b8b3b4",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pdf-to-jpg/pt/": {
+  "hash": "64298d7b819cfbbb",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pdf-to-jpg/zh/": {
+  "hash": "5d5df2dc56c4ad88",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/pt/": {
+  "hash": "1f963af340479e52",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/remove-pages/": {
+  "hash": "78a167248efe0d87",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/remove-pages/de/": {
+  "hash": "e307d860878f8c65",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/remove-pages/es/": {
+  "hash": "ad9ee4bde6974c02",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/remove-pages/fr/": {
+  "hash": "d04b760ce3e2c4a7",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/remove-pages/ja/": {
+  "hash": "6662d20eb835ef00",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/remove-pages/ko/": {
+  "hash": "c9eab45714a926b2",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/remove-pages/pt/": {
+  "hash": "6d202aab266a2544",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/remove-pages/zh/": {
+  "hash": "616534a18dd2a88c",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/rotate/": {
+  "hash": "21c6d120fe8dc0c6",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/rotate/de/": {
+  "hash": "10a4fc8af3c818b4",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/rotate/es/": {
+  "hash": "6a0e97ad33596cd4",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/rotate/fr/": {
+  "hash": "f7aecd2328ff606f",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/rotate/ja/": {
+  "hash": "20d9d6d3b791826b",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/rotate/ko/": {
+  "hash": "144aec0cd2b6b070",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/rotate/pt/": {
+  "hash": "86b2f9c9b2089195",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/rotate/zh/": {
+  "hash": "aee84d8273df1ecf",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/scan/": {
+  "hash": "8c608f4078f8dcd4",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/scan/de/": {
+  "hash": "1304c32587facc3c",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/scan/es/": {
+  "hash": "3d300afc9725c1f2",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/scan/fr/": {
+  "hash": "10d14f1cab8999f7",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/scan/ja/": {
+  "hash": "c2bf8a9b05cf4c2d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/scan/ko/": {
+  "hash": "c2d8c609b35013e6",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/scan/pt/": {
+  "hash": "c850a62d177a8583",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/scan/zh/": {
+  "hash": "8adf92fa8874b4fa",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/sign/": {
+  "hash": "13988ff1c502e3db",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/sign/de/": {
+  "hash": "703725be44c08a79",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/sign/es/": {
+  "hash": "d277a2554d82ad18",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/sign/fr/": {
+  "hash": "203ab8e764c9ce41",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/sign/ja/": {
+  "hash": "88a12aa42cc58083",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/sign/ko/": {
+  "hash": "dee6befd0a233bf0",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/sign/pt/": {
+  "hash": "fb6312188401deb2",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/sign/zh/": {
+  "hash": "e33cafd0311c49c8",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/split/": {
+  "hash": "418cc2ffdc67baa8",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/split/de/": {
+  "hash": "d74b29b3964bf00c",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/split/es/": {
+  "hash": "d0569a32e4308d9e",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/split/fr/": {
+  "hash": "299ac0cd40940eb6",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/split/ja/": {
+  "hash": "a0bf8eea5980fabb",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/split/ko/": {
+  "hash": "e26b4c39cdd4a803",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/split/pt/": {
+  "hash": "2f5f19805545610d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/split/zh/": {
+  "hash": "6e189b3aeded1c7d",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/watermark/": {
+  "hash": "5d374eaba3c29af6",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/watermark/de/": {
+  "hash": "03ecfddd22976328",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/watermark/es/": {
+  "hash": "5aea694fd474e1fb",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/watermark/fr/": {
+  "hash": "e5822b9123c78b1e",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/watermark/ja/": {
+  "hash": "c666411d0f0acee5",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/watermark/ko/": {
+  "hash": "0a965526edc3211a",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/watermark/pt/": {
+  "hash": "4b3d99496a1cf0b4",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/watermark/zh/": {
+  "hash": "6bdbeb174cf7315f",
+  "lastmod": "2026-11-03"
+ },
+ "/pdf/zh/": {
+  "hash": "54bd27195b68c95f",
+  "lastmod": "2026-11-03"
+ },
+ "/privacy.html": {
+  "hash": "52c50c5292c75f09",
+  "lastmod": "2026-11-03"
+ },
+ "/terms.html": {
+  "hash": "db8e96d255a60adf",
+  "lastmod": "2026-11-03"
+ },
+ "/text/": {
+  "hash": "c8caa89ac4cc2d01",
+  "lastmod": "2026-11-03"
+ },
+ "/text/char-count.html": {
+  "hash": "39aacd90934fcf18",
+  "lastmod": "2026-11-03"
+ },
+ "/text/dedupe-lines.html": {
+  "hash": "c0d214aab7a3274b",
+  "lastmod": "2026-11-03"
+ },
+ "/text/list-to-line.html": {
+  "hash": "edbf9e0f688826dc",
+  "lastmod": "2026-11-03"
+ },
+ "/text/remove-line-breaks.html": {
+  "hash": "e5fc01b9cb0b4de5",
+  "lastmod": "2026-11-03"
+ },
+ "/text/sql-in.html": {
+  "hash": "6b690dfbd9ee6c43",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/": {
+  "hash": "ba0eecf5747bd6e4",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/de/": {
+  "hash": "3e33b9142d65f87e",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/de/number/": {
+  "hash": "41ee5dd7148d0875",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/de/what-to-eat/": {
+  "hash": "75ab76893f9a095d",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/de/yes-or-no/": {
+  "hash": "4d98d5660733f4b0",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/es/": {
+  "hash": "4a6aaa992d0cbb37",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/es/number/": {
+  "hash": "d8df544397f6d28d",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/es/what-to-eat/": {
+  "hash": "f83ef7383f4aaad2",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/es/yes-or-no/": {
+  "hash": "8622410cf40a7632",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/fr/": {
+  "hash": "d64320571e97902a",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/fr/number/": {
+  "hash": "d1072a5fc8ab9338",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/fr/what-to-eat/": {
+  "hash": "0760c3cd321bd80c",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/fr/yes-or-no/": {
+  "hash": "37025aa0155df4ec",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/ja/": {
+  "hash": "dfaddd25cf76127a",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/ja/number/": {
+  "hash": "e291f1d3e7724096",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/ja/what-to-eat/": {
+  "hash": "6331fdf264ff5c12",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/ja/yes-or-no/": {
+  "hash": "3ed681c8f09cce61",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/ko/": {
+  "hash": "c135083e76926ebf",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/ko/number/": {
+  "hash": "249d38c13eef5198",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/ko/what-to-eat/": {
+  "hash": "07e243687b3d9a43",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/ko/yes-or-no/": {
+  "hash": "9beb8ac3f5b71e57",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/number/": {
+  "hash": "2b8f3dccd44f2409",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/pt/": {
+  "hash": "f01c3d7bb8ec11dc",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/pt/number/": {
+  "hash": "fc7312323b492b01",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/pt/what-to-eat/": {
+  "hash": "87fc15e8fce766f6",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/pt/yes-or-no/": {
+  "hash": "435ad5d8de63c026",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/what-to-eat/": {
+  "hash": "8d25d90a64905bc0",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/yes-or-no/": {
+  "hash": "55377673eab16955",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/zh/": {
+  "hash": "ae4affa48ba722c5",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/zh/number/": {
+  "hash": "966fb027d1e22ab9",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/zh/what-to-eat/": {
+  "hash": "278bfa2cf2634b58",
+  "lastmod": "2026-11-03"
+ },
+ "/wheel/zh/yes-or-no/": {
+  "hash": "542e4f0eb2606af7",
+  "lastmod": "2026-11-03"
+ }
+}
