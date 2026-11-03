@@ -1,23 +1,61 @@
-/* 홈(index.html) 전용. tools/build-site.js 가 <style id="page-css"> 로 인라인한다 — 공통 규칙은 assets/site.css */
-main.wrap>h1{margin:0 0 4px}
-main.wrap>.lead{margin:0 0 16px;word-break:keep-all;text-wrap:balance}
-.chips.filters{margin:0 0 16px}
-/* 카드: 제목 18px/600, 호버 150ms */
-.grid.tools-grid .card{transition:border-color .15s ease,box-shadow .15s ease}
-.grid.tools-grid .card-icon svg{transition:transform .15s ease}
-.grid.tools-grid .card h3{font-size:18px;line-height:24px;font-weight:var(--fw-semibold)}
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: restyle
+ * nav: kept · footer: kept · signature: compact tool index · posture: restrained · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S3 R5 V3 · weakest: S, generic utility catalog; task names lead the index */
+html,body{overflow-x:clip}
+html{scrollbar-color:var(--muted) var(--bg)}
+body{caret-color:var(--accent-text)}
+::selection{background:var(--home-selection);color:var(--home-selection-ink)}
+main.wrap{padding-top:var(--home-space-xl)}
+main.wrap>h1{min-width:0;overflow-wrap:break-word;font-size:var(--home-head-size);line-height:var(--home-head-line);letter-spacing:-.035em;margin:0 0 var(--home-space-sm);font-weight:var(--fw-bold);text-wrap:balance}
+main.wrap>.lead{font-size:16px;line-height:24px;margin:0 0 var(--home-space-lg);word-break:keep-all;text-wrap:pretty}
+.home-assurance{color:var(--ink);margin-inline-start:var(--home-space-sm)}
+.drop.home{justify-content:flex-start;min-height:56px;padding:var(--home-space-xs) var(--home-space-md);border-width:1px;border-style:solid;background:var(--home-panel)}
+.drop.home #btn-select{height:44px;background:var(--home-panel);color:var(--accent-text);border:1px solid var(--home-rule)}
+.drop.home #btn-select:hover{background:var(--home-panel-hover)}
+.drop.home #btn-select:active{background:var(--home-panel-hover)}
+.chips.filters{gap:var(--home-space-sm);margin:0 0 var(--home-space-lg);min-height:var(--touch);align-items:center}
+.chips.filters .chip{height:36px;border-radius:var(--r-btn);padding:0 var(--home-space-lg);letter-spacing:0}
+.chips.filters .chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.grid.tools-grid{--grid-cols:4;grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr));gap:var(--home-space-lg)}
+.grid.tools-grid .card{display:grid;grid-template-columns:var(--home-icon-size) minmax(0,1fr);column-gap:var(--home-space-md);row-gap:var(--home-space-xs);align-content:start;align-items:start;min-height:var(--home-card-height);border-radius:var(--home-radius);padding:var(--home-space-lg);background:var(--home-panel);transition:border-color var(--home-duration) var(--home-ease)}
+.grid.tools-grid .card[data-cat="text"]{--home-icon:var(--home-text-icon)}
+.grid.tools-grid .card[data-cat="wheel"]{--home-icon:var(--home-wheel-icon)}
+.grid.tools-grid .card[data-cat="pdf"]{--home-icon:var(--home-pdf-icon)}
+.grid.tools-grid .card[data-cat="image"]{--home-icon:var(--home-image-icon)}
+.grid.tools-grid .card[data-cat="color"]{--home-icon:var(--home-color-icon)}
+.grid.tools-grid .card[data-cat="guide"]{--home-icon:var(--home-guide-icon)}
+.grid.tools-grid .card-icon{grid-column:1;grid-row:1 / 3;width:var(--home-icon-size);height:var(--home-icon-size);margin:var(--home-space-xs) 0 0;color:var(--home-icon)}
+.grid.tools-grid .card-icon svg{transform:none;transition:none}
+.grid.tools-grid .card-icon svg>rect:first-child{fill:var(--home-icon-fill)}
+.grid.tools-grid .card-icon [stroke="#fff"]{stroke:currentColor}
+.grid.tools-grid .card-icon [fill="#fff"]{fill:currentColor}
+.grid.tools-grid .card h3{grid-column:2;min-width:0;font-size:18px;line-height:24px;font-weight:var(--fw-semibold);margin:0;overflow-wrap:break-word}
+.grid.tools-grid .card p{grid-column:2;min-width:0;font-size:14px;line-height:22px;letter-spacing:0;margin:0;text-wrap:pretty}
+.grid.tools-grid .card.hidden{display:none}
+nav.menu a.on{background:var(--accent-tint);color:var(--accent-label)}
+.grid.tools-grid .card:active{background:var(--home-panel-hover)}
+.chip:active{background:var(--home-panel-hover)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--home-focus);outline-offset:3px;transition:none}
+.grid.tools-grid .card:focus-visible,.chips.filters .chip:focus-visible{outline-offset:-3px}
+.chips.filters .chip.on:focus-visible{outline-color:var(--accent-ink)}
+.drop.home:focus-visible{outline:2px solid var(--home-focus);outline-offset:3px;box-shadow:none}
+.btn:disabled,.btn[aria-disabled="true"],.btn-big:disabled{background:var(--home-disabled-fill);color:var(--home-disabled-ink);cursor:not-allowed;pointer-events:auto}
+@media (hover:hover){.grid.tools-grid .card:hover{border-color:var(--ink)}}
+@media (max-width:1280px){.grid.tools-grid{--grid-cols:4}}
+@media (max-width:960px){.grid.tools-grid{--grid-cols:3}}
 @media (max-width:767.98px){
-  main.wrap{padding-top:16px}
-  /* 제목 23px: 콘텐츠 폭 328px(세로 스크롤바 뷰포트)에서도 한 줄 */
-  main.wrap>h1{font-size:23px;line-height:32px}
-  main.wrap>.lead{margin-bottom:8px}
-  /* 분류 칩: 한 줄 가로 스크롤. overflow 가 칩의 44px 가상 영역을 자르므로 패딩 5px 로 컨테이너를 44px 로 — 실제 클릭 높이 44px */
-  .chips.filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter)) 8px;padding:5px var(--gutter);min-height:var(--touch)}
+  :root{--home-head-size:26px;--home-head-line:36px;--home-card-height:88px}
+  main.wrap{padding-top:var(--home-space-lg)}
+  main.wrap>.lead{font-size:14px;line-height:22px;margin-bottom:var(--home-space-md)}
+  .home-assurance{display:block;margin-inline-start:0}
+  .drop.home{min-height:54px}
+  .chips.filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter)) var(--home-space-sm);padding:var(--home-space-xs) var(--gutter);min-height:var(--touch)}
   .chips.filters::-webkit-scrollbar{display:none}
+  .chips.filters .chip{height:36px}
+  .grid.tools-grid{gap:var(--home-space-md)}
+  .grid.tools-grid .card{padding:var(--home-space-md)}
 }
-@media (max-width:440px){
-  .grid.tools-grid .card{display:flex;flex-wrap:wrap;align-items:center}
-  .grid.tools-grid .card-icon{margin:0 12px 0 0}
-  .grid.tools-grid .card h3{margin:0}
-  .grid.tools-grid .card p{flex:0 0 100%;margin-top:6px}
-}
+@media (max-width:640px){.grid.tools-grid{--grid-cols:2}}
+@media (max-width:440px){.grid.tools-grid{--grid-cols:1}}
+@media (max-width:360px){:root{--home-head-size:24px;--home-head-line:32px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

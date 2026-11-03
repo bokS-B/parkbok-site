@@ -1,0 +1,22 @@
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: restyle
+ * brand: PARKBOK (source assets/site.css, 2026-11-03) · paper: project palette · accent: project blue
+ * display: Pretendard · body: Pretendard · nav: kept · footer: kept · signature: compact tool index
+ * states: existing tool states, keyboard focus, reduced motion · posture: restrained · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S3 R5 V3 · weakest: S, generic utilities; the real tool index carries the first screen */
+/* Hallmark · reworded "설치 없이 바로 쓰는 무료 도구" to "필요한 도구, 여기 한곳에" · user requested the home headline review */
+:root{
+  --home-space-xs:4px;--home-space-sm:8px;--home-space-md:12px;--home-space-lg:16px;--home-space-xl:24px;
+  --home-font:var(--font);--home-head-size:40px;--home-head-line:48px;
+  --home-focus:var(--accent-text);--home-panel:var(--card);--home-panel-hover:var(--accent-tint);
+  --home-icon:var(--muted);--home-icon-fill:transparent;--home-rule:var(--line);
+  --home-selection:var(--accent-tint);--home-selection-ink:var(--ink);
+  --home-radius:12px;--home-icon-size:32px;--home-card-height:112px;
+  --home-duration:150ms;--home-ease:ease-out;
+  --t-btn:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out;
+  --t-chip:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out;
+  --home-disabled-fill:var(--line);--home-disabled-ink:var(--muted);
+  --home-text-icon:#0f766e;--home-wheel-icon:#6d28d9;--home-pdf-icon:#b91c1c;
+  --home-image-icon:#92400e;--home-color-icon:#be185d;--home-guide-icon:#475569;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--home-text-icon:#5eead4;--home-wheel-icon:#c4b5fd;--home-pdf-icon:#fca5a5;--home-image-icon:#fcd34d;--home-color-icon:#f9a8d4;--home-guide-icon:#cbd5e1}}
+:root[data-theme="dark"]{--home-text-icon:#5eead4;--home-wheel-icon:#c4b5fd;--home-pdf-icon:#fca5a5;--home-image-icon:#fcd34d;--home-color-icon:#f9a8d4;--home-guide-icon:#cbd5e1}
