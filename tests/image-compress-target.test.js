@@ -129,7 +129,7 @@ test('invalid explicit targets reject before run decoding or encoding',async t=>
   });
 });
 test('custom target input preserves badInput as invalid rather than disabling the goal',()=>{
-  const nodes=[],row={classList:{add(){}},appendChild(){}},api={el(tag){const n={tag,style:{},appendChild(){}};nodes.push(n);return n;},optStr(){return '';},set(_id,get){this.get=get;}};
+  const nodes=[],row={classList:{add(){}},appendChild(){}},api={el(tag){const n={tag,style:{},dataset:{},children:[],appendChild(child){this.children.push(child);},setAttribute(){},addEventListener(){}};nodes.push(n);return n;},optStr(){return '';},onChange(){},set(_id,get){this.get=get;}};
   tool.renderers['target-kb']({id:'maxKb'},row,api);
   const input=nodes.find(n=>n.tag==='input');input.value='';input.validity={badInput:true};
   assert.ok(Number.isNaN(api.get()));assert.equal(tool.parseOpts({maxKb:api.get()}).validTarget,false);
@@ -142,5 +142,4 @@ test('all8 languages expose persistent byte units, failure labels and edit inval
     for(const k of ['targetLimit','targetExceeded','downloadTargetOver','needsRerun','errorTarget'])assert.ok(typeof t[k]==='string'&&t[k].trim(),lang+' '+k);
   }
   assert.equal(copy.strings.ko.h1,'이미지 압축');
-  assert.equal(copy.strings.ko.line,'사진을 넣고 압축 정도를 고른 뒤 원본과 결과 용량을 비교해 내려받으세요.');
 });

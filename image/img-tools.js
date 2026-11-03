@@ -216,6 +216,18 @@
   // ---------- 상태 ----------
   var tool = null, files = [], pages = [], outputs = [], urls = [], busy = false, optUI = {}, inputBytes = 0;
   var resultWarning = null, editVersion = 0, inspectionShown = false;
+  var usageResult = null;
+  // Only coarse image-compression outcomes. Never pass files, names, pixels or error messages.
+  function trackUsage(name, detail){
+    try {
+      if (!tool || tool.id !== 'image-compress' || !/^(parkbok\.com|www\.parkbok\.com)$/.test(location.hostname) || typeof window.gtag !== 'function') return;
+      if (localStorage.getItem('pb_internal') === '1') return;
+      var data = { tool_id: 'image-compress', tool_language: T.lang || 'en' };
+      if (detail && /^(started|ready|over_limit|error)$/.test(detail.status)) data.result_status = detail.status;
+      if (detail && Number.isInteger(detail.targetKb) && detail.targetKb >= 0 && detail.targetKb <= 51200) data.target_kb = detail.targetKb;
+      window.gtag('event', name, data);
+    } catch (_) {} // Blocked analytics must not affect the tool.
+  }
   var dom = {};
   function setStatus(msg, kind, target){
     var s = target || dom.status; if (!s) return;
@@ -732,6 +744,8 @@
     dom.primary.removeAttribute('data-warning');
     if (tool.minFiles > files.length) { setStatus(t('errorEmpty', { n: tool.minFiles }), 'err'); return; }
     var opts = getOpts(), version = editVersion, optsKey = tool.invalidateOnEdit ? JSON.stringify(opts) : null;
+    usageResult = null;
+    trackUsage('tool_start', { status: 'started', targetKb: opts.maxKb });
     setBusy(true); setStatus(t('processing'), 'busy'); progress(0);
     dom.result.hidden = true; dom.result.innerHTML = ''; outputs = []; resultWarning = null; inspectionShown = false; revokeAll();
     inputBytes = 0; files.forEach(function(f){ inputBytes += f.size; });
@@ -750,12 +764,15 @@
       resultWarning = res && res.warning || null;
       progress(1, resultWarning ? resultWarning.message : t('done'));
       showResult((res && res.note) || '');
+      usageResult = { status: resultWarning ? 'over_limit' : 'ready', targetKb: opts.maxKb };
+      trackUsage('tool_result', usageResult);
       if (tool.allowsInspection && res.links) {
         var links = el('div', 'passport-result-links');
         res.links.forEach(function(link){ var a = el('a', 'btn ghost passport-source', t(link.key)); a.href = link.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; links.appendChild(a); });
         dom.result.appendChild(links);
       }
     }, function(e){
+      trackUsage('tool_error', { status: 'error', targetKb: opts.maxKb });
       setBusy(false); dom.progress.hidden = true;
       var msg = e && e.key ? t(e.key) : (e && e.userMessage ? e.userMessage : t('errorGeneric'));
       if (window.console && console.error) console.error(e);
@@ -780,6 +797,7 @@
   function download(o){
     var a = document.createElement('a'); a.href = o.url || (o.url = objUrl(o.blob)); a.download = o.name; a.rel = 'noopener';
     document.body.appendChild(a); a.click(); setTimeout(function(){ document.body.removeChild(a); }, 0);
+    trackUsage('tool_download', usageResult);
   }
   function downloadZip(){
     if (busy) return;

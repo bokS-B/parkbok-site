@@ -3,6 +3,9 @@
 (function(){
   var LEVELS = { low: { q: 0.85, max: 4000 }, medium: { q: 0.7, max: 2500 }, high: { q: 0.5, max: 1600 } };
   var SIDE_LIMIT = 16384, MIN_QUALITY = 0.3;
+  function targetFromSearch(search){
+    try { var value = new URLSearchParams(search || '').get('maxKb'); return /^\d+$/.test(value || '') && Number(value) <= 51200 ? Number(value) : 0; } catch (_) { return 0; }
+  }
   function baseName(n){ return String(n || 'image').replace(/\.[^.]+$/, ''); }
   function extOf(n){ var m = /\.([a-z0-9]+)$/i.exec(n || ''); return m ? m[1].toLowerCase() : ''; }
   // 파일 종류: 'png' | 'jpg' | 'webp' | ''
@@ -68,8 +71,15 @@
         row.classList.add('opt-number');
         var id = 'opt-' + o.id, label = api.el('label', 'opt-label', api.optStr(o.id, 'label'));
         label.htmlFor = id; row.appendChild(label);
-        var input = api.el('input'); input.type = 'number'; input.id = id; input.min = 0; input.step = 1; input.value = 0; input.inputMode = 'decimal'; input.style.width = '100px';
+        var input = api.el('input'); input.type = 'number'; input.id = id; input.min = 0; input.step = 1; input.value = targetFromSearch(typeof location === 'undefined' ? '' : location.search); input.inputMode = 'decimal'; input.style.width = '100px';
         var wrap = api.el('span', 'num-wrap'); wrap.appendChild(input); wrap.appendChild(api.el('span', 'num-unit', 'KB')); row.appendChild(wrap);
+        var presets = api.el('div', 'target-presets'); presets.setAttribute('role', 'group'); presets.setAttribute('aria-label', api.optStr(o.id, 'label'));
+        [0, 50, 100, 200, 500].forEach(function(kb){
+          var button = api.el('button', 'chip target-preset', kb + ' KB'); button.type = 'button'; button.dataset.targetKb = kb;
+          button.addEventListener('click', function(){ if (api.busy()) return; input.value = kb; sync(); api.changed(); }); presets.appendChild(button);
+        });
+        function sync(){ Array.prototype.forEach.call(presets.children, function(b){ b.setAttribute('aria-pressed', String(Number(b.dataset.targetKb) === Number(input.value))); }); }
+        input.addEventListener('input', sync); api.onChange(sync); sync(); row.appendChild(presets);
         // Unlike the generic number renderer, this type gets a persistent help row from the engine.
         api.set(o.id, function(){ return input.validity && input.validity.badInput ? NaN : Number(input.value); }, function(v){ input.value = v; });
       }
@@ -122,6 +132,7 @@
     }
   };
   tool.parseOpts = parseOpts;
+  tool.targetFromSearch = targetFromSearch;
   tool.pickFormat = pickFormat;
   if (typeof window !== 'undefined' && window.IMGT) window.IMGT.register(tool);
   if (typeof module !== 'undefined') module.exports = tool;

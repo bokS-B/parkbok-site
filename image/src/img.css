@@ -1,4 +1,7 @@
 /* 이미지 도구 엔진 전용 스타일. 토큰·셸·버튼·.drop·.opts·.result·.chips 는 assets/site.css 에서 온다. */
+.target-presets{display:flex;flex-wrap:wrap;gap:6px;flex-basis:100%}
+.target-presets .target-preset{min-height:44px;min-width:60px;justify-content:center;cursor:pointer}
+.target-presets .target-preset[aria-pressed=true]{border-color:var(--accent);color:var(--accent-text);background:var(--accent-tint)}
 .tool-head{text-align:center;margin:8px 0 20px}
 .tool-head h1{margin-bottom:4px}
 .tool-head .lead{margin-bottom:0}
