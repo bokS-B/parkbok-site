@@ -4,16 +4,16 @@
   "icon": "color-palette",
   "cat": "color",
   "next": [
-    "random",
     "converter",
-    "gradient"
+    "gradient",
+    "contrast"
   ],
   "strings": {
     "en": {
-      "title": "Color Palette Generator – Complementary, Analogous, Triadic Schemes Free",
+      "title": "Color Palette Generator – Random Colors, Locks & Live Preview",
       "h1": "Color palette generator",
-      "line": "Try 24 five-color palettes on three playful templates, then take the HTML and CSS.",
-      "description": "Preview 24 five-color palettes on three original illustrated templates. Edit color roles, check text contrast, copy HTML/CSS or download a standalone HTML file. Free browser-only tool.",
+      "line": "Generate a five-color palette, lock favorites and preview three templates. Take the HTML and CSS.",
+      "description": "Generate random five-color palettes, lock favorites and preview three templates. Choose from 24 curated sets or edit every color. Copy HEX, HTML and CSS, or download standalone HTML.",
       "base": "Base color",
       "splitComp": "Split complementary",
       "lightness": "Lightness",
@@ -22,10 +22,10 @@
       "copyJson": "Copy JSON"
     },
     "ko": {
-      "title": "색 조합 생성기 – 보색·유사색·삼각 배색 팔레트 무료",
+      "title": "색 조합 생성기 – 랜덤 5색·잠금·템플릿 미리보기",
       "h1": "색 조합",
-      "line": "5색 팔레트 24개를 귀여운 예시에 입혀 보고, HTML·CSS로 가져가세요.",
-      "description": "5색 팔레트 24세트를 토끼 우체국·몽글 상점·플래너 예시에 적용하세요. 색상 역할 편집, 글자 대비 확인, HTML·CSS 복사와 단독 HTML 다운로드. 무료 브라우저 색 조합 도구.",
+      "line": "5색 조합을 만들고, 마음에 드는 색은 잠그세요. 예시에 입혀 보고 HTML·CSS로 가져가세요.",
+      "description": "랜덤 5색 조합을 만들고 마음에 드는 색을 잠그세요. 24개 추천 팔레트와 템플릿 3개, 색별 편집·HEX 복사·대비 확인·HTML/CSS 내보내기를 브라우저에서 무료로 사용하세요.",
       "base": "기준 색",
       "splitComp": "분할 보색",
       "lightness": "명도 단계",
@@ -34,10 +34,10 @@
       "copyJson": "JSON 복사"
     },
     "zh": {
-      "title": "配色生成器 – 互补色、类似色、三色配色方案免费在线",
+      "title": "配色生成器 – 随机五色、锁定与实时预览",
       "h1": "配色生成器",
-      "line": "将24组五色配色应用到三个可爱模板，获取HTML与CSS。",
-      "description": "在三个原创插画模板中预览24组五色配色。编辑颜色用途、检查文字对比度、复制HTML/CSS或下载独立HTML。免费浏览器工具。",
+      "line": "生成五色配色，锁定喜欢的颜色，在三个模板中预览并导出HTML和CSS。",
+      "description": "随机生成五色配色并锁定喜欢的颜色。在三个模板中预览，或选择24组精选配色。编辑各色、检查对比度、复制HEX和HTML/CSS，下载独立HTML。免费浏览器工具。",
       "base": "基准色",
       "splitComp": "分裂互补色",
       "lightness": "明度层次",
@@ -46,10 +46,10 @@
       "copyJson": "复制 JSON"
     },
     "ja": {
-      "title": "配色ジェネレーター – 補色・類似色・トライアド パレット無料",
+      "title": "配色ジェネレーター – ランダム5色・ロック・プレビュー",
       "h1": "配色ジェネレーター",
-      "line": "24組の5色パレットを3つのかわいい例に当てはめて、HTML・CSSで持ち帰れます。",
-      "description": "24組の5色パレットをオリジナルのイラスト付きテンプレート3種で確認。色の役割と文字コントラストを確認し、HTML・CSSのコピーやHTML保存ができます。無料のブラウザツール。",
+      "line": "5色の配色を作り、好きな色をロック。3つの例で試してHTML・CSSで持ち帰れます。",
+      "description": "ランダムな5色配色を作り、好きな色をロック。24組の配色と3つのテンプレートで確認し、色編集・HEXコピー・コントラスト確認・HTML/CSS書き出しをブラウザで無料で使えます。",
       "base": "基準色",
       "splitComp": "分裂補色",
       "lightness": "明度の段階",
@@ -58,10 +58,10 @@
       "copyJson": "JSON をコピー"
     },
     "es": {
-      "title": "Generador de paletas de colores – Complementarios, análogos, triádicos gratis",
+      "title": "Generador de paletas – Colores aleatorios, bloqueo y vista previa",
       "h1": "Generador de paletas",
-      "line": "Prueba 24 paletas de cinco colores en tres plantillas y llévate el HTML y CSS.",
-      "description": "Vista previa de 24 paletas de cinco colores en tres plantillas ilustradas. Edita colores, comprueba contraste, copia HTML/CSS o descarga HTML independiente. Gratis en el navegador.",
+      "line": "Genera cinco colores, bloquea tus favoritos y prueba tres plantillas. Llévate el HTML y CSS.",
+      "description": "Genera paletas de cinco colores, bloquea favoritos y prueba tres plantillas. Elige entre 24 paletas, edita colores, comprueba contraste y copia HEX, HTML y CSS. Gratis en el navegador.",
       "base": "Color base",
       "splitComp": "Complementario dividido",
       "lightness": "Luminosidad",
@@ -70,10 +70,10 @@
       "copyJson": "Copiar JSON"
     },
     "pt": {
-      "title": "Gerador de paletas de cores – Complementares, análogas, triádicas grátis",
+      "title": "Gerador de paletas – Cores aleatórias, bloqueio e prévia",
       "h1": "Gerador de paletas",
-      "line": "Experimente 24 paletas de cinco cores em três modelos e leve o HTML e CSS.",
-      "description": "Veja 24 paletas de cinco cores em três modelos ilustrados. Edite cores, confira contraste, copie HTML/CSS ou baixe HTML independente. Grátis no navegador.",
+      "line": "Gere cinco cores, bloqueie suas favoritas e teste três modelos. Leve o HTML e CSS.",
+      "description": "Gere paletas de cinco cores, bloqueie favoritas e teste três modelos. Escolha entre 24 paletas, edite cores, confira contraste e copie HEX, HTML e CSS. Grátis no navegador.",
       "base": "Cor base",
       "splitComp": "Complementar dividida",
       "lightness": "Luminosidade",
@@ -82,10 +82,10 @@
       "copyJson": "Copiar JSON"
     },
     "de": {
-      "title": "Farbpaletten-Generator – Komplementär, analog, Triade kostenlos",
+      "title": "Farbpaletten – Zufallsfarben, Farbsperren und Live-Vorschau",
       "h1": "Farbpaletten-Generator",
-      "line": "Teste 24 Fünf-Farben-Paletten mit drei verspielten Vorlagen und nimm HTML und CSS mit.",
-      "description": "24 Fünf-Farben-Paletten mit drei illustrierten Vorlagen. Farbrollen bearbeiten, Textkontrast prüfen, HTML/CSS kopieren oder eigenständiges HTML herunterladen. Kostenlos im Browser.",
+      "line": "Erzeuge fünf Farben, sperre Favoriten und teste drei Vorlagen. Nimm HTML und CSS mit.",
+      "description": "Erzeuge fünf Zufallsfarben, sperre Favoriten und teste drei Vorlagen. Wähle aus 24 Paletten, bearbeite Farben, prüfe Kontrast und kopiere HEX, HTML und CSS. Kostenlos im Browser.",
       "base": "Grundfarbe",
       "splitComp": "Spaltkomplementär",
       "lightness": "Helligkeit",
@@ -94,10 +94,10 @@
       "copyJson": "JSON kopieren"
     },
     "fr": {
-      "title": "Générateur de palettes de couleurs – Complémentaires, analogues, triadiques gratuit",
+      "title": "Générateur de palettes – Couleurs aléatoires, verrouillage et aperçu",
       "h1": "Générateur de palettes",
-      "line": "Essayez 24 palettes de cinq couleurs sur trois modèles et emportez le HTML et le CSS.",
-      "description": "Prévisualisez 24 palettes de cinq couleurs sur trois modèles illustrés. Modifiez les couleurs, vérifiez le contraste, copiez le HTML/CSS ou téléchargez un HTML autonome. Gratuit dans le navigateur.",
+      "line": "Créez cinq couleurs, verrouillez vos favorites et testez trois modèles. Emportez le HTML et CSS.",
+      "description": "Créez cinq couleurs aléatoires, verrouillez vos favorites et testez trois modèles. Choisissez parmi 24 palettes, vérifiez le contraste et copiez HEX, HTML et CSS. Gratuit dans le navigateur.",
       "base": "Couleur de base",
       "splitComp": "Complémentaire divisé",
       "lightness": "Luminosité",

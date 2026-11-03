@@ -18,6 +18,11 @@ const DEFAULT_GLYPH = '<g fill="none" stroke="#fff" stroke-width="2.5" stroke-li
 
 const esc = shell.esc;
 const safeJson = o => JSON.stringify(o).replace(/</g, '\\u003c');
+const assetVersions = new Map();
+function assetUrl(file){
+  if (!assetVersions.has(file)) assetVersions.set(file, require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root, file.slice(1)))).digest('hex').slice(0, 8));
+  return file + '?v=' + assetVersions.get(file);
+}
 const url = (lang, id) => '/color/' + (id ? id + '/' : '') + (lang === 'en' ? '' : lang + '/');
 const home = (section, lang) => '/' + section + '/' + (lang === 'en' ? '' : lang + '/');
 
@@ -34,7 +39,8 @@ for (const f of fs.readdirSync(toolsDir).filter(n => n.endsWith('.json')).sort()
   tools.push(Object.assign({ id, order: 999, next: [] }, def, { id }));
 }
 tools.sort((a, b) => (a.order - b.order) || a.id.localeCompare(b.id));
-const byId = {}; tools.forEach(tl => { byId[tl.id] = tl; });
+const activeTools = tools.filter(tl => !tl.redirectTo);
+const byId = {}; activeTools.forEach(tl => { byId[tl.id] = tl; });
 const tstr = (tl, lang) => (tl.strings && (tl.strings[lang] || tl.strings.en)) || {};
 
 function icon(tl){
@@ -57,6 +63,7 @@ function finish(html, lang, id, vars){
   html = html.split('{{shell_head}}').join(shell.head({ og: 'og.png' }));
   html = html.split('{{shell_header}}').join(shell.header({ lang, section: 'color', wheelHome: home('wheel', lang), pdfHome: home('pdf', lang), imageHome: home('image', lang), colorHome: home('color', lang), langSelect: langSelect(lang, id), subnav: '' }));
   html = html.split('{{shell_footer}}').join(shell.footer({ lang }));
+  if (id === 'palette') html = html.replace(/(?:src|href)="(\/color\/(?:palette[\w-]*\.(?:js|css)|tools\/palette\.js))"/g, (match, file) => match.replace(file, assetUrl(file)));
   const out = path.join(root, url(lang, id).replace(/\//g, path.sep), 'index.html');
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, html, 'utf8');
@@ -70,9 +77,9 @@ let count = 0;
 // 허브
 for (const lang of langs) {
   const H = S[lang].hub, canonical = SITE + url(lang, '');
-  const cards = tools.map(tl => { const T = tstr(tl, lang); return `<a class="card" href="${url(lang, tl.id)}"><span class="card-icon">${icon(tl)}</span><h3>${esc(T.h1)}</h3><p>${esc(T.line)}</p></a>`; }).join('');
+  const cards = activeTools.map(tl => { const T = tstr(tl, lang); return `<a class="card" href="${url(lang, tl.id)}"><span class="card-icon">${icon(tl)}</span><h3>${esc(T.h1)}</h3><p>${esc(T.line)}</p></a>`; }).join('');
   const jsonld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: H.h1, url: canonical, inLanguage: HREFLANG[lang] || lang, description: H.description,
-    hasPart: tools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }];
+    hasPart: activeTools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }];
   const vars = { lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(H.title), description: esc(H.description), canonical, hreflangs: hreflangs(''),
     h1: esc(H.h1), line: esc(H.line), cards, aboutTitle: esc(S[lang].aboutTitle), aboutLine: esc(S[lang].aboutLine), css, jsonld: safeJson(jsonld),
     strings: safeJson(common(lang)), tool: safeJson({ id: 'hub', lang, langUrls: langUrls(''), strings: {}, next: [] }) };
@@ -80,9 +87,18 @@ for (const lang of langs) {
 }
 // 도구 페이지
 for (const tl of tools) for (const lang of langs) {
+  if (tl.redirectTo) {
+    const target = byId[tl.redirectTo];
+    if (!target) throw Error('Unknown color redirect target: ' + tl.redirectTo);
+    const T = tstr(target, lang), destination = url(lang, target.id), canonical = SITE + destination;
+    const redirect = '<meta name="robots" content="noindex,follow">\n<script>location.replace(' + safeJson(destination) + '+location.search+location.hash)</script>';
+    const alias = toolTpl.replace('</head>', redirect + '\n</head>').replace('<section class="tool" id="app"></section>', '<section class="tool" id="app"><a class="btn" href="' + destination + '">' + esc(T.h1) + '</a></section>');
+    finish(alias, lang, tl.id, { lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(target.id), h1: esc(T.h1), line: esc(T.line), nextTools: esc(S[lang].nextTools), nextChips: '', about: '', css, jsonld: '[]', toolId: tl.id, toolAssets: '', strings: safeJson(common(lang)), tool: safeJson({id: tl.id, lang, langUrls: langUrls(tl.id), strings: {}, next: []}) });
+    count++; continue; // Preserve old URLs; only the destination belongs in the sitemap.
+  }
   const T = tstr(tl, lang), C = S[lang], canonical = SITE + url(lang, tl.id);
   let nextIds = (tl.next || []).filter(n => byId[n] && n !== tl.id);
-  if (nextIds.length < 3) for (const o of tools) { if (nextIds.length >= 3) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
+  if (nextIds.length < 3) for (const o of activeTools) { if (nextIds.length >= 3) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
   const next = nextIds.map(n => ({ id: n, url: url(lang, n), h1: tstr(byId[n], lang).h1 }));
   const nextChips = next.map(n => `<a class="chip" href="${n.url}">${esc(n.h1)}</a>`).join('');
   const faqArr = tl.showAbout === false ? [] : (T.faq || []);
@@ -105,4 +121,4 @@ const block = '<!-- color:start -->\n' + urls.map(u => `  <url><loc>${u}</loc></
 if (/<!-- color:start -->[\s\S]*?<!-- color:end -->/.test(sm)) sm = sm.replace(/<!-- color:start -->[\s\S]*?<!-- color:end -->/, () => block);
 else sm = sm.replace(/<\/urlset>/, '  ' + block + '\n</urlset>');
 fs.writeFileSync(smPath, sm, 'utf8');
-console.log('color pages:', count, '| tools:', tools.map(t => t.id).join(',') || '(없음)', '| languages:', langs.join(','), '| sitemap urls:', urls.length);
+console.log('color pages:', count, '| tools:', activeTools.map(t => t.id).join(',') || '(없음)', '| languages:', langs.join(','), '| sitemap urls:', urls.length);

@@ -2,20 +2,20 @@
 <html lang="fr" dir="ltr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Générateur de couleurs aléatoires – Palette de 5 couleurs avec verrou gratuit</title>
-<meta name="description" content="Générateur de couleurs aléatoires gratuit. Appuyez sur la barre d'espace ou un bouton pour cinq nouvelles couleurs, verrouillez celles à garder et relancez le reste. Cliquez sur une couleur pour copier son HEX, copiez les cinq ou exportez en variables CSS, partagez par lien. Tout se passe dans votre navigateur.">
-<link rel="canonical" href="https://parkbok.com/color/random/fr/">
-<link rel="alternate" hreflang="en" href="https://parkbok.com/color/random/">
-<link rel="alternate" hreflang="ko" href="https://parkbok.com/color/random/ko/">
-<link rel="alternate" hreflang="zh-Hans" href="https://parkbok.com/color/random/zh/">
-<link rel="alternate" hreflang="ja" href="https://parkbok.com/color/random/ja/">
-<link rel="alternate" hreflang="es" href="https://parkbok.com/color/random/es/">
-<link rel="alternate" hreflang="pt" href="https://parkbok.com/color/random/pt/">
-<link rel="alternate" hreflang="de" href="https://parkbok.com/color/random/de/">
-<link rel="alternate" hreflang="fr" href="https://parkbok.com/color/random/fr/">
-<link rel="alternate" hreflang="x-default" href="https://parkbok.com/color/random/">
-<meta property="og:title" content="Générateur de couleurs aléatoires – Palette de 5 couleurs avec verrou gratuit"><meta property="og:description" content="Générateur de couleurs aléatoires gratuit. Appuyez sur la barre d'espace ou un bouton pour cinq nouvelles couleurs, verrouillez celles à garder et relancez le reste. Cliquez sur une couleur pour copier son HEX, copiez les cinq ou exportez en variables CSS, partagez par lien. Tout se passe dans votre navigateur.">
-<meta property="og:url" content="https://parkbok.com/color/random/fr/">
+<title>Générateur de palettes – Couleurs aléatoires, verrouillage et aperçu</title>
+<meta name="description" content="Créez cinq couleurs aléatoires, verrouillez vos favorites et testez trois modèles. Choisissez parmi 24 palettes, vérifiez le contraste et copiez HEX, HTML et CSS. Gratuit dans le navigateur.">
+<link rel="canonical" href="https://parkbok.com/color/palette/fr/">
+<link rel="alternate" hreflang="en" href="https://parkbok.com/color/palette/">
+<link rel="alternate" hreflang="ko" href="https://parkbok.com/color/palette/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://parkbok.com/color/palette/zh/">
+<link rel="alternate" hreflang="ja" href="https://parkbok.com/color/palette/ja/">
+<link rel="alternate" hreflang="es" href="https://parkbok.com/color/palette/es/">
+<link rel="alternate" hreflang="pt" href="https://parkbok.com/color/palette/pt/">
+<link rel="alternate" hreflang="de" href="https://parkbok.com/color/palette/de/">
+<link rel="alternate" hreflang="fr" href="https://parkbok.com/color/palette/fr/">
+<link rel="alternate" hreflang="x-default" href="https://parkbok.com/color/palette/">
+<meta property="og:title" content="Générateur de palettes – Couleurs aléatoires, verrouillage et aperçu"><meta property="og:description" content="Créez cinq couleurs aléatoires, verrouillez vos favorites et testez trois modèles. Choisissez parmi 24 palettes, vérifiez le contraste et copiez HEX, HTML et CSS. Gratuit dans le navigateur.">
+<meta property="og:url" content="https://parkbok.com/color/palette/fr/">
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -333,7 +333,9 @@ button.c-preview{cursor:pointer}
   .vrow .vv{white-space:normal;overflow:visible;overflow-wrap:anywhere;font-size:14px;line-height:18px;padding:12px 0}
   .c-more>summary{display:block}
 }</style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Couleurs aléatoires","url":"https://parkbok.com/color/random/fr/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"fr","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Générateur de couleurs aléatoires gratuit. Appuyez sur la barre d'espace ou un bouton pour cinq nouvelles couleurs, verrouillez celles à garder et relancez le reste. Cliquez sur une couleur pour copier son HEX, copiez les cinq ou exportez en variables CSS, partagez par lien. Tout se passe dans votre navigateur."},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Comment fonctionne le verrou ?","acceptedAnswer":{"@type":"Answer","text":"Appuyez sur le cadenas d'une couleur : elle reste pendant que la barre d'espace ou le bouton Nouvelles couleurs remplace les autres. Appuyez à nouveau pour la libérer."}},{"@type":"Question","name":"Comment partager une palette ?","acceptedAnswer":{"@type":"Answer","text":"L'adresse de la page se termine par les cinq couleurs, par exemple #ff5733-33ff57-…. Copiez l'adresse : la même palette s'ouvre chez tout le monde."}}]}]</script>
+<script type="application/ld+json">[]</script>
+<meta name="robots" content="noindex,follow">
+<script>location.replace("/color/palette/fr/"+location.search+location.hash)</script>
 </head>
 <body class="page-color">
 <!-- shell:header -->
@@ -342,20 +344,16 @@ button.c-preview{cursor:pointer}
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 <main class="wrap">
-  <div class="tool-head"><h1>Couleurs aléatoires</h1><p class="lead">Appuyez sur espace pour de nouvelles couleurs, verrouillez vos préférées</p></div>
-  <section class="tool" id="app"></section>
+  <div class="tool-head"><h1>Générateur de palettes</h1><p class="lead">Créez cinq couleurs, verrouillez vos favorites et testez trois modèles. Emportez le HTML et CSS.</p></div>
+  <section class="tool" id="app"><a class="btn" href="/color/palette/fr/">Générateur de palettes</a></section>
   <div class="ad"></div>
-  <nav class="chips next" aria-label="Autres outils"><a class="chip" href="/color/palette/fr/">Générateur de palettes</a><a class="chip" href="/color/converter/fr/">Convertisseur de couleurs</a><a class="chip" href="/color/picker/fr/">Pipette couleur d'image</a></nav>
-  <details class="about">
-    <summary>Comment ça marche</summary>
-    <p>Tout est calculé dans votre navigateur. Rien n'est envoyé à un serveur.</p>
-    <dl class="faq"><dt>Comment fonctionne le verrou ?</dt><dd>Appuyez sur le cadenas d'une couleur : elle reste pendant que la barre d'espace ou le bouton Nouvelles couleurs remplace les autres. Appuyez à nouveau pour la libérer.</dd><dt>Comment partager une palette ?</dt><dd>L'adresse de la page se termine par les cinq couleurs, par exemple #ff5733-33ff57-…. Copiez l'adresse : la même palette s'ouvre chez tout le monde.</dd></dl>
-  </details>
+  <nav class="chips next" aria-label="Autres outils"></nav>
+
 </main>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="Menu de pied de page"><a href="/about.html">À propos</a><a href="/privacy.html">Confidentialité</a><a href="/terms.html">Conditions</a><a href="/guide/">Guides</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->
-<script>window.COLOR_STRINGS={"name":"Français","dir":"ltr","language":"Langue","hex":"HEX","rgb":"RGB","hsl":"HSL","hsv":"HSV","cmyk":"CMYK","copy":"Copier","copied":"Copié","preview":"Aperçu","cssName":"Nom","nearest":"Nom le plus proche","exactName":"Nom CSS","contrast":"Contraste du texte","whiteText":"Texte blanc","blackText":"Texte noir","sample":"Texte d'exemple","pass":"Conforme","fail":"Insuffisant","large":"Grand texte seulement","tints":"Plus clair","shades":"Plus foncé","harmony":"Harmonies","complementary":"Complémentaire","analogous":"Analogues","triadic":"Triadique","tetradic":"Tétradique","randomize":"Aléatoire","pick":"Choisir","placeholder":"#ff5733 · rgb(255, 87, 51) · tomato","invalid":"Ce n'est pas une couleur. Essayez #ff5733, rgb(…) ou un nom comme tomato.","aboutTitle":"Comment ça marche","aboutLine":"Tout est calculé dans votre navigateur. Rien n'est envoyé à un serveur.","nextTools":"Autres outils"};window.COLOR_TOOL={"id":"random","lang":"fr","langUrls":{"en":"/color/random/","ko":"/color/random/ko/","zh":"/color/random/zh/","ja":"/color/random/ja/","es":"/color/random/es/","pt":"/color/random/pt/","de":"/color/random/de/","fr":"/color/random/fr/"},"next":[{"id":"palette","url":"/color/palette/fr/","h1":"Générateur de palettes"},{"id":"converter","url":"/color/converter/fr/","h1":"Convertisseur de couleurs"},{"id":"picker","url":"/color/picker/fr/","h1":"Pipette couleur d'image"}],"strings":{"title":"Générateur de couleurs aléatoires – Palette de 5 couleurs avec verrou gratuit","h1":"Couleurs aléatoires","line":"Appuyez sur espace pour de nouvelles couleurs, verrouillez vos préférées","description":"Générateur de couleurs aléatoires gratuit. Appuyez sur la barre d'espace ou un bouton pour cinq nouvelles couleurs, verrouillez celles à garder et relancez le reste. Cliquez sur une couleur pour copier son HEX, copiez les cinq ou exportez en variables CSS, partagez par lien. Tout se passe dans votre navigateur.","lineTouch":"Touchez Nouvelles couleurs, verrouillez vos préférées","newColor":"Nouvelles couleurs","lock":"Verrouiller","unlock":"Déverrouiller","copyAll":"Tout copier","copyCss":"Copier CSS","faq":[["Comment fonctionne le verrou ?","Appuyez sur le cadenas d'une couleur : elle reste pendant que la barre d'espace ou le bouton Nouvelles couleurs remplace les autres. Appuyez à nouveau pour la libérer."],["Comment partager une palette ?","L'adresse de la page se termine par les cinq couleurs, par exemple #ff5733-33ff57-…. Copiez l'adresse : la même palette s'ouvre chez tout le monde."]]}};</script>
+<script>window.COLOR_STRINGS={"name":"Français","dir":"ltr","language":"Langue","hex":"HEX","rgb":"RGB","hsl":"HSL","hsv":"HSV","cmyk":"CMYK","copy":"Copier","copied":"Copié","preview":"Aperçu","cssName":"Nom","nearest":"Nom le plus proche","exactName":"Nom CSS","contrast":"Contraste du texte","whiteText":"Texte blanc","blackText":"Texte noir","sample":"Texte d'exemple","pass":"Conforme","fail":"Insuffisant","large":"Grand texte seulement","tints":"Plus clair","shades":"Plus foncé","harmony":"Harmonies","complementary":"Complémentaire","analogous":"Analogues","triadic":"Triadique","tetradic":"Tétradique","randomize":"Aléatoire","pick":"Choisir","placeholder":"#ff5733 · rgb(255, 87, 51) · tomato","invalid":"Ce n'est pas une couleur. Essayez #ff5733, rgb(…) ou un nom comme tomato.","aboutTitle":"Comment ça marche","aboutLine":"Tout est calculé dans votre navigateur. Rien n'est envoyé à un serveur.","nextTools":"Autres outils"};window.COLOR_TOOL={"id":"random","lang":"fr","langUrls":{"en":"/color/random/","ko":"/color/random/ko/","zh":"/color/random/zh/","ja":"/color/random/ja/","es":"/color/random/es/","pt":"/color/random/pt/","de":"/color/random/de/","fr":"/color/random/fr/"},"strings":{},"next":[]};</script>
 <script src="/color/color.js" defer></script>
 <script src="/color/color-ui.js" defer></script>
 <script src="/color/tools/random.js" defer></script>

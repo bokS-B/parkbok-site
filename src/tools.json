@@ -1134,8 +1134,8 @@
       "en": "Color palette generator"
     },
     "line": {
-      "ko": "색 하나로 배색 5종 팔레트",
-      "en": "One base color, five harmonies plus lightness and saturation steps"
+      "ko": "랜덤 5색·색 잠금·템플릿 미리보기",
+      "en": "Random palettes, color locks and live previews"
     },
     "langs": [
       "en",
@@ -1190,33 +1190,6 @@
     "line": {
       "ko": "글자·배경 대비 WCAG 확인",
       "en": "Text color and background in, contrast ratio and WCAG AA / AAA out"
-    },
-    "langs": [
-      "en",
-      "ko",
-      "zh",
-      "ja",
-      "es",
-      "pt",
-      "de",
-      "fr"
-    ]
-  },
-  {
-    "id": "color-random",
-    "cat": "color",
-    "section": "color",
-    "status": "live",
-    "order": 49,
-    "url": "/color/random/",
-    "icon": "color-random",
-    "name": {
-      "ko": "랜덤 색상",
-      "en": "Random color generator"
-    },
-    "line": {
-      "ko": "스페이스바로 랜덤 5색 팔레트",
-      "en": "Press space for new colors, lock the ones you like"
     },
     "langs": [
       "en",

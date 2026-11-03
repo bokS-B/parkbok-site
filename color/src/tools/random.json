@@ -15,10 +15,20 @@
       "line": "Press space for new colors, lock the ones you like",
       "description": "Free random color generator. Press the space bar or a button for five new colors, lock the ones you want to keep and keep rolling the rest. Click any color to copy its HEX, copy all five or export as CSS variables, share by link. Runs in your browser.",
       "lineTouch": "Tap New colors, lock the ones you like",
-      "newColor": "New colors", "lock": "Lock", "unlock": "Unlock", "copyAll": "Copy all", "copyCss": "Copy CSS",
+      "newColor": "New colors",
+      "lock": "Lock",
+      "unlock": "Unlock",
+      "copyAll": "Copy all",
+      "copyCss": "Copy CSS",
       "faq": [
-        [ "How does locking work?", "Press the lock on a color and it stays while the space bar or New colors button replaces the others. Press it again to release." ],
-        [ "How do I share a palette?", "The page address ends with the five colors, for example #ff5733-33ff57-…. Copy the address and the same palette opens for anyone." ]
+        [
+          "How does locking work?",
+          "Press the lock on a color and it stays while the space bar or New colors button replaces the others. Press it again to release."
+        ],
+        [
+          "How do I share a palette?",
+          "The page address ends with the five colors, for example #ff5733-33ff57-…. Copy the address and the same palette opens for anyone."
+        ]
       ]
     },
     "ko": {
@@ -27,10 +37,20 @@
       "line": "스페이스바를 누르면 새 색 5개, 마음에 드는 색은 잠그고 HEX를 복사하세요.",
       "description": "스페이스바를 누르면 새 색 5개, 마음에 드는 색은 잠그고 나머지만 뽑으세요. HEX 복사, CSS 변수 내보내기, 링크 공유. 무료, 설치 없이 브라우저 처리.",
       "lineTouch": "새 색을 누르고, 마음에 드는 색은 잠그세요",
-      "newColor": "새 색", "lock": "잠금", "unlock": "잠금 해제", "copyAll": "전체 복사", "copyCss": "CSS 복사",
+      "newColor": "새 색",
+      "lock": "잠금",
+      "unlock": "잠금 해제",
+      "copyAll": "전체 복사",
+      "copyCss": "CSS 복사",
       "faq": [
-        [ "잠금은 어떻게 쓰나요?", "색 칸의 자물쇠를 누르면 그 색은 유지되고, 스페이스바나 새 색 버튼은 나머지 칸만 바꿉니다. 다시 누르면 풀립니다." ],
-        [ "팔레트를 공유하려면?", "페이지 주소 끝에 5색이 붙습니다(예: #ff5733-33ff57-…). 주소를 복사해 보내면 같은 팔레트가 열립니다." ]
+        [
+          "잠금은 어떻게 쓰나요?",
+          "색 칸의 자물쇠를 누르면 그 색은 유지되고, 스페이스바나 새 색 버튼은 나머지 칸만 바꿉니다. 다시 누르면 풀립니다."
+        ],
+        [
+          "팔레트를 공유하려면?",
+          "페이지 주소 끝에 5색이 붙습니다(예: #ff5733-33ff57-…). 주소를 복사해 보내면 같은 팔레트가 열립니다."
+        ]
       ]
     },
     "zh": {
@@ -39,10 +59,20 @@
       "line": "按空格键换新颜色，喜欢的颜色锁定保留",
       "description": "免费随机颜色生成器。按空格键或按钮得到 5 个新颜色，锁定想保留的颜色，其余继续随机。点击颜色复制 HEX，一键复制全部 5 色或导出为 CSS 变量，通过链接分享。全部在浏览器中完成。",
       "lineTouch": "点「换颜色」换新颜色，喜欢的颜色锁定保留",
-      "newColor": "换颜色", "lock": "锁定", "unlock": "解锁", "copyAll": "复制全部", "copyCss": "复制 CSS",
+      "newColor": "换颜色",
+      "lock": "锁定",
+      "unlock": "解锁",
+      "copyAll": "复制全部",
+      "copyCss": "复制 CSS",
       "faq": [
-        [ "锁定如何使用？", "点击颜色格上的锁，该颜色保持不变，空格键或换颜色按钮只替换其他格。再点一次即可解锁。" ],
-        [ "如何分享配色？", "页面地址以 5 个颜色结尾，例如 #ff5733-33ff57-…。复制地址发送，对方打开就是同一组配色。" ]
+        [
+          "锁定如何使用？",
+          "点击颜色格上的锁，该颜色保持不变，空格键或换颜色按钮只替换其他格。再点一次即可解锁。"
+        ],
+        [
+          "如何分享配色？",
+          "页面地址以 5 个颜色结尾，例如 #ff5733-33ff57-…。复制地址发送，对方打开就是同一组配色。"
+        ]
       ]
     },
     "ja": {
@@ -51,10 +81,20 @@
       "line": "スペースキーで新しい色、気に入った色はロック",
       "description": "無料のランダムカラー ジェネレーター。スペースキーかボタンで新しい 5 色が出て、気に入った色はロックしたまま残りだけ引き直せます。色をクリックして HEX をコピー、5 色まとめてコピーや CSS 変数で書き出し、リンクで共有。ブラウザ内で処理します。",
       "lineTouch": "「新しい色」をタップし、気に入った色はロック",
-      "newColor": "新しい色", "lock": "ロック", "unlock": "ロック解除", "copyAll": "すべてコピー", "copyCss": "CSS をコピー",
+      "newColor": "新しい色",
+      "lock": "ロック",
+      "unlock": "ロック解除",
+      "copyAll": "すべてコピー",
+      "copyCss": "CSS をコピー",
       "faq": [
-        [ "ロックの使い方は？", "色の枠の鍵を押すとその色は固定され、スペースキーや新しい色ボタンは残りの枠だけを入れ替えます。もう一度押すと解除されます。" ],
-        [ "パレットを共有するには？", "ページのアドレスの末尾に 5 色が付きます（例: #ff5733-33ff57-…）。アドレスをコピーして送れば同じパレットが開きます。" ]
+        [
+          "ロックの使い方は？",
+          "色の枠の鍵を押すとその色は固定され、スペースキーや新しい色ボタンは残りの枠だけを入れ替えます。もう一度押すと解除されます。"
+        ],
+        [
+          "パレットを共有するには？",
+          "ページのアドレスの末尾に 5 色が付きます（例: #ff5733-33ff57-…）。アドレスをコピーして送れば同じパレットが開きます。"
+        ]
       ]
     },
     "es": {
@@ -63,10 +103,20 @@
       "line": "Pulsa espacio para nuevos colores y bloquea los que te gusten",
       "description": "Generador de colores aleatorios gratis. Pulsa la barra espaciadora o un botón para obtener cinco colores nuevos, bloquea los que quieras conservar y sigue cambiando el resto. Haz clic en un color para copiar su HEX, copia los cinco o exporta como variables CSS y comparte por enlace. Funciona en tu navegador.",
       "lineTouch": "Pulsa Nuevos colores y bloquea los que te gusten",
-      "newColor": "Nuevos colores", "lock": "Bloquear", "unlock": "Desbloquear", "copyAll": "Copiar todo", "copyCss": "Copiar CSS",
+      "newColor": "Nuevos colores",
+      "lock": "Bloquear",
+      "unlock": "Desbloquear",
+      "copyAll": "Copiar todo",
+      "copyCss": "Copiar CSS",
       "faq": [
-        [ "¿Cómo funciona el bloqueo?", "Pulsa el candado de un color y se mantiene mientras la barra espaciadora o el botón Nuevos colores cambia los demás. Púlsalo otra vez para soltarlo." ],
-        [ "¿Cómo comparto una paleta?", "La dirección de la página termina con los cinco colores, por ejemplo #ff5733-33ff57-…. Copia la dirección y cualquiera verá la misma paleta." ]
+        [
+          "¿Cómo funciona el bloqueo?",
+          "Pulsa el candado de un color y se mantiene mientras la barra espaciadora o el botón Nuevos colores cambia los demás. Púlsalo otra vez para soltarlo."
+        ],
+        [
+          "¿Cómo comparto una paleta?",
+          "La dirección de la página termina con los cinco colores, por ejemplo #ff5733-33ff57-…. Copia la dirección y cualquiera verá la misma paleta."
+        ]
       ]
     },
     "pt": {
@@ -75,10 +125,20 @@
       "line": "Aperte espaço para novas cores e trave as que gostar",
       "description": "Gerador de cores aleatórias grátis. Aperte a barra de espaço ou um botão para cinco cores novas, trave as que quiser manter e continue sorteando o resto. Clique numa cor para copiar o HEX, copie as cinco ou exporte como variáveis CSS e compartilhe por link. Funciona no navegador.",
       "lineTouch": "Toque em Novas cores e trave as que gostar",
-      "newColor": "Novas cores", "lock": "Travar", "unlock": "Destravar", "copyAll": "Copiar tudo", "copyCss": "Copiar CSS",
+      "newColor": "Novas cores",
+      "lock": "Travar",
+      "unlock": "Destravar",
+      "copyAll": "Copiar tudo",
+      "copyCss": "Copiar CSS",
       "faq": [
-        [ "Como funciona a trava?", "Aperte o cadeado de uma cor e ela permanece enquanto a barra de espaço ou o botão Novas cores troca as outras. Aperte de novo para soltar." ],
-        [ "Como compartilho uma paleta?", "O endereço da página termina com as cinco cores, por exemplo #ff5733-33ff57-…. Copie o endereço e a mesma paleta abre para qualquer pessoa." ]
+        [
+          "Como funciona a trava?",
+          "Aperte o cadeado de uma cor e ela permanece enquanto a barra de espaço ou o botão Novas cores troca as outras. Aperte de novo para soltar."
+        ],
+        [
+          "Como compartilho uma paleta?",
+          "O endereço da página termina com as cinco cores, por exemplo #ff5733-33ff57-…. Copie o endereço e a mesma paleta abre para qualquer pessoa."
+        ]
       ]
     },
     "de": {
@@ -87,10 +147,20 @@
       "line": "Leertaste für neue Farben, Lieblingsfarben sperren",
       "description": "Kostenloser Zufallsfarben-Generator. Leertaste oder Button drücken für fünf neue Farben, gewünschte Farben sperren und den Rest weiter würfeln. Farbe anklicken, um den HEX-Wert zu kopieren, alle fünf kopieren oder als CSS-Variablen exportieren, per Link teilen. Läuft im Browser.",
       "lineTouch": "Auf Neue Farben tippen, Lieblingsfarben sperren",
-      "newColor": "Neue Farben", "lock": "Sperren", "unlock": "Entsperren", "copyAll": "Alle kopieren", "copyCss": "CSS kopieren",
+      "newColor": "Neue Farben",
+      "lock": "Sperren",
+      "unlock": "Entsperren",
+      "copyAll": "Alle kopieren",
+      "copyCss": "CSS kopieren",
       "faq": [
-        [ "Wie funktioniert das Sperren?", "Schloss an einer Farbe drücken – sie bleibt, während Leertaste oder Neue Farben die übrigen austauscht. Erneut drücken, um sie freizugeben." ],
-        [ "Wie teile ich eine Palette?", "Die Seitenadresse endet mit den fünf Farben, zum Beispiel #ff5733-33ff57-…. Adresse kopieren – bei jedem öffnet sich dieselbe Palette." ]
+        [
+          "Wie funktioniert das Sperren?",
+          "Schloss an einer Farbe drücken – sie bleibt, während Leertaste oder Neue Farben die übrigen austauscht. Erneut drücken, um sie freizugeben."
+        ],
+        [
+          "Wie teile ich eine Palette?",
+          "Die Seitenadresse endet mit den fünf Farben, zum Beispiel #ff5733-33ff57-…. Adresse kopieren – bei jedem öffnet sich dieselbe Palette."
+        ]
       ]
     },
     "fr": {
@@ -99,11 +169,23 @@
       "line": "Appuyez sur espace pour de nouvelles couleurs, verrouillez vos préférées",
       "description": "Générateur de couleurs aléatoires gratuit. Appuyez sur la barre d'espace ou un bouton pour cinq nouvelles couleurs, verrouillez celles à garder et relancez le reste. Cliquez sur une couleur pour copier son HEX, copiez les cinq ou exportez en variables CSS, partagez par lien. Tout se passe dans votre navigateur.",
       "lineTouch": "Touchez Nouvelles couleurs, verrouillez vos préférées",
-      "newColor": "Nouvelles couleurs", "lock": "Verrouiller", "unlock": "Déverrouiller", "copyAll": "Tout copier", "copyCss": "Copier CSS",
+      "newColor": "Nouvelles couleurs",
+      "lock": "Verrouiller",
+      "unlock": "Déverrouiller",
+      "copyAll": "Tout copier",
+      "copyCss": "Copier CSS",
       "faq": [
-        [ "Comment fonctionne le verrou ?", "Appuyez sur le cadenas d'une couleur : elle reste pendant que la barre d'espace ou le bouton Nouvelles couleurs remplace les autres. Appuyez à nouveau pour la libérer." ],
-        [ "Comment partager une palette ?", "L'adresse de la page se termine par les cinq couleurs, par exemple #ff5733-33ff57-…. Copiez l'adresse : la même palette s'ouvre chez tout le monde." ]
+        [
+          "Comment fonctionne le verrou ?",
+          "Appuyez sur le cadenas d'une couleur : elle reste pendant que la barre d'espace ou le bouton Nouvelles couleurs remplace les autres. Appuyez à nouveau pour la libérer."
+        ],
+        [
+          "Comment partager une palette ?",
+          "L'adresse de la page se termine par les cinq couleurs, par exemple #ff5733-33ff57-…. Copiez l'adresse : la même palette s'ouvre chez tout le monde."
+        ]
       ]
     }
-  }
+  },
+  "redirectTo": "palette",
+  "showAbout": false
 }
