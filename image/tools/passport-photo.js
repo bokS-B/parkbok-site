@@ -3,7 +3,7 @@
 (function(){
   var LANG = (typeof window !== 'undefined' && window.IMGT_TOOL && window.IMGT_TOOL.lang) || 'en';
   var MAX_SIDE = 6000, Q_HI = 0.95, Q_LO = 0.3, Q_DEFAULT = 0.92;
-  var HEAD_DEFAULT = [0.70, 0.80], EYE_DEFAULT = [0.40, 0.45];   // ICAO 일반값: 머리 70~80%, 눈 위에서 40~45% (아래에서 55~60%)
+  var HEAD_DEFAULT = [0.70, 0.80], EYE_DEFAULT = [0.40, 0.45];   // 편집용 참고선. 기관의 적합성 판정이 아니다.
   // 프리셋: mm(인쇄 치수) 또는 px(업로드 치수), kb(용량 상한, 0=없음), head(머리 높이 비율), eye(눈 위치, 위에서 비율)
   var PRESETS = [
     { id: 'kr_passport', mm: [35, 45], kb: 500, head: [0.71, 0.80] },
@@ -11,26 +11,55 @@
     { id: 'kr_id_half', mm: [25, 30], kb: 0 },
     { id: 'kr_id_35x45', mm: [35, 45], kb: 0, head: [0.71, 0.80] },
     { id: 'kr_driver', mm: [35, 45], kb: 250, head: [0.71, 0.80] },
-    { id: 'us_passport', px: [600, 600], kb: 0, head: [0.50, 0.69], eye: [0.31, 0.44] },
+    { id: 'us_passport', inch: [2, 2], kb: 0, head: [0.50, 0.69], eye: [0.31, 0.44] },
+    { id: 'us_passport_online', mode: 'inspect', formats: ['image/jpeg', 'image/png', 'image/heic', 'image/heif'], byteRange: [55296, 10000000] },
     { id: 'us_visa_dv', px: [600, 600], kb: 240, head: [0.50, 0.69], eye: [0.31, 0.44] },
     { id: 'cn_visa', px: [385, 560], kb: 120, head: [0.58, 0.69], eye: [0.38, 0.46] },
     { id: 'cn_1inch', mm: [25, 35], kb: 0 },
     { id: 'cn_2inch', mm: [35, 49], kb: 0 },
     { id: 'jp_passport', mm: [35, 45], kb: 0, head: [0.71, 0.80] },
-    { id: 'jp_mynaportal', px: [600, 730], kb: 600, head: [0.71, 0.80] },
+    { id: 'jp_mynaportal', px: [600, 730], kb: 600, hideGuides: true },
     { id: 'jp_mynumber', px: [700, 900], kb: 7000, head: [0.71, 0.80] },
     { id: 'jp_resume', mm: [30, 40], kb: 0 },
     { id: 'eu_schengen', mm: [35, 45], kb: 0, head: [0.70, 0.80] },
-    { id: 'uk_passport', px: [630, 810], kb: 0, head: [0.64, 0.76] },
-    { id: 'ca_passport', px: [1200, 1800], kb: 5120, head: [0.45, 0.50] },
-    { id: 'in_passport', px: [630, 810], kb: 250, head: [0.80, 0.85] },
+    { id: 'uk_passport', mode: 'inspect', formats: ['image/jpeg', 'image/png'], minPx: [600, 750], byteRange: [51200, 10000000] },
+    { id: 'ca_passport', mode: 'inspect', formats: ['image/jpeg'], minPx: [1200, 1800], maxPx: [3000, 4500], aspect: 2 / 3, byteRange: [204800, 5000000] },
+    { id: 'ca_passport_print', mode: 'info' },
+    { id: 'in_passport', px: [630, 810], kb: 250, hideGuides: true },
     { id: 'in_oci', px: [600, 600], kb: 200, head: [0.75, 0.85] },
-    { id: 'au_passport', mm: [35, 45], kb: 0, head: [0.64, 0.80] },
+    { id: 'au_passport', mm: [35, 45], kb: 0, head: [32 / 45, 36 / 45] },
     { id: 'br_passport', mm: [50, 70], kb: 0, head: [0.70, 0.80] },
-    { id: 'mx_passport', mm: [35, 45], kb: 0, head: [0.70, 0.80] },
+    { id: 'mx_passport', mode: 'info' },
     { id: 'es_dni', mm: [26, 32], kb: 0 },
     { id: 'custom' }
   ];
+  // Versioned static registry: source scope is tied to an application route, not every document in a country.
+  // Byte units are not specified by these portals. Foreign targets use conservative decimal maxima
+  // and binary minima; these are product targets, not a claim about the portal's byte implementation.
+  var REVIEWED = '2026-11-03';
+  var RULES = {
+    kr_passport: { country: 'KR', channel: 'online', formats: ['image/jpeg'], noRetouch: true, source: 'https://www.passport.go.kr/home/kor/contents.do?menuPos=12', verify: 'https://www.passport.go.kr/home/kor/onlinePhotoVerify/index.do?menuPos=33' },
+    us_passport: { country: 'US', channel: 'print', noRetouch: true, source: 'https://travel.state.gov/en/passports/apply/help/photos.html' },
+    us_passport_online: { country: 'US', channel: 'online-renewal', noRetouch: true, source: 'https://travel.state.gov/en/passports/renew-replace/online/upload-digital-photo.html' },
+    us_visa_dv: { country: 'US', channel: 'visa-online', formats: ['image/jpeg'], noRetouch: true, unitBytes: 1000, source: 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos/digital-image-requirements.html' },
+    jp_passport: { country: 'JP', channel: 'print', noRetouch: true, source: 'https://www.mofa.go.jp/mofaj/toko/passport/ic_photo.html' },
+    jp_mynaportal: { country: 'JP', channel: 'mynaportal', formats: ['image/jpeg'], noRetouch: true, unitBytes: 1000, source: 'https://faq.myna.go.jp/faq/show/8043?site_domain=default' },
+    uk_passport: { country: 'GB', channel: 'digital-original', noRetouch: true, source: 'https://www.gov.uk/photos-for-passports' },
+    ca_passport: { country: 'CA', channel: 'online-renewal-original', noRetouch: true, source: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/photos.html' },
+    ca_passport_print: { country: 'CA', channel: 'print-studio', source: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/photos.html' },
+    in_passport: { country: 'IN', channel: 'overseas-passport-seva', noRetouch: true, unitBytes: 1000, source: 'https://www.indembassybern.gov.in/page/notice-reg-icao-photo-requirements/' },
+    au_passport: { country: 'AU', channel: 'print', noRetouch: true, source: 'https://www.passports.gov.au/PhotoGuidelines' },
+    mx_passport: { country: 'MX', channel: 'consular-in-person', source: 'https://consulmex.sre.gob.mx/barcelona/index.php/tramites-en-consulado/213-pasaporte-por-primera-vez-para-persona-adulta' }
+  };
+  PRESETS.forEach(function(p){
+    var rule = RULES[p.id];
+    p.mode = p.mode || 'crop'; p.review = rule ? 'route-reviewed' : 'reference';
+    if (rule) {
+      Object.keys(rule).forEach(function(k){ p[k] = rule[k]; });
+      p.document = rule.channel === 'visa-online' ? 'visa' : 'passport'; p.reviewedOn = REVIEWED;
+      p.bytePolicy = p.mode === 'inspect' || rule.unitBytes === 1000 ? 'conservative-target' : 'existing-tool-unit';
+    }
+  });
   var DEFAULT_BY_LANG = { ko: 'kr_passport', en: 'us_passport', zh: 'cn_visa', ja: 'jp_passport', es: 'es_dni', pt: 'br_passport', de: 'eu_schengen', fr: 'eu_schengen' };
   var BY_ID = {}; PRESETS.forEach(function(p){ BY_ID[p.id] = p; });
 
@@ -52,14 +81,29 @@
       var c = custom || {}, unit = c.unit === 'px' ? 'px' : 'mm', dpi = Math.round(Math.min(1200, Math.max(72, num(c.dpi, 300))));
       var w = num(c.w, 0), h = num(c.h, 0), pw = unit === 'mm' ? mmToPx(w, dpi) : Math.round(w), ph = unit === 'mm' ? mmToPx(h, dpi) : Math.round(h);
       var ok = w > 0 && h > 0 && pw >= 16 && ph >= 16 && pw <= MAX_SIDE && ph <= MAX_SIDE;
-      return { id: 'custom', w: pw, h: ph, dpi: dpi, mm: unit === 'mm' ? [w, h] : null, kb: 0, head: HEAD_DEFAULT, eye: EYE_DEFAULT, ok: ok };
+      return { id: 'custom', mode: 'crop', w: pw, h: ph, dpi: dpi, mm: unit === 'mm' ? [w, h] : null, kb: 0, unitBytes: 1024, head: HEAD_DEFAULT, eye: EYE_DEFAULT, ok: ok };
     }
-    var W = p.px ? p.px[0] : mmToPx(p.mm[0], 300), H = p.px ? p.px[1] : mmToPx(p.mm[1], 300);
-    return { id: p.id, w: W, h: H, dpi: 300, mm: p.mm || null, kb: p.kb || 0, head: p.head || HEAD_DEFAULT, eye: p.eye || EYE_DEFAULT, ok: true };
+    var s = Object.assign({}, p);
+    s.unitBytes = p.unitBytes || 1024; s.ok = true;
+    if (p.mode !== 'crop') return s;
+    s.w = p.px ? p.px[0] : p.inch ? p.inch[0] * 300 : mmToPx(p.mm[0], 300);
+    s.h = p.px ? p.px[1] : p.inch ? p.inch[1] * 300 : mmToPx(p.mm[1], 300);
+    s.dpi = 300; s.mm = p.mm || null; s.kb = p.kb || 0;
+    s.head = p.head || HEAD_DEFAULT; s.eye = p.eye || EYE_DEFAULT;
+    return s;
   }
   // 규격 한 줄 요약: "35×45 mm · 413×531 px · 300 dpi · ≤500 KB"
   function specLine(s){
     var parts = [];
+    if (s.mode === 'info') return '';
+    if (s.mode === 'inspect') {
+      if (s.minPx) parts.push('≥' + s.minPx[0] + '×' + s.minPx[1] + ' px');
+      if (s.maxPx) parts.push('≤' + s.maxPx[0] + '×' + s.maxPx[1] + ' px');
+      if (s.aspect) parts.push('2:3');
+      parts.push(s.byteRange[0].toLocaleString() + '–' + s.byteRange[1].toLocaleString() + ' B');
+      return parts.join(' · ');
+    }
+    if (s.inch) parts.push(s.inch[0] + '×' + s.inch[1] + ' in');
     if (s.mm) parts.push(s.mm[0] + '×' + s.mm[1] + ' mm');
     parts.push(s.w + '×' + s.h + ' px'); parts.push(s.dpi + ' dpi');
     if (s.kb) parts.push('≤' + s.kb + ' KB');
@@ -67,6 +111,7 @@
   }
   // 선택 사각형 안의 가이드(비율 좌표): 얼굴 타원 + 정수리·눈·턱 선. 라벨은 도구 문구 guideCrown/guideEyes/guideChin.
   function guides(s, rect, t){
+    if (s.mode !== 'crop' || s.hideGuides) return [];
     var head = s.head, hm = (head[0] + head[1]) / 2;
     var top = Math.max(0.04, (1 - hm) * 0.35), chin = top + hm;
     var eyeY = s.eye ? (s.eye[0] + s.eye[1]) / 2 : top + hm * 0.45;
@@ -119,9 +164,37 @@
   }
   function bytesOf(blob){ return blob.arrayBuffer().then(function(b){ return new Uint8Array(b); }); }
   // 메타데이터를 포함한 실제 다운로드 파일을 검사한다. 기존 KB=1024 기준을 유지한다.
-  function validateSize(blob, maxKb){
-    var limit = maxKb > 0 ? maxKb * 1024 : null;
-    return { status: limit === null ? 'not_requested' : (blob.size <= limit ? 'passed' : 'failed'), actualBytes: blob.size, limitBytes: limit, unitBytes: 1024 };
+  function validateSize(blob, maxKb, unitBytes){
+    unitBytes = unitBytes || 1024;
+    var limit = maxKb > 0 ? maxKb * unitBytes : null;
+    return { status: limit === null ? 'not_requested' : (blob.size <= limit ? 'passed' : 'failed'), actualBytes: blob.size, limitBytes: limit, unitBytes: unitBytes };
+  }
+
+  // Read original signatures rather than trusting the extension or File.type. No canvas encoding.
+  async function imageMime(blob){
+    var b = new Uint8Array(await blob.slice(0, 32).arrayBuffer());
+    if (b[0] === 255 && b[1] === 216 && b[2] === 255) return 'image/jpeg';
+    if ([137,80,78,71,13,10,26,10].every(function(v,i){ return b[i] === v; })) return 'image/png';
+    if (b.length >= 16 && String.fromCharCode.apply(null, b.slice(4,8)) === 'ftyp') {
+      var brands = String.fromCharCode.apply(null, b.slice(8));
+      if (/avif|avis/.test(brands)) return 'image/avif';
+      if (/heic|heix|hevc|hevx/.test(brands)) return 'image/heic';
+      if (/mif1|msf1/.test(brands)) return 'image/heif';
+    }
+    return '';
+  }
+  async function inspectOriginal(f, s, ctx){
+    var blob = f.file || f, mime = await imageMime(blob), dims = null;
+    try { var img = await ctx.loadImage(f); dims = { w: img.naturalWidth || img.width, h: img.naturalHeight || img.height }; ctx.release(img); } catch (e) {}
+    var checks = [
+      { key: 'checkFormat', ok: s.formats.indexOf(mime) >= 0, detail: mime || ctx.t('unknownFormat') },
+      { key: 'checkBytes', ok: blob.size >= s.byteRange[0] && blob.size <= s.byteRange[1], detail: blob.size.toLocaleString() + ' B / ' + specLine(Object.assign({}, s, { minPx: null, maxPx: null, aspect: null })) }
+    ];
+    checks.push({ key: 'checkPixels', ok: !!dims &&
+      (!s.minPx || dims.w >= s.minPx[0] && dims.h >= s.minPx[1]) &&
+      (!s.maxPx || dims.w <= s.maxPx[0] && dims.h <= s.maxPx[1]) &&
+      (!s.aspect || Math.abs(dims.w / dims.h - s.aspect) < 0.000001), detail: dims ? dims.w + '×' + dims.h + ' px' : ctx.t('unknownPixels') });
+    return { outputs: [], inspection: { checks: checks, source: s.source }, note: ctx.t('originalUnchanged') + ' ' + ctx.t('unverifiedConditions') };
   }
 
   // ---------- 화질: 2단계 축소 / 배경 밝게 ----------
@@ -185,25 +258,45 @@
   var renderers = {
     // 규격 선택 + 규격 요약 한 줄(+ 불확실 프리셋 메모)
     preset: function(o, row, api){
-      var id = 'opt-' + o.id; row.appendChild(mkLabel(api, o, id));
+      var id = 'opt-' + o.id, title = api.el('div', 'passport-preset-title'); title.appendChild(mkLabel(api, o, id)); row.appendChild(title);
+      var source = api.el('a', 'btn ghost sm passport-source', api.t('officialSource')); source.target = '_blank'; source.rel = 'noopener noreferrer'; title.appendChild(source);
       var sel = api.el('select'); sel.id = id; sel.style.maxWidth = '100%';
       (o.choices || []).forEach(function(c){ var op = api.el('option', null, api.optStr(o.id, null, c)); op.value = c; if (c === o.default) op.selected = true; sel.appendChild(op); });
       row.appendChild(sel);
       var line = api.el('small', 'opt-help'); row.appendChild(line);
+      var policy = api.el('small', 'opt-help passport-policy'); row.appendChild(policy);
       var notes = (window.IMGT_TOOL && window.IMGT_TOOL.strings && window.IMGT_TOOL.strings.options && window.IMGT_TOOL.strings.options.preset && window.IMGT_TOOL.strings.options.preset.notes) || {};
       var last = sel.value, lastRatio = -1;   // -1: 아직 첫 계산 전
       function refresh(){
-        var s = spec(sel.value, api.getValue('custom')), q = s.ok ? s.w / s.h : 0;
+        var s = spec(sel.value, api.getValue('custom')), q = s.ok && s.mode === 'crop' ? s.w / s.h : 0;
         if (sel.value !== last) { last = sel.value; if (ui.setKb) ui.setKb(s.kb); }
         // 기본 규격 상한 대신 현재 사용자가 선택한 상한을 요약한다(0이면 상한 표시 없음).
         var currentKb = api.getValue('maxKb'); if (currentKb != null) s.kb = currentKb;
-        line.textContent = (s.ok ? specLine(s) : '') + (notes[sel.value] ? (s.ok ? ' — ' : '') + notes[sel.value] : '');
+        line.textContent = (s.ok ? specLine(s) : '') + (notes[sel.value] ? (s.mode !== 'info' ? ' — ' : '') + notes[sel.value] : '');
+        source.hidden = !s.source; if (s.source) { source.href = s.source; source.title = api.t('officialSource') + ' · ' + s.reviewedOn; }
+        policy.textContent = s.mode === 'info' ? '' : s.mode === 'inspect' ? api.t('originalPolicy') : s.review === 'reference' ? api.t('referencePolicy') : api.t('fileOnlyPolicy');
+        policy.hidden = !policy.textContent || (s.mode === 'crop' && !api.files().length);
+        var canCrop = s.mode === 'crop', opts = row.closest('#opts');
+        if (opts) {
+          opts.dataset.passportMode = s.mode;
+          var crop = opts.querySelector('[data-opt="crop"]'), save = opts.querySelector('[data-group="save"]');
+          if (crop) crop.hidden = !canCrop; if (save) save.hidden = !canCrop;
+          // Keep explanatory copy in the existing folded save group rather than pushing the crop down.
+          if (canCrop && save) save.appendChild(policy); else if (policy.parentNode !== row) row.appendChild(policy);
+          var fmt = opts.querySelector('#opt-format'), bg = opts.querySelector('#opt-bg');
+          if (fmt) { Array.prototype.forEach.call(fmt.options, function(op){ op.disabled = !!s.formats && s.formats.indexOf(op.value === 'png' ? 'image/png' : 'image/jpeg') < 0; }); if (fmt.selectedOptions[0].disabled) fmt.value = 'jpg'; }
+          if (bg) { bg.disabled = !!s.noRetouch; if (s.noRetouch) bg.value = 'keep'; }
+        }
+        var input = document.getElementById('in'), primary = document.getElementById('btn-primary');
+        if (input) input.hidden = s.mode === 'info';
+        if (primary) { primary.hidden = s.mode === 'info'; primary.toggleAttribute('data-inspection', s.mode === 'inspect'); if (!document.body.classList.contains('done')) primary.textContent = api.t(s.mode === 'inspect' ? 'checkOriginal' : 'runText'); }
+        if (ui.unitHelp) ui.unitHelp.textContent = api.t(s.unitBytes === 1000 ? 'sizeUnitDecimal' : 'sizeUnit');
         // 비율이 바뀌면(잘못된 값 0 에서 되돌아온 경우 포함) 자르기 상자를 새 비율의 최대 크기로 다시 놓는다 (엔진의 맞춤은 줄이기만 하므로)
         if (q && lastRatio >= 0 && Math.abs(q - lastRatio) > 1e-6) setTimeout(function(){ var b = document.querySelector('[data-opt="crop"] .rect-bar .btn'); if (b) b.click(); }, 0);
         lastRatio = q;
       }
       ui.refreshPreset = refresh;
-      api.set(o.id, function(){ return sel.value; });
+      api.set(o.id, function(){ return sel.value; }, function(v){ if (BY_ID[v]) sel.value = v; });
       api.onChange(refresh);
       setTimeout(refresh, 0);
     },
@@ -229,7 +322,7 @@
     // 숨은 옵션: 현재 규격의 가로/세로 비율 (자르기 상자가 ratioFrom 으로 읽는다)
     ratio: function(o, row, api){
       row.hidden = true;
-      api.set(o.id, function(){ var s = spec(api.getValue('preset'), api.getValue('custom')); return s.ok ? s.w / s.h : 0; });
+      api.set(o.id, function(){ var s = spec(api.getValue('preset'), api.getValue('custom')); return s.ok && s.mode === 'crop' ? s.w / s.h : 0; });
     },
     // 용량 상한(KB). 프리셋을 바꾸면 기본값으로 따라간다. 0 = 제한 없음.
     kb: function(o, row, api){
@@ -239,6 +332,7 @@
       var inp = numInput(api, id, s0.kb, 0, 20480, 10, '84px'), wrap = api.el('span', 'num-wrap');
       wrap.appendChild(inp); wrap.appendChild(api.el('span', 'num-unit', 'KB')); row.appendChild(wrap);   // help 는 엔진이 붙인다
       var unitHelp = api.el('small', 'opt-help', api.t('sizeUnit')); unitHelp.id = id + '-unit'; row.appendChild(unitHelp);
+      ui.unitHelp = unitHelp;
       inp.setAttribute('aria-describedby', unitHelp.id);
       ui.setKb = function(v){ inp.value = v; };
       api.set(o.id, function(){ return Math.max(0, Math.round(num(inp.value, 0))); }, function(v){ inp.value = v; });
@@ -252,6 +346,9 @@
     minFiles: 1,
     needsPages: false,
     invalidateOnEdit: true,
+    optionsBeforeInput: true,
+    allowsInspection: true,
+    actionText: function(opts){ return spec(opts.preset, opts.custom).mode === 'inspect' ? 'checkOriginal' : 'runText'; },
     layout: 'split',   // 자르기 편집기 왼쪽 + 나머지 옵션 오른쪽 (데스크톱)
     options: [
       { id: 'preset', type: 'preset', choices: PRESETS.map(function(p){ return p.id; }), default: DEFAULT_BY_LANG[LANG] || 'us_passport' },
@@ -267,6 +364,10 @@
     run: async function(files, opts, ctx){
       var o = parseOpts(opts), s = o.spec, f = files[0];
       if (!s.ok) throw fail(ctx, 'custom');
+      if (s.mode === 'info') throw fail(ctx, 'informationOnly');
+      if (s.mode === 'inspect') return inspectOriginal(f, s, ctx);
+      if (s.formats && s.formats.indexOf(o.format === 'png' ? 'image/png' : 'image/jpeg') < 0) throw fail(ctx, 'format');
+      if (s.noRetouch && o.bg !== 'keep') throw fail(ctx, 'retouch');
       var img = await ctx.loadImage(f);
       var iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
       var r = o.rect || { x: 0, y: 0, w: iw, h: ih };
@@ -279,17 +380,19 @@
       ctx.progress(0.5);
       var bytes, mime, ext;
       if (o.format === 'png') { bytes = setPngDpi(await bytesOf(await ctx.toBlob(c, 'image/png')), s.dpi); mime = 'image/png'; ext = 'png'; }
-      else { var e = await encodeJpeg(ctx, c, s.dpi, o.maxKb * 1024); bytes = e.bytes; mime = 'image/jpeg'; ext = 'jpg'; }
+      else { var e = await encodeJpeg(ctx, c, s.dpi, o.maxKb * s.unitBytes); bytes = e.bytes; mime = 'image/jpeg'; ext = 'jpg'; }
       c.width = c.height = 1;
       ctx.progress(1);
       var blob = new Blob([bytes], { type: mime });
-      var check = validateSize(blob, o.maxKb), over = check.status === 'failed';
+      var check = validateSize(blob, o.maxKb, s.unitBytes), over = check.status === 'failed';
       var note = s.w + '×' + s.h + 'px · ' + ctx.human(blob.size) + ' · ' + s.dpi + 'dpi' + (s.mm ? ' (' + s.mm[0] + '×' + s.mm[1] + 'mm)' : '');
       note += ' — ' + ctx.t(check.limitBytes === null ? 'sizeUnlimited' : 'sizeLimit', { bytes: check.actualBytes, kb: o.maxKb, limit: check.limitBytes });
       if (over) note += ' — ' + ctx.t('sizeOverHelp');
       if (r.w < s.w * 0.67 || r.h < s.h * 0.67) note += ' — ' + ctx.t('noteUpscale');
+      note += ' — ' + ctx.t('unverifiedConditions');
       return { outputs: [{ name: baseName(f.name) + '-passport-' + s.w + 'x' + s.h + '.' + ext, blob: blob, srcSize: f.size }], note: note,
-        validation: { size: check }, warning: over ? { message: ctx.t('sizeExceeded'), downloadText: ctx.t('downloadOver') } : null };
+        validation: { size: check }, warning: over ? { message: ctx.t('sizeExceeded'), downloadText: ctx.t('downloadOver') } : null,
+        links: s.source ? [{ key: 'officialSource', href: s.source }].concat(s.verify ? [{ key: 'verifyPhoto', href: s.verify }] : []) : [] };
     }
   };
   tool.parseOpts = parseOpts;
@@ -298,6 +401,8 @@
   tool.setJpegDpi = setJpegDpi;
   tool.setPngDpi = setPngDpi;
   tool.validateSize = validateSize;
+  tool.inspectOriginal = inspectOriginal;
+  tool.imageMime = imageMime;
   tool.PRESETS = PRESETS;
   if (typeof window !== 'undefined' && window.IMGT) window.IMGT.register(tool);
   if (typeof module !== 'undefined') module.exports = tool;

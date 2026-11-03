@@ -13,7 +13,7 @@
       "title": "Passport Photo Maker – Crop & Resize to 2×2 in, 35×45 mm Free",
       "h1": "Passport Photo Maker (Resize & Crop)",
       "line": "Fit the official size and file limit",
-      "description": "Free passport photo maker online. Pick a country preset (US 2×2 in, UK, EU 35×45 mm, Korea, Japan, China, India, Canada…), crop with head and eye guides, and download a JPG at the exact pixel size, file size and dpi. Runs in your browser – nothing is uploaded.",
+      "description": "Crop to a selected passport or ID photo size, or check original file conditions for online applications. Free browser processing without uploading photos. Check the official instructions for your application.",
       "buttonText": "Select photo",
       "runText": "Make photo",
       "resultName": "passport-photo",
@@ -29,16 +29,39 @@
       "guideChin": "chin",
       "noteOver": "Could not get under {kb} KB. Crop tighter or raise the limit.",
       "noteUpscale": "The original is small, so the result may look soft.",
-      "groups": { "save": "Save options" },
+      "groups": {
+        "save": "Save options"
+      },
       "options": {
         "preset": {
           "label": "Format",
           "choices": {
-            "kr_passport": "Korea passport 35×45 mm", "kr_id_3x4": "Korea ID photo 3×4 cm", "kr_id_half": "Korea half-card photo 2.5×3 cm", "kr_id_35x45": "Korea card photo 3.5×4.5 cm", "kr_driver": "Korea driver's license",
-            "us_passport": "US passport 2×2 in", "us_visa_dv": "US visa / DV lottery 600×600", "cn_visa": "China visa 33×48 mm", "cn_1inch": "China 1-inch (一寸) 25×35 mm", "cn_2inch": "China 2-inch (二寸) 35×49 mm",
-            "jp_passport": "Japan passport 35×45 mm", "jp_mynaportal": "Japan passport online (Mynaportal)", "jp_mynumber": "Japan My Number card", "jp_resume": "Japan resume 30×40 mm",
-            "eu_schengen": "EU / Schengen 35×45 mm", "uk_passport": "UK passport (digital)", "ca_passport": "Canada passport 50×70 mm", "in_passport": "India passport (Passport Seva)", "in_oci": "India OCI 2×2 in",
-            "au_passport": "Australia passport 35×45 mm", "br_passport": "Brazil passport 5×7 cm", "mx_passport": "Mexico passport 35×45 mm", "es_dni": "Spain DNI / passport 32×26 mm", "custom": "Custom size"
+            "kr_passport": "Korea passport 35×45 mm",
+            "kr_id_3x4": "Korea ID photo 3×4 cm",
+            "kr_id_half": "Korea half-card photo 2.5×3 cm",
+            "kr_id_35x45": "Korea card photo 3.5×4.5 cm",
+            "kr_driver": "Korea driver's license",
+            "us_passport": "US · passport print 2×2 in",
+            "us_visa_dv": "US · visa online 600×600",
+            "cn_visa": "China visa 33×48 mm",
+            "cn_1inch": "China 1-inch (一寸) 25×35 mm",
+            "cn_2inch": "China 2-inch (二寸) 35×49 mm",
+            "jp_passport": "Japan · passport print 35×45mm",
+            "jp_mynaportal": "Japan passport online (Mynaportal)",
+            "jp_mynumber": "Japan My Number card",
+            "jp_resume": "Japan resume 30×40 mm",
+            "eu_schengen": "Schengen visa · reference 35×45mm",
+            "uk_passport": "UK · passport digital · original check",
+            "ca_passport": "Canada · online renewal · original check",
+            "in_passport": "India passport (Passport Seva)",
+            "in_oci": "India OCI 2×2 in",
+            "au_passport": "Australia passport 35×45 mm",
+            "br_passport": "Brazil passport 5×7 cm",
+            "mx_passport": "Mexico · passport · in-person photo",
+            "es_dni": "Spain DNI / passport 32×26 mm",
+            "custom": "Custom size",
+            "us_passport_online": "US · online renewal · original check",
+            "ca_passport_print": "Canada · passport print · studio guidance"
           },
           "notes": {
             "kr_id_3x4": "Common practice in Korea, not an official rule.",
@@ -46,37 +69,93 @@
             "kr_driver": "250 KB is a recommended value (Korea Road Traffic Authority).",
             "cn_visa": "385×560 px is a recommended size inside the embassy range (354×472–420×560).",
             "jp_mynaportal": "Per the Mynaportal FAQ; the portal may change.",
-            "in_passport": "630×810 px per Passport Seva; 250 KB is a recommended value."
+            "in_passport": "Overseas Passport Seva reference:630×810px; the linked embassy specifies a250KB maximum. Check your own portal.",
+            "mx_passport": "The linked Mexican consulate takes your photo at the appointment; no separate photo is required. Check your own office, especially for emergency documents.",
+            "ca_passport_print": "Printed photos are 50×70mm and must be taken and printed by a commercial photographer. Read the official instructions.",
+            "ca_passport": "Use the original digital file from a commercial photographer. The 2:3 digital ratio differs from the 50×70mm print.",
+            "uk_passport": "Do not crop before uploading. This checker currently reads JPG and PNG; follow the official upload instructions.",
+            "us_passport_online": "Upload the original and adjust its position in the official application. No fixed600×600 conversion is applied here."
           }
         },
-        "custom": { "label": "Size", "help": "Enter mm or px. With mm the pixel size comes from the dpi.", "choices": { "w": "Width", "h": "Height", "dpi": "dpi", "mm": "mm", "px": "px" } },
-        "crop": { "label": "Crop area", "help": "Drag the box so the crown, eyes and chin sit on the dotted guides." },
-        "format": { "label": "File type", "choices": { "jpg": "JPG", "png": "PNG" } },
-        "maxKb": { "label": "Max file size", "help": "0 = no limit. JPG tries a lower quality; PNG checks the final file size." },
-        "bg": { "label": "Background", "help": "Brighten only lifts the background brightness. It does not remove or replace it.", "choices": { "keep": "Keep", "white": "Brighten to white" } }
+        "custom": {
+          "label": "Size",
+          "help": "Enter mm or px. With mm the pixel size comes from the dpi.",
+          "choices": {
+            "w": "Width",
+            "h": "Height",
+            "dpi": "dpi",
+            "mm": "mm",
+            "px": "px"
+          }
+        },
+        "crop": {
+          "label": "Crop area",
+          "help": "Move the box or drag its corners to select the area. Any guides are positioning aids."
+        },
+        "format": {
+          "label": "File type",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "maxKb": {
+          "label": "Max file size",
+          "help": "0 = no limit. JPG tries a lower quality; PNG checks the final file size."
+        },
+        "bg": {
+          "label": "Background",
+          "help": "Brighten only lifts the background brightness. It does not remove or replace it.",
+          "choices": {
+            "keep": "Keep",
+            "white": "Brighten to white"
+          }
+        }
       },
       "errors": {
         "rect": "The selected area is too small.",
-        "custom": "Check the width, height and dpi values."
+        "custom": "Check the width, height and dpi values.",
+        "format": "This route requires JPG. Select JPG and run again.",
+        "retouch": "Retouching is disabled for this application.",
+        "informationOnly": "Read the official application instructions; no conversion is needed here."
       },
       "faq": [
         [
           "What size is a passport photo?",
-          "US passport photos are 2×2 inches (600×600 px). Most other countries, including the UK, EU, Japan, Korea and Australia, use 35×45 mm (413×531 px at 300 dpi). Each preset also sets the head-height guide and the upload file limit where one exists."
+          "Sizes depend on the document and application route. US printed passport photos are2×2in; Japan uses35×45mm for print and600×730px JPG for Mynaportal. Select the matching route and check the official link. Digital and printed sizes are not interchangeable."
         ],
         [
           "Are these numbers guaranteed to be correct?",
-          "They come from government guidance, but sizes, file limits and upload rules change. Always check the instructions of the office, embassy or website you are submitting to before you send the photo."
+          "Routes with an official link show the guidance reviewed on2026-11-03. Other presets are reference sizes. Requirements can change; confirm the instructions of your receiving authority."
         ],
         [
           "Does it replace the background with white?",
-          "No. Brighten only lifts the brightness of the existing background. Passport offices reject edited backgrounds, so take the photo in front of a plain light wall."
+          "Brightening is available only for general reference/custom sizes. Reviewed passport routes disable retouching. Take the photo against the required background and follow official instructions."
         ],
         [
           "Is my photo uploaded?",
           "No. Cropping, resizing and compression all run in your browser. The result contains no EXIF data, only the dpi value."
         ]
-      ]
+      ],
+      "officialSource": "Official guidance",
+      "checkOriginal": "Check original file",
+      "checkAgain": "Check again",
+      "checkFormat": "File format",
+      "checkBytes": "File size target",
+      "checkPixels": "Image dimensions",
+      "checkMatch": "Matches checked condition",
+      "checkMismatch": "Does not match",
+      "unknownFormat": "Unrecognized format",
+      "unknownPixels": "Could not read dimensions",
+      "fileCheckDone": "File conditions checked",
+      "fileCheckMismatch": "File condition mismatch",
+      "originalUnchanged": "The original is unchanged. No new file was created.",
+      "unverifiedConditions": "Checks do not include face, background, capture date, color space, compression ratio or official acceptance.",
+      "originalPolicy": "Checks the original without resaving it. Byte ranges are conservative targets accounting for unit differences.",
+      "fileOnlyPolicy": "The selected size does not guarantee official acceptance. Guides are positioning aids.",
+      "referencePolicy": "Reference size: confirm your application requirements. Guides are not a compliance check.",
+      "sizeUnitDecimal": "Conservative target: 1 KB = 1000 B here. The portal may define units differently.",
+      "verifyPhoto": "Check photo at Korea MOFA"
     },
     "ko": {
       "title": "여권사진 규격 맞추기 – 증명사진 사이즈 변환 무료 (3.5×4.5, 3×4, 413×531)",
@@ -98,16 +177,39 @@
       "guideChin": "턱",
       "noteOver": "{kb}KB 이하로 줄이지 못했습니다. 영역을 더 작게 잡거나 상한을 올려 보세요.",
       "noteUpscale": "원본 해상도가 낮아 선명도가 떨어질 수 있습니다.",
-      "groups": { "save": "저장 옵션" },
+      "groups": {
+        "save": "저장 옵션"
+      },
       "options": {
         "preset": {
           "label": "규격",
           "choices": {
-            "kr_passport": "한국 여권 3.5×4.5cm", "kr_id_3x4": "한국 증명사진 3×4cm", "kr_id_half": "한국 반명함 2.5×3cm", "kr_id_35x45": "한국 명함판 3.5×4.5cm", "kr_driver": "한국 운전면허 (갱신·적성검사)",
-            "us_passport": "미국 여권 2×2in", "us_visa_dv": "미국 비자·DV 추첨 600×600", "cn_visa": "중국 비자 33×48mm", "cn_1inch": "중국 1인치(一寸) 25×35mm", "cn_2inch": "중국 2인치(二寸) 35×49mm",
-            "jp_passport": "일본 여권 35×45mm", "jp_mynaportal": "일본 여권 온라인 (마이나포털)", "jp_mynumber": "일본 마이넘버카드", "jp_resume": "일본 이력서 30×40mm",
-            "eu_schengen": "EU·셴겐 35×45mm", "uk_passport": "영국 여권 (디지털)", "ca_passport": "캐나다 여권 50×70mm", "in_passport": "인도 여권 (Passport Seva)", "in_oci": "인도 OCI 2×2in",
-            "au_passport": "호주 여권 35×45mm", "br_passport": "브라질 여권 5×7cm", "mx_passport": "멕시코 여권 35×45mm", "es_dni": "스페인 DNI·여권 32×26mm", "custom": "사용자 지정"
+            "kr_passport": "한국 여권 3.5×4.5cm",
+            "kr_id_3x4": "한국 증명사진 3×4cm",
+            "kr_id_half": "한국 반명함 2.5×3cm",
+            "kr_id_35x45": "한국 명함판 3.5×4.5cm",
+            "kr_driver": "한국 운전면허 (갱신·적성검사)",
+            "us_passport": "미국 · 여권 인화 2×2in",
+            "us_visa_dv": "미국 · 비자 온라인 600×600",
+            "cn_visa": "중국 비자 33×48mm",
+            "cn_1inch": "중국 1인치(一寸) 25×35mm",
+            "cn_2inch": "중국 2인치(二寸) 35×49mm",
+            "jp_passport": "일본 · 여권 인화 35×45mm",
+            "jp_mynaportal": "일본 여권 온라인 (마이나포털)",
+            "jp_mynumber": "일본 마이넘버카드",
+            "jp_resume": "일본 이력서 30×40mm",
+            "eu_schengen": "셴겐 비자 · 참고 35×45mm",
+            "uk_passport": "영국 · 디지털 여권 · 원본 확인",
+            "ca_passport": "캐나다 · 온라인 여권 갱신 · 원본 확인",
+            "in_passport": "인도 여권 (Passport Seva)",
+            "in_oci": "인도 OCI 2×2in",
+            "au_passport": "호주 여권 35×45mm",
+            "br_passport": "브라질 여권 5×7cm",
+            "mx_passport": "멕시코 · 여권 · 현장 촬영 안내",
+            "es_dni": "스페인 DNI·여권 32×26mm",
+            "custom": "사용자 지정",
+            "us_passport_online": "미국 · 온라인 여권 갱신 · 원본 확인",
+            "ca_passport_print": "캐나다 · 여권 인화 · 사진관 안내"
           },
           "notes": {
             "kr_id_3x4": "채용·학교 관행 규격이며 정부 규정은 아닙니다.",
@@ -115,43 +217,99 @@
             "kr_driver": "250KB 는 권장값입니다 (도로교통공단 안내 기준).",
             "cn_visa": "385×560px 는 대사관 허용 범위(354×472~420×560) 안의 권장값입니다.",
             "jp_mynaportal": "마이나포털 FAQ 기준이며 화면 개편으로 바뀔 수 있습니다.",
-            "in_passport": "630×810px 는 Passport Seva 안내, 250KB 는 권장값입니다."
+            "in_passport": "해외 Passport Seva 참고:630×810px. 연결된 대사관은250KB 상한을 명시합니다. 본인 신청 포털을 확인하세요.",
+            "mx_passport": "연결된 멕시코 영사관은 방문 당일 촬영하므로 준비 사진이 필요 없습니다. 긴급 발급 등은 본인 접수처 안내를 확인하세요.",
+            "ca_passport_print": "인화 사진은50×70mm이며 전문 사진사가 촬영·인화해야 합니다. 공식 안내를 확인하세요.",
+            "ca_passport": "전문 사진사의 원본 디지털 파일을 사용하세요. 온라인2:3 비율은 인화50×70mm와 다릅니다.",
+            "uk_passport": "업로드 전에 자르지 마세요. 현재 검사는 JPG·PNG를 읽으며 제출 형식은 공식 안내를 따르세요.",
+            "us_passport_online": "원본을 제출하고 공식 신청 화면에서 위치를 맞추세요. 여기서600×600으로 변환하지 않습니다."
           }
         },
-        "custom": { "label": "크기", "help": "mm 또는 px 로 입력합니다. mm 는 dpi 로 픽셀을 계산합니다.", "choices": { "w": "가로", "h": "세로", "dpi": "dpi", "mm": "mm", "px": "px" } },
-        "crop": { "label": "자르기 영역", "help": "점선 가이드에 정수리·눈·턱이 오도록 상자를 끌어 놓으세요." },
-        "format": { "label": "저장 형식", "choices": { "jpg": "JPG", "png": "PNG" } },
-        "maxKb": { "label": "용량 상한", "help": "0 = 제한 없음. JPG는 품질을 낮춰 시도하고, PNG는 최종 용량을 검사합니다." },
-        "bg": { "label": "배경", "help": "밝게는 배경 밝기만 올리는 간단 보정입니다. 배경을 지우거나 바꾸지 않습니다.", "choices": { "keep": "그대로", "white": "흰색으로 밝게" } }
+        "custom": {
+          "label": "크기",
+          "help": "mm 또는 px 로 입력합니다. mm 는 dpi 로 픽셀을 계산합니다.",
+          "choices": {
+            "w": "가로",
+            "h": "세로",
+            "dpi": "dpi",
+            "mm": "mm",
+            "px": "px"
+          }
+        },
+        "crop": {
+          "label": "자르기 영역",
+          "help": "상자를 움직이거나 모서리를 끌어 영역을 정하세요. 표시된 가이드는 위치 조정용입니다."
+        },
+        "format": {
+          "label": "저장 형식",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "maxKb": {
+          "label": "용량 상한",
+          "help": "0 = 제한 없음. JPG는 품질을 낮춰 시도하고, PNG는 최종 용량을 검사합니다."
+        },
+        "bg": {
+          "label": "배경",
+          "help": "밝게는 배경 밝기만 올리는 간단 보정입니다. 배경을 지우거나 바꾸지 않습니다.",
+          "choices": {
+            "keep": "그대로",
+            "white": "흰색으로 밝게"
+          }
+        }
       },
       "errors": {
         "rect": "선택 영역이 너무 작습니다.",
-        "custom": "가로·세로·dpi 값을 확인해 주세요."
+        "custom": "가로·세로·dpi 값을 확인해 주세요.",
+        "format": "이 경로는 JPG 형식이 필요합니다. JPG로 다시 실행하세요.",
+        "retouch": "이 신청 경로에서는 보정을 사용할 수 없습니다.",
+        "informationOnly": "공식 신청 안내를 확인하세요. 이 항목에서는 사진을 변환하지 않습니다."
       },
       "faq": [
         [
           "여권사진 규격은 어떻게 되나요?",
-          "한국 여권은 3.5×4.5cm, 머리 길이(정수리~턱) 3.2~3.6cm, 흰 배경이며 정부24 온라인 재발급은 413×531px·500KB 이하 JPG 를 권장합니다. 미국은 2×2인치(600×600px), 일본·EU·영국은 35×45mm 입니다."
+          "국가뿐 아니라 문서와 신청 경로에 따라 다릅니다. 미국 여권 인화는2×2인치, 일본 여권 인화는35×45mm, 마이나포털은600×730px JPG입니다. 해당 경로와 공식 안내를 확인하세요. 인화 크기와 온라인 픽셀을 같은 규격으로 취급하지 않습니다."
         ],
         [
           "규격 수치가 정확한가요?",
-          "각국 정부 안내를 바탕으로 정리했지만 수치·용량·제출 방식은 바뀔 수 있습니다. 제출 전에 반드시 접수처(여권사무소·대사관·채용 사이트)의 안내를 확인하세요."
+          "공식 링크가 있는 신청 경로는2026-11-03에 안내를 확인했습니다. 다른 항목은 참고 크기입니다. 규정은 바뀔 수 있으므로 제출처 안내를 확인하세요."
         ],
         [
           "배경을 흰색으로 바꿔 주나요?",
-          "아니요. '흰색으로 밝게'는 밝기만 올리는 단순 보정입니다. 여권사진은 배경 합성이 금지되므로 처음부터 밝은 단색 배경 앞에서 촬영하세요."
+          "밝기 보정은 일반 참고 규격·사용자 지정에서 사용할 수 있습니다. 검토한 여권 경로에서는 보정을 사용할 수 없습니다. 요구된 배경에서 촬영하고 공식 안내를 따르세요."
         ],
         [
           "사진이 업로드되나요?",
           "아니요. 자르기·축소·압축은 모두 내 기기의 브라우저에서 처리되며 서버로 전송되지 않습니다. 결과에는 EXIF 가 없고 dpi 값만 기록됩니다."
         ]
-      ]
+      ],
+      "officialSource": "공식 안내",
+      "checkOriginal": "원본 파일 확인",
+      "checkAgain": "다시 확인",
+      "checkFormat": "파일 형식",
+      "checkBytes": "파일 용량 목표",
+      "checkPixels": "이미지 픽셀",
+      "checkMatch": "확인 조건 일치",
+      "checkMismatch": "확인 조건 불일치",
+      "unknownFormat": "인식하지 못한 형식",
+      "unknownPixels": "픽셀 크기를 읽지 못했습니다",
+      "fileCheckDone": "파일 조건 확인",
+      "fileCheckMismatch": "파일 조건 불일치",
+      "originalUnchanged": "원본은 변경하지 않았으며 새 파일을 만들지 않았습니다.",
+      "unverifiedConditions": "얼굴·배경·촬영일·색공간·압축률·기관 심사는 확인하지 않습니다.",
+      "originalPolicy": "원본을 다시 저장하지 않고 확인합니다. 표시 용량은 단위 차이를 고려한 보수적인 목표입니다.",
+      "fileOnlyPolicy": "선택한 크기가 기관 심사 통과를 뜻하지 않습니다. 가이드는 위치 조정용입니다.",
+      "referencePolicy": "참고 크기입니다. 제출처 규정을 확인하세요. 가이드는 적합성 검사가 아닙니다.",
+      "sizeUnitDecimal": "이 규격의 보수적 목표: 1 KB = 1000 B. 접수처의 단위 정의는 다를 수 있습니다.",
+      "verifyPhoto": "외교부에서 사진 확인"
     },
     "zh": {
       "title": "护照照片尺寸修改 – 在线裁剪证件照 免费（33×48mm、一寸二寸、2×2英寸）",
       "h1": "护照照片 尺寸",
       "line": "按规格裁剪并控制文件大小",
-      "description": "免费在线护照照片尺寸工具。选择中国签证 33×48mm、一寸二寸、美国 2×2 英寸、日本韩国欧盟 35×45mm 等规格，按头顶、眼睛、下巴参考线裁剪，下载像素、大小和 dpi 都符合要求的 JPG。全部在浏览器中完成，不上传照片。",
+      "description": "按所选护照或证件照尺寸裁剪，或检查在线申请原文件的条件。免费在浏览器内处理，不上传照片。请核对官方申请说明。",
       "buttonText": "选择照片",
       "runText": "生成照片",
       "resultName": "护照照片",
@@ -167,16 +325,39 @@
       "guideChin": "下巴",
       "noteOver": "无法压缩到 {kb} KB 以下，请缩小裁剪范围或提高上限。",
       "noteUpscale": "原图分辨率较低，结果可能不够清晰。",
-      "groups": { "save": "保存选项" },
+      "groups": {
+        "save": "保存选项"
+      },
       "options": {
         "preset": {
           "label": "规格",
           "choices": {
-            "kr_passport": "韩国护照 35×45mm", "kr_id_3x4": "韩国证件照 3×4cm", "kr_id_half": "韩国半名片照 2.5×3cm", "kr_id_35x45": "韩国名片照 3.5×4.5cm", "kr_driver": "韩国驾照",
-            "us_passport": "美国护照 2×2 英寸", "us_visa_dv": "美国签证 / DV 抽签 600×600", "cn_visa": "中国签证 33×48mm", "cn_1inch": "一寸 25×35mm", "cn_2inch": "二寸 35×49mm",
-            "jp_passport": "日本护照 35×45mm", "jp_mynaportal": "日本护照在线申请（My Number Portal）", "jp_mynumber": "日本个人编号卡", "jp_resume": "日本简历照 30×40mm",
-            "eu_schengen": "欧盟 / 申根 35×45mm", "uk_passport": "英国护照（数码）", "ca_passport": "加拿大护照 50×70mm", "in_passport": "印度护照（Passport Seva）", "in_oci": "印度 OCI 2×2 英寸",
-            "au_passport": "澳大利亚护照 35×45mm", "br_passport": "巴西护照 5×7cm", "mx_passport": "墨西哥护照 35×45mm", "es_dni": "西班牙 DNI / 护照 32×26mm", "custom": "自定义尺寸"
+            "kr_passport": "韩国护照 35×45mm",
+            "kr_id_3x4": "韩国证件照 3×4cm",
+            "kr_id_half": "韩国半名片照 2.5×3cm",
+            "kr_id_35x45": "韩国名片照 3.5×4.5cm",
+            "kr_driver": "韩国驾照",
+            "us_passport": "美国 · 护照打印 2×2英寸",
+            "us_visa_dv": "美国 · 在线签证 600×600",
+            "cn_visa": "中国签证 33×48mm",
+            "cn_1inch": "一寸 25×35mm",
+            "cn_2inch": "二寸 35×49mm",
+            "jp_passport": "日本 · 护照打印 35×45mm",
+            "jp_mynaportal": "日本护照在线申请（My Number Portal）",
+            "jp_mynumber": "日本个人编号卡",
+            "jp_resume": "日本简历照 30×40mm",
+            "eu_schengen": "申根签证 · 参考 35×45mm",
+            "uk_passport": "英国 · 数字护照照片 · 检查原文件",
+            "ca_passport": "加拿大 · 在线换护照 · 检查原文件",
+            "in_passport": "印度护照（Passport Seva）",
+            "in_oci": "印度 OCI 2×2 英寸",
+            "au_passport": "澳大利亚护照 35×45mm",
+            "br_passport": "巴西护照 5×7cm",
+            "mx_passport": "墨西哥 · 护照 · 现场拍照说明",
+            "es_dni": "西班牙 DNI / 护照 32×26mm",
+            "custom": "自定义尺寸",
+            "us_passport_online": "美国 · 在线换护照 · 检查原文件",
+            "ca_passport_print": "加拿大 · 护照打印 · 照相馆说明"
           },
           "notes": {
             "kr_id_3x4": "韩国通行惯例，非政府规定。",
@@ -184,43 +365,99 @@
             "kr_driver": "250 KB 为建议值（韩国道路交通公团）。",
             "cn_visa": "385×560 px 为使馆范围（354×472–420×560）内的建议值。",
             "jp_mynaportal": "依据 My Number Portal 常见问题，页面可能更新。",
-            "in_passport": "630×810 px 依据 Passport Seva，250 KB 为建议值。"
+            "in_passport": "海外Passport Seva参考：630×810px，所链接大使馆规定上限250KB。请核对实际申请平台。",
+            "mx_passport": "所链接领事馆在预约当天拍照，无需自带照片。紧急证件等须确认具体受理处规定。",
+            "ca_passport_print": "打印照片为50×70mm，须由专业摄影师拍摄和打印。请查看官方说明。",
+            "ca_passport": "使用专业摄影师提供的原始数字文件。数字2:3比例不同于50×70mm打印照片。",
+            "uk_passport": "上传前不要裁剪。目前检查器读取JPG和PNG；提交格式请遵循官方说明。",
+            "us_passport_online": "上传原文件，在官方申请页面调整位置。此处不强制转换为600×600。"
           }
         },
-        "custom": { "label": "尺寸", "help": "可输入 mm 或 px。mm 按 dpi 换算为像素。", "choices": { "w": "宽", "h": "高", "dpi": "dpi", "mm": "mm", "px": "px" } },
-        "crop": { "label": "裁剪范围", "help": "拖动方框，让头顶、眼睛、下巴对齐虚线。" },
-        "format": { "label": "文件格式", "choices": { "jpg": "JPG", "png": "PNG" } },
-        "maxKb": { "label": "大小上限", "help": "0 = 不限制。JPG 会尝试降低画质，PNG 则检查最终文件大小。" },
-        "bg": { "label": "背景", "help": "提亮只是整体提高背景亮度，不会抠图或更换背景。", "choices": { "keep": "保持原样", "white": "提亮为白色" } }
+        "custom": {
+          "label": "尺寸",
+          "help": "可输入 mm 或 px。mm 按 dpi 换算为像素。",
+          "choices": {
+            "w": "宽",
+            "h": "高",
+            "dpi": "dpi",
+            "mm": "mm",
+            "px": "px"
+          }
+        },
+        "crop": {
+          "label": "裁剪范围",
+          "help": "移动方框或拖动角点选择区域。参考线仅帮助调整位置。"
+        },
+        "format": {
+          "label": "文件格式",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "maxKb": {
+          "label": "大小上限",
+          "help": "0 = 不限制。JPG 会尝试降低画质，PNG 则检查最终文件大小。"
+        },
+        "bg": {
+          "label": "背景",
+          "help": "提亮只是整体提高背景亮度，不会抠图或更换背景。",
+          "choices": {
+            "keep": "保持原样",
+            "white": "提亮为白色"
+          }
+        }
       },
       "errors": {
         "rect": "选择的范围太小。",
-        "custom": "请检查宽、高和 dpi 的数值。"
+        "custom": "请检查宽、高和 dpi 的数值。",
+        "format": "此渠道要求JPG，请选择JPG后重试。",
+        "retouch": "此申请渠道不允许修饰。",
+        "informationOnly": "请查看官方说明，此项不转换照片。"
       },
       "faq": [
         [
           "护照照片的尺寸是多少？",
-          "中国签证照片为 33×48mm，数码版约 354×472 至 420×560 px、40–120 KB；一寸为 25×35mm，二寸为 35×49mm。美国为 2×2 英寸（600×600 px），英国、欧盟、日本、韩国等多为 35×45mm。"
+          "规格取决于证件和申请渠道。美国护照打印为2×2英寸；日本打印为35×45mm，My Number Portal为600×730px JPG。请选择相应渠道并查看官方链接，打印与数字规格不可互换。"
         ],
         [
           "这些数值一定准确吗？",
-          "数据整理自各国政府说明，但尺寸、文件限制和提交方式会变化。提交前请务必核对受理机构、使领馆或网站的最新要求。"
+          "带官方链接的渠道说明核对于2026-11-03，其他预设为参考尺寸。规定可能变化，请确认受理机构要求。"
         ],
         [
           "会把背景换成白色吗？",
-          "不会。提亮只是提高现有背景的亮度。证件照通常禁止合成背景，请在纯色浅色墙前拍摄。"
+          "亮度调整仅适用于普通参考规格或自定义尺寸。已核对的护照渠道禁用修饰。请按规定背景拍摄并遵循官方说明。"
         ],
         [
           "照片会被上传吗？",
           "不会。裁剪、缩放和压缩都在您的浏览器中完成。结果不含 EXIF，只写入 dpi。"
         ]
-      ]
+      ],
+      "officialSource": "官方说明",
+      "checkOriginal": "检查原文件",
+      "checkAgain": "再次检查",
+      "checkFormat": "文件格式",
+      "checkBytes": "文件大小目标",
+      "checkPixels": "图片像素",
+      "checkMatch": "符合检查条件",
+      "checkMismatch": "不符合条件",
+      "unknownFormat": "无法识别的格式",
+      "unknownPixels": "无法读取尺寸",
+      "fileCheckDone": "已检查文件条件",
+      "fileCheckMismatch": "文件条件不符",
+      "originalUnchanged": "原文件未更改，也未生成新文件。",
+      "unverifiedConditions": "不检查人脸、背景、拍摄日期、色彩空间、压缩比或官方审核结果。",
+      "originalPolicy": "仅检查原文件，不重新保存。容量范围是考虑单位差异的保守目标。",
+      "fileOnlyPolicy": "所选尺寸不保证通过官方审核，参考线仅帮助调整位置。",
+      "referencePolicy": "仅供尺寸参考，请确认受理机构规定。参考线不代表合规检查。",
+      "sizeUnitDecimal": "此规格使用保守目标：1 KB = 1000 B。受理平台的单位定义可能不同。",
+      "verifyPhoto": "在韩国外交部检查照片"
     },
     "ja": {
       "title": "パスポート写真 サイズ変更・切り抜き 無料（35×45mm・証明写真・マイナンバー）",
       "h1": "パスポート写真 サイズ",
       "line": "規格のサイズと容量に合わせる",
-      "description": "無料のパスポート写真サイズツール。日本のパスポート 35×45mm、マイナポータル 600×730px、マイナンバーカード、履歴書 30×40mm、米国 2×2インチなどの規格を選び、頭頂・目・あごのガイドに合わせて切り抜くと、ピクセル・容量・dpi が合った JPG をダウンロードできます。ブラウザ内で処理し、写真は送信しません。",
+      "description": "旅券・証明写真の選択サイズに切り抜くか、オンライン申請の元ファイル条件を確認できます。無料・ブラウザー内処理で写真を送信しません。公式申請案内を確認してください。",
       "buttonText": "写真を選ぶ",
       "runText": "サイズを合わせる",
       "resultName": "パスポート写真",
@@ -236,16 +473,39 @@
       "guideChin": "あご",
       "noteOver": "{kb}KB 以下にできませんでした。範囲を狭くするか上限を上げてください。",
       "noteUpscale": "元の解像度が低いため、仕上がりがぼやける場合があります。",
-      "groups": { "save": "保存オプション" },
+      "groups": {
+        "save": "保存オプション"
+      },
       "options": {
         "preset": {
           "label": "規格",
           "choices": {
-            "kr_passport": "韓国パスポート 35×45mm", "kr_id_3x4": "韓国 証明写真 3×4cm", "kr_id_half": "韓国 半名刺判 2.5×3cm", "kr_id_35x45": "韓国 名刺判 3.5×4.5cm", "kr_driver": "韓国 運転免許",
-            "us_passport": "米国パスポート 2×2インチ", "us_visa_dv": "米国ビザ / DV 抽選 600×600", "cn_visa": "中国ビザ 33×48mm", "cn_1inch": "中国 一寸 25×35mm", "cn_2inch": "中国 二寸 35×49mm",
-            "jp_passport": "日本パスポート 35×45mm", "jp_mynaportal": "パスポート オンライン申請（マイナポータル）", "jp_mynumber": "マイナンバーカード", "jp_resume": "履歴書 30×40mm",
-            "eu_schengen": "EU / シェンゲン 35×45mm", "uk_passport": "英国パスポート（デジタル）", "ca_passport": "カナダパスポート 50×70mm", "in_passport": "インドパスポート（Passport Seva）", "in_oci": "インド OCI 2×2インチ",
-            "au_passport": "オーストラリアパスポート 35×45mm", "br_passport": "ブラジルパスポート 5×7cm", "mx_passport": "メキシコパスポート 35×45mm", "es_dni": "スペイン DNI / パスポート 32×26mm", "custom": "サイズを指定"
+            "kr_passport": "韓国パスポート 35×45mm",
+            "kr_id_3x4": "韓国 証明写真 3×4cm",
+            "kr_id_half": "韓国 半名刺判 2.5×3cm",
+            "kr_id_35x45": "韓国 名刺判 3.5×4.5cm",
+            "kr_driver": "韓国 運転免許",
+            "us_passport": "米国 · 旅券の印刷 2×2in",
+            "us_visa_dv": "米国 · ビザオンライン 600×600",
+            "cn_visa": "中国ビザ 33×48mm",
+            "cn_1inch": "中国 一寸 25×35mm",
+            "cn_2inch": "中国 二寸 35×49mm",
+            "jp_passport": "日本 · 旅券の印刷 35×45mm",
+            "jp_mynaportal": "パスポート オンライン申請（マイナポータル）",
+            "jp_mynumber": "マイナンバーカード",
+            "jp_resume": "履歴書 30×40mm",
+            "eu_schengen": "シェンゲンビザ・参考 35×45mm",
+            "uk_passport": "英国 · 旅券デジタル・元画像確認",
+            "ca_passport": "カナダ · 旅券オンライン更新・元画像確認",
+            "in_passport": "インドパスポート（Passport Seva）",
+            "in_oci": "インド OCI 2×2インチ",
+            "au_passport": "オーストラリアパスポート 35×45mm",
+            "br_passport": "ブラジルパスポート 5×7cm",
+            "mx_passport": "メキシコ · 旅券・窓口撮影の案内",
+            "es_dni": "スペイン DNI / パスポート 32×26mm",
+            "custom": "サイズを指定",
+            "us_passport_online": "米国 · 旅券オンライン更新・元画像確認",
+            "ca_passport_print": "カナダ · 旅券印刷・写真館の案内"
           },
           "notes": {
             "kr_id_3x4": "韓国での慣行サイズで、政府規定ではありません。",
@@ -253,43 +513,99 @@
             "kr_driver": "250KB は推奨値です（韓国道路交通公団）。",
             "cn_visa": "385×560px は大使館の範囲（354×472〜420×560）内の推奨値です。",
             "jp_mynaportal": "マイナポータル FAQ 掲載値。画面改修で変わる可能性があります。",
-            "in_passport": "630×810px は Passport Seva 案内、250KB は推奨値です。"
+            "in_passport": "海外Passport Seva参考：630×810px。リンク先大使館は上限250KBを指定しています。申請先で確認してください。",
+            "mx_passport": "リンク先の領事館では予約日に撮影するため写真の持参は不要です。緊急発給などは提出先で確認してください。",
+            "ca_passport_print": "印刷写真は50×70mmで、専門写真家による撮影・印刷が必要です。公式案内を確認してください。",
+            "ca_passport": "専門写真家の元のデジタルファイルを使用してください。デジタルの2:3比率は印刷50×70mmと異なります。",
+            "uk_passport": "アップロード前に切り抜かないでください。現在JPG・PNGを確認できます。提出形式は公式案内に従ってください。",
+            "us_passport_online": "元画像を提出し、公式申請画面で位置を調整してください。ここでは600×600に変換しません。"
           }
         },
-        "custom": { "label": "サイズ", "help": "mm または px で入力します。mm は dpi からピクセルを計算します。", "choices": { "w": "幅", "h": "高さ", "dpi": "dpi", "mm": "mm", "px": "px" } },
-        "crop": { "label": "切り抜き範囲", "help": "頭頂・目・あごが点線に重なるように枠をドラッグします。" },
-        "format": { "label": "保存形式", "choices": { "jpg": "JPG", "png": "PNG" } },
-        "maxKb": { "label": "容量の上限", "help": "0 = 制限なし。JPG は画質を下げて試し、PNG は最終的なファイル容量を確認します。" },
-        "bg": { "label": "背景", "help": "明るくは背景の明るさを上げるだけの簡易補正です。背景の切り抜きや差し替えはしません。", "choices": { "keep": "そのまま", "white": "白く明るく" } }
+        "custom": {
+          "label": "サイズ",
+          "help": "mm または px で入力します。mm は dpi からピクセルを計算します。",
+          "choices": {
+            "w": "幅",
+            "h": "高さ",
+            "dpi": "dpi",
+            "mm": "mm",
+            "px": "px"
+          }
+        },
+        "crop": {
+          "label": "切り抜き範囲",
+          "help": "枠を移動するか角をドラッグして範囲を選びます。ガイドは位置調整用です。"
+        },
+        "format": {
+          "label": "保存形式",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "maxKb": {
+          "label": "容量の上限",
+          "help": "0 = 制限なし。JPG は画質を下げて試し、PNG は最終的なファイル容量を確認します。"
+        },
+        "bg": {
+          "label": "背景",
+          "help": "明るくは背景の明るさを上げるだけの簡易補正です。背景の切り抜きや差し替えはしません。",
+          "choices": {
+            "keep": "そのまま",
+            "white": "白く明るく"
+          }
+        }
       },
       "errors": {
         "rect": "選択範囲が小さすぎます。",
-        "custom": "幅・高さ・dpi の値を確認してください。"
+        "custom": "幅・高さ・dpi の値を確認してください。",
+        "format": "この申請にはJPGが必要です。JPGを選択して再実行してください。",
+        "retouch": "この申請では補正できません。",
+        "informationOnly": "公式案内を確認してください。この項目では変換しません。"
       },
       "faq": [
         [
           "パスポート写真のサイズは？",
-          "日本のパスポートは 35×45mm、顔の長さ（頭頂〜あご）34±2mm、頭頂の余白 4±2mm です。マイナポータルのオンライン申請は 600×730px・600KB 以下の JPG、マイナンバーカードは 480〜6000px・20KB〜7MB の JPEG です。米国は 2×2インチ（600×600px）です。"
+          "書類と申請方法によって異なります。米国の旅券印刷は2×2in、日本の印刷は35×45mm、マイナポータルは600×730px JPGです。該当する申請方法と公式案内を確認してください。印刷とデジタルの規格は同じではありません。"
         ],
         [
           "数値は必ず正しいですか？",
-          "各国政府の案内をもとにまとめていますが、サイズ・容量・提出方法は変わることがあります。提出前に必ず窓口・大使館・申請サイトの最新案内を確認してください。"
+          "公式リンクがある申請方法は2026-11-03に案内を確認しました。他の項目は参考サイズです。規定は変わるため提出先で確認してください。"
         ],
         [
           "背景を白に差し替えてくれますか？",
-          "いいえ。「白く明るく」は今ある背景の明るさを上げるだけです。背景の合成は不可とされることが多いので、無地の明るい壁の前で撮影してください。"
+          "明るさ補正は一般の参考サイズ・カスタム設定で使用できます。確認した旅券申請では補正を無効にしています。指定の背景で撮影し公式案内に従ってください。"
         ],
         [
           "写真はアップロードされますか？",
           "いいえ。切り抜き・縮小・圧縮はすべてブラウザ内で行います。結果に EXIF は含まれず、dpi だけが書き込まれます。"
         ]
-      ]
+      ],
+      "officialSource": "公式案内",
+      "checkOriginal": "元のファイルを確認",
+      "checkAgain": "もう一度確認",
+      "checkFormat": "ファイル形式",
+      "checkBytes": "ファイル容量の目標",
+      "checkPixels": "画像のピクセル数",
+      "checkMatch": "確認条件に一致",
+      "checkMismatch": "確認条件に不一致",
+      "unknownFormat": "認識できない形式",
+      "unknownPixels": "サイズを読み取れません",
+      "fileCheckDone": "ファイル条件を確認",
+      "fileCheckMismatch": "ファイル条件に不一致",
+      "originalUnchanged": "元のファイルは変更せず、新しいファイルも作成していません。",
+      "unverifiedConditions": "顔・背景・撮影日・色空間・圧縮率・審査の可否は確認しません。",
+      "originalPolicy": "元のファイルを再保存せず確認します。容量は単位の差を考慮した保守的な目標です。",
+      "fileOnlyPolicy": "選択したサイズは審査通過を保証しません。ガイドは位置調整用です。",
+      "referencePolicy": "参考サイズです。提出先の規定を確認してください。ガイドは適合性の判定ではありません。",
+      "sizeUnitDecimal": "この規格の保守的な目標：1 KB = 1000 B。提出先の定義と異なる場合があります。",
+      "verifyPhoto": "韓国外務省で写真を確認"
     },
     "es": {
       "title": "Foto de pasaporte online gratis – Recortar y redimensionar (32×26 mm, 2×2 in, 35×45 mm)",
       "h1": "Foto de pasaporte",
       "line": "Tamaño oficial y peso del archivo",
-      "description": "Foto de pasaporte online gratis. Elige el formato (DNI España 32×26 mm, pasaporte México 35×45 mm, EE. UU. 2×2 pulgadas, visado, Schengen…), recorta con guías de cabeza y ojos y descarga un JPG con los píxeles, el peso y los dpi exactos. Funciona en tu navegador: no se sube nada.",
+      "description": "Recorta al tamaño de pasaporte o documento elegido, o comprueba el archivo original para trámites en línea. Gratis en el navegador, sin subir fotos. Consulta las instrucciones oficiales.",
       "buttonText": "Elegir foto",
       "runText": "Crear foto",
       "resultName": "foto-pasaporte",
@@ -305,16 +621,39 @@
       "guideChin": "mentón",
       "noteOver": "No se pudo bajar de {kb} KB. Recorta más o sube el límite.",
       "noteUpscale": "El original es pequeño; el resultado puede verse borroso.",
-      "groups": { "save": "Opciones de guardado" },
+      "groups": {
+        "save": "Opciones de guardado"
+      },
       "options": {
         "preset": {
           "label": "Formato",
           "choices": {
-            "kr_passport": "Pasaporte Corea 35×45 mm", "kr_id_3x4": "Foto carnet Corea 3×4 cm", "kr_id_half": "Foto Corea 2,5×3 cm", "kr_id_35x45": "Foto tarjeta Corea 3,5×4,5 cm", "kr_driver": "Licencia de conducir Corea",
-            "us_passport": "Pasaporte EE. UU. 2×2 in", "us_visa_dv": "Visado EE. UU. / lotería DV 600×600", "cn_visa": "Visado China 33×48 mm", "cn_1inch": "China 1 pulgada (一寸) 25×35 mm", "cn_2inch": "China 2 pulgadas (二寸) 35×49 mm",
-            "jp_passport": "Pasaporte Japón 35×45 mm", "jp_mynaportal": "Pasaporte Japón online (Mynaportal)", "jp_mynumber": "Tarjeta My Number Japón", "jp_resume": "Currículum Japón 30×40 mm",
-            "eu_schengen": "UE / Schengen 35×45 mm", "uk_passport": "Pasaporte Reino Unido (digital)", "ca_passport": "Pasaporte Canadá 50×70 mm", "in_passport": "Pasaporte India (Passport Seva)", "in_oci": "India OCI 2×2 in",
-            "au_passport": "Pasaporte Australia 35×45 mm", "br_passport": "Pasaporte Brasil 5×7 cm", "mx_passport": "Pasaporte México 35×45 mm", "es_dni": "DNI / pasaporte España 32×26 mm", "custom": "Tamaño personalizado"
+            "kr_passport": "Pasaporte Corea 35×45 mm",
+            "kr_id_3x4": "Foto carnet Corea 3×4 cm",
+            "kr_id_half": "Foto Corea 2,5×3 cm",
+            "kr_id_35x45": "Foto tarjeta Corea 3,5×4,5 cm",
+            "kr_driver": "Licencia de conducir Corea",
+            "us_passport": "EE. UU. · pasaporte impreso 2×2in",
+            "us_visa_dv": "EE. UU. · visa en línea 600×600",
+            "cn_visa": "Visado China 33×48 mm",
+            "cn_1inch": "China 1 pulgada (一寸) 25×35 mm",
+            "cn_2inch": "China 2 pulgadas (二寸) 35×49 mm",
+            "jp_passport": "Japón · pasaporte impreso 35×45mm",
+            "jp_mynaportal": "Pasaporte Japón online (Mynaportal)",
+            "jp_mynumber": "Tarjeta My Number Japón",
+            "jp_resume": "Currículum Japón 30×40 mm",
+            "eu_schengen": "Visa Schengen · referencia 35×45mm",
+            "uk_passport": "Reino Unido · pasaporte digital · original",
+            "ca_passport": "Canadá · renovación en línea · original",
+            "in_passport": "Pasaporte India (Passport Seva)",
+            "in_oci": "India OCI 2×2 in",
+            "au_passport": "Pasaporte Australia 35×45 mm",
+            "br_passport": "Pasaporte Brasil 5×7 cm",
+            "mx_passport": "México · pasaporte · foto en la cita",
+            "es_dni": "DNI / pasaporte España 32×26 mm",
+            "custom": "Tamaño personalizado",
+            "us_passport_online": "EE. UU. · renovación en línea · original",
+            "ca_passport_print": "Canadá · pasaporte impreso · estudio"
           },
           "notes": {
             "kr_id_3x4": "Uso habitual en Corea, no es norma oficial.",
@@ -322,43 +661,99 @@
             "kr_driver": "250 KB es un valor recomendado (Autoridad de Tráfico de Corea).",
             "cn_visa": "385×560 px es un valor recomendado dentro del rango de la embajada (354×472–420×560).",
             "jp_mynaportal": "Según las FAQ de Mynaportal; puede cambiar.",
-            "in_passport": "630×810 px según Passport Seva; 250 KB es un valor recomendado."
+            "in_passport": "Referencia Passport Seva en el extranjero:630×810px; la embajada indica máximo250KB. Confirma tu portal.",
+            "mx_passport": "El consulado enlazado toma la foto en la cita; no necesitas llevarla. Consulta tu oficina para casos especiales.",
+            "ca_passport_print": "Fotos impresas de 50×70mm, tomadas e impresas por un fotógrafo comercial. Consulta la guía oficial.",
+            "ca_passport": "Usa el original digital de un fotógrafo. La proporción digital2:3 difiere de la impresión50×70mm.",
+            "uk_passport": "No recortes antes de subir. El comprobador lee JPG y PNG; sigue las instrucciones oficiales.",
+            "us_passport_online": "Sube el original y ajústalo en la solicitud oficial. Aquí no se convierte a600×600."
           }
         },
-        "custom": { "label": "Tamaño", "help": "Escribe mm o px. Con mm, los píxeles se calculan con los dpi.", "choices": { "w": "Ancho", "h": "Alto", "dpi": "dpi", "mm": "mm", "px": "px" } },
-        "crop": { "label": "Área de recorte", "help": "Arrastra el cuadro para que coronilla, ojos y mentón queden sobre las guías punteadas." },
-        "format": { "label": "Formato de archivo", "choices": { "jpg": "JPG", "png": "PNG" } },
-        "maxKb": { "label": "Peso máximo", "help": "0 = sin límite. JPG intenta reducir la calidad; PNG comprueba el tamaño final del archivo." },
-        "bg": { "label": "Fondo", "help": "Aclarar solo sube el brillo del fondo. No lo elimina ni lo sustituye.", "choices": { "keep": "Dejar igual", "white": "Aclarar a blanco" } }
+        "custom": {
+          "label": "Tamaño",
+          "help": "Escribe mm o px. Con mm, los píxeles se calculan con los dpi.",
+          "choices": {
+            "w": "Ancho",
+            "h": "Alto",
+            "dpi": "dpi",
+            "mm": "mm",
+            "px": "px"
+          }
+        },
+        "crop": {
+          "label": "Área de recorte",
+          "help": "Mueve el cuadro o sus esquinas para elegir el área. Las guías solo ayudan a colocar."
+        },
+        "format": {
+          "label": "Formato de archivo",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "maxKb": {
+          "label": "Peso máximo",
+          "help": "0 = sin límite. JPG intenta reducir la calidad; PNG comprueba el tamaño final del archivo."
+        },
+        "bg": {
+          "label": "Fondo",
+          "help": "Aclarar solo sube el brillo del fondo. No lo elimina ni lo sustituye.",
+          "choices": {
+            "keep": "Dejar igual",
+            "white": "Aclarar a blanco"
+          }
+        }
       },
       "errors": {
         "rect": "El área seleccionada es demasiado pequeña.",
-        "custom": "Revisa los valores de ancho, alto y dpi."
+        "custom": "Revisa los valores de ancho, alto y dpi.",
+        "format": "Este trámite requiere JPG. Selecciónalo y repite.",
+        "retouch": "El retoque está desactivado para este trámite.",
+        "informationOnly": "Consulta la guía oficial; aquí no se convierte."
       },
       "faq": [
         [
           "¿Qué tamaño tiene una foto de pasaporte?",
-          "En España el DNI y el pasaporte usan 32×26 mm; en México 35×45 mm (o se toma en ventanilla); en EE. UU. 2×2 pulgadas (600×600 px); en la UE, Reino Unido y Japón 35×45 mm. Cada formato fija también la guía de cabeza y el límite de peso cuando existe."
+          "Depende del documento y del trámite. Pasaporte impreso de EE.UU.:2×2in; Japón:35×45mm impreso o600×730px JPG para Mynaportal. Selecciona el trámite y consulta el enlace oficial. Los formatos digitales e impresos son distintos."
         ],
         [
           "¿Estos valores son seguros?",
-          "Proceden de guías oficiales, pero tamaños, límites y formas de entrega cambian. Comprueba siempre las instrucciones de la oficina, consulado o web donde vas a presentar la foto."
+          "Las rutas con enlace oficial se revisaron el2026-11-03. Los demás tamaños son orientativos. Confirma los requisitos actuales del destinatario."
         ],
         [
           "¿Cambia el fondo a blanco?",
-          "No. Aclarar solo sube el brillo del fondo existente. Las oficinas rechazan fondos editados, así que haz la foto frente a una pared lisa y clara."
+          "El brillo solo se ajusta en tamaños de referencia o personalizados. Los trámites de pasaporte revisados desactivan el retoque. Sigue el fondo y las instrucciones oficiales."
         ],
         [
           "¿Se sube mi foto?",
           "No. Recorte, escalado y compresión se hacen en tu navegador. El resultado no lleva EXIF, solo el valor de dpi."
         ]
-      ]
+      ],
+      "officialSource": "Guía oficial",
+      "checkOriginal": "Comprobar original",
+      "checkAgain": "Comprobar de nuevo",
+      "checkFormat": "Formato",
+      "checkBytes": "Tamaño objetivo",
+      "checkPixels": "Dimensiones",
+      "checkMatch": "Coincide con lo comprobado",
+      "checkMismatch": "No coincide",
+      "unknownFormat": "Formato no reconocido",
+      "unknownPixels": "No se pudieron leer las dimensiones",
+      "fileCheckDone": "Condiciones del archivo comprobadas",
+      "fileCheckMismatch": "El archivo no coincide",
+      "originalUnchanged": "El original no se ha modificado ni se ha creado otro archivo.",
+      "unverifiedConditions": "No se comprueban rostro, fondo, fecha, espacio de color, compresión ni aceptación oficial.",
+      "originalPolicy": "Se comprueba sin guardar de nuevo. Los límites son objetivos conservadores por diferencias de unidades.",
+      "fileOnlyPolicy": "El tamaño no garantiza la aceptación. Las guías solo ayudan a colocar la foto.",
+      "referencePolicy": "Tamaño de referencia: comprueba los requisitos. Las guías no validan el cumplimiento.",
+      "sizeUnitDecimal": "Objetivo conservador: aquí 1 KB = 1000 B. El portal puede usar otras unidades.",
+      "verifyPhoto": "Comprobar en Exteriores de Corea"
     },
     "pt": {
       "title": "Foto para passaporte online grátis – Cortar e redimensionar (5×7 cm, 3×4, 35×45 mm)",
       "h1": "Foto para passaporte",
       "line": "Tamanho oficial e peso do arquivo",
-      "description": "Foto para passaporte online grátis. Escolha o formato (Brasil 5×7 cm, 3×4, EUA 2×2 pol., Schengen 35×45 mm, visto…), recorte com guias de cabeça e olhos e baixe um JPG com pixels, peso e dpi exatos. Roda no seu navegador: nada é enviado.",
+      "description": "Recorte no tamanho de passaporte ou documento escolhido ou verifique o original para solicitações online. Grátis no navegador, sem enviar fotos. Consulte as instruções oficiais.",
       "buttonText": "Escolher foto",
       "runText": "Criar foto",
       "resultName": "foto-passaporte",
@@ -374,16 +769,39 @@
       "guideChin": "queixo",
       "noteOver": "Não foi possível ficar abaixo de {kb} KB. Recorte mais ou aumente o limite.",
       "noteUpscale": "O original é pequeno; o resultado pode ficar sem nitidez.",
-      "groups": { "save": "Opções de salvamento" },
+      "groups": {
+        "save": "Opções de salvamento"
+      },
       "options": {
         "preset": {
           "label": "Formato",
           "choices": {
-            "kr_passport": "Passaporte Coreia 35×45 mm", "kr_id_3x4": "Foto 3×4 Coreia", "kr_id_half": "Foto Coreia 2,5×3 cm", "kr_id_35x45": "Foto cartão Coreia 3,5×4,5 cm", "kr_driver": "Carteira de motorista Coreia",
-            "us_passport": "Passaporte EUA 2×2 pol.", "us_visa_dv": "Visto EUA / loteria DV 600×600", "cn_visa": "Visto China 33×48 mm", "cn_1inch": "China 1 polegada (一寸) 25×35 mm", "cn_2inch": "China 2 polegadas (二寸) 35×49 mm",
-            "jp_passport": "Passaporte Japão 35×45 mm", "jp_mynaportal": "Passaporte Japão online (Mynaportal)", "jp_mynumber": "Cartão My Number Japão", "jp_resume": "Currículo Japão 30×40 mm",
-            "eu_schengen": "UE / Schengen 35×45 mm", "uk_passport": "Passaporte Reino Unido (digital)", "ca_passport": "Passaporte Canadá 50×70 mm", "in_passport": "Passaporte Índia (Passport Seva)", "in_oci": "Índia OCI 2×2 pol.",
-            "au_passport": "Passaporte Austrália 35×45 mm", "br_passport": "Passaporte Brasil 5×7 cm", "mx_passport": "Passaporte México 35×45 mm", "es_dni": "DNI / passaporte Espanha 32×26 mm", "custom": "Tamanho personalizado"
+            "kr_passport": "Passaporte Coreia 35×45 mm",
+            "kr_id_3x4": "Foto 3×4 Coreia",
+            "kr_id_half": "Foto Coreia 2,5×3 cm",
+            "kr_id_35x45": "Foto cartão Coreia 3,5×4,5 cm",
+            "kr_driver": "Carteira de motorista Coreia",
+            "us_passport": "EUA · passaporte impresso 2×2in",
+            "us_visa_dv": "EUA · visto online 600×600",
+            "cn_visa": "Visto China 33×48 mm",
+            "cn_1inch": "China 1 polegada (一寸) 25×35 mm",
+            "cn_2inch": "China 2 polegadas (二寸) 35×49 mm",
+            "jp_passport": "Japão · passaporte impresso 35×45mm",
+            "jp_mynaportal": "Passaporte Japão online (Mynaportal)",
+            "jp_mynumber": "Cartão My Number Japão",
+            "jp_resume": "Currículo Japão 30×40 mm",
+            "eu_schengen": "Visto Schengen · referência 35×45mm",
+            "uk_passport": "Reino Unido · passaporte digital · original",
+            "ca_passport": "Canadá · renovação online · original",
+            "in_passport": "Passaporte Índia (Passport Seva)",
+            "in_oci": "Índia OCI 2×2 pol.",
+            "au_passport": "Passaporte Austrália 35×45 mm",
+            "br_passport": "Passaporte Brasil 5×7 cm",
+            "mx_passport": "México · passaporte · foto presencial",
+            "es_dni": "DNI / passaporte Espanha 32×26 mm",
+            "custom": "Tamanho personalizado",
+            "us_passport_online": "EUA · renovação online · original",
+            "ca_passport_print": "Canadá · passaporte impresso · estúdio"
           },
           "notes": {
             "kr_id_3x4": "Prática comum na Coreia, não é regra oficial.",
@@ -391,43 +809,99 @@
             "kr_driver": "250 KB é um valor recomendado (Autoridade de Trânsito da Coreia).",
             "cn_visa": "385×560 px é um valor recomendado dentro da faixa da embaixada (354×472–420×560).",
             "jp_mynaportal": "Conforme o FAQ do Mynaportal; pode mudar.",
-            "in_passport": "630×810 px conforme o Passport Seva; 250 KB é um valor recomendado."
+            "in_passport": "Referência Passport Seva no exterior:630×810px; a embaixada indica máximo250KB. Confira seu portal.",
+            "mx_passport": "O consulado indicado tira a foto na hora; não é preciso levá-la. Confirme casos especiais no seu consulado.",
+            "ca_passport_print": "Fotos de 50×70mm feitas e impressas por fotógrafo profissional. Consulte as regras oficiais.",
+            "ca_passport": "Use o original digital de um fotógrafo. A proporção2:3 difere da foto impressa50×70mm.",
+            "uk_passport": "Não recorte antes de enviar. A verificação lê JPG e PNG; siga as instruções oficiais.",
+            "us_passport_online": "Envie o original e ajuste na solicitação oficial. Não convertemos para600×600 aqui."
           }
         },
-        "custom": { "label": "Tamanho", "help": "Digite em mm ou px. Com mm, os pixels vêm do dpi.", "choices": { "w": "Largura", "h": "Altura", "dpi": "dpi", "mm": "mm", "px": "px" } },
-        "crop": { "label": "Área de corte", "help": "Arraste a caixa para que topo da cabeça, olhos e queixo fiquem nas guias pontilhadas." },
-        "format": { "label": "Formato do arquivo", "choices": { "jpg": "JPG", "png": "PNG" } },
-        "maxKb": { "label": "Peso máximo", "help": "0 = sem limite. JPG tenta reduzir a qualidade; PNG verifica o tamanho final do arquivo." },
-        "bg": { "label": "Fundo", "help": "Clarear só aumenta o brilho do fundo. Não remove nem troca o fundo.", "choices": { "keep": "Manter", "white": "Clarear para branco" } }
+        "custom": {
+          "label": "Tamanho",
+          "help": "Digite em mm ou px. Com mm, os pixels vêm do dpi.",
+          "choices": {
+            "w": "Largura",
+            "h": "Altura",
+            "dpi": "dpi",
+            "mm": "mm",
+            "px": "px"
+          }
+        },
+        "crop": {
+          "label": "Área de corte",
+          "help": "Mova a caixa ou arraste os cantos para escolher a área. As guias ajudam no posicionamento."
+        },
+        "format": {
+          "label": "Formato do arquivo",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "maxKb": {
+          "label": "Peso máximo",
+          "help": "0 = sem limite. JPG tenta reduzir a qualidade; PNG verifica o tamanho final do arquivo."
+        },
+        "bg": {
+          "label": "Fundo",
+          "help": "Clarear só aumenta o brilho do fundo. Não remove nem troca o fundo.",
+          "choices": {
+            "keep": "Manter",
+            "white": "Clarear para branco"
+          }
+        }
       },
       "errors": {
         "rect": "A área selecionada é pequena demais.",
-        "custom": "Confira os valores de largura, altura e dpi."
+        "custom": "Confira os valores de largura, altura e dpi.",
+        "format": "Este processo exige JPG. Selecione e execute novamente.",
+        "retouch": "Retoques desativados neste processo.",
+        "informationOnly": "Consulte as regras oficiais; aqui não há conversão."
       },
       "faq": [
         [
           "Qual é o tamanho da foto de passaporte?",
-          "No Brasil a Polícia Federal fotografa no guichê; quando pedem foto, costuma ser 5×7 cm ou 3×4 com fundo branco. EUA usam 2×2 polegadas (600×600 px); Reino Unido, UE, Japão e Coreia usam 35×45 mm. Cada formato define também a guia de cabeça e o limite de peso, quando existe."
+          "Depende do documento e da solicitação. Passaporte impresso dos EUA:2×2in; Japão:35×45mm impresso ou600×730px JPG no Mynaportal. Escolha o processo e consulte o link oficial. Formatos digitais e impressos são diferentes."
         ],
         [
           "Esses números são garantidos?",
-          "Vêm de orientações oficiais, mas tamanhos, limites e formas de envio mudam. Confira sempre as instruções do posto, consulado ou site onde a foto será entregue."
+          "As rotas com link oficial foram revisadas em2026-11-03. Os outros tamanhos são referências. Confirme as regras atuais no destino."
         ],
         [
           "Troca o fundo por branco?",
-          "Não. Clarear só aumenta o brilho do fundo que já existe. Fundos editados costumam ser recusados; fotografe diante de uma parede lisa e clara."
+          "O brilho só é ajustado em tamanhos de referência ou personalizados. Processos de passaporte revisados desativam retoques. Siga o fundo e as instruções oficiais."
         ],
         [
           "Minha foto é enviada?",
           "Não. Corte, redimensionamento e compressão rodam no seu navegador. O resultado não tem EXIF, apenas o valor de dpi."
         ]
-      ]
+      ],
+      "officialSource": "Orientação oficial",
+      "checkOriginal": "Verificar original",
+      "checkAgain": "Verificar novamente",
+      "checkFormat": "Formato",
+      "checkBytes": "Tamanho alvo",
+      "checkPixels": "Dimensões",
+      "checkMatch": "Conforme ao verificado",
+      "checkMismatch": "Não corresponde",
+      "unknownFormat": "Formato não reconhecido",
+      "unknownPixels": "Não foi possível ler as dimensões",
+      "fileCheckDone": "Condições do arquivo verificadas",
+      "fileCheckMismatch": "O arquivo não corresponde",
+      "originalUnchanged": "O original não foi alterado e nenhum arquivo foi criado.",
+      "unverifiedConditions": "Rosto, fundo, data, espaço de cor, compressão e aceitação oficial não são verificados.",
+      "originalPolicy": "Verifica sem salvar novamente. Os limites são alvos conservadores para diferenças de unidade.",
+      "fileOnlyPolicy": "O tamanho não garante aceitação. As guias ajudam apenas no posicionamento.",
+      "referencePolicy": "Tamanho de referência: confirme os requisitos. As guias não validam conformidade.",
+      "sizeUnitDecimal": "Alvo conservador: aqui 1 KB = 1000 B. O portal pode definir unidades diferentes.",
+      "verifyPhoto": "Verificar no MRE da Coreia"
     },
     "de": {
       "title": "Passfoto online erstellen – Zuschneiden & Größe anpassen (35×45 mm, biometrisch) kostenlos",
       "h1": "Passfoto",
       "line": "Amtliches Maß und Dateigröße einhalten",
-      "description": "Passfoto online kostenlos erstellen. Format wählen (Deutschland / EU 35×45 mm biometrisch, Schengen-Visum, USA 2×2 Zoll, UK, Kanada …), mit Hilfslinien für Kopf und Augen zuschneiden und ein JPG mit exakten Pixeln, Dateigröße und dpi herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "description": "Fotos auf die gewählte Pass- oder Ausweisgröße zuschneiden oder Originaldateien für Online-Anträge prüfen. Kostenlos im Browser, ohne Foto-Upload. Offizielle Antragsvorgaben beachten.",
       "buttonText": "Foto auswählen",
       "runText": "Erstellen",
       "resultName": "passfoto",
@@ -443,16 +917,39 @@
       "guideChin": "Kinn",
       "noteOver": "Unter {kb} KB war nicht möglich. Enger zuschneiden oder Limit erhöhen.",
       "noteUpscale": "Das Original ist klein, das Ergebnis kann unscharf wirken.",
-      "groups": { "save": "Speicheroptionen" },
+      "groups": {
+        "save": "Speicheroptionen"
+      },
       "options": {
         "preset": {
           "label": "Format",
           "choices": {
-            "kr_passport": "Reisepass Korea 35×45 mm", "kr_id_3x4": "Bewerbungsfoto Korea 3×4 cm", "kr_id_half": "Foto Korea 2,5×3 cm", "kr_id_35x45": "Kartenfoto Korea 3,5×4,5 cm", "kr_driver": "Führerschein Korea",
-            "us_passport": "Reisepass USA 2×2 Zoll", "us_visa_dv": "US-Visum / DV-Lotterie 600×600", "cn_visa": "Visum China 33×48 mm", "cn_1inch": "China 1 Zoll (一寸) 25×35 mm", "cn_2inch": "China 2 Zoll (二寸) 35×49 mm",
-            "jp_passport": "Reisepass Japan 35×45 mm", "jp_mynaportal": "Reisepass Japan online (Mynaportal)", "jp_mynumber": "My-Number-Karte Japan", "jp_resume": "Lebenslauf Japan 30×40 mm",
-            "eu_schengen": "EU / Schengen biometrisch 35×45 mm", "uk_passport": "Reisepass UK (digital)", "ca_passport": "Reisepass Kanada 50×70 mm", "in_passport": "Reisepass Indien (Passport Seva)", "in_oci": "Indien OCI 2×2 Zoll",
-            "au_passport": "Reisepass Australien 35×45 mm", "br_passport": "Reisepass Brasilien 5×7 cm", "mx_passport": "Reisepass Mexiko 35×45 mm", "es_dni": "DNI / Reisepass Spanien 32×26 mm", "custom": "Eigene Größe"
+            "kr_passport": "Reisepass Korea 35×45 mm",
+            "kr_id_3x4": "Bewerbungsfoto Korea 3×4 cm",
+            "kr_id_half": "Foto Korea 2,5×3 cm",
+            "kr_id_35x45": "Kartenfoto Korea 3,5×4,5 cm",
+            "kr_driver": "Führerschein Korea",
+            "us_passport": "USA · Passfoto Druck 2×2in",
+            "us_visa_dv": "USA · Online-Visum 600×600",
+            "cn_visa": "Visum China 33×48 mm",
+            "cn_1inch": "China 1 Zoll (一寸) 25×35 mm",
+            "cn_2inch": "China 2 Zoll (二寸) 35×49 mm",
+            "jp_passport": "Japan · Passfoto Druck 35×45mm",
+            "jp_mynaportal": "Reisepass Japan online (Mynaportal)",
+            "jp_mynumber": "My-Number-Karte Japan",
+            "jp_resume": "Lebenslauf Japan 30×40 mm",
+            "eu_schengen": "Schengen-Visum · Referenz 35×45mm",
+            "uk_passport": "UK · digitales Passfoto · Original",
+            "ca_passport": "Kanada · Online-Verlängerung · Original",
+            "in_passport": "Reisepass Indien (Passport Seva)",
+            "in_oci": "Indien OCI 2×2 Zoll",
+            "au_passport": "Reisepass Australien 35×45 mm",
+            "br_passport": "Reisepass Brasilien 5×7 cm",
+            "mx_passport": "Mexiko · Pass · Aufnahme vor Ort",
+            "es_dni": "DNI / Reisepass Spanien 32×26 mm",
+            "custom": "Eigene Größe",
+            "us_passport_online": "USA · Online-Verlängerung · Original",
+            "ca_passport_print": "Kanada · Passfoto Druck · Fotostudio"
           },
           "notes": {
             "kr_id_3x4": "Übliche Praxis in Korea, keine amtliche Vorgabe.",
@@ -460,43 +957,99 @@
             "kr_driver": "250 KB ist ein Richtwert (koreanische Straßenverkehrsbehörde).",
             "cn_visa": "385×560 px ist ein Richtwert innerhalb der Botschaftsspanne (354×472–420×560).",
             "jp_mynaportal": "Laut Mynaportal-FAQ; kann sich ändern.",
-            "in_passport": "630×810 px laut Passport Seva; 250 KB ist ein Richtwert."
+            "in_passport": "Passport Seva im Ausland:630×810px; die Botschaft nennt maximal250KB. Eigenes Portal prüfen.",
+            "mx_passport": "Das verlinkte Konsulat fotografiert beim Termin. Kein mitgebrachtes Foto nötig. Sonderfälle vor Ort klären.",
+            "ca_passport_print": "Druckfotos: 50×70mm, von einem gewerblichen Fotografen aufgenommen und gedruckt. Offizielle Vorgaben beachten.",
+            "ca_passport": "Originaldatei vom Fotografen verwenden. Das digitale2:3-Format unterscheidet sich vom Druck50×70mm.",
+            "uk_passport": "Vor dem Hochladen nicht zuschneiden. Die Prüfung liest JPG und PNG; offizielle Uploadregeln beachten.",
+            "us_passport_online": "Original hochladen und im offiziellen Antrag ausrichten. Hier keine Umwandlung in600×600."
           }
         },
-        "custom": { "label": "Größe", "help": "In mm oder px eingeben. Bei mm ergeben sich die Pixel aus den dpi.", "choices": { "w": "Breite", "h": "Höhe", "dpi": "dpi", "mm": "mm", "px": "px" } },
-        "crop": { "label": "Ausschnitt", "help": "Rahmen so ziehen, dass Scheitel, Augen und Kinn auf den gestrichelten Linien liegen." },
-        "format": { "label": "Dateityp", "choices": { "jpg": "JPG", "png": "PNG" } },
-        "maxKb": { "label": "Max. Dateigröße", "help": "0 = kein Limit. Bei JPG wird eine niedrigere Qualität versucht; bei PNG wird die endgültige Dateigröße geprüft." },
-        "bg": { "label": "Hintergrund", "help": "Aufhellen hebt nur die Helligkeit des Hintergrunds an. Er wird nicht entfernt oder ersetzt.", "choices": { "keep": "Beibehalten", "white": "Zu Weiß aufhellen" } }
+        "custom": {
+          "label": "Größe",
+          "help": "In mm oder px eingeben. Bei mm ergeben sich die Pixel aus den dpi.",
+          "choices": {
+            "w": "Breite",
+            "h": "Höhe",
+            "dpi": "dpi",
+            "mm": "mm",
+            "px": "px"
+          }
+        },
+        "crop": {
+          "label": "Ausschnitt",
+          "help": "Rahmen verschieben oder an den Ecken ziehen. Hilfslinien dienen zur Positionierung."
+        },
+        "format": {
+          "label": "Dateityp",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "maxKb": {
+          "label": "Max. Dateigröße",
+          "help": "0 = kein Limit. Bei JPG wird eine niedrigere Qualität versucht; bei PNG wird die endgültige Dateigröße geprüft."
+        },
+        "bg": {
+          "label": "Hintergrund",
+          "help": "Aufhellen hebt nur die Helligkeit des Hintergrunds an. Er wird nicht entfernt oder ersetzt.",
+          "choices": {
+            "keep": "Beibehalten",
+            "white": "Zu Weiß aufhellen"
+          }
+        }
       },
       "errors": {
         "rect": "Der gewählte Bereich ist zu klein.",
-        "custom": "Breite, Höhe und dpi prüfen."
+        "custom": "Breite, Höhe und dpi prüfen.",
+        "format": "Dieser Antragsweg erfordert JPG. JPG wählen und erneut ausführen.",
+        "retouch": "Für diesen Antragsweg ist Retusche deaktiviert.",
+        "informationOnly": "Offizielle Vorgaben lesen; hier keine Umwandlung."
       },
       "faq": [
         [
           "Welche Größe hat ein Passfoto?",
-          "In Deutschland und der EU 35×45 mm mit 32–36 mm Gesichtshöhe (biometrisch); seit Mai 2025 wird das Foto in Deutschland digital vom Fotografen oder der Behörde übermittelt. USA: 2×2 Zoll (600×600 px). UK, Japan, Korea, Australien: ebenfalls 35×45 mm."
+          "Die Größe hängt von Dokument und Antragsweg ab. US-Passfoto im Druck:2×2in; Japan:35×45mm im Druck,600×730px JPG für Mynaportal. Antragsweg wählen und offizielle Hinweise prüfen. Druck- und Digitalformat sind verschieden."
         ],
         [
           "Sind die Werte verbindlich?",
-          "Sie stammen aus amtlichen Hinweisen, aber Maße, Dateilimits und Einreichungswege ändern sich. Prüfe vor dem Einreichen immer die Angaben der Behörde, Botschaft oder Website."
+          "Antragswege mit offiziellem Link wurden am2026-11-03 geprüft. Andere Größen sind Referenzen. Aktuelle Vorgaben der Behörde bestätigen."
         ],
         [
           "Wird der Hintergrund weiß ersetzt?",
-          "Nein. Aufhellen hebt nur die Helligkeit des vorhandenen Hintergrunds an. Bearbeitete Hintergründe werden abgelehnt – fotografiere vor einer glatten, hellen Wand."
+          "Helligkeitskorrektur ist nur für allgemeine Referenzgrößen und eigene Größen verfügbar. Bei geprüften Passwegen ist Retusche gesperrt. Hintergrundvorgaben beachten."
         ],
         [
           "Wird mein Foto hochgeladen?",
           "Nein. Zuschneiden, Skalieren und Komprimieren laufen im Browser. Das Ergebnis enthält keine EXIF-Daten, nur den dpi-Wert."
         ]
-      ]
+      ],
+      "officialSource": "Offizielle Hinweise",
+      "checkOriginal": "Original prüfen",
+      "checkAgain": "Erneut prüfen",
+      "checkFormat": "Dateiformat",
+      "checkBytes": "Dateigrößenziel",
+      "checkPixels": "Bildabmessungen",
+      "checkMatch": "Geprüfte Bedingung erfüllt",
+      "checkMismatch": "Bedingung nicht erfüllt",
+      "unknownFormat": "Unbekanntes Format",
+      "unknownPixels": "Abmessungen nicht lesbar",
+      "fileCheckDone": "Dateibedingungen geprüft",
+      "fileCheckMismatch": "Dateibedingung nicht erfüllt",
+      "originalUnchanged": "Das Original wurde nicht verändert. Es wurde keine neue Datei erstellt.",
+      "unverifiedConditions": "Gesicht, Hintergrund, Datum, Farbraum, Kompressionsrate und behördliche Annahme werden nicht geprüft.",
+      "originalPolicy": "Prüfung ohne erneutes Speichern. Die Größenbereiche sind vorsichtige Ziele bei unterschiedlichen Einheiten.",
+      "fileOnlyPolicy": "Die Größe garantiert keine Annahme. Hilfslinien dienen nur zur Positionierung.",
+      "referencePolicy": "Referenzgröße: Vorgaben der Einreichungsstelle prüfen. Hilfslinien prüfen keine Konformität.",
+      "sizeUnitDecimal": "Vorsichtiges Ziel: hier 1 KB = 1000 B. Das Portal kann Einheiten anders definieren.",
+      "verifyPhoto": "Foto bei Koreas Außenministerium prüfen"
     },
     "fr": {
       "title": "Photo de passeport en ligne gratuite – Recadrer et redimensionner (35×45 mm, 2×2 in)",
       "h1": "Photo de passeport",
       "line": "Format officiel et poids du fichier",
-      "description": "Photo de passeport en ligne gratuite. Choisissez le format (France / UE 35×45 mm, visa Schengen, États-Unis 2×2 pouces, Royaume-Uni, Canada…), recadrez avec les repères tête et yeux, puis téléchargez un JPG aux pixels, poids et dpi exacts. Tout se passe dans votre navigateur : rien n'est envoyé.",
+      "description": "Recadrez au format de passeport ou de pièce d’identité choisi, ou vérifiez l’original pour une demande en ligne. Gratuit dans le navigateur, sans envoi de photos. Consultez les consignes officielles.",
       "buttonText": "Choisir une photo",
       "runText": "Créer la photo",
       "resultName": "photo-passeport",
@@ -512,16 +1065,39 @@
       "guideChin": "menton",
       "noteOver": "Impossible de descendre sous {kb} Ko. Recadrez plus serré ou augmentez la limite.",
       "noteUpscale": "L'original est petit, le résultat peut manquer de netteté.",
-      "groups": { "save": "Options d'enregistrement" },
+      "groups": {
+        "save": "Options d'enregistrement"
+      },
       "options": {
         "preset": {
           "label": "Format",
           "choices": {
-            "kr_passport": "Passeport Corée 35×45 mm", "kr_id_3x4": "Photo d'identité Corée 3×4 cm", "kr_id_half": "Photo Corée 2,5×3 cm", "kr_id_35x45": "Photo carte Corée 3,5×4,5 cm", "kr_driver": "Permis de conduire Corée",
-            "us_passport": "Passeport États-Unis 2×2 in", "us_visa_dv": "Visa États-Unis / loterie DV 600×600", "cn_visa": "Visa Chine 33×48 mm", "cn_1inch": "Chine 1 pouce (一寸) 25×35 mm", "cn_2inch": "Chine 2 pouces (二寸) 35×49 mm",
-            "jp_passport": "Passeport Japon 35×45 mm", "jp_mynaportal": "Passeport Japon en ligne (Mynaportal)", "jp_mynumber": "Carte My Number Japon", "jp_resume": "CV Japon 30×40 mm",
-            "eu_schengen": "UE / Schengen 35×45 mm", "uk_passport": "Passeport Royaume-Uni (numérique)", "ca_passport": "Passeport Canada 50×70 mm", "in_passport": "Passeport Inde (Passport Seva)", "in_oci": "Inde OCI 2×2 in",
-            "au_passport": "Passeport Australie 35×45 mm", "br_passport": "Passeport Brésil 5×7 cm", "mx_passport": "Passeport Mexique 35×45 mm", "es_dni": "DNI / passeport Espagne 32×26 mm", "custom": "Taille personnalisée"
+            "kr_passport": "Passeport Corée 35×45 mm",
+            "kr_id_3x4": "Photo d'identité Corée 3×4 cm",
+            "kr_id_half": "Photo Corée 2,5×3 cm",
+            "kr_id_35x45": "Photo carte Corée 3,5×4,5 cm",
+            "kr_driver": "Permis de conduire Corée",
+            "us_passport": "États-Unis · passeport imprimé 2×2in",
+            "us_visa_dv": "États-Unis · visa en ligne 600×600",
+            "cn_visa": "Visa Chine 33×48 mm",
+            "cn_1inch": "Chine 1 pouce (一寸) 25×35 mm",
+            "cn_2inch": "Chine 2 pouces (二寸) 35×49 mm",
+            "jp_passport": "Japon · passeport imprimé 35×45mm",
+            "jp_mynaportal": "Passeport Japon en ligne (Mynaportal)",
+            "jp_mynumber": "Carte My Number Japon",
+            "jp_resume": "CV Japon 30×40 mm",
+            "eu_schengen": "Visa Schengen · référence 35×45mm",
+            "uk_passport": "Royaume-Uni · passeport numérique · original",
+            "ca_passport": "Canada · renouvellement en ligne · original",
+            "in_passport": "Passeport Inde (Passport Seva)",
+            "in_oci": "Inde OCI 2×2 in",
+            "au_passport": "Passeport Australie 35×45 mm",
+            "br_passport": "Passeport Brésil 5×7 cm",
+            "mx_passport": "Mexique · passeport · photo sur place",
+            "es_dni": "DNI / passeport Espagne 32×26 mm",
+            "custom": "Taille personnalisée",
+            "us_passport_online": "États-Unis · renouvellement en ligne · original",
+            "ca_passport_print": "Canada · passeport imprimé · photographe"
           },
           "notes": {
             "kr_id_3x4": "Usage courant en Corée, pas une règle officielle.",
@@ -529,37 +1105,93 @@
             "kr_driver": "250 Ko est une valeur recommandée (autorité routière coréenne).",
             "cn_visa": "385×560 px est une valeur recommandée dans la plage de l'ambassade (354×472–420×560).",
             "jp_mynaportal": "Selon la FAQ Mynaportal ; peut changer.",
-            "in_passport": "630×810 px selon Passport Seva ; 250 Ko est une valeur recommandée."
+            "in_passport": "Passport Seva à l’étranger :630×810px ; l’ambassade indique250Ko maximum. Vérifiez votre portail.",
+            "mx_passport": "Le consulat indiqué prend la photo au rendez-vous. Vérifiez les cas particuliers auprès de votre consulat.",
+            "ca_passport_print": "Photos imprimées de50×70mm, prises et imprimées par un photographe professionnel. Consultez les consignes.",
+            "ca_passport": "Utilisez l’original numérique du photographe. Le ratio2:3 diffère du tirage50×70mm.",
+            "uk_passport": "Ne recadrez pas avant l’envoi. La vérification lit JPG et PNG ; suivez les consignes officielles.",
+            "us_passport_online": "Envoyez l’original et ajustez-le dans la demande officielle. Aucune conversion en600×600 ici."
           }
         },
-        "custom": { "label": "Taille", "help": "Saisissez des mm ou des px. En mm, les pixels sont calculés avec les dpi.", "choices": { "w": "Largeur", "h": "Hauteur", "dpi": "dpi", "mm": "mm", "px": "px" } },
-        "crop": { "label": "Zone de recadrage", "help": "Déplacez le cadre pour que le sommet du crâne, les yeux et le menton tombent sur les pointillés." },
-        "format": { "label": "Type de fichier", "choices": { "jpg": "JPG", "png": "PNG" } },
-        "maxKb": { "label": "Poids maximal", "help": "0 = sans limite. JPG essaie de réduire la qualité ; PNG vérifie la taille finale du fichier." },
-        "bg": { "label": "Fond", "help": "Éclaircir augmente seulement la luminosité du fond. Il n'est ni supprimé ni remplacé.", "choices": { "keep": "Conserver", "white": "Éclaircir en blanc" } }
+        "custom": {
+          "label": "Taille",
+          "help": "Saisissez des mm ou des px. En mm, les pixels sont calculés avec les dpi.",
+          "choices": {
+            "w": "Largeur",
+            "h": "Hauteur",
+            "dpi": "dpi",
+            "mm": "mm",
+            "px": "px"
+          }
+        },
+        "crop": {
+          "label": "Zone de recadrage",
+          "help": "Déplacez le cadre ou ses coins pour choisir la zone. Les guides servent au positionnement."
+        },
+        "format": {
+          "label": "Type de fichier",
+          "choices": {
+            "jpg": "JPG",
+            "png": "PNG"
+          }
+        },
+        "maxKb": {
+          "label": "Poids maximal",
+          "help": "0 = sans limite. JPG essaie de réduire la qualité ; PNG vérifie la taille finale du fichier."
+        },
+        "bg": {
+          "label": "Fond",
+          "help": "Éclaircir augmente seulement la luminosité du fond. Il n'est ni supprimé ni remplacé.",
+          "choices": {
+            "keep": "Conserver",
+            "white": "Éclaircir en blanc"
+          }
+        }
       },
       "errors": {
         "rect": "La zone sélectionnée est trop petite.",
-        "custom": "Vérifiez la largeur, la hauteur et les dpi."
+        "custom": "Vérifiez la largeur, la hauteur et les dpi.",
+        "format": "Cette démarche exige un JPG. Sélectionnez JPG et recommencez.",
+        "retouch": "Les retouches sont désactivées pour cette démarche.",
+        "informationOnly": "Consultez les consignes ; aucune conversion ici."
       },
       "faq": [
         [
           "Quelle est la taille d'une photo de passeport ?",
-          "En France et dans l'UE : 35×45 mm, visage de 32 à 36 mm, fond uni clair (le blanc est refusé en France). États-Unis : 2×2 pouces (600×600 px). Royaume-Uni, Japon, Corée, Australie : 35×45 mm également. Chaque format règle aussi le repère de tête et la limite de poids quand elle existe."
+          "La taille dépend du document et du mode de demande. Passeport américain imprimé :2×2in ; Japon :35×45mm imprimé ou600×730px JPG pour Mynaportal. Choisissez le mode et consultez le lien officiel. Les formats imprimés et numériques diffèrent."
         ],
         [
           "Ces valeurs sont-elles garanties ?",
-          "Elles viennent des consignes officielles, mais les dimensions, limites de poids et modes de dépôt évoluent. Vérifiez toujours les consignes du guichet, de l'ambassade ou du site avant d'envoyer la photo."
+          "Les démarches avec lien officiel ont été vérifiées le2026-11-03. Les autres tailles sont indicatives. Confirmez les règles actuelles du destinataire."
         ],
         [
           "Le fond est-il remplacé par du blanc ?",
-          "Non. Éclaircir augmente seulement la luminosité du fond existant. Les fonds retouchés sont refusés : photographiez devant un mur uni et clair."
+          "La luminosité est réglable pour les tailles indicatives ou personnalisées. Les démarches de passeport vérifiées désactivent les retouches. Respectez le fond et les consignes officielles."
         ],
         [
           "Ma photo est-elle envoyée ?",
           "Non. Recadrage, redimensionnement et compression se font dans votre navigateur. Le résultat ne contient pas d'EXIF, seulement la valeur de dpi."
         ]
-      ]
+      ],
+      "officialSource": "Consignes officielles",
+      "checkOriginal": "Vérifier l’original",
+      "checkAgain": "Vérifier à nouveau",
+      "checkFormat": "Format du fichier",
+      "checkBytes": "Taille cible",
+      "checkPixels": "Dimensions",
+      "checkMatch": "Condition vérifiée respectée",
+      "checkMismatch": "Condition non respectée",
+      "unknownFormat": "Format non reconnu",
+      "unknownPixels": "Dimensions illisibles",
+      "fileCheckDone": "Conditions du fichier vérifiées",
+      "fileCheckMismatch": "Conditions du fichier non respectées",
+      "originalUnchanged": "L’original n’a pas été modifié et aucun fichier n’a été créé.",
+      "unverifiedConditions": "Le visage, le fond, la date, l’espace colorimétrique, la compression et l’acceptation ne sont pas vérifiés.",
+      "originalPolicy": "Vérification sans réenregistrement. Les tailles sont des cibles prudentes tenant compte des unités.",
+      "fileOnlyPolicy": "La taille ne garantit pas l’acceptation. Les guides servent au positionnement.",
+      "referencePolicy": "Taille indicative : vérifiez les exigences du destinataire. Les guides ne valident pas la conformité.",
+      "sizeUnitDecimal": "Cible prudente : ici 1 Ko = 1000 octets. Le portail peut définir les unités autrement.",
+      "verifyPhoto": "Vérifier auprès du ministère coréen"
     }
   }
 }

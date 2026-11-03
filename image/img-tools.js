@@ -215,7 +215,7 @@
 
   // ---------- 상태 ----------
   var tool = null, files = [], pages = [], outputs = [], urls = [], busy = false, optUI = {}, inputBytes = 0;
-  var resultWarning = null, editVersion = 0;
+  var resultWarning = null, editVersion = 0, inspectionShown = false;
   var dom = {};
   function setStatus(msg, kind, target){
     var s = target || dom.status; if (!s) return;
@@ -306,9 +306,10 @@
     if (dom.opts && tool && tool.invalidateOnEdit) dom.opts.inert = b;
   }
   function afterInput(){
+    var keepPreset = tool.optionsBeforeInput ? getValue('preset') : null;
     dom.primary.removeAttribute('data-warning');
     document.body.classList.add('has-input'); document.body.classList.remove('done');
-    outputs = []; resultWarning = null; revokeAll();
+    outputs = []; resultWarning = null; inspectionShown = false; revokeAll();
     dom.result.hidden = true; dom.result.innerHTML = '';
     dom.progress.hidden = true;
     dom.count.textContent = files.length === 1 ? t('fileCount') : t('filesCount', { n: files.length });
@@ -317,7 +318,7 @@
     dom.out.hidden = false;
     dom.primary.textContent = t('runText'); dom.primary.disabled = false;
     renderFiles();
-    renderOptions();
+    renderOptions(keepPreset);
     setStatus('', '');
     if (tool.minFiles > files.length) { setStatus(t('errorEmpty', { n: tool.minFiles }), 'empty'); dom.primary.disabled = true; }
   }
@@ -345,8 +346,13 @@
   // ---------- 옵션 패널 ----------
   var optListeners = [], mqUnbind = [];
   var DESKTOP_MQ = window.matchMedia ? window.matchMedia('(min-width:1024px)') : null;
-  function renderOptions(){
+  function actionText(){ return t(tool && tool.actionText ? tool.actionText(getOpts()) : 'runText'); }
+  function renderOptions(keepPreset){
     var opts = tool.options || [], box = dom.opts;
+    if (tool.optionsBeforeInput) {
+      // A country may require in-person capture, so let the user choose before selecting a photo.
+      if (!files.length) dom.drop.closest('section').before(box); else dom.out.before(box);
+    }
     box.innerHTML = ''; optUI = {}; optListeners = [];
     mqUnbind.forEach(function(fn){ fn(); }); mqUnbind = [];
     if (!opts.length) { box.hidden = true; return; }
@@ -372,6 +378,7 @@
       groups[name] = d; return d;
     }
     opts.forEach(function(o){
+      if (tool.optionsBeforeInput && !files.length && o.id !== 'preset') return;
       var row = el('div', 'opt opt-' + o.type); row.setAttribute('data-opt', o.id);
       var r = renderers[o.type] || (tool.renderers && tool.renderers[o.type]); if (!r) return;
       r(o, row, widgetApi());
@@ -380,18 +387,20 @@
       (o.group ? groupBox(o.group) : (side && o.type !== 'crop' && o.type !== 'blur-regions' ? side : box)).appendChild(row);
     });
     box.hidden = false;
+    if (keepPreset && optUI.preset && optUI.preset.set) optUI.preset.set(keepPreset);
     if (!box.__bound) { box.__bound = true; box.addEventListener('change', onOptChange); box.addEventListener('input', onOptChange); }
     applyShowIf();
+    if (tool.optionsBeforeInput) optListeners.forEach(function(fn){ fn(); });
   }
   function invalidateResult(){
     if (!tool || !tool.invalidateOnEdit) return;
     editVersion++;
-    if (!outputs.length) return;
-    outputs = []; resultWarning = null; revokeAll();
+    if (!outputs.length && !inspectionShown) return;
+    outputs = []; resultWarning = null; inspectionShown = false; revokeAll();
     document.body.classList.remove('done');
     dom.primary.removeAttribute('data-warning');
     dom.result.hidden = true; dom.result.innerHTML = ''; dom.progress.hidden = true;
-    dom.primary.textContent = t('runText'); dom.primary.disabled = busy || !files.length;
+    dom.primary.textContent = actionText(); dom.primary.disabled = busy || !files.length;
     setStatus(t('needsRerun'), 'empty');
   }
   function onOptChange(){ invalidateResult(); applyShowIf(); optListeners.forEach(function(fn){ try { fn(); } catch (e) {} }); }
@@ -724,15 +733,16 @@
     if (tool.minFiles > files.length) { setStatus(t('errorEmpty', { n: tool.minFiles }), 'err'); return; }
     var opts = getOpts(), version = editVersion, optsKey = tool.invalidateOnEdit ? JSON.stringify(opts) : null;
     setBusy(true); setStatus(t('processing'), 'busy'); progress(0);
-    dom.result.hidden = true; dom.result.innerHTML = ''; outputs = []; resultWarning = null; revokeAll();
+    dom.result.hidden = true; dom.result.innerHTML = ''; outputs = []; resultWarning = null; inspectionShown = false; revokeAll();
     inputBytes = 0; files.forEach(function(f){ inputBytes += f.size; });
     var inputs = files.map(function(f){ return { name: f.name, type: f.type, size: f.size, file: f.file, width: f.width, height: f.height }; });
     Promise.resolve().then(function(){ return tool.run(inputs, opts, makeCtx()); }).then(function(res){
       setBusy(false);
       // 비동기 인코딩 중 스크립트/뒤늦은 이벤트로 조건이 바뀌어도 이전 결과를 게시하지 않는다.
       if (tool.invalidateOnEdit && (version !== editVersion || optsKey !== JSON.stringify(getOpts()))) {
-        dom.progress.hidden = true; dom.primary.textContent = t('runText'); setStatus(t('needsRerun'), 'empty'); return;
+        dom.progress.hidden = true; dom.primary.textContent = actionText(); setStatus(t('needsRerun'), 'empty'); return;
       }
+      if (tool.allowsInspection && res && res.inspection) { showInspection(res); return; }
       outputs = ((res && res.outputs) || []).filter(function(o){ return o && o.blob; });
       if (!outputs.length) throw new Error('empty');
       var seen = {};
@@ -740,12 +750,32 @@
       resultWarning = res && res.warning || null;
       progress(1, resultWarning ? resultWarning.message : t('done'));
       showResult((res && res.note) || '');
+      if (tool.allowsInspection && res.links) {
+        var links = el('div', 'passport-result-links');
+        res.links.forEach(function(link){ var a = el('a', 'btn ghost passport-source', t(link.key)); a.href = link.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; links.appendChild(a); });
+        dom.result.appendChild(links);
+      }
     }, function(e){
       setBusy(false); dom.progress.hidden = true;
       var msg = e && e.key ? t(e.key) : (e && e.userMessage ? e.userMessage : t('errorGeneric'));
       if (window.console && console.error) console.error(e);
       setStatus(msg, 'err');
     });
+  }
+  function showInspection(res){
+    inspectionShown = true;
+    var r = dom.result; r.innerHTML = ''; r.hidden = false; dom.progress.hidden = true;
+    document.body.classList.add('done');
+    var list = el('ul', 'passport-checks');
+    res.inspection.checks.forEach(function(check){
+      var li = el('li'); li.appendChild(el('strong', null, t(check.key) + ' · ' + t(check.ok ? 'checkMatch' : 'checkMismatch')));
+      li.appendChild(el('span', null, check.detail)); list.appendChild(li);
+    });
+    r.appendChild(list); r.appendChild(el('p', 'muted result-note', res.note));
+    var source = el('a', 'btn ghost passport-source', t('officialSource')); source.href = res.inspection.source; source.target = '_blank'; source.rel = 'noopener noreferrer'; r.appendChild(source);
+    dom.primary.textContent = t('checkAgain'); dom.primary.disabled = false;
+    var failed = res.inspection.checks.some(function(c){ return !c.ok; });
+    setStatus(t(failed ? 'fileCheckMismatch' : 'fileCheckDone'), failed ? 'err' : 'empty');
   }
   function download(o){
     var a = document.createElement('a'); a.href = o.url || (o.url = objUrl(o.blob)); a.download = o.name; a.rel = 'noopener';
@@ -815,14 +845,16 @@
   function reset(){
     if (busy) return;
     dom.primary.removeAttribute('data-warning');
-    files = []; pages = []; outputs = []; resultWarning = null; revokeAll(); optUI = {}; optListeners = [];
+    files = []; pages = []; outputs = []; resultWarning = null; inspectionShown = false; revokeAll(); optUI = {}; optListeners = [];
     document.body.classList.remove('has-input', 'done', 'busy');
     dom.files.innerHTML = ''; dom.opts.innerHTML = ''; dom.opts.hidden = true;
     dom.result.innerHTML = ''; dom.result.hidden = true; dom.progress.hidden = true; dom.out.hidden = true;
     dom.compact.hidden = true; dom.count.textContent = '';
     dom.primary.textContent = t('runText'); dom.primary.disabled = true;
+    dom.primary.hidden = false; $('in').hidden = false;
     dom.input.value = '';
     setStatus('', ''); setStatus('', '', dom.inStatus);
+    if (tool.optionsBeforeInput) renderOptions();
     try { dom.drop.focus(); } catch (e) {}
   }
 
@@ -856,6 +888,7 @@
     });
     dom.primary.addEventListener('click', onPrimary);
     dom.reset.addEventListener('click', reset);
+    if (tool.optionsBeforeInput) renderOptions();
     document.addEventListener('keydown', function(e){
       var tg = e.target && e.target.tagName;
       if (tg === 'INPUT' || tg === 'TEXTAREA' || tg === 'SELECT' || tg === 'BUTTON' || e.target.isContentEditable) return;

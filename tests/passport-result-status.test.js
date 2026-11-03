@@ -150,10 +150,11 @@ test('PNG run validates after adding the 21-byte pHYs chunk', async (t) => {
   }
 });
 
-test('selecting PNG does not bypass the preset file-size requirement', async () => {
+test('PNG cannot bypass the Korean passport JPEG requirement; custom PNG keeps size validation', async () => {
   const rawBytes = 500 * 1024;
   const { ctx, file } = fixture(() => pngBytes(rawBytes));
-  const result = await tool.run([file], { preset: 'kr_passport', format: 'png' }, ctx);
+  await assert.rejects(tool.run([file], { preset: 'kr_passport', format: 'png' }, ctx), /format/);
+  const result = await tool.run([file], { preset: 'custom', custom: { unit: 'px', w: 413, h: 531 }, format: 'png', maxKb: 500 }, ctx);
   assertSizeResult(result, rawBytes + 21, 500 * 1024, 'failed');
 });
 
@@ -161,7 +162,7 @@ test('a zero limit leaves both JPG and PNG outputs downloadable without a size w
   for (const format of ['jpg', 'png']) {
     await t.test(format, async () => {
       const { ctx, calls, file } = fixture((type) => type === 'image/png' ? pngBytes(2000) : jpegBytes(2000));
-      const result = await tool.run([file], { preset: 'kr_passport', format, maxKb: 0 }, ctx);
+      const result = await tool.run([file], { preset: 'custom', custom: { unit: 'px', w: 413, h: 531 }, format, maxKb: 0 }, ctx);
       assertSizeResult(result, format === 'png' ? 2021 : 2018, null, 'not_requested');
       assert.equal(calls.encode.length, 1, 'no size cap should trigger no compression search');
     });
