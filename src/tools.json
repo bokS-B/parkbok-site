@@ -5,7 +5,7 @@
     "section": "hwp",
     "status": "live",
     "order": 1,
-    "url": "/",
+    "url": "/hwp/",
     "icon": "hwp",
     "name": {
       "ko": "HWP 뷰어",
@@ -17,9 +17,6 @@
     },
     "langs": [
       "ko"
-    ],
-    "hideOn": [
-      "/"
     ]
   },
   {

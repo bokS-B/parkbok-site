@@ -13,13 +13,11 @@ http.createServer((req,res)=>{
   if (!['GET','HEAD'].includes(req.method)) {res.writeHead(405);return res.end();}
   let route;
   try {route=decodeURIComponent(new URL(req.url,'http://localhost').pathname);} catch {res.writeHead(400);return res.end();}
-  let file, transform;
+  let file;
   if (route === '/_hallmark/' || route === '/_hallmark') file=path.join(__dirname,'hallmark-compare.html');
   else if (route === '/_hallmark/before/') {res.writeHead(200,{'Content-Type':types['.html']});return res.end(req.method==='HEAD'?undefined:baseline);}
-  else if (route === '/_hallmark/b/') {
-    file=path.join(root,'index.html');
-    transform=s=>s.replace('<h1>필요한 도구, 여기 한곳에</h1>','<h1>찾아다니던 도구를 한곳에</h1>').replace('</head>','<style>:root{--home-head-size:48px;--home-head-line:56px}.grid.tools-grid .card{--home-icon-fill:var(--accent-tint)}@media(max-width:767.98px){:root{--home-head-size:28px;--home-head-line:38px}}@media(max-width:360px){:root{--home-head-size:25px;--home-head-line:34px}}</style></head>');
-  } else {
+  else if (route === '/_hallmark/b/') file=path.join(root,'index.html');
+  else {
     const parts=route.split(/[\\/]/).filter(Boolean);
     if (parts[0]==='tools' || parts.some(x=>x.startsWith('.') || ['_build','docs','tests','node_modules','src'].includes(x))) {res.writeHead(404);return res.end();}
     file=path.resolve(root,'.'+route);
@@ -30,6 +28,6 @@ http.createServer((req,res)=>{
     if(!fs.statSync(file).isFile())throw Error('not a file');
     const data=fs.readFileSync(file);
     res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream'});
-    res.end(req.method==='HEAD'?undefined:transform?transform(data.toString('utf8')):data);
+    res.end(req.method==='HEAD'?undefined:data);
   }catch {res.writeHead(404);res.end();}
 }).listen(port,'127.0.0.1',()=>console.log(`Hallmark comparison: http://127.0.0.1:${port}/_hallmark/`));

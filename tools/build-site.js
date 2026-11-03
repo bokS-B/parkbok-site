@@ -9,11 +9,12 @@ const shell = require('./shell');
 const root = path.resolve(__dirname, '..');
 const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'wheel', 'pdf', 'image', 'color', 'src'];   // wheel/pdf/image 는 자체 생성기가 셸을 넣는다
 const FOOT_EXTRA = {
-  'index.html': ' · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.'
+  'hwp/index.html': ' · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.'
 };
 // 페이지 전용 CSS: <style id="page-css"> 로 site-css 다음에 인라인
 const PAGE_CSS = {
-  'index.html': ['assets/home-tokens.css', 'assets/hwp.css', 'assets/home.css'],
+  'index.html': ['assets/home-tokens.css', 'assets/home.css'],
+  'hwp/index.html': ['assets/hwp.css', 'assets/hwp-page.css'],
   'about.html': 'assets/about.css',
   'text/remove-line-breaks.html': 'assets/tool.css', 'text/char-count.html': 'assets/tool.css', 'text/sql-in.html': 'assets/tool.css',
   'text/dedupe-lines.html': 'assets/tool.css', 'text/list-to-line.html': 'assets/tool.css'
@@ -70,7 +71,7 @@ function gridHtml(rel, cfg){
   return '<!-- grid:start -->\n' + out + '\n  <!-- grid:end -->';
 }
 function sectionOf(rel){
-  if (rel === 'index.html') return 'hwp';
+  if (rel.startsWith('hwp/')) return 'hwp';
   if (rel.startsWith('text/')) return 'text';
   if (rel.startsWith('guide/')) return 'guide';
   return '';

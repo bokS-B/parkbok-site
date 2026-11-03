@@ -1,0 +1,8 @@
+/* HWP viewer page: shared tool layout, same parsing and export runtime. */
+:root{--hwp-focus:var(--accent-text);--t-btn:background-color .15s,border-color .15s,color .15s}
+html,body{overflow-x:clip}
+main.wrap>h1{min-width:0;overflow-wrap:break-word}
+main.wrap>.lead{margin-bottom:16px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--hwp-focus);outline-offset:3px;transition:none}
+.drop.home:focus-visible{outline:2px solid var(--hwp-focus);outline-offset:3px;box-shadow:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

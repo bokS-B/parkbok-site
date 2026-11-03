@@ -1,4 +1,4 @@
-/* HWP 뷰어(index.html) 도구 영역 전용. 토큰·.drop·.btn·.status·.actions 는 assets/site.css 에서 온다. */
+/* HWP 뷰어(hwp/index.html) 도구 영역 전용. 토큰·.drop·.btn·.status·.actions 는 assets/site.css 에서 온다. */
 /* 뼈대: h1 → p.lead → .drop#drop(한 줄 스트립) → p.status → .actions#tools → #viewer → #textwrap → .ad → 칩·그리드 → details.about */
 
 /* ---------- 숨김 ---------- */
