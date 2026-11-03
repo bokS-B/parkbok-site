@@ -61,18 +61,18 @@
   },
   {
     "id": "wheel",
-    "cat": "wheel",
-    "section": "wheel",
+    "cat": "game",
+    "section": "game",
     "status": "live",
     "order": 4,
     "url": "/wheel/ko/",
     "icon": "wheel",
     "name": {
-      "ko": "돌림판 룰렛",
+      "ko": "돌림판",
       "en": "Spin the wheel"
     },
     "line": {
-      "ko": "이름 넣고 돌려 한 명 뽑기",
+      "ko": "항목을 넣고 돌려 하나 뽑기",
       "en": "Pick a random name"
     },
     "langs": [
@@ -141,8 +141,8 @@
   },
   {
     "id": "wheel-yesno",
-    "cat": "wheel",
-    "section": "wheel",
+    "cat": "game",
+    "section": "game",
     "status": "live",
     "order": 8,
     "url": "/wheel/ko/yes-or-no/",
@@ -157,12 +157,16 @@
     },
     "langs": [
       "ko"
+    ],
+    "hideOn": [
+      "/",
+      "/games/"
     ]
   },
   {
     "id": "wheel-number",
-    "cat": "wheel",
-    "section": "wheel",
+    "cat": "game",
+    "section": "game",
     "status": "live",
     "order": 9,
     "url": "/wheel/ko/number/",
@@ -177,12 +181,16 @@
     },
     "langs": [
       "ko"
+    ],
+    "hideOn": [
+      "/",
+      "/games/"
     ]
   },
   {
     "id": "wheel-food",
-    "cat": "wheel",
-    "section": "wheel",
+    "cat": "game",
+    "section": "game",
     "status": "live",
     "order": 10,
     "url": "/wheel/ko/what-to-eat/",
@@ -197,6 +205,10 @@
     },
     "langs": [
       "ko"
+    ],
+    "hideOn": [
+      "/",
+      "/games/"
     ]
   },
   {
@@ -1269,6 +1281,60 @@
       "pt",
       "de",
       "fr"
+    ]
+  },
+  {
+    "id": "rock-paper-scissors",
+    "cat": "game",
+    "section": "game",
+    "status": "live",
+    "order": 52,
+    "url": "/games/rock-paper-scissors/",
+    "icon": "game-rps",
+    "name": {
+      "ko": "가위바위보"
+    },
+    "line": {
+      "ko": "컴퓨터와 가위바위보 한 판"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "number-guess",
+    "cat": "game",
+    "section": "game",
+    "status": "live",
+    "order": 53,
+    "url": "/games/number-guess/",
+    "icon": "wheel-number",
+    "name": {
+      "ko": "숫자 맞히기"
+    },
+    "line": {
+      "ko": "힌트를 보고 1~100 숫자 찾기"
+    },
+    "langs": [
+      "ko"
+    ]
+  },
+  {
+    "id": "reaction-time",
+    "cat": "game",
+    "section": "game",
+    "status": "live",
+    "order": 54,
+    "url": "/games/reaction-time/",
+    "icon": "game-reaction",
+    "name": {
+      "ko": "반응속도 테스트"
+    },
+    "line": {
+      "ko": "신호를 보고 눌러 반응 시간 확인"
+    },
+    "langs": [
+      "ko"
     ]
   }
 ]

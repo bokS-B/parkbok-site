@@ -17,7 +17,7 @@
     });
     groups.forEach(function(group){ group.hidden = !group.querySelector('.card:not(.hidden)'); });
   }
-  function fromHash(){ var h = (location.hash || '').replace(/^#/, ''); return h && has(h) ? h : 'all'; }
+  function fromHash(){ var h = (location.hash || '').replace(/^#/, ''); if (h === 'wheel') h = 'game'; return h && has(h) ? h : 'all'; }
   nav.addEventListener('click', function(e){
     var el = e.target;
     while (el && el !== nav && !(el.classList && el.classList.contains('chip'))) el = el.parentNode;

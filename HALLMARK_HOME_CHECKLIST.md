@@ -29,6 +29,13 @@
 - [x] HM-18 필터 7개에서 해당 카드와 상위 구역만 표시하고 빈 제목/구분선을 숨긴다. PDF14/HWP1은 문서 구역, 가이드5는 가이드 구역. 전체 복원 및 #image 직접 진입도 확인.
 - [x] HM-19 사이트 빌드 홈1개 변경 후 재빌드 changed0, 셸361 실패0, 홈 스타일2파일 정적 검사0건. 비교 증거: `hallmark-home-audit/grouped-b-verification.json`, `grouped-b-*.png`.
 
+### 룰렛을 게임 분류로 확장 — 추가 지시 반영
+
+- 사용자 요청에 따라 마지막 구역은 이제 **게임**이다. 돌림판 1카드와 가위바위보·숫자 맞히기·반응속도 테스트 3카드를 표시한다. 앞선 룰렛4 분류 기록은 변경 전 이력이다.
+- 공통 메뉴 ‘게임’은 `/games/`로 연결한다. 예/아니오·숫자·음식 돌림판은 기존 주소와 도구 내부 전환을 유지한다. 옛 홈 `#wheel`은 게임 필터로 연결한다.
+- 새 게임은 서버 없이 실제 플레이한다. 상세 구현·검증·배포 대기는 `GAMES_CHECKLIST.md`의 GM-01~19에 기록했다.
+- 게임 24화면 넘침·JS 오류0, 단위 테스트30개 통과, 일반 페이지365개 셸 실패0. 로컬 검증 완료, 공개 배포 전.
+
 후속 BR1은 별도 승인 대기다. 향후 BR1의 `index.html`에서 HWP 전용으로 바꾼 마크업은 **`hwp/index.html`에 적용**하고, 홈을 HWP 뷰어로 되돌리지 않는다. HWP 파서·뷰어 JS는 이번 이동에서 수정하지 않았다.
 
 증거: `hallmark-home-audit/selected-b-verification.json`, `selected-b-*.png`, `hwp-viewer-*.png`, `migration-smoke.txt/html/pdf`, `migration-diff-check.json`.

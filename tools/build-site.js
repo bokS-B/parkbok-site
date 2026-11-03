@@ -15,6 +15,10 @@ const FOOT_EXTRA = {
 const PAGE_CSS = {
   'index.html': ['assets/home-tokens.css', 'assets/home.css'],
   'hwp/index.html': ['assets/hwp.css', 'assets/hwp-page.css'],
+  'games/index.html': ['assets/home-tokens.css', 'assets/home.css'],
+  'games/rock-paper-scissors/index.html': 'assets/games.css',
+  'games/number-guess/index.html': 'assets/games.css',
+  'games/reaction-time/index.html': 'assets/games.css',
   'about.html': 'assets/about.css',
   'text/remove-line-breaks.html': 'assets/tool.css', 'text/char-count.html': 'assets/tool.css', 'text/sql-in.html': 'assets/tool.css',
   'text/dedupe-lines.html': 'assets/tool.css', 'text/list-to-line.html': 'assets/tool.css'
@@ -24,12 +28,12 @@ const PAGE_CSS = {
 const TOOLS = JSON.parse(fs.readFileSync(path.join(root, 'src', 'tools.json'), 'utf8'));
 const ICONS = JSON.parse(fs.readFileSync(path.join(root, 'src', 'icons.json'), 'utf8'));
 const esc = shell.esc;
-const CAT_LABEL = { all: '전체', hwp: 'HWP', text: '텍스트', pdf: 'PDF', image: '이미지', color: '색상', wheel: '룰렛', guide: '가이드' };
-const CHIP_ORDER = ['all', 'hwp', 'pdf', 'image', 'color', 'text', 'wheel', 'guide'];
-const HOME_GROUPS = ['documents', 'image', 'color', 'text', 'wheel', 'guide'];
-const GROUP_LABEL = { documents: '문서와 PDF', image: '이미지', color: '색상', text: '텍스트', wheel: '룰렛', guide: '가이드' };
+const CAT_LABEL = { all: '전체', hwp: 'HWP', text: '텍스트', pdf: 'PDF', image: '이미지', color: '색상', game: '게임', guide: '가이드' };
+const CHIP_ORDER = ['all', 'hwp', 'pdf', 'image', 'color', 'text', 'game', 'guide'];
+const HOME_GROUPS = ['documents', 'image', 'color', 'text', 'game', 'guide'];
+const GROUP_LABEL = { documents: '문서와 PDF', image: '이미지', color: '색상', text: '텍스트', game: '게임', guide: '가이드' };
 // 그리드를 넣는 페이지: 홈은 필터 칩 + 전체 카드, /text/ 는 텍스트 카드만(칩 없음)
-const GRIDS = { 'index.html': { chips: true }, 'text/index.html': { cat: 'text' } };
+const GRIDS = { 'index.html': { chips: true }, 'text/index.html': { cat: 'text' }, 'games/index.html': { cat: 'game', heading: 'h2' } };
 const pagePath = rel => '/' + rel.replace(/(^|\/)index\.html$/, '$1');
 // PDF 도구 문구는 pdf/src/tools/<id>.json 의 strings.ko.h1/line 을 우선 쓴다(없으면 tools.json). planned 인 PDF 도구는 그 파일이 있을 때만 카드로 올린다.
 function pdfStrings(t){
@@ -38,12 +42,12 @@ function pdfStrings(t){
   try { const j = JSON.parse(fs.readFileSync(f, 'utf8')); return (j.strings && j.strings.ko) || {}; }
   catch (e) { console.warn('pdf 도구 json 해석 실패: ' + f); return {}; }
 }
-function cardHtml(t, name, line, href, hidden){
+function cardHtml(t, name, line, href, hidden, heading = 'h3'){
   const inner = ICONS[t.icon];
   if (inner == null) throw new Error('icons.json 에 아이콘이 없습니다: ' + t.icon + ' (' + t.id + ')');
   return `<a class="card${hidden ? ' hidden' : ''}" href="${esc(href)}" data-cat="${esc(t.cat)}">`
     + `<span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-${esc(t.cat)})"/>${inner}</svg></span>`
-    + `<h3>${esc(name)}</h3><p>${esc(line)}</p></a>`;
+    + `<${heading}>${esc(name)}</${heading}><p>${esc(line)}</p></a>`;
 }
 function gridHtml(rel, cfg){
   const page = pagePath(rel);
@@ -60,7 +64,7 @@ function gridHtml(rel, cfg){
     } else if (t.status !== 'live') continue;
     const multi = (t.langs || ['ko']).length > 1;
     const href = multi && t.url.endsWith('/') ? t.url + 'ko/' : t.url;   // 다국어 도구는 한국어 페이지로
-    const card = cardHtml(t, name, line, href, !!cfg.chips && t.cat === 'guide');
+    const card = cardHtml(t, name, line, href, !!cfg.chips && t.cat === 'guide', cfg.heading || 'h3');
     cards.push(card);   // 전체 필터 초기 상태 = 가이드 숨김
     const group = t.cat === 'hwp' || t.cat === 'pdf' ? 'documents' : t.cat;
     (groups[group] || (groups[group] = [])).push(card);
@@ -88,6 +92,7 @@ function gridHtml(rel, cfg){
   return '<!-- grid:start -->\n' + out + '\n  <!-- grid:end -->';
 }
 function sectionOf(rel){
+  if (rel.startsWith('games/')) return 'game';
   if (rel.startsWith('hwp/')) return 'hwp';
   if (rel.startsWith('text/')) return 'text';
   if (rel.startsWith('guide/')) return 'guide';

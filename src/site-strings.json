@@ -9,7 +9,8 @@
       "guide": "Guides (KO)",
       "pdf": "PDF tools",
       "image": "Image tools",
-      "color": "Color tools"
+      "color": "Color tools",
+      "game": "Games (KO)"
     },
     "foot": {
       "about": "About",
@@ -31,7 +32,8 @@
       "guide": "가이드",
       "pdf": "PDF 도구",
       "image": "이미지 도구",
-      "color": "색상 도구"
+      "color": "색상 도구",
+      "game": "게임"
     },
     "foot": {
       "about": "소개",
@@ -53,7 +55,8 @@
       "guide": "指南 (KO)",
       "pdf": "PDF 工具",
       "image": "图片工具",
-      "color": "颜色工具"
+      "color": "颜色工具",
+      "game": "小游戏 (KO)"
     },
     "foot": {
       "about": "关于",
@@ -75,7 +78,8 @@
       "guide": "ガイド (KO)",
       "pdf": "PDFツール",
       "image": "画像ツール",
-      "color": "カラーツール"
+      "color": "カラーツール",
+      "game": "ゲーム (KO)"
     },
     "foot": {
       "about": "サイトについて",
@@ -97,7 +101,8 @@
       "guide": "Guías (KO)",
       "pdf": "Herramientas PDF",
       "image": "Herramientas de imagen",
-      "color": "Herramientas de color"
+      "color": "Herramientas de color",
+      "game": "Juegos (KO)"
     },
     "foot": {
       "about": "Acerca de",
@@ -119,7 +124,8 @@
       "guide": "Guias (KO)",
       "pdf": "Ferramentas PDF",
       "image": "Ferramentas de imagem",
-      "color": "Ferramentas de cor"
+      "color": "Ferramentas de cor",
+      "game": "Jogos (KO)"
     },
     "foot": {
       "about": "Sobre",
@@ -141,7 +147,8 @@
       "guide": "Anleitungen (KO)",
       "pdf": "PDF-Werkzeuge",
       "image": "Bild-Werkzeuge",
-      "color": "Farb-Werkzeuge"
+      "color": "Farb-Werkzeuge",
+      "game": "Spiele (KO)"
     },
     "foot": {
       "about": "Über",
@@ -163,7 +170,8 @@
       "guide": "Guides (KO)",
       "pdf": "Outils PDF",
       "image": "Outils image",
-      "color": "Outils couleur"
+      "color": "Outils couleur",
+      "game": "Jeux (KO)"
     },
     "foot": {
       "about": "À propos",

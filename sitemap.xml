@@ -5,6 +5,7 @@
   <url><loc>https://parkbok.com/about.html</loc></url>
   <url><loc>https://parkbok.com/privacy.html</loc></url>
   <url><loc>https://parkbok.com/terms.html</loc></url>
+  <url><loc>https://parkbok.com/games/</loc></url>
   <url><loc>https://parkbok.com/guide/</loc></url>
   <url><loc>https://parkbok.com/hwp/</loc></url>
   <url><loc>https://parkbok.com/text/</loc></url>
@@ -18,6 +19,9 @@
   <url><loc>https://parkbok.com/text/list-to-line.html</loc></url>
   <url><loc>https://parkbok.com/text/remove-line-breaks.html</loc></url>
   <url><loc>https://parkbok.com/text/sql-in.html</loc></url>
+  <url><loc>https://parkbok.com/games/number-guess/</loc></url>
+  <url><loc>https://parkbok.com/games/reaction-time/</loc></url>
+  <url><loc>https://parkbok.com/games/rock-paper-scissors/</loc></url>
   <!-- site:end -->
   <!-- wheel:start -->
   <url><loc>https://parkbok.com/wheel/</loc></url>

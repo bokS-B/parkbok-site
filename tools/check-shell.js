@@ -22,7 +22,7 @@ for (const p of files) {
   const multi = rel.startsWith('wheel/') ? 'wheel' : rel.startsWith('pdf/') ? 'pdf' : rel.startsWith('image/') ? 'image' : rel.startsWith('color/') ? 'color' : '';   // 8개 언어로 생성되는 구역
   if (multi) {
     const m = rel.match(/(?:^|\/)(ko|zh|ja|es|pt|de|fr)\//); const code = m ? m[1] : 'en';   // wheel/<lang>/<preset>/, pdf/<tool>/<lang>/ 둘 다
-    const home = '/' + multi + '/' + (code === 'en' ? '' : code + '/');
+    const home = multi === 'wheel' ? '/games/' : '/' + multi + '/' + (code === 'en' ? '' : code + '/');
     if (!s.includes(`<a href="${home}" class="on">`)) fails.push(rel + ': 상단 ' + multi + ' 링크가 언어 루트(' + home + ')가 아니거나 on 아님');
     for (const need of ['og:description', 'og:url', '<html lang="', ' dir="']) if (!s.includes(need)) fails.push(rel + ': ' + need + ' 없음');
     if (multi === 'wheel' && count(/class="chip on"/g) !== 1) fails.push(rel + ': 서브내비 on 칩 ' + count(/class="chip on"/g) + '개');

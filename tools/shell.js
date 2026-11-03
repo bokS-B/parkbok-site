@@ -39,6 +39,7 @@ function header({ lang = 'ko', section = '', wheelHome = '/wheel/ko/', pdfHome =
   return fill(fragment('header'), {
     brand: esc(t.brand), menu: esc(t.menu),
     'nav.hwp': esc(t.nav.hwp), 'nav.text': esc(t.nav.text), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.image': esc(t.nav.image || 'Image'), 'nav.color': esc(t.nav.color || 'Color'), 'nav.wheel': esc(t.nav.wheel), 'nav.guide': esc(t.nav.guide),
+    'nav.game': esc(t.nav.game), 'on:game': section === 'game' || section === 'wheel' ? ' class="on"' : '',
     'on:hwp': on('hwp'), 'on:text': on('text'), 'on:pdf': on('pdf'), 'on:image': on('image'), 'on:color': on('color'), 'on:wheel': on('wheel'), 'on:guide': on('guide'),
     wheel_home: wheelHome, pdf_home: pdfHome, image_home: imageHome, color_home: colorHome, lang_select: langSelect, subnav, theme: esc(t.theme || 'Theme')
   });
