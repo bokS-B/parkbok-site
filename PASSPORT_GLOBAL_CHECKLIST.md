@@ -1,7 +1,7 @@
 # 국가별 여권·비자 사진 지원 — GP-01
 
 - 날짜: 2026-11-03 KST. 기준 `965a17e02`, 브랜치 `codex/hallmark-home`.
-- 상태: **기존 규격·신청 경로 구분 구현 및 로컬 검증 완료. 사용자 화면 확인 대기. 미배포.**
+- 상태: **2026-11-03 사용자 배포 지시로 공개 반영 완료(`9c5ea8adc`).** 신청 경로 구분 구현·기존 로컬 검증에 더해 공개 KR JPG413×531/10469B, 목표1KB 초과4765B 경고·다운로드를 재확인했다. 실기기 검증은 남아 있다. `PAGES_DEPLOY_CHECKLIST.md` 참조.
 - 미리보기: http://127.0.0.1:8796/image/passport-photo/ko/
 - 상세 조사: `C:/Users/boksb/Documents/ChatGPT/산업화/passport-competitor-audit/GLOBAL_PHOTO_SPEC_PLAN.md`. 기존 PP-01/CS-04의 여권 공식 근거·S1a 검증과 통합한다.
 

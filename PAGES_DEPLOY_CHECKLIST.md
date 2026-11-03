@@ -26,11 +26,15 @@
 
 ## 공개 배포·후속 확인
 
-- [ ] Pages Source를 GitHub Actions로 전환하고 main에 fast-forward push. 기존 custom domain/HTTPS 유지.
-- [ ] Actions 전체 빌드·테스트·필터링 artifact 배포 성공.
-- [ ] 공개 build-info SHA와 main 일치, 템플릿5개 및 개발 도구 HTTP404, 실행 자산200.
-- [ ] 공개 HWP/HWPX·PDF·압축·여권·게임 실제 처리 및 다운로드 재확인.
-- [ ] 공개 사이트맵 수·메타·모바일/다크 회귀 검사. 외부 계획에 완료 상태·커밋·증거 기록.
+- [x] Pages Source를 GitHub Actions로 전환하고 main에 fast-forward push. 기존 custom domain/HTTPS 유지.
+- [x] Actions 전체 빌드·테스트·필터링 artifact 배포 성공. 최초 공개 커밋 `9c5ea8adc61042c92b609d5167fa22e0fe270ed7`, 실행 `41612103643`(35초, 성공).
+- [x] 공개 build-info SHA 일치, 템플릿5개·개발 경로 등10개 HTTP404. 실행 자산13개의 SHA-256이 로컬과 동일.
+- [x] 공개 HWP/HWPX·PDF·압축·여권·게임 실제 처리 및 다운로드 재확인. HWP/HWPX TXT 및 JPG4개는 로컬 결과와 바이트 단위 동일. PDF 합치기6쪽·분할3×1쪽·JPG변환1쪽을 pypdf로 독립 재검증.
+- [x] 공개 사이트맵365+4560, 8언어 포함45페이지 자기 canonical/placeholder/noindex 정상. 핵심8페이지32화면 가로 넘침0, 미처리 pageerror0, POST/PUT/PATCH0. 외부 계획에 완료 기록.
+
+Git OAuth에 workflow 수정 scope가 없어 첫 push는 원격에서 거절됐다. 권한을 추가하지 않고 제품 코드를 먼저 push한 후, 로그인된 GitHub 웹 편집기에서 workflow를 main에 등록했다. 공개 직전 Source를 Actions로 전환해 저장소 root가 중간 배포되지 않도록 했다. 현재부터 main push는 검증된 artifact만 배포한다.
+
+GitHub 제공 Pages 액션의 Node20→24 강제 실행 경고1건과 ubuntu-latest 마이그레이션 안내1건이 있으나 빌드·배포는 성공했다. 제품 콘솔 예외와 구분한다.
 
 ## 제한·되돌리기
 

@@ -2,7 +2,7 @@
 
 - 일자: 2026-11-03 KST. 사용자 ‘ㄱㄱ’로 CS-01 진행 지시.
 - 브랜치: `codex/hallmark-home`. 기준 커밋: `cbc769cf4`.
-- 상태: 로컬 수정·검증 완료. 공개 배포 전. CS-02 이후는 미착수.
+- 상태: CS-01 공개 반영 완료(`9c5ea8adc`, 2026-11-03). CS-02 템플릿 제외와 CS-05 공개 기능 검증도 완료. CS-03 HEX 진입로 및 CS-04 홈 WebSite 추가는 남아 있다. `PAGES_DEPLOY_CHECKLIST.md` 참조.
 - 수정 파일: `hwp/index.html`, `text/sql-in.html`, 이 체크리스트.
 - 후속 계획: `C:/Users/boksb/Documents/ChatGPT/산업화/parkbok.com-audit/ACTION-PLAN.md`.
 
