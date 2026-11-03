@@ -121,12 +121,12 @@ Google의 인증 메시지 제공은 [공식 CMP 안내](https://support.google.
 - [x] CMP-QA-03 별도 브라우저의 **모의 유럽 API**에서 기존 허용 우회 차단·중복 창 0·거절 후 색 조합 동작·허용·재열기·철회·다른 탭 중단·CMP 오류 검사. 실제 GA 스크립트를 사용하고 수집은 차단. 이는 실제 EEA 지역·Google 동의 창 확인을 대체하지 않음.
 - [x] CMP-QA-04 실제 브라우저에서 Google CMP 네트워크를 차단한 상태로 이미지 선택 → 100KB 목표 압축 → JPG 다운로드 성공. GA 태그 0·통계 허용창 0·측정 중단 상태 유지. SEO 최신 `ba7d60f99`를 합친 뒤 전체 빌드·테스트 205개·Python 10개, 8개 언어 × 2개 폭 브라우저 검사를 다시 통과.
 - [x] CMP-QA-05 SEO 병합 후 최종 패키지 5,062개·로컬 참조 213,342개 검사 통과. 사이트맵 core 40·tools 317·colors 176, 총 색인 대상 533개 유지. 이번 작업에서 SEO 색인 정책·페이지 수를 바꾸지 않음.
-- [ ] CMP-LIVE-01 배포 커밋과 공개 자산·개인정보 안내·지역 외 흐름 확인 후 기록.
+- [x] CMP-LIVE-01 `e3a0776bc` push·Pages 성공([실행 기록](https://github.com/bokS-B/parkbok-site/actions/runs/41742488564)), 공개 build-info의 전체 SHA 일치. 운영 사이트 375px에서 초기 GA 태그 0·광고 요청 0·pause=1, 허용 후 수집 요청 1건을 전송 전 차단해 관찰. JPG 100KB 목표 압축·다운로드, 철회 후 추가 수집 0·GA 쿠키 0, 색 조합·개인정보 안내 정상, JS 예외 0. `pb_internal=1` 사용. 되돌릴 코드 기준은 기존 SEO 배포 `ba7d60f99`.
 - [ ] CMP-EU-01 **실제 유럽 동의 창·현지 허용/거절/철회 검증.** 한국 접속에서 공식 `?fc=alwaysshow&fctype=gdpr`로도 `googlefcInactive`·NOT_APPLICABLE(3)이 반환되어 Google 유럽 창이 표시되지 않았다. 사이트 승인 대기나 전파 지연이 원인이라고 단정하지 않음. 실제 유럽 접속과 공개 배포 후 강제 미리보기를 다시 확인할 것. 전체 ADS-LAUNCH-01과 CMP-PRE-05는 이 검증 전 완료 처리하지 않음.
 
 초기 일반 AdSense 태그 실험은 0×0 광고 요청을 만들었으므로 채택하지 않았다. 공식 메시지 전용 로더·광고 요청 일시중지로 바꾼 뒤 최종 검사에서 광고 게재 요청 0을 확인했다. Google 메시지 태그는 내부 감지용 `osd.js`와 광고 SDK를 추가로 불러올 수 있으며 이를 ‘광고 게재 요청’과 구분했다.
 
-증빙: 공개하지 않는 `output/cmp/google-tagging.png`, `verification.json`, `choice-mobile-light.png`, `choice-mobile-dark.png`. Google 관리 화면은 일반 클릭·화면 확인만 사용했으며 개발 로그·DevTools 디버깅은 하지 않았다.
+증빙: 공개하지 않는 `output/cmp/google-tagging.png`, `verification.json`, `choice-mobile-light.png`, `choice-mobile-dark.png`, `live-privacy-settings.png`, `live-forced-preview.png`, `live-verification.json`. 공개 배포 후에도 강제 미리보기는 NOT_APPLICABLE(3)·`googlefcInactive`였으므로 CMP-EU-01은 계속 미완료다. Google 관리 화면은 일반 클릭·화면 확인만 사용했으며 개발 로그·DevTools 디버깅은 하지 않았다.
 
 참고: [Google 메시지 API·기본 동의 구현·철회·미리보기](https://developers.google.com/funding-choices/fc-api-docs), [공식 태그 화면 안내](https://support.google.com/adsense/answer/11575177), [광고 요청 일시중지](https://support.google.com/adsense/answer/7670312?hl=en).
 
