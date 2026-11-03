@@ -831,7 +831,7 @@
       });
       r.appendChild(list);
       r.appendChild(stats(inputBytes, total));
-      dom.primary.textContent = t('downloadAll'); dom.primary.disabled = false;
+      dom.primary.textContent = resultWarning ? resultWarning.downloadText : t('downloadAll'); dom.primary.disabled = false;
     }
     if (note) r.appendChild(el('p', 'muted result-note', note));
     setStatus(resultWarning ? resultWarning.message : t('done'), resultWarning ? 'err' : 'ok');

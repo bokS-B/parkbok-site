@@ -13,7 +13,7 @@
       "title": "Compress Image – Reduce JPG, PNG, WebP File Size Online Free",
       "h1": "Compress image",
       "line": "Smaller JPG, PNG and WebP files",
-      "description": "Compress images online for free. Drop JPG, PNG or WebP files, pick a compression level and download smaller images with the same look. Runs in your browser – nothing is uploaded.",
+      "description": "Compress JPG, PNG or WebP in your browser. Choose a level and optional per-file KB target, then compare the actual output size. Targets may remain unmet; no files are uploaded.",
       "buttonText": "Select images",
       "runText": "Compress",
       "resultName": "compressed-images",
@@ -22,19 +22,44 @@
       "noteKeptAll": "The original is already smaller, so it was kept as it is.",
       "errorTooBig": "This image is too large to process (over 16384 px).",
       "options": {
-        "level": { "label": "Compression", "help": "Medium suits photos for the web. High makes the smallest file and limits the longest side to 1600 px.", "choices": { "low": "Low", "medium": "Medium", "high": "High" } },
-        "format": { "label": "Output format", "help": "Keep uses the original format. PNG without transparency becomes JPG.", "choices": { "keep": "Keep format", "jpg": "JPG", "webp": "WebP" } }
+        "level": {
+          "label": "Compression",
+          "help": "Medium suits photos for the web. High makes the smallest file and limits the longest side to 1600 px.",
+          "choices": {
+            "low": "Low",
+            "medium": "Medium",
+            "high": "High"
+          }
+        },
+        "format": {
+          "label": "Output format",
+          "help": "Keep uses the original format. PNG without transparency becomes JPG.",
+          "choices": {
+            "keep": "Keep format",
+            "jpg": "JPG",
+            "webp": "WebP"
+          }
+        },
+        "maxKb": {
+          "label": "Max size per image",
+          "help": "0 = off · 1 KB = 1024 B. Oversize files are flagged."
+        }
       },
       "faq": [
         [
           "Will the image look worse?",
-          "Low and medium keep photos looking the same on screen. High visibly lowers quality but gives the smallest file. Transparent PNGs stay PNG and are only scaled down."
+          "Quality and file size depend on the image, compression level and format. A KB target may lower JPG/WebP quality further, but is not guaranteed. Keep preserves transparent PNG; JPG fills transparency with white."
         ],
         [
           "Are my images uploaded?",
           "No. Each image is compressed on your device with your browser and never sent to a server."
         ]
-      ]
+      ],
+      "targetLimit": "Each file: ≤{kb} KB ({limit} B).",
+      "targetExceeded": "Over limit: {n}/{total} files",
+      "downloadTargetOver": "Download anyway",
+      "needsRerun": "Settings changed. Run again.",
+      "errorTarget": "Enter 0 or a valid positive KB target."
     },
     "ko": {
       "title": "이미지 압축 – JPG PNG WebP 용량 줄이기 무료 온라인",
@@ -49,25 +74,50 @@
       "noteKeptAll": "원본이 이미 더 작아 그대로 두었습니다.",
       "errorTooBig": "너무 큰 이미지입니다(16384px 초과).",
       "options": {
-        "level": { "label": "압축 정도", "help": "보통은 웹용 사진에 알맞습니다. 강하게는 가장 작게 만들고 긴 변을 1600px 로 제한합니다.", "choices": { "low": "약하게", "medium": "보통", "high": "강하게" } },
-        "format": { "label": "저장 형식", "help": "형식 유지는 원본 형식을 따릅니다. 투명이 없는 PNG 는 JPG 로 바뀝니다.", "choices": { "keep": "형식 유지", "jpg": "JPG", "webp": "WebP" } }
+        "level": {
+          "label": "압축 정도",
+          "help": "보통은 웹용 사진에 알맞습니다. 강하게는 가장 작게 만들고 긴 변을 1600px 로 제한합니다.",
+          "choices": {
+            "low": "약하게",
+            "medium": "보통",
+            "high": "강하게"
+          }
+        },
+        "format": {
+          "label": "저장 형식",
+          "help": "형식 유지는 원본 형식을 따릅니다. 투명이 없는 PNG 는 JPG 로 바뀝니다.",
+          "choices": {
+            "keep": "형식 유지",
+            "jpg": "JPG",
+            "webp": "WebP"
+          }
+        },
+        "maxKb": {
+          "label": "이미지당 용량 상한",
+          "help": "0 = 사용 안 함 · 1 KB = 1024 B. 초과 시 표시합니다."
+        }
       },
       "faq": [
         [
           "화질이 나빠지나요?",
-          "압축 정도와 사진, 저장 형식에 따라 결과 화질과 용량이 달라집니다. 투명 PNG를 PNG로 유지하려면 '형식 유지'를 선택하세요. JPG를 선택하면 투명한 부분은 흰색으로 채워집니다."
+          "압축 정도와 사진, 저장 형식에 따라 결과 화질과 용량이 달라집니다. 용량 상한을 지정하면 JPG·WebP 품질을 더 낮춰 시도하지만 항상 맞출 수는 없습니다. 투명 PNG를 유지하려면 형식 유지를 선택하세요. JPG는 투명한 부분을 흰색으로 채웁니다."
         ],
         [
           "이미지가 업로드되나요?",
           "아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다."
         ]
-      ]
+      ],
+      "targetLimit": "각 파일 상한: {kb} KB ({limit} B).",
+      "targetExceeded": "용량 초과 {n}/{total}개",
+      "downloadTargetOver": "초과 포함 받기",
+      "needsRerun": "설정이 바뀌었습니다. 다시 실행하세요.",
+      "errorTarget": "0 또는 올바른 양수 용량(KB)을 입력하세요."
     },
     "zh": {
       "title": "图片压缩 – 免费在线压缩 JPG、PNG、WebP 图片大小",
       "h1": "图片压缩",
       "line": "缩小 JPG、PNG、WebP 文件",
-      "description": "免费在线图片压缩。添加 JPG、PNG 或 WebP 图片，选择压缩强度，下载外观相同但更小的图片。全部在浏览器中完成，不上传任何文件。",
+      "description": "在浏览器内压缩JPG、PNG和WebP。选择压缩强度及可选的每文件KB上限，比较实际结果大小。目标不保证达到，不上传图片。",
       "buttonText": "选择图片",
       "runText": "压缩",
       "resultName": "压缩图片",
@@ -76,25 +126,50 @@
       "noteKeptAll": "原图已经更小，保持原样。",
       "errorTooBig": "图片太大，无法处理（超过 16384 像素）。",
       "options": {
-        "level": { "label": "压缩强度", "help": "中等适合网页照片。高压缩文件最小，并把长边限制为 1600 像素。", "choices": { "low": "低", "medium": "中", "high": "高" } },
-        "format": { "label": "输出格式", "help": "保持格式沿用原格式。没有透明的 PNG 会转为 JPG。", "choices": { "keep": "保持格式", "jpg": "JPG", "webp": "WebP" } }
+        "level": {
+          "label": "压缩强度",
+          "help": "中等适合网页照片。高压缩文件最小，并把长边限制为 1600 像素。",
+          "choices": {
+            "low": "低",
+            "medium": "中",
+            "high": "高"
+          }
+        },
+        "format": {
+          "label": "输出格式",
+          "help": "保持格式沿用原格式。没有透明的 PNG 会转为 JPG。",
+          "choices": {
+            "keep": "保持格式",
+            "jpg": "JPG",
+            "webp": "WebP"
+          }
+        },
+        "maxKb": {
+          "label": "每张图片大小上限",
+          "help": "0 = 关闭 · 1 KB = 1024 B。超限文件会标明。"
+        }
       },
       "faq": [
         [
           "画质会变差吗？",
-          "低和中在屏幕上几乎看不出差别。高会明显降低画质，但文件最小。透明 PNG 保持 PNG，只缩小尺寸。"
+          "画质和大小取决于图片、压缩强度和格式。设置KB目标会尝试进一步降低JPG/WebP画质，但不保证达标。选择保持格式可保留透明PNG；JPG会将透明部分填为白色。"
         ],
         [
           "我的图片会被上传吗？",
           "不会。每张图片都在您的设备上由浏览器压缩，不会发送到任何服务器。"
         ]
-      ]
+      ],
+      "targetLimit": "每个文件上限：{kb} KB（{limit} B）。",
+      "targetExceeded": "超出上限：{n}/{total}个",
+      "downloadTargetOver": "仍要下载",
+      "needsRerun": "设置已更改，请重新运行。",
+      "errorTarget": "请输入0或有效的正数KB上限。"
     },
     "ja": {
       "title": "画像圧縮 – JPG・PNG・WebP の容量を無料オンラインで削減",
       "h1": "画像圧縮",
       "line": "JPG・PNG・WebPを軽く",
-      "description": "無料で画像を圧縮。JPG・PNG・WebPを追加して圧縮の強さを選ぶだけで、見た目はそのままに容量を減らしてダウンロード。ブラウザ内で処理するためファイルはアップロードされません。",
+      "description": "ブラウザー内でJPG・PNG・WebPを圧縮。圧縮の強さと任意のファイルごとのKB上限を選び、実際の容量を比較できます。目標を達成できない場合もあります。画像は送信しません。",
       "buttonText": "画像を選択",
       "runText": "圧縮する",
       "resultName": "画像圧縮",
@@ -103,25 +178,50 @@
       "noteKeptAll": "元の画像の方が小さいためそのままにしました。",
       "errorTooBig": "画像が大きすぎて処理できません（16384pxを超えています）。",
       "options": {
-        "level": { "label": "圧縮の強さ", "help": "標準はウェブ用の写真に向いています。強は最も小さくなり、長辺を1600pxに制限します。", "choices": { "low": "弱", "medium": "標準", "high": "強" } },
-        "format": { "label": "保存形式", "help": "形式を維持は元の形式のまま。透明のないPNGはJPGになります。", "choices": { "keep": "形式を維持", "jpg": "JPG", "webp": "WebP" } }
+        "level": {
+          "label": "圧縮の強さ",
+          "help": "標準はウェブ用の写真に向いています。強は最も小さくなり、長辺を1600pxに制限します。",
+          "choices": {
+            "low": "弱",
+            "medium": "標準",
+            "high": "強"
+          }
+        },
+        "format": {
+          "label": "保存形式",
+          "help": "形式を維持は元の形式のまま。透明のないPNGはJPGになります。",
+          "choices": {
+            "keep": "形式を維持",
+            "jpg": "JPG",
+            "webp": "WebP"
+          }
+        },
+        "maxKb": {
+          "label": "画像ごとの容量上限",
+          "help": "0 = 無効 · 1 KB = 1024 B。超過したファイルは表示します。"
+        }
       },
       "faq": [
         [
           "画質は悪くなりますか？",
-          "弱・標準は画面上ではほとんど違いがありません。強は画質が目に見えて下がる代わりに最も小さくなります。透明PNGはPNGのまま、サイズだけ縮小します。"
+          "画質と容量は画像・圧縮の強さ・形式で変わります。KB上限を指定するとJPG/WebPの画質をさらに下げて試みますが、達成は保証しません。形式を維持すると透明PNGを保ちます。JPGは透明部分を白で塗ります。"
         ],
         [
           "画像はアップロードされますか？",
           "いいえ。各画像は端末のブラウザ内で圧縮され、サーバーには送信されません。"
         ]
-      ]
+      ],
+      "targetLimit": "各ファイルの上限：{kb} KB（{limit} B）。",
+      "targetExceeded": "容量超過：{n}/{total}枚",
+      "downloadTargetOver": "超過を含めて保存",
+      "needsRerun": "設定が変わりました。再実行してください。",
+      "errorTarget": "0または有効な正の容量（KB）を入力してください。"
     },
     "es": {
       "title": "Comprimir imagen – Reducir el tamaño de JPG, PNG y WebP gratis online",
       "h1": "Comprimir imagen",
       "line": "JPG, PNG y WebP más ligeros",
-      "description": "Comprime imágenes gratis y online. Añade JPG, PNG o WebP, elige el nivel de compresión y descarga imágenes más pequeñas con el mismo aspecto. Funciona en tu navegador: no se sube nada.",
+      "description": "Comprime JPG, PNG o WebP en tu navegador. Elige el nivel y un límite opcional en KB por archivo, y compara el tamaño real. No se garantiza alcanzar el objetivo; no se suben archivos.",
       "buttonText": "Elegir imágenes",
       "runText": "Comprimir",
       "resultName": "imagenes-comprimidas",
@@ -130,25 +230,50 @@
       "noteKeptAll": "El original ya es más pequeño, así que se dejó como estaba.",
       "errorTooBig": "La imagen es demasiado grande para procesarla (más de 16384 px).",
       "options": {
-        "level": { "label": "Compresión", "help": "Media va bien para fotos web. Alta crea el archivo más pequeño y limita el lado largo a 1600 px.", "choices": { "low": "Baja", "medium": "Media", "high": "Alta" } },
-        "format": { "label": "Formato de salida", "help": "Mantener usa el formato original. Los PNG sin transparencia pasan a JPG.", "choices": { "keep": "Mantener formato", "jpg": "JPG", "webp": "WebP" } }
+        "level": {
+          "label": "Compresión",
+          "help": "Media va bien para fotos web. Alta crea el archivo más pequeño y limita el lado largo a 1600 px.",
+          "choices": {
+            "low": "Baja",
+            "medium": "Media",
+            "high": "Alta"
+          }
+        },
+        "format": {
+          "label": "Formato de salida",
+          "help": "Mantener usa el formato original. Los PNG sin transparencia pasan a JPG.",
+          "choices": {
+            "keep": "Mantener formato",
+            "jpg": "JPG",
+            "webp": "WebP"
+          }
+        },
+        "maxKb": {
+          "label": "Tamaño máximo por imagen",
+          "help": "0 = desactivado · 1 KB = 1024 B. Se indica si se supera."
+        }
       },
       "faq": [
         [
           "¿Se verá peor la imagen?",
-          "Baja y media mantienen las fotos iguales en pantalla. Alta baja la calidad de forma visible pero da el archivo más pequeño. Los PNG transparentes siguen siendo PNG y solo se reducen."
+          "La calidad y el tamaño dependen de la imagen, el nivel y el formato. Un objetivo en KB puede reducir más la calidad JPG/WebP, sin garantía de cumplirlo. Mantener conserva PNG transparentes; JPG rellena la transparencia de blanco."
         ],
         [
           "¿Se suben mis imágenes?",
           "No. Cada imagen se comprime en tu dispositivo con tu navegador y nunca se envía a un servidor."
         ]
-      ]
+      ],
+      "targetLimit": "Por archivo: ≤{kb} KB ({limit} B).",
+      "targetExceeded": "Exceden el límite: {n}/{total}",
+      "downloadTargetOver": "Descargar igual",
+      "needsRerun": "Ajustes cambiados. Vuelve a ejecutar.",
+      "errorTarget": "Introduce 0 o un objetivo positivo válido en KB."
     },
     "pt": {
       "title": "Comprimir imagem – Reduzir o tamanho de JPG, PNG e WebP grátis online",
       "h1": "Comprimir imagem",
       "line": "JPG, PNG e WebP mais leves",
-      "description": "Comprima imagens grátis e online. Adicione JPG, PNG ou WebP, escolha o nível de compressão e baixe imagens menores com a mesma aparência. Funciona no navegador: nada é enviado.",
+      "description": "Comprima JPG, PNG ou WebP no navegador. Escolha o nível e um limite opcional em KB por arquivo, depois compare o tamanho real. O alvo pode não ser atingido; nenhum arquivo é enviado.",
       "buttonText": "Escolher imagens",
       "runText": "Comprimir",
       "resultName": "imagens-comprimidas",
@@ -157,25 +282,50 @@
       "noteKeptAll": "O original já é menor, então foi mantido como estava.",
       "errorTooBig": "A imagem é grande demais para processar (mais de 16384 px).",
       "options": {
-        "level": { "label": "Compressão", "help": "Média serve para fotos na web. Alta gera o menor arquivo e limita o lado maior a 1600 px.", "choices": { "low": "Baixa", "medium": "Média", "high": "Alta" } },
-        "format": { "label": "Formato de saída", "help": "Manter usa o formato original. PNG sem transparência vira JPG.", "choices": { "keep": "Manter formato", "jpg": "JPG", "webp": "WebP" } }
+        "level": {
+          "label": "Compressão",
+          "help": "Média serve para fotos na web. Alta gera o menor arquivo e limita o lado maior a 1600 px.",
+          "choices": {
+            "low": "Baixa",
+            "medium": "Média",
+            "high": "Alta"
+          }
+        },
+        "format": {
+          "label": "Formato de saída",
+          "help": "Manter usa o formato original. PNG sem transparência vira JPG.",
+          "choices": {
+            "keep": "Manter formato",
+            "jpg": "JPG",
+            "webp": "WebP"
+          }
+        },
+        "maxKb": {
+          "label": "Tamanho máximo por imagem",
+          "help": "0 = desativado · 1 KB = 1024 B. Excedentes são indicados."
+        }
       },
       "faq": [
         [
           "A imagem vai ficar pior?",
-          "Baixa e média mantêm as fotos iguais na tela. Alta reduz a qualidade de forma visível, mas gera o menor arquivo. PNG transparentes continuam PNG e só são reduzidos."
+          "A qualidade e o tamanho dependem da imagem, nível e formato. Um alvo em KB pode reduzir mais a qualidade JPG/WebP, sem garantia de atingir o limite. Manter preserva PNG transparente; JPG preenche a transparência com branco."
         ],
         [
           "Minhas imagens são enviadas?",
           "Não. Cada imagem é comprimida no seu dispositivo pelo navegador e nunca vai para um servidor."
         ]
-      ]
+      ],
+      "targetLimit": "Por arquivo: ≤{kb} KB ({limit} B).",
+      "targetExceeded": "Acima do limite: {n}/{total}",
+      "downloadTargetOver": "Baixar mesmo assim",
+      "needsRerun": "Configurações alteradas. Execute novamente.",
+      "errorTarget": "Digite 0 ou um alvo positivo válido em KB."
     },
     "de": {
       "title": "Bild komprimieren – JPG, PNG, WebP online kostenlos verkleinern",
       "h1": "Bild komprimieren",
       "line": "Kleinere JPG-, PNG- und WebP-Dateien",
-      "description": "Bilder kostenlos online komprimieren. JPG, PNG oder WebP hinzufügen, Stufe wählen und kleinere Bilder mit gleichem Aussehen herunterladen. Läuft im Browser – nichts wird hochgeladen.",
+      "description": "JPG, PNG oder WebP im Browser komprimieren. Stufe und optionales KB-Ziel pro Datei wählen und die tatsächliche Größe vergleichen. Das Ziel wird nicht garantiert; kein Datei-Upload.",
       "buttonText": "Bilder wählen",
       "runText": "Komprimieren",
       "resultName": "komprimierte-bilder",
@@ -184,25 +334,50 @@
       "noteKeptAll": "Das Original ist bereits kleiner und wurde so gelassen.",
       "errorTooBig": "Dieses Bild ist zu groß (über 16384 px).",
       "options": {
-        "level": { "label": "Komprimierung", "help": "Mittel passt für Fotos im Web. Stark ergibt die kleinste Datei und begrenzt die lange Seite auf 1600 px.", "choices": { "low": "Leicht", "medium": "Mittel", "high": "Stark" } },
-        "format": { "label": "Ausgabeformat", "help": "Beibehalten nutzt das Originalformat. PNG ohne Transparenz wird zu JPG.", "choices": { "keep": "Format beibehalten", "jpg": "JPG", "webp": "WebP" } }
+        "level": {
+          "label": "Komprimierung",
+          "help": "Mittel passt für Fotos im Web. Stark ergibt die kleinste Datei und begrenzt die lange Seite auf 1600 px.",
+          "choices": {
+            "low": "Leicht",
+            "medium": "Mittel",
+            "high": "Stark"
+          }
+        },
+        "format": {
+          "label": "Ausgabeformat",
+          "help": "Beibehalten nutzt das Originalformat. PNG ohne Transparenz wird zu JPG.",
+          "choices": {
+            "keep": "Format beibehalten",
+            "jpg": "JPG",
+            "webp": "WebP"
+          }
+        },
+        "maxKb": {
+          "label": "Maximale Größe pro Bild",
+          "help": "0 = aus · 1 KB = 1024 B. Überschreitungen werden angezeigt."
+        }
       },
       "faq": [
         [
           "Sieht das Bild schlechter aus?",
-          "Leicht und Mittel lassen Fotos am Bildschirm gleich aussehen. Stark senkt die Qualität sichtbar, liefert aber die kleinste Datei. Transparente PNG bleiben PNG und werden nur verkleinert."
+          "Qualität und Größe hängen von Bild, Stufe und Format ab. Ein KB-Ziel kann die JPG/WebP-Qualität weiter senken, wird aber nicht garantiert. Beibehalten erhält transparente PNG; JPG füllt Transparenz weiß."
         ],
         [
           "Werden meine Bilder hochgeladen?",
           "Nein. Jedes Bild wird auf deinem Gerät im Browser komprimiert und nie an einen Server gesendet."
         ]
-      ]
+      ],
+      "targetLimit": "Pro Datei: ≤{kb} KB ({limit} B).",
+      "targetExceeded": "Über dem Limit: {n}/{total}",
+      "downloadTargetOver": "Trotzdem laden",
+      "needsRerun": "Einstellungen geändert. Erneut ausführen.",
+      "errorTarget": "0 oder ein gültiges positives KB-Ziel eingeben."
     },
     "fr": {
       "title": "Compresser une image – Réduire le poids des JPG, PNG, WebP gratuitement",
       "h1": "Compresser une image",
       "line": "Des JPG, PNG et WebP plus légers",
-      "description": "Compressez vos images gratuitement en ligne. Ajoutez des JPG, PNG ou WebP, choisissez le niveau de compression et téléchargez des images plus légères au même rendu. Tout se passe dans votre navigateur, rien n'est envoyé.",
+      "description": "Compressez JPG, PNG ou WebP dans le navigateur. Choisissez le niveau et une limite facultative en Ko par fichier, puis comparez la taille réelle. L’objectif n’est pas garanti ; aucun fichier n’est envoyé.",
       "buttonText": "Choisir images",
       "runText": "Compresser",
       "resultName": "images-compressees",
@@ -211,19 +386,44 @@
       "noteKeptAll": "L'original est déjà plus léger, il a été laissé tel quel.",
       "errorTooBig": "Cette image est trop grande pour être traitée (plus de 16384 px).",
       "options": {
-        "level": { "label": "Compression", "help": "Moyenne convient aux photos pour le web. Forte donne le fichier le plus léger et limite le grand côté à 1600 px.", "choices": { "low": "Légère", "medium": "Moyenne", "high": "Forte" } },
-        "format": { "label": "Format de sortie", "help": "Conserver garde le format d'origine. Un PNG sans transparence devient un JPG.", "choices": { "keep": "Conserver le format", "jpg": "JPG", "webp": "WebP" } }
+        "level": {
+          "label": "Compression",
+          "help": "Moyenne convient aux photos pour le web. Forte donne le fichier le plus léger et limite le grand côté à 1600 px.",
+          "choices": {
+            "low": "Légère",
+            "medium": "Moyenne",
+            "high": "Forte"
+          }
+        },
+        "format": {
+          "label": "Format de sortie",
+          "help": "Conserver garde le format d'origine. Un PNG sans transparence devient un JPG.",
+          "choices": {
+            "keep": "Conserver le format",
+            "jpg": "JPG",
+            "webp": "WebP"
+          }
+        },
+        "maxKb": {
+          "label": "Taille maximale par image",
+          "help": "0 = désactivé · 1 Ko = 1024 octets. Les dépassements sont signalés."
+        }
       },
       "faq": [
         [
           "L'image sera-t-elle moins belle ?",
-          "Légère et moyenne gardent le même rendu à l'écran. Forte baisse visiblement la qualité mais donne le fichier le plus léger. Les PNG transparents restent en PNG et sont seulement réduits."
+          "La qualité et la taille dépendent de l’image, du niveau et du format. Une cible en Ko peut réduire davantage la qualité JPG/WebP, sans garantie. Conserver préserve les PNG transparents ; JPG remplit la transparence en blanc."
         ],
         [
           "Mes images sont-elles envoyées ?",
           "Non. Chaque image est compressée sur votre appareil par le navigateur et ne part jamais vers un serveur."
         ]
-      ]
+      ],
+      "targetLimit": "Par fichier : ≤{kb} Ko ({limit} octets).",
+      "targetExceeded": "Limite dépassée : {n}/{total}",
+      "downloadTargetOver": "Télécharger quand même",
+      "needsRerun": "Réglages modifiés. Relancez le traitement.",
+      "errorTarget": "Saisissez 0 ou une cible positive valide en Ko."
     }
   }
 }
