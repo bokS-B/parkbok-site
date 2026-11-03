@@ -16,11 +16,14 @@
       "about": "About",
       "privacy": "Privacy",
       "terms": "Terms",
-      "guide": "Guides"
+      "guide": "Guides",
+      "contact": "Contact"
     },
     "language": "Language",
     "footMenu": "Footer menu",
-    "theme": "Light / dark"
+    "theme": "Light / dark",
+    "home": "Home",
+    "breadcrumb": "Breadcrumb"
   },
   "ko": {
     "brand": "parkbok",
@@ -39,11 +42,14 @@
       "about": "소개",
       "privacy": "개인정보처리방침",
       "terms": "이용약관",
-      "guide": "가이드"
+      "guide": "가이드",
+      "contact": "문의"
     },
     "language": "언어",
     "footMenu": "바닥글 메뉴",
-    "theme": "라이트 / 다크"
+    "theme": "라이트 / 다크",
+    "home": "홈",
+    "breadcrumb": "현재 위치"
   },
   "zh": {
     "brand": "parkbok",
@@ -62,11 +68,14 @@
       "about": "关于",
       "privacy": "隐私政策",
       "terms": "使用条款",
-      "guide": "指南"
+      "guide": "指南",
+      "contact": "联系我们"
     },
     "language": "语言",
     "footMenu": "页脚菜单",
-    "theme": "浅色 / 深色"
+    "theme": "浅色 / 深色",
+    "home": "首页",
+    "breadcrumb": "导航路径"
   },
   "ja": {
     "brand": "parkbok",
@@ -85,11 +94,14 @@
       "about": "サイトについて",
       "privacy": "プライバシー",
       "terms": "利用規約",
-      "guide": "ガイド"
+      "guide": "ガイド",
+      "contact": "お問い合わせ"
     },
     "language": "言語",
     "footMenu": "フッターメニュー",
-    "theme": "ライト / ダーク"
+    "theme": "ライト / ダーク",
+    "home": "ホーム",
+    "breadcrumb": "パンくずリスト"
   },
   "es": {
     "brand": "parkbok",
@@ -108,11 +120,14 @@
       "about": "Acerca de",
       "privacy": "Privacidad",
       "terms": "Términos",
-      "guide": "Guías"
+      "guide": "Guías",
+      "contact": "Contacto"
     },
     "language": "Idioma",
     "footMenu": "Menú del pie",
-    "theme": "Claro / oscuro"
+    "theme": "Claro / oscuro",
+    "home": "Inicio",
+    "breadcrumb": "Ruta de navegación"
   },
   "pt": {
     "brand": "parkbok",
@@ -131,11 +146,14 @@
       "about": "Sobre",
       "privacy": "Privacidade",
       "terms": "Termos",
-      "guide": "Guias"
+      "guide": "Guias",
+      "contact": "Contato"
     },
     "language": "Idioma",
     "footMenu": "Menu do rodapé",
-    "theme": "Claro / escuro"
+    "theme": "Claro / escuro",
+    "home": "Início",
+    "breadcrumb": "Trilha de navegação"
   },
   "de": {
     "brand": "parkbok",
@@ -154,11 +172,14 @@
       "about": "Über",
       "privacy": "Datenschutz",
       "terms": "Nutzungsbedingungen",
-      "guide": "Anleitungen"
+      "guide": "Anleitungen",
+      "contact": "Kontakt"
     },
     "language": "Sprache",
     "footMenu": "Fußzeilenmenü",
-    "theme": "Hell / dunkel"
+    "theme": "Hell / dunkel",
+    "home": "Startseite",
+    "breadcrumb": "Brotkrumen"
   },
   "fr": {
     "brand": "parkbok",
@@ -177,10 +198,13 @@
       "about": "À propos",
       "privacy": "Confidentialité",
       "terms": "Conditions",
-      "guide": "Guides"
+      "guide": "Guides",
+      "contact": "Contact"
     },
     "language": "Langue",
     "footMenu": "Menu de pied de page",
-    "theme": "Clair / sombre"
+    "theme": "Clair / sombre",
+    "home": "Accueil",
+    "breadcrumb": "Fil d'Ariane"
   }
 }

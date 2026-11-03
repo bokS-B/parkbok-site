@@ -41,12 +41,24 @@ function header({ lang = 'ko', section = '', wheelHome = '/wheel/ko/', pdfHome =
     wheel_home: wheelHome, pdf_home: pdfHome, image_home: imageHome, color_home: colorHome, lang_select: langSelect, subnav, theme: esc(t.theme || 'Theme')
   });
 }
+// 바닥글은 3개 허브(이미지·PDF·색상) + 소개·개인정보·문의만 — 허브는 페이지 언어의 허브로 보낸다
 function footer({ lang = 'ko', extra = '' } = {}){
-  const t = strings(lang);
+  const t = strings(lang), hub = s => sectionHome(s, STR[lang] ? lang : 'en');
   return fill(fragment('footer'), {
-    'foot.about': esc(t.foot.about), 'foot.privacy': esc(t.foot.privacy), 'foot.terms': esc(t.foot.terms), 'foot.guide': esc(t.foot.guide),
+    'foot.about': esc(t.foot.about), 'foot.privacy': esc(t.foot.privacy), 'foot.contact': esc(t.foot.contact || 'Contact'),
+    'nav.image': esc(t.nav.image || 'Image'), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.color': esc(t.nav.color || 'Color'),
+    image_home: hub('image'), pdf_home: hub('pdf'), color_home: hub('color'),
     footMenu: esc(t.footMenu || t.menu), foot_extra: extra
   });
+}
+// 브레드크럼: items = [{name, url}] (마지막 항목은 현재 페이지라 링크 없이). 화면용 <nav> 와 BreadcrumbList JSON-LD 객체를 함께 돌려준다
+function breadcrumb(lang, items){
+  const t = strings(lang), SITE = 'https://parkbok.com';
+  const html = '<nav class="crumbs" aria-label="' + esc(t.breadcrumb || 'Breadcrumb') + '"><ol>' + items.map((it, i) => i === items.length - 1
+    ? '<li aria-current="page">' + esc(it.name) + '</li>'
+    : '<li><a href="' + esc(it.url) + '">' + esc(it.name) + '</a></li>').join('') + '</ol></nav>';
+  const jsonld = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: SITE + it.url })) };
+  return { html, jsonld };
 }
 // 페이지 안의 마커 블록을 새 조각으로 바꾼다 (없으면 fallback 정규식으로 기존 요소를 찾아 바꾸고, 그것도 없으면 그대로)
 function replaceBlock(html, name, replacement, fallbackRe){
@@ -55,4 +67,4 @@ function replaceBlock(html, name, replacement, fallbackRe){
   if (fallbackRe && fallbackRe.test(html)) return html.replace(fallbackRe, () => replacement);
   return html;
 }
-module.exports = { head, header, footer, replaceBlock, strings, esc, sectionHome, langs: Object.keys(STR), ADSENSE, GA, GA_HOSTS, gaId };
+module.exports = { head, header, footer, breadcrumb, replaceBlock, strings, esc, sectionHome, langs: Object.keys(STR), ADSENSE, GA, GA_HOSTS, gaId };

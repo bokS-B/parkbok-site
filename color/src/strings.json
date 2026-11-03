@@ -36,7 +36,9 @@
       "title": "Free Color Tools Online – HEX, RGB, HSL Converter, Palettes, Contrast",
       "h1": "Color tools",
       "line": "HEX, RGB, HSL, palettes and contrast – free, in your browser.",
-      "description": "Free online color tools: convert HEX, RGB, HSL, HSV and CMYK, find CSS color names, build tints, shades and harmonies, and check text contrast. Everything runs in your browser – no upload, no sign-up."
+      "description": "Free online color tools: convert HEX, RGB, HSL, HSV and CMYK, find CSS color names, build tints, shades and harmonies, and check text contrast. Everything runs in your browser – no upload, no sign-up.",
+      "colorsTitle": "Popular colors",
+      "colorsLine": "HEX, RGB, CMYK, matching palettes and usage notes for each color."
     },
     "aboutTitle": "How it works",
     "aboutLine": "Everything is calculated in your browser. Nothing is sent to a server.",
@@ -79,7 +81,9 @@
       "title": "무료 색상 도구 – HEX RGB HSL 변환, 팔레트, 대비 검사",
       "h1": "색상 도구",
       "line": "색 코드 변환, 사진 색 추출, 배색·그라데이션·대비 검사를 설치 없이 하세요.",
-      "description": "무료 색상 도구 5종. HEX·RGB·HSL 변환, 사진 색 추출, 랜덤 생성을 포함한 색 조합, CSS 그라데이션, 글자 대비 검사. 설치 없이 브라우저에서 처리됩니다."
+      "description": "무료 색상 도구 5종. HEX·RGB·HSL 변환, 사진 색 추출, 랜덤 생성을 포함한 색 조합, CSS 그라데이션, 글자 대비 검사. 설치 없이 브라우저에서 처리됩니다.",
+      "colorsTitle": "인기 색상",
+      "colorsLine": "색상별 HEX·RGB·CMYK 값, 어울리는 팔레트, 활용 메모 (영어 페이지)"
     },
     "aboutTitle": "어떻게 동작하나요",
     "aboutLine": "모든 계산은 브라우저 안에서 이루어지며 서버로 아무것도 보내지 않습니다.",
@@ -122,7 +126,9 @@
       "title": "免费在线颜色工具 – HEX RGB HSL 转换、配色、对比度",
       "h1": "颜色工具",
       "line": "HEX、RGB、HSL 转换、配色与对比度，在浏览器中免费使用。",
-      "description": "免费在线颜色工具：HEX、RGB、HSL、HSV、CMYK 互转，查找 CSS 颜色名称，生成明暗层次与配色方案，检查文字对比度。全部在浏览器中完成，无需上传或注册。"
+      "description": "免费在线颜色工具：HEX、RGB、HSL、HSV、CMYK 互转，查找 CSS 颜色名称，生成明暗层次与配色方案，检查文字对比度。全部在浏览器中完成，无需上传或注册。",
+      "colorsTitle": "热门颜色",
+      "colorsLine": "每种颜色的 HEX、RGB、CMYK 值、搭配色板和用法说明（英文页面）"
     },
     "aboutTitle": "工作原理",
     "aboutLine": "所有计算都在您的浏览器中完成，不会向服务器发送任何内容。",
@@ -165,7 +171,9 @@
       "title": "無料カラーツール – HEX RGB HSL 変換・配色・コントラスト",
       "h1": "カラーツール",
       "line": "HEX・RGB・HSL 変換、配色、コントラストをブラウザで無料で。",
-      "description": "無料のオンラインカラーツール。HEX・RGB・HSL・HSV・CMYK の相互変換、CSS 色名の検索、明暗の段階や配色の作成、文字コントラストの確認。すべてブラウザ内で処理され、アップロードも登録も不要です。"
+      "description": "無料のオンラインカラーツール。HEX・RGB・HSL・HSV・CMYK の相互変換、CSS 色名の検索、明暗の段階や配色の作成、文字コントラストの確認。すべてブラウザ内で処理され、アップロードも登録も不要です。",
+      "colorsTitle": "人気の色",
+      "colorsLine": "各色の HEX・RGB・CMYK 値、合う配色、使い方のメモ（英語ページ）"
     },
     "aboutTitle": "仕組み",
     "aboutLine": "すべての計算はブラウザ内で行われ、サーバーには何も送信されません。",
@@ -208,7 +216,9 @@
       "title": "Herramientas de color gratis – Convertir HEX RGB HSL, paletas, contraste",
       "h1": "Herramientas de color",
       "line": "HEX, RGB, HSL, paletas y contraste: gratis, en tu navegador.",
-      "description": "Herramientas de color online gratis: convierte HEX, RGB, HSL, HSV y CMYK, busca nombres de color CSS, crea tintes, sombras y armonías y comprueba el contraste del texto. Todo en tu navegador, sin subir nada ni registrarte."
+      "description": "Herramientas de color online gratis: convierte HEX, RGB, HSL, HSV y CMYK, busca nombres de color CSS, crea tintes, sombras y armonías y comprueba el contraste del texto. Todo en tu navegador, sin subir nada ni registrarte.",
+      "colorsTitle": "Colores populares",
+      "colorsLine": "HEX, RGB, CMYK, paletas que combinan y notas de uso de cada color (en inglés)."
     },
     "aboutTitle": "Cómo funciona",
     "aboutLine": "Todo se calcula en tu navegador. No se envía nada a ningún servidor.",
@@ -251,7 +261,9 @@
       "title": "Ferramentas de cor grátis – Converter HEX RGB HSL, paletas, contraste",
       "h1": "Ferramentas de cor",
       "line": "HEX, RGB, HSL, paletas e contraste: grátis, no seu navegador.",
-      "description": "Ferramentas de cor online grátis: converta HEX, RGB, HSL, HSV e CMYK, encontre nomes de cor CSS, crie tons claros, escuros e harmonias e verifique o contraste do texto. Tudo no navegador, sem envio nem cadastro."
+      "description": "Ferramentas de cor online grátis: converta HEX, RGB, HSL, HSV e CMYK, encontre nomes de cor CSS, crie tons claros, escuros e harmonias e verifique o contraste do texto. Tudo no navegador, sem envio nem cadastro.",
+      "colorsTitle": "Cores populares",
+      "colorsLine": "HEX, RGB, CMYK, paletas que combinam e notas de uso de cada cor (em inglês)."
     },
     "aboutTitle": "Como funciona",
     "aboutLine": "Tudo é calculado no seu navegador. Nada é enviado a um servidor.",
@@ -294,7 +306,9 @@
       "title": "Kostenlose Farb-Werkzeuge – HEX RGB HSL umrechnen, Paletten, Kontrast",
       "h1": "Farb-Werkzeuge",
       "line": "HEX, RGB, HSL, Paletten und Kontrast – kostenlos im Browser.",
-      "description": "Kostenlose Online-Farbwerkzeuge: HEX, RGB, HSL, HSV und CMYK umrechnen, CSS-Farbnamen finden, Aufhellungen, Abdunklungen und Harmonien erstellen und den Textkontrast prüfen. Alles läuft im Browser – kein Upload, keine Anmeldung."
+      "description": "Kostenlose Online-Farbwerkzeuge: HEX, RGB, HSL, HSV und CMYK umrechnen, CSS-Farbnamen finden, Aufhellungen, Abdunklungen und Harmonien erstellen und den Textkontrast prüfen. Alles läuft im Browser – kein Upload, keine Anmeldung.",
+      "colorsTitle": "Beliebte Farben",
+      "colorsLine": "HEX, RGB, CMYK, passende Paletten und Hinweise zur Verwendung jeder Farbe (auf Englisch)."
     },
     "aboutTitle": "So funktioniert es",
     "aboutLine": "Alles wird in deinem Browser berechnet. Nichts wird an einen Server gesendet.",
@@ -337,7 +351,9 @@
       "title": "Outils couleur gratuits – Convertir HEX RGB HSL, palettes, contraste",
       "h1": "Outils couleur",
       "line": "HEX, RGB, HSL, palettes et contraste : gratuit, dans votre navigateur.",
-      "description": "Outils couleur en ligne gratuits : convertissez HEX, RGB, HSL, HSV et CMYK, trouvez les noms de couleur CSS, créez des teintes, des ombres et des harmonies et vérifiez le contraste du texte. Tout se passe dans votre navigateur, sans envoi ni inscription."
+      "description": "Outils couleur en ligne gratuits : convertissez HEX, RGB, HSL, HSV et CMYK, trouvez les noms de couleur CSS, créez des teintes, des ombres et des harmonies et vérifiez le contraste du texte. Tout se passe dans votre navigateur, sans envoi ni inscription.",
+      "colorsTitle": "Couleurs populaires",
+      "colorsLine": "HEX, RGB, CMJN, palettes assorties et conseils d’usage pour chaque couleur (en anglais)."
     },
     "aboutTitle": "Comment ça marche",
     "aboutLine": "Tout est calculé dans votre navigateur. Rien n'est envoyé à un serveur.",

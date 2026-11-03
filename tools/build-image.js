@@ -70,9 +70,10 @@ let count = 0;
 for (const lang of langs) {
   const H = S[lang].hub, canonical = SITE + url(lang, '');
   const cards = tools.map(tl => { const T = tstr(tl, lang); return `<a class="card" href="${url(lang, tl.id)}"><span class="card-icon">${icon(tl)}</span><h3>${esc(T.h1)}</h3><p>${esc(T.line)}</p></a>`; }).join('');
+  const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: H.h1, url: url(lang, '') }]);
   const jsonld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: H.h1, url: canonical, inLanguage: HREFLANG[lang] || lang, description: H.description,
-    hasPart: tools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }];
-  const vars = { lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(H.title), description: esc(H.description), canonical, hreflangs: hreflangs(''),
+    hasPart: tools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }, crumbs.jsonld];
+  const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(H.title), description: esc(H.description), canonical, hreflangs: hreflangs(''),
     h1: esc(H.h1), line: esc(H.line), cards, aboutTitle: esc(S[lang].aboutTitle), aboutLine: esc(S[lang].aboutLine), css, jsonld: safeJson(jsonld),
     strings: safeJson(common(lang)), tool: safeJson({ id: 'hub', lang, langUrls: langUrls(''), strings: {}, next: [] }) };
   urls.push(finish(hubTpl, lang, '', vars)); count++;
@@ -81,27 +82,24 @@ for (const lang of langs) {
 for (const tl of tools) for (const lang of langs) {
   const T = tstr(tl, lang), C = S[lang], canonical = SITE + url(lang, tl.id);
   let nextIds = (tl.next || []).filter(n => byId[n] && n !== tl.id);
-  if (nextIds.length < 3) for (const o of tools) { if (nextIds.length >= 3) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
+  if (nextIds.length < 5) for (const o of tools) { if (nextIds.length >= 5) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
+  nextIds = nextIds.slice(0, 6);
   const next = nextIds.map(n => ({ id: n, url: url(lang, n), h1: tstr(byId[n], lang).h1 }));
   const nextChips = next.map(n => `<a class="chip" href="${n.url}">${esc(n.h1)}</a>`).join('');
   const faqArr = T.faq || [];
   const faq = faqArr.map(q => `<dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd>`).join('');
+  const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: S[lang].hub.h1, url: url(lang, '') }, { name: T.h1, url: url(lang, tl.id) }]);
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name: T.h1, url: canonical, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: HREFLANG[lang] || lang, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: T.description }
   ];
+  jsonld.push(crumbs.jsonld);
   if (faqArr.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqArr.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) });
-  const vars = { lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
+  const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
     h1: esc(T.h1), line: esc(T.line), buttonText: esc(T.buttonText || C.selectImages), dropText: esc(C.dropText), addMore: esc(C.addMore), startOver: esc(C.startOver), runText: esc(T.runText || C.done),
     nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq, css, jsonld: safeJson(jsonld), toolId: tl.id,
     strings: safeJson(common(lang)), tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;
 }
 
-// 사이트맵 갱신 (<!-- image:start --> … <!-- image:end --> 사이만)
-const smPath = path.join(root, 'sitemap.xml');
-let sm = fs.readFileSync(smPath, 'utf8');
-const block = '<!-- image:start -->\n' + urls.map(u => `  <url><loc>${u}</loc></url>`).join('\n') + '\n  <!-- image:end -->';
-if (/<!-- image:start -->[\s\S]*?<!-- image:end -->/.test(sm)) sm = sm.replace(/<!-- image:start -->[\s\S]*?<!-- image:end -->/, () => block);
-else sm = sm.replace(/<\/urlset>/, '  ' + block + '\n</urlset>');
-fs.writeFileSync(smPath, sm, 'utf8');
-console.log('image pages:', count, '| tools:', tools.map(t => t.id).join(',') || '(없음)', '| languages:', langs.join(','), '| sitemap urls:', urls.length);
+// 사이트맵은 tools/build-sitemaps.js 가 생성된 HTML 을 훑어 만든다(색인 가능·자기 canonical 페이지만)
+console.log('image pages:', count, '| tools:', tools.map(t => t.id).join(',') || '(없음)', '| languages:', langs.join(','), '| indexable urls:', urls.length);

@@ -72,16 +72,23 @@ function finish(html, lang, id, vars){
 const toolTpl = tpl.replace(/<!-- hub:start -->[\s\S]*?<!-- hub:end -->\n?/, '').replace(/<!-- tool:start -->\n?|<!-- tool:end -->\n?/g, '');
 const hubTpl = tpl.replace(/<!-- tool:start -->[\s\S]*?<!-- tool:end -->\n?/, '').replace(/<!-- hub:start -->\n?|<!-- hub:end -->\n?/g, '');
 
+// 허브의 인기 색상: 색인 대상(큐레이션) HEX 페이지만 링크한다 — noindex 인 나머지 4천여 색은 허브에서 링크하지 않는다
+const CURATED = JSON.parse(fs.readFileSync(path.join(src, 'curated-colors.json'), 'utf8')).colors;
+function colorsBlock(H){
+  const sw = c => `<a href="/color/hex/${c.hex.slice(1)}/"><i style="background:${c.hex}"></i>${esc(c.name)}</a>`;
+  return `  <section class="popular-colors"><h2>${esc(H.colorsTitle)}</h2><p class="muted">${esc(H.colorsLine)}</p><nav class="swatches" aria-label="${esc(H.colorsTitle)}">${CURATED.map(sw).join('')}</nav></section>`;
+}
 const urls = [];
 let count = 0;
 // 허브
 for (const lang of langs) {
   const H = S[lang].hub, canonical = SITE + url(lang, '');
   const cards = activeTools.map(tl => { const T = tstr(tl, lang); return `<a class="card" href="${url(lang, tl.id)}"><span class="card-icon">${icon(tl)}</span><h3>${esc(T.h1)}</h3><p>${esc(T.line)}</p></a>`; }).join('');
+  const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: H.h1, url: url(lang, '') }]);
   const jsonld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: H.h1, url: canonical, inLanguage: HREFLANG[lang] || lang, description: H.description,
-    hasPart: activeTools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }];
-  const vars = { lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(H.title), description: esc(H.description), canonical, hreflangs: hreflangs(''),
-    h1: esc(H.h1), line: esc(H.line), cards, aboutTitle: esc(S[lang].aboutTitle), aboutLine: esc(S[lang].aboutLine), css, jsonld: safeJson(jsonld),
+    hasPart: activeTools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }, crumbs.jsonld];
+  const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(H.title), description: esc(H.description), canonical, hreflangs: hreflangs(''),
+    h1: esc(H.h1), line: esc(H.line), cards, colors: colorsBlock(H), aboutTitle: esc(S[lang].aboutTitle), aboutLine: esc(S[lang].aboutLine), css, jsonld: safeJson(jsonld),
     strings: safeJson(common(lang)), tool: safeJson({ id: 'hub', lang, langUrls: langUrls(''), strings: {}, next: [] }) };
   urls.push(finish(hubTpl, lang, '', vars)); count++;
 }
@@ -93,32 +100,29 @@ for (const tl of tools) for (const lang of langs) {
     const T = tstr(target, lang), destination = url(lang, target.id), canonical = SITE + destination;
     const redirect = '<meta name="robots" content="noindex,follow">\n<script>location.replace(' + safeJson(destination) + '+location.search+location.hash)</script>';
     const alias = toolTpl.replace('</head>', redirect + '\n</head>').replace('<section class="tool" id="app"></section>', '<section class="tool" id="app"><a class="btn" href="' + destination + '">' + esc(T.h1) + '</a></section>');
-    finish(alias, lang, tl.id, { lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(target.id), h1: esc(T.h1), line: esc(T.line), nextTools: esc(S[lang].nextTools), nextChips: '', about: '', css, jsonld: '[]', toolId: tl.id, toolAssets: '', strings: safeJson(common(lang)), tool: safeJson({id: tl.id, lang, langUrls: langUrls(tl.id), strings: {}, next: []}) });
+    finish(alias, lang, tl.id, { crumbs: '', colors: '', lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(target.id), h1: esc(T.h1), line: esc(T.line), nextTools: esc(S[lang].nextTools), nextChips: '', about: '', css, jsonld: '[]', toolId: tl.id, toolAssets: '', strings: safeJson(common(lang)), tool: safeJson({id: tl.id, lang, langUrls: langUrls(tl.id), strings: {}, next: []}) });
     count++; continue; // Preserve old URLs; only the destination belongs in the sitemap.
   }
   const T = tstr(tl, lang), C = S[lang], canonical = SITE + url(lang, tl.id);
   let nextIds = (tl.next || []).filter(n => byId[n] && n !== tl.id);
-  if (nextIds.length < 3) for (const o of activeTools) { if (nextIds.length >= 3) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
+  if (nextIds.length < 5) for (const o of activeTools) { if (nextIds.length >= 5) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
+  nextIds = nextIds.slice(0, 6);
   const next = nextIds.map(n => ({ id: n, url: url(lang, n), h1: tstr(byId[n], lang).h1 }));
   const nextChips = next.map(n => `<a class="chip" href="${n.url}">${esc(n.h1)}</a>`).join('');
   const faqArr = tl.showAbout === false ? [] : (T.faq || []);
   const faq = faqArr.map(q => `<dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd>`).join('');
   const about = tl.showAbout === false ? '' : `  <details class="about">\n    <summary>${esc(C.aboutTitle)}</summary>\n    <p>${esc(C.aboutLine)}</p>\n    <dl class="faq">${faq}</dl>\n  </details>`;
+  const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: S[lang].hub.h1, url: url(lang, '') }, { name: T.h1, url: url(lang, tl.id) }]);
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name: T.h1, url: canonical, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: HREFLANG[lang] || lang, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: T.description }
   ];
+  jsonld.push(crumbs.jsonld);
   if (faqArr.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqArr.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) });
-  const vars = { lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
+  const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
     h1: esc(T.h1), line: esc(T.line), nextTools: esc(C.nextTools), nextChips, about, css, jsonld: safeJson(jsonld), toolId: tl.id,
     strings: safeJson(common(lang)), toolAssets: tl.id === 'palette' ? '<link rel="stylesheet" href="/color/palette-studio.css">\n' + ['palette-data','palette-core','palette-strings','palette-template-style','palette-templates'].map(n => '<script src="/color/'+n+'.js" defer></script>').join('\n')+'\n' : '', tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;
 }
 
-// 사이트맵 갱신 (<!-- color:start --> … <!-- color:end --> 사이만)
-const smPath = path.join(root, 'sitemap.xml');
-let sm = fs.readFileSync(smPath, 'utf8');
-const block = '<!-- color:start -->\n' + urls.map(u => `  <url><loc>${u}</loc></url>`).join('\n') + '\n  <!-- color:end -->';
-if (/<!-- color:start -->[\s\S]*?<!-- color:end -->/.test(sm)) sm = sm.replace(/<!-- color:start -->[\s\S]*?<!-- color:end -->/, () => block);
-else sm = sm.replace(/<\/urlset>/, '  ' + block + '\n</urlset>');
-fs.writeFileSync(smPath, sm, 'utf8');
-console.log('color pages:', count, '| tools:', activeTools.map(t => t.id).join(',') || '(없음)', '| languages:', langs.join(','), '| sitemap urls:', urls.length);
+// 사이트맵은 tools/build-sitemaps.js 가 생성된 HTML 을 훑어 만든다(색인 가능·자기 canonical 페이지만)
+console.log('color pages:', count, '| tools:', activeTools.map(t => t.id).join(',') || '(없음)', '| languages:', langs.join(','), '| indexable urls:', urls.length);

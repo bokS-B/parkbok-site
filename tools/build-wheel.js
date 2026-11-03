@@ -55,11 +55,5 @@ for (const lang of langs) for (const preset of PRESETS) {
   urls.push(canonical); count++;
 }
 
-// 사이트맵 갱신 (<!-- wheel:start --> … <!-- wheel:end --> 사이)
-const smPath = path.join(root, 'sitemap.xml');
-let sm = fs.readFileSync(smPath, 'utf8');
-const block = '<!-- wheel:start -->\n' + urls.map(u => `  <url><loc>${u}</loc></url>`).join('\n') + '\n  <!-- wheel:end -->';
-if (/<!-- wheel:start -->[\s\S]*?<!-- wheel:end -->/.test(sm)) sm = sm.replace(/<!-- wheel:start -->[\s\S]*?<!-- wheel:end -->/, () => block);
-else sm = sm.replace(/<\/urlset>/, '  ' + block + '\n</urlset>');
-fs.writeFileSync(smPath, sm, 'utf8');
-console.log('wheel pages:', count, '| languages:', langs.join(','), '| sitemap urls:', urls.length);
+// 사이트맵은 tools/build-sitemaps.js 가 생성된 HTML 을 훑어 만든다(색인 가능·자기 canonical 페이지만)
+console.log('wheel pages:', count, '| languages:', langs.join(','), '| indexable urls:', urls.length);

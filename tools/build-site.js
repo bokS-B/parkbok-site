@@ -1,5 +1,4 @@
-// 사이트 빌드: 돌림판(wheel/)·PDF(pdf/, 자체 생성기)를 제외한 모든 HTML 페이지에 공통 셸(head-common · header · footer)을 끼우고
-// 사이트맵의 site 블록을 갱신한다. 여러 번 실행해도 결과는 같다(멱등).
+// 사이트 빌드: 돌림판(wheel/)·PDF(pdf/, 자체 생성기)를 제외한 모든 HTML 페이지에 공통 셸(head-common · header · footer)을 끼운다. 여러 번 실행해도 결과는 같다(멱등).
 //   node tools/build-site.js
 // 페이지를 새로 만들 때는 <head> 에 title/description/canonical 만 쓰고, 본문에 <header class="top"> 과 <footer> 를
 // 비워 두거나 넣지 않아도 된다 — 빌드가 마커 자리(또는 </head>·</body> 앞)에 채워 넣는다.
@@ -144,15 +143,5 @@ for (const p of pages) {
   if (s !== before) { fs.writeFileSync(p, s, 'utf8'); changed++; }
 }
 
-// 사이트맵: site 블록(비-룰렛 페이지) 재생성, wheel 블록은 build-wheel.js, pdf 블록은 PDF 생성기가 관리(있으면 보존)
-const toUrl = p => { let rel = path.relative(root, p).split(path.sep).join('/'); rel = rel.replace(/(^|\/)index\.html$/, '$1'); return 'https://parkbok.com/' + rel; };
-const order = u => { const r = u.replace('https://parkbok.com/', ''); const depth = (r.match(/\//g) || []).length; const idx = r === '' || r.endsWith('/') ? 0 : 1; return [depth, idx, r]; };
-const siteUrls = pages.map(toUrl).sort((a, b) => { const x = order(a), y = order(b); return x[0] - y[0] || x[1] - y[1] || (x[2] < y[2] ? -1 : x[2] > y[2] ? 1 : 0); });
-const smPath = path.join(root, 'sitemap.xml');
-let sm = fs.existsSync(smPath) ? fs.readFileSync(smPath, 'utf8') : '';
-// 다른 생성기의 블록(wheel/pdf/image …)은 그대로 보존
-const otherBlocks = ['wheel', 'pdf', 'image', 'color'].map(k => (sm.match(new RegExp('<!-- ' + k + ':start -->[\\s\\S]*?<!-- ' + k + ':end -->')) || [''])[0]).filter(Boolean);
-const siteBlock = '<!-- site:start -->\n' + siteUrls.map(u => `  <url><loc>${u}</loc></url>`).join('\n') + '\n  <!-- site:end -->';
-const out = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  ' + siteBlock + otherBlocks.map(b => '\n  ' + b).join('') + '\n</urlset>\n';
-if (out !== sm) { fs.writeFileSync(smPath, out, 'utf8'); console.log('sitemap updated'); }
-console.log('pages:', pages.length, '| changed:', changed, '| site urls:', siteUrls.length, '| other blocks kept:', otherBlocks.length);
+// 사이트맵은 tools/build-sitemaps.js 가 만든다
+console.log('pages:', pages.length, '| changed:', changed);

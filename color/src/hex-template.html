@@ -5,7 +5,7 @@
 <title>{{title}}</title>
 <meta name="description" content="{{description}}">
 <link rel="canonical" href="{{canonical}}">
-<link rel="icon" href="/favicon.svg">
+{{robots}}<link rel="icon" href="/favicon.svg">
 <meta name="theme-color" content="{{hex}}">
 <script>try{var t=localStorage.pb_theme;t&&document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 {{adsense}}
@@ -15,6 +15,7 @@
 <body>
 {{shell_header}}
 <main class="wrap">
+{{crumbs}}<script type="application/ld+json">{{jsonld}}</script>
 <h1>{{h1}}</h1><p class="lead">{{line}}</p>
 <div class="sw" style="background:{{hex}};color:{{ink}}">{{HEX}}</div>
 {{rows}}
@@ -25,6 +26,7 @@
 <div class="chips">{{harmony}}</div>
 <h2>CSS</h2>
 <div class="v"><pre>{{csscode}}</pre><button aria-label="Copy CSS"></button></div>
+{{about}}
 <p class="actions"><a class="btn" href="/color/converter/#{{hex6}}">Edit color</a></p>
 <div class="ad"></div>
 <h2>More colors</h2>

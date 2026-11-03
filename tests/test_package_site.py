@@ -70,6 +70,13 @@ class PackageTests(unittest.TestCase):
         with (self.root / 'index.html').open('a') as f: f.write('<style>.a{background:url(/missing.png)}</style>')
         with self.assertRaisesRegex(ValueError, 'missing.png'): self.run_package()
 
+    def test_sitemap_index(self):
+        self.write('sitemap-core.xml', (self.root / 'sitemap.xml').read_text())
+        self.write('sitemap.xml', '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://parkbok.com/sitemap-core.xml</loc></sitemap></sitemapindex>')
+        self.assertEqual(self.run_package()['sitemaps'], {'sitemap-core.xml': 1, 'sitemap.xml': 1})
+        self.write('sitemap.xml', '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://parkbok.com/sitemap-missing.xml</loc></sitemap></sitemapindex>')
+        with self.assertRaisesRegex(ValueError, 'Missing child sitemap'): self.run_package()
+
     def test_duplicate_sitemap_rejected(self):
         self.write('sitemap-other.xml', (self.root / 'sitemap.xml').read_text())
         with self.assertRaisesRegex(ValueError, 'Duplicate sitemap'): self.run_package()

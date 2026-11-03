@@ -17,7 +17,10 @@ for (const p of files) {
   if (count(/<style id="site-css">/g) !== 1) fails.push(rel + ': site-css ' + count(/<style id="site-css">/g) + '회');
   if (count(/<!-- shell:header -->/g) !== 1 || count(/<!-- shell:footer -->/g) !== 1 || count(/<!-- shell:head-common -->/g) !== 1) fails.push(rel + ': 셸 마커 누락/중복');
   if (count(/<header /g) !== 1 || count(/<footer/g) !== 1) fails.push(rel + ': header/footer 요소 ' + count(/<header /g) + '/' + count(/<footer/g));
-  for (const l of ['/about.html', '/privacy.html', '/terms.html', '/guide/']) if (!s.includes(`href="${l}"`)) fails.push(rel + ': 푸터 링크 없음 ' + l);
+  const foot = (s.match(/<!-- shell:footer -->[\s\S]*?<!-- \/shell:footer -->/) || [''])[0];
+  // 바닥글 = 허브 3개 + 소개·개인정보·문의, 그 외 링크 없음
+  const footLinks = [...foot.matchAll(/<nav class="foot-links"[\s\S]*?<\/nav>/g)].join('').match(/href="[^"]*"/g) || [];
+  if (footLinks.length !== 6 || !['/about.html', '/privacy.html', '/about.html#contact'].every(l => footLinks.includes(`href="${l}"`)) || !['image', 'pdf', 'color'].every(h => footLinks.some(f => f.startsWith(`href="/${h}/`)))) fails.push(rel + ': 푸터 링크가 허브 3개+소개·개인정보·문의가 아님');
   if (!/<a class="brand" href="\/">/.test(s)) fails.push(rel + ': 브랜드 링크가 / 가 아님');
   const lang = (s.match(/<html lang="([^"]+)"/) || [])[1] || '?';
   const multi = rel.startsWith('wheel/') ? 'wheel' : rel.startsWith('pdf/') ? 'pdf' : rel.startsWith('image/') ? 'image' : rel.startsWith('color/') ? 'color' : '';   // 8개 언어로 생성되는 구역
