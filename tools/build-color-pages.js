@@ -62,7 +62,9 @@ const headerFull = slim(shell.header({ lang: 'en', section: 'color', wheelHome: 
 const headerJs = (headerFull.match(/<script>([\s\S]*?)<\/script>/) || [, ''])[1].trim() + '\n';
 // Analytics now uses the same external, consent-gated loader as every tool page.
 const hexJs = headerJs;
-const header = headerFull.replace(/<script>[\s\S]*?<\/script>/, '<script src="/color/hex/hex.js"></script>');
+// Do not let a cached pre-consent hex.js restart the old, unconditional GA loader.
+const headerVersion = require('node:crypto').createHash('sha256').update(hexJs).digest('hex').slice(0, 8);
+const header = headerFull.replace(/<script>[\s\S]*?<\/script>/, '<script src="/color/hex/hex.js?v=' + headerVersion + '"></script>');
 const footer = slim(shell.footer({ lang: 'en' }));
 
 function page(hex){
