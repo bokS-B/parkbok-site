@@ -3,3 +3,4 @@ node_modules/
 output/
 docs/
 /.hallmark/
+__pycache__/
