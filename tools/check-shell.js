@@ -11,8 +11,9 @@ for (const p of files) {
   const rel = path.relative(root, p).split(path.sep).join('/');
   const s = fs.readFileSync(p, 'utf8');
   const count = re => (s.match(re) || []).length;
-  if (count(/adsbygoogle\.js\?client=ca-pub-1415309581345613/g) !== 1) fails.push(rel + ': 애드센스 로더 ' + count(/adsbygoogle\.js\?client=/g) + '회');
-  if (count(/gtag\/js\?id=G-377MXFWS51/g) !== 1) fails.push(rel + ': GA 로더 ' + count(/gtag\/js\?id=/g) + '회');
+  if (count(/name="google-adsense-account" content="ca-pub-1415309581345613"/g) !== 1) fails.push(rel + ': 애드센스 소유권 메타 누락/중복');
+  if (count(/src="\/assets\/usage-privacy\.js" data-ga="G-377MXFWS51"/g) !== 1) fails.push(rel + ': 동의형 GA 로더 누락/중복');
+  if (/adsbygoogle\.js|googletagmanager\.com/.test(s)) fails.push(rel + ': 동의 전 직접 Google 로더');
   if (count(/<style id="site-css">/g) !== 1) fails.push(rel + ': site-css ' + count(/<style id="site-css">/g) + '회');
   if (count(/<!-- shell:header -->/g) !== 1 || count(/<!-- shell:footer -->/g) !== 1 || count(/<!-- shell:head-common -->/g) !== 1) fails.push(rel + ': 셸 마커 누락/중복');
   if (count(/<header /g) !== 1 || count(/<footer/g) !== 1) fails.push(rel + ': header/footer 요소 ' + count(/<header /g) + '/' + count(/<footer/g));

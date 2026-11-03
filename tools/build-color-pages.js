@@ -60,9 +60,8 @@ const slim = h => h.replace(/<!-- \/?shell:\w+ -->\n?/g, '').replace(/^\/\/[^\n]
 // 헤더의 인라인 스크립트(테마 버튼·모바일 메뉴)는 전 페이지 공유 /color/hex/hex.js 로 빼서 같은 자리에 동기 로드한다 — 인라인 브랜드 마크(약 1KB)가 들어오면서 6KB 를 지키기 위한 조치
 const headerFull = slim(shell.header({ lang: 'en', section: 'color', wheelHome: '/wheel/', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' }));
 const headerJs = (headerFull.match(/<script>([\s\S]*?)<\/script>/) || [, ''])[1].trim() + '\n';
-// GA4 로더(shell.GA, 호스트 allowlist 동적 삽입)도 6144B 를 지키기 위해 hex.js 앞부분에 넣는다 — 인라인이면 페이지당 약 715B. 헤더 스크립트와 같은 자리(헤더 끝)에서 동기 실행되며 로더 자체는 async 이므로 동작은 같다
-const gaJs = (shell.GA.match(/<script>([\s\S]*?)<\/script>/) || [, ''])[1].trim();
-const hexJs = (gaJs ? gaJs + '\n' : '') + headerJs;
+// Analytics now uses the same external, consent-gated loader as every tool page.
+const hexJs = headerJs;
 const header = headerFull.replace(/<script>[\s\S]*?<\/script>/, '<script src="/color/hex/hex.js"></script>');
 const footer = slim(shell.footer({ lang: 'en' }));
 
@@ -85,7 +84,7 @@ function page(hex){
   while (picks.length < 5) { const h = all[Math.floor(r() * all.length)]; if (h !== hex && picks.indexOf(h) < 0) picks.push(h); }
   const vars = { title: esc(title), description: esc(description), canonical: SITE + href(hex), hex, hex6: hex.slice(1), HEX: UP(hex), ink: C.textOn(hex) === '#ffffff' ? '#fff' : '#000',
     h1: UP(hex) + (names.length ? ` <small>(${names.join(' / ')})</small>` : ''), line,
-    rows, contrast, scale, harmony, csscode, random: picks.map(h => cell(h)).join(''), adsense: shell.ADSENSE, ga: '' };   // GA 는 hex.js 로 (위 gaJs)
+    rows, contrast, scale, harmony, csscode, random: picks.map(h => cell(h)).join(''), adsense: shell.ADSENSE, ga: shell.GA };
   let html = tpl.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
   html = html.split('{{shell_header}}').join(header).split('{{shell_footer}}').join(footer);
   return html;
