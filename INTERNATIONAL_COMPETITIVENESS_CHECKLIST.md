@@ -1,0 +1,73 @@
+# 영어·아랍어 파일 도구 경쟁력 — IC-01
+
+- 날짜: 2026-11-03 KST. 기준 `88c7679be`, 브랜치 `codex/hallmark-home`.
+- 상태: **IC-01 로컬 구현·검증 완료, 사용자 화면 확인 대기. 미배포.**
+- 방향: 영어 기존8언어 지원의 정확성부터 보강하고, 아랍어는 이미지 압축·크기 조절·JPG→PDF만 로컬 검증한다. 수익 분기 전 유료 처리 서버를 추가하지 않는다.
+- 이번 범위: 선택적 이미지 목표 KB, JPG→PDF의 불필요한 사전 로딩 제거, 아랍어3도구 RTL 실험. 공개 배포·전체9언어 전환·거대 포토 에디터는 포함하지 않는다.
+- 미리보기: 기존 http://127.0.0.1:8796/image/image-compress/ko/ / 아랍어 http://127.0.0.1:8797/ . Node는 루프백 개발용이며 사진 처리 서버가 아니다.
+
+## 수요 근거와 주장 범위
+
+Ahrefs 무료 Traffic Checker, 2026-11-03 조회, Exact URL의 월간 Google 자연검색 유입 **추정치**. 실제 사용 횟수·국가 전체 수요·전체 방문·수익과 다르다.
+
+| 기능 | 영어 URL | 아랍어 URL |
+|---|---:|---:|
+| iLovePDF JPG→PDF | 9,500,000 | 351,500 |
+| iLoveIMG 이미지 압축 | 754,200 | 12,400 |
+| iLoveIMG 크기 조절 | 771,400 | 6,000 |
+| iLoveIMG 포토 에디터 | 195,600 | 3,000 |
+
+- [아랍어 JPG→PDF 추정 조회](https://ahrefs.com/traffic-checker/?input=https%3A%2F%2Fwww.ilovepdf.com%2Far%2Fjpg_to_pdf&mode=exact). 나머지도 해당 공식 URL을 Exact로 조회했다. `output/playwright/international/arabic-traffic.json`과 캡처4장에 저장했다.
+- 경쟁사는 이미 [아랍어 압축](https://www.iloveimg.com/ar/compress-image)·[리사이즈](https://www.iloveimg.com/ar/resize-image)·[JPG→PDF](https://www.ilovepdf.com/ar/jpg_to_pdf)를 제공한다. 언어·배치 지원만을 독점 기능으로 광고하지 않는다.
+- 우선순위: JPG→PDF / 픽셀·용량 목표를 해결하는 이미지 도구 → 한 번 고른 파일을 다음 작업에 재사용 → 자르기·회전·텍스트·화살표·블러 중심 작은 편집기. 수요가 큰 배경 제거/확대는 모델 용량·모바일 메모리·라이선스를 확인한 뒤 별도 검토한다.
+
+## IC-01 단계별 확인
+
+- [x] IC-01-01 영어 기존 지원 및 아랍어 경쟁사 기능·검색 유입 추정 확인.
+- [x] IC-01-02 JPG→PDF 사전 로딩에서 실제 PDF 입력을 받지 않는 도구의 PDF.js 제외. PDF 분할·혼합 입력은 유지.
+- [x] IC-01-03 같은 JPG로 변경 전/후3회 실행, 실제 PDF6개 재개방·내장 JPEG 바이트 동일 확인.
+- [x] IC-01-04 아랍어3도구 로컬 미리보기. `lang=ar`/`dir=rtl`, 파일명·수치 방향 격리, 오류·완료·복사/저장 문구, 지원하지 않는 섹션 링크 제외.
+- [x] IC-01-05 실제3도구×1280×900/375×812×라이트/다크12화면, 출력 파일, 숫자3종, PDF2파일 재정렬, 실제 창 축소 검증.
+- [x] IC-01-06 압축 목표 KB 구현. 기본0은 기존 바이트·형식을 유지하고 최종 Blob으로 파일별 용량 판정. 실패 시 완료 표시 금지, 부분 배치 초과 개수, 조건 변경 시 이전 결과 무효화.
+- [x] IC-01-07 실제 JPEG/WebP 성공·불가능 목표·투명 PNG·ZIP 부분 실패·8언어+아랍어 경고 버튼 검증. 기존 여권 결과 판정 회귀 검사와 중복 구현하지 않는다.
+- [x] IC-01-08 생성물/공통 셸 검사·증거 기록·로컬 커밋(이 기록과 함께 저장).
+- [ ] IC-01-09 사용자 로컬 화면 확인. 다음 공개 배포는 기존 배포 경계에서 진행한다.
+
+## 확인된 로딩 개선과 한계
+
+- 이미지 선택 의도의 사전 로딩 라이브러리 원본 크기: pdf-lib525,099B+PDF.js320,004B=845,103B → pdf-lib525,099B. **320,004B/37.87% 감소, 요청1개 제거**. localhost 무압축 원본 크기이며 실제 배포 CDN 압축 전송량과 다르다.
+- 같은1000×1400 JPEG52,021B, 전/후3회. 처리→결과 중앙값3.3ms→3.4ms로 **처리 시간 개선은 입증되지 않았다**. 라이브러리 감소를 ‘전체38% 빠름’으로 표현하지 않는다.
+- PDF 분할의3페이지 미리보기와 PDF.js/worker 필요 로딩 유지. 6개 JPG→PDF 출력의 내장 JPEG SHA-256은 원본과 동일.
+- 상대 사이트는 같은 합성 파일을 선택한 화면까지만 확인했고 변환 실행·처리 시간은 측정하지 않았다. 경쟁사보다 빠르다는 승리 판정은 없다.
+- 근거: `output/playwright/international/pdf-loader-before.json`, `pdf-loader-after.json`, `output-verification.json`. 로컬 증거는Git 제외.
+
+## 아랍어 공개 전 별도 관문 — IC-02 미착수
+
+- [ ] IC-02-01 아랍어 모국어 사용자의 용어·문장·버튼·FAQ 검수. Android/iOS 키보드·Safari/Firefox·Arabic 시스템 폰트 실기기 검사.
+- [ ] IC-02-02 언어별 지원 도구 교집합을 생성기에 반영. 지금 common strings에ar만 추가하면 영문 대체 페이지와 잘못된 전체 메뉴가 생기므로 금지.
+- [ ] IC-02-03 지원 허브·언어 전환·필터링된 내부 링크·404를 함께 구현. 기존8언어 링크 회귀 검증.
+- [ ] IC-02-04 자기 canonical·상호 hreflang·sitemap·체크 스크립트의ar 지원. 기존 CS-02/SEO-02/R0와 통합해 배포 후 수집/색인/노출 관찰.
+- [ ] IC-02-05 공통 셸 RTL을 실제 터치·창 축소로 검사. 파일 순서/좌표는 RTL 때문에 반전하지 않고 이동 화살표만 논리 순서에 맞춘다.
+- [ ] IC-02-06 배포 origin/고정 기기/동일 네트워크/파일/출력 픽셀/실제 바이트/품질 조건으로 cold/warm 각각10회 비교. 최초 로딩·선택 준비·실행·다운로드 시간을 분리하고 p50/p95 및 오류율 기록.
+- [ ] IC-02-07 추가 성능 후보: 썸네일/실행 중복 디코드, 불필요한 JPG 중간 Canvas, UI 메인 스레드 작업. 메모리를 늘리는 일괄 디코드 캐시는 실기기 상한 검증 전 도입하지 않는다.
+
+## 통합 검증 결과
+
+- `node --test tests/pdf-loader.test.js tests/image-compress-target.test.js tests/passport-result-status.test.js tests/passport-routes.test.js`: **100 통과 / 실패0**(PDF9+압축32+기존여권59). 인코더 대체 단위 테스트와 실제 파일 검증을 구분한다.
+- 실제 Chromium: 기본0의JPG27,735B/PNG3,410B/WebP9,376B는 변경 전 SHA-256과 모두 같다. 새 KB 목표를 켜지 않으면 인코딩 추가 시도도 없다.
+- JPG20KB(20,480B상한) →20,259B/1000×1400, WebP8KB(8,192B) →8,094B/1200×900. 목표 탐색은 품질0.30까지만 내리며, 압축 단계가 원래 적용하는 크기 외에 추가 리사이즈하지 않는다.
+- WebP6KB →7,594B, JPG1KB →18,683B, 투명PNG1KB →3,410B는 전부 **초과 경고**. ‘형식 유지’ PNG는 투명도를 유지하며 JPG로 바꿔 성공시키지 않는다. 일반적인 PNG 압축 최적화 엔진을 새로 넣은 것은 아니다.
+- 두 PNG의1KB 배치:3,410B+104B 중 **1/2개 초과**, 주 버튼 ‘초과 포함 받기’. 실제 ZIP을 열어2파일·각 픽셀·바이트를 재검증했다. 5개 개별 출력과ZIP내2개를Pillow로 재개방해 형식/크기/알파/해시를 대조했다.
+- 목표 변경 시 이전 결과·완료·경고 제거. 잘못된 입력EN `-1`, AR `-١`/`abc`는 실제 UI에서 오류가 나고 결과가 생성되지 않는다.
+- 9언어(기존8+로컬ar)×라이트/다크18모바일 경고: 가로 넘침0, 주 버튼56~64px, 텍스트 잘림0, 숫자 입력44px. 측정은 폰트와100ms CSS 전환이 끝난 상태다. 첫 시험의 스페인어69px는 전환 도중 수치였고 정착 후56px로 확인했다.
+- 1280×900에서 파일 선택 후 실행 버튼: 한국어 하단724px/영어735px/아랍어724px, 높이60px로 첫 화면에 들어온다.
+- 실제1280→375 후 RTL메뉴:278px가시폭/441px내용/scrollLeft=-19, 선택 항목 화면 내. 시작0→추가 시작 페이드 없음, 끝-163→끝 페이드 제거. 데스크톱은972/972로 넘침 없음. 프레임 대기 없는 초기 스냅샷을 최종값으로 사용하지 않았다.
+- 새 압축 실제 UI 시험의 미처리pageerror0, POST/PUT/PATCH0. 아랍어12화면의 외부 원본 전송0/분석·광고 요청0도 확인했다. 경쟁사 원본 업로드 여부를 이번 시험으로 단정하지 않는다.
+- 이미지 생성136페이지 중 실제 변경은 압축8페이지뿐이다. 셸365문서 실패0. 새 언어 운영 URL·사이트맵 변경0. `output/playwright/international/`에JSON·캡처·검증스크립트·출력을 보관했다.
+- 남은 제한: 실제 휴대폰·Safari/Firefox·108MP·배포 네트워크/CWV 미검증. 기존 확장자/MIME로 형식을 판단하는 동작 및 WebP미지원→JPEG fallback의 투명 배경 처리는 별도 개선 후보이며, 이번에 ‘모든 형식의 투명도 항상 보존’을 주장하지 않는다.
+
+## 구현 원칙·참고
+
+- 아랍어 미리보기는 `tools/preview-arabic.js`와 `tools/arabic-pilot/`에서 응답만 변환한다. 생성기·운영 언어 목록·사이트맵은 바꾸지 않는다. noindex, 측정/광고 제거, GET/HEAD만 허용, 127.0.0.1에만 바인딩한다.
+- 파일 처리 속도는 업로드 대기 제거로 유리할 가능성이 있지만 기기 CPU·메모리와 파일 크기에 영향을 받는다. 브라우저 처리라는 사실을 실측해 제시하고 ‘모든 경우 더 빠름’은 주장하지 않는다.
+- [W3C HTML 방향](https://www.w3.org/International/questions/qa-html-dir), [W3C 혼합 방향 텍스트](https://www.w3.org/International/questions/qa-bidi-unicode-controls), [MDN RTL scrollLeft](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollLeft), [Google 다국어 페이지](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites).
