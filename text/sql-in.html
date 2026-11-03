@@ -363,7 +363,7 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
     <p>숫자만 있으면 "자동" 설정에서 따옴표를 붙이지 않습니다: <code>id IN (1001, 1002, 1003)</code></p>
     <h2>주의할 점</h2>
     <ul>
-      <li><strong>Oracle</strong>은 IN절에 1,000개까지만 넣을 수 있습니다. 넘으면 이 도구가 경고를 띄우며, 그때는 임시 테이블이나 여러 조건으로 나누세요.</li>
+      <li><strong>Oracle</strong>은 버전에 따라 IN 목록 제한이 다릅니다. <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/IN-Condition.html" rel="noopener">19c는 1,000개</a>, <a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/IN-Condition.html" rel="noopener">26은 65,535개</a>입니다. 사용 중인 버전의 제한을 확인하세요. 이 도구는 1,000개 초과 시 안내하며 목록을 자동 분할하지 않습니다.</li>
       <li>값 안의 작은따옴표(<code>O'Brien</code>)는 <code>'O''Brien'</code>으로 자동 처리합니다. 큰따옴표 모드에서는 큰따옴표를 두 번 씁니다.</li>
       <li>앞에 0이 붙는 번호(<code>0012</code>)는 "자동"에서 숫자로 보고 따옴표를 뺍니다. 문자열 열이면 "작은따옴표"를 직접 고르세요.</li>
       <li>앞뒤 공백은 지웁니다. 빈 줄은 무시합니다. 입력한 값은 어디에도 전송되지 않습니다.</li>
@@ -371,7 +371,7 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
     <h2>자주 묻는 질문</h2>
     <dl class="faq">
       <dt>반대로 IN절을 세로 목록으로 풀 수 있나요?</dt><dd><a href="/text/list-to-line.html">목록 ↔ 한 줄</a>에서 "한 줄 → 목록"을 고르고 붙여 넣으면 쉼표 기준으로 나뉩니다. 따옴표는 찾아 바꾸기로 지우세요.</dd>
-      <dt>Excel 수식이나 Python 리스트 형태도 되나요?</dt><dd>따옴표를 "큰따옴표"로, 열 이름을 비우면 <code>("A", "B")</code>가 되어 Python·JSON 배열에 거의 그대로 쓸 수 있습니다. 괄호만 대괄호로 바꾸세요.</dd>
+      <dt>Python 리스트나 JSON 배열로도 쓸 수 있나요?</dt><dd>이 도구는 SQL 구문을 만듭니다. Python 리스트나 JSON 배열은 따옴표·역슬래시 이스케이프 규칙이 달라 별도 변환이 필요합니다.</dd>
     </dl>
   </article>
   </details>
@@ -407,7 +407,7 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
   }
   function after(r, src){
     var msg = TT.fmt(last.n) + '개 항목' + (last.dup ? ' (중복 ' + TT.fmt(last.dup) + '개 제거)' : '');
-    if (last.n > 1000) TT.say(msg + ' — Oracle은 IN절 항목이 1,000개를 넘으면 오류(ORA-01795)가 납니다.', 'err');
+    if (last.n > 1000) TT.say(msg + ' — 사용 중인 DB 버전의 IN 목록 제한을 확인하세요(Oracle 19c: 1,000개). 자동 분할은 하지 않습니다.');
     else TT.say(msg);
   }
   TT.setup({ convert: convert, after: after, filename: 'sql-in.txt' });
