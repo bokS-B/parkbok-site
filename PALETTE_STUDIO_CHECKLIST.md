@@ -4,7 +4,7 @@
 - 요청: 실제 색 조합 페이지에 5색 24세트, 귀여운 템플릿 3개, 애니메이션, HTML·CSS 내보내기 적용. 로컬에서 먼저 확인.
 - 브랜치: `codex/palette-studio`, 기준 `58bbd111d0290a52bdd387fde1ffa9a83d85fdb9`.
 - 로컬: http://127.0.0.1:8796/color/palette/ko/ . 기존 `node tools/preview-hallmark.js 8796` 서버 사용.
-- 상태: 로컬 구현·검증 및 사용자 확인 완료. 2026-11-03 커밋·배포 지시를 받아 배포 진행. 다른 HWP·Office 작업 트리는 수정하지 않음.
+- 상태: 2026-11-03 사용자 승인 후 공개 배포·운영 검증 완료. 제품 배포 커밋 `830fa88be25e4b41aa4f17356e79e263ef33ca99`. 다른 HWP·Office 작업 트리는 수정하지 않음.
 
 ## 구현
 
@@ -49,7 +49,18 @@
 - [x] PS-17 검증 중 발견한 기존 생성기 문제 수정: `tools/build-site.js`와 `tools/check-shell.js`에서 `output`/`tests`를 제외한다. 검사로 받은 HTML에 셸이 삽입되거나 비공개 산출물 URL이 사이트맵에 들어가는 것을 막는다. 수정 뒤 전체 빌드를 다시 실행해 HTML 6개의 SHA-256 불변·사이트맵에 output URL 0을 검증했다. 공개 파일 허용 목록은 확장하지 않는다.
 - [x] PS-18 사용자가 로컬 예시를 확인하고 “좋아 이대로 커밋하고 배포해줘”로 배포를 지시했다.
 - [x] PS-19 최종 변경 후 전체 빌드 365페이지·33헤더 그룹 실패 0, Node 테스트 186개·Python 테스트 9개 통과. 영어 예시 3개×1280/375에서 가로 넘침 0, HTML 복사·실제 내려받은 문서의 영어 문구와 `lang="en"`을 확인했다.
-- [ ] PS-20 main 반영·push, GitHub Pages 성공 및 운영 도메인의 해당 커밋·예시·내보내기·설명 제거 확인.
+- [x] PS-20 main 반영·push, GitHub Pages 성공 및 운영 도메인의 해당 커밋·예시·내보내기·설명 제거 확인.
+
+## 공개 배포 확인
+
+- 배포 커밋: `830fa88be25e4b41aa4f17356e79e263ef33ca99`. 이전 배포 기준: `58bbd111d0290a52bdd387fde1ffa9a83d85fdb9`.
+- GitHub Pages: https://github.com/bokS-B/parkbok-site/actions/runs/41646495779 — 빌드·테스트·패키지·배포 전 단계 성공.
+- 운영: https://parkbok.com/color/palette/ko/ . `/build-info.json`의 commit이 배포 커밋과 일치한다.
+- 24팔레트 확인. 예시 3개×1280/375×라이트/다크 총 12화면에서 영어 표시·`lang="en"`·가로 넘침 0 확인. 하단 설명 블록 0개, 미처리 JS 오류 0개.
+- 예시 3개에서 HTML 복사 완료, CSS 변수·JSON을 확인하고 실제 HTML 파일 3개를 내려받았다. 모바일 오프라인에서 언어·쪽지 열림·체크 상태 유지, 가로 넘침 0, 외부 요청 0.
+- 배포 패키지: 5,023파일, 사이트맵 365+4,560 URL, 내부 참조 184,956건 검증. 새 팔레트 자산 9개 바이트 일치. 취소한 마스코트 및 비공개 작업 디렉터리 제외.
+- 운영 검증 자료: `output/playwright/palette-studio/production-830fa88be.json`, `production-830fa88be.png`, `live-website.html`, `live-shop.html`, `live-planner.html` (배포 제외).
+- 이 확인 기록의 후속 커밋은 문서만 변경하며 `[skip ci]`로 제품 재배포를 생략한다. 운영 제품 버전은 위 배포 커밋이다.
 
 ## 재검증 자료·한계
 
