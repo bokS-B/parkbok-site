@@ -579,7 +579,12 @@
 
   // ---------- 입력 이벤트 ----------
   function openPicker(){ if (busy) return; dom.input.value = ''; dom.input.click(); }
-  function preload(){ ensurePdfLib().catch(function(){}); if (tool && tool.needsPages) ensurePdfjs().catch(function(){}); }
+  function preload(){
+    ensurePdfLib().catch(function(){});
+    // needsPages also covers native image thumbnails. Warm PDF.js only for tools
+    // that actually accept PDF input; image-only JPG→PDF does not use its renderer.
+    if (tool && tool.needsPages && acceptsFile({ name: 'preview.pdf', type: 'application/pdf' })) ensurePdfjs().catch(function(){});
+  }
   function bind(){
     dom = { drop: $('drop'), input: $('file-input'), select: $('btn-select'), add: $('btn-add'), btnAdd: $('btn-add'), resetTop: $('btn-reset-top'), compact: $('drop-compact'), count: $('file-count'),
       files: $('files'), inStatus: $('in-status'), opts: $('opts'), out: $('out'), result: $('result'), progress: $('progress'), primary: $('btn-primary'), reset: $('btn-reset'), status: $('status') };
