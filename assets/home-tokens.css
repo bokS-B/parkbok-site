@@ -12,6 +12,7 @@
   --home-selection:var(--accent-tint);--home-selection-ink:var(--ink);
   --home-radius:12px;--home-icon-size:32px;--home-card-height:112px;
   --home-duration:150ms;--home-ease:ease-out;
+  --home-group-gap:32px;--home-group-title-size:20px;--home-group-title-line:28px;
   --t-btn:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out;
   --t-chip:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out;
   --home-disabled-fill:var(--line);--home-disabled-ink:var(--muted);

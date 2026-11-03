@@ -25,7 +25,9 @@ const TOOLS = JSON.parse(fs.readFileSync(path.join(root, 'src', 'tools.json'), '
 const ICONS = JSON.parse(fs.readFileSync(path.join(root, 'src', 'icons.json'), 'utf8'));
 const esc = shell.esc;
 const CAT_LABEL = { all: '전체', hwp: 'HWP', text: '텍스트', pdf: 'PDF', image: '이미지', color: '색상', wheel: '룰렛', guide: '가이드' };
-const CHIP_ORDER = ['all', 'hwp', 'text', 'pdf', 'image', 'color', 'wheel', 'guide'];
+const CHIP_ORDER = ['all', 'hwp', 'pdf', 'image', 'color', 'text', 'wheel', 'guide'];
+const HOME_GROUPS = ['documents', 'image', 'color', 'text', 'wheel', 'guide'];
+const GROUP_LABEL = { documents: '문서와 PDF', image: '이미지', color: '색상', text: '텍스트', wheel: '룰렛', guide: '가이드' };
 // 그리드를 넣는 페이지: 홈은 필터 칩 + 전체 카드, /text/ 는 텍스트 카드만(칩 없음)
 const GRIDS = { 'index.html': { chips: true }, 'text/index.html': { cat: 'text' } };
 const pagePath = rel => '/' + rel.replace(/(^|\/)index\.html$/, '$1');
@@ -45,7 +47,7 @@ function cardHtml(t, name, line, href, hidden){
 }
 function gridHtml(rel, cfg){
   const page = pagePath(rel);
-  const cards = [], cats = {};
+  const cards = [], cats = {}, groups = {};
   for (const t of TOOLS.slice().sort((a, b) => a.order - b.order)) {
     if (cfg.cat && t.cat !== cfg.cat) continue;
     if (t.url === page || (t.hideOn || []).includes(page)) continue;   // 자기 링크 제외
@@ -58,7 +60,10 @@ function gridHtml(rel, cfg){
     } else if (t.status !== 'live') continue;
     const multi = (t.langs || ['ko']).length > 1;
     const href = multi && t.url.endsWith('/') ? t.url + 'ko/' : t.url;   // 다국어 도구는 한국어 페이지로
-    cards.push(cardHtml(t, name, line, href, !!cfg.chips && t.cat === 'guide'));   // 전체 필터 초기 상태 = 가이드 숨김
+    const card = cardHtml(t, name, line, href, !!cfg.chips && t.cat === 'guide');
+    cards.push(card);   // 전체 필터 초기 상태 = 가이드 숨김
+    const group = t.cat === 'hwp' || t.cat === 'pdf' ? 'documents' : t.cat;
+    (groups[group] || (groups[group] = [])).push(card);
     cats[t.cat] = true;
   }
   let out = '';
@@ -67,7 +72,19 @@ function gridHtml(rel, cfg){
       .map(c => `<a class="chip${c === 'all' ? ' on' : ''}" href="#${c}" data-cat="${c}">${esc(CAT_LABEL[c])}</a>`).join('');
     out += `  <nav class="chips filters" aria-label="도구 분류">${chips}</nav>\n`;
   }
-  out += '  <div class="grid tools-grid" id="tools-grid">\n' + cards.map(c => '    ' + c).join('\n') + '\n  </div>';
+  if (cfg.chips) {
+    out += '  <div class="tool-groups" id="tools-grid">\n';
+    const order = HOME_GROUPS.concat(Object.keys(groups).filter(g => !HOME_GROUPS.includes(g)));
+    for (const group of order) {
+      if (!groups[group]) continue;
+      out += `    <section class="tool-group" data-group="${esc(group)}" aria-labelledby="group-${esc(group)}"${group === 'guide' ? ' hidden' : ''}>\n`
+        + `      <h2 id="group-${esc(group)}">${esc(GROUP_LABEL[group] || CAT_LABEL[group] || group)}</h2>\n`
+        + '      <div class="grid tools-grid">\n' + groups[group].map(c => '        ' + c).join('\n') + '\n      </div>\n    </section>\n';
+    }
+    out += '  </div>';
+  } else {
+    out += '  <div class="grid tools-grid" id="tools-grid">\n' + cards.map(c => '    ' + c).join('\n') + '\n  </div>';
+  }
   return '<!-- grid:start -->\n' + out + '\n  <!-- grid:end -->';
 }
 function sectionOf(rel){

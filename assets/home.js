@@ -1,10 +1,11 @@
-// 홈 도구 그리드 필터 칩: 페이지 이동 없이 카드 .hidden 토글, location.hash(#pdf 등)로 초기 필터. 전체 = 가이드 제외
+// 홈 분류별 카드: 선택한 카드와 그 카드가 들어 있는 그룹만 표시한다. 전체 = 가이드 제외.
 (function(){
   var nav = document.querySelector('.chips.filters');
-  var grid = document.querySelector('.grid.tools-grid');
+  var grid = document.getElementById('tools-grid');
   if (!nav || !grid) return;
   var chips = [].slice.call(nav.querySelectorAll('.chip'));
   var cards = [].slice.call(grid.querySelectorAll('.card'));
+  var groups = [].slice.call(grid.querySelectorAll('.tool-group'));
   function cat(el){ return el.getAttribute('data-cat') || 'all'; }
   function has(c){ for (var i = 0; i < chips.length; i++) if (cat(chips[i]) === c) return true; return false; }
   function apply(f){
@@ -14,6 +15,7 @@
       var show = (f === 'all' && k !== 'guide') || k === f;
       if (show) a.classList.remove('hidden'); else a.classList.add('hidden');
     });
+    groups.forEach(function(group){ group.hidden = !group.querySelector('.card:not(.hidden)'); });
   }
   function fromHash(){ var h = (location.hash || '').replace(/^#/, ''); return h && has(h) ? h : 'all'; }
   nav.addEventListener('click', function(e){
