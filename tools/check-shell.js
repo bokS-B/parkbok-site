@@ -2,7 +2,7 @@
 //   node tools/check-shell.js
 const fs = require('fs'), path = require('path');
 const root = path.resolve(__dirname, '..');
-const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'src'];
+const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'tests', 'output', 'src'];
 const files = [];
 (function walk(dir){ for (const n of fs.readdirSync(dir)) { if (SKIP.includes(n) || (n === 'hex' && path.basename(dir) === 'color')) continue; /* color/hex/ 롱테일은 전용 축약 CSS 라 제외 */ const p = path.join(dir, n); if (fs.statSync(p).isDirectory()) walk(p); else if (n.endsWith('.html')) files.push(p); } })(root);
 const fails = [];

@@ -1,199 +1,65 @@
-// 색 조합: 기준 색 1개 → 배색 5종(보색·분할 보색·유사·삼각·사각) + 명도 9칸 + 채도 9칸.
-// 칩 클릭은 복사, 줄 이름 클릭은 내보낼 팔레트 선택. CSS 변수(:root{--c1:…})·JSON 복사, URL 해시 #ff5733/tri 로 공유.
-// 계산은 /color/color.js, 조각은 /color/color-ui.js. 이 도구만 쓰는 스타일은 아래 CSS 문자열로 끼운다.
 (function(){
-  'use strict';
-  var C = window.COLOR, U = window.COLOR_UI;
-  var app = document.getElementById('app');
-  if (!C || !U || !app) return;
-  var t = U.t, el = U.el;
-  var DEFAULT = '#ff5733', STEPS = 9;
-  var cur = DEFAULT, scheme = 'comp';
-
-  var CSS = [
-    '.ph-rows{display:flex;flex-direction:column;gap:10px}',
-    '.ph-row{display:grid;grid-template-columns:136px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--card);transition:border-color .15s,box-shadow .15s}',
-    '.ph-row.on{border-color:var(--accent-text);box-shadow:inset 0 0 0 1px var(--accent-text)}',
-    '.ph-name{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;height:100%;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--bg);color:var(--ink);font:inherit;font-size:var(--fs-small);font-weight:var(--fw-semibold);text-align:left;cursor:pointer;transition:var(--t-btn)}',
-    '.ph-name::after{content:"";flex:none;width:10px;height:10px;border-radius:50%;border:2px solid var(--muted);box-sizing:border-box}',
-    '.ph-name:hover{border-color:var(--accent-text)}',
-    '.ph-name:focus-visible{outline:2px solid var(--accent);outline-offset:1px}',
-    '.ph-row.on .ph-name{background:var(--accent-tint);color:var(--accent-text);border-color:var(--accent-text)}',
-    '.ph-row.on .ph-name::after{border-color:var(--accent-text);background:var(--accent-text)}',
-    '.ph-row .cswatch.lg{min-height:64px}',
-    '.ph-row.sm .cswatch{aspect-ratio:auto;height:52px}',
-    '.ph-row.sm .cswatch.base::before{content:"";position:absolute;inset:4px;border:2px solid currentColor;border-radius:5px;opacity:.7;pointer-events:none}',
-    // 재생성: 기준색 입력 옆 48×48 아이콘 버튼 (색 고르기 버튼과 같은 크기)
-    '.ph-rand{flex:none;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;padding:0;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);cursor:pointer;transition:var(--t-btn)}',
-    '.ph-rand svg{width:22px;height:22px}',
-    '.ph-rand:hover{border-color:var(--ink);background:var(--accent-tint);color:var(--accent-text)}',
-    '.ph-rand:focus-visible{outline:2px solid var(--accent);outline-offset:1px}',
-    '.ph-rand:active{background:var(--line);color:var(--ink)}',
-    // 모바일: 기준색 → 입력 → 배색 → (접힌) 상세값 → 내보내기 순. c-top·c-panel 상자를 풀어 .tool 의 flex order 로 세운다
-    '@media (max-width:767.98px){',
-    '.c-top,.c-panel{display:contents}',
-    '.c-preview{order:0;min-height:104px;padding:12px 16px}',
-    '.c-preview .c-hex{font-size:24px}',
-    '.c-field,#cstatus{order:1}',
-    '.ph-sec{order:2}',
-    '.c-more{order:3}',
-    '.ph-actions{order:4}',
-    '.ph-row{grid-template-columns:minmax(0,1fr) auto;gap:8px}',
-    '.ph-row .ph-name{grid-row:1;grid-column:1}',
-    '.ph-row .icp{grid-row:1;grid-column:2}',
-    '.ph-row .cpal{grid-row:2;grid-column:1/-1}',
-    '.ph-row.sm .cpal{grid-template-columns:repeat(5,minmax(0,1fr))}',
-    '.ph-name{min-height:44px;padding:6px 10px}',
-    '.ph-row .cswatch.lg{min-height:56px}',
-    '.ph-row.sm .cswatch{height:44px}',
-    '.ph-row.sm .cswatch .cl{padding-bottom:8px}',
-    '}'
-  ].join('\n');
-  var st = el('style'); st.textContent = CSS; document.head.appendChild(st);
-
-  // 기준 색을 가운데 두고 밝게 4칸·어둡게 4칸
-  function lightSteps(hex){
-    var out = [], i;
-    for (i = 4; i >= 1; i--) out.push(C.mix(hex, '#ffffff', i * 0.2));
-    out.push(hex);
-    for (i = 1; i <= 4; i++) out.push(C.mix(hex, '#000000', i * 0.2));
-    return out;
-  }
-  // 같은 색상·명도에서 채도 0 → 100
-  function satSteps(hex){
-    var c = C.hexToHsl(hex), out = [];
-    for (var i = 0; i < STEPS; i++) out.push(C.hslToHex({ h: c.h, s: 100 * i / (STEPS - 1), l: c.l }));
-    return out;
-  }
-  // 보기 좋은 무작위 색 (너무 탁하거나 어두운 색 피함)
-  function nice(){ return C.hslToHex({ h: Math.random() * 360, s: 45 + Math.random() * 45, l: 35 + Math.random() * 30 }); }
-
-  var SCHEMES = [
-    { id: 'comp', name: 'complementary', key: 'complementary', fn: C.complementary },
-    { id: 'split', name: 'split-complementary', key: 'splitComp', fn: C.splitComplementary },
-    { id: 'ana', name: 'analogous', key: 'analogous', fn: C.analogous },
-    { id: 'tri', name: 'triadic', key: 'triadic', fn: C.triadic },
-    { id: 'tet', name: 'tetradic', key: 'tetradic', fn: C.tetradic },
-    { id: 'light', name: 'lightness', key: 'lightness', fn: lightSteps, small: true },
-    { id: 'sat', name: 'saturation', key: 'saturation', fn: satSteps, small: true }
-  ];
-  var byId = {};
-  SCHEMES.forEach(function(s){ byId[s.id] = s; s.hexes = s.fn(cur); });
-
-  // ---------- 해시: #ff5733 또는 #ff5733/tri ----------
-  function fromHash(){
-    var h = decodeURIComponent(location.hash.replace(/^#/, '')).split('/');
-    var hex = h[0] ? C.parse(h[0]) : null;
-    return { hex: hex, scheme: byId[h[1]] ? h[1] : null };
-  }
-  function toHash(){
-    var h = '#' + cur.slice(1) + (scheme === 'comp' ? '' : '/' + scheme);
-    if (location.hash !== h) { try { history.replaceState(null, '', h); } catch (e) { location.hash = h; } }
-  }
-
-  // ---------- 미리보기 + 입력 ----------
-  var top = el('div', 'c-top');
-  // 미리보기는 보기만 한다. 복사는 행별 아이콘과 'CSS 복사'(대표)로
-  var prev = el('div', 'c-preview');
-  var prevHex = el('div', 'c-hex'), prevName = el('div', 'c-nm');
-  prev.appendChild(prevHex); prev.appendChild(prevName);
-
-  var panel = el('div', 'c-panel');
-  var field = el('div', 'c-field');
-  var inp = el('input'); inp.type = 'text'; inp.id = 'cin'; inp.placeholder = t('placeholder'); inp.autocomplete = 'off'; inp.spellcheck = false; inp.setAttribute('aria-label', t('base'));
-  var pick = el('input', 'c-pick'); pick.type = 'color'; pick.id = 'cpick'; pick.setAttribute('aria-label', t('pick')); pick.title = t('pick');
-  var btnRand = el('button', 'ph-rand'); btnRand.type = 'button'; btnRand.setAttribute('aria-label', t('randomize')); btnRand.title = t('randomize');
-  btnRand.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="m4 4 5 5"/></svg>';
-  field.appendChild(inp); field.appendChild(pick); field.appendChild(btnRand);
-  var row = el('div', 'row ph-actions');
-  var btnCss = el('button', 'btn sm', t('copyCss')); btnCss.type = 'button';
-  var btnJson = el('button', 'btn ghost sm', t('copyJson')); btnJson.type = 'button';
-  row.appendChild(btnCss); row.appendChild(btnJson);
-  var status = el('p', 'status'); status.id = 'cstatus';
-  var rows = el('div', 'vrows');
-  var R = { hex: U.valueRow(t('hex'), ''), rgb: U.valueRow(t('rgb'), ''), hsl: U.valueRow(t('hsl'), ''), name: U.valueRow(t('cssName'), '') };
-  ['hex', 'rgb', 'hsl', 'name'].forEach(function(k){ rows.appendChild(R[k].el); });
-  // 상세 변환값: 모바일에서는 접힌 채 배색 아래, 데스크톱은 펼쳐진 채 입력 아래
-  var more = el('details', 'c-more');
-  var mq = matchMedia('(max-width:767.98px)');
-  more.open = !mq.matches;
-  if (mq.addEventListener) mq.addEventListener('change', function(e){ more.open = !e.matches; });
-  more.appendChild(el('summary', null, [t('hex'), t('rgb'), t('hsl'), t('cssName')].join(' · ')));
-  more.appendChild(rows);
-  panel.appendChild(field); panel.appendChild(row); panel.appendChild(status); panel.appendChild(more);
-  top.appendChild(prev); top.appendChild(panel);
-  app.appendChild(top);
-
-  // ---------- 배색·단계 줄 ----------
-  var list = el('div', 'ph-rows');
-  SCHEMES.forEach(function(s){
-    var r = el('div', 'ph-row' + (s.small ? ' sm' : ''));
-    var name = el('button', 'ph-name', t(s.key)); name.type = 'button'; name.setAttribute('aria-pressed', 'false');
-    name.addEventListener('click', function(){ select(s.id); });
-    var pal = U.palette(s.hexes, s.small ? { cols: STEPS } : { large: true, cols: s.hexes.length });
-    if (s.id === 'light') pal.children[4].classList.add('base');
-    var cp = U.copyBtn(t(s.key), function(){ return s.hexes.join(', '); });
-    r.appendChild(name); r.appendChild(pal); r.appendChild(cp);
-    s.el = r; s.nameEl = name; s.pal = pal;
-    list.appendChild(r);
-  });
-  var harmSec = U.section(t('harmony'), list); harmSec.classList.add('ph-sec');
-  app.appendChild(harmSec);
-
-  // ---------- 내보내기 ----------
-  function cssText(){ return ':root{' + byId[scheme].hexes.map(function(x, i){ return '--c' + (i + 1) + ':' + x + ';'; }).join('') + '}'; }
-  function jsonText(){ var s = byId[scheme]; return JSON.stringify({ base: cur, scheme: s.name, colors: s.hexes }, null, 2); }
-
-  function select(id){
-    scheme = id;
-    SCHEMES.forEach(function(s){ var on = s.id === id; s.el.classList.toggle('on', on); s.nameEl.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-    toHash();
-  }
-
-  // ---------- 갱신 ----------
-  function render(hex, src){
-    cur = hex;
-    var rgb = C.hexToRgb(hex), hsl = C.rgbToHsl(rgb), near = C.nearestName(hex), ink = C.textOn(hex);
-    prev.style.background = hex; prev.style.color = ink;
-    prevHex.textContent = hex;
-    prevName.textContent = near.exact ? near.name : '≈ ' + near.name;
-    R.hex.set(hex); R.rgb.set(C.rgbString(rgb)); R.hsl.set(C.hslString(hsl));
-    R.name.set(near.exact ? near.name : '≈ ' + near.name + ' (' + near.hex + ')');
-    SCHEMES.forEach(function(s){ s.hexes = s.fn(hex); U.setPalette(s.pal, s.hexes, s.small ? {} : { large: true }); });
-    pick.value = hex;
-    if (src !== 'text') inp.value = hex;
-    inp.classList.remove('err'); status.textContent = ''; status.className = 'status';
-    toHash();
-  }
-
-  // ---------- 이벤트 ----------
-  inp.addEventListener('input', function(){
-    var v = inp.value.trim();
-    if (!v) { inp.classList.remove('err'); status.textContent = ''; return; }
-    var hex = C.parse(v);
-    if (hex) render(hex, 'text');
-    else inp.classList.add('err');
-  });
-  function commit(){
-    var v = inp.value.trim();
-    if (!v) { inp.value = cur; inp.classList.remove('err'); status.textContent = ''; return; }
-    if (C.parse(v)) { inp.classList.remove('err'); status.textContent = ''; return; }
-    inp.classList.add('err'); status.textContent = t('invalid'); status.className = 'status err';
-  }
-  inp.addEventListener('change', commit);
-  inp.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); commit(); if (C.parse(inp.value)) inp.select(); } });
-  inp.addEventListener('focus', function(){ inp.select(); });
-  pick.addEventListener('input', function(){ var hex = C.parse(pick.value); if (hex) render(hex, 'pick'); });
-  btnRand.addEventListener('click', function(){ render(nice(), 'random'); });
-  btnCss.addEventListener('click', function(){ U.copy(cssText()); });
-  btnJson.addEventListener('click', function(){ U.copy(jsonText()); });
-  window.addEventListener('hashchange', function(){
-    var h = fromHash();
-    if (h.scheme && h.scheme !== scheme) select(h.scheme);
-    if (h.hex && h.hex !== cur) render(h.hex, 'hash');
-  });
-
-  var init = fromHash();
-  select(init.scheme || 'comp');
-  render(init.hex || DEFAULT, 'init');
+ 'use strict';
+ const C=window.COLOR,U=window.COLOR_UI,P=window.PB_PALETTE,V=window.PB_PALETTE_TEMPLATES,D=window.PB_PALETTE_STRINGS;
+ const app=document.getElementById('app');if(!C||!U||!P||!V||!D||!app)return;
+ // The tool UI follows the page locale; sample designs default to English.
+ const previewLang='en',previewStrings=D[previewLang];
+ const lang=window.COLOR_TOOL.lang,s=D[lang]||D.en,esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const $=sel=>app.querySelector(sel),el=U.el,initial=P.readHash(location.hash);
+ let state=initial.state,format='component',filter='all',renderedTemplate='',interactions={};
+ const reduced=matchMedia('(prefers-reduced-motion:reduce)'),mobile=matchMedia('(max-width:767.98px)');
+ document.body.classList.add('palette-page');
+ const css=el('style');css.id='ps-template-style';css.textContent=V.css;document.head.appendChild(css);
+ function outerTheme(){return document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
+ if(!location.hash)state=P.fromPreset('strawberry-milk',outerTheme());
+ const shuffle='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3m0 13v5h-5m-1-6 6 6M4 4l5 5"/></svg>';
+ app.innerHTML='<div class="ps-topbar"><div class="ps-base"><label for="cin">'+esc(U.t('base'))+'</label><div class="ps-base-field"><input id="cin" type="text" autocomplete="off" spellcheck="false" aria-label="'+esc(U.t('base'))+'"><input id="cpick" class="c-pick" type="color" aria-label="'+esc(U.t('pick'))+'"><button type="button" class="ps-random" id="ps-random" aria-label="'+esc(U.t('randomize'))+'">'+shuffle+'</button></div></div><button type="button" class="btn ps-export-btn" id="ps-export">'+esc(s.export)+'</button></div><p class="ps-status" id="cstatus" role="status"></p><div class="ps-stagebar"><div class="ps-template-tabs" role="group" aria-label="'+esc(s.templates)+'">'+P.TEMPLATES.map(id=>'<button type="button" data-template="'+id+'" aria-pressed="false">'+esc(previewStrings[id])+'</button>').join('')+'</div><div class="ps-preview-options"><div class="ps-theme" role="group" aria-label="'+esc(s.light+' / '+s.dark)+'"><button type="button" data-theme-choice="light">'+esc(s.light)+'</button><button type="button" data-theme-choice="dark">'+esc(s.dark)+'</button></div><label class="ps-motion"><input type="checkbox" id="ps-motion" checked>'+esc(s.motion)+'</label></div></div><div class="ps-stage" id="ps-stage"></div><details class="ps-editor" id="ps-editor"><summary><span>'+esc(s.roles)+'</span><span class="ps-editor-preview" aria-hidden="true"></span></summary><fieldset class="ps-role-grid"><legend class="sr">'+esc(s.roles)+'</legend>'+P.ROLES.map(k=>'<div class="ps-role"><label for="ps-hex-'+k+'">'+esc(s[k])+'</label><div class="ps-role-field"><input type="color" id="ps-color-'+k+'" data-role="'+k+'" aria-label="'+esc(s[k])+'"><input type="text" id="ps-hex-'+k+'" data-role="'+k+'" autocomplete="off" spellcheck="false" aria-label="'+esc(s[k]+' HEX')+'"></div><button type="button" class="ps-role-copy icp" data-copy-role="'+k+'" aria-label="'+esc(U.t('copy')+' '+s[k])+'"></button></div>').join('')+'</fieldset><p class="ps-editor-help">'+esc(s.roleHelp)+'</p></details><div class="ps-contrast" id="ps-contrast" aria-live="polite"></div><div class="ps-library-head"><h2>'+esc(s.library)+'</h2><span class="ps-active-name" id="ps-active-name"></span></div><div class="ps-filters" id="ps-filters" role="group" aria-label="'+esc(s.selectPalette)+'"></div><div class="ps-library" id="ps-library" role="group" aria-label="'+esc(s.selectPalette)+'"></div><details class="ps-rules"><summary>'+esc(s.originalRules)+'</summary><div class="ps-rule-list" id="ps-rules"></div></details>';
+ $('#ps-editor').open=!mobile.matches;if(mobile.addEventListener)mobile.addEventListener('change',e=>{$('#ps-editor').open=!e.matches;});
+ const categories=['all','minimal','nature','warm','cool','pastel','vivid','classic','dark'];
+ for(const category of categories){const b=el('button','ps-filter',category==='all'?s.all:s[category==='dark'?'darkCategory':category]);b.type='button';b.dataset.category=category;b.setAttribute('aria-pressed',String(category==='all'));b.addEventListener('click',()=>{filter=category;renderLibrary();});$('#ps-filters').appendChild(b);}
+ for(const p of P.presets){const b=el('button','ps-palette');b.type='button';b.dataset.preset=p.id;b.dataset.category=p.category;const strip=el('span','ps-palette-strip');strip.setAttribute('aria-hidden','true');for(const hex of Object.values(p.colors)){const chip=el('i');chip.style.backgroundColor=hex;strip.appendChild(chip);}b.append(strip,el('span','ps-palette-name',p.name[lang]||p.name.en));b.addEventListener('click',()=>{const old=state;state=P.fromPreset(p.id,p.mode);state.template=old.template;state.motion=old.motion;render();writeHash();greet();});$('#ps-library').appendChild(b);}
+ function saveInteraction(){const root=$('#ps-stage .pb-demo');if(!root)return;interactions[renderedTemplate]={noteOpen:!!root.querySelector('.pb-note[open]'),gift:!!root.querySelector('.pb-gift-check:checked'),tasks:[...root.querySelectorAll('.pb-task input')].map(e=>e.checked),mood:root.querySelector('.pb-mood-choice input:checked')?.value||'0'};}
+ function restoreInteraction(root,value){if(!value)return;const note=root.querySelector('.pb-note');if(note)note.open=value.noteOpen;const gift=root.querySelector('.pb-gift-check');if(gift)gift.checked=value.gift;root.querySelectorAll('.pb-task input').forEach((e,i)=>{e.checked=value.tasks[i]??e.checked;});root.querySelectorAll('.pb-mood-choice input').forEach(e=>{e.checked=e.value===value.mood;});}
+ function currentMarkup(){saveInteraction();const wrap=el('div');wrap.innerHTML=V.markup(state,previewStrings,previewLang);restoreInteraction(wrap,interactions[state.template]);wrap.querySelectorAll('input[type=checkbox],input[type=radio]').forEach(e=>{if(e.checked)e.setAttribute('checked','');else e.removeAttribute('checked');});return wrap.firstElementChild.outerHTML;}
+ function preview(){
+  if(renderedTemplate!==state.template){saveInteraction();$('#ps-stage').innerHTML=V.markup(state,previewStrings,previewLang);renderedTemplate=state.template;restoreInteraction($('#ps-stage .pb-demo'),interactions[renderedTemplate]);if(state.motion&&!reduced.matches){$('#ps-stage').classList.remove('ps-preview-enter');void $('#ps-stage').offsetWidth;$('#ps-stage').classList.add('ps-preview-enter');}}
+  const root=$('#ps-stage .pb-demo');for(const[k,v]of Object.entries(P.derived(P.current(state))))root.style.setProperty('--pb-'+k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase()),v);root.dataset.theme=state.theme;root.dataset.motion=state.motion?'on':'off';if(!state.motion||reduced.matches){$('#ps-stage').classList.remove('ps-preview-enter');root.classList.remove('pb-greeting');}
+ }
+ function greet(){const root=$('#ps-stage .pb-demo');if(!state.motion||reduced.matches)return;root.classList.remove('pb-greeting');requestAnimationFrame(()=>{root.classList.add('pb-greeting');});}
+ function renderLibrary(){const colors=P.current(state);app.querySelectorAll('[data-preset]').forEach(b=>{b.hidden=filter!=='all'&&b.dataset.category!==filter;const p=P.presets.find(p=>p.id===b.dataset.preset);const v=P.variants(p)[state.theme];b.setAttribute('aria-pressed',String(p.id===state.preset&&P.ROLES.every(k=>colors[k]===v[k])));});app.querySelectorAll('[data-category].ps-filter').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.category===filter)));}
+ const schemes=[['comp','complementary',C.complementary],['split','splitComp',C.splitComplementary],['ana','analogous',C.analogous],['tri','triadic',C.triadic],['tet','tetradic',C.tetradic],['light','lightness',hex=>[.8,.6,.4,.2,0,-.2,-.4,-.6,-.8].map(x=>C.mix(hex,x>=0?'#ffffff':'#000000',Math.abs(x)))],['sat','saturation',hex=>{const a=C.hexToHsl(hex);return Array.from({length:9},(_,i)=>C.hslToHex({h:a.h,s:i*12.5,l:a.l}));}]];
+ for(const[id,key,fn]of schemes){const r=el('div','ps-rule'),name=el('button','ps-rule-name',U.t(key));name.type='button';name.dataset.scheme=id;name.addEventListener('click',()=>{const colors=P.fromBase(P.current(state).primary,id);state.variants=P.variants({colors,mode:'light'});state.scheme=id;state.theme='light';render();writeHash();greet();});const pal=U.palette(fn(P.current(state).primary),{cols:id==='light'||id==='sat'?9:fn(P.current(state).primary).length});const cp=U.copyBtn(U.t(key),()=>fn(P.current(state).primary).join(', '));r.append(name,pal,cp);$('#ps-rules').appendChild(r);}
+ function render(exclude){
+  const colors=P.current(state);app.querySelectorAll('input[aria-invalid]').forEach(e=>e.removeAttribute('aria-invalid'));$('#cstatus').textContent='';if($('#cin')!==exclude)$('#cin').value=colors.primary;$('#cpick').value=colors.primary;$('#ps-motion').checked=state.motion;
+  for(const k of P.ROLES){$('#ps-color-'+k).value=colors[k];if($('#ps-hex-'+k)!==exclude)$('#ps-hex-'+k).value=colors[k];}
+  const chips=$('.ps-editor-preview');chips.replaceChildren(...P.ROLES.map(k=>{const i=el('i');i.style.backgroundColor=colors[k];return i;}));
+  app.querySelectorAll('.ps-template-tabs [data-template]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.template===state.template)));app.querySelectorAll('[data-theme-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeChoice===state.theme)));
+  const ratios=P.ratios(colors);$('#ps-contrast').replaceChildren(el('strong',null,s.readability),...['body','card','button'].map(k=>el('span',ratios[k]<4.5?'ps-low':null,s[k]+' '+ratios[k].toFixed(2)+':1')),el('p','ps-contrast-note',Object.values(ratios).some(v=>v<4.5)?s.lowContrast:''));
+  const preset=P.presets.find(p=>p.id===state.preset),isPreset=P.ROLES.every(k=>colors[k]===P.variants(preset)[state.theme][k]);$('#ps-active-name').textContent=isPreset?(preset.name[lang]||preset.name.en):s.custom;
+  schemes.forEach(([id,key,fn],i)=>{const r=$('#ps-rules').children[i];U.setPalette(r.querySelector('.cpal'),fn(colors.primary));r.classList.toggle('on',id===state.scheme);r.querySelector('button').setAttribute('aria-pressed',String(id===state.scheme));});
+  renderLibrary();preview();
+ }
+ function writeHash(){try{history.replaceState(null,'',P.hash(state));}catch(_){}}
+ function clearError(input){input.removeAttribute('aria-invalid');$('#cstatus').textContent='';$('#cstatus').className='ps-status';}
+ function changeBase(input){const hex=C.parse(input.value);if(!hex){input.setAttribute('aria-invalid','true');return;}clearError(input);state.variants=P.variants({colors:P.fromBase(hex,state.scheme),mode:'light'});state.variants[state.theme].primary=hex;render(input);writeHash();}
+ $('#cin').addEventListener('input',e=>changeBase(e.target));$('#cin').addEventListener('change',e=>{if(C.parse(e.target.value)){e.target.value=P.current(state).primary;clearError(e.target);}else{$('#cstatus').textContent=U.t('invalid');$('#cstatus').className='ps-status err';}});
+ $('#cpick').addEventListener('input',e=>changeBase(e.target));
+ $('#ps-random').addEventListener('click',()=>{const choices=P.presets.filter(p=>p.id!==state.preset);const p=choices[Math.floor(Math.random()*choices.length)];const old=state;state=P.fromPreset(p.id,p.mode);state.template=old.template;state.motion=old.motion;render();writeHash();greet();});
+ app.querySelectorAll('.ps-role-field input').forEach(input=>{input.addEventListener('input',()=>{const hex=C.parse(input.value);if(!hex){input.setAttribute('aria-invalid','true');return;}clearError(input);state.variants[state.theme][input.dataset.role]=hex;render(input);writeHash();});input.addEventListener('change',()=>{if(C.parse(input.value)){input.value=P.current(state)[input.dataset.role];clearError(input);}else{$('#cstatus').textContent=s[input.dataset.role]+': '+U.t('invalid');$('#cstatus').className='ps-status err';}});});
+ app.querySelectorAll('[data-copy-role]').forEach(b=>b.addEventListener('click',()=>U.copy(P.current(state)[b.dataset.copyRole])));
+ app.querySelectorAll('.ps-template-tabs [data-template]').forEach(b=>b.addEventListener('click',()=>{state.template=b.dataset.template;render();writeHash();greet();}));
+ app.querySelectorAll('[data-theme-choice]').forEach(b=>b.addEventListener('click',()=>{state.theme=b.dataset.themeChoice;render();writeHash();}));
+ $('#ps-motion').addEventListener('change',e=>{state.motion=e.target.checked;render();writeHash();});
+ new MutationObserver(()=>{state.theme=outerTheme();render();writeHash();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+ window.addEventListener('hashchange',()=>{const next=P.readHash(location.hash);state=next.state;render();if(next.error){$('#cstatus').textContent=s.linkError;}});
+ const dialog=el('dialog','ps-dialog');dialog.id='ps-export-dialog';dialog.setAttribute('aria-labelledby','ps-export-title');dialog.innerHTML='<div class="ps-dialog-header"><h2 id="ps-export-title">'+esc(s.exportTitle)+'</h2><button type="button" class="ps-close" aria-label="'+esc(s.close)+'">×</button></div><div class="ps-dialog-body"><div class="ps-format-tabs" role="group" aria-label="'+esc(s.export)+'">'+['component','variables','json'].map(k=>'<button type="button" data-format="'+k+'" aria-pressed="false">'+esc(s[k])+'</button>').join('')+'</div><textarea class="ps-code" id="ps-code" readonly spellcheck="false" aria-label="'+esc(s.exportTitle)+'"></textarea><p class="ps-dialog-hint">'+esc(s.exportHint)+'</p><div class="ps-dialog-actions"><button type="button" class="btn" id="ps-copy">'+esc(s.copy)+'</button><button type="button" class="btn ghost" id="ps-download">'+esc(s.download)+'</button><button type="button" class="btn ghost" id="ps-share">'+esc(s.share)+'</button></div><p class="ps-dialog-hint" id="ps-dialog-status" role="status"></p><input class="ps-share-fallback" type="text" readonly hidden aria-label="'+esc(s.share)+'"></div>';
+ document.body.appendChild(dialog);const dq=q=>dialog.querySelector(q);
+ function component(){return '<!-- '+V.notice.replace(/--/g,'—')+' -->\n<style>\n'+V.css+'\n</style>\n'+currentMarkup();}
+ function exportValue(){if(format==='variables')return P.cssVariables(P.current(state));if(format==='json'){saveInteraction();return JSON.stringify({version:1,preset:state.preset,template:state.template,theme:state.theme,motion:state.motion,roles:P.current(state),interactions:interactions[state.template]},null,2);}return component();}
+ function exportPanel(){dq('#ps-code').value=exportValue();dq('#ps-dialog-status').textContent='';dq('.ps-share-fallback').hidden=true;dialog.querySelectorAll('[data-format]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.format===format)));}
+ $('#ps-export').addEventListener('click',()=>{writeHash();exportPanel();dialog.showModal();});dq('.ps-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+ dialog.querySelectorAll('[data-format]').forEach(b=>b.addEventListener('click',()=>{format=b.dataset.format;exportPanel();}));dq('#ps-copy').addEventListener('click',async()=>{const ok=await U.copy(exportValue(),true);dq('#ps-dialog-status').textContent=ok?U.t('copied'):s.copy+' (Ctrl+C / ⌘C)';if(!ok){dq('#ps-code').focus();dq('#ps-code').select();}});
+ dq('#ps-share').addEventListener('click',async()=>{writeHash();const url=location.origin+location.pathname+P.hash(state);const ok=await U.copy(url,true);dq('#ps-dialog-status').textContent=ok?U.t('copied'):s.copy+' (Ctrl+C / ⌘C)';if(!ok){const field=dq('.ps-share-fallback');field.hidden=false;field.value=url;field.select();}});
+ dq('#ps-download').addEventListener('click',()=>{const colors=P.current(state),safeLang=previewLang;const html='<!doctype html>\n<html lang="'+safeLang+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(previewStrings[state.template])+'</title><style>body{margin:0;padding:24px;background:'+colors.background+'}main{max-width:1152px;margin:0 auto}@media(max-width:860px){body{padding-inline:16px}}</style></head><body><main>'+component()+'</main></body></html>';const url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));const a=el('a');a.href=url;a.download='parkbok-'+state.template+'-'+state.preset+'.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);});
+ render();if(initial.error)$('#cstatus').textContent=s.linkError;
 })();

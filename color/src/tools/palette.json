@@ -12,90 +12,99 @@
     "en": {
       "title": "Color Palette Generator – Complementary, Analogous, Triadic Schemes Free",
       "h1": "Color palette generator",
-      "line": "One base color, five harmonies plus lightness and saturation steps",
-      "description": "Free online color palette generator. Enter one color and get complementary, split-complementary, analogous, triadic and tetradic schemes plus nine lightness and saturation steps. Click any swatch to copy, export as CSS variables or JSON, share by link. Runs in your browser.",
-      "base": "Base color", "splitComp": "Split complementary", "lightness": "Lightness", "saturation": "Saturation", "copyCss": "Copy CSS", "copyJson": "Copy JSON",
-      "faq": [
-        [ "What do Copy CSS and Copy JSON export?", "The scheme whose name is highlighted. Click a scheme name to choose it. CSS gives :root{--c1:…;--c2:…}, JSON gives the base color, scheme name and color list." ],
-        [ "How do I share a palette?", "The page address ends with the base color and scheme, for example #ff5733/tri. Copy the address and the same palette opens for anyone." ]
-      ]
+      "line": "Try 24 five-color palettes on three playful templates, then take the HTML and CSS.",
+      "description": "Preview 24 five-color palettes on three original illustrated templates. Edit color roles, check text contrast, copy HTML/CSS or download a standalone HTML file. Free browser-only tool.",
+      "base": "Base color",
+      "splitComp": "Split complementary",
+      "lightness": "Lightness",
+      "saturation": "Saturation",
+      "copyCss": "Copy CSS",
+      "copyJson": "Copy JSON"
     },
     "ko": {
       "title": "색 조합 생성기 – 보색·유사색·삼각 배색 팔레트 무료",
       "h1": "색 조합",
-      "line": "기준 색을 넣고 보색·유사색 등 배색 5종과 명도·채도 단계를 받아 복사하세요.",
-      "description": "색 하나로 보색·분할 보색·유사색·삼각·사각 배색과 명도·채도 9단계를 만드세요. 칩을 눌러 복사, CSS·JSON 내보내기. 무료, 설치 없이 브라우저 처리.",
-      "base": "기준 색", "splitComp": "분할 보색", "lightness": "명도 단계", "saturation": "채도 단계", "copyCss": "CSS 복사", "copyJson": "JSON 복사",
-      "faq": [
-        [ "CSS 복사·JSON 복사는 무엇을 내보내나요?", "이름이 강조된 배색 한 줄입니다. 배색 이름을 눌러 고르세요. CSS 는 :root{--c1:…;--c2:…}, JSON 은 기준 색·배색 이름·색 목록입니다." ],
-        [ "팔레트를 공유하려면?", "페이지 주소 끝에 기준 색과 배색이 붙습니다(예: #ff5733/tri). 주소를 복사해 보내면 같은 팔레트가 열립니다." ]
-      ]
+      "line": "5색 팔레트 24개를 귀여운 예시에 입혀 보고, HTML·CSS로 가져가세요.",
+      "description": "5색 팔레트 24세트를 토끼 우체국·몽글 상점·플래너 예시에 적용하세요. 색상 역할 편집, 글자 대비 확인, HTML·CSS 복사와 단독 HTML 다운로드. 무료 브라우저 색 조합 도구.",
+      "base": "기준 색",
+      "splitComp": "분할 보색",
+      "lightness": "명도 단계",
+      "saturation": "채도 단계",
+      "copyCss": "CSS 복사",
+      "copyJson": "JSON 복사"
     },
     "zh": {
       "title": "配色生成器 – 互补色、类似色、三色配色方案免费在线",
       "h1": "配色生成器",
-      "line": "输入一个基准色，得到五种配色和明度、饱和度层次",
-      "description": "免费在线配色生成器。输入一个颜色即可得到互补、分裂互补、类似、三色和四色配色，以及九级明度和饱和度层次。点击色块复制，导出为 CSS 变量或 JSON，通过链接分享。全部在浏览器中完成。",
-      "base": "基准色", "splitComp": "分裂互补色", "lightness": "明度层次", "saturation": "饱和度层次", "copyCss": "复制 CSS", "copyJson": "复制 JSON",
-      "faq": [
-        [ "复制 CSS 和复制 JSON 会导出什么？", "名称高亮的那一行配色。点击配色名称即可选择。CSS 为 :root{--c1:…;--c2:…}，JSON 包含基准色、配色名称和颜色列表。" ],
-        [ "如何分享配色？", "页面地址以基准色和配色结尾，例如 #ff5733/tri。复制地址发送，对方打开就是同一组配色。" ]
-      ]
+      "line": "将24组五色配色应用到三个可爱模板，获取HTML与CSS。",
+      "description": "在三个原创插画模板中预览24组五色配色。编辑颜色用途、检查文字对比度、复制HTML/CSS或下载独立HTML。免费浏览器工具。",
+      "base": "基准色",
+      "splitComp": "分裂互补色",
+      "lightness": "明度层次",
+      "saturation": "饱和度层次",
+      "copyCss": "复制 CSS",
+      "copyJson": "复制 JSON"
     },
     "ja": {
       "title": "配色ジェネレーター – 補色・類似色・トライアド パレット無料",
       "h1": "配色ジェネレーター",
-      "line": "基準色ひとつで配色 5 種と明度・彩度の段階まで",
-      "description": "無料のオンライン配色ジェネレーター。色をひとつ入れるだけで補色・分裂補色・類似色・トライアド・テトラードの配色と、明度・彩度の 9 段階を作ります。チップをクリックしてコピー、CSS 変数や JSON で書き出し、リンクで共有。ブラウザ内で処理します。",
-      "base": "基準色", "splitComp": "分裂補色", "lightness": "明度の段階", "saturation": "彩度の段階", "copyCss": "CSS をコピー", "copyJson": "JSON をコピー",
-      "faq": [
-        [ "CSS をコピー・JSON をコピーは何を書き出しますか？", "名前が強調されている配色の行です。配色名をクリックして選べます。CSS は :root{--c1:…;--c2:…}、JSON は基準色・配色名・色のリストです。" ],
-        [ "パレットを共有するには？", "ページのアドレスの末尾に基準色と配色が付きます（例: #ff5733/tri）。アドレスをコピーして送れば同じパレットが開きます。" ]
-      ]
+      "line": "24組の5色パレットを3つのかわいい例に当てはめて、HTML・CSSで持ち帰れます。",
+      "description": "24組の5色パレットをオリジナルのイラスト付きテンプレート3種で確認。色の役割と文字コントラストを確認し、HTML・CSSのコピーやHTML保存ができます。無料のブラウザツール。",
+      "base": "基準色",
+      "splitComp": "分裂補色",
+      "lightness": "明度の段階",
+      "saturation": "彩度の段階",
+      "copyCss": "CSS をコピー",
+      "copyJson": "JSON をコピー"
     },
     "es": {
       "title": "Generador de paletas de colores – Complementarios, análogos, triádicos gratis",
       "h1": "Generador de paletas",
-      "line": "Un color base, cinco armonías y escalas de luminosidad y saturación",
-      "description": "Generador de paletas de colores online y gratis. Introduce un color y obtén esquemas complementario, complementario dividido, análogo, triádico y tetrádico, más nueve pasos de luminosidad y saturación. Haz clic en una muestra para copiar, exporta como variables CSS o JSON y comparte por enlace. Funciona en tu navegador.",
-      "base": "Color base", "splitComp": "Complementario dividido", "lightness": "Luminosidad", "saturation": "Saturación", "copyCss": "Copiar CSS", "copyJson": "Copiar JSON",
-      "faq": [
-        [ "¿Qué exportan Copiar CSS y Copiar JSON?", "La armonía cuyo nombre está resaltado. Haz clic en el nombre de una armonía para elegirla. CSS da :root{--c1:…;--c2:…}; JSON da el color base, el nombre de la armonía y la lista de colores." ],
-        [ "¿Cómo comparto una paleta?", "La dirección de la página termina con el color base y la armonía, por ejemplo #ff5733/tri. Copia la dirección y cualquiera verá la misma paleta." ]
-      ]
+      "line": "Prueba 24 paletas de cinco colores en tres plantillas y llévate el HTML y CSS.",
+      "description": "Vista previa de 24 paletas de cinco colores en tres plantillas ilustradas. Edita colores, comprueba contraste, copia HTML/CSS o descarga HTML independiente. Gratis en el navegador.",
+      "base": "Color base",
+      "splitComp": "Complementario dividido",
+      "lightness": "Luminosidad",
+      "saturation": "Saturación",
+      "copyCss": "Copiar CSS",
+      "copyJson": "Copiar JSON"
     },
     "pt": {
       "title": "Gerador de paletas de cores – Complementares, análogas, triádicas grátis",
       "h1": "Gerador de paletas",
-      "line": "Uma cor base, cinco harmonias e escalas de luminosidade e saturação",
-      "description": "Gerador de paletas de cores online e grátis. Informe uma cor e receba esquemas complementar, complementar dividido, análogo, triádico e tetrádico, além de nove passos de luminosidade e saturação. Clique numa amostra para copiar, exporte como variáveis CSS ou JSON e compartilhe por link. Funciona no navegador.",
-      "base": "Cor base", "splitComp": "Complementar dividida", "lightness": "Luminosidade", "saturation": "Saturação", "copyCss": "Copiar CSS", "copyJson": "Copiar JSON",
-      "faq": [
-        [ "O que Copiar CSS e Copiar JSON exportam?", "A harmonia cujo nome está destacado. Clique no nome de uma harmonia para escolhê-la. CSS dá :root{--c1:…;--c2:…}; JSON dá a cor base, o nome da harmonia e a lista de cores." ],
-        [ "Como compartilho uma paleta?", "O endereço da página termina com a cor base e a harmonia, por exemplo #ff5733/tri. Copie o endereço e a mesma paleta abre para qualquer pessoa." ]
-      ]
+      "line": "Experimente 24 paletas de cinco cores em três modelos e leve o HTML e CSS.",
+      "description": "Veja 24 paletas de cinco cores em três modelos ilustrados. Edite cores, confira contraste, copie HTML/CSS ou baixe HTML independente. Grátis no navegador.",
+      "base": "Cor base",
+      "splitComp": "Complementar dividida",
+      "lightness": "Luminosidade",
+      "saturation": "Saturação",
+      "copyCss": "Copiar CSS",
+      "copyJson": "Copiar JSON"
     },
     "de": {
       "title": "Farbpaletten-Generator – Komplementär, analog, Triade kostenlos",
       "h1": "Farbpaletten-Generator",
-      "line": "Eine Grundfarbe, fünf Harmonien plus Helligkeits- und Sättigungsstufen",
-      "description": "Kostenloser Online-Farbpaletten-Generator. Eine Farbe eingeben und Komplementär-, Spaltkomplementär-, Analog-, Triaden- und Tetraden-Schemata plus neun Helligkeits- und Sättigungsstufen erhalten. Farbfeld anklicken zum Kopieren, als CSS-Variablen oder JSON exportieren, per Link teilen. Läuft im Browser.",
-      "base": "Grundfarbe", "splitComp": "Spaltkomplementär", "lightness": "Helligkeit", "saturation": "Sättigung", "copyCss": "CSS kopieren", "copyJson": "JSON kopieren",
-      "faq": [
-        [ "Was exportieren CSS kopieren und JSON kopieren?", "Die Harmonie, deren Name hervorgehoben ist. Klicke auf einen Harmonienamen, um sie zu wählen. CSS liefert :root{--c1:…;--c2:…}, JSON liefert Grundfarbe, Harmoniename und Farbliste." ],
-        [ "Wie teile ich eine Palette?", "Die Seitenadresse endet mit Grundfarbe und Harmonie, zum Beispiel #ff5733/tri. Adresse kopieren – bei jedem öffnet sich dieselbe Palette." ]
-      ]
+      "line": "Teste 24 Fünf-Farben-Paletten mit drei verspielten Vorlagen und nimm HTML und CSS mit.",
+      "description": "24 Fünf-Farben-Paletten mit drei illustrierten Vorlagen. Farbrollen bearbeiten, Textkontrast prüfen, HTML/CSS kopieren oder eigenständiges HTML herunterladen. Kostenlos im Browser.",
+      "base": "Grundfarbe",
+      "splitComp": "Spaltkomplementär",
+      "lightness": "Helligkeit",
+      "saturation": "Sättigung",
+      "copyCss": "CSS kopieren",
+      "copyJson": "JSON kopieren"
     },
     "fr": {
       "title": "Générateur de palettes de couleurs – Complémentaires, analogues, triadiques gratuit",
       "h1": "Générateur de palettes",
-      "line": "Une couleur de base, cinq harmonies et des échelles de luminosité et de saturation",
-      "description": "Générateur de palettes de couleurs en ligne gratuit. Entrez une couleur et obtenez des schémas complémentaire, complémentaire divisé, analogue, triadique et tétradique, plus neuf paliers de luminosité et de saturation. Cliquez sur une pastille pour copier, exportez en variables CSS ou JSON, partagez par lien. Tout se passe dans votre navigateur.",
-      "base": "Couleur de base", "splitComp": "Complémentaire divisé", "lightness": "Luminosité", "saturation": "Saturation", "copyCss": "Copier CSS", "copyJson": "Copier JSON",
-      "faq": [
-        [ "Que copient Copier CSS et Copier JSON ?", "L'harmonie dont le nom est mis en évidence. Cliquez sur le nom d'une harmonie pour la choisir. CSS donne :root{--c1:…;--c2:…}, JSON donne la couleur de base, le nom de l'harmonie et la liste des couleurs." ],
-        [ "Comment partager une palette ?", "L'adresse de la page se termine par la couleur de base et l'harmonie, par exemple #ff5733/tri. Copiez l'adresse : la même palette s'ouvre chez tout le monde." ]
-      ]
+      "line": "Essayez 24 palettes de cinq couleurs sur trois modèles et emportez le HTML et le CSS.",
+      "description": "Prévisualisez 24 palettes de cinq couleurs sur trois modèles illustrés. Modifiez les couleurs, vérifiez le contraste, copiez le HTML/CSS ou téléchargez un HTML autonome. Gratuit dans le navigateur.",
+      "base": "Couleur de base",
+      "splitComp": "Complémentaire divisé",
+      "lightness": "Luminosité",
+      "saturation": "Saturation",
+      "copyCss": "Copier CSS",
+      "copyJson": "Copier JSON"
     }
-  }
+  },
+  "showAbout": false
 }

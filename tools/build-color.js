@@ -2,6 +2,7 @@
 //   → /color/[언어/]index.html (허브), /color/<도구>/[언어/]index.html   (node tools/build-color.js)
 // 도구 json 만 있고 color/tools/<id>.js 가 없으면 건너뛰고 경고한다. 사이트맵의 color 블록만 갱신한다(멱등).
 const fs = require('fs'), path = require('path');
+require('./build-palette-assets');
 const shell = require('./shell');
 const root = path.resolve(__dirname, '..'), src = path.join(root, 'color', 'src');
 const S = JSON.parse(fs.readFileSync(path.join(src, 'strings.json'), 'utf8'));
@@ -84,15 +85,16 @@ for (const tl of tools) for (const lang of langs) {
   if (nextIds.length < 3) for (const o of tools) { if (nextIds.length >= 3) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
   const next = nextIds.map(n => ({ id: n, url: url(lang, n), h1: tstr(byId[n], lang).h1 }));
   const nextChips = next.map(n => `<a class="chip" href="${n.url}">${esc(n.h1)}</a>`).join('');
-  const faqArr = T.faq || [];
+  const faqArr = tl.showAbout === false ? [] : (T.faq || []);
   const faq = faqArr.map(q => `<dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd>`).join('');
+  const about = tl.showAbout === false ? '' : `  <details class="about">\n    <summary>${esc(C.aboutTitle)}</summary>\n    <p>${esc(C.aboutLine)}</p>\n    <dl class="faq">${faq}</dl>\n  </details>`;
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name: T.h1, url: canonical, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: HREFLANG[lang] || lang, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: T.description }
   ];
   if (faqArr.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqArr.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) });
   const vars = { lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
-    h1: esc(T.h1), line: esc(T.line), nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq, css, jsonld: safeJson(jsonld), toolId: tl.id,
-    strings: safeJson(common(lang)), tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
+    h1: esc(T.h1), line: esc(T.line), nextTools: esc(C.nextTools), nextChips, about, css, jsonld: safeJson(jsonld), toolId: tl.id,
+    strings: safeJson(common(lang)), toolAssets: tl.id === 'palette' ? '<link rel="stylesheet" href="/color/palette-studio.css">\n' + ['palette-data','palette-core','palette-strings','palette-template-style','palette-templates'].map(n => '<script src="/color/'+n+'.js" defer></script>').join('\n')+'\n' : '', tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;
 }
 

@@ -7,7 +7,7 @@
 const fs = require('fs'), path = require('path');
 const shell = require('./shell');
 const root = path.resolve(__dirname, '..');
-const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'wheel', 'pdf', 'image', 'color', 'src'];   // wheel/pdf/image 는 자체 생성기가 셸을 넣는다
+const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'tests', 'output', 'wheel', 'pdf', 'image', 'color', 'src'];   // 테스트 산출물 제외. wheel/pdf/image 는 자체 생성기가 셸을 넣는다
 const FOOT_EXTRA = {
   'hwp/index.html': ' · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.'
 };

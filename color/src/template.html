@@ -20,17 +20,13 @@
   <section class="tool" id="app"></section>
   <div class="ad"></div>
   <nav class="chips next" aria-label="{{nextTools}}">{{nextChips}}</nav>
-  <details class="about">
-    <summary>{{aboutTitle}}</summary>
-    <p>{{aboutLine}}</p>
-    <dl class="faq">{{faq}}</dl>
-  </details>
+{{about}}
 </main>
 {{shell_footer}}
 <script>window.COLOR_STRINGS={{strings}};window.COLOR_TOOL={{tool}};</script>
 <script src="/color/color.js" defer></script>
 <script src="/color/color-ui.js" defer></script>
-<script src="/color/tools/{{toolId}}.js" defer></script>
+{{toolAssets}}<script src="/color/tools/{{toolId}}.js" defer></script>
 <!-- tool:end -->
 <!-- hub:start -->
 <main class="wrap">

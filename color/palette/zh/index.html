@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>配色生成器 – 互补色、类似色、三色配色方案免费在线</title>
-<meta name="description" content="免费在线配色生成器。输入一个颜色即可得到互补、分裂互补、类似、三色和四色配色，以及九级明度和饱和度层次。点击色块复制，导出为 CSS 变量或 JSON，通过链接分享。全部在浏览器中完成。">
+<meta name="description" content="在三个原创插画模板中预览24组五色配色。编辑颜色用途、检查文字对比度、复制HTML/CSS或下载独立HTML。免费浏览器工具。">
 <link rel="canonical" href="https://parkbok.com/color/palette/zh/">
 <link rel="alternate" hreflang="en" href="https://parkbok.com/color/palette/">
 <link rel="alternate" hreflang="ko" href="https://parkbok.com/color/palette/ko/">
@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="de" href="https://parkbok.com/color/palette/de/">
 <link rel="alternate" hreflang="fr" href="https://parkbok.com/color/palette/fr/">
 <link rel="alternate" hreflang="x-default" href="https://parkbok.com/color/palette/">
-<meta property="og:title" content="配色生成器 – 互补色、类似色、三色配色方案免费在线"><meta property="og:description" content="免费在线配色生成器。输入一个颜色即可得到互补、分裂互补、类似、三色和四色配色，以及九级明度和饱和度层次。点击色块复制，导出为 CSS 变量或 JSON，通过链接分享。全部在浏览器中完成。">
+<meta property="og:title" content="配色生成器 – 互补色、类似色、三色配色方案免费在线"><meta property="og:description" content="在三个原创插画模板中预览24组五色配色。编辑颜色用途、检查文字对比度、复制HTML/CSS或下载独立HTML。免费浏览器工具。">
 <meta property="og:url" content="https://parkbok.com/color/palette/zh/">
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -333,7 +333,7 @@ button.c-preview{cursor:pointer}
   .vrow .vv{white-space:normal;overflow:visible;overflow-wrap:anywhere;font-size:14px;line-height:18px;padding:12px 0}
   .c-more>summary{display:block}
 }</style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"配色生成器","url":"https://parkbok.com/color/palette/zh/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"zh-Hans","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"免费在线配色生成器。输入一个颜色即可得到互补、分裂互补、类似、三色和四色配色，以及九级明度和饱和度层次。点击色块复制，导出为 CSS 变量或 JSON，通过链接分享。全部在浏览器中完成。"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"复制 CSS 和复制 JSON 会导出什么？","acceptedAnswer":{"@type":"Answer","text":"名称高亮的那一行配色。点击配色名称即可选择。CSS 为 :root{--c1:…;--c2:…}，JSON 包含基准色、配色名称和颜色列表。"}},{"@type":"Question","name":"如何分享配色？","acceptedAnswer":{"@type":"Answer","text":"页面地址以基准色和配色结尾，例如 #ff5733/tri。复制地址发送，对方打开就是同一组配色。"}}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"配色生成器","url":"https://parkbok.com/color/palette/zh/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"zh-Hans","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"在三个原创插画模板中预览24组五色配色。编辑颜色用途、检查文字对比度、复制HTML/CSS或下载独立HTML。免费浏览器工具。"}]</script>
 </head>
 <body class="page-color">
 <!-- shell:header -->
@@ -342,22 +342,24 @@ button.c-preview{cursor:pointer}
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 <main class="wrap">
-  <div class="tool-head"><h1>配色生成器</h1><p class="lead">输入一个基准色，得到五种配色和明度、饱和度层次</p></div>
+  <div class="tool-head"><h1>配色生成器</h1><p class="lead">将24组五色配色应用到三个可爱模板，获取HTML与CSS。</p></div>
   <section class="tool" id="app"></section>
   <div class="ad"></div>
   <nav class="chips next" aria-label="更多工具"><a class="chip" href="/color/random/zh/">随机颜色</a><a class="chip" href="/color/converter/zh/">颜色转换器</a><a class="chip" href="/color/gradient/zh/">渐变生成器</a></nav>
-  <details class="about">
-    <summary>工作原理</summary>
-    <p>所有计算都在您的浏览器中完成，不会向服务器发送任何内容。</p>
-    <dl class="faq"><dt>复制 CSS 和复制 JSON 会导出什么？</dt><dd>名称高亮的那一行配色。点击配色名称即可选择。CSS 为 :root{--c1:…;--c2:…}，JSON 包含基准色、配色名称和颜色列表。</dd><dt>如何分享配色？</dt><dd>页面地址以基准色和配色结尾，例如 #ff5733/tri。复制地址发送，对方打开就是同一组配色。</dd></dl>
-  </details>
+
 </main>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="页脚菜单"><a href="/about.html">关于</a><a href="/privacy.html">隐私政策</a><a href="/terms.html">使用条款</a><a href="/guide/">指南</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->
-<script>window.COLOR_STRINGS={"name":"简体中文","dir":"ltr","language":"语言","hex":"HEX","rgb":"RGB","hsl":"HSL","hsv":"HSV","cmyk":"CMYK","copy":"复制","copied":"已复制","preview":"预览","cssName":"名称","nearest":"最接近的名称","exactName":"CSS 名称","contrast":"文字对比度","whiteText":"白色文字","blackText":"黑色文字","sample":"示例文字","pass":"通过","fail":"不足","large":"仅大号文字","tints":"变亮","shades":"变暗","harmony":"配色","complementary":"互补色","analogous":"类似色","triadic":"三色配色","tetradic":"四色配色","randomize":"随机","pick":"选取","placeholder":"#ff5733 · rgb(255, 87, 51) · tomato","invalid":"无法识别为颜色。请输入 #ff5733、rgb(…) 或 tomato 之类的名称。","aboutTitle":"工作原理","aboutLine":"所有计算都在您的浏览器中完成，不会向服务器发送任何内容。","nextTools":"更多工具"};window.COLOR_TOOL={"id":"palette","lang":"zh","langUrls":{"en":"/color/palette/","ko":"/color/palette/ko/","zh":"/color/palette/zh/","ja":"/color/palette/ja/","es":"/color/palette/es/","pt":"/color/palette/pt/","de":"/color/palette/de/","fr":"/color/palette/fr/"},"next":[{"id":"random","url":"/color/random/zh/","h1":"随机颜色"},{"id":"converter","url":"/color/converter/zh/","h1":"颜色转换器"},{"id":"gradient","url":"/color/gradient/zh/","h1":"渐变生成器"}],"strings":{"title":"配色生成器 – 互补色、类似色、三色配色方案免费在线","h1":"配色生成器","line":"输入一个基准色，得到五种配色和明度、饱和度层次","description":"免费在线配色生成器。输入一个颜色即可得到互补、分裂互补、类似、三色和四色配色，以及九级明度和饱和度层次。点击色块复制，导出为 CSS 变量或 JSON，通过链接分享。全部在浏览器中完成。","base":"基准色","splitComp":"分裂互补色","lightness":"明度层次","saturation":"饱和度层次","copyCss":"复制 CSS","copyJson":"复制 JSON","faq":[["复制 CSS 和复制 JSON 会导出什么？","名称高亮的那一行配色。点击配色名称即可选择。CSS 为 :root{--c1:…;--c2:…}，JSON 包含基准色、配色名称和颜色列表。"],["如何分享配色？","页面地址以基准色和配色结尾，例如 #ff5733/tri。复制地址发送，对方打开就是同一组配色。"]]}};</script>
+<script>window.COLOR_STRINGS={"name":"简体中文","dir":"ltr","language":"语言","hex":"HEX","rgb":"RGB","hsl":"HSL","hsv":"HSV","cmyk":"CMYK","copy":"复制","copied":"已复制","preview":"预览","cssName":"名称","nearest":"最接近的名称","exactName":"CSS 名称","contrast":"文字对比度","whiteText":"白色文字","blackText":"黑色文字","sample":"示例文字","pass":"通过","fail":"不足","large":"仅大号文字","tints":"变亮","shades":"变暗","harmony":"配色","complementary":"互补色","analogous":"类似色","triadic":"三色配色","tetradic":"四色配色","randomize":"随机","pick":"选取","placeholder":"#ff5733 · rgb(255, 87, 51) · tomato","invalid":"无法识别为颜色。请输入 #ff5733、rgb(…) 或 tomato 之类的名称。","aboutTitle":"工作原理","aboutLine":"所有计算都在您的浏览器中完成，不会向服务器发送任何内容。","nextTools":"更多工具"};window.COLOR_TOOL={"id":"palette","lang":"zh","langUrls":{"en":"/color/palette/","ko":"/color/palette/ko/","zh":"/color/palette/zh/","ja":"/color/palette/ja/","es":"/color/palette/es/","pt":"/color/palette/pt/","de":"/color/palette/de/","fr":"/color/palette/fr/"},"next":[{"id":"random","url":"/color/random/zh/","h1":"随机颜色"},{"id":"converter","url":"/color/converter/zh/","h1":"颜色转换器"},{"id":"gradient","url":"/color/gradient/zh/","h1":"渐变生成器"}],"strings":{"title":"配色生成器 – 互补色、类似色、三色配色方案免费在线","h1":"配色生成器","line":"将24组五色配色应用到三个可爱模板，获取HTML与CSS。","description":"在三个原创插画模板中预览24组五色配色。编辑颜色用途、检查文字对比度、复制HTML/CSS或下载独立HTML。免费浏览器工具。","base":"基准色","splitComp":"分裂互补色","lightness":"明度层次","saturation":"饱和度层次","copyCss":"复制 CSS","copyJson":"复制 JSON"}};</script>
 <script src="/color/color.js" defer></script>
 <script src="/color/color-ui.js" defer></script>
+<link rel="stylesheet" href="/color/palette-studio.css">
+<script src="/color/palette-data.js" defer></script>
+<script src="/color/palette-core.js" defer></script>
+<script src="/color/palette-strings.js" defer></script>
+<script src="/color/palette-template-style.js" defer></script>
+<script src="/color/palette-templates.js" defer></script>
 <script src="/color/tools/palette.js" defer></script>
 </body>
 </html>

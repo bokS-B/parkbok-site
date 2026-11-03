@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Color Palette Generator – Complementary, Analogous, Triadic Schemes Free</title>
-<meta name="description" content="Free online color palette generator. Enter one color and get complementary, split-complementary, analogous, triadic and tetradic schemes plus nine lightness and saturation steps. Click any swatch to copy, export as CSS variables or JSON, share by link. Runs in your browser.">
+<meta name="description" content="Preview 24 five-color palettes on three original illustrated templates. Edit color roles, check text contrast, copy HTML/CSS or download a standalone HTML file. Free browser-only tool.">
 <link rel="canonical" href="https://parkbok.com/color/palette/">
 <link rel="alternate" hreflang="en" href="https://parkbok.com/color/palette/">
 <link rel="alternate" hreflang="ko" href="https://parkbok.com/color/palette/ko/">
@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="de" href="https://parkbok.com/color/palette/de/">
 <link rel="alternate" hreflang="fr" href="https://parkbok.com/color/palette/fr/">
 <link rel="alternate" hreflang="x-default" href="https://parkbok.com/color/palette/">
-<meta property="og:title" content="Color Palette Generator – Complementary, Analogous, Triadic Schemes Free"><meta property="og:description" content="Free online color palette generator. Enter one color and get complementary, split-complementary, analogous, triadic and tetradic schemes plus nine lightness and saturation steps. Click any swatch to copy, export as CSS variables or JSON, share by link. Runs in your browser.">
+<meta property="og:title" content="Color Palette Generator – Complementary, Analogous, Triadic Schemes Free"><meta property="og:description" content="Preview 24 five-color palettes on three original illustrated templates. Edit color roles, check text contrast, copy HTML/CSS or download a standalone HTML file. Free browser-only tool.">
 <meta property="og:url" content="https://parkbok.com/color/palette/">
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -333,7 +333,7 @@ button.c-preview{cursor:pointer}
   .vrow .vv{white-space:normal;overflow:visible;overflow-wrap:anywhere;font-size:14px;line-height:18px;padding:12px 0}
   .c-more>summary{display:block}
 }</style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Color palette generator","url":"https://parkbok.com/color/palette/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free online color palette generator. Enter one color and get complementary, split-complementary, analogous, triadic and tetradic schemes plus nine lightness and saturation steps. Click any swatch to copy, export as CSS variables or JSON, share by link. Runs in your browser."},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What do Copy CSS and Copy JSON export?","acceptedAnswer":{"@type":"Answer","text":"The scheme whose name is highlighted. Click a scheme name to choose it. CSS gives :root{--c1:…;--c2:…}, JSON gives the base color, scheme name and color list."}},{"@type":"Question","name":"How do I share a palette?","acceptedAnswer":{"@type":"Answer","text":"The page address ends with the base color and scheme, for example #ff5733/tri. Copy the address and the same palette opens for anyone."}}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Color palette generator","url":"https://parkbok.com/color/palette/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Preview 24 five-color palettes on three original illustrated templates. Edit color roles, check text contrast, copy HTML/CSS or download a standalone HTML file. Free browser-only tool."}]</script>
 </head>
 <body class="page-color">
 <!-- shell:header -->
@@ -342,22 +342,24 @@ button.c-preview{cursor:pointer}
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 <main class="wrap">
-  <div class="tool-head"><h1>Color palette generator</h1><p class="lead">One base color, five harmonies plus lightness and saturation steps</p></div>
+  <div class="tool-head"><h1>Color palette generator</h1><p class="lead">Try 24 five-color palettes on three playful templates, then take the HTML and CSS.</p></div>
   <section class="tool" id="app"></section>
   <div class="ad"></div>
   <nav class="chips next" aria-label="Next tools"><a class="chip" href="/color/random/">Random color generator</a><a class="chip" href="/color/converter/">Color converter</a><a class="chip" href="/color/gradient/">CSS gradient generator</a></nav>
-  <details class="about">
-    <summary>How it works</summary>
-    <p>Everything is calculated in your browser. Nothing is sent to a server.</p>
-    <dl class="faq"><dt>What do Copy CSS and Copy JSON export?</dt><dd>The scheme whose name is highlighted. Click a scheme name to choose it. CSS gives :root{--c1:…;--c2:…}, JSON gives the base color, scheme name and color list.</dd><dt>How do I share a palette?</dt><dd>The page address ends with the base color and scheme, for example #ff5733/tri. Copy the address and the same palette opens for anyone.</dd></dl>
-  </details>
+
 </main>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="Footer menu"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/guide/">Guides</a></nav><p class="foot-copy">© parkbok</p></div></footer>
 <!-- /shell:footer -->
-<script>window.COLOR_STRINGS={"name":"English","dir":"ltr","language":"Language","hex":"HEX","rgb":"RGB","hsl":"HSL","hsv":"HSV","cmyk":"CMYK","copy":"Copy","copied":"Copied","preview":"Preview","cssName":"Name","nearest":"Nearest name","exactName":"CSS name","contrast":"Text contrast","whiteText":"White text","blackText":"Black text","sample":"Sample text","pass":"Pass","fail":"Fail","large":"Large text only","tints":"Tints","shades":"Shades","harmony":"Harmonies","complementary":"Complementary","analogous":"Analogous","triadic":"Triadic","tetradic":"Tetradic","randomize":"Random","pick":"Pick","placeholder":"#ff5733 · rgb(255, 87, 51) · tomato","invalid":"Not a color. Try #ff5733, rgb(…) or a name like tomato.","aboutTitle":"How it works","aboutLine":"Everything is calculated in your browser. Nothing is sent to a server.","nextTools":"Next tools"};window.COLOR_TOOL={"id":"palette","lang":"en","langUrls":{"en":"/color/palette/","ko":"/color/palette/ko/","zh":"/color/palette/zh/","ja":"/color/palette/ja/","es":"/color/palette/es/","pt":"/color/palette/pt/","de":"/color/palette/de/","fr":"/color/palette/fr/"},"next":[{"id":"random","url":"/color/random/","h1":"Random color generator"},{"id":"converter","url":"/color/converter/","h1":"Color converter"},{"id":"gradient","url":"/color/gradient/","h1":"CSS gradient generator"}],"strings":{"title":"Color Palette Generator – Complementary, Analogous, Triadic Schemes Free","h1":"Color palette generator","line":"One base color, five harmonies plus lightness and saturation steps","description":"Free online color palette generator. Enter one color and get complementary, split-complementary, analogous, triadic and tetradic schemes plus nine lightness and saturation steps. Click any swatch to copy, export as CSS variables or JSON, share by link. Runs in your browser.","base":"Base color","splitComp":"Split complementary","lightness":"Lightness","saturation":"Saturation","copyCss":"Copy CSS","copyJson":"Copy JSON","faq":[["What do Copy CSS and Copy JSON export?","The scheme whose name is highlighted. Click a scheme name to choose it. CSS gives :root{--c1:…;--c2:…}, JSON gives the base color, scheme name and color list."],["How do I share a palette?","The page address ends with the base color and scheme, for example #ff5733/tri. Copy the address and the same palette opens for anyone."]]}};</script>
+<script>window.COLOR_STRINGS={"name":"English","dir":"ltr","language":"Language","hex":"HEX","rgb":"RGB","hsl":"HSL","hsv":"HSV","cmyk":"CMYK","copy":"Copy","copied":"Copied","preview":"Preview","cssName":"Name","nearest":"Nearest name","exactName":"CSS name","contrast":"Text contrast","whiteText":"White text","blackText":"Black text","sample":"Sample text","pass":"Pass","fail":"Fail","large":"Large text only","tints":"Tints","shades":"Shades","harmony":"Harmonies","complementary":"Complementary","analogous":"Analogous","triadic":"Triadic","tetradic":"Tetradic","randomize":"Random","pick":"Pick","placeholder":"#ff5733 · rgb(255, 87, 51) · tomato","invalid":"Not a color. Try #ff5733, rgb(…) or a name like tomato.","aboutTitle":"How it works","aboutLine":"Everything is calculated in your browser. Nothing is sent to a server.","nextTools":"Next tools"};window.COLOR_TOOL={"id":"palette","lang":"en","langUrls":{"en":"/color/palette/","ko":"/color/palette/ko/","zh":"/color/palette/zh/","ja":"/color/palette/ja/","es":"/color/palette/es/","pt":"/color/palette/pt/","de":"/color/palette/de/","fr":"/color/palette/fr/"},"next":[{"id":"random","url":"/color/random/","h1":"Random color generator"},{"id":"converter","url":"/color/converter/","h1":"Color converter"},{"id":"gradient","url":"/color/gradient/","h1":"CSS gradient generator"}],"strings":{"title":"Color Palette Generator – Complementary, Analogous, Triadic Schemes Free","h1":"Color palette generator","line":"Try 24 five-color palettes on three playful templates, then take the HTML and CSS.","description":"Preview 24 five-color palettes on three original illustrated templates. Edit color roles, check text contrast, copy HTML/CSS or download a standalone HTML file. Free browser-only tool.","base":"Base color","splitComp":"Split complementary","lightness":"Lightness","saturation":"Saturation","copyCss":"Copy CSS","copyJson":"Copy JSON"}};</script>
 <script src="/color/color.js" defer></script>
 <script src="/color/color-ui.js" defer></script>
+<link rel="stylesheet" href="/color/palette-studio.css">
+<script src="/color/palette-data.js" defer></script>
+<script src="/color/palette-core.js" defer></script>
+<script src="/color/palette-strings.js" defer></script>
+<script src="/color/palette-template-style.js" defer></script>
+<script src="/color/palette-templates.js" defer></script>
 <script src="/color/tools/palette.js" defer></script>
 </body>
 </html>
