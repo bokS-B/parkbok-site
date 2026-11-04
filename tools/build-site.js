@@ -21,6 +21,7 @@ const FOOT_EXTRA = {
 };
 // 페이지 전용 CSS: <style id="page-css"> 로 site-css 다음에 인라인
 const PAGE_CSS = {
+  'guide/photo-signature-size-india.html': 'assets/photo-signature-guide.css',
   'index.html': ['assets/home-tokens.css', 'assets/home.css'],
   'hwp/index.html': ['assets/hwp.css', 'assets/hwp-page.css'],
   'games/index.html': ['assets/home-tokens.css', 'assets/home.css'],
@@ -112,6 +113,7 @@ function gridHtml(rel, cfg, lang = 'ko'){
   return '<!-- grid:start -->\n' + out + '\n  <!-- grid:end -->';
 }
 function sectionOf(rel){
+  if (rel === 'guide/photo-signature-size-india.html') return 'image';
   if (rel.startsWith('games/')) return 'game';
   if (rel.startsWith('hwp/')) return 'hwp';
   if (rel.startsWith('text/')) return 'text';
@@ -144,7 +146,7 @@ let changed = 0;
 for (const p of pages) {
   const rel = path.relative(root, p).split(path.sep).join('/');
   const before = fs.readFileSync(p, 'utf8');
-  const isHome = homeLang(rel), lang = isHome || 'ko';
+  const isHome = homeLang(rel), lang = isHome || (rel === 'guide/photo-signature-size-india.html' ? 'en' : 'ko');
   let s = clean(isHome ? homeSource : before);
   if (isHome) {
     const t = HOME[lang], url = 'https://parkbok.com' + shell.homeUrl(lang), title = 'parkbok – ' + t.title;

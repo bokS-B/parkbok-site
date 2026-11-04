@@ -34,12 +34,13 @@ for (const p of files) {
     for (const need of ['og:description', 'og:url', '<html lang="', ' dir="']) if (!s.includes(need)) fails.push(rel + ': ' + need + ' 없음');
     if (multi === 'wheel' && count(/class="chip on"/g) !== 1) fails.push(rel + ': 서브내비 on 칩 ' + count(/class="chip on"/g) + '개');
   } else {
-    if (!isHome && lang !== 'ko') fails.push(rel + ': lang=' + lang);
+    const expectedLang = rel === 'guide/photo-signature-size-india.html' ? 'en' : 'ko';
+    if (!isHome && lang !== expectedLang) fails.push(rel + ': lang=' + lang);
   }
   // 헤더 동일성: 언어별로 class="on" / 언어선택 / 서브내비를 지운 뒤 비교
   let h = (s.match(/<!-- shell:header -->[\s\S]*?<!-- \/shell:header -->/) || [''])[0]
     .replace(/ class="on"/g, '').replace(/<select id="lang"[\s\S]*?<\/select>/, '').replace(/<nav class="subnav"[\s\S]*?<\/nav>/, '');
-  const key = isHome ? 'home:' + lang : multi ? multi + ':' + lang : 'site:ko';
+  const key = isHome ? 'home:' + lang : multi ? multi + ':' + lang : 'site:' + lang;
   (byLang[key] = byLang[key] || new Map()).set(h, (byLang[key].get(h) || []).concat(rel));
 }
 for (const [k, m] of Object.entries(byLang)) if (m.size !== 1) fails.push('헤더 불일치 ' + k + ': 변형 ' + m.size + '개 — ' + [...m.values()].map(v => v[0]).join(', '));

@@ -1,0 +1,29 @@
+.form-guide{max-width:960px;padding-top:28px;padding-bottom:64px}
+.form-guide .guide-breadcrumb{font-size:14px;color:var(--muted);margin:0 0 28px}
+.form-guide h1{font-size:clamp(28px,4vw,42px);line-height:1.18;max-width:760px;letter-spacing:-.035em;margin:0 0 18px;text-wrap:balance}
+.form-guide .guide-lead{font-size:18px;line-height:1.65;max-width:740px;color:var(--muted)}
+.form-guide .guide-meta{font-size:13px;color:var(--muted);margin:16px 0 28px}
+.form-guide .guide-start{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 40px}
+.form-guide .guide-card{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:24px;min-width:0}
+.form-guide .guide-card h2{font-size:21px;margin:0 0 10px}
+.form-guide .guide-card p{font-size:15px;margin:0 0 18px;line-height:1.65}
+.form-guide .guide-actions{display:flex;flex-wrap:wrap;gap:8px}
+.form-guide .guide-action{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;border-radius:10px;font-weight:600;border:1px solid var(--line);background:var(--bg);text-decoration:none;color:var(--ink)}
+.form-guide .guide-action:hover{border-color:var(--accent)}
+.form-guide .guide-action:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.form-guide .guide-action.primary{background:#2563eb;color:#fff;border-color:#2563eb}
+.form-guide section{margin:40px 0}
+.form-guide section h2{font-size:24px;line-height:1.3;margin:0 0 16px;letter-spacing:-.02em}
+.form-guide p,.form-guide li{font-size:16px;line-height:1.75}
+.form-guide li+li{margin-top:10px}
+.form-guide ol,.form-guide ul{padding-left:24px}
+.form-guide .guide-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:18px 0}
+.form-guide table{border-collapse:collapse;width:100%;font-size:15px;text-align:left;line-height:1.5}
+.form-guide th,.form-guide td{padding:14px 16px;vertical-align:top;border-bottom:1px solid var(--line)}
+.form-guide th{background:var(--card);font-weight:600}
+.form-guide tr:last-child td{border-bottom:0}
+.form-guide .guide-note{border-left:3px solid var(--accent);padding:12px 18px;background:var(--card)}
+.form-guide .guide-source{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+@media(max-width:600px){.form-guide{padding-top:20px;padding-bottom:40px}.form-guide .guide-breadcrumb{margin-bottom:20px}.form-guide .guide-start{grid-template-columns:1fr;gap:12px;margin-bottom:32px}.form-guide .guide-card{padding:20px}.form-guide .guide-lead{font-size:16px}.form-guide section{margin:32px 0}.form-guide section h2{font-size:22px}.form-guide th,.form-guide td{padding:12px 10px}}
+
+@media(max-width:600px){.form-guide .guide-breadcrumb{margin-bottom:16px}.form-guide .guide-meta{margin:12px 0 20px}.form-guide .guide-start{margin-top:20px}.form-guide .guide-card{padding:18px}.form-guide .guide-card p{margin-bottom:14px}}

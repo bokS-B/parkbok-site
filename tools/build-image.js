@@ -19,6 +19,7 @@ const DEFAULT_GLYPH = '<g fill="none" stroke="#fff" stroke-width="2.5" stroke-li
 
 const esc = shell.esc;
 const safeJson = o => JSON.stringify(o).replace(/</g, '\\u003c');
+const formGuide = lang => lang === 'en' ? '<a class="chip" href="/guide/photo-signature-size-india.html">Photo &amp; signature size guide (India)</a>' : '';
 const url = (lang, id) => '/image/' + (id ? id + '/' : '') + (lang === 'en' ? '' : lang + '/');
 const wheelHome = lang => '/wheel/' + (lang === 'en' ? '' : lang + '/');
 
@@ -77,7 +78,7 @@ for (const lang of langs) {
   const jsonld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: H.h1, url: canonical, inLanguage: HREFLANG[lang] || lang, description: H.description,
     hasPart: tools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }, crumbs.jsonld];
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(H.title), description: esc(H.description), canonical, hreflangs: hreflangs(''),
-    h1: esc(H.h1), line: esc(H.line), cards, aboutTitle: esc(S[lang].aboutTitle), aboutLine: esc(S[lang].aboutLine), css, jsonld: safeJson(jsonld),
+    h1: esc(H.h1), line: esc(H.line), cards, guideLink: lang === 'en' ? '\n  <nav class="chips next" aria-label="Image guides">' + formGuide(lang) + '</nav>' : '', aboutTitle: esc(S[lang].aboutTitle), aboutLine: esc(S[lang].aboutLine), css, jsonld: safeJson(jsonld),
     strings: safeJson(common(lang)), tool: safeJson({ id: 'hub', lang, langUrls: langUrls(''), strings: {}, next: [] }) };
   urls.push(finish(hubTpl, lang, '', vars)); count++;
 }
@@ -88,7 +89,8 @@ for (const tl of tools) for (const lang of langs) {
   if (nextIds.length < 5) for (const o of tools) { if (nextIds.length >= 5) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
   nextIds = nextIds.slice(0, 6);
   const next = nextIds.map(n => ({ id: n, url: url(lang, n), h1: tstr(byId[n], lang).h1 }));
-  const nextChips = next.map(n => `<a class="chip" href="${n.url}">${esc(n.h1)}</a>`).join('');
+  const nextChips = next.map(n => `<a class="chip" href="${n.url}">${esc(n.h1)}</a>`).join('')
+    + (['image-compress', 'signature-resize'].includes(tl.id) ? formGuide(lang) : '');
   const faqArr = T.faq || [];
   const faq = faqArr.map(q => `<dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd>`).join('');
   const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: S[lang].hub.h1, url: url(lang, '') }, { name: T.h1, url: url(lang, tl.id) }]);

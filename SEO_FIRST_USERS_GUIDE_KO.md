@@ -19,13 +19,24 @@
 
 ## 이번에 공략하는 작업
 
-첫 실험은 `compress image to 100KB`, `compress image to 200KB`, `사진 100KB 이하로 줄이기`, `사진 200KB 이하로 줄이기`다. 검색 결과에 실제 도구가 있는 작업을 골랐으며 검색량이나 상위 노출 가능성을 수치로 확인한 것은 아니다.
+현재 우선 실험은 인도 영어 검색의 `compress image to 20KB`, `compress photo to 50KB`, `compress image to 100KB`, `signature resize 140x60`, `signature 10 to 20KB`다. 마지막 검색어는 최소·최대 검사 기능을 의미하며 모든 원본의 범위 달성을 보장하지 않는다. 검색 결과에 실제 도구가 있는 작업을 골랐으며 검색량이나 상위 노출 가능성을 수치로 확인한 것은 아니다.
 
 - 영어: https://parkbok.com/image/image-compress/?maxKb=100
 - 한국어: https://parkbok.com/image/image-compress/ko/?maxKb=100
-- 사진을 선택하면 0·50·100·200·500 KB를 바로 고를 수 있다. 0은 상한 끄기다.
-- 100 KB는 102,400바이트다. 이미지에 따라 목표를 넘을 수 있으며 초과 경고를 표시한다. 목표 달성을 보장한다고 홍보하지 않는다.
+- 사진을 선택하면 0·20·50·100·200·500 KB를 바로 고를 수 있다. 0은 상한 끄기다.
+- 현재 압축·서명 도구의 100 KB는 100,000바이트다(1 KB = 1,000 B). 이미지에 따라 목표를 넘을 수 있으며 초과 경고를 표시한다. 목표 달성을 보장한다고 홍보하지 않는다.
 - 새 검색어별 페이지를 복제하지 않고 기존 대표 페이지를 보완한다. 쿼리가 있는 링크도 기존 URL을 canonical로 유지한다.
+
+- 영어 서명: https://parkbok.com/image/signature-resize/
+- 인도 신청서 안내: https://parkbok.com/guide/photo-signature-size-india.html
+- 신청서 예시는 공식 원문과 연도를 밝힌다. 모든 SSC·은행·대학의 공통 규격이라고 표현하지 않는다.
+
+## 인도 영어 검색 확인 순서
+
+1. Search Console → 실적 → 검색결과에서 국가 `인도`, 페이지를 영어 압축·서명·새 가이드로 각각 좁힌다. 비교 기간은 배포 뒤 7일/14일/28일이다.
+2. 검색어 `20kb`, `50kb`, `100kb`, `signature`의 노출과 평균 게재순위부터 기록한다. 표본이 몇 회뿐이면 CTR 0%로 문구 실패를 단정하지 않는다.
+3. Google은 국가 인구 때문에 새 사이트를 자동으로 우대하지 않는다. 국제 영어 URL과 `en` hreflang을 유지하고, 인도에 실제로 유용한 작업 설명과 관련 링크를 제공한다. 국가별 동일 페이지를 복제하거나 IP에 따라 숨기지 않는다. [Google 국제 사이트 안내](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites?hl=ko)를 기준으로 한다.
+4. 이 문서의 주간 확인은 운영 체크리스트이며 자동 모니터링이 설정된 것은 아니다. 직접 검색을 반복한 수치를 외부 고객의 수요로 합산하지 않는다.
 
 ## 숫자를 읽는 법
 
