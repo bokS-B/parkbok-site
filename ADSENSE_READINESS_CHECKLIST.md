@@ -130,6 +130,24 @@ Google의 인증 메시지 제공은 [공식 CMP 안내](https://support.google.
 
 참고: [Google 메시지 API·기본 동의 구현·철회·미리보기](https://developers.google.com/funding-choices/fc-api-docs), [공식 태그 화면 안내](https://support.google.com/adsense/answer/11575177), [광고 요청 일시중지](https://support.google.com/adsense/answer/7670312?hl=en).
 
+### 실제 유럽 접속 재검수 — 2026-11-04
+
+**결과: 실제 독일 접속은 확보했지만 Google 동의 창이 표시되지 않아 기능 검수 실패. 허용·거절·철회 실제 검증은 완료하지 않았다.** 위 ‘현지 조건 미검증’ 상태에서 진전된 점은 실제 GDPR 적용 조건에서도 문제를 재현했다는 것이다. 운영 기능 코드는 바꾸지 않았다.
+
+| ID | 항목 | 실제 결과 |
+| --- | --- | --- |
+| CMP-EU-02 | 실제 유럽 출구·TLS | 독일 HTTP CONNECT 출구 116.202.172.187. 같은 격리 브라우저의 country.is에서 DE, ipwho.is의 Germany/is_eu=true, Cloudflare의 loc=DE·TLSv1.3을 교차 확인. 인증서 검증 유지. 사용자 Chrome 로그인·파일·운영체제 프록시 설정은 사용하지 않음. |
+| CMP-EU-03 | 첫 방문 | 운영 홈·도구 페이지에서 Google 공개 TCF ping: gdprApplies=true, cmpLoaded=true, cmpStatus=loaded, displayStatus=hidden, cmpId=300. googlefcInactive·창 미표시. **실패**. |
+| CMP-EU-04 | 강제 미리보기·모바일 | 쿠키 초기화 후 공식 fc=alwaysshow/fctype=gdpr, 1280×900·375×812에서도 창 미표시. **실패**. |
+| CMP-EU-05 | 허용·거절·철회 | 허용·거절 버튼이 없어 선택을 시험하지 못함. 실제 푸터의 공식 철회 API 호출도 Google 창을 띄우지 못함. TCF 문자열·선택값을 임의로 만들지 않음. **미완료**. |
+| CMP-EU-06 | 안전한 대기 | GA 태그 0·자체 통계 선택창 0·측정/광고 게재 요청 0. Google 응답 200/204, 캡처한 JS 예외·실패 요청 0. 동의 없이 측정이나 광고를 켜지 않음. |
+| CMP-EU-07 | 계정과 사이트 대조 | 메시지 Published·parkbok.com 한 사이트·개인정보 URL·광고/분석 동의 모드 1을 재확인. 사용자가 설정 화면을 열었고 이후 정상 화면 조작만 사용. 동일 설정으로 메시지 재게시 완료. 안내에는 전파 최대 1시간이 표시됨. 자동 광고·광고 단위·공급업체 선택은 변경하지 않음. 사이트는 여전히 ‘준비 중’, ads.txt는 ‘승인됨’. |
+| CMP-EU-08 | 앱 코드 충돌 분리 | 독일 브라우저의 임시 최소 HTML 응답에 Google 표준 AdSense 태그만 넣어 검사해도 TCF loaded/hidden. 이 진단은 로컬 응답 대체이며 공개 배포한 페이지가 아님. 진단 중 광고/측정 전송은 사전 차단, 운영 코드의 광고 일시중지는 유지. |
+
+**원인은 확정하지 않았다.** Google 메시지 전달·적격성·재게시 전파 조건의 확인이 필요하다. AdSense 승인 대기만으로 원인이라고 단정하지 않으며, Ad Manager의 별도 제품 문서를 AdSense에 그대로 적용하지 않는다. 동의 전 getGoogleConsentModeValues가 아직 제공되지 않는 현상만으로 별도 오류라고 판정하지 않는다. 전체 ADS-LAUNCH-01·CMP-EU-01·허용/거절/철회는 미완료로 유지한다.
+
+증빙은 공개하지 않는 `output/cmp/eu-real-verification.json`, `eu-de-ip-proof.png`, `eu-de-first-desktop.png`, `eu-de-forced-mobile.png`, `eu-de-home-after-republish.png`, `eu-de-chrome-desktop.png`, `eu-account-mode.png`, `eu-published-account.png`, `eu-site-status.png`에 저장. 설치된 Chrome의 별도 임시 브라우저·같은 독일 출구로도 창 미표시를 재현했고 추가 Chrome은 종료했다. `google-support-draft.txt`에 Google 문의용 재현 설명을 작성했으나 **문의·메일·커뮤니티 게시를 전송하지 않았다.**
+
 ## 6. 측정 해석 변경
 
 2026-11-04 이후 새 방식이 배포되면 GA4는 통계를 허용한 방문자만 측정한다. 거절·선택 전 이용은 집계하지 않으므로 이전 방문자 수와 그대로 비교하지 않는다. 원본 쿼리·유입 검색어·UTM은 페이지 주소에서 제외한다. Search Console의 자연검색 노출·클릭은 이 동의 선택과 별도로 확인한다. 기존 내부 필터 Testing 상태와 GA4 계정 권한은 변경하지 않았다.
