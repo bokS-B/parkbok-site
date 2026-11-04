@@ -1,0 +1,422 @@
+{
+  "id": "signature-resize",
+  "order": 7.5,
+  "icon": "signature-resize",
+  "cat": "image",
+  "next": [
+    "image-compress",
+    "image-crop",
+    "image-resize",
+    "passport-photo"
+  ],
+  "strings": {
+    "en": {
+      "title": "Signature Resizer – 20KB JPG, Custom Pixels | PARKBOK",
+      "h1": "Signature resizer",
+      "line": "Crop your signature, set its pixel size and KB limit, then download a JPG.",
+      "description": "Resize a signature to 140×60, 300×100 or custom pixels and under 20KB, 50KB or 100KB. White background, actual byte checks. Free, no signup or uploads.",
+      "buttonText": "Select signature image",
+      "runText": "Resize signature",
+      "faq": [
+        [
+          "What size should a signature be for an Indian application?",
+          "Use the dimensions, file type and size range in your specific application notice. The 140×60, 300×100 and 600×200 buttons are editable size examples, not rules for every exam or portal. This tool does not certify acceptance."
+        ],
+        [
+          "Can I make a 10–20KB signature?",
+          "Set the maximum to 20KB and open Minimum size to enter 10KB. Here that means 10,000–20,000 bytes. The tool checks the actual JPG and flags both undersize and oversize files. It does not add meaningless bytes to force a minimum."
+        ],
+        [
+          "Does it distort my signature or upload it?",
+          "No. The cropped area keeps its aspect ratio, with white space added if needed. Processing stays in your browser. This resizes an existing signature image; it does not create or redraw a signature."
+        ]
+      ],
+      "resultName": "signature",
+      "groups": {
+        "advanced": "Minimum size (optional)"
+      },
+      "noteSize": "{w} × {h} px · JPG · {bytes} B / max {max} B.",
+      "noteMinimum": "Minimum: {min} B.",
+      "errorSettings": "Enter whole pixels (1–3000) and a maximum of 1–51200 KB. The minimum cannot exceed the maximum.",
+      "errorTooBig": "Use an image no larger than 16384 px per side and 64 million pixels.",
+      "errorFormat": "This browser could not create a JPG. Try another browser.",
+      "targetOver": "Over the size limit. Try a clearer source or a larger KB limit.",
+      "targetUnder": "Below the minimum size. Try a higher-resolution source; this file does not meet your range.",
+      "downloadAnyway": "Download anyway",
+      "needsRerun": "Settings changed. Run again.",
+      "options": {
+        "size": {
+          "label": "Output size",
+          "help": "Keeps the signature proportional with white padding.",
+          "choices": {
+            "width": "Width",
+            "height": "Height"
+          }
+        },
+        "maxKb": {
+          "label": "Maximum file size",
+          "help": "1 KB = 1,000 B. JPG output; pixels stay fixed."
+        },
+        "crop": {
+          "label": "Crop signature",
+          "help": "Drag around the signature to remove unused margins. Keep every stroke inside the selection."
+        },
+        "minKb": {
+          "label": "Minimum file size",
+          "help": "Optional: 0 = no minimum. Smaller results are flagged, not padded with extra bytes."
+        }
+      }
+    },
+    "ko": {
+      "title": "서명 규격 맞추기 – 픽셀·20KB JPG | PARKBOK",
+      "h1": "서명 규격 맞추기",
+      "line": "서명을 자르고 픽셀 크기와 용량 상한을 정해 JPG로 저장하세요.",
+      "description": "서명을 140×60·300×100 또는 원하는 픽셀과 20·50·100KB 이하로 맞추세요. 흰 배경, 실제 바이트 검사. 가입·업로드 없이 무료.",
+      "buttonText": "서명 이미지 선택",
+      "runText": "서명 규격 맞추기",
+      "faq": [
+        [
+          "인도 신청서의 서명 규격은 무엇인가요?",
+          "신청처마다 픽셀·파일 형식·용량 범위가 다릅니다. 140×60·300×100·600×200 버튼은 직접 바꿀 수 있는 예시이며, 모든 시험·신청서의 공통 규격이 아닙니다. 접수를 보장하는 기능은 아닙니다."
+        ],
+        [
+          "서명을 10~20KB로 만들 수 있나요?",
+          "상한에 20KB, 최소 용량에 10KB를 넣으면 실제 JPG가 10,000~20,000바이트인지 검사합니다. 초과와 미달 모두 경고하며, 최소 용량을 채우려고 무의미한 바이트를 붙이지 않습니다."
+        ],
+        [
+          "서명이 찌그러지거나 업로드되나요?",
+          "아니요. 잘라낸 영역의 비율을 유지하고 빈 곳은 흰색으로 채웁니다. 브라우저 안에서만 처리합니다. 기존 서명 이미지의 규격을 맞추며 서명을 생성하거나 다시 그리지 않습니다."
+        ]
+      ],
+      "resultName": "signature",
+      "groups": {
+        "advanced": "최소 용량 (선택)"
+      },
+      "noteSize": "{w} × {h}px · JPG · {bytes}B / 상한 {max}B.",
+      "noteMinimum": "최소: {min}B.",
+      "errorSettings": "픽셀은 1~3000의 정수, 용량 상한은 1~51200KB로 입력하세요. 최소 용량은 상한을 넘을 수 없습니다.",
+      "errorTooBig": "긴 변 16384px·총 6,400만 픽셀 이하 이미지를 사용하세요.",
+      "errorFormat": "이 브라우저에서 JPG를 생성하지 못했습니다. 다른 브라우저를 사용하세요.",
+      "targetOver": "용량 상한 초과. 더 선명한 원본이나 더 큰 상한을 사용하세요.",
+      "targetUnder": "최소 용량 미달. 더 큰 원본을 사용하세요. 현재 파일은 지정 범위를 충족하지 않습니다.",
+      "downloadAnyway": "그래도 내려받기",
+      "needsRerun": "설정이 바뀌었습니다. 다시 실행하세요.",
+      "options": {
+        "size": {
+          "label": "출력 크기",
+          "help": "흰 여백으로 서명의 원래 비율을 유지합니다.",
+          "choices": {
+            "width": "가로",
+            "height": "세로"
+          }
+        },
+        "maxKb": {
+          "label": "용량 상한",
+          "help": "1KB = 1,000B. JPG로 저장하며 픽셀은 유지합니다."
+        },
+        "crop": {
+          "label": "서명 자르기",
+          "help": "불필요한 여백을 드래그로 잘라내세요. 서명 획이 잘리지 않게 선택하세요."
+        },
+        "minKb": {
+          "label": "최소 용량",
+          "help": "선택 사항: 0 = 없음. 미달은 경고하며 빈 바이트를 덧붙이지 않습니다."
+        }
+      }
+    },
+    "zh": {
+      "title": "签名尺寸调整 – 20KB JPG | PARKBOK",
+      "h1": "签名尺寸调整",
+      "line": "裁剪签名，设置像素和大小上限，下载 JPG。",
+      "description": "裁剪签名，设置像素和大小上限，下载 JPG。 140×60 · 300×100 · 20/50/100KB.",
+      "buttonText": "选择签名图片",
+      "runText": "调整签名",
+      "faq": [
+        [
+          "输出尺寸 ?",
+          "不同申请的要求不同。这些像素按钮只是示例，不保证被接受。"
+        ]
+      ],
+      "resultName": "signature",
+      "groups": {
+        "advanced": "最小大小（可选）"
+      },
+      "noteSize": "{w} × {h} px · JPG · {bytes} B / max {max} B.",
+      "noteMinimum": "Min: {min} B.",
+      "errorSettings": "输入 1–3000 整数像素和 1–51200 KB 上限。下限不得超过上限。",
+      "errorTooBig": "图片每边不能超过 16384 像素，总像素不超过 6400 万。",
+      "errorFormat": "浏览器无法生成 JPG，请换用其他浏览器。",
+      "targetOver": "超过大小上限，请使用更清晰的原图或提高上限。",
+      "targetUnder": "低于大小下限，请使用分辨率更高的原图。",
+      "downloadAnyway": "仍然下载",
+      "needsRerun": "设置已更改，请重新运行。",
+      "options": {
+        "size": {
+          "label": "输出尺寸",
+          "help": "白色边距保留签名的原始比例。",
+          "choices": {
+            "width": "宽度",
+            "height": "高度"
+          }
+        },
+        "maxKb": {
+          "label": "文件大小上限",
+          "help": "1 KB = 1,000 B。输出 JPG，保持指定像素。"
+        },
+        "crop": {
+          "label": "裁剪签名",
+          "help": "拖动去除多余边距，保留所有笔画。"
+        },
+        "minKb": {
+          "label": "最小文件大小",
+          "help": "可选：0 表示不限。低于下限会提示，不添加无意义字节。"
+        }
+      }
+    },
+    "ja": {
+      "title": "署名サイズ調整 – 20KB JPG | PARKBOK",
+      "h1": "署名サイズ調整",
+      "line": "署名を切り抜き、ピクセルと容量上限を指定して JPG 保存。",
+      "description": "署名を切り抜き、ピクセルと容量上限を指定して JPG 保存。 140×60 · 300×100 · 20/50/100KB.",
+      "buttonText": "署名画像を選択",
+      "runText": "署名を調整",
+      "faq": [
+        [
+          "出力サイズ ?",
+          "申請先によって条件は異なります。サイズボタンは例であり、受理を保証するものではありません。"
+        ]
+      ],
+      "resultName": "signature",
+      "groups": {
+        "advanced": "最小容量（任意）"
+      },
+      "noteSize": "{w} × {h} px · JPG · {bytes} B / max {max} B.",
+      "noteMinimum": "Min: {min} B.",
+      "errorSettings": "1〜3000 の整数ピクセル、上限 1〜51200 KB。下限は上限以下にしてください。",
+      "errorTooBig": "各辺 16384 px・合計 6400 万画素以下の画像を使用してください。",
+      "errorFormat": "JPG を作成できませんでした。別のブラウザをお試しください。",
+      "targetOver": "容量上限超過。鮮明な元画像か大きな上限を使用してください。",
+      "targetUnder": "最小容量未満。より高解像度の元画像を使用してください。",
+      "downloadAnyway": "このまま保存",
+      "needsRerun": "設定が変わりました。再実行してください。",
+      "options": {
+        "size": {
+          "label": "出力サイズ",
+          "help": "白い余白で署名の比率を維持します。",
+          "choices": {
+            "width": "幅",
+            "height": "高さ"
+          }
+        },
+        "maxKb": {
+          "label": "容量上限",
+          "help": "1 KB = 1,000 B。指定ピクセルの JPG で保存します。"
+        },
+        "crop": {
+          "label": "署名の切り抜き",
+          "help": "余白をドラッグして除き、署名の線をすべて残してください。"
+        },
+        "minKb": {
+          "label": "最小容量",
+          "help": "任意：0 = 下限なし。容量不足は警告し、不要なバイトは追加しません。"
+        }
+      }
+    },
+    "es": {
+      "title": "Redimensionar firma – 20KB JPG | PARKBOK",
+      "h1": "Redimensionar firma",
+      "line": "Recorta tu firma, ajusta píxeles y límite de KB, y descarga un JPG.",
+      "description": "Recorta tu firma, ajusta píxeles y límite de KB, y descarga un JPG. 140×60 · 300×100 · 20/50/100KB.",
+      "buttonText": "Seleccionar firma",
+      "runText": "Redimensionar firma",
+      "faq": [
+        [
+          "Tamaño de salida ?",
+          "Los requisitos varían entre formularios. Los botones de tamaño son ejemplos; no garantizan la aceptación."
+        ]
+      ],
+      "resultName": "signature",
+      "groups": {
+        "advanced": "Tamaño mínimo (opcional)"
+      },
+      "noteSize": "{w} × {h} px · JPG · {bytes} B / max {max} B.",
+      "noteMinimum": "Min: {min} B.",
+      "errorSettings": "Introduce píxeles enteros (1–3000) y un máximo de 1–51200 KB. El mínimo no puede superar el máximo.",
+      "errorTooBig": "Usa una imagen de hasta 16384 px por lado y 64 millones de píxeles.",
+      "errorFormat": "El navegador no pudo crear un JPG. Prueba otro navegador.",
+      "targetOver": "Supera el límite. Usa un original más nítido o aumenta el límite.",
+      "targetUnder": "No alcanza el mínimo. Usa un original de mayor resolución.",
+      "downloadAnyway": "Descargar de todos modos",
+      "needsRerun": "Ajustes modificados. Ejecuta de nuevo.",
+      "options": {
+        "size": {
+          "label": "Tamaño de salida",
+          "help": "Conserva la proporción con márgenes blancos.",
+          "choices": {
+            "width": "Ancho",
+            "height": "Alto"
+          }
+        },
+        "maxKb": {
+          "label": "Tamaño máximo",
+          "help": "1 KB = 1.000 B. Salida JPG con los píxeles fijados."
+        },
+        "crop": {
+          "label": "Recortar firma",
+          "help": "Arrastra para quitar márgenes sin cortar ningún trazo."
+        },
+        "minKb": {
+          "label": "Tamaño mínimo",
+          "help": "Opcional: 0 = sin mínimo. Se avisa si falta tamaño; no se añaden bytes de relleno."
+        }
+      }
+    },
+    "pt": {
+      "title": "Redimensionar assinatura – 20KB JPG | PARKBOK",
+      "h1": "Redimensionar assinatura",
+      "line": "Recorte a assinatura, defina pixels e limite de KB e baixe um JPG.",
+      "description": "Recorte a assinatura, defina pixels e limite de KB e baixe um JPG. 140×60 · 300×100 · 20/50/100KB.",
+      "buttonText": "Selecionar assinatura",
+      "runText": "Redimensionar assinatura",
+      "faq": [
+        [
+          "Tamanho de saída ?",
+          "As regras variam conforme o formulário. Os tamanhos são exemplos, sem garantia de aceitação."
+        ]
+      ],
+      "resultName": "signature",
+      "groups": {
+        "advanced": "Tamanho mínimo (opcional)"
+      },
+      "noteSize": "{w} × {h} px · JPG · {bytes} B / max {max} B.",
+      "noteMinimum": "Min: {min} B.",
+      "errorSettings": "Digite pixels inteiros (1–3000) e máximo de 1–51200 KB. O mínimo não pode exceder o máximo.",
+      "errorTooBig": "Use uma imagem com até 16384 px por lado e 64 milhões de pixels.",
+      "errorFormat": "O navegador não conseguiu criar um JPG. Tente outro navegador.",
+      "targetOver": "Acima do limite. Use um original mais nítido ou aumente o limite.",
+      "targetUnder": "Abaixo do mínimo. Use um original com maior resolução.",
+      "downloadAnyway": "Baixar mesmo assim",
+      "needsRerun": "Configurações alteradas. Execute novamente.",
+      "options": {
+        "size": {
+          "label": "Tamanho de saída",
+          "help": "Preserva a proporção com margens brancas.",
+          "choices": {
+            "width": "Largura",
+            "height": "Altura"
+          }
+        },
+        "maxKb": {
+          "label": "Tamanho máximo",
+          "help": "1 KB = 1.000 B. JPG com os pixels definidos."
+        },
+        "crop": {
+          "label": "Recortar assinatura",
+          "help": "Arraste para remover margens sem cortar nenhum traço."
+        },
+        "minKb": {
+          "label": "Tamanho mínimo",
+          "help": "Opcional: 0 = sem mínimo. Arquivos menores são sinalizados; não adicionamos bytes vazios."
+        }
+      }
+    },
+    "de": {
+      "title": "Unterschrift skalieren – 20KB JPG | PARKBOK",
+      "h1": "Unterschrift skalieren",
+      "line": "Unterschrift zuschneiden, Pixel und KB-Limit wählen und als JPG speichern.",
+      "description": "Unterschrift zuschneiden, Pixel und KB-Limit wählen und als JPG speichern. 140×60 · 300×100 · 20/50/100KB.",
+      "buttonText": "Unterschrift auswählen",
+      "runText": "Unterschrift skalieren",
+      "faq": [
+        [
+          "Ausgabegröße ?",
+          "Die Anforderungen hängen vom Formular ab. Die Größen sind Beispiele und garantieren keine Annahme."
+        ]
+      ],
+      "resultName": "signature",
+      "groups": {
+        "advanced": "Mindestgröße (optional)"
+      },
+      "noteSize": "{w} × {h} px · JPG · {bytes} B / max {max} B.",
+      "noteMinimum": "Min: {min} B.",
+      "errorSettings": "Ganze Pixel (1–3000) und maximal 1–51200 KB eingeben. Das Minimum darf das Maximum nicht überschreiten.",
+      "errorTooBig": "Bild mit höchstens 16384 px je Seite und 64 Millionen Pixeln verwenden.",
+      "errorFormat": "Der Browser konnte kein JPG erstellen. Einen anderen Browser versuchen.",
+      "targetOver": "Über dem Limit. Eine klarere Vorlage oder ein höheres Limit verwenden.",
+      "targetUnder": "Unter der Mindestgröße. Eine höher aufgelöste Vorlage verwenden.",
+      "downloadAnyway": "Trotzdem herunterladen",
+      "needsRerun": "Einstellungen geändert. Erneut ausführen.",
+      "options": {
+        "size": {
+          "label": "Ausgabegröße",
+          "help": "Weiße Ränder erhalten die Proportionen.",
+          "choices": {
+            "width": "Breite",
+            "height": "Höhe"
+          }
+        },
+        "maxKb": {
+          "label": "Maximale Dateigröße",
+          "help": "1 KB = 1.000 B. JPG mit festen Pixelmaßen."
+        },
+        "crop": {
+          "label": "Unterschrift zuschneiden",
+          "help": "Überflüssige Ränder wegziehen; alle Striche innerhalb der Auswahl lassen."
+        },
+        "minKb": {
+          "label": "Minimale Dateigröße",
+          "help": "Optional: 0 = kein Minimum. Zu kleine Dateien werden markiert, nicht mit Leerbytes aufgefüllt."
+        }
+      }
+    },
+    "fr": {
+      "title": "Redimensionner une signature – 20KB JPG | PARKBOK",
+      "h1": "Redimensionner une signature",
+      "line": "Recadrez la signature, fixez les pixels et la limite en Ko, puis téléchargez un JPG.",
+      "description": "Recadrez la signature, fixez les pixels et la limite en Ko, puis téléchargez un JPG. 140×60 · 300×100 · 20/50/100KB.",
+      "buttonText": "Choisir une signature",
+      "runText": "Redimensionner",
+      "faq": [
+        [
+          "Dimensions de sortie ?",
+          "Les règles varient selon le formulaire. Les dimensions sont des exemples, sans garantie d’acceptation."
+        ]
+      ],
+      "resultName": "signature",
+      "groups": {
+        "advanced": "Taille minimale (facultatif)"
+      },
+      "noteSize": "{w} × {h} px · JPG · {bytes} B / max {max} B.",
+      "noteMinimum": "Min: {min} B.",
+      "errorSettings": "Saisissez des pixels entiers (1–3000) et un maximum de 1–51200 Ko. Le minimum ne peut pas dépasser le maximum.",
+      "errorTooBig": "Utilisez une image de 16384 px par côté et 64 millions de pixels au maximum.",
+      "errorFormat": "Le navigateur ne peut pas créer de JPG. Essayez un autre navigateur.",
+      "targetOver": "Limite dépassée. Utilisez un original plus net ou augmentez la limite.",
+      "targetUnder": "Sous le minimum. Utilisez un original de plus haute résolution.",
+      "downloadAnyway": "Télécharger quand même",
+      "needsRerun": "Paramètres modifiés. Relancez le traitement.",
+      "options": {
+        "size": {
+          "label": "Dimensions de sortie",
+          "help": "Des marges blanches conservent les proportions.",
+          "choices": {
+            "width": "Largeur",
+            "height": "Hauteur"
+          }
+        },
+        "maxKb": {
+          "label": "Taille maximale",
+          "help": "1 Ko = 1 000 octets. JPG aux dimensions fixées."
+        },
+        "crop": {
+          "label": "Recadrer la signature",
+          "help": "Faites glisser pour retirer les marges sans couper les traits."
+        },
+        "minKb": {
+          "label": "Taille minimale",
+          "help": "Facultatif : 0 = aucun minimum. Les fichiers trop petits sont signalés, sans ajouter des octets vides."
+        }
+      }
+    }
+  }
+}

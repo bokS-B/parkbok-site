@@ -4,6 +4,7 @@
   "icon": "image-compress",
   "cat": "image",
   "next": [
+    "signature-resize",
     "image-resize",
     "png-to-jpg",
     "jpg-to-webp",
@@ -11,10 +12,10 @@
   ],
   "strings": {
     "en": {
-      "title": "Compress Image to 100KB or 200KB – Free Online | PARKBOK",
-      "h1": "Compress image",
-      "line": "Choose a 100KB or 200KB target, compress your images, and check the final size.",
-      "description": "Compress JPG, PNG and WebP to a 100KB, 200KB or custom per-image target in your browser. Check actual bytes before downloading. Free, no signup, no file uploads.",
+      "title": "Compress Image to 20KB, 50KB or 100KB – Free | PARKBOK",
+      "h1": "Compress image to KB",
+      "line": "Choose 20, 50 or 100KB, compress your photo, and check the actual file size.",
+      "description": "Compress a photo to under 20KB, 50KB or 100KB for online forms. Resize if needed, check actual bytes, and download JPG, PNG or WebP. Free, no upload or signup.",
       "buttonText": "Select images",
       "runText": "Compress",
       "resultName": "compressed-images",
@@ -43,30 +44,50 @@
         },
         "maxKb": {
           "label": "Max size per image",
-          "help": "0 = off · 1 KB = 1024 B. Oversize files are flagged."
+          "help": "0 = off · 1 KB = 1000 B. Oversize files are flagged."
+        },
+        "reduce": {
+          "label": "Reduce dimensions to reach the target",
+          "help": "Keeps the aspect ratio. Turn off if your form requires fixed pixels. Only used when a KB limit is set."
         }
       },
       "faq": [
         [
-          "Can I compress an image to 100KB?",
-          "Choose 100 KB under Max size per image, then compress. One KB means 1024 bytes. JPG and WebP quality is adjusted toward the limit, but some images stay over it and are flagged. Try High or resize the image if needed. Transparent PNG stays PNG with Keep format; JPG fills transparency with white."
+          "How do I compress a photo to 20KB, 50KB or 100KB?",
+          "Select a JPG, PNG or WebP, choose a KB target and compress. With dimension reduction enabled, the tool lowers quality first and then reduces width and height if necessary. It checks the actual output bytes and flags any file that still exceeds the limit."
         ],
         [
-          "Are my images uploaded?",
-          "No. Each image is compressed on your device with your browser and never sent to a server."
+          "Will the image be exactly 20KB?",
+          "The target is an upper limit, not an exact file size. 20KB means at most 20,000 bytes here (1 KB = 1,000 bytes). Each result is checked separately. The result can be smaller; check any minimum size required by your form."
+        ],
+        [
+          "Can I use this for Indian application forms?",
+          "Use the file type, dimensions and byte limits stated by the specific application. Requirements vary. Turn off dimension reduction when pixels must remain fixed, or use the signature resizer for a fixed canvas. This tool does not guarantee acceptance by any authority."
+        ],
+        [
+          "What happens to transparent PNGs?",
+          "Keep format preserves transparency. Choose JPG to place transparent pixels on white. PNG files can be resized when dimension reduction is on; they are never silently changed to JPG."
+        ],
+        [
+          "Are my photos uploaded?",
+          "No. Processing happens in your browser. No account, watermark or processing server is required."
         ]
       ],
       "targetLimit": "Each file: ≤{kb} KB ({limit} B).",
       "targetExceeded": "Over limit: {n}/{total} files",
       "downloadTargetOver": "Download anyway",
       "needsRerun": "Settings changed. Run again.",
-      "errorTarget": "Enter 0 or a valid positive KB target."
+      "errorTarget": "Enter 0 or a valid positive KB target.",
+      "targetActual": "{w} × {h} px · {bytes} B.",
+      "groups": {
+        "advanced": "Format & quality"
+      }
     },
     "ko": {
-      "title": "사진 용량 줄이기 – 100KB·200KB 목표 이미지 압축 | PARKBOK",
+      "title": "사진 용량 줄이기 – 20KB·50KB·100KB 이미지 압축 | PARKBOK",
       "h1": "이미지 압축",
-      "line": "100KB·200KB 목표를 고르고 압축한 뒤, 실제 결과 용량을 확인해 내려받으세요.",
-      "description": "JPG·PNG·WebP 사진을 100KB·200KB 또는 원하는 KB 상한으로 압축합니다. 실제 파일 크기와 초과 여부를 확인하고 내려받으세요. 무료, 가입 없이 브라우저에서 처리하며 파일을 업로드하지 않습니다.",
+      "line": "20·50·100KB를 선택해 사진을 줄이고 실제 용량을 확인하세요.",
+      "description": "사진을 20KB·50KB·100KB 이하로 압축하세요. 필요하면 해상도도 줄이고 실제 바이트와 픽셀을 확인합니다. JPG·PNG·WebP 지원, 서버 업로드 없이 무료.",
       "buttonText": "이미지 선택",
       "runText": "압축하기",
       "resultName": "이미지압축",
@@ -95,13 +116,21 @@
         },
         "maxKb": {
           "label": "이미지당 용량 상한",
-          "help": "0 = 사용 안 함 · 1 KB = 1024 B. 초과 시 표시합니다."
+          "help": "0 = 사용 안 함 · 1 KB = 1000 B. 초과 시 표시합니다."
+        },
+        "reduce": {
+          "label": "목표 용량에 맞춰 해상도도 줄이기",
+          "help": "비율은 유지합니다. 제출처가 픽셀 크기를 정했다면 끄세요. 용량 상한을 설정한 경우에만 적용됩니다."
         }
       },
       "faq": [
         [
+          "20KB·50KB·100KB에 맞출 수 있나요?",
+          "목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요."
+        ],
+        [
           "사진 용량을 100KB 이하로 줄이려면?",
-          "사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1024바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 형식 유지에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."
+          "사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 형식 유지에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."
         ],
         [
           "원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?",
@@ -120,7 +149,11 @@
       "targetExceeded": "용량 초과 {n}/{total}개",
       "downloadTargetOver": "초과 포함 받기",
       "needsRerun": "설정이 바뀌었습니다. 다시 실행하세요.",
-      "errorTarget": "0 또는 올바른 양수 용량(KB)을 입력하세요."
+      "errorTarget": "0 또는 올바른 양수 용량(KB)을 입력하세요.",
+      "targetActual": "{w} × {h} px · {bytes} B.",
+      "groups": {
+        "advanced": "형식·압축 강도"
+      }
     },
     "zh": {
       "title": "图片压缩 – 免费在线压缩 JPG、PNG、WebP 图片大小",
@@ -155,7 +188,11 @@
         },
         "maxKb": {
           "label": "每张图片大小上限",
-          "help": "0 = 关闭 · 1 KB = 1024 B。超限文件会标明。"
+          "help": "0 = 关闭 · 1 KB = 1000 B。超限文件会标明。"
+        },
+        "reduce": {
+          "label": "缩小尺寸以达到大小上限",
+          "help": "保持宽高比。如表单要求固定像素，请关闭。仅在设置大小上限时使用。"
         }
       },
       "faq": [
@@ -172,7 +209,11 @@
       "targetExceeded": "超出上限：{n}/{total}个",
       "downloadTargetOver": "仍要下载",
       "needsRerun": "设置已更改，请重新运行。",
-      "errorTarget": "请输入0或有效的正数KB上限。"
+      "errorTarget": "请输入0或有效的正数KB上限。",
+      "targetActual": "{w} × {h} px · {bytes} B.",
+      "groups": {
+        "advanced": "格式与质量"
+      }
     },
     "ja": {
       "title": "画像圧縮 – JPG・PNG・WebP の容量を無料オンラインで削減",
@@ -207,7 +248,11 @@
         },
         "maxKb": {
           "label": "画像ごとの容量上限",
-          "help": "0 = 無効 · 1 KB = 1024 B。超過したファイルは表示します。"
+          "help": "0 = 無効 · 1 KB = 1000 B。超過したファイルは表示します。"
+        },
+        "reduce": {
+          "label": "容量に合わせて解像度も下げる",
+          "help": "縦横比を維持します。指定ピクセル数がある場合はオフにしてください。容量上限の設定時のみ有効です。"
         }
       },
       "faq": [
@@ -224,7 +269,11 @@
       "targetExceeded": "容量超過：{n}/{total}枚",
       "downloadTargetOver": "超過を含めて保存",
       "needsRerun": "設定が変わりました。再実行してください。",
-      "errorTarget": "0または有効な正の容量（KB）を入力してください。"
+      "errorTarget": "0または有効な正の容量（KB）を入力してください。",
+      "targetActual": "{w} × {h} px · {bytes} B.",
+      "groups": {
+        "advanced": "形式・品質"
+      }
     },
     "es": {
       "title": "Comprimir imagen – Reducir el tamaño de JPG, PNG y WebP gratis online",
@@ -259,7 +308,11 @@
         },
         "maxKb": {
           "label": "Tamaño máximo por imagen",
-          "help": "0 = desactivado · 1 KB = 1024 B. Se indica si se supera."
+          "help": "0 = desactivado · 1 KB = 1000 B. Se indica si se supera."
+        },
+        "reduce": {
+          "label": "Reducir dimensiones para alcanzar el límite",
+          "help": "Mantiene la proporción. Desactívalo si el formulario exige píxeles fijos. Solo con un límite de KB."
         }
       },
       "faq": [
@@ -276,7 +329,11 @@
       "targetExceeded": "Exceden el límite: {n}/{total}",
       "downloadTargetOver": "Descargar igual",
       "needsRerun": "Ajustes cambiados. Vuelve a ejecutar.",
-      "errorTarget": "Introduce 0 o un objetivo positivo válido en KB."
+      "errorTarget": "Introduce 0 o un objetivo positivo válido en KB.",
+      "targetActual": "{w} × {h} px · {bytes} B.",
+      "groups": {
+        "advanced": "Formato y calidad"
+      }
     },
     "pt": {
       "title": "Comprimir imagem – Reduzir o tamanho de JPG, PNG e WebP grátis online",
@@ -311,7 +368,11 @@
         },
         "maxKb": {
           "label": "Tamanho máximo por imagem",
-          "help": "0 = desativado · 1 KB = 1024 B. Excedentes são indicados."
+          "help": "0 = desativado · 1 KB = 1000 B. Excedentes são indicados."
+        },
+        "reduce": {
+          "label": "Reduzir dimensões para atingir o limite",
+          "help": "Mantém a proporção. Desative se o formulário exigir pixels fixos. Apenas com limite de KB."
         }
       },
       "faq": [
@@ -328,7 +389,11 @@
       "targetExceeded": "Acima do limite: {n}/{total}",
       "downloadTargetOver": "Baixar mesmo assim",
       "needsRerun": "Configurações alteradas. Execute novamente.",
-      "errorTarget": "Digite 0 ou um alvo positivo válido em KB."
+      "errorTarget": "Digite 0 ou um alvo positivo válido em KB.",
+      "targetActual": "{w} × {h} px · {bytes} B.",
+      "groups": {
+        "advanced": "Formato e qualidade"
+      }
     },
     "de": {
       "title": "Bild komprimieren – JPG, PNG, WebP online kostenlos verkleinern",
@@ -363,7 +428,11 @@
         },
         "maxKb": {
           "label": "Maximale Größe pro Bild",
-          "help": "0 = aus · 1 KB = 1024 B. Überschreitungen werden angezeigt."
+          "help": "0 = aus · 1 KB = 1000 B. Überschreitungen werden angezeigt."
+        },
+        "reduce": {
+          "label": "Abmessungen für die Zielgröße verkleinern",
+          "help": "Behält das Seitenverhältnis bei. Bei festen Pixelvorgaben ausschalten. Nur mit KB-Limit."
         }
       },
       "faq": [
@@ -380,7 +449,11 @@
       "targetExceeded": "Über dem Limit: {n}/{total}",
       "downloadTargetOver": "Trotzdem laden",
       "needsRerun": "Einstellungen geändert. Erneut ausführen.",
-      "errorTarget": "0 oder ein gültiges positives KB-Ziel eingeben."
+      "errorTarget": "0 oder ein gültiges positives KB-Ziel eingeben.",
+      "targetActual": "{w} × {h} px · {bytes} B.",
+      "groups": {
+        "advanced": "Format und Qualität"
+      }
     },
     "fr": {
       "title": "Compresser une image – Réduire le poids des JPG, PNG, WebP gratuitement",
@@ -415,7 +488,11 @@
         },
         "maxKb": {
           "label": "Taille maximale par image",
-          "help": "0 = désactivé · 1 Ko = 1024 octets. Les dépassements sont signalés."
+          "help": "0 = désactivé · 1 Ko = 1000 octets. Les dépassements sont signalés."
+        },
+        "reduce": {
+          "label": "Réduire les dimensions pour respecter la limite",
+          "help": "Conserve les proportions. Désactivez si le formulaire impose des pixels fixes. Uniquement avec une limite en Ko."
         }
       },
       "faq": [
@@ -432,7 +509,11 @@
       "targetExceeded": "Limite dépassée : {n}/{total}",
       "downloadTargetOver": "Télécharger quand même",
       "needsRerun": "Réglages modifiés. Relancez le traitement.",
-      "errorTarget": "Saisissez 0 ou une cible positive valide en Ko."
+      "errorTarget": "Saisissez 0 ou une cible positive valide en Ko.",
+      "targetActual": "{w} × {h} px · {bytes} B.",
+      "groups": {
+        "advanced": "Format et qualité"
+      }
     }
   }
 }

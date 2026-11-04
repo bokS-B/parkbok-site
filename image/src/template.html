@@ -45,8 +45,9 @@
 </main>
 {{shell_footer}}
 <script>window.IMGT_STRINGS={{strings}};window.IMGT_TOOL={{tool}};</script>
-<script src="/image/img-tools.js" defer></script>
-<script src="/image/tools/{{toolId}}.js" defer></script>
+<script src="/image/img-tools.js?v={{engineVersion}}" defer></script>
+{{helperScripts}}
+<script src="/image/tools/{{toolId}}.js?v={{toolVersion}}" defer></script>
 <!-- tool:end -->
 <!-- hub:start -->
 <main class="wrap">
@@ -61,7 +62,7 @@
 </main>
 {{shell_footer}}
 <script>window.IMGT_STRINGS={{strings}};window.IMGT_TOOL={{tool}};</script>
-<script src="/image/img-tools.js" defer></script>
+<script src="/image/img-tools.js?v={{engineVersion}}" defer></script>
 <!-- hub:end -->
 </body>
 </html>

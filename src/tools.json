@@ -864,8 +864,47 @@
       "en": "Compress image"
     },
     "line": {
-      "ko": "사진 용량 가볍게 줄이기",
-      "en": "Smaller JPG, PNG and WebP files"
+      "ko": "사진을 20·50·100KB 이하로",
+      "en": "Photos under 20, 50 or 100KB"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "signature-resize",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 36.1,
+    "url": "/image/signature-resize/",
+    "icon": "signature-resize",
+    "name": {
+      "en": "Signature resizer",
+      "ko": "서명 규격 맞추기",
+      "zh": "签名尺寸调整",
+      "ja": "署名サイズ調整",
+      "es": "Redimensionar firma",
+      "pt": "Redimensionar assinatura",
+      "de": "Unterschrift skalieren",
+      "fr": "Redimensionner une signature"
+    },
+    "line": {
+      "en": "Crop your signature, set its pixel size and KB limit, then download a JPG.",
+      "ko": "서명을 자르고 픽셀 크기와 용량 상한을 정해 JPG로 저장하세요.",
+      "zh": "裁剪签名，设置像素和大小上限，下载 JPG。",
+      "ja": "署名を切り抜き、ピクセルと容量上限を指定して JPG 保存。",
+      "es": "Recorta tu firma, ajusta píxeles y límite de KB, y descarga un JPG.",
+      "pt": "Recorte a assinatura, defina pixels e limite de KB e baixe um JPG.",
+      "de": "Unterschrift zuschneiden, Pixel und KB-Limit wählen und als JPG speichern.",
+      "fr": "Recadrez la signature, fixez les pixels et la limite en Ko, puis téléchargez un JPG."
     },
     "langs": [
       "en",

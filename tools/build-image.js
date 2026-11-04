@@ -2,6 +2,8 @@
 //   → /image/[언어/]index.html (허브), /image/<도구>/[언어/]index.html   (node tools/build-image.js)
 // 도구 json 만 있고 image/tools/<id>.js 가 없으면 건너뛰고 경고한다. 사이트맵의 image 블록만 갱신한다(멱등).
 const fs = require('fs'), path = require('path');
+const crypto = require('crypto');
+const version = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 10);
 const shell = require('./shell');
 const root = path.resolve(__dirname, '..'), src = path.join(root, 'image', 'src');
 const S = JSON.parse(fs.readFileSync(path.join(src, 'strings.json'), 'utf8'));
@@ -51,6 +53,7 @@ function langSelect(lang, id){
 function langUrls(id){ const o = {}; langs.forEach(l => { o[l] = url(l, id); }); return o; }
 function common(lang){ const c = Object.assign({}, S[lang]); delete c.hub; return c; }
 function finish(html, lang, id, vars){
+  vars.engineVersion = version(path.join(root, 'image/img-tools.js'));
   html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
   // 셸은 마지막에 끼운다 (site.css 안의 중괄호가 위 치환에 걸리지 않도록)
   html = html.split('{{shell_head}}').join(shell.head({ og: 'og.png' }));
@@ -97,7 +100,9 @@ for (const tl of tools) for (const lang of langs) {
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
     h1: esc(T.h1), line: esc(T.line), buttonText: esc(T.buttonText || C.selectImages), dropText: esc(C.dropText), addMore: esc(C.addMore), startOver: esc(C.startOver), runText: esc(T.runText || C.done),
     nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq, css, jsonld: safeJson(jsonld), toolId: tl.id,
-    strings: safeJson(common(lang)), tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
+    strings: safeJson(common(lang)), toolVersion: version(path.join(root, 'image/tools', tl.id + '.js')),
+    helperScripts: ['image-compress', 'signature-resize'].includes(tl.id) ? `<script src="/image/target-size.js?v=${version(path.join(root, 'image/target-size.js'))}" defer></script>` : '',
+    tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;
 }
 

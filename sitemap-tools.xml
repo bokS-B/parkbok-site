@@ -64,8 +64,8 @@
   <url><loc>https://parkbok.com/image/blur/ko/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/blur/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/blur/zh/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://parkbok.com/image/de/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://parkbok.com/image/es/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/image/de/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/image/es/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/image/exif/de/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/exif/es/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/exif/fr/</loc><lastmod>2026-11-03</lastmod></url>
@@ -80,7 +80,7 @@
   <url><loc>https://parkbok.com/image/favicon/ko/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/favicon/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/favicon/zh/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://parkbok.com/image/fr/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/image/fr/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/image/heic-to-jpg/de/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/heic-to-jpg/es/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/heic-to-jpg/fr/</loc><lastmod>2026-11-03</lastmod></url>
@@ -92,7 +92,7 @@
   <url><loc>https://parkbok.com/image/image-compress/es/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/image-compress/fr/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/image-compress/ja/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://parkbok.com/image/image-compress/ko/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/image/image-compress/ko/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/image/image-compress/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/image-compress/zh/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/image-crop/de/</loc><lastmod>2026-11-03</lastmod></url>
@@ -123,7 +123,7 @@
   <url><loc>https://parkbok.com/image/image-watermark/ko/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/image-watermark/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/image-watermark/zh/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://parkbok.com/image/ja/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/image/ja/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/image/jpg-to-png/de/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/jpg-to-png/es/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/jpg-to-png/fr/</loc><lastmod>2026-11-03</lastmod></url>
@@ -138,7 +138,7 @@
   <url><loc>https://parkbok.com/image/jpg-to-webp/ko/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/jpg-to-webp/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/jpg-to-webp/zh/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://parkbok.com/image/ko/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/image/ko/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/image/meme/de/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/meme/es/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/meme/fr/</loc><lastmod>2026-11-03</lastmod></url>
@@ -167,7 +167,14 @@
   <url><loc>https://parkbok.com/image/product-image-size/ko/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/product-image-size/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/product-image-size/zh/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://parkbok.com/image/pt/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/image/pt/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/image/signature-resize/de/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/image/signature-resize/es/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/image/signature-resize/fr/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/image/signature-resize/ja/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/image/signature-resize/ko/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/image/signature-resize/pt/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/image/signature-resize/zh/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/image/stamp-background/de/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/stamp-background/es/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/stamp-background/fr/</loc><lastmod>2026-11-03</lastmod></url>
@@ -189,7 +196,7 @@
   <url><loc>https://parkbok.com/image/webp-to-jpg/ko/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/webp-to-jpg/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/webp-to-jpg/zh/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://parkbok.com/image/zh/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/image/zh/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/ja/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/pdf/compress/de/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/pdf/compress/es/</loc><lastmod>2026-11-03</lastmod></url>

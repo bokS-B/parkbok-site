@@ -50,5 +50,6 @@
   "game-rps": "<g fill=\"none\" stroke=\"#fff\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"14\" cy=\"14\" r=\"5\"/><circle cx=\"14\" cy=\"34\" r=\"5\"/><path d=\"M18 18l20 20M18 30l20-20M23 23l-5-5\"/></g>",
   "game-reaction": "<g fill=\"none\" stroke=\"#fff\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"24\" cy=\"27\" r=\"13\"/><path d=\"M24 14v13l7-5M20 7h8M24 7v7M34 13l4 4\"/></g>",
   "stamp-background": "<g fill=\"none\" stroke=\"#fff\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"24\" cy=\"22\" r=\"13\"/><path d=\"M19 16v12M19 22h4M28 15v14M25 18h6M25 25h6\"/><path d=\"M8 41h32\"/></g>",
-  "product-image-size": "<g fill=\"none\" stroke=\"#fff\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 17h24l-2 21H14z\"/><path d=\"M19 17v-3a5 5 0 0 1 10 0v3\"/><path d=\"M8 8h6M8 8v6M40 8h-6M40 8v6\"/></g>"
+  "product-image-size": "<g fill=\"none\" stroke=\"#fff\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 17h24l-2 21H14z\"/><path d=\"M19 17v-3a5 5 0 0 1 10 0v3\"/><path d=\"M8 8h6M8 8v6M40 8h-6M40 8v6\"/></g>",
+  "signature-resize": "<g fill=\"none\" stroke=\"#fff\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 34h30M12 27l5-5 4 5 7-12 5 5 6-6M12 10h10M12 10v7M38 27v7\"/></g>"
 }

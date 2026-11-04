@@ -277,6 +277,12 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 .target-presets{display:flex;flex-wrap:wrap;gap:6px;flex-basis:100%}
 .target-presets .target-preset{min-height:44px;min-width:60px;justify-content:center;cursor:pointer}
 .target-presets .target-preset[aria-pressed=true]{border-color:var(--accent);color:var(--accent-text);background:var(--accent-tint)}
+.signature-dimensions{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%}
+.signature-dimensions label{display:flex;flex-direction:column;gap:6px;font-weight:600;min-width:0}
+#opts[data-tool="signature-resize"] input[type=number]{width:100px;max-width:100%;min-height:44px}
+#opts[data-tool="signature-resize"] .signature-dimensions input{width:100%}
+#opts[data-tool="signature-resize"] .opt-help{line-height:1.55}
+#opts[data-tool="image-compress"] .check{white-space:normal;min-height:44px}
 .tool-head{text-align:center;margin:8px 0 20px}
 .tool-head h1{margin-bottom:4px}
 .tool-head .lead{margin-bottom:0}
@@ -482,7 +488,12 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
   .rh::before{inset:-14px}
   .rh-nw,.rh-sw,.rh-w{left:-9px}.rh-ne,.rh-se,.rh-e{right:-9px}.rh-nw,.rh-ne,.rh-n{top:-9px}.rh-sw,.rh-se,.rh-s{bottom:-9px}
   .rh-n,.rh-s{margin-left:-9px}.rh-w,.rh-e{margin-top:-9px}
-}</style>
+}
+
+/* Compact upload-limit controls: keep the task ahead of advanced settings. */
+#opts[data-tool="signature-resize"] .target-presets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:6px}
+#opts[data-tool="signature-resize"] .target-preset{min-width:0;padding-inline:6px;font-size:13px}
+#opts[data-tool="signature-resize"] .opt-signature-kb .opt-label,#opts[data-tool="signature-resize"] .opt-signature-min .opt-label{flex-basis:auto;flex:1 1 120px;white-space:normal}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"HEIC JPG 변환","url":"https://parkbok.com/image/heic-to-jpg/ko/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"아이폰 HEIC·HEIF 사진을 여러 장 넣고 JPG 품질, 최대 크기, 배경색을 정해 변환합니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"이미지 도구","item":"https://parkbok.com/image/ko/"},{"@type":"ListItem","position":3,"name":"HEIC JPG 변환","item":"https://parkbok.com/image/heic-to-jpg/ko/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HEIC 사진이 윈도우에서 왜 안 열리나요?","acceptedAnswer":{"@type":"Answer","text":"HEIC 는 애플 사진 형식이라 윈도우 프로그램과 웹사이트 상당수가 읽지 못합니다. JPG 로 바꾸면 어디서나 열립니다."}},{"@type":"Question","name":"사진이 업로드되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 각 사진은 내 기기의 브라우저 안에서 해독·변환되며 서버로 전송되지 않습니다."}}]}]</script>
 </head>
 <body class="page-image">
@@ -491,6 +502,7 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 // 모바일 메뉴: 현재 분류를 가운데로 스크롤(최초·창 크기 변경 시). 끝까지 스크롤되면 .end(오른쪽 페이드 끔), scrollLeft>0 이면 .start(왼쪽 페이드 켬). 좌표는 getBoundingClientRect 차이라 어떤 CSS 에서도 같다
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
+
 <main class="wrap">
   <nav class="crumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/image/ko/">이미지 도구</a></li><li aria-current="page">HEIC JPG 변환</li></ol></nav>
   <div class="tool-head"><h1>HEIC JPG 변환</h1><p class="lead">아이폰 HEIC 사진을 넣고 품질과 최대 크기를 정해 JPG로 내려받으세요.</p></div>
@@ -540,7 +552,10 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"한국어","dir":"ltr","selectImages":"이미지 선택","dropText":"또는 여기에 끌어다 놓기 · 붙여넣기도 됩니다","addMore":"더 추가","remove":"삭제","filesCount":"이미지 {n}장","fileCount":"이미지 1장","processing":"처리 중…","done":"완료","download":"내려받기","downloadAll":"ZIP 내려받기","startOver":"다시 시작","errorType":"{type} 이미지만 넣을 수 있습니다.","errorBroken":"파일이 손상되었거나 지원하는 이미지가 아닙니다.","errorEmpty":"이미지를 {n}장 이상 넣어 주세요.","errorHeic":"이 HEIC 파일을 열지 못했습니다.","errorGeneric":"처리에 실패했습니다. 다른 이미지로 다시 시도해 주세요.","before":"원본","after":"결과","saved":"{p}% 절감","quality":"품질","width":"가로","height":"세로","keepRatio":"비율 유지","images":"{n}장","imageN":"{n}번째","selected":"{n}장 선택","moreImages":"+{n}장 더 (미리보기 없음)","selectAll":"전체 선택","clearAll":"모두 지우기","moveLeft":"왼쪽으로","moveRight":"오른쪽으로","moveUp":"위로","moveDown":"아래로","rotate":"회전","delete":"삭제","restore":"되돌리기","dragHint":"이미지 위를 드래그해 영역을 정하세요","regions":"영역 {n}개","reset":"초기화","drawHere":"여기에 그리세요","upload":"PNG 올리기","clear":"지우기","language":"언어","loadingLib":"불러오는 중…","preview":"미리보기","aboutLine":"이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.","aboutTitle":"사용 방법","nextTools":"다음 도구"};window.IMGT_TOOL={"id":"heic-to-jpg","lang":"ko","langUrls":{"en":"/image/heic-to-jpg/","ko":"/image/heic-to-jpg/ko/","zh":"/image/heic-to-jpg/zh/","ja":"/image/heic-to-jpg/ja/","es":"/image/heic-to-jpg/es/","pt":"/image/heic-to-jpg/pt/","de":"/image/heic-to-jpg/de/","fr":"/image/heic-to-jpg/fr/"},"next":[{"id":"jpg-to-png","url":"/image/jpg-to-png/ko/","h1":"JPG PNG 변환"},{"id":"image-compress","url":"/image/image-compress/ko/","h1":"이미지 압축"},{"id":"image-resize","url":"/image/image-resize/ko/","h1":"이미지 크기 조절"},{"id":"png-to-jpg","url":"/image/png-to-jpg/ko/","h1":"PNG JPG 변환"},{"id":"webp-to-jpg","url":"/image/webp-to-jpg/ko/","h1":"WebP JPG 변환"}],"strings":{"title":"HEIC JPG 변환 – 아이폰 HEIC 사진을 JPG 로 무료 온라인 변환","h1":"HEIC JPG 변환","line":"아이폰 HEIC 사진을 넣고 품질과 최대 크기를 정해 JPG로 내려받으세요.","description":"아이폰 HEIC·HEIF 사진을 여러 장 넣고 JPG 품질, 최대 크기, 배경색을 정해 변환합니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다.","buttonText":"HEIC 선택","runText":"JPG로 변환","resultName":"jpg변환","options":{"quality":{"label":"품질","help":"품질이 높을수록 선명하지만 용량이 커집니다. 보통 90이면 충분합니다."},"maxEdge":{"label":"최대 크기","help":"큰 사진의 긴 변을 줄입니다. 원본을 고르면 해상도를 그대로 둡니다.","choices":{"0":"원본","1280":"1280 px","2048":"2048 px","4096":"4096 px"}},"background":{"label":"배경색","help":"JPG 는 투명을 지원하지 않아 투명한 부분을 이 색으로 채웁니다."}},"faq":[["HEIC 사진이 윈도우에서 왜 안 열리나요?","HEIC 는 애플 사진 형식이라 윈도우 프로그램과 웹사이트 상당수가 읽지 못합니다. JPG 로 바꾸면 어디서나 열립니다."],["사진이 업로드되나요?","아니요. 각 사진은 내 기기의 브라우저 안에서 해독·변환되며 서버로 전송되지 않습니다."]]}};</script>
-<script src="/image/img-tools.js" defer></script>
-<script src="/image/tools/heic-to-jpg.js" defer></script>
+<script src="/image/img-tools.js?v=346fa37587" defer></script>
+
+<script src="/image/tools/heic-to-jpg.js?v=799d19970b" defer></script>
+
+
 </body>
 </html>

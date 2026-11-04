@@ -2,7 +2,8 @@
 // PNG 는 투명이 없으면 JPG 로, 있으면 PNG 유지(축소만). 결과가 원본보다 크면 원본을 그대로 돌려준다.
 (function(){
   var LEVELS = { low: { q: 0.85, max: 4000 }, medium: { q: 0.7, max: 2500 }, high: { q: 0.5, max: 1600 } };
-  var SIDE_LIMIT = 16384, MIN_QUALITY = 0.3;
+  var SIDE_LIMIT = 16384;
+  var target = typeof module !== 'undefined' && module.exports ? require('../target-size.js') : window.PBImageTarget;
   function targetFromSearch(search){
     try { var value = new URLSearchParams(search || '').get('maxKb'); return /^\d+$/.test(value || '') && Number(value) <= 51200 ? Number(value) : 0; } catch (_) { return 0; }
   }
@@ -16,14 +17,14 @@
     if (t === 'image/webp' || e === 'webp') return 'webp';
     return '';
   }
-  // Optional per-file target uses 1 KB = 1024 B; zero leaves the original encoder path unchanged.
+  // Optional per-file target uses 1 KB = 1000 B; zero leaves the original encoder path unchanged.
   function parseOpts(opts){
     opts = opts || {};
     var lv = LEVELS[opts.level] ? opts.level : 'medium';
     var fm = /^(keep|jpg|webp)$/.test(opts.format || '') ? opts.format : 'keep';
     var rawKb = opts.maxKb, kb = rawKb == null || String(rawKb).trim() === '' ? 0 : Number(rawKb);
-    var validTarget = isFinite(kb) && kb >= 0 && kb <= Number.MAX_SAFE_INTEGER / 1024;
-    return { level: lv, quality: LEVELS[lv].q, max: LEVELS[lv].max, format: fm, maxKb: kb, maxBytes: validTarget && kb > 0 ? Math.floor(kb * 1024) : null, validTarget: validTarget };
+    var validTarget = isFinite(kb) && kb >= 0 && kb <= Number.MAX_SAFE_INTEGER / 1000;
+    return { level: lv, quality: LEVELS[lv].q, max: LEVELS[lv].max, format: fm, maxKb: kb, maxBytes: validTarget && kb > 0 ? Math.floor(kb * 1000) : null, validTarget: validTarget, reduce: opts.reduce === true, preserveDimensions: kb > 0 && opts.reduce === false };
   }
   // 투명 픽셀이 하나라도 있는지. 줄 단위로 읽어 첫 투명 픽셀에서 바로 멈춘다.
   function hasAlpha(c){
@@ -43,21 +44,8 @@
     return { mime: 'image/jpeg', ext: 'jpg' };
   }
   function pct(before, after){ return before > 0 ? Math.round((1 - after / before) * 100) : 0; }
-  // Search quality only. The level's canvas dimensions and transparent PNG output stay unchanged.
-  async function fitTarget(ctx, c, mime, initial, quality, budget){
-    if (budget === null || initial.size <= budget || (mime !== 'image/jpeg' && mime !== 'image/webp')) return initial;
-    var lo = Math.min(MIN_QUALITY, quality), hi = quality;
-    var low = await ctx.toBlob(c, mime, lo);
-    if (low.size > budget) return low.size < initial.size ? low : initial;
-    var fit = low;
-    for (var i = 0; i < 7 && hi - lo > 0.01; i++) {
-      var q = (lo + hi) / 2, blob = await ctx.toBlob(c, mime, q);
-      if (blob.size <= budget) { fit = blob; lo = q; } else hi = q;
-    }
-    return fit;
-  }
   function sizeCheck(blob, budget){
-    return { status: budget === null ? 'not_requested' : blob.size <= budget ? 'passed' : 'failed', actualBytes: blob.size, limitBytes: budget, unitBytes: 1024 };
+    return { status: budget === null ? 'not_requested' : blob.size <= budget ? 'passed' : 'failed', actualBytes: blob.size, limitBytes: budget, unitBytes: 1000 };
   }
   var tool = {
     id: 'image-compress',
@@ -74,7 +62,7 @@
         var input = api.el('input'); input.type = 'number'; input.id = id; input.min = 0; input.step = 1; input.value = targetFromSearch(typeof location === 'undefined' ? '' : location.search); input.inputMode = 'decimal'; input.style.width = '100px';
         var wrap = api.el('span', 'num-wrap'); wrap.appendChild(input); wrap.appendChild(api.el('span', 'num-unit', 'KB')); row.appendChild(wrap);
         var presets = api.el('div', 'target-presets'); presets.setAttribute('role', 'group'); presets.setAttribute('aria-label', api.optStr(o.id, 'label'));
-        [0, 50, 100, 200, 500].forEach(function(kb){
+        [20, 50, 100, 200, 500, 0].forEach(function(kb){
           var button = api.el('button', 'chip target-preset', kb + ' KB'); button.type = 'button'; button.dataset.targetKb = kb;
           button.addEventListener('click', function(){ if (api.busy()) return; input.value = kb; sync(); api.changed(); }); presets.appendChild(button);
         });
@@ -85,9 +73,10 @@
       }
     },
     options: [
-      { id: 'level', type: 'radio', choices: ['low', 'medium', 'high'], default: 'medium' },
-      { id: 'format', type: 'select', choices: ['keep', 'jpg', 'webp'], default: 'keep' },
-      { id: 'maxKb', type: 'target-kb', min: 0, step: 1, default: 0, unit: 'KB' }
+      { id: 'maxKb', type: 'target-kb', min: 0, step: 1, default: 0, unit: 'KB' },
+      { id: 'reduce', type: 'checkbox', default: true },
+      { id: 'format', type: 'select', choices: ['keep', 'jpg', 'webp'], default: 'keep', group: 'advanced' },
+      { id: 'level', type: 'radio', choices: ['low', 'medium', 'high'], default: 'medium', group: 'advanced' }
     ],
     run: async function(files, opts, ctx){
       var o = parseOpts(opts), outputs = [], kept = 0, before = 0, after = 0, oversized = 0;
@@ -99,7 +88,7 @@
         var w = img.naturalWidth || img.width, h = img.naturalHeight || img.height;
         if (!(w > 0 && h > 0) || w > SIDE_LIMIT || h > SIDE_LIMIT) { ctx.release(img); var e = new Error('errorBroken'); e.key = w > SIDE_LIMIT || h > SIDE_LIMIT ? 'errorTooBig' : 'errorBroken'; throw e; }
         // 긴 변이 단계 최대값을 넘으면 절반씩 단계 축소(엔진 scaleTo), 아니면 원본 크기로 그린다
-        var c = ctx.scaleTo(img, o.max, o.max);
+        var c = o.preserveDimensions ? img : ctx.scaleTo(img, o.max, o.max);
         if (c === img) { c = ctx.canvas(w, h); c.getContext('2d').drawImage(img, 0, 0, w, h); }
         ctx.release(img);
         var alpha = kind === 'png' && o.format === 'keep' ? hasAlpha(c) : false;
@@ -113,21 +102,34 @@
         var blob = await ctx.toBlob(c, fm.mime, fm.mime === 'image/png' ? undefined : o.quality);
         // WebP 를 못 만드는 브라우저는 PNG 를 돌려주므로 JPG 로 대체한다
         if (fm.mime === 'image/webp' && blob.type !== 'image/webp') { fm = { mime: 'image/jpeg', ext: 'jpg' }; blob = await ctx.toBlob(c, fm.mime, o.quality); }
-        blob = await fitTarget(ctx, c, fm.mime, blob, o.quality, o.maxBytes);
+        blob = await target.fitQuality(ctx, c, fm.mime, blob, o.quality, o.maxBytes);
+        // Explicit opt-in: keep the aspect ratio, reduce dimensions, then retry quality.
+        // Never lower either side below 64 px or loop without a bounded stop.
+        for (var attempt = 0; o.reduce && o.maxBytes !== null && blob.size > o.maxBytes && attempt < 12 && Math.min(c.width, c.height) > 64; attempt++) {
+          var factor = Math.max(0.5, Math.min(0.85, Math.sqrt(o.maxBytes / blob.size) * 0.92));
+          factor = Math.max(factor, 64 / Math.min(c.width, c.height));
+          var small = ctx.canvas(Math.max(1, Math.floor(c.width * factor)), Math.max(1, Math.floor(c.height * factor)));
+          small.getContext('2d').drawImage(c, 0, 0, small.width, small.height);
+          c.width = c.height = 1; c = small;
+          blob = await ctx.toBlob(c, fm.mime, fm.mime === 'image/png' ? undefined : o.quality);
+          blob = await target.fitQuality(ctx, c, fm.mime, blob, o.quality, o.maxBytes);
+        }
+        var dimensions = { width: c.width, height: c.height };
         c.width = c.height = 1;
         var name = baseName(f.name) + '.' + fm.ext;
         // 결과가 원본보다 크면(형식 유지이거나 같은 형식일 때) 원본 그대로
-        if (blob.size >= f.size && (o.format === 'keep' || fm.ext === kind)) { blob = f.file; name = f.name; kept++; }
+        if (blob.size >= f.size && (o.format === 'keep' || fm.ext === kind)) { blob = f.file; name = f.name; dimensions = { width: w, height: h }; kept++; }
         var check = sizeCheck(blob, o.maxBytes); if (check.status === 'failed') oversized++;
         before += f.size; after += blob.size;
-        outputs.push({ name: name, blob: blob, srcSize: f.size, validation: { size: check } });
+        outputs.push({ name: name, blob: blob, srcSize: f.size, dimensions: dimensions, validation: { size: check } });
         ctx.progress((i + 1) / files.length);
       }
       var note = ctx.t('noteSize', { before: ctx.human(before), after: ctx.human(after), p: Math.max(0, pct(before, after)) });
       if (kept) note += ' ' + ctx.t(kept === files.length ? 'noteKeptAll' : 'noteKept', { n: kept });
       if (o.maxBytes !== null) note += (note ? ' ' : '') + ctx.t('targetLimit', { kb: o.maxKb, limit: o.maxBytes });
+      if (o.maxBytes !== null && outputs.length === 1) note += ' ' + ctx.t('targetActual', { bytes: outputs[0].blob.size, w: outputs[0].dimensions.width, h: outputs[0].dimensions.height });
       return { outputs: outputs, note: note,
-        validation: { size: { status: o.maxBytes === null ? 'not_requested' : oversized ? 'failed' : 'passed', scope: 'per-file', limitBytes: o.maxBytes, unitBytes: 1024, oversizedCount: oversized, totalFiles: files.length } },
+        validation: { size: { status: o.maxBytes === null ? 'not_requested' : oversized ? 'failed' : 'passed', scope: 'per-file', limitBytes: o.maxBytes, unitBytes: 1000, oversizedCount: oversized, totalFiles: files.length } },
         warning: oversized ? { message: ctx.t('targetExceeded', { n: oversized, total: files.length }), downloadText: ctx.t('downloadTargetOver') } : null };
     }
   };

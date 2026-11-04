@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "13beab5f16f652ae",
+  "hash": "1bf8b680943c8d6e",
   "lastmod": "2026-11-04"
  },
  "/about.html": {
@@ -904,19 +904,19 @@
   "lastmod": "2026-11-03"
  },
  "/de/": {
-  "hash": "b187cf111bc3128e",
+  "hash": "b472757ddac45e59",
   "lastmod": "2026-11-04"
  },
  "/en/": {
-  "hash": "cd00297e25e42a77",
+  "hash": "d74e30e16f62b085",
   "lastmod": "2026-11-04"
  },
  "/es/": {
-  "hash": "5347f0086ba2909c",
+  "hash": "3168216d77532564",
   "lastmod": "2026-11-04"
  },
  "/fr/": {
-  "hash": "72b58ecf85b302be",
+  "hash": "91ad5bf542f797f5",
   "lastmod": "2026-11-04"
  },
  "/games/": {
@@ -964,8 +964,8 @@
   "lastmod": "2026-11-03"
  },
  "/image/": {
-  "hash": "6529fad7e034b49b",
-  "lastmod": "2026-11-03"
+  "hash": "07d9f4298fb69c34",
+  "lastmod": "2026-11-04"
  },
  "/image/blur/": {
   "hash": "b981f6eccf5ac2e7",
@@ -1000,12 +1000,12 @@
   "lastmod": "2026-11-03"
  },
  "/image/de/": {
-  "hash": "9d6ee879138fbaaa",
-  "lastmod": "2026-11-03"
+  "hash": "ee8a254bfae7c0d2",
+  "lastmod": "2026-11-04"
  },
  "/image/es/": {
-  "hash": "5bb13c564e85cd54",
-  "lastmod": "2026-11-03"
+  "hash": "722d4c33b6b2b00d",
+  "lastmod": "2026-11-04"
  },
  "/image/exif/": {
   "hash": "e76c77e454102efd",
@@ -1072,8 +1072,8 @@
   "lastmod": "2026-11-03"
  },
  "/image/fr/": {
-  "hash": "c49317d4ccd1b2b5",
-  "lastmod": "2026-11-03"
+  "hash": "f267fd0c849e0169",
+  "lastmod": "2026-11-04"
  },
  "/image/heic-to-jpg/": {
   "hash": "00fc79f8f3f7f7e5",
@@ -1108,8 +1108,8 @@
   "lastmod": "2026-11-03"
  },
  "/image/image-compress/": {
-  "hash": "aca66593360a3bb7",
-  "lastmod": "2026-11-03"
+  "hash": "cf1c7d4266f88273",
+  "lastmod": "2026-11-04"
  },
  "/image/image-compress/de/": {
   "hash": "66df389a92e94989",
@@ -1128,8 +1128,8 @@
   "lastmod": "2026-11-03"
  },
  "/image/image-compress/ko/": {
-  "hash": "64af812df17eae6f",
-  "lastmod": "2026-11-03"
+  "hash": "59080b5686d153dd",
+  "lastmod": "2026-11-04"
  },
  "/image/image-compress/pt/": {
   "hash": "1397ebf62e444d53",
@@ -1268,8 +1268,8 @@
   "lastmod": "2026-11-03"
  },
  "/image/ja/": {
-  "hash": "638b2acf265edcf4",
-  "lastmod": "2026-11-03"
+  "hash": "15d036217c3cd89c",
+  "lastmod": "2026-11-04"
  },
  "/image/jpg-to-png/": {
   "hash": "8f7b7ce221d6176a",
@@ -1336,8 +1336,8 @@
   "lastmod": "2026-11-03"
  },
  "/image/ko/": {
-  "hash": "17963d6972d3dab5",
-  "lastmod": "2026-11-03"
+  "hash": "b4bc6815a2a7cd63",
+  "lastmod": "2026-11-04"
  },
  "/image/meme/": {
   "hash": "a1a66d9896e9fe0a",
@@ -1468,8 +1468,40 @@
   "lastmod": "2026-11-03"
  },
  "/image/pt/": {
-  "hash": "ee81e055e0e47e00",
-  "lastmod": "2026-11-03"
+  "hash": "eab87d07288e5317",
+  "lastmod": "2026-11-04"
+ },
+ "/image/signature-resize/": {
+  "hash": "a50583d2e80257b6",
+  "lastmod": "2026-11-04"
+ },
+ "/image/signature-resize/de/": {
+  "hash": "518e9c121001ee91",
+  "lastmod": "2026-11-04"
+ },
+ "/image/signature-resize/es/": {
+  "hash": "8400c77ae6a77b29",
+  "lastmod": "2026-11-04"
+ },
+ "/image/signature-resize/fr/": {
+  "hash": "e4d8cd81edc7325c",
+  "lastmod": "2026-11-04"
+ },
+ "/image/signature-resize/ja/": {
+  "hash": "ee16a3ff755a72ea",
+  "lastmod": "2026-11-04"
+ },
+ "/image/signature-resize/ko/": {
+  "hash": "b91f6349676dd96c",
+  "lastmod": "2026-11-04"
+ },
+ "/image/signature-resize/pt/": {
+  "hash": "ae17cf17b7039444",
+  "lastmod": "2026-11-04"
+ },
+ "/image/signature-resize/zh/": {
+  "hash": "6268814fadf950ed",
+  "lastmod": "2026-11-04"
  },
  "/image/stamp-background/": {
   "hash": "292083a8a4e1fb14",
@@ -1568,11 +1600,11 @@
   "lastmod": "2026-11-03"
  },
  "/image/zh/": {
-  "hash": "2938d4ef7852d409",
-  "lastmod": "2026-11-03"
+  "hash": "5739fed22605b677",
+  "lastmod": "2026-11-04"
  },
  "/ja/": {
-  "hash": "9f52d1a05cbd938a",
+  "hash": "da94fa74384055ee",
   "lastmod": "2026-11-04"
  },
  "/pdf/": {
@@ -2060,7 +2092,7 @@
   "lastmod": "2026-11-04"
  },
  "/pt/": {
-  "hash": "2cab006c1e5d74bc",
+  "hash": "f84a36b4142544b4",
   "lastmod": "2026-11-04"
  },
  "/terms.html": {
@@ -2220,7 +2252,7 @@
   "lastmod": "2026-11-03"
  },
  "/zh/": {
-  "hash": "1be1808b72be689f",
+  "hash": "482aeea28327bcba",
   "lastmod": "2026-11-04"
  }
 }

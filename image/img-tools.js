@@ -27,7 +27,15 @@
     if (choice != null) return (o.choices && o.choices[choice] != null) ? o.choices[choice] : choice;
     return o[field] != null ? o[field] : (field === 'label' ? optId : '');
   }
-  function human(n){ if (n < 1024) return n + ' B'; if (n < 1048576) return (n / 1024).toFixed(0) + ' KB'; return (n / 1048576).toFixed(n < 10485760 ? 1 : 0) + ' MB'; }
+  function human(n){
+    // These upload-limit tools explicitly use decimal KB, including their result labels.
+    if (T.id === 'image-compress' || T.id === 'signature-resize') {
+      if (n < 1000) return n + ' B';
+      if (n < 1000000) return (n / 1000).toFixed(1) + ' KB';
+      return (n / 1000000).toFixed(1) + ' MB';
+    }
+    if (n < 1024) return n + ' B'; if (n < 1048576) return (n / 1024).toFixed(0) + ' KB'; return (n / 1048576).toFixed(n < 10485760 ? 1 : 0) + ' MB';
+  }
   function extOf(name){ var m = /\.([a-z0-9]+)$/i.exec(name || ''); return m ? m[1].toLowerCase() : ''; }
   function err(key){ var e = new Error(key); e.key = key; return e; }
 
