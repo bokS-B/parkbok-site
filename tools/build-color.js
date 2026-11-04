@@ -58,12 +58,16 @@ function langSelect(lang, id){
 function langUrls(id){ const o = {}; langs.forEach(l => { o[l] = url(l, id); }); return o; }
 function common(lang){ const c = Object.assign({}, S[lang]); delete c.hub; return c; }
 function finish(html, lang, id, vars){
+  const sample = vars.sample || '';
+  // Keep the preview in the HTML so it remains a real, crawlable example.
+  html = html.replace('<section class="tool" id="app"></section>', '<section class="tool" id="app">' + sample + '</section>');
   html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
   // 셸은 마지막에 끼운다 (site.css 안의 중괄호가 위 치환에 걸리지 않도록)
   html = html.split('{{shell_head}}').join(shell.head({ og: 'og.png' }));
   html = html.split('{{shell_header}}').join(shell.header({ lang, section: 'color', wheelHome: home('wheel', lang), pdfHome: home('pdf', lang), imageHome: home('image', lang), colorHome: home('color', lang), langSelect: langSelect(lang, id), subnav: '' }));
   html = html.split('{{shell_footer}}').join(shell.footer({ lang }));
   if (id === 'palette') html = html.replace(/(?:src|href)="(\/color\/(?:palette[\w-]*\.(?:js|css)|tools\/palette\.js))"/g, (match, file) => match.replace(file, assetUrl(file)));
+  if (id === 'picker') html = html.replace('src="/color/tools/picker.js"', 'src="' + assetUrl('/color/tools/picker.js') + '"');
   const out = path.join(root, url(lang, id).replace(/\//g, path.sep), 'index.html');
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, html, 'utf8');
@@ -119,6 +123,7 @@ for (const tl of tools) for (const lang of langs) {
   jsonld.push(crumbs.jsonld);
   if (faqArr.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqArr.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) });
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
+    sample: tl.id === 'picker' && T.sampleButton ? `<div class="pk-sample" id="pk-sample"><img src="/color/assets/picker-sunset.svg" width="144" height="96" alt="${esc(T.sampleAlt)}"><div class="pk-sample-copy"><strong>${esc(T.sampleTitle)}</strong><p>${esc(T.sampleLine)}</p><div class="pk-sample-colors" aria-label="Sample colors"><span style="--swatch:#F8B8C4">#F8B8C4</span><span style="--swatch:#77C4B6">#77C4B6</span><span style="--swatch:#FFD16B">#FFD16B</span></div></div><button type="button" class="btn ghost sm" id="pk-try-sample">${esc(T.sampleButton)}</button></div>` : '',
     h1: esc(T.h1), line: esc(T.line), nextTools: esc(C.nextTools), nextChips, about, css, jsonld: safeJson(jsonld), toolId: tl.id,
     strings: safeJson(common(lang)), toolAssets: tl.id === 'palette' ? '<link rel="stylesheet" href="/color/palette-studio.css">\n' + ['palette-data','palette-core','palette-strings','palette-template-style','palette-templates'].map(n => '<script src="/color/'+n+'.js" defer></script>').join('\n')+'\n' : '', tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;

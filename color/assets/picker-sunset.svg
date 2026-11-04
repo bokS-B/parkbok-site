@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480">
+  <title>Little sunset — original parkbok color picker sample</title>
+  <rect width="720" height="480" fill="#FFF1DF"/>
+  <circle cx="520" cy="144" r="70" fill="#FFD16B"/>
+  <path d="M0 280Q110 125 245 240T480 230T720 210V480H0Z" fill="#F8B8C4"/>
+  <path d="M0 345Q175 205 340 320T720 275V480H0Z" fill="#B96F92"/>
+  <path d="M0 385Q160 335 330 380T720 350V480H0Z" fill="#77C4B6"/>
+  <path d="M0 443Q190 385 370 425T720 410V480H0Z" fill="#397D7A"/>
+  <g fill="#FFF1DF"><rect x="457" y="370" width="76" height="8" rx="4"/><rect x="478" y="389" width="46" height="8" rx="4"/></g>
+</svg>

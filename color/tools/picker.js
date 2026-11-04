@@ -8,6 +8,7 @@
   var t = U.t, el = U.el;
   var MAX_PICKS = 12, MAX_SIDE = 1600, LOUPE_PX = 15, ZOOM = 8, LOUPE = LOUPE_PX * ZOOM, K = 6;
   var picks = [], cur = null, img = null, dominant = [];
+  var sampleCard = document.getElementById('pk-sample'), sampleButton = document.getElementById('pk-try-sample'), loadId = 0;
 
   // ---------- 스타일 ----------
   var css = [
@@ -16,6 +17,13 @@
     '.pk-drop:focus-visible{outline:3px solid var(--accent);outline-offset:2px}',
     '.pk-drop.on{border-color:var(--accent);background:var(--accent-tint)}',
     '.pk-drop strong{font-size:17px}.pk-drop .muted{font-size:var(--fs-small)}',
+    '.pk-sample{display:flex;align-items:center;gap:20px;margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--card)}',
+    '.pk-sample img{width:144px;height:96px;object-fit:cover;border-radius:12px;flex:none}',
+    '.pk-sample-copy{flex:1;min-width:0}.pk-sample-copy strong{font-size:16px}.pk-sample-copy p{margin:4px 0 10px;color:var(--muted);font-size:14px;line-height:1.5}',
+    '.pk-sample-colors{display:flex;flex-wrap:wrap;gap:8px 12px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}',
+    '.pk-sample-colors span{display:inline-flex;align-items:center;gap:5px}.pk-sample-colors span:before{content:"";width:12px;height:12px;border-radius:50%;background:var(--swatch);border:1px solid var(--line)}',
+    '#pk-try-sample{min-height:44px;flex:none}',
+    '@media(max-width:767.98px){.pk-sample{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;padding:12px}.pk-sample img{width:88px;height:88px}.pk-sample-copy p{font-size:13px}.pk-sample-colors{font-size:11px;gap:4px 8px}#pk-try-sample{grid-column:1/-1;width:100%}}',
     '.pk-stage{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:16px;align-items:start}',
     '.pk-left{display:flex;flex-direction:column;gap:10px;min-width:0}',
     '.pk-wrap{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-card);background:var(--card);line-height:0}',
@@ -51,7 +59,7 @@
   drop.appendChild(el('span', 'muted', t('dropHint')));
   var input = el('input'); input.type = 'file'; input.accept = 'image/*'; input.hidden = true; input.setAttribute('aria-label', t('select'));
   drop.appendChild(input);
-  app.appendChild(drop);
+  app.insertBefore(drop, app.firstChild);
 
   // ---------- 무대: 캔버스 + 루페 | 현재 색 ----------
   var stage = el('div', 'pk-stage'); stage.hidden = true;
@@ -129,8 +137,13 @@
   function load(file){
     if (!file) return;
     if (!isImage(file)) { say(t('notImage'), true); return; }
+    return loadDecoded(decode(file), false);
+  }
+  function loadDecoded(source, isSample){
+    var id = ++loadId;
     say('');
-    decode(file).then(function(bmp){
+    return source.then(function(bmp){
+      if (id !== loadId) { if (bmp.close) bmp.close(); return; }
       var w = bmp.width || bmp.naturalWidth, h = bmp.height || bmp.naturalHeight;
       if (!w || !h) throw new Error('empty');
       var s = Math.min(1, MAX_SIDE / Math.max(w, h));
@@ -140,9 +153,24 @@
       if (bmp.close) bmp.close();
       img = ctx.getImageData(0, 0, cv.width, cv.height);
       dominant = []; domSec.hidden = true;
+      // A new image must not retain colors/results from the built-in sample.
+      picks = []; renderPicks();
+      setCurrent(pixel(Math.floor(cv.width / 2), Math.floor(cv.height / 2)));
       drop.hidden = true; stage.hidden = false; picksSec.hidden = false;
+      if (sampleCard) sampleCard.hidden = true;
       hideLoupe();
-    }).catch(function(){ say(t('loadFail'), true); });
+      if (isSample) { pick(cur); say(t('sampleLoaded')); btnChange.focus({preventScroll:true}); }
+    }).catch(function(){ if (id === loadId) say(t('loadFail'), true); });
+  }
+  function loadSample(){
+    if (!sampleCard) return;
+    var source = new Promise(function(resolve, reject){
+      var demo = new Image();
+      demo.onload = function(){ resolve(demo); };
+      demo.onerror = function(){ reject(new Error('sample')); };
+      demo.src = sampleCard.querySelector('img').src;
+    });
+    loadDecoded(source, true);
   }
 
   // ---------- 좌표 → 픽셀 ----------
@@ -284,8 +312,10 @@
   }
   function extract(){
     if (!img) return;
+    var id = loadId;
     btnExtract.disabled = true; btnExtract.textContent = t('extracting');
     setTimeout(function(){
+      if (id !== loadId) { btnExtract.disabled = false; btnExtract.textContent = t('extract'); return; }
       dominant = dominantColors(sample(), K);
       U.setPalette(domPal, dominant, { large: true });
       domPal.style.setProperty('--cols', String(dominant.length || 1));
@@ -320,6 +350,7 @@
   input.addEventListener('change', function(){ load(input.files && input.files[0]); });
   btnChange.addEventListener('click', openPicker);
   btnExtract.addEventListener('click', extract);
+  if (sampleButton) sampleButton.addEventListener('click', loadSample);
   btnCopyAll.addEventListener('click', function(){ if (dominant.length) U.copy(dominant.join('\n')); });
   btnSave.addEventListener('click', savePalette);
   btnCopyPicks.addEventListener('click', function(){ if (picks.length) U.copy(picks.join('\n')); });

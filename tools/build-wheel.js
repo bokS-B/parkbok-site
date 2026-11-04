@@ -26,7 +26,7 @@ for (const lang of langs) for (const preset of PRESETS) {
   const presetChips = PRESETS.filter(p => p !== preset).map(p => `<a class="chip" href="${url(lang, p)}">${esc(L.presets[p].h1)}</a>`).join('');
   const subnavChips = PRESETS.map(p => `<a class="chip${p === preset ? ' on' : ''}" href="${url(lang, p)}">${esc(L.presets[p].nav)}</a>`).join('');
   const langOptions = langs.map(l => `<option value="${url(l, preset)}" data-code="${l}"${l === lang ? ' selected' : ''}>${esc(S[l].name)}</option>`).join('');
-  const steps = L.steps.map(s => `<li>${esc(s)}</li>`).join('');
+  const steps = (P.steps || L.steps).map(s => `<li>${esc(s)}</li>`).join('');
   const faq = P.faq.map(q => `<dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd>`).join('');
   let presetControls = '';
   if (preset === 'number') presetControls = `<div class="ctl"><label>${esc(U.from)} <input type="number" id="num-from" value="1"></label><label>${esc(U.to)} <input type="number" id="num-to" value="10"></label><button class="btn ghost sm" type="button" id="num-apply">${esc(U.ok)}</button></div>`;
