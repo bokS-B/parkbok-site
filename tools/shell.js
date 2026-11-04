@@ -25,8 +25,12 @@ function fragment(name){
 function fill(tpl, vars){ return tpl.replace(/\{\{([\w.:]+)\}\}/g, (m, k) => (k in vars ? vars[k] : m)); }
 const strings = lang => STR[lang] || STR.en;
 
-function head({ og = 'og.png' } = {}){
-  return fill(fragment('head-common'), { og, adsense: ADSENSE, ga: GA, site_css: siteCss });
+function head({ og = 'og.png', home = false } = {}){
+  // Google reads the homepage for the favicon used across search results.
+  const favicon = home
+    ? '<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">'
+    : '<link rel="icon" href="/favicon.svg" type="image/svg+xml">\n<link rel="icon" href="/favicon.ico" sizes="32x32">';
+  return fill(fragment('head-common'), { favicon, og, adsense: ADSENSE, ga: GA, site_css: siteCss });
 }
 // 언어별 구역 루트: 영어는 /<section>/, 그 외는 /<section>/<lang>/
 const sectionHome = (section, lang) => '/' + section + '/' + (lang === 'en' ? '' : lang + '/');

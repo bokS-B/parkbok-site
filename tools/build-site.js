@@ -124,7 +124,7 @@ for (const p of pages) {
   const rel = path.relative(root, p).split(path.sep).join('/');
   const before = fs.readFileSync(p, 'utf8');
   let s = clean(before);
-  s = s.replace(/<\/head>/, () => shell.head({ og: 'og.png' }) + '\n</head>');
+  s = s.replace(/<\/head>/, () => shell.head({ og: 'og.png', home: rel === 'index.html' }) + '\n</head>');
   if (PAGE_CSS[rel]) {
     const css = [].concat(PAGE_CSS[rel]).map(f => fs.readFileSync(path.join(root, f), 'utf8').trim()).join('\n');
     s = s.replace(/<\/head>/, () => '<style id="page-css">\n' + css + '\n</style>\n</head>');

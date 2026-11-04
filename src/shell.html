@@ -2,8 +2,7 @@
      헤더의 브랜드 마크는 assets/brand/logo.svg 의 헤더 전용 축약본(모든 페이지에 인라인되므로 1KB 이하): 파비콘과 같은 굵기 보정(make-logo.py FAV_BOLD) 마스크를
      가로 96px 로 줄여 potrace(alphamax 1.0, opttolerance 1.0) 로 따고 정수 좌표로 적었다. 외부 <use href> 대신 인라인을 쓴 이유: 교차 문서 use 는 CSS 변수(다크 모드 색)를 못 받고 캐시 갱신도 따로 돈다. -->
 <!-- shell:head-common -->
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
+{{favicon}}
 <link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#511919">
