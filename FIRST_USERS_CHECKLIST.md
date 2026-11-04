@@ -76,3 +76,17 @@ Google의 실제 크롤링/색인·검색 노출·유입은 코드 배포와 구
 - 남은 목표: Google 실제 색인 처리와 해외 자연검색 방문·실제 도구 사용. 접수 11개를 색인 완료 11개로 표시하지 않는다.
 - 디스콰이엇 로그인 화면을 열었던 인계는 2026-11-04 사용자 취소로 종료했다. `FIRST_USERS_RECRUITMENT_KO.md`는 보관용이며 로그인 완료 메시지가 늦게 도착해도 취소한 모집을 임의로 재개하지 않는다.
 - 이 마감 문서 커밋은 `[skip ci]`로 제품 재배포를 생략한다. 운영 제품 버전은 위 제품 배포 커밋이다.
+
+## V. 사이트맵 인덱스 재제출 — 2026-11-04 KST
+
+사용자 요청에 따라 `https://parkbok.com/sitemap.xml`을 Google Search Console·네이버 서치어드바이저·Bing Webmaster Tools에 다시 제출했다. 사이트맵 구조는 기존 SEO 배포의 내용을 사용하며 이번 작업에서 웹사이트 코드를 수정하지 않았다.
+
+- [x] SM-01 공개 최상위 XML 200·application/xml·sitemapindex 확인. 하위 `sitemap-core.xml` 40개, `sitemap-tools.xml` 317개, `sitemap-colors.xml` 176개가 각각 200·urlset이며 합계 533 URL. robots.txt의 Sitemap 선언도 최상위 주소와 일치.
+- [x] SM-02 Google의 `sc-domain:parkbok.com` 속성에 최상위 전체 주소 재제출. ‘사이트맵이 제출됨’ 확인. 제출·마지막 읽은 날짜 2026-11-04, 유형 Sitemap 색인, 상태 성공. 직후 발견된 페이지 0은 새 인덱스의 처리 시점 값이며 533개 색인 완료로 읽지 않음. 기존 11월 3일 단일 Sitemap·360개 표시는 갱신됨.
+- [x] SM-03 네이버 기존 `sitemap.xml` 제출 기록 갱신. ‘삭제하면 복구 하실수 없습니다’ 확인창에서 사용자에게 삭제 직전 승인을 받았고, 기존 기록이 제거된 것을 확인한 뒤 동일 전체 주소 재등록. 새 등록일 `26.11.04 09:24:31`. `sitemap-colors.xml`의 별도 기존 등록은 `26.11.03 16:51:50` 그대로 유지.
+- [x] SM-04 Bing의 parkbok.com 속성에서 기존 최상위 행의 More → Re-submit 실행. Last submit 11/4/2026, 상태 Processing 확인. Last crawl 11/3/2026·360개는 아직 이전 처리 값이며 최신 533개 발견 완료라고 표시하지 않음.
+- [x] SM-05 접수 상태와 증빙을 `output/sitemap-resubmit/report.json` 및 `google-accepted.png`, `google-submitted.png`, `naver-submitted.png`, `bing-resubmitted.png`에 저장. 캡처와 계정 정보는 공개 배포하지 않음.
+
+**재제출 작업은 완료, 검색엔진의 실제 수집·색인·노출은 후속 처리다.** 최상위 인덱스가 하위 세 XML을 가리키므로 별도 색상 등록을 반복하거나 대량 URL 색인 요청을 추가하지 않았다. 기존 접근 권한·소유확인·광고/통계 설정은 바꾸지 않았다. 이 기록만 `[skip ci]`로 저장하며 현재 공개 제품 빌드는 `e3a0776bc`다.
+
+참고: [Google 사이트맵 제작·제출](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap?hl=ko), [네이버 사이트맵 인덱스 안내](https://searchadvisor.naver.com/guide/request-feed), [Bing 사이트맵 제출·처리 상태 안내](https://www.bing.com/webmasters/help/sitemaps-3b5cf6ed).
