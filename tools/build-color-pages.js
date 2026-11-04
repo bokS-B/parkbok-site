@@ -17,7 +17,10 @@ const minify = t => t.replace(/\/\*[\s\S]*?\*\//g, '').split(/\r?\n/).map(l => l
 // 브랜드 마크 규칙(토큰 --brand·.brand svg 크기)은 site.css 의 brand:start~end 블록을 그대로 가져와 hex-lite.css 뒤에 붙인다 — 헤더 마크가 바뀌어도 한 곳만 고친다
 const brandCss = (fs.readFileSync(path.join(root, 'assets', 'site.css'), 'utf8').match(/\/\* brand:start \*\/([\s\S]*?)\/\* brand:end \*\//) || [, ''])[1];
 if (!brandCss) throw new Error('site.css 에 brand:start~end 블록이 없습니다');
-const css = minify(fs.readFileSync(path.join(src, 'hex-lite.css'), 'utf8')) + minify(brandCss);
+const footerCss = (fs.readFileSync(path.join(root, 'assets', 'site.css'), 'utf8').match(/\/\* footer:start[\s\S]*?\*\/([\s\S]*?)\/\* footer:end \*\//) || [, ''])[1];
+if (!footerCss) throw new Error('Missing shared footer styles');
+const css = minify(fs.readFileSync(path.join(src, 'hex-lite.css'), 'utf8')) + minify(brandCss) + minify(footerCss);
+const cssVersion = require('node:crypto').createHash('sha256').update(css).digest('hex').slice(0, 8);
 const esc = shell.esc;
 const only = (() => { const i = process.argv.indexOf('--only'); return i > 0 ? process.argv[i + 1].split(',').map(h => C.parse(h)).filter(Boolean) : null; })();
 
@@ -115,7 +118,7 @@ function page(hex){
     h1: UP(hex) + (names.length ? ` <small>(${names.join(' / ')})</small>` : ''), line,
     rows, contrast, scale, harmony, csscode, random: picks.map(h => cell(h)).join(''), adsense: shell.ADSENSE, ga: shell.GA };
   let html = tpl.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
-  html = html.split('{{shell_header}}').join(header).split('{{shell_footer}}').join(footer);
+  html = html.split('{{shell_header}}').join(header).split('{{shell_footer}}').join(footer).replace('/color/hex/hex.css"', '/color/hex/hex.css?v=' + cssVersion + '"');
   return html;
 }
 

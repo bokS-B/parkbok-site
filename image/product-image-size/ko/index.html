@@ -120,11 +120,35 @@ header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--su
 @media (max-width:480px){.brand{gap:0}.brand-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 /* brand:end */
 
-/* ---------- 셸: 푸터 ---------- */
-footer.foot{background:var(--footer-bg);color:var(--footer-ink);border-top:1px solid var(--line);padding:32px 0 24px;margin-top:40px}
-.foot-links{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:var(--fs-small);line-height:var(--lh-small)}
-.foot a{color:var(--footer-ink);opacity:.85}.foot a:hover{opacity:1;text-decoration:underline}
-.foot-copy{font-size:var(--fs-caption);line-height:var(--lh-caption);opacity:.7;margin:14px 0 0}
+/* footer:start — HEX pages share this block. */
+footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--foot-rule:#344153;background:var(--foot-surface);color:var(--foot-text);border-top:1px solid var(--foot-rule);padding:56px 0 20px;margin-top:56px;font-size:14px;line-height:22px}
+.foot .wrap{max-width:1200px;padding-inline:24px}
+.foot-main{display:grid;grid-template-columns:minmax(240px,1.05fr) minmax(0,1.7fr);gap:64px;padding-bottom:40px}
+.foot-brand-block{min-width:0}
+.foot .foot-brand{display:inline-flex;align-items:center;gap:12px;min-height:44px;color:var(--foot-text);font-size:32px;font-weight:700;letter-spacing:-1px;text-decoration:none}
+.foot-brand svg{width:46px;height:32px;flex:none;color:#e2a096}
+.foot .foot-tagline{margin:24px 0 10px;font-size:18px;line-height:28px;font-weight:600;letter-spacing:-.02em;color:var(--foot-text)}
+.foot .foot-description{max-width:330px;margin:0;white-space:pre-line;color:var(--foot-muted);font-size:14px;line-height:24px}
+.foot .foot-local{display:flex;align-items:flex-start;gap:8px;max-width:330px;margin:24px 0 0;font-size:12px;line-height:20px;color:var(--foot-muted)}
+.foot-local span{width:6px;height:6px;margin-top:7px;border-radius:50%;background:#93cbb9;flex:none}
+.foot-directory{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:28px;min-width:0}
+.foot .foot-column{display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0;font-size:14px;line-height:22px}
+.foot .foot-column h2{margin:0 0 12px;font-size:13px;line-height:22px;font-weight:600;color:var(--foot-text)}
+.foot a{color:var(--foot-muted);opacity:1;text-decoration:none;overflow-wrap:anywhere}
+.foot .foot-column>a,.foot .foot-links .pb-statistics-settings{display:flex;align-items:center;min-height:44px;max-width:100%;padding:8px 0;text-align:start;color:var(--foot-muted);font:inherit;line-height:22px;text-decoration:none}
+.foot a:hover,.foot .foot-links .pb-statistics-settings:hover{color:var(--foot-text);text-decoration:underline;text-underline-offset:5px}
+.foot :is(a,button):focus-visible{outline:2px solid #a6c8ff;outline-offset:4px;border-radius:3px}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--foot-rule);padding-top:16px}
+.foot .foot-copy{margin:0;flex:none;color:var(--foot-muted);font-size:12px;line-height:20px;opacity:1}
+.foot-languages{display:flex;flex-wrap:wrap;gap:0 18px;align-items:center}
+.foot-languages a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;line-height:20px}
+.foot-languages a[aria-current]{color:var(--foot-text);text-decoration:underline;text-underline-offset:5px}
+.foot .foot-note{margin:14px 0 0;border-top:1px solid var(--foot-rule);padding-top:16px;font-size:12px;line-height:20px;color:var(--foot-muted)}
+:root[data-theme="dark"] footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}}
+@media(max-width:960px){.foot-main{gap:32px;grid-template-columns:minmax(200px,.8fr) minmax(0,1.6fr)}.foot-directory{gap:20px}.foot-bottom{align-items:flex-start;flex-direction:column;gap:4px}}
+@media(max-width:767.98px){footer.foot{padding:36px 0 16px;margin-top:40px}.foot .wrap{padding-inline:20px}.foot-main{grid-template-columns:1fr;gap:32px;padding-bottom:24px}.foot .foot-brand{font-size:28px}.foot .foot-tagline{margin-top:16px}.foot .foot-local{margin-top:16px}.foot-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.foot-column:last-child{grid-column:1 / -1;border-top:1px solid var(--foot-rule);padding-top:24px}.foot-languages{gap:0 20px}.foot-bottom{padding-top:16px}.foot .foot-column h2{margin-bottom:8px}}
+/* footer:end */
 
 /* ---------- 버튼 ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:var(--touch);font:inherit;font-size:var(--btn-fs);line-height:var(--btn-lh);font-weight:var(--btn-fw);padding:var(--btn-pad);border:0;border-radius:var(--r-btn);background:var(--accent);color:var(--accent-ink);cursor:pointer;text-decoration:none;transition:var(--t-btn);margin:0;white-space:nowrap}
@@ -496,7 +520,24 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
   </details>
 </main>
 <!-- shell:footer -->
-<footer class="foot"><div class="wrap"><nav class="foot-links" aria-label="바닥글 메뉴"><a href="/image/ko/">이미지 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/color/ko/">색상 도구</a><a href="/about.html">소개</a><a href="/privacy.html">개인정보처리방침</a><a href="/about.html#contact">문의</a></nav><p class="foot-copy">© parkbok</p></div></footer>
+<footer class="foot"><div class="wrap">
+  <div class="foot-main">
+    <div class="foot-brand-block">
+      <a class="foot-brand" href="/" aria-label="parkbok"><svg width="37" height="26" viewBox="0 0 98 68" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M39 65C33 61 31 57 31 50C30 43 29 42 22 44C12 48 5 45 5 36C5 33 4 30 3 27C0 23 1 20 5 15C7 13 9 10 10 9C12 7 13 7 16 7C20 8 21 7 24 4C31-1 42 2 42 10C42 12 42 12 45 12C48 11 50 11 53 13C58 15 58 15 61 10C69-2 86 3 86 17C86 23 86 23 89 25C99 31 99 42 91 48C88 50 87 51 87 54C87 65 76 70 67 64C64 62 61 61 61 61C60 61 57 62 54 64C48 68 44 68 39 65ZM52 57C56 54 57 53 57 48C57 43 61 36 64 35C67 35 68 37 66 41C62 49 62 52 67 56C75 61 80 59 80 52C80 47 81 45 85 43C91 39 91 33 84 30C78 28 77 26 78 20C80 9 72 7 65 17C61 22 57 23 52 21C51 20 50 21 50 24C50 27 49 29 48 31C46 33 45 36 45 37C45 39 43 42 42 44C34 53 42 63 52 57ZM19 38C20 37 21 36 21 34C21 28 27 19 31 21C33 21 32 23 30 28C26 33 26 35 32 37C37 39 38 39 38 34C38 32 39 30 40 29C44 26 44 24 39 21C37 20 36 18 35 16C34 7 32 6 27 12C23 15 23 15 19 14C12 13 7 20 11 26C13 28 13 30 13 32C12 38 14 40 19 38Z"/></svg><span>parkbok</span></a>
+      <p class="foot-tagline">일상의 작은 일을, 가볍게.</p>
+      <p class="foot-description">필요할 때 바로 쓰는 도구.
+박복한 스튜디오가 만듭니다.</p>
+      <p class="foot-local"><span aria-hidden="true"></span>파일은 내 기기 안에서 처리됩니다.</p>
+    </div>
+    <nav class="foot-directory" aria-label="바닥글 메뉴">
+      <div class="foot-column"><h2>도구</h2><a href="/pdf/ko/">PDF 도구</a><a href="/image/ko/">이미지 도구</a><a href="/color/ko/">색상 도구</a><a href="/wheel/ko/">룰렛</a><a href="/hwp/">HWP 뷰어</a><a href="/text/">텍스트 도구</a></div>
+      <div class="foot-column"><h2>스튜디오</h2><a href="/about.html">소개</a><a href="/about.html#principles">우리가 지키는 원칙</a><a href="/guide/">가이드</a><a href="/about.html#contact">문의</a></div>
+      <div class="foot-column foot-links"><h2>정책 및 설정</h2><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a></div>
+    </nav>
+  </div>
+  <div class="foot-bottom"><p class="foot-copy">© parkbok</p><nav class="foot-languages" aria-label="Language"><a href="/" lang="ko" hreflang="ko" aria-current="true">한국어</a><a href="/en/" lang="en" hreflang="en">English</a><a href="/ja/" lang="ja" hreflang="ja">日本語</a><a href="/zh/" lang="zh" hreflang="zh">简体中文</a><a href="/es/" lang="es" hreflang="es">Español</a><a href="/pt/" lang="pt" hreflang="pt">Português</a><a href="/de/" lang="de" hreflang="de">Deutsch</a><a href="/fr/" lang="fr" hreflang="fr">Français</a></nav></div>
+
+</div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"한국어","dir":"ltr","selectImages":"이미지 선택","dropText":"또는 여기에 끌어다 놓기 · 붙여넣기도 됩니다","addMore":"더 추가","remove":"삭제","filesCount":"이미지 {n}장","fileCount":"이미지 1장","processing":"처리 중…","done":"완료","download":"내려받기","downloadAll":"ZIP 내려받기","startOver":"다시 시작","errorType":"{type} 이미지만 넣을 수 있습니다.","errorBroken":"파일이 손상되었거나 지원하는 이미지가 아닙니다.","errorEmpty":"이미지를 {n}장 이상 넣어 주세요.","errorHeic":"이 HEIC 파일을 열지 못했습니다.","errorGeneric":"처리에 실패했습니다. 다른 이미지로 다시 시도해 주세요.","before":"원본","after":"결과","saved":"{p}% 절감","quality":"품질","width":"가로","height":"세로","keepRatio":"비율 유지","images":"{n}장","imageN":"{n}번째","selected":"{n}장 선택","moreImages":"+{n}장 더 (미리보기 없음)","selectAll":"전체 선택","clearAll":"모두 지우기","moveLeft":"왼쪽으로","moveRight":"오른쪽으로","moveUp":"위로","moveDown":"아래로","rotate":"회전","delete":"삭제","restore":"되돌리기","dragHint":"이미지 위를 드래그해 영역을 정하세요","regions":"영역 {n}개","reset":"초기화","drawHere":"여기에 그리세요","upload":"PNG 올리기","clear":"지우기","language":"언어","loadingLib":"불러오는 중…","preview":"미리보기","aboutLine":"이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.","aboutTitle":"사용 방법","nextTools":"다음 도구"};window.IMGT_TOOL={"id":"product-image-size","lang":"ko","langUrls":{"en":"/image/product-image-size/","ko":"/image/product-image-size/ko/","zh":"/image/product-image-size/zh/","ja":"/image/product-image-size/ja/","es":"/image/product-image-size/es/","pt":"/image/product-image-size/pt/","de":"/image/product-image-size/de/","fr":"/image/product-image-size/fr/"},"next":[{"id":"image-resize","url":"/image/image-resize/ko/","h1":"이미지 크기 조절"},{"id":"image-compress","url":"/image/image-compress/ko/","h1":"이미지 압축"},{"id":"image-crop","url":"/image/image-crop/ko/","h1":"이미지 자르기"},{"id":"png-to-jpg","url":"/image/png-to-jpg/ko/","h1":"PNG JPG 변환"},{"id":"jpg-to-png","url":"/image/jpg-to-png/ko/","h1":"JPG PNG 변환"}],"strings":{"title":"스마트스토어·쿠팡 상품 이미지 사이즈 맞추기 – 대표이미지 1000×1000 | PARKBOK","h1":"쇼핑몰 상품 이미지 규격","line":"상품 사진을 스마트스토어·쿠팡·11번가·G마켓 권장 크기로 한 번에 맞춰 내려받으세요.","description":"스마트스토어 대표이미지 사이즈(1000×1000), 쿠팡 상품 이미지 사이즈(대표 1000×1000 흰 배경, 상세 가로 780px), 상세페이지 가로 사이즈 860px 등 쇼핑몰 권장 규격으로 상품 사진을 여러 장 한 번에 맞춥니다. 흰 여백 맞춤·잘라 채우기, JPG 품질·용량 상한, ZIP 저장. 무료, 브라우저에서만 처리하며 업로드하지 않습니다.","buttonText":"상품 이미지 선택","runText":"규격 맞추기","resultName":"상품이미지","noteSize":"{w}×{h} px 입니다.","noteCount":"{n}장을 규격에 맞췄습니다.","targetLimit":"JPG 파일당 상한 {kb} KB.","targetExceeded":"용량 초과 {n}/{total}개","downloadTargetOver":"초과 포함 받기","needsRerun":"설정이 바뀌었습니다. 다시 실행하세요.","errorNoSize":"가로를 1~16384px 로 입력하세요. 세로 0 은 비율 유지입니다.","errorTarget":"0 또는 올바른 양수 용량(KB)을 입력하세요.","errorTooBig":"결과 세로가 너무 깁니다(16384px 초과). 이미지를 나눈 뒤 다시 시도하세요.","options":{"preset":{"label":"쇼핑몰 규격","help":"일반적으로 안내되는 권장 크기이며 바뀔 수 있습니다. 등록 전 판매자센터의 최신 기준을 확인하세요.","choices":{"naver_main":"스마트스토어 대표이미지 · 1000×1000 (권장)","naver_extra":"스마트스토어 추가이미지 · 1000×1000 (권장)","coupang_main":"쿠팡 대표이미지 · 1000×1000 흰 배경 (권장)","coupang_detail":"쿠팡 상세이미지 · 가로 780px (권장)","st11_main":"11번가 대표이미지 · 1000×1000 정사각형","gmarket_main":"G마켓·옥션 대표이미지 · 1000×1000 정사각형","detail_860":"상세페이지 · 가로 860px","custom":"직접 입력"}},"width":{"label":"가로","help":"px"},"height":{"label":"세로","help":"0 = 비율 유지"},"fit":{"label":"맞춤 방식","help":"전체 보이기는 상품이 잘리지 않게 넣고 남는 곳을 배경으로 채웁니다. 잘라 채우기는 정사각형을 꽉 채우고 가장자리를 자릅니다.","choices":{"contain":"전체 보이기(여백)","cover":"잘라 채우기"}},"bg":{"label":"여백 배경","help":"투명은 PNG로 저장할 때만 유지됩니다.","choices":{"white":"흰색","transparent":"투명"}},"margin":{"label":"여백","help":"상품 둘레에 남길 빈 공간(한 변 기준)."},"format":{"label":"저장 형식","help":"쇼핑몰 등록에는 보통 JPG를 씁니다.","choices":{"jpg":"JPG","png":"PNG"}},"quality":{"label":"JPG 품질","help":"90%면 선명하면서 용량도 적당합니다."},"maxKb":{"label":"이미지당 용량 상한","help":"0 = 사용 안 함"}},"faq":[["스마트스토어 대표이미지 사이즈는 얼마인가요?","스마트스토어 대표이미지·추가이미지는 1000×1000px 정사각형이 일반적으로 권장되는 크기입니다. 정사각형이 아닌 사진은 ‘전체 보이기’로 흰 여백을 넣으면 상품이 잘리지 않습니다. 기준은 바뀔 수 있으니 스마트스토어센터 상품 등록 화면의 안내를 확인하세요."],["쿠팡 상품 이미지 사이즈는요?","쿠팡 대표이미지는 1000×1000px 정사각형·흰 배경이 일반적으로 안내되는 권장 기준이고, 상세이미지는 가로 780px이 흔히 권장됩니다. 쿠팡 대표이미지 프리셋은 배경을 흰색으로 고정합니다. 최신 기준은 쿠팡 Wing 판매자 가이드에서 확인하세요."],["상세페이지 가로 사이즈는 몇 px이 좋나요?","국내 쇼핑몰 상세페이지는 가로 860px을 많이 쓰고, 쿠팡은 780px을 권장하는 경우가 많습니다. 세로는 원본 비율대로 정해집니다. 세로가 아주 긴 상세이미지는 업로드 제한에 걸릴 수 있으니 여러 장으로 나눠 올리세요."],["11번가·G마켓·옥션은 어떤 크기로 하나요?","오픈마켓 대표이미지는 정사각형을 요구하는 경우가 많아 1000×1000px 정사각형으로 맞추면 대부분 무리 없이 쓸 수 있습니다. 최소·최대 크기와 용량 제한은 마켓마다 다르고 바뀔 수 있으니 각 판매자센터(11번가 셀러오피스, ESM PLUS)에서 확인하세요."],["용량 제한이 있으면 어떻게 하나요?","JPG로 저장하면서 이미지당 용량 상한(KB)을 입력하면 품질을 낮춰 맞춥니다. 맞추지 못한 파일은 초과로 표시됩니다."],["이미지가 업로드되나요?","아니요. 모든 이미지는 내 기기의 브라우저 안에서 처리되며 서버로 전송되지 않습니다."]]}};</script>
 <script src="/image/img-tools.js" defer></script>

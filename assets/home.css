@@ -4,6 +4,15 @@
 html,body{overflow-x:clip}
 html{scrollbar-color:var(--muted) var(--bg)}
 body{caret-color:var(--accent-text)}
+.home-header .home-lang{margin-left:8px;max-width:132px;min-width:100px;cursor:pointer}
+@media(max-width:767.98px){
+  header.top.home-header>.wrap{display:grid;grid-template-columns:1fr auto 34px;gap:0 12px;height:auto;min-height:96px;padding-top:4px}
+  .home-header .brand{grid-column:1;grid-row:1;gap:8px;min-height:44px;font-size:20px}
+  .home-header .brand-t{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+  .home-header .home-lang{grid-column:2;grid-row:1;max-width:132px;margin:0;height:44px}
+  .home-header .theme-btn{grid-column:3;grid-row:1}
+  .home-header nav.menu{grid-column:1 / -1;grid-row:2;width:100%;min-height:44px;margin-top:0}
+}
 ::selection{background:var(--home-selection);color:var(--home-selection-ink)}
 main.wrap{padding-top:var(--home-space-xl)}
 main.wrap>h1{min-width:0;overflow-wrap:break-word;font-size:var(--home-head-size);line-height:var(--home-head-line);letter-spacing:-.035em;margin:0 0 var(--home-space-sm);font-weight:var(--fw-bold);text-wrap:balance}
@@ -60,4 +69,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media (max-width:640px){.grid.tools-grid{--grid-cols:2}}
 @media (max-width:440px){.grid.tools-grid{--grid-cols:1}}
 @media (max-width:360px){:root{--home-head-size:25px;--home-head-line:34px}}
+@media (max-width:767.98px){
+  .page-home main.wrap{padding-top:12px}
+  .page-home main.wrap>h1{font-size:26px;line-height:34px}
+  .page-home main.wrap>.lead{margin-bottom:8px}
+  .page-home .tool-group{padding-top:8px}
+  .page-home .tool-group>h2{margin-bottom:8px}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

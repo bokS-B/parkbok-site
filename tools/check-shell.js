@@ -1,6 +1,7 @@
 // 셸 통일 검사: 모든 HTML 이 같은 헤더·푸터·광고/측정 코드를 정확히 1회 갖는지 확인한다. 실패하면 종료코드 1.
 //   node tools/check-shell.js
 const fs = require('fs'), path = require('path');
+const shell = require('./shell');
 const root = path.resolve(__dirname, '..');
 const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'tests', 'output', 'src'];
 const files = [];
@@ -18,11 +19,13 @@ for (const p of files) {
   if (count(/<!-- shell:header -->/g) !== 1 || count(/<!-- shell:footer -->/g) !== 1 || count(/<!-- shell:head-common -->/g) !== 1) fails.push(rel + ': 셸 마커 누락/중복');
   if (count(/<header /g) !== 1 || count(/<footer/g) !== 1) fails.push(rel + ': header/footer 요소 ' + count(/<header /g) + '/' + count(/<footer/g));
   const foot = (s.match(/<!-- shell:footer -->[\s\S]*?<!-- \/shell:footer -->/) || [''])[0];
-  // 바닥글 = 허브 3개 + 소개·개인정보·문의, 그 외 링크 없음
-  const footLinks = [...foot.matchAll(/<nav class="foot-links"[\s\S]*?<\/nav>/g)].join('').match(/href="[^"]*"/g) || [];
-  if (footLinks.length !== 6 || !['/about.html', '/privacy.html', '/about.html#contact'].every(l => footLinks.includes(`href="${l}"`)) || !['image', 'pdf', 'color'].every(h => footLinks.some(f => f.startsWith(`href="/${h}/`)))) fails.push(rel + ': 푸터 링크가 허브 3개+소개·개인정보·문의가 아님');
-  if (!/<a class="brand" href="\/">/.test(s)) fails.push(rel + ': 브랜드 링크가 / 가 아님');
   const lang = (s.match(/<html lang="([^"]+)"/) || [])[1] || '?';
+  const routeLang = lang.split('-')[0];
+  const footLinks = (foot.match(/<nav class="foot-directory"[\s\S]*?<\/nav>/) || [''])[0].match(/href="[^"]*"/g) || [];
+  if (footLinks.length !== 12 || !['/about.html', '/about.html#principles', '/privacy.html', '/terms.html', '/about.html#contact'].every(l => footLinks.includes(`href="${l}"`)) || !['image', 'pdf', 'color', 'wheel'].every(h => footLinks.includes(`href="${shell.sectionHome(h, routeLang)}"`))) fails.push(rel + ': 푸터 디렉터리 누락 또는 언어 불일치');
+  if (!s.includes('<a class="brand" href="' + shell.homeUrl(routeLang) + '">')) fails.push(rel + ': 브랜드 홈 언어 불일치');
+  const isHome = rel === 'index.html' || /^(en|ja|zh|es|pt|de|fr)\/index\.html$/.test(rel);
+  if (isHome && (!s.includes('id="home-lang"') || (s.match(/hreflang="x-default"/g) || []).length !== 1)) fails.push(rel + ': 홈 언어 선택 또는 hreflang 누락');
   const multi = rel.startsWith('wheel/') ? 'wheel' : rel.startsWith('pdf/') ? 'pdf' : rel.startsWith('image/') ? 'image' : rel.startsWith('color/') ? 'color' : '';   // 8개 언어로 생성되는 구역
   if (multi) {
     const m = rel.match(/(?:^|\/)(ko|zh|ja|es|pt|de|fr)\//); const code = m ? m[1] : 'en';   // wheel/<lang>/<preset>/, pdf/<tool>/<lang>/ 둘 다
@@ -31,12 +34,12 @@ for (const p of files) {
     for (const need of ['og:description', 'og:url', '<html lang="', ' dir="']) if (!s.includes(need)) fails.push(rel + ': ' + need + ' 없음');
     if (multi === 'wheel' && count(/class="chip on"/g) !== 1) fails.push(rel + ': 서브내비 on 칩 ' + count(/class="chip on"/g) + '개');
   } else {
-    if (lang !== 'ko') fails.push(rel + ': lang=' + lang);
+    if (!isHome && lang !== 'ko') fails.push(rel + ': lang=' + lang);
   }
   // 헤더 동일성: 언어별로 class="on" / 언어선택 / 서브내비를 지운 뒤 비교
   let h = (s.match(/<!-- shell:header -->[\s\S]*?<!-- \/shell:header -->/) || [''])[0]
     .replace(/ class="on"/g, '').replace(/<select id="lang"[\s\S]*?<\/select>/, '').replace(/<nav class="subnav"[\s\S]*?<\/nav>/, '');
-  const key = multi ? multi + ':' + lang : 'site:ko';
+  const key = isHome ? 'home:' + lang : multi ? multi + ':' + lang : 'site:ko';
   (byLang[key] = byLang[key] || new Map()).set(h, (byLang[key].get(h) || []).concat(rel));
 }
 for (const [k, m] of Object.entries(byLang)) if (m.size !== 1) fails.push('헤더 불일치 ' + k + ': 변형 ' + m.size + '개 — ' + [...m.values()].map(v => v[0]).join(', '));

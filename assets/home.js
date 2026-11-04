@@ -1,5 +1,9 @@
 // 홈 분류별 카드: 선택한 카드와 그 카드가 들어 있는 그룹만 표시한다. 전체 = 가이드 제외.
 (function(){
+  var language = document.getElementById('home-lang');
+  if (language) language.addEventListener('change', function(){
+    location.assign(language.value + location.search + location.hash);
+  });
   var nav = document.querySelector('.chips.filters');
   var grid = document.getElementById('tools-grid');
   if (!nav || !grid) return;

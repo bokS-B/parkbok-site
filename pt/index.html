@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>parkbok – Ferramentas online gratuitas</title>
+<meta name="description" content="Junte PDFs, comprima e converta imagens, extraia cores e use a roleta no navegador. Ferramentas grátis, sem instalação ou cadastro. Arquivos no seu dispositivo.">
+<link rel="canonical" href="https://parkbok.com/pt/">
+<meta name="naver-site-verification" content="7de1e409d63ba7461732d6a48b190cc48a6707e3" />
+<meta property="og:title" content="parkbok – Ferramentas online gratuitas">
+<meta property="og:description" content="Junte PDFs, comprima e converta imagens, extraia cores e use a roleta no navegador. Ferramentas grátis, sem instalação ou cadastro. Arquivos no seu dispositivo.">
+<meta property="og:url" content="https://parkbok.com/pt/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://parkbok.com/#website","name":"parkbok","alternateName":["PARKBOK","박복한 스튜디오"],"url":"https://parkbok.com/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"parkbok – Ferramentas online gratuitas","url":"https://parkbok.com/pt/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"Junte PDFs, comprima e converta imagens, extraia cores e use a roleta no navegador. Ferramentas grátis, sem instalação ou cadastro. Arquivos no seu dispositivo.","inLanguage":"pt"}
+</script>
+
+
+
+
+<link rel="alternate" hreflang="ko" href="https://parkbok.com/">
+<link rel="alternate" hreflang="en" href="https://parkbok.com/en/">
+<link rel="alternate" hreflang="ja" href="https://parkbok.com/ja/">
+<link rel="alternate" hreflang="zh" href="https://parkbok.com/zh/">
+<link rel="alternate" hreflang="es" href="https://parkbok.com/es/">
+<link rel="alternate" hreflang="pt" href="https://parkbok.com/pt/">
+<link rel="alternate" hreflang="de" href="https://parkbok.com/de/">
+<link rel="alternate" hreflang="fr" href="https://parkbok.com/fr/">
+<link rel="alternate" hreflang="x-default" href="https://parkbok.com/">
+<!-- shell:head-common -->
+<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#511919">
+<script>try{var __t=localStorage.getItem('pb_theme');if(__t)document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="parkbok">
+<meta property="og:image" content="https://parkbok.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-adsense-account" content="ca-pub-1415309581345613">
+<script defer src="/assets/usage-privacy.js" data-ga="G-377MXFWS51"></script>
+<style id="site-css">
+/* parkbok site.css — 토큰 · 셸(헤더/푸터) · 공통 컴포넌트. tools/build-site.js 가 모든 페이지 <head> 에 인라인한다. */
+:root{
+  --bg:#f6f7f9;--card:#fff;--ink:#1d2129;--muted:#5d6675;--line:#e3e6ea;
+  --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--accent-label:#1d4ed8;--hub:#fff;
+  --footer-bg:#1d2129;--footer-ink:#fff;
+  --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
+  --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-game:var(--cat-wheel);--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;--cat-color:#ec4899;
+  --font:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
+  --fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
+  --fs-body:16px;--lh-body:24px;--fs-h1:32px;--lh-h1:40px;--fs-lead:18px;--lh-lead:28px;--fs-h1-compact:20px;--lh-h1-compact:28px;
+  --fs-card-title:18px;--lh-card-title:26px;--fs-card-desc:13px;--lh-card-desc:18px;--ls-card-desc:.3px;
+  --fs-small:14px;--lh-small:18px;--fs-caption:12px;--lh-caption:16px;
+  --header-h:60px;--header-z:100;--header-pad-x:24px;--subnav-h:44px;--wrap:1200px;--gutter:16px;
+  --grid-gap:16px;--card-pad:24px;--card-icon:48px;--card-icon-mb:16px;
+  --btn-pad:8px 20px;--btn-fs:16px;--btn-lh:26px;--btn-fw:600;--btn-sm-pad:8px 12px;--btn-sm-fs:14px;
+  --btn-big-pad:16px 40px;--btn-big-min-w:330px;--btn-big-min-h:60px;--btn-big-fs:20px;--btn-big-lh:24px;--touch:44px;
+  --drop-compact-h:48px;--drop-home-max-h:140px;--chip-h:34px;--chip-pad:4px 16px;--chip-fs:15px;--badge-h:24px;--badge-pad:4px 8px;
+  --opts-w:320px;--stage-gap:24px;--section-gap:32px;--ad-max-w:970px;
+  --r-badge:4px;--r-btn:8px;--r-big:12px;--r-card:16px;--r-banner:24px;--r-pill:9999px;
+  --sh-card:none;--sh-btn-big:0 3px 6px 0 rgba(0,0,0,.14);--sh-dropdown:0 5px 45px rgba(22,22,22,.10);
+  --t-btn:all .1s linear;--t-chip:all .2s ease-in-out;--t-card:border-color .15s,background-color .15s;--t-filter:transform .5s,opacity .5s;
+}
+html[lang="en"],html[lang="es"],html[lang="pt"],html[lang="de"],html[lang="fr"]{--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+html[lang^="zh"]{--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+/* 다크: 기기 설정을 따르되, 헤더의 ◐ 버튼으로 고른 값(data-theme)이 있으면 그것을 우선 */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--accent-label:#bfdbfe;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
+:root[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--accent-label:#bfdbfe;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}
+:root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light}
+
+/* ---------- 기본 ---------- */
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word;display:flex;flex-direction:column;min-height:100vh}
+body>main{flex:1 0 auto;width:100%;min-width:0}
+footer.foot{margin-top:auto}
+a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
+img,svg{vertical-align:middle}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--header-pad-x)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+main{padding:24px 0 40px;min-height:50vh}
+main.wrap{padding-block:24px 40px}
+h1{font-size:var(--fs-h1);line-height:var(--lh-h1);font-weight:var(--fw-semibold);margin:0 0 8px}
+h2{font-size:20px;line-height:28px;font-weight:var(--fw-semibold);margin:28px 0 8px}
+h3{font-size:16px;line-height:24px;font-weight:var(--fw-semibold);margin:0 0 6px}
+p{margin:0 0 14px}
+p.lead,.lead{font-size:var(--fs-lead);line-height:var(--lh-lead);color:var(--muted);margin:0 0 24px}
+.tool-head{margin:0 0 24px}.tool-head h1{margin:0 0 8px}.tool-head .lead{margin:0}
+.muted{color:var(--muted);font-size:var(--fs-small)}
+code{font-size:.92em;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:0 4px}
+pre{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-btn);padding:12px;overflow:auto;font-size:13px}
+
+/* ---------- 셸: 헤더 ---------- */
+header.top{position:sticky;top:0;z-index:var(--header-z);background:var(--card);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:12px;height:var(--header-h)}
+.brand{font-weight:var(--fw-bold);font-size:20px;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
+.brand:hover{text-decoration:none;color:var(--brand)}
+nav.menu{position:relative;display:flex;align-items:center;gap:2px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+nav.menu::-webkit-scrollbar{display:none}
+nav.menu a{position:relative;display:inline-block;font-size:var(--fs-small);font-weight:var(--fw-medium);line-height:18px;padding:8px 12px;border-radius:var(--r-pill);color:var(--muted);transition:var(--t-chip)}
+nav.menu a::before{content:"";position:absolute;left:0;right:0;top:calc(50% - var(--touch)/2);height:var(--touch)}
+nav.menu a:hover{background:var(--bg);color:var(--ink);text-decoration:none}
+nav.menu a.on{background:var(--accent);color:var(--accent-ink)}
+.lang-select{flex:none;margin-left:auto;min-height:var(--touch);font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
+.theme-btn{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
+/* 가상 영역은 패딩 박스 기준이라 테두리 1px 을 더해 -6px 이어야 실제 클릭 폭 44px */
+.theme-btn::before{content:"";position:absolute;inset:-6px}
+.theme-btn:hover{border-color:var(--ink)}
+.chips.filters{margin:24px 0 12px}
+.subnav{border-top:1px solid var(--line)}
+header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--subnav-h);overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.subnav .wrap::-webkit-scrollbar{display:none}
+.subnav .chip{height:28px;padding:2px 12px;font-size:13px}
+.subnav .chip::before{top:calc(50% - var(--subnav-h)/2);height:var(--subnav-h)}
+.subnav .chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* ---------- 셸: 브랜드 마크 — brand:start~end 는 build-color-pages.js 가 그대로 hex.css 뒤에 붙인다(롱테일 페이지도 같은 마크 규칙) ---------- */
+/* brand:start */
+:root{--brand:#511919}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#e2a096}}
+:root[data-theme="dark"]{--brand:#e2a096}
+.brand{display:inline-flex;align-items:center;gap:8px}
+.brand svg{flex:none;width:37px;height:26px;color:var(--brand)}
+@media (max-width:860px){.brand svg{width:34px;height:24px}}
+@media (max-width:767.98px){.brand{gap:6px}.brand svg{width:31px;height:22px}}
+@media (max-width:480px){.brand{gap:0}.brand-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+/* brand:end */
+
+/* footer:start — HEX pages share this block. */
+footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--foot-rule:#344153;background:var(--foot-surface);color:var(--foot-text);border-top:1px solid var(--foot-rule);padding:56px 0 20px;margin-top:56px;font-size:14px;line-height:22px}
+.foot .wrap{max-width:1200px;padding-inline:24px}
+.foot-main{display:grid;grid-template-columns:minmax(240px,1.05fr) minmax(0,1.7fr);gap:64px;padding-bottom:40px}
+.foot-brand-block{min-width:0}
+.foot .foot-brand{display:inline-flex;align-items:center;gap:12px;min-height:44px;color:var(--foot-text);font-size:32px;font-weight:700;letter-spacing:-1px;text-decoration:none}
+.foot-brand svg{width:46px;height:32px;flex:none;color:#e2a096}
+.foot .foot-tagline{margin:24px 0 10px;font-size:18px;line-height:28px;font-weight:600;letter-spacing:-.02em;color:var(--foot-text)}
+.foot .foot-description{max-width:330px;margin:0;white-space:pre-line;color:var(--foot-muted);font-size:14px;line-height:24px}
+.foot .foot-local{display:flex;align-items:flex-start;gap:8px;max-width:330px;margin:24px 0 0;font-size:12px;line-height:20px;color:var(--foot-muted)}
+.foot-local span{width:6px;height:6px;margin-top:7px;border-radius:50%;background:#93cbb9;flex:none}
+.foot-directory{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:28px;min-width:0}
+.foot .foot-column{display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0;font-size:14px;line-height:22px}
+.foot .foot-column h2{margin:0 0 12px;font-size:13px;line-height:22px;font-weight:600;color:var(--foot-text)}
+.foot a{color:var(--foot-muted);opacity:1;text-decoration:none;overflow-wrap:anywhere}
+.foot .foot-column>a,.foot .foot-links .pb-statistics-settings{display:flex;align-items:center;min-height:44px;max-width:100%;padding:8px 0;text-align:start;color:var(--foot-muted);font:inherit;line-height:22px;text-decoration:none}
+.foot a:hover,.foot .foot-links .pb-statistics-settings:hover{color:var(--foot-text);text-decoration:underline;text-underline-offset:5px}
+.foot :is(a,button):focus-visible{outline:2px solid #a6c8ff;outline-offset:4px;border-radius:3px}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--foot-rule);padding-top:16px}
+.foot .foot-copy{margin:0;flex:none;color:var(--foot-muted);font-size:12px;line-height:20px;opacity:1}
+.foot-languages{display:flex;flex-wrap:wrap;gap:0 18px;align-items:center}
+.foot-languages a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;line-height:20px}
+.foot-languages a[aria-current]{color:var(--foot-text);text-decoration:underline;text-underline-offset:5px}
+.foot .foot-note{margin:14px 0 0;border-top:1px solid var(--foot-rule);padding-top:16px;font-size:12px;line-height:20px;color:var(--foot-muted)}
+:root[data-theme="dark"] footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}}
+@media(max-width:960px){.foot-main{gap:32px;grid-template-columns:minmax(200px,.8fr) minmax(0,1.6fr)}.foot-directory{gap:20px}.foot-bottom{align-items:flex-start;flex-direction:column;gap:4px}}
+@media(max-width:767.98px){footer.foot{padding:36px 0 16px;margin-top:40px}.foot .wrap{padding-inline:20px}.foot-main{grid-template-columns:1fr;gap:32px;padding-bottom:24px}.foot .foot-brand{font-size:28px}.foot .foot-tagline{margin-top:16px}.foot .foot-local{margin-top:16px}.foot-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.foot-column:last-child{grid-column:1 / -1;border-top:1px solid var(--foot-rule);padding-top:24px}.foot-languages{gap:0 20px}.foot-bottom{padding-top:16px}.foot .foot-column h2{margin-bottom:8px}}
+/* footer:end */
+
+/* ---------- 버튼 ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:var(--touch);font:inherit;font-size:var(--btn-fs);line-height:var(--btn-lh);font-weight:var(--btn-fw);padding:var(--btn-pad);border:0;border-radius:var(--r-btn);background:var(--accent);color:var(--accent-ink);cursor:pointer;text-decoration:none;transition:var(--t-btn);margin:0;white-space:nowrap}
+.btn:hover{background:var(--accent-hover);color:var(--accent-ink);text-decoration:none}
+.btn:active{background:var(--accent-active)}
+.btn:disabled,.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
+.btn.ghost{background:var(--card);color:var(--accent-text);outline:2px solid var(--accent-text);outline-offset:-2px}
+.btn.ghost:hover{background:var(--accent-tint);color:var(--accent-text);outline-color:var(--accent-text)}
+.btn.ghost:active{color:var(--ink);outline-color:var(--ink)}
+.btn.sm{position:relative;min-width:44px;min-height:0;font-size:var(--btn-sm-fs);line-height:16px;padding:var(--btn-sm-pad)}
+.btn.sm::before{content:"";position:absolute;inset:-6px 0}
+.btn-big{display:inline-flex;align-items:center;justify-content:center;min-height:var(--btn-big-min-h);min-width:var(--btn-big-min-w);padding:var(--btn-big-pad);font:inherit;font-size:var(--btn-big-fs);line-height:var(--btn-big-lh);font-weight:var(--fw-medium);border:0;border-radius:var(--r-big);background:var(--accent);color:var(--accent-ink);box-shadow:var(--sh-btn-big);cursor:pointer;transition:var(--t-btn)}
+.btn-big:hover{background:var(--accent-hover)}.btn-big:active{background:var(--accent-active)}.btn-big:disabled{opacity:.5;pointer-events:none}
+.tools,.row,.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+
+/* ---------- 입력 / 상태 ---------- */
+.drop{border:2px dashed var(--muted);border-radius:var(--r-card);padding:40px 24px;text-align:center;background:var(--card);cursor:pointer;transition:var(--t-btn)}
+.drop.on{border-color:var(--accent);background:var(--accent-tint)}
+.drop.err{border-color:var(--err)}
+.drop strong{display:block;font-size:17px;margin-bottom:6px}
+.drop span,.droptxt{color:var(--muted);font-size:var(--fs-small)}
+.status{font-size:var(--fs-small);color:var(--muted);margin:8px 0}
+.status:empty{display:none}
+.status.err{color:var(--err)}.status.ok{color:var(--ok)}.status.busy,.status.empty{color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:var(--fs-small);margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-big);padding:10px 14px}
+.opts label{display:inline-flex;align-items:center;gap:5px;min-height:var(--touch);white-space:nowrap}
+.opts select,.opts input[type=text],.opts input[type=number]{min-height:var(--touch);font:inherit;font-size:var(--fs-small);padding:4px 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
+.opts .sep{flex-basis:100%;height:0}
+.tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tt-grid textarea,#textout{width:100%;min-height:260px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--card);color:var(--ink)}
+.tt-grid textarea[readonly],#textout{background:var(--bg)}
+.tt-grid textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
+#textout{min-height:200px;max-height:60vh;white-space:pre-wrap}
+#viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh;color:#1d2129}
+#viewer:empty{display:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:12px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-btn);padding:8px 12px}
+.stat b{display:block;font-size:22px;line-height:1.2}
+.stat span{font-size:var(--fs-caption);color:var(--muted)}
+.stat.over b{color:var(--err)}
+.result{background:var(--card);border:1px solid var(--line);border-radius:var(--r-big);padding:16px}
+
+/* ---------- 카드 / 그리드 / 칩 ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--grid-gap);position:relative}
+.grid.tools-grid{grid-template-columns:repeat(var(--grid-cols,5),1fr)}
+@media (max-width:1280px){.grid.tools-grid{--grid-cols:4}}
+@media (max-width:960px){.grid.tools-grid{--grid-cols:3}}
+@media (max-width:640px){.grid.tools-grid{--grid-cols:2}}
+@media (max-width:440px){.grid.tools-grid{--grid-cols:1}}
+.card{display:block;position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);padding:var(--card-pad);margin:16px 0;color:var(--ink);box-shadow:var(--sh-card);overflow:hidden}
+.grid .card{margin:0;transition:var(--t-card)}
+a.card{text-decoration:none}
+a.card:hover{border-color:var(--ink);text-decoration:none}
+.grid .card h3,a.card h3{font-size:var(--fs-card-title);line-height:var(--lh-card-title);font-weight:var(--fw-semibold);margin:0 0 8px;color:var(--ink)}
+.grid .card p,a.card p{font-size:var(--fs-card-desc);line-height:var(--lh-card-desc);letter-spacing:var(--ls-card-desc);color:var(--muted);margin:0}
+.card-icon{display:block;width:var(--card-icon);height:var(--card-icon);margin-bottom:var(--card-icon-mb)}
+.card-icon svg{width:100%;height:100%}
+.card.hidden{transform:scale(0);opacity:0;position:absolute;pointer-events:none}
+.badge{position:absolute;top:12px;right:12px;height:var(--badge-h);padding:var(--badge-pad);font-size:var(--fs-caption);line-height:var(--lh-caption);font-weight:var(--fw-medium);border-radius:var(--r-badge);background:var(--badge-new);border:1px solid var(--badge-new);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 8px}
+.chip,.chips a,.chips button,.preset{position:relative;display:inline-flex;align-items:center;height:var(--chip-h);padding:var(--chip-pad);font:inherit;font-size:var(--chip-fs);font-weight:var(--fw-medium);line-height:1;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--card);color:var(--ink);cursor:pointer;text-decoration:none;transition:var(--t-chip);white-space:nowrap}
+/* 보이는 높이는 작아도 터치 영역은 44px */
+.chip::before,.chips a::before,.chips button::before,.preset::before{content:"";position:absolute;left:0;right:0;top:calc(50% - var(--touch)/2);height:var(--touch)}
+.chip:hover,.chips a:hover,.chips button:hover,.preset:hover{border-color:var(--ink);color:var(--ink);text-decoration:none}
+.chip.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.preset.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chips button,.preset{height:28px;padding:2px 12px;font-size:13px}
+.opts .chips{margin:0;flex-wrap:wrap;overflow:visible}
+.next-title{font-size:var(--fs-small);color:var(--muted);margin-right:4px}
+
+/* ---------- 설명·FAQ·광고 ---------- */
+details.about{margin-top:16px;color:var(--muted);font-size:var(--fs-small)}
+details.about summary{cursor:pointer;font-weight:var(--fw-semibold);list-style:none;padding:12px 0}
+details.about summary::-webkit-details-marker{display:none}
+details.about summary::before{content:"▸ "}
+details.about[open] summary::before{content:"▾ "}
+details.about summary:hover{color:var(--ink)}
+details.about p,details.about ol,details.about ul{margin:8px 0}
+details.about ol,details.about ul{padding-left:20px}
+.faq dt{font-weight:var(--fw-semibold);margin-top:14px;color:var(--ink)}
+.faq dd{margin:4px 0 0;color:var(--muted)}
+article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{margin:4px 0}
+.ad{margin:16px auto;max-width:var(--ad-max-w)}
+.ad:empty{display:none}
+
+/* ---------- 반응형 ---------- */
+@media (max-width:860px){
+  .wrap{padding-inline:var(--gutter)}
+  header.top .wrap{gap:8px}
+  .brand{font-size:18px}
+  nav.menu a{padding:8px 10px;font-size:13px}
+}
+@media (max-width:767.98px){
+  main.wrap{padding-block:20px 28px}
+  h1{font-size:24px;line-height:32px}
+  p.lead,.lead{font-size:16px;line-height:24px}
+  .drop{padding:24px 16px}
+  .btn-big{min-height:60px;font-size:20px;line-height:24px;padding:16px 28px}
+  /* 모바일 헤더: [마크+로고] [가로 스크롤 메뉴(언어 선택 포함)] [테마]. 오른쪽 32px 페이드로 스크롤 단서, 끝에 닿으면(.end) 제거.
+     왼쪽으로 스크롤된 뒤(.start, scrollLeft>0)에는 잘린 글자가 로고에 붙어 보이지 않게 왼쪽 12px 페이드를 더한다.
+     마크(31px)가 들어온 만큼 좌우 패딩 12px·간격 4px 로 메뉴 폭을 되찾는다(360px 폭에서 메뉴 약 197px, 392px 에서 229px) */
+  header.top .wrap{gap:4px;padding-inline:12px}
+  .brand{font-size:16px;letter-spacing:-.02em}
+  nav.menu{gap:8px;scroll-padding-inline:8px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
+  nav.menu.start{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 32px),transparent)}
+  nav.menu.end{-webkit-mask-image:none;mask-image:none}
+  nav.menu.start.end{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px);mask-image:linear-gradient(90deg,transparent,#000 12px)}
+  nav.menu a{padding:13px 12px;line-height:18px}
+  nav.menu .lang-select{margin-left:8px;height:var(--touch)}
+  /* 가로 스크롤 컨테이너는 칩의 44px 가상 영역을 자르므로 패딩 5px 로 컨테이너 자체를 44px 이상으로 */
+  .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:5px 0;min-height:var(--touch)}
+  .chips.next::-webkit-scrollbar{display:none}
+}
+/* 돌림판은 메뉴에 언어 선택까지 있어 860px 이하에서 브랜드 글자를 숨기고 마크만 남긴다(font-size:0 — 접근성 이름 "parkbok" 은 유지, 마크 크기는 px 라 영향 없음) */
+@media (max-width:860px){.page-wheel .brand{font-size:0;gap:0}}
+@media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
+@media (max-width:640px){.card-icon{width:32px;height:32px;margin-bottom:12px}}
+@media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}
+@media (max-width:440px){.grid.tools-grid .card{padding:12px}.badge{display:none}}
+@media print{header.top,footer.foot,.subnav,.card.intro,.tools,.status,.ad,.drop,.grid,.chips,details.about,h1,p.lead{display:none!important}body{background:#fff}#viewer{max-height:none;overflow:visible;background:#fff}}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:2px 6px;margin:0 0 12px;padding:0;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--muted)}.crumbs li+li::before{content:"›";margin-right:6px}.crumbs a{color:var(--muted)}
+</style>
+<!-- /shell:head-common -->
+<style id="page-css">
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: restyle
+ * brand: PARKBOK (source assets/site.css, 2026-11-03) · paper: project palette · accent: project blue
+ * display: Pretendard · body: Pretendard · nav: kept · footer: kept · signature: compact tool index
+ * states: existing tool states, keyboard focus, reduced motion · posture: restrained · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S3 R5 V3 · weakest: S, generic utilities; the real tool index carries the first screen */
+/* Hallmark · reworded "설치 없이 바로 쓰는 무료 도구" to "찾아다니던 도구를 한곳에" · B selected by user */
+:root{
+  --home-space-xs:4px;--home-space-sm:8px;--home-space-md:12px;--home-space-lg:16px;--home-space-xl:24px;
+  --home-font:var(--font);--home-head-size:48px;--home-head-line:56px;
+  --home-focus:var(--accent-text);--home-panel:var(--card);--home-panel-hover:var(--accent-tint);
+  --home-icon:var(--muted);--home-icon-fill:var(--accent-tint);--home-rule:var(--line);
+  --home-selection:var(--accent-tint);--home-selection-ink:var(--ink);
+  --home-radius:12px;--home-icon-size:32px;--home-card-height:112px;
+  --home-duration:150ms;--home-ease:ease-out;
+  --home-group-gap:32px;--home-group-title-size:20px;--home-group-title-line:28px;
+  --t-btn:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out;
+  --t-chip:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out;
+  --home-disabled-fill:var(--line);--home-disabled-ink:var(--muted);
+  --home-hwp-icon:var(--accent-text);--home-text-icon:#0f766e;--home-wheel-icon:#6d28d9;--home-pdf-icon:#b91c1c;
+  --home-image-icon:#92400e;--home-color-icon:#be185d;--home-guide-icon:#475569;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--home-text-icon:#5eead4;--home-wheel-icon:#c4b5fd;--home-pdf-icon:#fca5a5;--home-image-icon:#fcd34d;--home-color-icon:#f9a8d4;--home-guide-icon:#cbd5e1}}
+:root[data-theme="dark"]{--home-text-icon:#5eead4;--home-wheel-icon:#c4b5fd;--home-pdf-icon:#fca5a5;--home-image-icon:#fcd34d;--home-color-icon:#f9a8d4;--home-guide-icon:#cbd5e1}
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: restyle
+ * nav: kept · footer: kept · signature: compact tool index · posture: restrained · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S3 R5 V3 · weakest: S, generic utility catalog; task names lead the index */
+html,body{overflow-x:clip}
+html{scrollbar-color:var(--muted) var(--bg)}
+body{caret-color:var(--accent-text)}
+.home-header .home-lang{margin-left:8px;max-width:132px;min-width:100px;cursor:pointer}
+@media(max-width:767.98px){
+  header.top.home-header>.wrap{display:grid;grid-template-columns:1fr auto 34px;gap:0 12px;height:auto;min-height:96px;padding-top:4px}
+  .home-header .brand{grid-column:1;grid-row:1;gap:8px;min-height:44px;font-size:20px}
+  .home-header .brand-t{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+  .home-header .home-lang{grid-column:2;grid-row:1;max-width:132px;margin:0;height:44px}
+  .home-header .theme-btn{grid-column:3;grid-row:1}
+  .home-header nav.menu{grid-column:1 / -1;grid-row:2;width:100%;min-height:44px;margin-top:0}
+}
+::selection{background:var(--home-selection);color:var(--home-selection-ink)}
+main.wrap{padding-top:var(--home-space-xl)}
+main.wrap>h1{min-width:0;overflow-wrap:break-word;font-size:var(--home-head-size);line-height:var(--home-head-line);letter-spacing:-.035em;margin:0 0 var(--home-space-sm);font-weight:var(--fw-bold);text-wrap:balance}
+main.wrap>.lead{font-size:16px;line-height:24px;margin:0 0 var(--home-space-lg);word-break:keep-all;text-wrap:pretty}
+.home-assurance{color:var(--ink);margin-inline-start:var(--home-space-sm)}
+.chips.filters{gap:var(--home-space-sm);margin:0 0 var(--home-space-lg);min-height:var(--touch);align-items:center}
+.chips.filters .chip{height:36px;border-radius:var(--r-btn);padding:0 var(--home-space-lg);letter-spacing:0}
+.chips.filters .chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tool-groups{display:grid;gap:var(--home-group-gap)}
+.tool-group{min-width:0;border-block-start:1px solid var(--home-rule);padding-block-start:var(--home-space-lg)}
+.tool-group[hidden]{display:none}
+.tool-group>h2{font-size:var(--home-group-title-size);line-height:var(--home-group-title-line);font-weight:var(--fw-semibold);margin:0 0 var(--home-space-lg);overflow-wrap:break-word;min-width:0}
+.grid.tools-grid{--grid-cols:4;grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr));gap:var(--home-space-lg)}
+.grid.tools-grid .card{display:grid;grid-template-columns:var(--home-icon-size) minmax(0,1fr);column-gap:var(--home-space-md);row-gap:var(--home-space-xs);align-content:start;align-items:start;min-height:var(--home-card-height);border-radius:var(--home-radius);padding:var(--home-space-lg);background:var(--home-panel);transition:border-color var(--home-duration) var(--home-ease)}
+.grid.tools-grid .card[data-cat="text"]{--home-icon:var(--home-text-icon)}
+.grid.tools-grid .card[data-cat="hwp"]{--home-icon:var(--home-hwp-icon)}
+.grid.tools-grid .card[data-cat="game"]{--home-icon:var(--home-wheel-icon)}
+.grid.tools-grid .card[data-cat="pdf"]{--home-icon:var(--home-pdf-icon)}
+.grid.tools-grid .card[data-cat="image"]{--home-icon:var(--home-image-icon)}
+.grid.tools-grid .card[data-cat="color"]{--home-icon:var(--home-color-icon)}
+.grid.tools-grid .card[data-cat="guide"]{--home-icon:var(--home-guide-icon)}
+.grid.tools-grid .card-icon{grid-column:1;grid-row:1 / 3;width:var(--home-icon-size);height:var(--home-icon-size);margin:var(--home-space-xs) 0 0;color:var(--home-icon)}
+.grid.tools-grid .card-icon svg{transform:none;transition:none}
+.grid.tools-grid .card-icon svg>rect:first-child{fill:var(--home-icon-fill)}
+.grid.tools-grid .card-icon [stroke="#fff"]{stroke:currentColor}
+.grid.tools-grid .card-icon [fill="#fff"]{fill:currentColor}
+.grid.tools-grid .card :is(h2,h3){grid-column:2;min-width:0;font-size:18px;line-height:24px;font-weight:var(--fw-semibold);margin:0;overflow-wrap:break-word}
+.grid.tools-grid .card p{grid-column:2;min-width:0;font-size:14px;line-height:22px;letter-spacing:0;margin:0;text-wrap:pretty}
+.grid.tools-grid .card.hidden{display:none}
+nav.menu a.on{background:var(--accent-tint);color:var(--accent-label)}
+.grid.tools-grid .card:active{background:var(--home-panel-hover)}
+.chip:active{background:var(--home-panel-hover)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--home-focus);outline-offset:3px;transition:none}
+.grid.tools-grid .card:focus-visible,.chips.filters .chip:focus-visible{outline-offset:-3px}
+.chips.filters .chip.on:focus-visible{outline-color:var(--accent-ink)}
+.btn:disabled,.btn[aria-disabled="true"],.btn-big:disabled{background:var(--home-disabled-fill);color:var(--home-disabled-ink);cursor:not-allowed;pointer-events:auto}
+@media (hover:hover){.grid.tools-grid .card:hover{border-color:var(--ink)}}
+@media (max-width:1280px){.grid.tools-grid{--grid-cols:4}}
+@media (max-width:960px){.grid.tools-grid{--grid-cols:3}}
+@media (max-width:767.98px){
+  :root{--home-head-size:28px;--home-head-line:38px;--home-card-height:88px}
+  main.wrap{padding-top:var(--home-space-lg)}
+  main.wrap>.lead{font-size:14px;line-height:22px;margin-bottom:var(--home-space-md)}
+  .home-assurance{display:block;margin-inline-start:0}
+  .chips.filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--gutter)) var(--home-space-sm);padding:var(--home-space-xs) var(--gutter);min-height:var(--touch)}
+  .chips.filters::-webkit-scrollbar{display:none}
+  .chips.filters .chip{height:36px}
+  .grid.tools-grid{gap:var(--home-space-md)}
+  .tool-groups{gap:var(--home-space-xl)}
+  .tool-group{padding-block-start:var(--home-space-md)}
+  .tool-group>h2{margin-bottom:var(--home-space-md)}
+  .grid.tools-grid .card{padding:var(--home-space-md)}
+}
+@media (max-width:640px){.grid.tools-grid{--grid-cols:2}}
+@media (max-width:440px){.grid.tools-grid{--grid-cols:1}}
+@media (max-width:360px){:root{--home-head-size:25px;--home-head-line:34px}}
+@media (max-width:767.98px){
+  .page-home main.wrap{padding-top:12px}
+  .page-home main.wrap>h1{font-size:26px;line-height:34px}
+  .page-home main.wrap>.lead{margin-bottom:8px}
+  .page-home .tool-group{padding-top:8px}
+  .page-home .tool-group>h2{margin-bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="page-home">
+<!-- shell:header -->
+<header class="top home-header"><div class="wrap"><a class="brand" href="/pt/"><svg width="37" height="26" viewBox="0 0 98 68" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M39 65C33 61 31 57 31 50C30 43 29 42 22 44C12 48 5 45 5 36C5 33 4 30 3 27C0 23 1 20 5 15C7 13 9 10 10 9C12 7 13 7 16 7C20 8 21 7 24 4C31-1 42 2 42 10C42 12 42 12 45 12C48 11 50 11 53 13C58 15 58 15 61 10C69-2 86 3 86 17C86 23 86 23 89 25C99 31 99 42 91 48C88 50 87 51 87 54C87 65 76 70 67 64C64 62 61 61 61 61C60 61 57 62 54 64C48 68 44 68 39 65ZM52 57C56 54 57 53 57 48C57 43 61 36 64 35C67 35 68 37 66 41C62 49 62 52 67 56C75 61 80 59 80 52C80 47 81 45 85 43C91 39 91 33 84 30C78 28 77 26 78 20C80 9 72 7 65 17C61 22 57 23 52 21C51 20 50 21 50 24C50 27 49 29 48 31C46 33 45 36 45 37C45 39 43 42 42 44C34 53 42 63 52 57ZM19 38C20 37 21 36 21 34C21 28 27 19 31 21C33 21 32 23 30 28C26 33 26 35 32 37C37 39 38 39 38 34C38 32 39 30 40 29C44 26 44 24 39 21C37 20 36 18 35 16C34 7 32 6 27 12C23 15 23 15 19 14C12 13 7 20 11 26C13 28 13 30 13 32C12 38 14 40 19 38Z"/></svg><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="Menu principal"><a href="/hwp/">Visualizador HWP (KO)</a><a href="/text/">Ferramentas de texto (KO)</a><a href="/pdf/pt/">Ferramentas PDF</a><a href="/image/pt/">Ferramentas de imagem</a><a href="/color/pt/">Ferramentas de cor</a><a href="/games/">Jogos (KO)</a><a href="/guide/">Guias (KO)</a></nav><select id="home-lang" class="lang-select home-lang" aria-label="Idioma"><option value="/">한국어</option><option value="/en/">English</option><option value="/ja/">日本語</option><option value="/zh/">简体中文</option><option value="/es/">Español</option><option value="/pt/" selected>Português</option><option value="/de/">Deutsch</option><option value="/fr/">Français</option></select><button type="button" class="theme-btn" id="theme-btn" aria-label="Claro / escuro" title="Claro / escuro">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
+// 모바일 메뉴: 현재 분류를 가운데로 스크롤(최초·창 크기 변경 시). 끝까지 스크롤되면 .end(오른쪽 페이드 끔), scrollLeft>0 이면 .start(왼쪽 페이드 켬). 좌표는 getBoundingClientRect 차이라 어떤 CSS 에서도 같다
+(function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
+<!-- /shell:header -->
+
+<main class="wrap">
+  <h1>Suas ferramentas, em um só lugar.</h1>
+  <p class="lead">PDFs, imagens, cores e sorteios.<span class="home-assurance">Grátis. Sem instalar. Arquivos no seu dispositivo.</span></p>
+
+  <!-- grid:start -->
+  <nav class="chips filters" aria-label="Categorias de ferramentas"><a class="chip on" href="#all" data-cat="all">Todas</a><a class="chip" href="#pdf" data-cat="pdf">PDF</a><a class="chip" href="#image" data-cat="image">Imagens</a><a class="chip" href="#color" data-cat="color">Cores</a><a class="chip" href="#game" data-cat="game">Jogos</a></nav>
+  <div class="tool-groups" id="tools-grid">
+    <section class="tool-group" data-group="documents" aria-labelledby="group-documents">
+      <h2 id="group-documents">Documentos e PDFs</h2>
+      <div class="grid tools-grid">
+        <a class="card" href="/pdf/merge/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14h8l6 10M10 34h8l6-10M24 24h13"/><path d="M33 20l4 4-4 4"/></g></svg></span><h3>Juntar PDF</h3><p>Combine vários PDF em um único arquivo</p></a>
+        <a class="card" href="/pdf/split/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24h12l8-10h8M22 24l8 10h8"/><path d="M34 10l4 4-4 4M34 30l4 4-4 4"/></g></svg></span><h3>Dividir PDF</h3><p>Corte um PDF em vários arquivos</p></a>
+        <a class="card" href="/pdf/extract-pages/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 9h12l8 8v6M25 9v8h8M13 9v30h9"/><path d="M31 25v13M26 33l5 5 5-5"/></g></svg></span><h3>Extrair páginas de PDF</h3><p>Escolha páginas e salve como novo PDF</p></a>
+        <a class="card" href="/pdf/remove-pages/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9h12l8 8v22H14z"/><path d="M26 9v8h8"/><path d="M19 27h10"/></g></svg></span><h3>Remover páginas PDF</h3><p>Tire as páginas que você não precisa</p></a>
+        <a class="card" href="/pdf/organize/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="20" width="9" height="12" rx="2"/><rect x="19.5" y="20" width="9" height="12" rx="2"/><rect x="31" y="20" width="9" height="12" rx="2"/><path d="M12 14c7-5 17-5 24 0"/><path d="M34 10l2 4-4 2"/></g></svg></span><h3>Organizar PDF</h3><p>Reordene, gire ou tire páginas</p></a>
+        <a class="card" href="/pdf/rotate/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M37 24a13 13 0 1 1-4-9.4"/><path d="M37 10v5.5h-5.5"/><rect x="18" y="18" width="12" height="12" rx="2"/></g></svg></span><h3>Girar PDF</h3><p>Gire todas as páginas ou só algumas</p></a>
+        <a class="card" href="/pdf/page-numbers/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9h12l8 8v22H14z"/><path d="M26 9v8h8"/><path d="M21 22l-1.5 11M27 22l-1.5 11M18.5 26h10M17.5 30h10"/></g></svg></span><h3>Numerar páginas</h3><p>Coloque o número da página onde quiser</p></a>
+        <a class="card" href="/pdf/watermark/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9h12l8 8v22H14z"/><path d="M26 9v8h8"/><path d="M24 20c-3.5 4.5-5.5 7.5-5.5 10a5.5 5.5 0 0 0 11 0c0-2.5-2-5.5-5.5-10z"/></g></svg></span><h3>Marca d'água</h3><p>Texto ou logo em todas as páginas</p></a>
+        <a class="card" href="/pdf/crop/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7v25a2 2 0 0 0 2 2h25"/><path d="M7 14h25a2 2 0 0 1 2 2v25"/></g></svg></span><h3>Cortar PDF</h3><p>Remova a margem branca de cada página</p></a>
+        <a class="card" href="/pdf/jpg-to-pdf/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="15" height="15" rx="2"/><path d="M8 26l3.5-4 3 3 2-2 3.5 3"/><path d="M24 21.5h5M27 18.5l3 3-3 3"/><path d="M33 14h5l4 4v11h-9z"/><path d="M38 14v4h4"/></g><circle cx="16.5" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>JPG para PDF</h3><p>Transforme fotos JPG e PNG em um único PDF</p></a>
+        <a class="card" href="/pdf/pdf-to-jpg/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14h5l4 4v11H6z"/><path d="M11 14v4h4"/><path d="M18 21.5h5M21 18.5l3 3-3 3"/><rect x="27" y="14" width="15" height="15" rx="2"/><path d="M29 26l3.5-4 3 3 2-2 3.5 3"/></g><circle cx="37.5" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>PDF para JPG</h3><p>Cada página como imagem JPG ou PNG</p></a>
+        <a class="card" href="/pdf/sign/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 30c4-6 7-6 9 0s5 6 9 0 6-6 10 0"/><path d="M9 38h30"/></g></svg></span><h3>Assinar PDF</h3><p>Desenhe sua assinatura na página do PDF</p></a>
+        <a class="card" href="/pdf/scan/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 16v-4a3 3 0 0 1 3-3h4M32 9h4a3 3 0 0 1 3 3v4M39 32v4a3 3 0 0 1-3 3h-4M16 39h-4a3 3 0 0 1-3-3v-4"/><path d="M12 24h24"/></g></svg></span><h3>Digitalizar para PDF</h3><p>Fotografe um documento, receba um PDF A4</p></a>
+        <a class="card" href="/pdf/compress/pt/" data-cat="pdf"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-pdf)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 7v10M19.5 12.5l4.5 4.5 4.5-4.5M24 41V31M19.5 35.5l4.5-4.5 4.5 4.5"/><path d="M11 24h26"/></g></svg></span><h3>Comprimir PDF</h3><p>Diminua o tamanho do PDF para enviar</p></a>
+      </div>
+    </section>
+    <section class="tool-group" data-group="image" aria-labelledby="group-image">
+      <h2 id="group-image">Imagens</h2>
+      <div class="grid tools-grid">
+        <a class="card" href="/image/png-to-jpg/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="14" width="14" height="15" rx="2"/><path d="M8 17h3v3H8zM14 17h3v3h-3zM11 20h3v3h-3zM8 23h3v3H8zM14 23h3v3h-3z" fill="#fff" stroke="none"/><path d="M20.5 21.5h7M24.5 18.5l3 3-3 3"/><rect x="29" y="14" width="14" height="15" rx="2"/><path d="M31 26l3.5-4 2.5 2.5 2-2 3 3.5"/></g><circle cx="39" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>PNG para JPG</h3><p>PNG em JPG mais leves</p></a>
+        <a class="card" href="/image/jpg-to-png/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="14" width="14" height="15" rx="2"/><path d="M7 26l3.5-4 2.5 2.5 2-2 3 3.5"/><path d="M20.5 21.5h7M24.5 18.5l3 3-3 3"/><rect x="29" y="14" width="14" height="15" rx="2"/><path d="M32 17h3v3h-3zM38 17h3v3h-3zM35 20h3v3h-3zM32 23h3v3h-3zM38 23h3v3h-3z" fill="#fff" stroke="none"/></g><circle cx="15" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>JPG para PNG</h3><p>JPG em PNG sem perdas</p></a>
+        <a class="card" href="/image/webp-to-jpg/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="14" width="14" height="15" rx="2"/><path d="M7.5 18l2.5 7 2-5 2 5 2.5-7"/><path d="M20.5 21.5h7M24.5 18.5l3 3-3 3"/><rect x="29" y="14" width="14" height="15" rx="2"/><path d="M31 26l3.5-4 2.5 2.5 2-2 3 3.5"/></g><circle cx="39" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>WebP para JPG</h3><p>WebP em JPG universal</p></a>
+        <a class="card" href="/image/jpg-to-webp/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="14" width="14" height="15" rx="2"/><path d="M7 26l3.5-4 2.5 2.5 2-2 3 3.5"/><path d="M20.5 21.5h7M24.5 18.5l3 3-3 3"/><rect x="29" y="14" width="14" height="15" rx="2"/><path d="M31.5 18l2.5 7 2-5 2 5 2.5-7"/></g><circle cx="15" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>JPG para WebP</h3><p>JPG e PNG em WebP leve</p></a>
+        <a class="card" href="/image/heic-to-jpg/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="12" width="11" height="19" rx="2.5"/><path d="M11 15h3"/><circle cx="12.5" cy="22" r="2.5"/><path d="M20.5 21.5h7M24.5 18.5l3 3-3 3"/><rect x="29" y="14" width="14" height="15" rx="2"/><path d="M31 26l3.5-4 2.5 2.5 2-2 3 3.5"/></g><circle cx="39" cy="18.5" r="1.5" fill="#fff"/></svg></span><h3>HEIC para JPG</h3><p>Fotos HEIC do iPhone em JPG</p></a>
+        <a class="card" href="/image/svg-to-png/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="14" width="14" height="15" rx="2"/><path d="M8 25c3-8 5-8 8-2"/><path d="M20.5 21.5h7M24.5 18.5l3 3-3 3"/><rect x="29" y="14" width="14" height="15" rx="2"/><path d="M32 17h3v3h-3zM38 17h3v3h-3zM35 20h3v3h-3zM32 23h3v3h-3zM38 23h3v3h-3z" fill="#fff" stroke="none"/></g><circle cx="8" cy="25" r="1.5" fill="#fff"/><circle cx="16" cy="23" r="1.5" fill="#fff"/></svg></span><h3>SVG para PNG</h3><p>SVG em imagens PNG nítidas</p></a>
+        <a class="card" href="/image/image-compress/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="12" width="30" height="24" rx="3"/><path d="M12 32l8-9 6 6 4-4 6 7"/><path d="M24 4v4M21.5 6l2.5 2.5L26.5 6M24 44v-4M21.5 42l2.5-2.5 2.5 2.5"/></g><circle cx="31" cy="19" r="2.5" fill="#fff"/></svg></span><h3>Comprimir imagem</h3><p>JPG, PNG e WebP mais leves</p></a>
+        <a class="card" href="/image/image-resize/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="22" height="22" rx="3"/><path d="M29 29l12 12"/><path d="M41 41h-8M41 41v-8"/><path d="M11 25l5-6 4 4 3-3 3 4"/></g></svg></span><h3>Redimensionar imagem</h3><p>Novo tamanho em pixels ou %</p></a>
+        <a class="card" href="/image/image-crop/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7v25a2 2 0 0 0 2 2h25"/><path d="M7 14h25a2 2 0 0 1 2 2v25"/><path d="M18 25l3-4 3 3 2-2 4 5"/></g></svg></span><h3>Cortar imagem</h3><p>Só o que você precisa</p></a>
+        <a class="card" href="/image/image-rotate/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M37 24a13 13 0 1 1-4-9.4"/><path d="M37 10v5.5h-5.5"/><rect x="17" y="18" width="14" height="12" rx="2"/><path d="M19 28l3-4 2.5 2.5 2-2 3.5 3.5"/></g></svg></span><h3>Girar imagem</h3><p>Girar ou inverter</p></a>
+        <a class="card" href="/image/image-watermark/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="11" width="30" height="26" rx="3"/><path d="M12 33l7-8 4 4"/><path d="M30 17c-3.5 4.5-5.5 7.5-5.5 10a5.5 5.5 0 0 0 11 0c0-2.5-2-5.5-5.5-10z"/></g></svg></span><h3>Marca d'água</h3><p>Texto ou logo nas suas fotos</p></a>
+        <a class="card" href="/image/meme/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="30" height="30" rx="3"/><path d="M15 15h18M15 33h18"/><path d="M13 28l6-6 4 4 3-3 5 5"/></g></svg></span><h3>Gerador de memes</h3><p>Texto em cima e embaixo da foto</p></a>
+        <a class="card" href="/image/blur/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="11" width="30" height="26" rx="3"/><path d="M12 32l8-9 6 6 4-4 6 7"/><rect x="24" y="14" width="12" height="10" rx="2" stroke-dasharray="3 2.5"/></g><circle cx="30" cy="19" r="2.5" fill="#fff"/></svg></span><h3>Desfocar foto</h3><p>Esconda rostos e dados</p></a>
+        <a class="card" href="/image/favicon/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="34" height="30" rx="3"/><path d="M7 19h34"/><path d="M12 14h3M19 14h3"/><path d="M24 24l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z" fill="#fff" stroke="none"/></g></svg></span><h3>Gerador de favicon</h3><p>Ícones em cada tamanho</p></a>
+        <a class="card" href="/image/passport-photo/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="11" y="7" width="26" height="34" rx="3"/><circle cx="24" cy="20" r="5"/><path d="M16 34c1.5-5 4.5-7 8-7s6.5 2 8 7"/><path d="M7 15v-4a4 4 0 0 1 4-4h4M41 15v-4a4 4 0 0 0-4-4h-4M7 33v4a4 4 0 0 0 4 4h4M41 33v4a4 4 0 0 1-4 4h-4"/></g></svg></span><h3>Foto para passaporte</h3><p>Tamanho oficial e peso do arquivo</p></a>
+        <a class="card" href="/image/exif/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="11" width="30" height="26" rx="3"/><path d="M12 33l6-7 4 4 2.5-2.5 3.5 4"/><path d="M25 17h9M25 22h9M28 27h6"/></g></svg></span><h3>Editor EXIF</h3><p>Ver, alterar ou apagar os dados da foto</p></a>
+        <a class="card" href="/image/stamp-background/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="22" r="13"/><path d="M19 16v12M19 22h4M28 15v14M25 18h6M25 25h6"/><path d="M8 41h32"/></g></svg></span><h3>Remover fundo de carimbo</h3><p>Transforme a foto de um carimbo vermelho ou assinatura em PNG transparente.</p></a>
+        <a class="card" href="/image/product-image-size/pt/" data-cat="image"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-image)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17h24l-2 21H14z"/><path d="M19 17v-3a5 5 0 0 1 10 0v3"/><path d="M8 8h6M8 8v6M40 8h-6M40 8v6"/></g></svg></span><h3>Tamanho de imagem para marketplaces coreanos</h3><p>Específico da Coreia: ajuste fotos de produto aos tamanhos recomendados de Naver Smart Store, Coupang, 11st e Gmarket.</p></a>
+      </div>
+    </section>
+    <section class="tool-group" data-group="color" aria-labelledby="group-color">
+      <h2 id="group-color">Cores</h2>
+      <div class="grid tools-grid">
+        <a class="card" href="/color/converter/pt/" data-cat="color"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-color)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="24" r="7"/><rect x="29" y="17" width="12" height="14" rx="3"/><path d="M13 12c5-4 10-4 15-1M35 36c-5 4-10 4-15 1"/><path d="M24 9l4 2-3 3M24 39l-4-2 3-3"/></g></svg></span><h3>Conversor de cores</h3><p>Cole qualquer cor e receba HEX, RGB, HSL, HSV e CMYK</p></a>
+        <a class="card" href="/color/picker/pt/" data-cat="color"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-color)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 36l12-12"/><path d="M21 21l6 6"/><path d="M26 16l6 6 4-4a4.2 4.2 0 0 0-6-6z"/><path d="M10 38l3-1-1-1z" fill="#fff"/></g></svg></span><h3>Seletor de cor de imagem</h3><p>Toque em qualquer ponto da foto e receba o HEX e o RGB</p></a>
+        <a class="card" href="/color/palette/pt/" data-cat="color"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-color)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10c-8 0-14 6-14 13 0 8 6 13 12 13 3 0 3-3 5-3s4 2 7 2c3 0 4-3 4-7 0-10-6-18-14-18z"/></g><g fill="#fff"><circle cx="17" cy="22" r="2.5"/><circle cx="23" cy="16" r="2.5"/><circle cx="31" cy="18" r="2.5"/><circle cx="33" cy="26" r="2.5"/></g></svg></span><h3>Gerador de paletas</h3><p>Gere cinco cores, bloqueie suas favoritas e teste três modelos. Leve o HTML e CSS.</p></a>
+        <a class="card" href="/color/gradient/pt/" data-cat="color"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-color)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="12" width="30" height="24" rx="4"/><path d="M16 12v24" opacity=".35"/><path d="M22 12v24" opacity=".55"/><path d="M28 12v24" opacity=".75"/><path d="M34 12v24"/></g></svg></span><h3>Gerador de gradiente</h3><p>Escolha cores e ângulo, copie o CSS ou salve um PNG de 1920×1080</p></a>
+        <a class="card" href="/color/contrast/pt/" data-cat="color"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-color)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="13"/><path d="M24 11a13 13 0 0 1 0 26z" fill="#fff"/></g></svg></span><h3>Verificador de contraste</h3><p>Cor do texto e fundo entram, razão de contraste e WCAG AA / AAA saem</p></a>
+      </div>
+    </section>
+    <section class="tool-group" data-group="game" aria-labelledby="group-game">
+      <h2 id="group-game">Jogos</h2>
+      <div class="grid tools-grid">
+        <a class="card" href="/wheel/pt/" data-cat="game"><span class="card-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--cat-game)"/><g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="26" r="12"/><path d="M24 14v24M12 26h24M15.5 17.5l17 17M32.5 17.5l-17 17"/></g><path d="M24 7l-3.5 5h7z" fill="#fff"/></svg></span><h3>Nomes</h3><p>Gire a roleta para sortear um nome, um vencedor ou uma decisão. Digite as opções, clique em Girar e deixe a roleta decidir: justo, rápido e grátis. Nada é enviado; a roleta fica salva no seu navegador e pode ser compartilhada por link.</p></a>
+      </div>
+    </section>
+  </div>
+  <!-- grid:end -->
+</main>
+
+<!-- shell:footer -->
+<footer class="foot"><div class="wrap">
+  <div class="foot-main">
+    <div class="foot-brand-block">
+      <a class="foot-brand" href="/pt/" aria-label="parkbok"><svg width="37" height="26" viewBox="0 0 98 68" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M39 65C33 61 31 57 31 50C30 43 29 42 22 44C12 48 5 45 5 36C5 33 4 30 3 27C0 23 1 20 5 15C7 13 9 10 10 9C12 7 13 7 16 7C20 8 21 7 24 4C31-1 42 2 42 10C42 12 42 12 45 12C48 11 50 11 53 13C58 15 58 15 61 10C69-2 86 3 86 17C86 23 86 23 89 25C99 31 99 42 91 48C88 50 87 51 87 54C87 65 76 70 67 64C64 62 61 61 61 61C60 61 57 62 54 64C48 68 44 68 39 65ZM52 57C56 54 57 53 57 48C57 43 61 36 64 35C67 35 68 37 66 41C62 49 62 52 67 56C75 61 80 59 80 52C80 47 81 45 85 43C91 39 91 33 84 30C78 28 77 26 78 20C80 9 72 7 65 17C61 22 57 23 52 21C51 20 50 21 50 24C50 27 49 29 48 31C46 33 45 36 45 37C45 39 43 42 42 44C34 53 42 63 52 57ZM19 38C20 37 21 36 21 34C21 28 27 19 31 21C33 21 32 23 30 28C26 33 26 35 32 37C37 39 38 39 38 34C38 32 39 30 40 29C44 26 44 24 39 21C37 20 36 18 35 16C34 7 32 6 27 12C23 15 23 15 19 14C12 13 7 20 11 26C13 28 13 30 13 32C12 38 14 40 19 38Z"/></svg><span>parkbok</span></a>
+      <p class="foot-tagline">Mais leveza nas tarefas do dia a dia.</p>
+      <p class="foot-description">Ferramentas úteis, quando você precisa.
+Feitas pelo PARKBOK Studio.</p>
+      <p class="foot-local"><span aria-hidden="true"></span>Os arquivos são processados no seu dispositivo.</p>
+    </div>
+    <nav class="foot-directory" aria-label="Menu do rodapé">
+      <div class="foot-column"><h2>Ferramentas</h2><a href="/pdf/pt/">Ferramentas PDF</a><a href="/image/pt/">Ferramentas de imagem</a><a href="/color/pt/">Ferramentas de cor</a><a href="/wheel/pt/">Roleta</a><a href="/hwp/">Visualizador HWP (KO)</a><a href="/text/">Ferramentas de texto (KO)</a></div>
+      <div class="foot-column"><h2>Estúdio</h2><a href="/about.html">Sobre</a><a href="/about.html#principles">Nossos princípios</a><a href="/guide/">Guias (KO)</a><a href="/about.html#contact">Contato</a></div>
+      <div class="foot-column foot-links"><h2>Políticas e ajustes</h2><a href="/privacy.html">Privacidade</a><a href="/terms.html">Termos</a></div>
+    </nav>
+  </div>
+  <div class="foot-bottom"><p class="foot-copy">© parkbok</p><nav class="foot-languages" aria-label="Language"><a href="/" lang="ko" hreflang="ko">한국어</a><a href="/en/" lang="en" hreflang="en">English</a><a href="/ja/" lang="ja" hreflang="ja">日本語</a><a href="/zh/" lang="zh" hreflang="zh">简体中文</a><a href="/es/" lang="es" hreflang="es">Español</a><a href="/pt/" lang="pt" hreflang="pt" aria-current="true">Português</a><a href="/de/" lang="de" hreflang="de">Deutsch</a><a href="/fr/" lang="fr" hreflang="fr">Français</a></nav></div>
+
+</div></footer>
+<!-- /shell:footer -->
+
+<script src="/assets/home.js?v=437551a2" defer></script>
+</body>
+</html>

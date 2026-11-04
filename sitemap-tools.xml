@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://parkbok.com/about.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/about.html</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/color/contrast/de/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/color/contrast/es/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/color/contrast/fr/</loc><lastmod>2026-11-03</lastmod></url>
@@ -43,6 +43,10 @@
   <url><loc>https://parkbok.com/color/picker/zh/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/color/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/color/zh/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/de/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/en/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/es/</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/fr/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/games/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/games/number-guess/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/games/reaction-time/</loc><lastmod>2026-11-03</lastmod></url>
@@ -186,6 +190,7 @@
   <url><loc>https://parkbok.com/image/webp-to-jpg/pt/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/webp-to-jpg/zh/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/image/zh/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/ja/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/pdf/compress/de/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/pdf/compress/es/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/pdf/compress/fr/</loc><lastmod>2026-11-03</lastmod></url>
@@ -292,6 +297,7 @@
   <url><loc>https://parkbok.com/pdf/watermark/zh/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/pdf/zh/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/privacy.html</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://parkbok.com/pt/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://parkbok.com/terms.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/text/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/text/char-count.html</loc><lastmod>2026-11-03</lastmod></url>
@@ -331,4 +337,5 @@
   <url><loc>https://parkbok.com/wheel/zh/number/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/wheel/zh/what-to-eat/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://parkbok.com/wheel/zh/yes-or-no/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://parkbok.com/zh/</loc><lastmod>2026-11-04</lastmod></url>
 </urlset>

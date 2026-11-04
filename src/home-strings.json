@@ -1,0 +1,210 @@
+{
+  "ko": {
+    "title": "무료 온라인 도구 모음",
+    "h1": "찾아다니던 도구를 한곳에",
+    "line": "PDF, 이미지, 색상, 텍스트, 게임.",
+    "assurance": "설치도 파일 전송도 없이, 무료로.",
+    "description": "설치·가입 없이 쓰는 무료 온라인 도구 모음. HWP·HWPX 읽기, PDF 합치기·나누기, 이미지 변환·압축, 색상 변환, 텍스트 정리와 미니게임을 브라우저에서 이용하세요.",
+    "categories": "도구 분류",
+    "chips": [
+      "전체",
+      "HWP",
+      "PDF",
+      "이미지",
+      "색상",
+      "텍스트",
+      "게임",
+      "가이드"
+    ],
+    "groups": [
+      "문서와 PDF",
+      "이미지",
+      "색상",
+      "텍스트",
+      "게임",
+      "가이드"
+    ]
+  },
+  "en": {
+    "title": "Free online tools",
+    "h1": "Your everyday tools, together.",
+    "line": "PDFs, images, colors and random picks.",
+    "assurance": "Free. No installation. Files stay on your device.",
+    "description": "Free browser tools to merge PDFs, compress and convert images, pick colors and spin a wheel. No installation or sign-up. Files are processed on your device.",
+    "categories": "Tool categories",
+    "chips": [
+      "All",
+      "HWP",
+      "PDF",
+      "Images",
+      "Colors",
+      "Text",
+      "Games",
+      "Guides"
+    ],
+    "groups": [
+      "Documents & PDFs",
+      "Images",
+      "Colors",
+      "Text",
+      "Games",
+      "Guides"
+    ]
+  },
+  "ja": {
+    "title": "無料オンラインツール",
+    "h1": "よく使うツールを、ひとつに。",
+    "line": "PDF、画像、色、ランダム抽選。",
+    "assurance": "無料・インストール不要。ファイルは端末内で処理。",
+    "description": "PDF結合、画像の圧縮・変換、色の抽出、ルーレットをブラウザで。インストール・登録不要の無料ツール。ファイルは端末内で処理します。",
+    "categories": "ツールの分類",
+    "chips": [
+      "すべて",
+      "HWP",
+      "PDF",
+      "画像",
+      "色",
+      "テキスト",
+      "ゲーム",
+      "ガイド"
+    ],
+    "groups": [
+      "文書とPDF",
+      "画像",
+      "色",
+      "テキスト",
+      "ゲーム",
+      "ガイド"
+    ]
+  },
+  "zh": {
+    "title": "免费在线工具",
+    "h1": "常用工具，一站备齐。",
+    "line": "PDF、图片、颜色与随机抽签。",
+    "assurance": "免费，无需安装。文件在您的设备上处理。",
+    "description": "在浏览器中合并PDF、压缩与转换图片、提取颜色并使用随机转盘。免费，无需安装或注册，文件在您的设备上处理。",
+    "categories": "工具分类",
+    "chips": [
+      "全部",
+      "HWP",
+      "PDF",
+      "图片",
+      "颜色",
+      "文本",
+      "游戏",
+      "指南"
+    ],
+    "groups": [
+      "文档与PDF",
+      "图片",
+      "颜色",
+      "文本",
+      "游戏",
+      "指南"
+    ]
+  },
+  "es": {
+    "title": "Herramientas online gratuitas",
+    "h1": "Tus herramientas, en un solo lugar.",
+    "line": "PDF, imágenes, colores y sorteos.",
+    "assurance": "Gratis. Sin instalar. Archivos en tu dispositivo.",
+    "description": "Une PDF, comprime y convierte imágenes, extrae colores y usa la ruleta en tu navegador. Herramientas gratuitas sin instalar ni registrarte. Archivos en tu dispositivo.",
+    "categories": "Categorías de herramientas",
+    "chips": [
+      "Todas",
+      "HWP",
+      "PDF",
+      "Imágenes",
+      "Colores",
+      "Texto",
+      "Juegos",
+      "Guías"
+    ],
+    "groups": [
+      "Documentos y PDF",
+      "Imágenes",
+      "Colores",
+      "Texto",
+      "Juegos",
+      "Guías"
+    ]
+  },
+  "pt": {
+    "title": "Ferramentas online gratuitas",
+    "h1": "Suas ferramentas, em um só lugar.",
+    "line": "PDFs, imagens, cores e sorteios.",
+    "assurance": "Grátis. Sem instalar. Arquivos no seu dispositivo.",
+    "description": "Junte PDFs, comprima e converta imagens, extraia cores e use a roleta no navegador. Ferramentas grátis, sem instalação ou cadastro. Arquivos no seu dispositivo.",
+    "categories": "Categorias de ferramentas",
+    "chips": [
+      "Todas",
+      "HWP",
+      "PDF",
+      "Imagens",
+      "Cores",
+      "Texto",
+      "Jogos",
+      "Guias"
+    ],
+    "groups": [
+      "Documentos e PDFs",
+      "Imagens",
+      "Cores",
+      "Texto",
+      "Jogos",
+      "Guias"
+    ]
+  },
+  "de": {
+    "title": "Kostenlose Online-Werkzeuge",
+    "h1": "Deine Werkzeuge. An einem Ort.",
+    "line": "PDFs, Bilder, Farben und Zufallsauswahl.",
+    "assurance": "Kostenlos. Ohne Installation. Dateien bleiben auf deinem Gerät.",
+    "description": "PDFs zusammenfügen, Bilder komprimieren und umwandeln, Farben auslesen und ein Glücksrad drehen. Kostenlos im Browser, ohne Anmeldung. Dateien bleiben auf deinem Gerät.",
+    "categories": "Werkzeugkategorien",
+    "chips": [
+      "Alle",
+      "HWP",
+      "PDF",
+      "Bilder",
+      "Farben",
+      "Text",
+      "Spiele",
+      "Anleitungen"
+    ],
+    "groups": [
+      "Dokumente & PDFs",
+      "Bilder",
+      "Farben",
+      "Text",
+      "Spiele",
+      "Anleitungen"
+    ]
+  },
+  "fr": {
+    "title": "Outils gratuits en ligne",
+    "h1": "Vos outils, réunis au même endroit.",
+    "line": "PDF, images, couleurs et tirages au sort.",
+    "assurance": "Gratuit. Sans installation. Fichiers sur votre appareil.",
+    "description": "Fusionnez des PDF, compressez et convertissez des images, prélevez des couleurs et lancez une roue. Gratuit, sans installation ni inscription. Fichiers traités sur votre appareil.",
+    "categories": "Catégories d’outils",
+    "chips": [
+      "Tous",
+      "HWP",
+      "PDF",
+      "Images",
+      "Couleurs",
+      "Texte",
+      "Jeux",
+      "Guides"
+    ],
+    "groups": [
+      "Documents et PDF",
+      "Images",
+      "Couleurs",
+      "Texte",
+      "Jeux",
+      "Guides"
+    ]
+  }
+}
