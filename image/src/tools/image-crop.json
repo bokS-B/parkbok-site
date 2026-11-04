@@ -6,7 +6,8 @@
   "next": [
     "image-resize",
     "image-rotate",
-    "image-compress"
+    "image-compress",
+    "stamp-background"
   ],
   "strings": {
     "en": {

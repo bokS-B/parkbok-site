@@ -1,0 +1,248 @@
+{
+  "id": "stamp-background",
+  "order": 35,
+  "icon": "stamp-background",
+  "cat": "image",
+  "next": [
+    "image-crop",
+    "image-resize",
+    "passport-photo"
+  ],
+  "strings": {
+    "en": {
+      "title": "Remove Stamp & Signature Background – Transparent PNG Free | PARKBOK",
+      "h1": "Stamp background remover",
+      "line": "Turn a photo of a red stamp or signature into a transparent PNG.",
+      "description": "Remove the paper background from a photo or scan of a red stamp, seal or ink signature and save a transparent PNG. Auto red or dark ink, adjustable threshold, auto-crop and 300/500 px square output. Free, runs in your browser – nothing is uploaded.",
+      "buttonText": "Select stamp images",
+      "runText": "Remove background",
+      "resultName": "transparent-stamps",
+      "fileSuffix": "transparent",
+      "noteSize": "{w}×{h} px transparent PNG.",
+      "noteCount": "{n} transparent PNG files.",
+      "noteEmpty": "No ink was found in {n} image(s). Raise the threshold or pick the ink color.",
+      "errorTooBig": "This image is too large to process (over 16384 px).",
+      "needsRerun": "Settings changed. Run again.",
+      "options": {
+        "preview": { "label": "Preview", "help": "Checkerboard = transparent. Click the preview to pick that color as the ink color." },
+        "mode": { "label": "Ink", "help": "Red stamp keeps red ink and drops black text and paper. Dark ink suits pen or black signatures.", "choices": { "red": "Red stamp (auto)", "dark": "Dark ink", "custom": "Pick a color" } },
+        "color": { "label": "Ink color", "help": "Click the preview or choose the stamp color here." },
+        "tolerance": { "label": "Threshold", "help": "Higher keeps faint ink but may keep paper stains. Lower gives a cleaner background." },
+        "crop": { "label": "Auto-crop to the stamp (with a small margin)", "help": "" },
+        "size": { "label": "Output size", "help": "Square sizes center the stamp on a transparent canvas.", "choices": { "original": "Original", "300": "300×300 px", "500": "500×500 px" } }
+      },
+      "faq": [
+        ["How do I make a transparent stamp image?", "Photograph or scan the stamp on white paper in even light, add the image here and choose Red stamp. Adjust the threshold while watching the checkerboard preview, then download the PNG. The paper becomes transparent, so the stamp sits cleanly on any document."],
+        ["How do I put it into a Word, Google Docs or e-contract file?", "Insert the PNG as a picture and set text wrapping to “In front of text” so it can sit over your name. Most e-signature and contract services accept a PNG seal or signature upload; a 300 or 500 px square is a convenient size."],
+        ["Can it remove the background of a signature?", "Yes. Choose Dark ink for a black or blue pen signature, or Pick a color and click the ink in the preview."],
+        ["Is a stamp image legally the same as my seal?", "This tool only edits an image. Whether a stamp image is accepted depends on the document and the other party. Keep the file private, never send a registered seal image to strangers, and use an official e-signature or certificate service where one is required."],
+        ["Are my images uploaded?", "No. Everything is processed on your device in your browser and nothing is sent to a server."]
+      ]
+    },
+    "ko": {
+      "title": "도장 배경 제거 – 투명 도장·전자 도장 PNG 만들기 무료 | PARKBOK",
+      "h1": "도장 배경 제거",
+      "line": "도장·서명 사진을 넣으면 종이 배경을 지워 투명 PNG로 만들어 줍니다.",
+      "description": "종이에 찍은 도장·인감·서명 사진이나 스캔본의 흰 배경을 지워 투명 PNG 전자 도장을 만듭니다. 빨간 도장 자동 인식, 검은 잉크·색 지정, 투명 기준 조절, 자동 자르기, 300·500px 정사각형 저장. 무료, 가입 없이 브라우저에서만 처리하며 파일을 업로드하지 않습니다.",
+      "buttonText": "도장 이미지 선택",
+      "runText": "배경 제거",
+      "resultName": "투명도장",
+      "fileSuffix": "투명",
+      "noteSize": "{w}×{h} px 투명 PNG입니다.",
+      "noteCount": "투명 PNG {n}장을 만들었습니다.",
+      "noteEmpty": "{n}장에서 잉크를 찾지 못했습니다. 투명 기준을 올리거나 잉크 색을 직접 골라 보세요.",
+      "errorTooBig": "너무 큰 이미지입니다(16384px 초과).",
+      "needsRerun": "설정이 바뀌었습니다. 다시 실행하세요.",
+      "options": {
+        "preview": { "label": "미리보기", "help": "바둑판 무늬 = 투명한 부분. 미리보기를 누르면 그 자리의 색을 잉크 색으로 고릅니다." },
+        "mode": { "label": "잉크 종류", "help": "빨간 도장은 인주색만 남기고 검은 글씨와 종이를 지웁니다. 펜·검은 서명은 어두운 잉크를 고르세요.", "choices": { "red": "빨간 도장(자동)", "dark": "어두운 잉크·서명", "custom": "색 직접 지정" } },
+        "color": { "label": "잉크 색", "help": "미리보기를 누르거나 여기서 도장 색을 고르세요." },
+        "tolerance": { "label": "투명 기준", "help": "높이면 옅은 인주까지 남기지만 종이 얼룩이 남을 수 있고, 낮추면 배경이 더 깨끗해집니다." },
+        "crop": { "label": "도장 부분만 자동으로 자르기(여백 조금)", "help": "" },
+        "size": { "label": "저장 크기", "help": "정사각형은 투명 바탕 가운데에 도장을 맞춥니다.", "choices": { "original": "원본 크기", "300": "300×300 px", "500": "500×500 px" } }
+      },
+      "faq": [
+        ["도장 배경을 투명하게 만들려면?", "흰 종이에 도장을 찍고 그림자 없이 밝은 곳에서 사진을 찍거나 스캔하세요. 이미지를 넣고 빨간 도장(자동)을 고른 뒤, 바둑판 미리보기를 보며 투명 기준을 맞추고 PNG로 내려받으면 됩니다. 종이 부분이 투명해져 어떤 문서 위에도 깔끔하게 올라갑니다."],
+        ["전자 도장을 한글·워드 문서에 넣으려면?", "한글은 입력 → 그림에서 PNG를 넣고 개체 속성의 배치를 ‘글 앞으로’로 바꾸면 이름 위에 겹쳐 놓을 수 있습니다. 워드는 삽입 → 그림 후 텍스트 줄 바꿈을 ‘텍스트 앞’으로 설정하세요. 투명 PNG라 글자가 가려지지 않습니다."],
+        ["전자계약에 쓸 도장 이미지는 어떤 크기가 좋나요?", "대부분의 전자계약·전자서명 서비스는 PNG 도장 이미지 업로드를 받습니다. 300×300 또는 500×500 px 정사각형으로 저장하면 쓰기 편합니다. 서비스마다 크기·용량 기준이 다르니 업로드 화면 안내를 확인하세요."],
+        ["서명 배경도 지울 수 있나요?", "네. 검은색·파란색 펜 서명은 어두운 잉크·서명을 고르고, 색이 특이하면 색 직접 지정을 고른 뒤 미리보기에서 잉크를 누르세요."],
+        ["인감 도장 이미지를 써도 되나요? 주의할 점은?", "이 도구는 이미지만 편집합니다. 도장 이미지가 효력을 갖는지는 문서 종류와 상대방에 따라 다르며, 인감증명이 필요한 계약은 실물 인감이나 공식 전자서명·인증서를 요구할 수 있습니다. 인감 이미지는 위조에 악용될 수 있으니 모르는 사람에게 보내지 말고 파일을 안전하게 보관하세요."],
+        ["이미지가 업로드되나요?", "아니요. 모든 처리는 내 기기의 브라우저 안에서 이루어지며 서버로 전송되지 않습니다."]
+      ]
+    },
+    "zh": {
+      "title": "印章去背景 – 制作透明电子印章、签名 PNG 免费在线",
+      "h1": "印章去背景",
+      "line": "上传红色印章或签名照片，去掉纸张背景，得到透明 PNG。",
+      "description": "去除红色印章、印鉴或手写签名照片/扫描件的纸张背景，保存为透明 PNG 电子印章。自动识别红色印章，也可选深色墨水或指定颜色，可调阈值、自动裁剪并输出 300/500 像素正方形。免费，在浏览器中处理，不上传文件。",
+      "buttonText": "选择印章图片",
+      "runText": "去除背景",
+      "resultName": "透明印章",
+      "fileSuffix": "透明",
+      "noteSize": "{w}×{h} 像素透明 PNG。",
+      "noteCount": "已生成 {n} 张透明 PNG。",
+      "noteEmpty": "{n} 张图片未找到墨迹。请提高阈值或直接选择墨水颜色。",
+      "errorTooBig": "图片太大，无法处理（超过 16384 像素）。",
+      "needsRerun": "设置已更改，请重新运行。",
+      "options": {
+        "preview": { "label": "预览", "help": "棋盘格 = 透明部分。点击预览可把该处颜色设为墨水颜色。" },
+        "mode": { "label": "墨水", "help": "红色印章只保留印泥颜色，去掉黑色文字和纸张。钢笔或黑色签名请选深色墨水。", "choices": { "red": "红色印章（自动）", "dark": "深色墨水/签名", "custom": "指定颜色" } },
+        "color": { "label": "墨水颜色", "help": "点击预览或在此选择印章颜色。" },
+        "tolerance": { "label": "阈值", "help": "调高可保留较淡的印泥，但可能留下纸张污渍；调低背景更干净。" },
+        "crop": { "label": "自动裁剪到印章（留少量边距）", "help": "" },
+        "size": { "label": "输出尺寸", "help": "正方形尺寸会把印章居中放在透明画布上。", "choices": { "original": "原始尺寸", "300": "300×300 像素", "500": "500×500 像素" } }
+      },
+      "faq": [
+        ["如何制作透明印章图片？", "在白纸上盖章，在光线均匀、无阴影处拍照或扫描。放入图片，选择红色印章，看着棋盘格预览调整阈值，然后下载 PNG。纸张部分会变透明，可放在任何文档上。"],
+        ["如何放进 Word 或电子合同？", "以图片方式插入 PNG，并把文字环绕设为“浮于文字上方”，即可叠放在姓名上。多数电子签名服务支持上传 PNG 印章，300 或 500 像素正方形较方便。"],
+        ["使用印章图片要注意什么？", "本工具只编辑图片。印章图片是否有效取决于文件和对方的要求。请妥善保管文件，不要把正式印鉴图片发给陌生人；需要时请使用正式的电子签名服务。"],
+        ["我的图片会被上传吗？", "不会。所有处理都在您设备的浏览器中完成，不会发送到服务器。"]
+      ]
+    },
+    "ja": {
+      "title": "判子・印鑑の背景を透過 – 電子印鑑 PNG を無料で作成",
+      "h1": "印鑑の背景透過",
+      "line": "朱肉の判子やサインの写真から紙の背景を消して透過 PNG にします。",
+      "description": "紙に押した判子・印鑑・手書きサインの写真やスキャンから白い背景を消し、透過 PNG の電子印鑑を作ります。朱色の自動認識、黒インク・色指定、しきい値調整、自動トリミング、300/500px の正方形保存に対応。無料、ブラウザー内で処理しファイルは送信しません。",
+      "buttonText": "印鑑の画像を選択",
+      "runText": "背景を透過",
+      "resultName": "透過印鑑",
+      "fileSuffix": "透過",
+      "noteSize": "{w}×{h} px の透過 PNG です。",
+      "noteCount": "透過 PNG を {n} 枚作成しました。",
+      "noteEmpty": "{n} 枚でインクが見つかりませんでした。しきい値を上げるか、インクの色を選んでください。",
+      "errorTooBig": "画像が大きすぎて処理できません（16384pxを超えています）。",
+      "needsRerun": "設定が変わりました。再実行してください。",
+      "options": {
+        "preview": { "label": "プレビュー", "help": "市松模様 = 透明部分。プレビューをクリックするとその色をインクの色にします。" },
+        "mode": { "label": "インク", "help": "朱色の判子は朱肉だけを残し、黒い文字と紙を消します。ペンや黒いサインは濃いインクを選びます。", "choices": { "red": "朱色の判子（自動）", "dark": "濃いインク・サイン", "custom": "色を指定" } },
+        "color": { "label": "インクの色", "help": "プレビューをクリックするか、ここで判子の色を選びます。" },
+        "tolerance": { "label": "しきい値", "help": "上げると薄い朱肉も残りますが紙の汚れも残りやすく、下げると背景がきれいになります。" },
+        "crop": { "label": "判子の部分だけ自動トリミング（少し余白）", "help": "" },
+        "size": { "label": "保存サイズ", "help": "正方形は透明なキャンバスの中央に判子を配置します。", "choices": { "original": "元のサイズ", "300": "300×300 px", "500": "500×500 px" } }
+      },
+      "faq": [
+        ["判子の背景を透過するには？", "白い紙に判子を押し、影のない明るい場所で撮影またはスキャンします。画像を入れて朱色の判子を選び、市松模様のプレビューを見ながらしきい値を調整して PNG を保存します。紙の部分が透明になり、どの書類にもきれいに重ねられます。"],
+        ["Word や電子契約に入れるには？", "PNG を画像として挿入し、文字列の折り返しを「前面」にすると名前の上に重ねられます。多くの電子契約サービスは PNG の印影アップロードに対応しています。300 または 500px の正方形が扱いやすいサイズです。"],
+        ["印鑑画像を使うときの注意点は？", "このツールは画像を編集するだけです。印影画像が有効かどうかは書類や相手によって異なります。実印の画像は悪用されるおそれがあるため、むやみに送らず安全に保管し、必要な場合は正式な電子署名サービスを使ってください。"],
+        ["画像はアップロードされますか？", "いいえ。すべて端末のブラウザー内で処理され、サーバーには送信されません。"]
+      ]
+    },
+    "es": {
+      "title": "Quitar fondo de sello y firma – PNG transparente gratis online",
+      "h1": "Quitar fondo de sello",
+      "line": "Convierte la foto de un sello rojo o una firma en un PNG transparente.",
+      "description": "Quita el fondo de papel de la foto o el escaneo de un sello rojo, un sello personal o una firma y guarda un PNG transparente. Tinta roja o oscura automática, umbral ajustable, recorte automático y salida cuadrada de 300/500 px. Gratis, en tu navegador y sin subir archivos.",
+      "buttonText": "Elegir imágenes del sello",
+      "runText": "Quitar fondo",
+      "resultName": "sellos-transparentes",
+      "fileSuffix": "transparente",
+      "noteSize": "PNG transparente de {w}×{h} px.",
+      "noteCount": "{n} PNG transparentes.",
+      "noteEmpty": "No se encontró tinta en {n} imagen(es). Sube el umbral o elige el color de la tinta.",
+      "errorTooBig": "La imagen es demasiado grande para procesarla (más de 16384 px).",
+      "needsRerun": "Ajustes cambiados. Vuelve a ejecutar.",
+      "options": {
+        "preview": { "label": "Vista previa", "help": "Cuadrícula = transparente. Haz clic en la vista previa para tomar ese color como tinta." },
+        "mode": { "label": "Tinta", "help": "Sello rojo conserva la tinta roja y elimina el texto negro y el papel. Tinta oscura sirve para firmas con bolígrafo.", "choices": { "red": "Sello rojo (auto)", "dark": "Tinta oscura", "custom": "Elegir color" } },
+        "color": { "label": "Color de la tinta", "help": "Haz clic en la vista previa o elige aquí el color del sello." },
+        "tolerance": { "label": "Umbral", "help": "Más alto conserva tinta tenue pero puede dejar manchas del papel. Más bajo deja el fondo más limpio." },
+        "crop": { "label": "Recortar al sello automáticamente (con un pequeño margen)", "help": "" },
+        "size": { "label": "Tamaño de salida", "help": "Los tamaños cuadrados centran el sello en un lienzo transparente.", "choices": { "original": "Original", "300": "300×300 px", "500": "500×500 px" } }
+      },
+      "faq": [
+        ["¿Cómo hago una imagen de sello transparente?", "Estampa el sello en papel blanco y fotografíalo o escanéalo con luz uniforme. Añade la imagen, elige Sello rojo, ajusta el umbral mirando la vista previa y descarga el PNG. El papel queda transparente."],
+        ["¿Cómo lo pongo en Word o en un contrato electrónico?", "Inserta el PNG como imagen y ajusta el texto a “Delante del texto” para colocarlo sobre tu nombre. La mayoría de servicios de firma electrónica aceptan subir un PNG; 300 o 500 px cuadrados es un tamaño cómodo."],
+        ["¿Qué precauciones debo tener?", "Esta herramienta solo edita imágenes. Que una imagen de sello sea válida depende del documento y de la otra parte. Guarda el archivo en privado y usa un servicio oficial de firma electrónica cuando se exija."],
+        ["¿Se suben mis imágenes?", "No. Todo se procesa en tu dispositivo con el navegador y nada se envía a un servidor."]
+      ]
+    },
+    "pt": {
+      "title": "Remover fundo de carimbo e assinatura – PNG transparente grátis",
+      "h1": "Remover fundo de carimbo",
+      "line": "Transforme a foto de um carimbo vermelho ou assinatura em PNG transparente.",
+      "description": "Remova o fundo de papel da foto ou digitalização de um carimbo vermelho, sinete ou assinatura e salve um PNG transparente. Tinta vermelha ou escura automática, limite ajustável, corte automático e saída quadrada de 300/500 px. Grátis, no navegador, sem enviar arquivos.",
+      "buttonText": "Escolher imagens do carimbo",
+      "runText": "Remover fundo",
+      "resultName": "carimbos-transparentes",
+      "fileSuffix": "transparente",
+      "noteSize": "PNG transparente de {w}×{h} px.",
+      "noteCount": "{n} PNG transparentes.",
+      "noteEmpty": "Nenhuma tinta encontrada em {n} imagem(ns). Aumente o limite ou escolha a cor da tinta.",
+      "errorTooBig": "A imagem é grande demais para processar (mais de 16384 px).",
+      "needsRerun": "Configurações alteradas. Execute novamente.",
+      "options": {
+        "preview": { "label": "Prévia", "help": "Xadrez = transparente. Clique na prévia para usar aquela cor como tinta." },
+        "mode": { "label": "Tinta", "help": "Carimbo vermelho mantém a tinta vermelha e remove o texto preto e o papel. Tinta escura serve para assinaturas a caneta.", "choices": { "red": "Carimbo vermelho (auto)", "dark": "Tinta escura", "custom": "Escolher cor" } },
+        "color": { "label": "Cor da tinta", "help": "Clique na prévia ou escolha aqui a cor do carimbo." },
+        "tolerance": { "label": "Limite", "help": "Mais alto mantém tinta fraca, mas pode manter manchas do papel. Mais baixo deixa o fundo mais limpo." },
+        "crop": { "label": "Cortar automaticamente no carimbo (com pequena margem)", "help": "" },
+        "size": { "label": "Tamanho de saída", "help": "Os tamanhos quadrados centralizam o carimbo numa tela transparente.", "choices": { "original": "Original", "300": "300×300 px", "500": "500×500 px" } }
+      },
+      "faq": [
+        ["Como faço uma imagem de carimbo transparente?", "Carimbe em papel branco e fotografe ou digitalize com luz uniforme. Adicione a imagem, escolha Carimbo vermelho, ajuste o limite olhando a prévia e baixe o PNG. O papel fica transparente."],
+        ["Como coloco no Word ou num contrato eletrônico?", "Insira o PNG como imagem e defina a quebra de texto como “Na frente do texto” para colocá-lo sobre o seu nome. A maioria dos serviços de assinatura eletrônica aceita PNG; 300 ou 500 px quadrados é um tamanho prático."],
+        ["Que cuidados devo ter?", "Esta ferramenta só edita imagens. A validade de uma imagem de carimbo depende do documento e da outra parte. Guarde o arquivo com segurança e use um serviço oficial de assinatura eletrônica quando exigido."],
+        ["Minhas imagens são enviadas?", "Não. Tudo é processado no seu dispositivo pelo navegador e nada vai para um servidor."]
+      ]
+    },
+    "de": {
+      "title": "Stempel- & Unterschrift-Hintergrund entfernen – transparentes PNG",
+      "h1": "Stempel freistellen",
+      "line": "Foto eines roten Stempels oder einer Unterschrift als transparentes PNG.",
+      "description": "Entferne den Papierhintergrund aus Foto oder Scan eines roten Stempels, Siegels oder einer Unterschrift und speichere ein transparentes PNG. Rote oder dunkle Tinte automatisch, Schwellenwert, automatisches Zuschneiden und 300/500 px Quadrat. Kostenlos, im Browser, ohne Upload.",
+      "buttonText": "Stempelbilder wählen",
+      "runText": "Hintergrund entfernen",
+      "resultName": "transparente-stempel",
+      "fileSuffix": "transparent",
+      "noteSize": "Transparentes PNG, {w}×{h} px.",
+      "noteCount": "{n} transparente PNG-Dateien.",
+      "noteEmpty": "In {n} Bild(ern) wurde keine Tinte gefunden. Schwellenwert erhöhen oder Tintenfarbe wählen.",
+      "errorTooBig": "Dieses Bild ist zu groß (über 16384 px).",
+      "needsRerun": "Einstellungen geändert. Erneut ausführen.",
+      "options": {
+        "preview": { "label": "Vorschau", "help": "Schachbrett = transparent. Klicke in die Vorschau, um diese Farbe als Tinte zu wählen." },
+        "mode": { "label": "Tinte", "help": "Roter Stempel behält rote Tinte und entfernt schwarzen Text und Papier. Dunkle Tinte passt für Kugelschreiber-Unterschriften.", "choices": { "red": "Roter Stempel (auto)", "dark": "Dunkle Tinte", "custom": "Farbe wählen" } },
+        "color": { "label": "Tintenfarbe", "help": "In die Vorschau klicken oder hier die Stempelfarbe wählen." },
+        "tolerance": { "label": "Schwellenwert", "help": "Höher behält blasse Tinte, aber eventuell auch Papierflecken. Niedriger ergibt einen saubereren Hintergrund." },
+        "crop": { "label": "Automatisch auf den Stempel zuschneiden (kleiner Rand)", "help": "" },
+        "size": { "label": "Ausgabegröße", "help": "Quadratische Größen zentrieren den Stempel auf transparentem Grund.", "choices": { "original": "Original", "300": "300×300 px", "500": "500×500 px" } }
+      },
+      "faq": [
+        ["Wie erstelle ich ein transparentes Stempelbild?", "Stemple auf weißes Papier und fotografiere oder scanne es bei gleichmäßigem Licht. Bild hinzufügen, Roter Stempel wählen, den Schwellenwert anhand der Vorschau einstellen und das PNG laden. Das Papier wird transparent."],
+        ["Wie füge ich es in Word oder einen E-Vertrag ein?", "Das PNG als Bild einfügen und den Textumbruch auf „Vor den Text“ stellen, um es über den Namen zu legen. Die meisten E-Signatur-Dienste akzeptieren PNG; 300 oder 500 px im Quadrat ist eine praktische Größe."],
+        ["Worauf sollte ich achten?", "Das Werkzeug bearbeitet nur Bilder. Ob ein Stempelbild gültig ist, hängt vom Dokument und vom Gegenüber ab. Bewahre die Datei sicher auf und nutze einen offiziellen E-Signatur-Dienst, wo er verlangt wird."],
+        ["Werden meine Bilder hochgeladen?", "Nein. Alles wird auf deinem Gerät im Browser verarbeitet und nie an einen Server gesendet."]
+      ]
+    },
+    "fr": {
+      "title": "Supprimer le fond d’un tampon ou d’une signature – PNG transparent",
+      "h1": "Détourer un tampon",
+      "line": "Transformez la photo d’un tampon rouge ou d’une signature en PNG transparent.",
+      "description": "Supprimez le fond papier d’une photo ou d’un scan de tampon rouge, de sceau ou de signature et enregistrez un PNG transparent. Encre rouge ou foncée automatique, seuil réglable, recadrage automatique et carré de 300/500 px. Gratuit, dans le navigateur, sans envoi de fichier.",
+      "buttonText": "Choisir images du tampon",
+      "runText": "Supprimer le fond",
+      "resultName": "tampons-transparents",
+      "fileSuffix": "transparent",
+      "noteSize": "PNG transparent de {w}×{h} px.",
+      "noteCount": "{n} PNG transparents.",
+      "noteEmpty": "Aucune encre trouvée dans {n} image(s). Augmentez le seuil ou choisissez la couleur de l’encre.",
+      "errorTooBig": "Cette image est trop grande pour être traitée (plus de 16384 px).",
+      "needsRerun": "Réglages modifiés. Relancez le traitement.",
+      "options": {
+        "preview": { "label": "Aperçu", "help": "Damier = transparent. Cliquez dans l’aperçu pour prendre cette couleur comme encre." },
+        "mode": { "label": "Encre", "help": "Tampon rouge garde l’encre rouge et retire le texte noir et le papier. Encre foncée convient aux signatures au stylo.", "choices": { "red": "Tampon rouge (auto)", "dark": "Encre foncée", "custom": "Choisir la couleur" } },
+        "color": { "label": "Couleur de l’encre", "help": "Cliquez dans l’aperçu ou choisissez ici la couleur du tampon." },
+        "tolerance": { "label": "Seuil", "help": "Plus haut garde l’encre pâle mais peut garder des taches du papier. Plus bas donne un fond plus propre." },
+        "crop": { "label": "Recadrer automatiquement sur le tampon (petite marge)", "help": "" },
+        "size": { "label": "Taille de sortie", "help": "Les tailles carrées centrent le tampon sur un fond transparent.", "choices": { "original": "Originale", "300": "300×300 px", "500": "500×500 px" } }
+      },
+      "faq": [
+        ["Comment obtenir un tampon transparent ?", "Tamponnez sur du papier blanc et photographiez ou scannez sous une lumière uniforme. Ajoutez l’image, choisissez Tampon rouge, réglez le seuil en regardant l’aperçu et téléchargez le PNG. Le papier devient transparent."],
+        ["Comment l’insérer dans Word ou un contrat électronique ?", "Insérez le PNG comme image et réglez l’habillage sur « Devant le texte » pour le poser sur votre nom. La plupart des services de signature électronique acceptent un PNG ; un carré de 300 ou 500 px est pratique."],
+        ["Quelles précautions prendre ?", "Cet outil ne fait que modifier une image. La validité d’une image de tampon dépend du document et de l’autre partie. Gardez le fichier en lieu sûr et utilisez un service officiel de signature électronique lorsqu’il est exigé."],
+        ["Mes images sont-elles envoyées ?", "Non. Tout est traité sur votre appareil par le navigateur et rien n’est envoyé à un serveur."]
+      ]
+    }
+  }
+}

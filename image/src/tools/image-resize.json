@@ -5,6 +5,7 @@
   "cat": "image",
   "next": [
     "image-compress",
+    "product-image-size",
     "image-crop",
     "png-to-jpg"
   ],

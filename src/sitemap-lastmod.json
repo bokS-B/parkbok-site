@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "3d439a7c9f06a3ff",
+  "hash": "b37a9962b98de65a",
   "lastmod": "2026-11-03"
  },
  "/about.html": {
@@ -948,7 +948,7 @@
   "lastmod": "2026-11-03"
  },
  "/image/": {
-  "hash": "11ff320f8c850a91",
+  "hash": "6529fad7e034b49b",
   "lastmod": "2026-11-03"
  },
  "/image/blur/": {
@@ -984,11 +984,11 @@
   "lastmod": "2026-11-03"
  },
  "/image/de/": {
-  "hash": "43ff58811e05d067",
+  "hash": "9d6ee879138fbaaa",
   "lastmod": "2026-11-03"
  },
  "/image/es/": {
-  "hash": "fd007d766c47718e",
+  "hash": "5bb13c564e85cd54",
   "lastmod": "2026-11-03"
  },
  "/image/exif/": {
@@ -1056,7 +1056,7 @@
   "lastmod": "2026-11-03"
  },
  "/image/fr/": {
-  "hash": "3e0e10533d205512",
+  "hash": "c49317d4ccd1b2b5",
   "lastmod": "2026-11-03"
  },
  "/image/heic-to-jpg/": {
@@ -1112,7 +1112,7 @@
   "lastmod": "2026-11-03"
  },
  "/image/image-compress/ko/": {
-  "hash": "aa91eb44f0707a06",
+  "hash": "64af812df17eae6f",
   "lastmod": "2026-11-03"
  },
  "/image/image-compress/pt/": {
@@ -1252,7 +1252,7 @@
   "lastmod": "2026-11-03"
  },
  "/image/ja/": {
-  "hash": "8383312331a7d8bf",
+  "hash": "638b2acf265edcf4",
   "lastmod": "2026-11-03"
  },
  "/image/jpg-to-png/": {
@@ -1320,7 +1320,7 @@
   "lastmod": "2026-11-03"
  },
  "/image/ko/": {
-  "hash": "453e45a076ed8f76",
+  "hash": "17963d6972d3dab5",
   "lastmod": "2026-11-03"
  },
  "/image/meme/": {
@@ -1376,7 +1376,7 @@
   "lastmod": "2026-11-03"
  },
  "/image/passport-photo/ko/": {
-  "hash": "31211cbc5cf75d00",
+  "hash": "621c5717e8f68e59",
   "lastmod": "2026-11-03"
  },
  "/image/passport-photo/pt/": {
@@ -1419,8 +1419,72 @@
   "hash": "658a69ed917ede6c",
   "lastmod": "2026-11-03"
  },
+ "/image/product-image-size/": {
+  "hash": "c796d3321de9514e",
+  "lastmod": "2026-11-03"
+ },
+ "/image/product-image-size/de/": {
+  "hash": "8c4d722abaeedbf6",
+  "lastmod": "2026-11-03"
+ },
+ "/image/product-image-size/es/": {
+  "hash": "ad0df6ffdc081745",
+  "lastmod": "2026-11-03"
+ },
+ "/image/product-image-size/fr/": {
+  "hash": "f3cab6ebda597c34",
+  "lastmod": "2026-11-03"
+ },
+ "/image/product-image-size/ja/": {
+  "hash": "70ca86cd186b20fd",
+  "lastmod": "2026-11-03"
+ },
+ "/image/product-image-size/ko/": {
+  "hash": "0f9722e3194f8545",
+  "lastmod": "2026-11-03"
+ },
+ "/image/product-image-size/pt/": {
+  "hash": "29630d6ee8431292",
+  "lastmod": "2026-11-03"
+ },
+ "/image/product-image-size/zh/": {
+  "hash": "70620f26753c04f6",
+  "lastmod": "2026-11-03"
+ },
  "/image/pt/": {
-  "hash": "8e1fb24cbe4a6e73",
+  "hash": "ee81e055e0e47e00",
+  "lastmod": "2026-11-03"
+ },
+ "/image/stamp-background/": {
+  "hash": "292083a8a4e1fb14",
+  "lastmod": "2026-11-03"
+ },
+ "/image/stamp-background/de/": {
+  "hash": "f7b1bc216d971503",
+  "lastmod": "2026-11-03"
+ },
+ "/image/stamp-background/es/": {
+  "hash": "4df9a8915fcfd1df",
+  "lastmod": "2026-11-03"
+ },
+ "/image/stamp-background/fr/": {
+  "hash": "3cff908fb4b81367",
+  "lastmod": "2026-11-03"
+ },
+ "/image/stamp-background/ja/": {
+  "hash": "caecaf5296e126c5",
+  "lastmod": "2026-11-03"
+ },
+ "/image/stamp-background/ko/": {
+  "hash": "e01c766204ef7496",
+  "lastmod": "2026-11-03"
+ },
+ "/image/stamp-background/pt/": {
+  "hash": "bcdfebe0c95834a0",
+  "lastmod": "2026-11-03"
+ },
+ "/image/stamp-background/zh/": {
+  "hash": "ed5eaf1c91b7a758",
   "lastmod": "2026-11-03"
  },
  "/image/svg-to-png/": {
@@ -1488,7 +1552,7 @@
   "lastmod": "2026-11-03"
  },
  "/image/zh/": {
-  "hash": "62709d460ee7737d",
+  "hash": "2938d4ef7852d409",
   "lastmod": "2026-11-03"
  },
  "/pdf/": {

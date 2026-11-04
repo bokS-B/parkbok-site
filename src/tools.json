@@ -1230,6 +1230,60 @@
     ]
   },
   {
+    "id": "stamp-background",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 52,
+    "url": "/image/stamp-background/",
+    "icon": "stamp-background",
+    "name": {
+      "ko": "도장 배경 제거",
+      "en": "Stamp background remover"
+    },
+    "line": {
+      "ko": "도장·서명을 투명 PNG로",
+      "en": "Stamps and signatures as transparent PNG"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
+    "id": "product-image-size",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 53,
+    "url": "/image/product-image-size/",
+    "icon": "product-image-size",
+    "name": {
+      "ko": "쇼핑몰 상품 이미지 규격",
+      "en": "Product image size for Korean marketplaces"
+    },
+    "line": {
+      "ko": "스마트스토어·쿠팡 권장 크기로",
+      "en": "Smart Store and Coupang recommended sizes"
+    },
+    "langs": [
+      "en",
+      "ko",
+      "zh",
+      "ja",
+      "es",
+      "pt",
+      "de",
+      "fr"
+    ]
+  },
+  {
     "id": "exif",
     "cat": "image",
     "section": "image",

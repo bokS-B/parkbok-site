@@ -308,6 +308,12 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .pos{width:28px;height:28px;border:1px solid var(--line);border-radius:6px;background:var(--card);cursor:pointer;padding:0}
 .pos.on{background:var(--accent);border-color:var(--accent)}
 .pos:hover{border-color:var(--ink)}
+/* 도장 배경 제거: 바둑판(투명) 위 실시간 미리보기. 누르면 잉크 색을 고른다 */
+.opt-stamp-preview{flex-direction:column;flex-wrap:nowrap;align-items:stretch}
+.stamp-preview{display:block;max-width:100%;max-height:50vh;margin:0 auto;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px;cursor:crosshair;touch-action:manipulation}
+/* 긴 체크 문구·규격 이름이 좁은 화면에서 가로로 넘치지 않게 */
+.opts#opts[data-tool="stamp-background"] .check{white-space:normal;min-width:0;flex:1 1 auto}
+.opts#opts[data-tool="product-image-size"] select{max-width:100%;min-width:0}
 /* 서명·글씨 패드 */
 .opt-signature{flex-direction:column;flex-wrap:nowrap;align-items:stretch}
 .sig-pad{position:relative;width:100%;max-width:480px;border:1px dashed var(--muted);border-radius:var(--r-big);background:#fff;overflow:hidden;touch-action:none}
