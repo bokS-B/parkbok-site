@@ -100,7 +100,9 @@ for (const [key, list] of Object.entries(groups)) {
   const name = 'sitemap-' + key + '.xml';
   write(name, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + list.map(p => `  <url><loc>${xmlEsc(SITE + p.url)}</loc><lastmod>${p.lastmod}</lastmod></url>`).join('\n') + '\n</urlset>\n');
-  index.push(`  <sitemap><loc>${SITE}/${name}</loc><lastmod>${list.map(p => p.lastmod).sort().pop() || today}</lastmod></sitemap>`);
+  // The newest page date can stay the same when the sitemap's membership changes.
+  // The optional index lastmod describes the XML file itself, so omit that date.
+  index.push(`  <sitemap><loc>${SITE}/${name}</loc></sitemap>`);
 }
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + index.join('\n') + '\n</sitemapindex>\n');
 write('robots.txt', 'User-agent: *\nAllow: /\n\nSitemap: ' + SITE + '/sitemap.xml\n');

@@ -1,9 +1,10 @@
-// Run with Playwright browser_run_code_unsafe. Local responses, production hostname,
+// Run with Playwright CLI run-code --filename. Local responses, production hostname,
 // public/synthetic input, all measurement endpoints intercepted before transmission.
 async page => {
-  const base = 'http://127.0.0.1:8803';
-  const out = 'C:/Users/boksb/Documents/ChatGPT/산업화/parkbok-cmp-integration/output/cmp';
-  const report = { choices: [], layouts: [], collect: [], errors: [], cmpRequests: 0 }, requests = [];
+  const context = page.context();
+  const base = 'http://127.0.0.1:8804';
+  const out = 'output/playwright';
+  const report = { choices: [], layouts: [], collect: [], errors: [] }, requests = [];
   const assert = (v, m) => { if (!v) throw Error(m); };
   page.on('pageerror', e => report.errors.push(String(e)));
   await page.context().route('https://parkbok.com/**', async r => {
@@ -13,8 +14,6 @@ async page => {
   });
   await page.context().route(/googletagmanager\.com|google-analytics\.com|googlesyndication\.com|doubleclick\.net|https:\/\/(?:[^/]*\.)?google\.com\//, async r => {
     const req = r.request();
-    if (new URL(req.url()).hostname === 'fundingchoicesmessages.google.com') { report.cmpRequests++; return r.continue(); }
-    if (new URL(req.url()).hostname === 'pagead2.googlesyndication.com' && new URL(req.url()).pathname.endsWith('.js')) { report.cmpRequests++; return r.continue(); }
     requests.push({ url: req.url(), body: req.postData() || '' });
     if (req.url().startsWith('https://www.googletagmanager.com/gtag/js?')) return r.continue();
     return r.abort();
@@ -30,7 +29,7 @@ async page => {
   await page.locator('[data-choice=deny]').click();
   await page.reload(); await page.waitForTimeout(200);
   assert(requests.length === 0, 'Google request after saved refusal');
-  report.choices.push('outside Europe: real Google CMP bootstrap + initial/saved refusal: zero GA/ad requests');
+  report.choices.push('all regions: initial/saved refusal: zero Google requests, no advertising CMP dependency');
 
   await page.goto('https://parkbok.com/image/image-compress/?maxKb=100&private_test=PB_QUERY_SENTINEL#PB_FRAGMENT_SENTINEL');
   await page.locator('.pb-statistics-settings').click(); await page.locator('[data-choice=allow]').click();
@@ -56,6 +55,19 @@ async page => {
   assert(requests.length === afterRefusal, 'Request after withdrawal');
   assert(!(await page.context().cookies()).some(c => /^_ga(?:_|$)/.test(c.name)), 'GA cookies remain after withdrawal');
   report.choices.push('withdrawal: no new request, GA cookies removed');
+
+  // Explicit re-consent on the same page must resume measurement without duplicate scripts.
+  await page.locator('.pb-statistics-settings').click(); await page.locator('[data-choice=allow]').click();
+  await page.waitForTimeout(1200);
+  assert(await page.locator('#pb-statistics-tag').count() === 1, 'Duplicate GA script after re-allow');
+  assert(requests.length > afterRefusal, 'No measurement after explicit re-allow');
+  const other = await context.newPage();
+  await other.goto('https://parkbok.com/color/palette/ko/');
+  await other.waitForFunction(() => window['ga-disable-G-377MXFWS51'] === false);
+  await page.locator('.pb-statistics-settings').click(); await page.locator('[data-choice=deny]').click();
+  await other.waitForFunction(() => window['ga-disable-G-377MXFWS51'] === true);
+  await other.close();
+  report.choices.push('re-allow sends again; cross-tab refusal disables the other tab');
 
   const langs = ['en', 'ko', 'ja', 'zh', 'es', 'pt', 'de', 'fr'];
   for (const lang of langs) for (const width of [375, 1280]) {

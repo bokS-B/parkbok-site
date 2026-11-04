@@ -12,7 +12,7 @@ const gaId = fs.existsSync(gaFile) ? fs.readFileSync(gaFile, 'utf8').trim() : ''
 // Do not restore the ad loader on every route: review eligible placements + CMP first.
 const ADSENSE = '<meta name="google-adsense-account" content="ca-pub-1415309581345613">';
 // Shared basic-consent loader: production hosts only; pb_internal is preserved.
-// Google consent bootstrap runs before consent; GA waits for opt-in. GA excludes query/hash.
+// Ad-free release: first-party analytics choice in every region; no Google before opt-in.
 const GA_HOSTS = ['parkbok.com', 'www.parkbok.com'];
 const GA = gaId ? '<script defer src="/assets/usage-privacy.js" data-ga="' + gaId + '"></script>' : '';
 

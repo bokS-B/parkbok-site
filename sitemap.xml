@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>https://parkbok.com/sitemap-core.xml</loc><lastmod>2026-11-03</lastmod></sitemap>
-  <sitemap><loc>https://parkbok.com/sitemap-tools.xml</loc><lastmod>2026-11-03</lastmod></sitemap>
-  <sitemap><loc>https://parkbok.com/sitemap-colors.xml</loc><lastmod>2026-11-03</lastmod></sitemap>
+  <sitemap><loc>https://parkbok.com/sitemap-core.xml</loc></sitemap>
+  <sitemap><loc>https://parkbok.com/sitemap-tools.xml</loc></sitemap>
+  <sitemap><loc>https://parkbok.com/sitemap-colors.xml</loc></sitemap>
 </sitemapindex>

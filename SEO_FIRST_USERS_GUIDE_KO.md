@@ -41,7 +41,9 @@ GA4의 활성 사용자는 실제 사람 수를 증명하지 않는다. 기기·
 
 일반 보고서 기간이 전일까지이면 오늘의 사용은 포함되지 않는다. 당일 확인은 실시간, 추세 확인은 새 데이터가 처리된 일반 보고서를 사용한다.
 
-1. https://analytics.google.com/ 에서 PARKBOK 속성을 연다.
+2026-11-04에 GA4 보고 시간대를 로스앤젤레스에서 대한민국(GMT+09:00)으로 변경했다. 이후 수집된 데이터에 적용된다. 변경 당일의 누적 수치는 이전 시간대와 처리 지연의 영향을 받을 수 있다. [GA4 시간대 안내](https://support.google.com/analytics/answer/9744165?hl=ko)
+
+1. [PARKBOK 실시간](https://analytics.google.com/analytics/web/#/a265631684p371790506/realtime/overview)에서 최근 5분·30분을 확인한다. [GA4 홈](https://analytics.google.com/analytics/web/#/a265631684p371790506/reports/intelligenthome)의 기간을 ‘오늘’로 선택하면 처리된 오늘 수치를 확인할 수 있다.
 2. 최근 배포 뒤 데이터가 처리된 기간을 선택한다. 실시간과 일반 보고서의 집계 시점을 구분한다.
 3. `호스트 이름=parkbok.com`으로 한정하고 자연검색 채널의 국가별 방문을 본다. 한국 외 접속 지역은 실제 국적과 다를 수 있다.
 4. 이미지 압축은 `tool_result`, `tool_download`와 `result_status=ready`로 실제 결과 생성·다운로드 실행을 확인한다. 다른 도구까지 사용 완료 측정이 구현된 것으로 간주하지 않는다.
