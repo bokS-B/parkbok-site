@@ -13,7 +13,7 @@
       "title": "Image Color Picker – HEX & RGB, No Upload | parkbok",
       "h1": "Color picker from image",
       "line": "Get HEX, RGB and HSL colors from your image without uploading it.",
-      "description": "Get HEX, RGB and HSL colors from your image without uploading it. Use an 8× magnifier or extract a 6-color palette. Free, no sign-up.",
+      "description": "Pick HEX, RGB and HSL colors from an image with no upload. Extract a palette, preview up to 5 colors in website templates, and export HTML and CSS. Free.",
       "sampleTitle": "No image handy?",
       "sampleLine": "Try a little sunset. Pick a color or save its palette.",
       "sampleButton": "Try sample",
@@ -38,15 +38,27 @@
       "notImage": "That is not an image file.",
       "loadFail": "This image could not be opened.",
       "faq": [
-        [ "How do I pick a color exactly?", "Press or drag on the image – a magnifier shows the pixels 8× larger so you can see which one you are picking. Lift your finger or release the mouse to add that color to the list." ],
-        [ "What does Main colors do?", "It samples the image and groups the pixels into 6 clusters, giving you the most common colors as a palette you can copy or save as a PNG." ]
-      ]
+        [
+          "How do I pick a color exactly?",
+          "Press or drag on the image – a magnifier shows the pixels 8× larger so you can see which one you are picking. Lift your finger or release the mouse to add that color to the list."
+        ],
+        [
+          "What does Main colors do?",
+          "It samples the image and groups the pixels into 6 clusters, giving you the most common colors as a palette you can copy or save as a PNG."
+        ],
+        [
+          "Can I use image colors in a website template?",
+          "Choose Main colors or pick colors yourself, then select Preview in templates. Up to 5 colors are assigned to background, surface, text, primary and accent roles. Edit the roles and check contrast in the palette tool, then copy HTML and CSS or download a standalone HTML file."
+        ]
+      ],
+      "templateButton": "Preview in templates",
+      "templateHint": "Uses up to 5 colors. Edit their roles and check text contrast in the template."
     },
     "ko": {
       "title": "색상 추출 – 이미지에서 색 뽑기, HEX RGB 코드 무료",
       "h1": "이미지 색상 추출",
       "line": "사진을 올리고 원하는 지점을 눌러 그 색의 HEX·RGB 코드를 복사하세요.",
-      "description": "사진을 올리고 한 지점을 누르면 확대경으로 짚어 HEX·RGB·HSL을 복사하세요. 최대 12색 담기, 주요 색 6개 추출. 무료, 설치 없이 브라우저 처리.",
+      "description": "사진에서 HEX·RGB·HSL 색상을 추출하고 최대 5색을 웹사이트 예시에 적용하세요. 색 조합을 확인하고 HTML·CSS로 가져가기. 업로드 없이 브라우저 처리.",
       "dropTitle": "이미지를 끌어다 놓거나 선택하세요",
       "dropHint": "JPG · PNG · WebP · GIF – 업로드 없음",
       "select": "이미지 선택",
@@ -66,9 +78,21 @@
       "notImage": "이미지 파일이 아닙니다.",
       "loadFail": "이미지를 열 수 없습니다.",
       "faq": [
-        [ "정확한 지점의 색을 고르려면?", "이미지를 누르거나 끌면 확대경이 픽셀을 8배로 보여 줍니다. 손가락을 떼거나 마우스를 놓으면 그 색이 목록에 담깁니다." ],
-        [ "주요 색 추출은 무엇인가요?", "이미지의 픽셀을 표본으로 뽑아 6개 묶음으로 나누고, 가장 많이 쓰인 색을 팔레트로 보여 줍니다. 복사하거나 PNG 로 저장할 수 있습니다." ]
-      ]
+        [
+          "정확한 지점의 색을 고르려면?",
+          "이미지를 누르거나 끌면 확대경이 픽셀을 8배로 보여 줍니다. 손가락을 떼거나 마우스를 놓으면 그 색이 목록에 담깁니다."
+        ],
+        [
+          "주요 색 추출은 무엇인가요?",
+          "이미지의 픽셀을 표본으로 뽑아 6개 묶음으로 나누고, 가장 많이 쓰인 색을 팔레트로 보여 줍니다. 복사하거나 PNG 로 저장할 수 있습니다."
+        ],
+        [
+          "추출한 색을 웹사이트 예시에 적용할 수 있나요?",
+          "주요 색을 추출하거나 원하는 색을 담고 템플릿에 적용을 누르세요. 최대 5색을 배경·표면·본문·주요 색·강조 색에 배치합니다. 색 조합 도구에서 역할과 대비를 확인한 뒤 HTML·CSS를 복사하거나 단독 HTML 파일을 받을 수 있습니다."
+        ]
+      ],
+      "templateButton": "템플릿에 적용",
+      "templateHint": "최대 5색을 가져갑니다. 템플릿에서 색의 역할과 글자 대비를 확인하세요."
     },
     "zh": {
       "title": "图片取色器 – 从图片提取颜色 HEX RGB 在线免费",
@@ -94,9 +118,17 @@
       "notImage": "这不是图片文件。",
       "loadFail": "无法打开该图片。",
       "faq": [
-        [ "如何精确取色？", "按住或拖动图片时，放大镜会把像素放大 8 倍，便于看清取的是哪个像素。松开手指或鼠标即可把该颜色加入列表。" ],
-        [ "提取主色是什么？", "对图片像素抽样并分成 6 组，给出最常见的颜色作为配色，可复制或保存为 PNG。" ]
-      ]
+        [
+          "如何精确取色？",
+          "按住或拖动图片时，放大镜会把像素放大 8 倍，便于看清取的是哪个像素。松开手指或鼠标即可把该颜色加入列表。"
+        ],
+        [
+          "提取主色是什么？",
+          "对图片像素抽样并分成 6 组，给出最常见的颜色作为配色，可复制或保存为 PNG。"
+        ]
+      ],
+      "templateButton": "应用到模板",
+      "templateHint": "最多使用5种颜色。可在模板中调整用途并检查文字对比度。"
     },
     "ja": {
       "title": "画像カラーピッカー – 画像から色を抽出 HEX RGB 無料",
@@ -122,9 +154,17 @@
       "notImage": "画像ファイルではありません。",
       "loadFail": "この画像を開けません。",
       "faq": [
-        [ "正確な位置の色を取るには？", "画像を押すかドラッグすると、拡大鏡がピクセルを 8 倍で表示します。指やマウスを離すと、その色がリストに追加されます。" ],
-        [ "主要色の抽出とは？", "画像のピクセルをサンプリングして 6 つのグループに分け、最もよく使われている色をパレットとして表示します。コピーや PNG 保存ができます。" ]
-      ]
+        [
+          "正確な位置の色を取るには？",
+          "画像を押すかドラッグすると、拡大鏡がピクセルを 8 倍で表示します。指やマウスを離すと、その色がリストに追加されます。"
+        ],
+        [
+          "主要色の抽出とは？",
+          "画像のピクセルをサンプリングして 6 つのグループに分け、最もよく使われている色をパレットとして表示します。コピーや PNG 保存ができます。"
+        ]
+      ],
+      "templateButton": "テンプレートで見る",
+      "templateHint": "最大5色を使用します。テンプレートで用途と文字のコントラストを確認できます。"
     },
     "es": {
       "title": "Selector de color de imagen – HEX y RGB de cualquier foto gratis",
@@ -150,9 +190,17 @@
       "notImage": "Eso no es un archivo de imagen.",
       "loadFail": "No se pudo abrir la imagen.",
       "faq": [
-        [ "¿Cómo elijo un color con precisión?", "Pulsa o arrastra sobre la imagen: una lupa muestra los píxeles 8 veces más grandes para ver cuál eliges. Suelta el dedo o el ratón para añadir ese color a la lista." ],
-        [ "¿Qué hace Colores clave?", "Toma muestras de la imagen y agrupa los píxeles en 6 grupos, dándote los colores más frecuentes como una paleta que puedes copiar o guardar en PNG." ]
-      ]
+        [
+          "¿Cómo elijo un color con precisión?",
+          "Pulsa o arrastra sobre la imagen: una lupa muestra los píxeles 8 veces más grandes para ver cuál eliges. Suelta el dedo o el ratón para añadir ese color a la lista."
+        ],
+        [
+          "¿Qué hace Colores clave?",
+          "Toma muestras de la imagen y agrupa los píxeles en 6 grupos, dándote los colores más frecuentes como una paleta que puedes copiar o guardar en PNG."
+        ]
+      ],
+      "templateButton": "Ver en plantillas",
+      "templateHint": "Usa hasta 5 colores. Ajusta sus funciones y revisa el contraste del texto en la plantilla."
     },
     "pt": {
       "title": "Seletor de cor de imagem – HEX e RGB de qualquer foto grátis",
@@ -178,9 +226,17 @@
       "notImage": "Isso não é um arquivo de imagem.",
       "loadFail": "Não foi possível abrir a imagem.",
       "faq": [
-        [ "Como escolho uma cor com precisão?", "Pressione ou arraste sobre a imagem: uma lupa mostra os pixels 8 vezes maiores para ver qual você está escolhendo. Solte o dedo ou o mouse para adicionar a cor à lista." ],
-        [ "O que faz Cores principais?", "Amostra a imagem e agrupa os pixels em 6 grupos, mostrando as cores mais comuns como uma paleta que você pode copiar ou salvar em PNG." ]
-      ]
+        [
+          "Como escolho uma cor com precisão?",
+          "Pressione ou arraste sobre a imagem: uma lupa mostra os pixels 8 vezes maiores para ver qual você está escolhendo. Solte o dedo ou o mouse para adicionar a cor à lista."
+        ],
+        [
+          "O que faz Cores principais?",
+          "Amostra a imagem e agrupa os pixels em 6 grupos, mostrando as cores mais comuns como uma paleta que você pode copiar ou salvar em PNG."
+        ]
+      ],
+      "templateButton": "Ver nos modelos",
+      "templateHint": "Usa até 5 cores. Edite as funções e confira o contraste do texto no modelo."
     },
     "de": {
       "title": "Farbe aus Bild auslesen – HEX und RGB aus jedem Foto kostenlos",
@@ -206,9 +262,17 @@
       "notImage": "Das ist keine Bilddatei.",
       "loadFail": "Dieses Bild konnte nicht geöffnet werden.",
       "faq": [
-        [ "Wie treffe ich genau die richtige Stelle?", "Drücke oder ziehe auf dem Bild – eine Lupe zeigt die Pixel 8-fach vergrößert. Beim Loslassen wird die Farbe der Liste hinzugefügt." ],
-        [ "Was macht Hauptfarben?", "Das Bild wird abgetastet und die Pixel werden in 6 Gruppen geteilt. Die häufigsten Farben erscheinen als Palette, die du kopieren oder als PNG sichern kannst." ]
-      ]
+        [
+          "Wie treffe ich genau die richtige Stelle?",
+          "Drücke oder ziehe auf dem Bild – eine Lupe zeigt die Pixel 8-fach vergrößert. Beim Loslassen wird die Farbe der Liste hinzugefügt."
+        ],
+        [
+          "Was macht Hauptfarben?",
+          "Das Bild wird abgetastet und die Pixel werden in 6 Gruppen geteilt. Die häufigsten Farben erscheinen als Palette, die du kopieren oder als PNG sichern kannst."
+        ]
+      ],
+      "templateButton": "In Vorlagen ansehen",
+      "templateHint": "Bis zu 5 Farben. Rollen bearbeiten und Textkontrast in der Vorlage prüfen."
     },
     "fr": {
       "title": "Pipette couleur image – HEX et RGB de n'importe quelle photo gratuit",
@@ -234,9 +298,17 @@
       "notImage": "Ce n'est pas un fichier image.",
       "loadFail": "Impossible d'ouvrir cette image.",
       "faq": [
-        [ "Comment choisir une couleur précisément ?", "Appuyez ou faites glisser sur l'image : une loupe montre les pixels 8 fois plus grands pour voir lequel vous choisissez. Relâchez pour ajouter cette couleur à la liste." ],
-        [ "Que fait Couleurs clés ?", "L'image est échantillonnée et les pixels sont regroupés en 6 groupes : vous obtenez les couleurs les plus fréquentes sous forme de palette, à copier ou à enregistrer en PNG." ]
-      ]
+        [
+          "Comment choisir une couleur précisément ?",
+          "Appuyez ou faites glisser sur l'image : une loupe montre les pixels 8 fois plus grands pour voir lequel vous choisissez. Relâchez pour ajouter cette couleur à la liste."
+        ],
+        [
+          "Que fait Couleurs clés ?",
+          "L'image est échantillonnée et les pixels sont regroupés en 6 groupes : vous obtenez les couleurs les plus fréquentes sous forme de palette, à copier ou à enregistrer en PNG."
+        ]
+      ],
+      "templateButton": "Voir dans les modèles",
+      "templateHint": "Jusqu’à 5 couleurs. Modifiez leurs rôles et vérifiez le contraste du texte dans le modèle."
     }
   }
 }

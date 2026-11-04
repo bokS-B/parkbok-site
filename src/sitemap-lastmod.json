@@ -864,7 +864,7 @@
   "lastmod": "2026-11-03"
  },
  "/color/picker/": {
-  "hash": "a962a2e94705bc5d",
+  "hash": "412aa320f2226f57",
   "lastmod": "2026-11-04"
  },
  "/color/picker/de/": {
@@ -884,8 +884,8 @@
   "lastmod": "2026-11-03"
  },
  "/color/picker/ko/": {
-  "hash": "4f291d852d9de214",
-  "lastmod": "2026-11-03"
+  "hash": "db986b543dd45173",
+  "lastmod": "2026-11-04"
  },
  "/color/picker/pt/": {
   "hash": "56891f98a0c0669a",
@@ -960,7 +960,7 @@
   "lastmod": "2026-11-03"
  },
  "/guide/photo-signature-size-india.html": {
-  "hash": "fdc691e18a7c4e98",
+  "hash": "fcd755c3f5fa7e18",
   "lastmod": "2026-11-04"
  },
  "/hwp/": {
@@ -1112,36 +1112,36 @@
   "lastmod": "2026-11-03"
  },
  "/image/image-compress/": {
-  "hash": "cf1c7d4266f88273",
+  "hash": "1458a7f631053e37",
   "lastmod": "2026-11-04"
  },
  "/image/image-compress/de/": {
-  "hash": "66df389a92e94989",
-  "lastmod": "2026-11-03"
+  "hash": "0e519060a6abbed5",
+  "lastmod": "2026-11-04"
  },
  "/image/image-compress/es/": {
-  "hash": "4ec6f7d9b1732c19",
-  "lastmod": "2026-11-03"
+  "hash": "985a30ebff322649",
+  "lastmod": "2026-11-04"
  },
  "/image/image-compress/fr/": {
-  "hash": "b8fb986d0062f44b",
-  "lastmod": "2026-11-03"
+  "hash": "842f493fadc00c9e",
+  "lastmod": "2026-11-04"
  },
  "/image/image-compress/ja/": {
-  "hash": "9710a1586117e8a0",
-  "lastmod": "2026-11-03"
+  "hash": "f3542471210a1226",
+  "lastmod": "2026-11-04"
  },
  "/image/image-compress/ko/": {
-  "hash": "59080b5686d153dd",
+  "hash": "27da8c27b76962a0",
   "lastmod": "2026-11-04"
  },
  "/image/image-compress/pt/": {
-  "hash": "1397ebf62e444d53",
-  "lastmod": "2026-11-03"
+  "hash": "c1014c0ac7203ff8",
+  "lastmod": "2026-11-04"
  },
  "/image/image-compress/zh/": {
-  "hash": "d503d34638d1ec96",
-  "lastmod": "2026-11-03"
+  "hash": "e3064be8265d0a40",
+  "lastmod": "2026-11-04"
  },
  "/image/image-crop/": {
   "hash": "af6ff70eb9c383d1",

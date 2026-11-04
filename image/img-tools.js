@@ -230,6 +230,7 @@
     try {
       if (!tool || tool.id !== 'image-compress' || !/^(parkbok\.com|www\.parkbok\.com)$/.test(location.hostname) || typeof window.gtag !== 'function') return;
       if (localStorage.getItem('pb_internal') === '1') return;
+      if (files.length && files.every(function(f){ return f.sample; })) return; // Sample-only runs are not user-file conversions.
       var data = { tool_id: 'image-compress', tool_language: T.lang || 'en' };
       if (detail && /^(started|ready|over_limit|error)$/.test(detail.status)) data.result_status = detail.status;
       if (detail && Number.isInteger(detail.targetKb) && detail.targetKb >= 0 && detail.targetKb <= 51200) data.target_kb = detail.targetKb;
@@ -269,7 +270,7 @@
   }
 
   // ---------- 파일 추가 ----------
-  function addFiles(list){
+  function addFiles(list, sample){
     if (busy || !list || !list.length) return;
     var arr = Array.prototype.slice.call(list).filter(function(f){ return f && f.size > 0; });
     if (!tool.multiple) { arr = arr.slice(0, 1); files = []; pages = []; }
@@ -284,13 +285,14 @@
       chain = chain.then(function(){
         n++; if (arr.length > 1) setStatus(t('processing') + ' ' + n + '/' + arr.length, 'busy', files.length ? null : dom.inStatus);
         return readOne(f);
-      }).then(function(rec){ if (rec) files.push(rec); }, function(e){ if (!firstErr) firstErr = e; });
+      }).then(function(rec){ if (rec) { rec.sample = !!sample; files.push(rec); } }, function(e){ if (!firstErr) firstErr = e; });
     });
     chain.then(function(){
       setBusy(false);
       rebuildPages();
       if (!files.length) { reset(); setStatus(t(firstErr && firstErr.key ? firstErr.key : 'errorBroken'), 'err', dom.inStatus); return; }
       afterInput();
+      if (sample && optUI.maxKb && optUI.maxKb.set) { optUI.maxKb.set(tool.targetFromSearch(location.search) || 20); onOptChange(); }
       if (firstErr) setStatus(t(firstErr.key || 'errorBroken'), 'err');
     });
   }
@@ -839,7 +841,16 @@
     if (outputs.length === 1) {
       var o = outputs[0];
       var box = el('div', 'result-one');
-      if (isImageOut(o)) { var im = el('img', 'result-img'); im.src = objUrl(o.blob); im.alt = o.name; box.appendChild(im); }
+      if (isImageOut(o) && T.id === 'image-compress') {
+        var comparison = el('div', 'compress-compare');
+        [{blob:files[0].file,label:t('compareBefore'),width:files[0].width,height:files[0].height},{blob:o.blob,label:t('compareAfter'),width:o.dimensions.width,height:o.dimensions.height}].forEach(function(item){
+          var figure = el('figure'), preview = el('img'), caption = el('figcaption');
+          preview.src = objUrl(item.blob); preview.alt = item.label; preview.loading = 'lazy';
+          caption.appendChild(el('strong',null,item.label)); caption.appendChild(el('span',null,t('compareMeta',{w:item.width,h:item.height,bytes:item.blob.size})));
+          figure.appendChild(preview); figure.appendChild(caption); comparison.appendChild(figure);
+        });
+        box.appendChild(comparison); box.appendChild(el('p','muted compare-help',t('compareHint')));
+      } else if (isImageOut(o)) { var im = el('img', 'result-img'); im.src = objUrl(o.blob); im.alt = o.name; box.appendChild(im); }
       box.appendChild(el('div', 'result-name', o.name));
       box.appendChild(stats(o.srcSize != null ? o.srcSize : inputBytes, o.blob.size));
       r.appendChild(box);
@@ -887,6 +898,14 @@
   // ---------- 입력 이벤트 ----------
   function openPicker(){ if (busy) return; dom.input.value = ''; dom.input.click(); }
   function bind(){
+    var sampleButton = $('btn-sample');
+    if (sampleButton && tool.sampleFile) sampleButton.addEventListener('click', function(){
+      if (busy || files.length) return;
+      setBusy(true); sampleButton.disabled = true;
+      fetch(tool.sampleFile).then(function(r){if(!r.ok)throw Error('sample');return r.blob();}).then(function(blob){
+        setBusy(false); sampleButton.disabled = false; addFiles([new File([blob], 'parkbok-sunset-sample.jpg', {type:'image/jpeg'})], true);
+      }).catch(function(){setBusy(false);sampleButton.disabled=false;setStatus(t('errorBroken'),'err',dom.inStatus);});
+    });
     dom = { drop: $('drop'), input: $('file-input'), select: $('btn-select'), add: $('btn-add'), btnAdd: $('btn-add'), resetTop: $('btn-reset-top'), compact: $('drop-compact'), count: $('file-count'),
       files: $('files'), inStatus: $('in-status'), opts: $('opts'), out: $('out'), result: $('result'), progress: $('progress'), primary: $('btn-primary'), reset: $('btn-reset'), status: $('status') };
     dom.bar = dom.progress.querySelector('.bar'); dom.ptxt = dom.progress.querySelector('.ptxt');

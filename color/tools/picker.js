@@ -23,6 +23,7 @@
     '.pk-sample-colors{display:flex;flex-wrap:wrap;gap:8px 12px;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}',
     '.pk-sample-colors span{display:inline-flex;align-items:center;gap:5px}.pk-sample-colors span:before{content:"";width:12px;height:12px;border-radius:50%;background:var(--swatch);border:1px solid var(--line)}',
     '#pk-try-sample{min-height:44px;flex:none}',
+    '#pk-template-main,#pk-template-picks{min-height:44px;text-decoration:none}',
     '@media(max-width:767.98px){.pk-sample{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;padding:12px}.pk-sample img{width:88px;height:88px}.pk-sample-copy p{font-size:13px}.pk-sample-colors{font-size:11px;gap:4px 8px}#pk-try-sample{grid-column:1/-1;width:100%}}',
     '.pk-stage{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:16px;align-items:start}',
     '.pk-left{display:flex;flex-direction:column;gap:10px;min-width:0}',
@@ -100,7 +101,10 @@
   var btnCopyAll = el('button', 'btn ghost sm', t('copyAll')); btnCopyAll.type = 'button';
   var btnSave = el('button', 'btn ghost sm', t('save')); btnSave.type = 'button';
   domBar.appendChild(btnCopyAll); domBar.appendChild(btnSave);
+  var domTemplate = el('a', 'btn sm', t('templateButton')); domTemplate.id = 'pk-template-main';
+  domBar.appendChild(domTemplate);
   var domBox = el('div'); domBox.appendChild(domPal); domBox.appendChild(domBar);
+  domBox.appendChild(el('p', 'muted', t('templateHint')));
   var domSec = U.section(t('dominant'), domBox); domSec.hidden = true;
   app.appendChild(domSec);
 
@@ -111,7 +115,9 @@
   var btnCopyPicks = el('button', 'btn ghost sm', t('copyAll')); btnCopyPicks.type = 'button';
   var btnClear = el('button', 'btn ghost sm', t('clear')); btnClear.type = 'button';
   listBar.appendChild(btnCopyPicks); listBar.appendChild(btnClear);
+  var picksTemplate = el('a', 'btn sm', t('templateButton')); picksTemplate.id = 'pk-template-picks'; listBar.appendChild(picksTemplate);
   var listBox = el('div'); listBox.appendChild(empty); listBox.appendChild(list); listBox.appendChild(listBar);
+  listBox.appendChild(el('p', 'muted', t('templateHint')));
   var picksSec = U.section(t('picks'), listBox, t('picksMax')); picksSec.hidden = true;
   app.appendChild(picksSec);
 
@@ -227,6 +233,8 @@
     list.textContent = '';
     for (var i = 0; i < picks.length; i++) list.appendChild(item(picks[i]));
     empty.hidden = picks.length > 0; listBar.hidden = picks.length === 0;
+    if (picks.length && window.PB_PALETTE_IMPORT) picksTemplate.href = window.PB_PALETTE_IMPORT.href(picks, window.COLOR_TOOL.lang);
+    else picksTemplate.removeAttribute('href');
   }
   function pick(hex){
     setCurrent(hex);
@@ -317,6 +325,8 @@
     setTimeout(function(){
       if (id !== loadId) { btnExtract.disabled = false; btnExtract.textContent = t('extract'); return; }
       dominant = dominantColors(sample(), K);
+      if (dominant.length && window.PB_PALETTE_IMPORT) domTemplate.href = window.PB_PALETTE_IMPORT.href(dominant, window.COLOR_TOOL.lang);
+      else domTemplate.removeAttribute('href');
       U.setPalette(domPal, dominant, { large: true });
       domPal.style.setProperty('--cols', String(dominant.length || 1));
       domSec.hidden = false;

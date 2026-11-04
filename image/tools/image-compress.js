@@ -49,6 +49,7 @@
   }
   var tool = {
     id: 'image-compress',
+    sampleFile: '/image/assets/compress-sample.jpg',
     accept: '.jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp',
     multiple: true,
     minFiles: 1,

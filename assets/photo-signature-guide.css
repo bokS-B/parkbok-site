@@ -24,6 +24,8 @@
 .form-guide tr:last-child td{border-bottom:0}
 .form-guide .guide-note{border-left:3px solid var(--accent);padding:12px 18px;background:var(--card)}
 .form-guide .guide-source{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.form-guide .guide-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0}.form-guide .guide-comparison figure{margin:0;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}.form-guide .guide-comparison img{display:block;width:100%;height:auto}.form-guide .guide-comparison figcaption{display:flex;flex-direction:column;gap:5px;padding:14px;font-size:14px;line-height:1.5;overflow-wrap:anywhere}.form-guide .guide-comparison figcaption span{color:var(--muted)}
+@media(max-width:600px){.form-guide .guide-comparison{gap:10px}.form-guide .guide-comparison figcaption{font-size:13px;padding:10px}}
 @media(max-width:600px){.form-guide{padding-top:20px;padding-bottom:40px}.form-guide .guide-breadcrumb{margin-bottom:20px}.form-guide .guide-start{grid-template-columns:1fr;gap:12px;margin-bottom:32px}.form-guide .guide-card{padding:20px}.form-guide .guide-lead{font-size:16px}.form-guide section{margin:32px 0}.form-guide section h2{font-size:22px}.form-guide th,.form-guide td{padding:12px 10px}}
 
 @media(max-width:600px){.form-guide .guide-breadcrumb{margin-bottom:16px}.form-guide .guide-meta{margin:12px 0 20px}.form-guide .guide-start{margin-top:20px}.form-guide .guide-card{padding:18px}.form-guide .guide-card p{margin-bottom:14px}}

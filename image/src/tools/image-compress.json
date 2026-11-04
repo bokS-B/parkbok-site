@@ -26,7 +26,7 @@
       "options": {
         "level": {
           "label": "Compression",
-          "help": "Medium suits photos for the web. High makes the smallest file and limits the longest side to 1600 px.",
+          "help": "Medium suits web photos. High normally caps the longest side at 1600 px. With a KB target and dimension reduction off, original pixels are kept.",
           "choices": {
             "low": "Low",
             "medium": "Medium",
@@ -81,7 +81,15 @@
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Format & quality"
-      }
+      },
+      "sampleTitle": "Try it before choosing a photo",
+      "sampleLine": "Run our sample and compare actual bytes and pixels.",
+      "sampleButton": "Try sample",
+      "sampleAlt": "PARKBOK sunset illustration sample",
+      "compareBefore": "Original",
+      "compareAfter": "Compressed",
+      "compareMeta": "{w} × {h} px · {bytes} B",
+      "compareHint": "Check clarity and any minimum size your form requires. The KB target is an upper limit, not a guaranteed range."
     },
     "ko": {
       "title": "사진 용량 줄이기 – 20KB·50KB·100KB 이미지 압축 | PARKBOK",
@@ -98,7 +106,7 @@
       "options": {
         "level": {
           "label": "압축 정도",
-          "help": "보통은 웹용 사진에 알맞습니다. 강하게는 가장 작게 만들고 긴 변을 1600px 로 제한합니다.",
+          "help": "보통은 웹 사진용입니다. 높음은 기본적으로 긴 변을 1600px로 제한하지만, 목표 KB를 정하고 해상도 축소를 끄면 원본 픽셀을 유지합니다.",
           "choices": {
             "low": "약하게",
             "medium": "보통",
@@ -153,7 +161,15 @@
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "형식·압축 강도"
-      }
+      },
+      "sampleTitle": "사진 없이 먼저 체험해 보세요",
+      "sampleLine": "샘플을 압축하고 실제 바이트·픽셀을 비교하세요.",
+      "sampleButton": "샘플 체험",
+      "sampleAlt": "PARKBOK 노을 일러스트 샘플",
+      "compareBefore": "원본",
+      "compareAfter": "압축 결과",
+      "compareMeta": "{w} × {h} px · {bytes} B",
+      "compareHint": "선명도와 신청서의 최소 용량도 확인하세요. 목표 KB는 상한이며 최소·최대 범위를 보장하지 않습니다."
     },
     "zh": {
       "title": "图片压缩 – 免费在线压缩 JPG、PNG、WebP 图片大小",
@@ -213,7 +229,15 @@
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "格式与质量"
-      }
+      },
+      "sampleTitle": "先用示例试试看",
+      "sampleLine": "压缩示例并比较实际字节数和像素。",
+      "sampleButton": "试用示例",
+      "sampleAlt": "PARKBOK日落插画示例",
+      "compareBefore": "原图",
+      "compareAfter": "压缩后",
+      "compareMeta": "{w} × {h} px · {bytes} B",
+      "compareHint": "请检查清晰度和申请表的最低大小要求。目标KB是上限，不保证满足大小区间。"
     },
     "ja": {
       "title": "画像圧縮 – JPG・PNG・WebP の容量を無料オンラインで削減",
@@ -273,7 +297,15 @@
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "形式・品質"
-      }
+      },
+      "sampleTitle": "写真を選ぶ前に試す",
+      "sampleLine": "サンプルを圧縮し、実際のバイト数とピクセルを比較。",
+      "sampleButton": "サンプルで試す",
+      "sampleAlt": "PARKBOKの夕焼けイラスト",
+      "compareBefore": "元画像",
+      "compareAfter": "圧縮後",
+      "compareMeta": "{w} × {h} px · {bytes} B",
+      "compareHint": "鮮明さと申請先の最小容量も確認してください。目標KBは上限であり、容量範囲を保証しません。"
     },
     "es": {
       "title": "Comprimir imagen – Reducir el tamaño de JPG, PNG y WebP gratis online",
@@ -333,7 +365,15 @@
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Formato y calidad"
-      }
+      },
+      "sampleTitle": "Pruébalo antes de elegir una foto",
+      "sampleLine": "Comprime el ejemplo y compara bytes y píxeles reales.",
+      "sampleButton": "Probar ejemplo",
+      "sampleAlt": "Ilustración de atardecer de PARKBOK",
+      "compareBefore": "Original",
+      "compareAfter": "Comprimida",
+      "compareMeta": "{w} × {h} px · {bytes} B",
+      "compareHint": "Revisa la claridad y el tamaño mínimo del formulario. El objetivo KB es un máximo, no un intervalo garantizado."
     },
     "pt": {
       "title": "Comprimir imagem – Reduzir o tamanho de JPG, PNG e WebP grátis online",
@@ -393,7 +433,15 @@
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Formato e qualidade"
-      }
+      },
+      "sampleTitle": "Teste antes de escolher uma foto",
+      "sampleLine": "Comprima o exemplo e compare bytes e pixels reais.",
+      "sampleButton": "Testar exemplo",
+      "sampleAlt": "Ilustração de pôr do sol da PARKBOK",
+      "compareBefore": "Original",
+      "compareAfter": "Comprimida",
+      "compareMeta": "{w} × {h} px · {bytes} B",
+      "compareHint": "Confira a nitidez e o tamanho mínimo exigido. A meta em KB é um limite máximo, não uma faixa garantida."
     },
     "de": {
       "title": "Bild komprimieren – JPG, PNG, WebP online kostenlos verkleinern",
@@ -453,7 +501,15 @@
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Format und Qualität"
-      }
+      },
+      "sampleTitle": "Vor der Fotoauswahl ausprobieren",
+      "sampleLine": "Beispiel komprimieren und tatsächliche Bytes und Pixel vergleichen.",
+      "sampleButton": "Beispiel testen",
+      "sampleAlt": "PARKBOK-Sonnenuntergang als Beispiel",
+      "compareBefore": "Original",
+      "compareAfter": "Komprimiert",
+      "compareMeta": "{w} × {h} px · {bytes} B",
+      "compareHint": "Prüfe Lesbarkeit und Mindestgröße des Formulars. Das KB-Ziel ist eine Obergrenze, kein garantierter Bereich."
     },
     "fr": {
       "title": "Compresser une image – Réduire le poids des JPG, PNG, WebP gratuitement",
@@ -513,7 +569,15 @@
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Format et qualité"
-      }
+      },
+      "sampleTitle": "Essayez avant de choisir une photo",
+      "sampleLine": "Compressez l’exemple et comparez les octets et pixels réels.",
+      "sampleButton": "Essayer l’exemple",
+      "sampleAlt": "Illustration de coucher de soleil PARKBOK",
+      "compareBefore": "Original",
+      "compareAfter": "Compressé",
+      "compareMeta": "{w} × {h} px · {bytes} B",
+      "compareHint": "Vérifiez la netteté et la taille minimale du formulaire. La cible en Ko est un maximum, pas une plage garantie."
     }
   }
 }

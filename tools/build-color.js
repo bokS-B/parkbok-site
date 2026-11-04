@@ -68,6 +68,7 @@ function finish(html, lang, id, vars){
   html = html.split('{{shell_footer}}').join(shell.footer({ lang }));
   if (id === 'palette') html = html.replace(/(?:src|href)="(\/color\/(?:palette[\w-]*\.(?:js|css)|tools\/palette\.js))"/g, (match, file) => match.replace(file, assetUrl(file)));
   if (id === 'picker') html = html.replace('src="/color/tools/picker.js"', 'src="' + assetUrl('/color/tools/picker.js') + '"');
+  if (id === 'picker') html = html.replace(/<script src="\/color\/tools\/picker\.js/, '<script src="' + assetUrl('/color/palette-import.js') + '" defer></script>\n<script src="/color/tools/picker.js');
   const out = path.join(root, url(lang, id).replace(/\//g, path.sep), 'index.html');
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, html, 'utf8');
