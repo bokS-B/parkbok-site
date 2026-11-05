@@ -3,7 +3,7 @@
 // 넣는 조건: robots 에 noindex 가 없고 canonical 이 자기 자신인 페이지.
 //   sitemap.xml          = 아래 세 파일을 가리키는 사이트맵 인덱스
 //   sitemap-core.xml     = 홈, 허브 3개(/image/ /pdf/ /color/), 영어 기본 도구 페이지, HWP 뷰어
-//   sitemap-tools.xml    = 그 밖의 색인 페이지(다른 언어 도구·허브, 텍스트 도구, 가이드, 룰렛, 게임, 소개 등)
+//   sitemap-tools.xml    = 그 밖의 색인 페이지(다른 언어 도구·허브, 텍스트 도구, 가이드, 소개 등)
 //   sitemap-colors.xml   = 큐레이션된 /color/hex/ 페이지(color/src/curated-colors.json)
 // lastmod 는 본문이 바뀐 날만 갱신한다: src/sitemap-lastmod.json 에 URL 별 본문 해시와 날짜를 두고, 해시가 같으면 날짜를 유지한다.
 //   본문 = 제목 + 설명 + <main>(없으면 <body>) 에서 script·style·nav 를 뺀 텍스트. 공통 셸·내비게이션 링크만 바뀐 경우는 lastmod 를 건드리지 않는다.
@@ -13,7 +13,7 @@ const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const root = path.resolve(__dirname, '..');
 const SITE = 'https://parkbok.com';
-const PUBLIC_DIRS = ['color', 'games', 'guide', 'hwp', 'image', 'pdf', 'text', 'wheel', 'en', 'ja', 'zh', 'es', 'pt', 'de', 'fr'];
+const PUBLIC_DIRS = ['color', 'guide', 'hwp', 'image', 'pdf', 'text', 'en', 'ja', 'zh', 'es', 'pt', 'de', 'fr'];
 const LASTMOD = path.join(root, 'src', 'sitemap-lastmod.json');
 const day = d => d.toISOString().slice(0, 10);   // 날짜는 모두 UTC 기준(로컬·CI 결과가 같도록)
 const today = day(new Date());

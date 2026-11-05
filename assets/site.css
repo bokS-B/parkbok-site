@@ -4,7 +4,7 @@
   --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--accent-label:#1d4ed8;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
-  --cat-hwp:#2563eb;--cat-text:#10b981;--cat-wheel:#8b5cf6;--cat-game:var(--cat-wheel);--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;--cat-color:#ec4899;
+  --cat-hwp:#2563eb;--cat-text:#10b981;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;--cat-color:#ec4899;
   --font:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
   --fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
   --fs-body:16px;--lh-body:24px;--fs-h1:32px;--lh-h1:40px;--fs-lead:18px;--lh-lead:28px;--fs-h1-compact:20px;--lh-h1-compact:28px;
@@ -229,8 +229,6 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
   .chips.next{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:5px 0;min-height:var(--touch)}
   .chips.next::-webkit-scrollbar{display:none}
 }
-/* 돌림판은 메뉴에 언어 선택까지 있어 860px 이하에서 브랜드 글자를 숨기고 마크만 남긴다(font-size:0 — 접근성 이름 "parkbok" 은 유지, 마크 크기는 px 라 영향 없음) */
-@media (max-width:860px){.page-wheel .brand{font-size:0;gap:0}}
 @media (max-width:700px){.tt-grid{grid-template-columns:1fr}.tt-grid textarea{min-height:180px}}
 @media (max-width:640px){.card-icon{width:32px;height:32px;margin-bottom:12px}}
 @media (max-width:501px){.btn-big{width:100%;min-width:0}.droptxt{display:none}}

@@ -60,26 +60,6 @@
     ]
   },
   {
-    "id": "wheel",
-    "cat": "game",
-    "section": "game",
-    "status": "live",
-    "order": 4,
-    "url": "/wheel/ko/",
-    "icon": "wheel",
-    "name": {
-      "ko": "돌림판",
-      "en": "Spin the wheel"
-    },
-    "line": {
-      "ko": "항목을 넣고 돌려 하나 뽑기",
-      "en": "Pick a random name"
-    },
-    "langs": [
-      "ko"
-    ]
-  },
-  {
     "id": "dedupe-lines",
     "cat": "text",
     "section": "text",
@@ -137,78 +117,6 @@
     },
     "langs": [
       "ko"
-    ]
-  },
-  {
-    "id": "wheel-yesno",
-    "cat": "game",
-    "section": "game",
-    "status": "live",
-    "order": 8,
-    "url": "/wheel/ko/yes-or-no/",
-    "icon": "wheel-yesno",
-    "name": {
-      "ko": "예 아니오 룰렛",
-      "en": "Yes or no wheel"
-    },
-    "line": {
-      "ko": "돌려서 예·아니오로 결정",
-      "en": "Decide with a spin"
-    },
-    "langs": [
-      "ko"
-    ],
-    "hideOn": [
-      "/",
-      "/games/"
-    ]
-  },
-  {
-    "id": "wheel-number",
-    "cat": "game",
-    "section": "game",
-    "status": "live",
-    "order": 9,
-    "url": "/wheel/ko/number/",
-    "icon": "wheel-number",
-    "name": {
-      "ko": "숫자 룰렛",
-      "en": "Number wheel"
-    },
-    "line": {
-      "ko": "정한 범위에서 숫자 하나",
-      "en": "Random number in a range"
-    },
-    "langs": [
-      "ko"
-    ],
-    "hideOn": [
-      "/",
-      "/games/"
-    ]
-  },
-  {
-    "id": "wheel-food",
-    "cat": "game",
-    "section": "game",
-    "status": "live",
-    "order": 10,
-    "url": "/wheel/ko/what-to-eat/",
-    "icon": "wheel-food",
-    "name": {
-      "ko": "메뉴 룰렛",
-      "en": "What to eat wheel"
-    },
-    "line": {
-      "ko": "오늘 먹을 메뉴 돌려 뽑기",
-      "en": "Let the wheel pick a meal"
-    },
-    "langs": [
-      "ko"
-    ],
-    "hideOn": [
-      "/",
-      "/games/"
     ]
   },
   {
@@ -1347,60 +1255,6 @@
       "pt",
       "de",
       "fr"
-    ]
-  },
-  {
-    "id": "rock-paper-scissors",
-    "cat": "game",
-    "section": "game",
-    "status": "live",
-    "order": 52,
-    "url": "/games/rock-paper-scissors/",
-    "icon": "game-rps",
-    "name": {
-      "ko": "가위바위보"
-    },
-    "line": {
-      "ko": "컴퓨터와 가위바위보 한 판"
-    },
-    "langs": [
-      "ko"
-    ]
-  },
-  {
-    "id": "number-guess",
-    "cat": "game",
-    "section": "game",
-    "status": "live",
-    "order": 53,
-    "url": "/games/number-guess/",
-    "icon": "wheel-number",
-    "name": {
-      "ko": "숫자 맞히기"
-    },
-    "line": {
-      "ko": "힌트를 보고 1~100 숫자 찾기"
-    },
-    "langs": [
-      "ko"
-    ]
-  },
-  {
-    "id": "reaction-time",
-    "cat": "game",
-    "section": "game",
-    "status": "live",
-    "order": 54,
-    "url": "/games/reaction-time/",
-    "icon": "game-reaction",
-    "name": {
-      "ko": "반응속도 테스트"
-    },
-    "line": {
-      "ko": "신호를 보고 눌러 반응 시간 확인"
-    },
-    "langs": [
-      "ko"
     ]
   }
 ]

@@ -4,13 +4,13 @@ async page => {
   const root = 'C:/Users/boksb/Documents/ChatGPT/산업화/parkbok-hallmark-home';
   const out = root + '/output/release/' + phase;
   const fixtures = 'C:/Users/boksb/Desktop/parkbok/docs/s0/fixtures/';
-  const report = { base, layouts: [], documents: [], images: [], pdf: [], games: [], errors: [], writes: [] };
+  const report = { base, layouts: [], documents: [], images: [], pdf: [], errors: [], writes: [] };
   const assert = (v, m) => { if (!v) throw Error(m); };
   await page.context().route(/google-analytics\.com|googletagmanager\.com|googlesyndication\.com|doubleclick\.net/, r => r.abort());
   page.on('pageerror', e => report.errors.push(String(e)));
   page.on('request', r => { if (['POST', 'PUT', 'PATCH'].includes(r.method())) report.writes.push(r.url()); });
   const open = async path => { const r = await page.goto(base + path); assert(r.status() === 200, 'HTTP ' + path); };
-  const paths = ['/', '/hwp/', '/pdf/merge/ko/', '/image/image-compress/ko/', '/image/passport-photo/ko/', '/color/converter/ko/#ff5733', '/games/', '/wheel/ko/'];
+  const paths = ['/', '/hwp/', '/pdf/merge/ko/', '/image/image-compress/ko/', '/image/passport-photo/ko/', '/color/converter/ko/#ff5733'];
   for (const width of [1280, 375]) for (const theme of ['light', 'dark']) {
     await page.setViewportSize({ width, height: width === 1280 ? 900 : 812 });
     for (const path of paths) {
@@ -74,12 +74,6 @@ async page => {
   await open('/pdf/split/ko/'); await upload(pdf); await run(); await download('split.zip'); report.pdf.push({ tool: 'split', expectedFiles: 3 });
   await open('/pdf/jpg-to-pdf/ko/'); await upload(fixtures + 'portrait-1000x1400.jpg'); await run(); await download('from-jpg.pdf'); report.pdf.push({ tool: 'jpg-to-pdf', expectedPages: 1 });
   await open('/color/converter/ko/#ff5733'); assert((await page.locator('main').innerText()).includes('255, 87, 51'), 'RGB conversion');
-  await open('/games/rock-paper-scissors/'); await page.locator('[data-choice=rock]').click(); assert((await page.locator('#game-message').innerText()).includes('나는 바위'), 'RPS play'); report.games.push('rps');
-  await open('/games/number-guess/'); await page.locator('#guess-number').fill('50'); await page.locator('#guess-submit').click(); assert(await page.locator('#guess-count').textContent() === '1', 'Guess play'); report.games.push('guess');
-  await open('/games/reaction-time/'); await page.locator('#reaction-target').click(); await page.waitForFunction(() => document.querySelector('#reaction-label').textContent.includes('지금')); await page.locator('#reaction-target').click(); assert((await page.locator('#reaction-last').innerText()).includes('ms'), 'Reaction play'); report.games.push('reaction');
-  await open('/wheel/ko/'); await page.locator('#opt-sound').uncheck(); await page.locator('#opt-dur').fill('2'); await page.locator('#spin').click(); await page.locator('#modal').waitFor({ state: 'visible' }); assert((await page.locator('#winner').innerText()).length > 0, 'Wheel winner'); report.games.push('wheel');
-  await page.setViewportSize({ width: 375, height: 812 });
-  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Wheel resize overflow');
   assert(report.errors.length === 0, 'Page errors: ' + report.errors.join(';'));
   assert(report.writes.length === 0, 'Unexpected upload requests: ' + report.writes.join(';'));
   return report;

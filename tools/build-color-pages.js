@@ -64,7 +64,7 @@ const row = (label, val) => `<div class="v"><b>${label}</b><code>${val}</code><b
 // 셸 조각은 마커 주석과 스크립트의 // 줄 주석을 지워 6KB 를 지킨다 (한글 주석은 글자당 3B)
 const slim = h => h.replace(/<!-- \/?shell:\w+ -->\n?/g, '').replace(/^\/\/[^\n]*\n/gm, '');
 // 헤더의 인라인 스크립트(테마 버튼·모바일 메뉴)는 전 페이지 공유 /color/hex/hex.js 로 빼서 같은 자리에 동기 로드한다 — 인라인 브랜드 마크(약 1KB)가 들어오면서 6KB 를 지키기 위한 조치
-const headerFull = slim(shell.header({ lang: 'en', section: 'color', wheelHome: '/wheel/', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' }));
+const headerFull = slim(shell.header({ lang: 'en', section: 'color', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' }));
 const headerJs = (headerFull.match(/<script>([\s\S]*?)<\/script>/) || [, ''])[1].trim() + '\n';
 // Analytics now uses the same external, consent-gated loader as every tool page.
 const hexJs = headerJs;

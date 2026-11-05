@@ -29,7 +29,6 @@ main.wrap>.lead{font-size:16px;line-height:24px;margin:0 0 var(--home-space-lg);
 .grid.tools-grid .card{display:grid;grid-template-columns:var(--home-icon-size) minmax(0,1fr);column-gap:var(--home-space-md);row-gap:var(--home-space-xs);align-content:start;align-items:start;min-height:var(--home-card-height);border-radius:var(--home-radius);padding:var(--home-space-lg);background:var(--home-panel);transition:border-color var(--home-duration) var(--home-ease)}
 .grid.tools-grid .card[data-cat="text"]{--home-icon:var(--home-text-icon)}
 .grid.tools-grid .card[data-cat="hwp"]{--home-icon:var(--home-hwp-icon)}
-.grid.tools-grid .card[data-cat="game"]{--home-icon:var(--home-wheel-icon)}
 .grid.tools-grid .card[data-cat="pdf"]{--home-icon:var(--home-pdf-icon)}
 .grid.tools-grid .card[data-cat="image"]{--home-icon:var(--home-image-icon)}
 .grid.tools-grid .card[data-cat="color"]{--home-icon:var(--home-color-icon)}

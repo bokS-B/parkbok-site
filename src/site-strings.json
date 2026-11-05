@@ -5,12 +5,10 @@
     "nav": {
       "hwp": "HWP viewer (KO)",
       "text": "Text tools (KO)",
-      "wheel": "Spin the wheel",
       "guide": "Guides (KO)",
       "pdf": "PDF tools",
       "image": "Image tools",
-      "color": "Color tools",
-      "game": "Games (KO)"
+      "color": "Color tools"
     },
     "foot": {
       "about": "About",
@@ -38,12 +36,10 @@
     "nav": {
       "hwp": "HWP 뷰어",
       "text": "텍스트 도구",
-      "wheel": "룰렛",
       "guide": "가이드",
       "pdf": "PDF 도구",
       "image": "이미지 도구",
-      "color": "색상 도구",
-      "game": "게임"
+      "color": "색상 도구"
     },
     "foot": {
       "about": "소개",
@@ -71,12 +67,10 @@
     "nav": {
       "hwp": "HWP 查看器 (KO)",
       "text": "文本工具 (KO)",
-      "wheel": "幸运转盘",
       "guide": "指南 (KO)",
       "pdf": "PDF 工具",
       "image": "图片工具",
-      "color": "颜色工具",
-      "game": "小游戏 (KO)"
+      "color": "颜色工具"
     },
     "foot": {
       "about": "关于",
@@ -104,12 +98,10 @@
     "nav": {
       "hwp": "HWPビューア (KO)",
       "text": "テキストツール (KO)",
-      "wheel": "ルーレット",
       "guide": "ガイド (KO)",
       "pdf": "PDFツール",
       "image": "画像ツール",
-      "color": "カラーツール",
-      "game": "ゲーム (KO)"
+      "color": "カラーツール"
     },
     "foot": {
       "about": "サイトについて",
@@ -137,12 +129,10 @@
     "nav": {
       "hwp": "Visor HWP (KO)",
       "text": "Herramientas de texto (KO)",
-      "wheel": "Ruleta",
       "guide": "Guías (KO)",
       "pdf": "Herramientas PDF",
       "image": "Herramientas de imagen",
-      "color": "Herramientas de color",
-      "game": "Juegos (KO)"
+      "color": "Herramientas de color"
     },
     "foot": {
       "about": "Acerca de",
@@ -170,12 +160,10 @@
     "nav": {
       "hwp": "Visualizador HWP (KO)",
       "text": "Ferramentas de texto (KO)",
-      "wheel": "Roleta",
       "guide": "Guias (KO)",
       "pdf": "Ferramentas PDF",
       "image": "Ferramentas de imagem",
-      "color": "Ferramentas de cor",
-      "game": "Jogos (KO)"
+      "color": "Ferramentas de cor"
     },
     "foot": {
       "about": "Sobre",
@@ -203,12 +191,10 @@
     "nav": {
       "hwp": "HWP-Viewer (KO)",
       "text": "Textwerkzeuge (KO)",
-      "wheel": "Glücksrad",
       "guide": "Anleitungen (KO)",
       "pdf": "PDF-Werkzeuge",
       "image": "Bild-Werkzeuge",
-      "color": "Farb-Werkzeuge",
-      "game": "Spiele (KO)"
+      "color": "Farb-Werkzeuge"
     },
     "foot": {
       "about": "Über",
@@ -236,12 +222,10 @@
     "nav": {
       "hwp": "Visionneuse HWP (KO)",
       "text": "Outils texte (KO)",
-      "wheel": "Roue",
       "guide": "Guides (KO)",
       "pdf": "Outils PDF",
       "image": "Outils image",
-      "color": "Outils couleur",
-      "game": "Jeux (KO)"
+      "color": "Outils couleur"
     },
     "foot": {
       "about": "À propos",

@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "1bf8b680943c8d6e",
-  "lastmod": "2026-11-04"
+  "hash": "a01b60bf8846271c",
+  "lastmod": "2026-11-05"
  },
  "/about.html": {
   "hash": "0179ac90c3ed51b6",
@@ -904,36 +904,20 @@
   "lastmod": "2026-11-03"
  },
  "/de/": {
-  "hash": "b472757ddac45e59",
-  "lastmod": "2026-11-04"
+  "hash": "4a01dba03424f5fb",
+  "lastmod": "2026-11-05"
  },
  "/en/": {
-  "hash": "6eef3a0e7507b846",
+  "hash": "ed7621b65322d1da",
   "lastmod": "2026-11-05"
  },
  "/es/": {
-  "hash": "3168216d77532564",
-  "lastmod": "2026-11-04"
+  "hash": "6e791cd6401eed67",
+  "lastmod": "2026-11-05"
  },
  "/fr/": {
-  "hash": "91ad5bf542f797f5",
-  "lastmod": "2026-11-04"
- },
- "/games/": {
-  "hash": "b7582d74de5570b2",
-  "lastmod": "2026-11-03"
- },
- "/games/number-guess/": {
-  "hash": "e37c9c42f46ae001",
-  "lastmod": "2026-11-03"
- },
- "/games/reaction-time/": {
-  "hash": "0e5ba02d4a64433e",
-  "lastmod": "2026-11-03"
- },
- "/games/rock-paper-scissors/": {
-  "hash": "3bfba2cc0d4d5873",
-  "lastmod": "2026-11-03"
+  "hash": "15314072619ba124",
+  "lastmod": "2026-11-05"
  },
  "/guide/": {
   "hash": "0ca46f543cc5dae3",
@@ -1608,8 +1592,8 @@
   "lastmod": "2026-11-04"
  },
  "/ja/": {
-  "hash": "da94fa74384055ee",
-  "lastmod": "2026-11-04"
+  "hash": "abd0389a59d0ea54",
+  "lastmod": "2026-11-05"
  },
  "/pdf/": {
   "hash": "aabddf6158edf31e",
@@ -2092,16 +2076,16 @@
   "lastmod": "2026-11-03"
  },
  "/privacy.html": {
-  "hash": "53116fc2466be58c",
-  "lastmod": "2026-11-04"
+  "hash": "7f6997d4be686879",
+  "lastmod": "2026-11-05"
  },
  "/pt/": {
-  "hash": "f84a36b4142544b4",
-  "lastmod": "2026-11-04"
+  "hash": "efdc754fa6f70155",
+  "lastmod": "2026-11-05"
  },
  "/terms.html": {
-  "hash": "db8e96d255a60adf",
-  "lastmod": "2026-11-03"
+  "hash": "b56f0f27b711b5fb",
+  "lastmod": "2026-11-05"
  },
  "/text/": {
   "hash": "c8caa89ac4cc2d01",
@@ -2127,136 +2111,8 @@
   "hash": "6b690dfbd9ee6c43",
   "lastmod": "2026-11-03"
  },
- "/wheel/": {
-  "hash": "ba0eecf5747bd6e4",
-  "lastmod": "2026-11-03"
- },
- "/wheel/de/": {
-  "hash": "3e33b9142d65f87e",
-  "lastmod": "2026-11-03"
- },
- "/wheel/de/number/": {
-  "hash": "41ee5dd7148d0875",
-  "lastmod": "2026-11-03"
- },
- "/wheel/de/what-to-eat/": {
-  "hash": "75ab76893f9a095d",
-  "lastmod": "2026-11-03"
- },
- "/wheel/de/yes-or-no/": {
-  "hash": "4d98d5660733f4b0",
-  "lastmod": "2026-11-03"
- },
- "/wheel/es/": {
-  "hash": "4a6aaa992d0cbb37",
-  "lastmod": "2026-11-03"
- },
- "/wheel/es/number/": {
-  "hash": "d8df544397f6d28d",
-  "lastmod": "2026-11-03"
- },
- "/wheel/es/what-to-eat/": {
-  "hash": "f83ef7383f4aaad2",
-  "lastmod": "2026-11-03"
- },
- "/wheel/es/yes-or-no/": {
-  "hash": "8622410cf40a7632",
-  "lastmod": "2026-11-03"
- },
- "/wheel/fr/": {
-  "hash": "d64320571e97902a",
-  "lastmod": "2026-11-03"
- },
- "/wheel/fr/number/": {
-  "hash": "d1072a5fc8ab9338",
-  "lastmod": "2026-11-03"
- },
- "/wheel/fr/what-to-eat/": {
-  "hash": "0760c3cd321bd80c",
-  "lastmod": "2026-11-03"
- },
- "/wheel/fr/yes-or-no/": {
-  "hash": "37025aa0155df4ec",
-  "lastmod": "2026-11-03"
- },
- "/wheel/ja/": {
-  "hash": "dfaddd25cf76127a",
-  "lastmod": "2026-11-03"
- },
- "/wheel/ja/number/": {
-  "hash": "e291f1d3e7724096",
-  "lastmod": "2026-11-03"
- },
- "/wheel/ja/what-to-eat/": {
-  "hash": "6331fdf264ff5c12",
-  "lastmod": "2026-11-03"
- },
- "/wheel/ja/yes-or-no/": {
-  "hash": "3ed681c8f09cce61",
-  "lastmod": "2026-11-03"
- },
- "/wheel/ko/": {
-  "hash": "c135083e76926ebf",
-  "lastmod": "2026-11-03"
- },
- "/wheel/ko/number/": {
-  "hash": "b733f3193d33f4ff",
-  "lastmod": "2026-11-04"
- },
- "/wheel/ko/what-to-eat/": {
-  "hash": "07e243687b3d9a43",
-  "lastmod": "2026-11-03"
- },
- "/wheel/ko/yes-or-no/": {
-  "hash": "9beb8ac3f5b71e57",
-  "lastmod": "2026-11-03"
- },
- "/wheel/number/": {
-  "hash": "2b8f3dccd44f2409",
-  "lastmod": "2026-11-03"
- },
- "/wheel/pt/": {
-  "hash": "f01c3d7bb8ec11dc",
-  "lastmod": "2026-11-03"
- },
- "/wheel/pt/number/": {
-  "hash": "fc7312323b492b01",
-  "lastmod": "2026-11-03"
- },
- "/wheel/pt/what-to-eat/": {
-  "hash": "87fc15e8fce766f6",
-  "lastmod": "2026-11-03"
- },
- "/wheel/pt/yes-or-no/": {
-  "hash": "435ad5d8de63c026",
-  "lastmod": "2026-11-03"
- },
- "/wheel/what-to-eat/": {
-  "hash": "8d25d90a64905bc0",
-  "lastmod": "2026-11-03"
- },
- "/wheel/yes-or-no/": {
-  "hash": "55377673eab16955",
-  "lastmod": "2026-11-03"
- },
- "/wheel/zh/": {
-  "hash": "ae4affa48ba722c5",
-  "lastmod": "2026-11-03"
- },
- "/wheel/zh/number/": {
-  "hash": "966fb027d1e22ab9",
-  "lastmod": "2026-11-03"
- },
- "/wheel/zh/what-to-eat/": {
-  "hash": "278bfa2cf2634b58",
-  "lastmod": "2026-11-03"
- },
- "/wheel/zh/yes-or-no/": {
-  "hash": "542e4f0eb2606af7",
-  "lastmod": "2026-11-03"
- },
  "/zh/": {
-  "hash": "482aeea28327bcba",
-  "lastmod": "2026-11-04"
+  "hash": "83bd145edc838b94",
+  "lastmod": "2026-11-05"
  }
 }

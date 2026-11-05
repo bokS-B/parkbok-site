@@ -21,7 +21,6 @@ const esc = shell.esc;
 const safeJson = o => JSON.stringify(o).replace(/</g, '\\u003c');
 const formGuide = lang => lang === 'en' ? '<a class="chip" href="/guide/photo-signature-size-india.html">Photo &amp; signature size guide (India)</a>' : '';
 const url = (lang, id) => '/image/' + (id ? id + '/' : '') + (lang === 'en' ? '' : lang + '/');
-const wheelHome = lang => '/wheel/' + (lang === 'en' ? '' : lang + '/');
 
 // 도구 목록: json 이 있고 모듈 js 도 있는 것만
 const toolsDir = path.join(src, 'tools');
@@ -58,7 +57,7 @@ function finish(html, lang, id, vars){
   html = html.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
   // 셸은 마지막에 끼운다 (site.css 안의 중괄호가 위 치환에 걸리지 않도록)
   html = html.split('{{shell_head}}').join(shell.head({ og: 'og.png' }));
-  html = html.split('{{shell_header}}').join(shell.header({ lang, section: 'image', wheelHome: wheelHome(lang), pdfHome: lang === 'en' ? '/pdf/' : '/pdf/' + lang + '/', imageHome: lang === 'en' ? '/image/' : '/image/' + lang + '/', colorHome: lang === 'en' ? '/color/' : '/color/' + lang + '/', langSelect: langSelect(lang, id), subnav: '' }));
+  html = html.split('{{shell_header}}').join(shell.header({ lang, section: 'image', pdfHome: lang === 'en' ? '/pdf/' : '/pdf/' + lang + '/', imageHome: lang === 'en' ? '/image/' : '/image/' + lang + '/', colorHome: lang === 'en' ? '/color/' : '/color/' + lang + '/', langSelect: langSelect(lang, id), subnav: '' }));
   html = html.split('{{shell_footer}}').join(shell.footer({ lang }));
   const out = path.join(root, url(lang, id).replace(/\//g, path.sep), 'index.html');
   fs.mkdirSync(path.dirname(out), { recursive: true });

@@ -12,10 +12,10 @@ from urllib.parse import unquote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
 
 ORIGIN = 'https://parkbok.com'
-PUBLIC_DIRS = {'assets', 'color', 'games', 'guide', 'hwp', 'image', 'pdf', 'text', 'wheel', 'en', 'ja', 'zh', 'es', 'pt', 'de', 'fr'}
+PUBLIC_DIRS = {'assets', 'color', 'guide', 'hwp', 'image', 'pdf', 'text', 'en', 'ja', 'zh', 'es', 'pt', 'de', 'fr'}
 EXTENSIONS = {'.html', '.js', '.css', '.json', '.wasm', '.woff', '.woff2', '.ttf', '.otf', '.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg', '.ico', '.pdf', '.txt'}
-ROOT_FILES = {'index.html', 'about.html', 'privacy.html', 'terms.html', '404.html', 'robots.txt', 'ads.txt', 'CNAME', 'manifest.json', 'favicon.svg', 'favicon.ico', 'favicon-32.png', 'icon-180.png', 'icon-192.png', 'icon-512.png', 'og.png', 'og-wheel.png', 'BingSiteAuth.xml'}
-RUNTIME = ['assets/usage-privacy.js', 'assets/usage-privacy.css', 'assets/hwp-bundle.js', 'assets/app.js', 'image/img-tools.js', 'pdf/pdf-tools.js', 'color/color.js', 'wheel/wheel.js', 'assets/vendor/jszip.min.js', 'assets/vendor/pdf-lib.min.js', 'assets/vendor/pdf.min.js', 'assets/vendor/pdf.worker.min.js', 'assets/vendor/libheif-bundle.js', 'assets/vendor/piexif.js', 'assets/vendor/LICENSES.md']
+ROOT_FILES = {'index.html', 'about.html', 'privacy.html', 'terms.html', '404.html', 'robots.txt', 'ads.txt', 'CNAME', 'manifest.json', 'favicon.svg', 'favicon.ico', 'favicon-32.png', 'icon-180.png', 'icon-192.png', 'icon-512.png', 'og.png', 'BingSiteAuth.xml'}
+RUNTIME = ['assets/usage-privacy.js', 'assets/usage-privacy.css', 'assets/hwp-bundle.js', 'assets/app.js', 'image/img-tools.js', 'pdf/pdf-tools.js', 'color/color.js', 'assets/vendor/jszip.min.js', 'assets/vendor/pdf-lib.min.js', 'assets/vendor/pdf.min.js', 'assets/vendor/pdf.worker.min.js', 'assets/vendor/libheif-bundle.js', 'assets/vendor/piexif.js', 'assets/vendor/LICENSES.md']
 CSS_URL = re.compile(r'url\(\s*[\"\']?([^\"\')\s]+)', re.I)
 
 

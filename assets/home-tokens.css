@@ -16,8 +16,8 @@
   --t-btn:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out;
   --t-chip:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out;
   --home-disabled-fill:var(--line);--home-disabled-ink:var(--muted);
-  --home-hwp-icon:var(--accent-text);--home-text-icon:#0f766e;--home-wheel-icon:#6d28d9;--home-pdf-icon:#b91c1c;
+  --home-hwp-icon:var(--accent-text);--home-text-icon:#0f766e;--home-pdf-icon:#b91c1c;
   --home-image-icon:#92400e;--home-color-icon:#be185d;--home-guide-icon:#475569;
 }
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--home-text-icon:#5eead4;--home-wheel-icon:#c4b5fd;--home-pdf-icon:#fca5a5;--home-image-icon:#fcd34d;--home-color-icon:#f9a8d4;--home-guide-icon:#cbd5e1}}
-:root[data-theme="dark"]{--home-text-icon:#5eead4;--home-wheel-icon:#c4b5fd;--home-pdf-icon:#fca5a5;--home-image-icon:#fcd34d;--home-color-icon:#f9a8d4;--home-guide-icon:#cbd5e1}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--home-text-icon:#5eead4;--home-pdf-icon:#fca5a5;--home-image-icon:#fcd34d;--home-color-icon:#f9a8d4;--home-guide-icon:#cbd5e1}}
+:root[data-theme="dark"]{--home-text-icon:#5eead4;--home-pdf-icon:#fca5a5;--home-image-icon:#fcd34d;--home-color-icon:#f9a8d4;--home-guide-icon:#cbd5e1}

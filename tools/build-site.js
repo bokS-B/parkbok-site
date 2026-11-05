@@ -1,4 +1,4 @@
-// 사이트 빌드: 돌림판(wheel/)·PDF(pdf/, 자체 생성기)를 제외한 모든 HTML 페이지에 공통 셸(head-common · header · footer)을 끼운다. 여러 번 실행해도 결과는 같다(멱등).
+// 사이트 빌드: PDF·이미지·색상(자체 생성기)를 제외한 모든 HTML 페이지에 공통 셸(head-common · header · footer)을 끼운다. 여러 번 실행해도 결과는 같다(멱등).
 //   node tools/build-site.js
 // 페이지를 새로 만들 때는 <head> 에 title/description/canonical 만 쓰고, 본문에 <header class="top"> 과 <footer> 를
 // 비워 두거나 넣지 않아도 된다 — 빌드가 마커 자리(또는 </head>·</body> 앞)에 채워 넣는다.
@@ -15,7 +15,7 @@ for (const lang of Object.keys(HOME).filter(l => l !== 'ko')) {
   const dir = path.join(root, lang); fs.mkdirSync(dir, { recursive: true });
   if (!fs.existsSync(path.join(dir, 'index.html'))) fs.writeFileSync(path.join(dir, 'index.html'), homeSource);
 }
-const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'tests', 'output', 'wheel', 'pdf', 'image', 'color', 'src'];   // 테스트 산출물 제외. wheel/pdf/image 는 자체 생성기가 셸을 넣는다
+const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'tests', 'output', 'pdf', 'image', 'color', 'src'];   // 테스트 산출물 제외. pdf/image/color 는 자체 생성기가 셸을 넣는다
 const FOOT_EXTRA = {
   'hwp/index.html': ' · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.'
 };
@@ -24,10 +24,6 @@ const PAGE_CSS = {
   'guide/photo-signature-size-india.html': 'assets/photo-signature-guide.css',
   'index.html': ['assets/home-tokens.css', 'assets/home.css'],
   'hwp/index.html': ['assets/hwp.css', 'assets/hwp-page.css'],
-  'games/index.html': ['assets/home-tokens.css', 'assets/home.css'],
-  'games/rock-paper-scissors/index.html': 'assets/games.css',
-  'games/number-guess/index.html': 'assets/games.css',
-  'games/reaction-time/index.html': 'assets/games.css',
   'about.html': 'assets/about.css',
   'text/remove-line-breaks.html': 'assets/tool.css', 'text/char-count.html': 'assets/tool.css', 'text/sql-in.html': 'assets/tool.css',
   'text/dedupe-lines.html': 'assets/tool.css', 'text/list-to-line.html': 'assets/tool.css'
@@ -37,10 +33,10 @@ const PAGE_CSS = {
 const TOOLS = JSON.parse(fs.readFileSync(path.join(root, 'src', 'tools.json'), 'utf8'));
 const ICONS = JSON.parse(fs.readFileSync(path.join(root, 'src', 'icons.json'), 'utf8'));
 const esc = shell.esc;
-const CHIP_ORDER = ['all', 'hwp', 'pdf', 'image', 'color', 'text', 'game', 'guide'];
-const HOME_GROUPS = ['documents', 'image', 'color', 'text', 'game', 'guide'];
+const CHIP_ORDER = ['all', 'hwp', 'pdf', 'image', 'color', 'text', 'guide'];
+const HOME_GROUPS = ['documents', 'image', 'color', 'text', 'guide'];
 // 그리드를 넣는 페이지: 홈은 필터 칩 + 전체 카드, /text/ 는 텍스트 카드만(칩 없음)
-const GRIDS = { 'index.html': { chips: true }, 'text/index.html': { cat: 'text' }, 'games/index.html': { cat: 'game', heading: 'h2' } };
+const GRIDS = { 'index.html': { chips: true }, 'text/index.html': { cat: 'text' } };
 const pagePath = rel => '/' + rel.replace(/(^|\/)index\.html$/, '$1');
 // PDF 도구 문구는 pdf/src/tools/<id>.json 의 strings.ko.h1/line 을 우선 쓴다(없으면 tools.json). planned 인 PDF 도구는 그 파일이 있을 때만 카드로 올린다.
 function pdfStrings(t, lang = 'ko'){
@@ -64,8 +60,7 @@ function gridHtml(rel, cfg, lang = 'ko'){
   for (const t of TOOLS.slice().sort((a, b) => a.order - b.order)) {
     if (cfg.cat && t.cat !== cfg.cat) continue;
     if (t.url === page || (t.hideOn || []).includes(cfg.chips ? '/' : page)) continue;   // 언어 홈도 같은 카드 노출 규칙을 쓴다
-    const wheel = t.url.startsWith('/wheel/');
-    if (lang !== 'ko' && !wheel && !(t.langs || ['ko']).includes(lang)) continue;
+    if (lang !== 'ko' && !(t.langs || ['ko']).includes(lang)) continue;
     let name = t.name[lang] || t.name.en, line = t.line[lang] || t.line.en;
     if (t.cat === 'pdf') {
       const s = pdfStrings(t, lang);
@@ -78,13 +73,8 @@ function gridHtml(rel, cfg, lang = 'ko'){
       const source = JSON.parse(fs.readFileSync(path.join(root, t.cat, 'src/tools', id + '.json'), 'utf8')).strings[lang];
       name = source.h1; line = source.line;
     }
-    if (lang !== 'ko' && wheel) {
-      const preset = t.url.split('/')[3] || 'index';
-      const source = JSON.parse(fs.readFileSync(path.join(root, 'wheel/src/strings.json'), 'utf8'))[lang].presets[preset];
-      name = source.nav; line = source.intro;
-    }
     const multi = (t.langs || ['ko']).length > 1;
-    const href = wheel ? t.url.replace('/wheel/ko/', shell.sectionHome('wheel', lang)) : multi && t.url.endsWith('/') ? t.url + (lang === 'en' ? '' : lang + '/') : t.url;
+    const href = multi && t.url.endsWith('/') ? t.url + (lang === 'en' ? '' : lang + '/') : t.url;
     const card = cardHtml(t, name, line, href, !!cfg.chips && t.cat === 'guide', cfg.heading || 'h3');
     cards.push(card);   // 전체 필터 초기 상태 = 가이드 숨김
     const group = t.cat === 'hwp' || t.cat === 'pdf' ? 'documents' : t.cat;
@@ -114,7 +104,6 @@ function gridHtml(rel, cfg, lang = 'ko'){
 }
 function sectionOf(rel){
   if (rel === 'guide/photo-signature-size-india.html') return 'image';
-  if (rel.startsWith('games/')) return 'game';
   if (rel.startsWith('hwp/')) return 'hwp';
   if (rel.startsWith('text/')) return 'text';
   if (rel.startsWith('guide/')) return 'guide';
@@ -181,7 +170,7 @@ for (const p of pages) {
     if (!/<!-- grid:start -->[\s\S]*?<!-- grid:end -->/.test(s)) console.warn(rel + ': grid 마커가 없어 그리드를 넣지 못했습니다');
     else s = s.replace(/<!-- grid:start -->[\s\S]*?<!-- grid:end -->/, () => gridHtml(rel, gridCfg, lang));
   }
-  const header = shell.header({ lang, home: !!isHome, section: sectionOf(rel), wheelHome: shell.sectionHome('wheel', lang), pdfHome: shell.sectionHome('pdf', lang), imageHome: shell.sectionHome('image', lang), colorHome: shell.sectionHome('color', lang) });
+  const header = shell.header({ lang, home: !!isHome, section: sectionOf(rel), pdfHome: shell.sectionHome('pdf', lang), imageHome: shell.sectionHome('image', lang), colorHome: shell.sectionHome('color', lang) });
   s = shell.replaceBlock(s, 'header', header, /<header class="top">[\s\S]*?<\/header>/);
   if (!s.includes('<!-- shell:header -->')) s = s.replace(/<body([^>]*)>/, (m) => m + '\n' + header);
   const footer = shell.footer({ lang, extra: FOOT_EXTRA[rel] || '' });
