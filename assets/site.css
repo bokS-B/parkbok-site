@@ -80,9 +80,10 @@ header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--su
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#e2a096}}
 :root[data-theme="dark"]{--brand:#e2a096}
 .brand{display:inline-flex;align-items:center;gap:8px}
-.brand svg{flex:none;width:37px;height:26px;color:var(--brand)}
-@media (max-width:860px){.brand svg{width:34px;height:24px}}
-@media (max-width:767.98px){.brand{gap:6px}.brand svg{width:31px;height:22px}}
+.brand-mark{display:block;flex:none;background-color:currentColor;-webkit-mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat;mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat}
+.brand .brand-mark{width:37px;height:26px;color:var(--brand)}
+@media (max-width:860px){.brand .brand-mark{width:34px;height:24px}}
+@media (max-width:767.98px){.brand{gap:6px}.brand .brand-mark{width:31px;height:22px}}
 @media (max-width:480px){.brand{gap:0}.brand-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 /* brand:end */
 
@@ -92,7 +93,7 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .foot-main{display:grid;grid-template-columns:minmax(240px,1.05fr) minmax(0,1.7fr);gap:64px;padding-bottom:40px}
 .foot-brand-block{min-width:0}
 .foot .foot-brand{display:inline-flex;align-items:center;gap:12px;min-height:44px;color:var(--foot-text);font-size:32px;font-weight:700;letter-spacing:-1px;text-decoration:none}
-.foot-brand svg{width:46px;height:32px;flex:none;color:#e2a096}
+.foot-brand .brand-mark{width:46px;height:32px;color:#e2a096}
 .foot .foot-tagline{margin:24px 0 10px;font-size:18px;line-height:28px;font-weight:600;letter-spacing:-.02em;color:var(--foot-text)}
 .foot .foot-description{max-width:330px;margin:0;white-space:pre-line;color:var(--foot-muted);font-size:14px;line-height:24px}
 .foot .foot-local{display:flex;align-items:flex-start;gap:8px;max-width:330px;margin:24px 0 0;font-size:12px;line-height:20px;color:var(--foot-muted)}

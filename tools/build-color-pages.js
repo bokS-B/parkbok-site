@@ -14,7 +14,7 @@ const SITE = 'https://parkbok.com';
 const CURATED = new Map(JSON.parse(fs.readFileSync(path.join(src, 'curated-colors.json'), 'utf8')).colors.map(c => [c.hex, c]));
 const tpl = fs.readFileSync(path.join(src, 'hex-template.html'), 'utf8');
 const minify = t => t.replace(/\/\*[\s\S]*?\*\//g, '').split(/\r?\n/).map(l => l.trim()).filter(Boolean).join('');
-// 브랜드 마크 규칙(토큰 --brand·.brand svg 크기)은 site.css 의 brand:start~end 블록을 그대로 가져와 hex-lite.css 뒤에 붙인다 — 헤더 마크가 바뀌어도 한 곳만 고친다
+// 브랜드 마크 규칙(토큰 --brand·.brand-mark 크기)은 site.css 의 brand:start~end 블록을 그대로 가져와 hex-lite.css 뒤에 붙인다 — 헤더 마크가 바뀌어도 한 곳만 고친다
 const brandCss = (fs.readFileSync(path.join(root, 'assets', 'site.css'), 'utf8').match(/\/\* brand:start \*\/([\s\S]*?)\/\* brand:end \*\//) || [, ''])[1];
 if (!brandCss) throw new Error('site.css 에 brand:start~end 블록이 없습니다');
 const footerCss = (fs.readFileSync(path.join(root, 'assets', 'site.css'), 'utf8').match(/\/\* footer:start[\s\S]*?\*\/([\s\S]*?)\/\* footer:end \*\//) || [, ''])[1];
@@ -63,7 +63,7 @@ const row = (label, val) => `<div class="v"><b>${label}</b><code>${val}</code><b
 
 // 셸 조각은 마커 주석과 스크립트의 // 줄 주석을 지워 6KB 를 지킨다 (한글 주석은 글자당 3B)
 const slim = h => h.replace(/<!-- \/?shell:\w+ -->\n?/g, '').replace(/^\/\/[^\n]*\n/gm, '');
-// 헤더의 인라인 스크립트(테마 버튼·모바일 메뉴)는 전 페이지 공유 /color/hex/hex.js 로 빼서 같은 자리에 동기 로드한다 — 인라인 브랜드 마크(약 1KB)가 들어오면서 6KB 를 지키기 위한 조치
+// 테마 버튼·모바일 메뉴는 전 페이지 공유 /color/hex/hex.js 로 빼서 같은 자리에 동기 로드한다. 브랜드 SVG도 외부 자산을 공유한다.
 const headerFull = slim(shell.header({ lang: 'en', section: 'color', pdfHome: '/pdf/', imageHome: '/image/', colorHome: '/color/', langSelect: '', subnav: '' }));
 const headerJs = (headerFull.match(/<script>([\s\S]*?)<\/script>/) || [, ''])[1].trim() + '\n';
 // Analytics now uses the same external, consent-gated loader as every tool page.
@@ -118,7 +118,7 @@ function page(hex){
     h1: UP(hex) + (names.length ? ` <small>(${names.join(' / ')})</small>` : ''), line,
     rows, contrast, scale, harmony, csscode, random: picks.map(h => cell(h)).join(''), adsense: shell.ADSENSE, ga: shell.GA };
   let html = tpl.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
-  html = html.split('{{shell_header}}').join(header).split('{{shell_footer}}').join(footer).replace('/color/hex/hex.css"', '/color/hex/hex.css?v=' + cssVersion + '"');
+  html = html.split('{{shell_header}}').join(header).split('{{shell_footer}}').join(footer).split('{{favicon}}').join(shell.favicons()).replace('/color/hex/hex.css"', '/color/hex/hex.css?v=' + cssVersion + '"');
   return html;
 }
 

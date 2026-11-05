@@ -43,3 +43,16 @@ GitHub 제공 Pages 액션의 Node20→24 강제 실행 경고1건과 ubuntu-lat
 - Actions 전환 후 되돌릴 때 저장소 root를 다시 공개하지 않는다. 이 배포 workflow/packager는 유지하고 제품 파일만 위 기준으로 되돌려 새 artifact를 배포한다. git force push는 사용하지 않는다.
 - 증거: `output/release/local/`, `output/release/live/`, `output/release/baseline-hwp.png`, `_build/pages-manifest.json`. 이 폴더들은 배포 제외.
 - 로컬 미리보기8796, 아랍어8797은 기존 상태 유지. 산출물 검증용8798은 별도다.
+
+## 2026-11-05 · 공식 투명 로고 적용
+
+사용자 지시: 승인한 투명 로고를 사이트 헤더와 파비콘에 적용. 되돌릴 기준: `99304b560`.
+
+- [x] 승인된 SVG 원본 윤곽을 헤더·푸터에서 공유. 크기·클릭 영역 유지, 라이트 `#511919` / 다크 `#e2a096`.
+- [x] 파비콘 배경 제거. SVG 원본 path 일치, ICO 16/32/48px, PNG 32/192px 알파 투명 확인. SVG는 브라우저 테마에 맞춰 색 전환.
+- [x] 모든 언어·HEX 페이지에 공통 파비콘 링크 적용. 브라우저 캐시 갱신용 해시, 검색용 192px PNG 주소 유지.
+- [x] 전체 빌드·공통 셸 검사 361문서 실패0. Node 208개·Python 10개 통과. 배포 산출물 5066파일, 내부 참조 283311건 검사 통과. 사이트맵 529 URL 유지·lastmod 변경0.
+- [x] 14페이지 × 1280×900/375×812 × 라이트/다크 = 56조건. 헤더·푸터 마크, 테마 색상·가로 넘침0, 페이지 오류0·요청 실패0 확인. 파비콘 16/32/48/192px 시각 확인.
+- [ ] main push·Pages 배포 완료 후 공개 파일과 화면 재검증.
+
+로컬 증거: `output/playwright/transparent-brand/`. 실제 휴대폰·Safari/Firefox·Google 검색 아이콘 갱신은 이번 Chromium 확인에 포함하지 않는다.

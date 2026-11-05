@@ -15,6 +15,8 @@ const ADSENSE = '<meta name="google-adsense-account" content="ca-pub-14153095813
 // Ad-free release: first-party analytics choice in every region; no Google before opt-in.
 const GA_HOSTS = ['parkbok.com', 'www.parkbok.com'];
 const GA = gaId ? '<script defer src="/assets/usage-privacy.js" data-ga="' + gaId + '"></script>' : '';
+const BRAND_MARK = '<span class="brand-mark" aria-hidden="true"></span>';
+const faviconVersion = require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root, 'favicon.svg'))).digest('hex').slice(0, 8);
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 function fragment(name){
@@ -31,12 +33,14 @@ function homeLanguageSelect(lang){
     + Object.entries(LANGUAGE_NAMES).map(([code, name]) => '<option value="' + homeUrl(code) + '"' + (code === lang ? ' selected' : '') + '>' + name + '</option>').join('') + '</select>';
 }
 
+function favicons({ home = false } = {}){
+  // Stable high-resolution PNG for search; SVG adapts to browser light/dark tabs.
+  return '<link rel="icon" href="/favicon.ico?v=' + faviconVersion + '" sizes="16x16 32x32 48x48" type="image/x-icon">\n'
+    + (home ? '<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">\n' : '')
+    + '<link rel="icon" href="/favicon.svg?v=' + faviconVersion + '" sizes="any" type="image/svg+xml">';
+}
 function head({ og = 'og.png', home = false } = {}){
-  // Google reads the homepage for the favicon used across search results.
-  const favicon = home
-    ? '<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">'
-    : '<link rel="icon" href="/favicon.svg" type="image/svg+xml">\n<link rel="icon" href="/favicon.ico" sizes="32x32">';
-  return fill(fragment('head-common'), { favicon, og, adsense: ADSENSE, ga: GA, site_css: siteCss });
+  return fill(fragment('head-common'), { favicon: favicons({ home }), og, adsense: ADSENSE, ga: GA, site_css: siteCss });
 }
 // 언어별 구역 루트: 영어는 /<section>/, 그 외는 /<section>/<lang>/
 const sectionHome = (section, lang) => '/' + section + '/' + (lang === 'en' ? '' : lang + '/');
@@ -44,7 +48,7 @@ function header({ lang = 'ko', section = '', pdfHome = '/pdf/ko/', imageHome = '
   const t = strings(lang);
   const on = s => (section === s ? ' class="on"' : '');
   return fill(fragment('header'), {
-    brand: esc(t.brand), menu: esc(t.menu), home_url: homeUrl(lang), home_class: home ? ' home-header' : '', home_language: home ? homeLanguageSelect(lang) : '',
+    brand: esc(t.brand), brand_mark: BRAND_MARK, menu: esc(t.menu), home_url: homeUrl(lang), home_class: home ? ' home-header' : '', home_language: home ? homeLanguageSelect(lang) : '',
     'nav.hwp': esc(t.nav.hwp), 'nav.text': esc(t.nav.text), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.image': esc(t.nav.image || 'Image'), 'nav.color': esc(t.nav.color || 'Color'), 'nav.guide': esc(t.nav.guide),
     'on:hwp': on('hwp'), 'on:text': on('text'), 'on:pdf': on('pdf'), 'on:image': on('image'), 'on:color': on('color'), 'on:guide': on('guide'),
     pdf_home: pdfHome, image_home: imageHome, color_home: colorHome, lang_select: langSelect, subnav, theme: esc(t.theme || 'Theme')
@@ -61,7 +65,7 @@ function footer({ lang = 'ko', extra = '' } = {}){
     'nav.image': esc(t.nav.image || 'Image'), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.color': esc(t.nav.color || 'Color'),
     image_home: hub('image'), pdf_home: hub('pdf'), color_home: hub('color'),
     home_url: homeUrl(lang), footMenu: esc(t.footMenu || t.menu), foot_extra: extra,
-    footer_mark: (fragment('header').match(/<svg[\s\S]*?<\/svg>/) || [''])[0],
+    footer_mark: BRAND_MARK,
     foot_languages: Object.entries(LANGUAGE_NAMES).map(([code, name]) => '<a href="' + homeUrl(code) + '" lang="' + code + '" hreflang="' + code + '"' + (code === lang ? ' aria-current="true"' : '') + '>' + name + '</a>').join(''),
     foot_note: extra ? '<p class="foot-note">' + extra.replace(/^ · /, '') + '</p>' : ''
   });
@@ -82,4 +86,4 @@ function replaceBlock(html, name, replacement, fallbackRe){
   if (fallbackRe && fallbackRe.test(html)) return html.replace(fallbackRe, () => replacement);
   return html;
 }
-module.exports = { head, header, footer, breadcrumb, replaceBlock, strings, esc, sectionHome, homeUrl, langs: Object.keys(STR), ADSENSE, GA, GA_HOSTS, gaId };
+module.exports = { head, favicons, header, footer, breadcrumb, replaceBlock, strings, esc, sectionHome, homeUrl, langs: Object.keys(STR), ADSENSE, GA, GA_HOSTS, gaId };
