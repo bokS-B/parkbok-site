@@ -10,15 +10,15 @@
   ],
   "strings": {
     "en": {
-      "title": "Image Color Picker – HEX & RGB, No Upload | parkbok",
-      "h1": "Color picker from image",
-      "line": "Get HEX, RGB and HSL colors from your image without uploading it.",
-      "description": "Pick HEX, RGB and HSL colors from an image with no upload. Extract a palette, preview up to 5 colors in website templates, and export HTML and CSS. Free.",
-      "sampleTitle": "No image handy?",
-      "sampleLine": "Try a little sunset. Pick a color or save its palette.",
-      "sampleButton": "Try sample",
+      "title": "Image Color Picker – HEX, RGB & 5-Color Palettes | PARKBOK",
+      "h1": "Image Color Picker",
+      "line": "Pick HEX and RGB colors, then try your 5-color palette in templates.",
+      "description": "Pick HEX and RGB colors from an image, extract up to 5 colors, and preview them in templates. Copy CSS or JSON. Free, with no image upload.",
+      "sampleTitle": "Start with an example",
+      "sampleLine": "Try an illustration, a photo or a logo. Your palette appears automatically.",
+      "sampleButton": "Illustration",
       "sampleAlt": "Peach sunset with a yellow sun, pink hills and teal water",
-      "sampleLoaded": "Sample ready. Tap the image to pick another color, or choose Main colors for a palette.",
+      "sampleLoaded": "Your {n}-color palette is ready. Tap the image to pick your own colors.",
       "dropTitle": "Drop an image or choose one",
       "dropHint": "JPG · PNG · WebP · GIF – nothing is uploaded",
       "select": "Choose image",
@@ -39,26 +39,61 @@
       "loadFail": "This image could not be opened.",
       "faq": [
         [
-          "How do I pick a color exactly?",
-          "Press or drag on the image – a magnifier shows the pixels 8× larger so you can see which one you are picking. Lift your finger or release the mouse to add that color to the list."
+          "How do I pick an exact pixel color?",
+          "Click or drag on the image to inspect the original pixel, even when the preview is smaller. Use the arrow keys to move 1 pixel, Shift + arrow to move 10, and Enter to save. Values use the browser’s sRGB canvas conversion, not raw file bytes."
         ],
         [
-          "What does Main colors do?",
-          "It samples the image and groups the pixels into 6 clusters, giving you the most common colors as a palette you can copy or save as a PNG."
+          "How is the automatic palette different?",
+          "Up to 5 representative colors are calculated from sampled groups of similar colors. These averages may not match an individual pixel. Click the image when you need a specific pixel. Images with fewer colors retain their actual count."
         ],
         [
-          "Can I use image colors in a website template?",
-          "Choose Main colors or pick colors yourself, then select Preview in templates. Up to 5 colors are assigned to background, surface, text, primary and accent roles. Edit the roles and check contrast in the palette tool, then copy HTML and CSS or download a standalone HTML file."
+          "What happens to transparent pixels?",
+          "Fully transparent pixels are excluded. Partially transparent pixels are composited on white, matching the image preview; the selected pixel’s opacity is shown."
+        ],
+        [
+          "Can I turn image colors into a website design?",
+          "Choose a website, shop or planner preview. With 5 distinct colors, open the template editor to adjust roles, check contrast, and export HTML and CSS. The 5 source colors stay unchanged."
+        ],
+        [
+          "Can I export without opening the template editor?",
+          "Copy HEX, CSS variables or JSON directly, or save a palette PNG. CSS and JSON also include the assigned template roles when the palette has 5 colors. Images and filenames are not included."
+        ],
+        [
+          "Are images uploaded?",
+          "Files are decoded and processed in your browser. No image upload is needed. Images up to 50 MiB, 64 megapixels and 16,384 pixels per side are accepted, subject to browser memory and format support. EXIF orientation is applied by the browser decoder."
         ]
       ],
       "templateButton": "Preview in templates",
-      "templateHint": "Uses up to 5 colors. Edit their roles and check text contrast in the template."
+      "templateHint": "Uses these 5 colors unchanged. Review their roles and text contrast in the template.",
+      "paletteReady": "Your {n}-color palette is ready. Tap the image to pick your own colors.",
+      "templateNeed": "Templates need 5 different colors; this palette has {n}. You can still copy or save it.",
+      "templateSelection": "Choose 5 colors for the template ({n}/5). Uncheck a color to replace it.",
+      "templateChoose": "Use in template",
+      "keyboardHelp": "Arrow keys: 1 px · Shift: 10 px · Enter: save color",
+      "sourceSize": "Original {w} × {h}",
+      "transparentPixel": "This pixel is transparent. No visible color to save.",
+      "alphaPixel": "Original pixel · {a}% opacity, shown on white",
+      "originalPixel": "Original pixel · sRGB",
+      "representativeColor": "Palette representative · sampled color groups",
+      "savedColor": "Saved color",
+      "transparentShort": "Transparent",
+      "imageLimit": "Use an image up to 50 MiB, 64 megapixels and 16,384 px per side.",
+      "exportCode": "Get color codes",
+      "exportFormat": "Code format",
+      "exportHint": "CSS and JSON keep these colors; five colors also include template roles. HTML + CSS is available in the template editor.",
+      "previewFail": "Previews could not load. You can still open the template editor.",
+      "templatePreviews": "Try these colors in a template",
+      "preview_website": "Website",
+      "preview_shop": "Shop",
+      "preview_planner": "Planner",
+      "samplePhoto": "Photo",
+      "sampleLogo": "Logo"
     },
     "ko": {
-      "title": "색상 추출 – 이미지에서 색 뽑기, HEX RGB 코드 무료",
+      "title": "이미지 색상 추출 – HEX·RGB와 자동 5색 팔레트 | PARKBOK",
       "h1": "이미지 색상 추출",
-      "line": "사진을 올리고 원하는 지점을 눌러 그 색의 HEX·RGB 코드를 복사하세요.",
-      "description": "사진에서 HEX·RGB·HSL 색상을 추출하고 최대 5색을 웹사이트 예시에 적용하세요. 색 조합을 확인하고 HTML·CSS로 가져가기. 업로드 없이 브라우저 처리.",
+      "line": "이미지에서 HEX·RGB를 뽑고, 5색 팔레트를 템플릿에 적용하세요.",
+      "description": "이미지에서 HEX·RGB 색상과 주요 색을 최대 5개 추출하세요. 웹사이트·쇼핑몰·플래너에 적용하고 CSS·JSON·PNG로 가져가세요. 이미지 업로드 없이 무료로 사용합니다.",
       "dropTitle": "이미지를 끌어다 놓거나 선택하세요",
       "dropHint": "JPG · PNG · WebP · GIF – 업로드 없음",
       "select": "이미지 선택",
@@ -79,20 +114,59 @@
       "loadFail": "이미지를 열 수 없습니다.",
       "faq": [
         [
-          "정확한 지점의 색을 고르려면?",
-          "이미지를 누르거나 끌면 확대경이 픽셀을 8배로 보여 줍니다. 손가락을 떼거나 마우스를 놓으면 그 색이 목록에 담깁니다."
+          "정확한 픽셀의 색은 어떻게 고르나요?",
+          "이미지를 누르거나 끌면 축소된 화면이 아닌 원본 좌표의 픽셀을 읽습니다. 방향키로 1px, Shift와 함께 10px 이동하고 Enter로 담을 수 있습니다. 색 값은 브라우저의 sRGB 캔버스 변환 기준이며 파일의 원시 바이트 값과 다를 수 있습니다."
         ],
         [
-          "주요 색 추출은 무엇인가요?",
-          "이미지의 픽셀을 표본으로 뽑아 6개 묶음으로 나누고, 가장 많이 쓰인 색을 팔레트로 보여 줍니다. 복사하거나 PNG 로 저장할 수 있습니다."
+          "자동 팔레트와 직접 선택한 색은 무엇이 다른가요?",
+          "자동 팔레트는 표본을 비슷한 색끼리 묶어 계산한 대표색 최대 5개입니다. 평균색이므로 실제 한 픽셀과 다를 수 있습니다. 특정 지점의 색이 필요하면 이미지를 누르세요. 색이 적으면 실제 추출 개수만 표시합니다."
         ],
         [
-          "추출한 색을 웹사이트 예시에 적용할 수 있나요?",
-          "주요 색을 추출하거나 원하는 색을 담고 템플릿에 적용을 누르세요. 최대 5색을 배경·표면·본문·주요 색·강조 색에 배치합니다. 색 조합 도구에서 역할과 대비를 확인한 뒤 HTML·CSS를 복사하거나 단독 HTML 파일을 받을 수 있습니다."
+          "투명한 이미지는 어떻게 처리하나요?",
+          "완전히 투명한 픽셀은 제외합니다. 반투명 픽셀은 화면과 같은 흰 배경 위에 합성한 색으로 보여주며, 선택한 픽셀의 불투명도를 함께 표시합니다."
+        ],
+        [
+          "이미지 색으로 웹사이트 디자인을 만들 수 있나요?",
+          "웹사이트·쇼핑몰·플래너 미리보기를 선택하세요. 서로 다른 5색이면 템플릿 편집기에서 역할과 글자 대비를 확인하고 HTML·CSS를 가져갈 수 있습니다. 전달하는 5색은 바꾸지 않습니다."
+        ],
+        [
+          "편집기를 열지 않고 색만 가져갈 수 있나요?",
+          "HEX·CSS 변수·JSON을 바로 복사하거나 팔레트 PNG를 저장할 수 있습니다. 5색이면 CSS·JSON에 템플릿 역할도 포함합니다. 이미지와 파일명은 포함하지 않습니다."
+        ],
+        [
+          "이미지를 서버로 보내나요?",
+          "파일은 브라우저에서 읽고 처리하며 업로드하지 않습니다. 50MiB·6,400만 화소·한 변 16,384px 이하를 지원하지만 브라우저 메모리와 파일 형식에 따라 열리지 않을 수 있습니다. EXIF 회전은 브라우저 디코더가 반영합니다."
         ]
       ],
       "templateButton": "템플릿에 적용",
-      "templateHint": "최대 5색을 가져갑니다. 템플릿에서 색의 역할과 글자 대비를 확인하세요."
+      "templateHint": "이 5색을 그대로 가져갑니다. 템플릿에서 역할과 글자 대비를 확인하세요.",
+      "paletteReady": "주요 색 {n}개를 추출했습니다. 이미지를 눌러 원하는 색을 더 담아보세요.",
+      "templateNeed": "템플릿에는 서로 다른 5색이 필요합니다. 현재 {n}색이며 복사·저장은 가능합니다.",
+      "templateSelection": "템플릿에 쓸 5색을 선택하세요 ({n}/5). 바꾸려면 선택한 색 하나를 해제하세요.",
+      "templateChoose": "템플릿에 사용",
+      "sampleTitle": "예시로 먼저 해보세요",
+      "sampleLine": "그림·사진·로고를 고르면 팔레트가 바로 나옵니다.",
+      "sampleButton": "일러스트",
+      "sampleAlt": "노란 해, 분홍 언덕과 청록색 물이 있는 노을 그림",
+      "keyboardHelp": "방향키 1px · Shift 10px · Enter 색 담기",
+      "sourceSize": "원본 {w} × {h}",
+      "transparentPixel": "완전히 투명한 픽셀입니다. 담을 색이 없습니다.",
+      "alphaPixel": "원본 픽셀 · 불투명도 {a}%, 흰 배경 기준",
+      "originalPixel": "원본 픽셀 · sRGB",
+      "representativeColor": "대표색 · 비슷한 표본 색의 평균",
+      "savedColor": "담은 색",
+      "transparentShort": "투명",
+      "imageLimit": "50MiB·6,400만 화소·한 변 16,384px 이하 이미지를 사용하세요.",
+      "exportCode": "색상 코드 가져가기",
+      "exportFormat": "코드 형식",
+      "exportHint": "CSS·JSON에 이 색을 그대로 담습니다. 5색이면 템플릿 역할도 포함됩니다. HTML·CSS는 템플릿 편집기에서 가져가세요.",
+      "previewFail": "미리보기를 불러오지 못했습니다. 템플릿 편집기는 열 수 있습니다.",
+      "templatePreviews": "템플릿에서 색 비교",
+      "preview_website": "웹사이트",
+      "preview_shop": "쇼핑몰",
+      "preview_planner": "플래너",
+      "samplePhoto": "사진",
+      "sampleLogo": "로고"
     },
     "zh": {
       "title": "图片取色器 – 从图片提取颜色 HEX RGB 在线免费",
@@ -124,11 +198,34 @@
         ],
         [
           "提取主色是什么？",
-          "对图片像素抽样并分成 6 组，给出最常见的颜色作为配色，可复制或保存为 PNG。"
+          "选择图片后会自动提取最多 5 种主色。颜色较少时仅显示实际数量，可复制或保存为 PNG。"
         ]
       ],
       "templateButton": "应用到模板",
-      "templateHint": "最多使用5种颜色。可在模板中调整用途并检查文字对比度。"
+      "templateHint": "原样使用这 5 种颜色。请在模板中检查用途和文字对比度。",
+      "paletteReady": "已提取 {n} 种主色。点击图片可选取其他颜色。",
+      "templateNeed": "模板需要 5 种不同的颜色，当前有 {n} 种。仍可复制或保存。",
+      "templateSelection": "选择模板使用的 5 种颜色（{n}/5）。替换前请先取消选择一种颜色。",
+      "templateChoose": "用于模板",
+      "keyboardHelp": "方向键：1px · Shift：10px · Enter：保存颜色",
+      "sourceSize": "原图 {w} × {h}",
+      "transparentPixel": "此像素完全透明，没有可保存的颜色。",
+      "alphaPixel": "原始像素 · 不透明度 {a}%，白色背景",
+      "originalPixel": "原始像素 · sRGB",
+      "representativeColor": "代表色 · 相近采样颜色的平均值",
+      "savedColor": "已保存的颜色",
+      "transparentShort": "透明",
+      "imageLimit": "请选择不超过50MiB、6400万像素、单边16,384px的图片。",
+      "exportCode": "获取颜色代码",
+      "exportFormat": "代码格式",
+      "exportHint": "CSS和JSON保留这些颜色；5色时还包含模板角色。HTML和CSS可在模板编辑器中获取。",
+      "previewFail": "无法加载预览，仍可打开模板编辑器。",
+      "templatePreviews": "在模板中比较颜色",
+      "preview_website": "网站",
+      "preview_shop": "商店",
+      "preview_planner": "计划表",
+      "samplePhoto": "照片",
+      "sampleLogo": "标志"
     },
     "ja": {
       "title": "画像カラーピッカー – 画像から色を抽出 HEX RGB 無料",
@@ -160,11 +257,34 @@
         ],
         [
           "主要色の抽出とは？",
-          "画像のピクセルをサンプリングして 6 つのグループに分け、最もよく使われている色をパレットとして表示します。コピーや PNG 保存ができます。"
+          "画像を選ぶと主要色を最大5色、自動で抽出します。色が少ない画像は実際の色数だけ表示し、コピーやPNG保存ができます。"
         ]
       ],
       "templateButton": "テンプレートで見る",
-      "templateHint": "最大5色を使用します。テンプレートで用途と文字のコントラストを確認できます。"
+      "templateHint": "この5色をそのまま使います。テンプレートで役割と文字のコントラストを確認してください。",
+      "paletteReady": "主要色を {n} 色抽出しました。画像を押して好きな色も選べます。",
+      "templateNeed": "テンプレートには異なる5色が必要です。現在は{n}色です。コピー・保存はできます。",
+      "templateSelection": "テンプレートに使う5色を選択（{n}/5）。入れ替えるには1色の選択を解除してください。",
+      "templateChoose": "テンプレートに使用",
+      "keyboardHelp": "矢印キー：1px · Shift：10px · Enter：色を保存",
+      "sourceSize": "元画像 {w} × {h}",
+      "transparentPixel": "透明なピクセルです。保存できる色はありません。",
+      "alphaPixel": "元のピクセル · 不透明度 {a}%、白背景で表示",
+      "originalPixel": "元のピクセル · sRGB",
+      "representativeColor": "代表色 · 近い色の平均",
+      "savedColor": "保存した色",
+      "transparentShort": "透明",
+      "imageLimit": "50MiB、6400万画素、1辺16,384px以下の画像を選んでください。",
+      "exportCode": "カラーコードを取得",
+      "exportFormat": "コード形式",
+      "exportHint": "CSS・JSONは色を維持します。5色にはテンプレートの役割も含まれます。HTML・CSSはテンプレート編集画面で取得できます。",
+      "previewFail": "プレビューを読み込めません。テンプレート編集画面は開けます。",
+      "templatePreviews": "テンプレートで色を比較",
+      "preview_website": "サイト",
+      "preview_shop": "ショップ",
+      "preview_planner": "プランナー",
+      "samplePhoto": "写真",
+      "sampleLogo": "ロゴ"
     },
     "es": {
       "title": "Selector de color de imagen – HEX y RGB de cualquier foto gratis",
@@ -196,11 +316,34 @@
         ],
         [
           "¿Qué hace Colores clave?",
-          "Toma muestras de la imagen y agrupa los píxeles en 6 grupos, dándote los colores más frecuentes como una paleta que puedes copiar o guardar en PNG."
+          "Al elegir una imagen se extraen automáticamente hasta 5 colores principales. Si hay menos colores distintos, se muestra la cantidad real. Puedes copiarlos o guardar la paleta en PNG."
         ]
       ],
       "templateButton": "Ver en plantillas",
-      "templateHint": "Usa hasta 5 colores. Ajusta sus funciones y revisa el contraste del texto en la plantilla."
+      "templateHint": "Usa estos 5 colores sin cambios. Revisa sus funciones y el contraste del texto.",
+      "paletteReady": "Tu paleta de {n} colores está lista. Toca la imagen para elegir otros colores.",
+      "templateNeed": "La plantilla necesita 5 colores distintos; esta paleta tiene {n}. Puedes copiarla o guardarla.",
+      "templateSelection": "Elige 5 colores para la plantilla ({n}/5). Desmarca uno para sustituirlo.",
+      "templateChoose": "Usar en la plantilla",
+      "keyboardHelp": "Flechas: 1px · Mayús: 10px · Intro: guardar color",
+      "sourceSize": "Original {w} × {h}",
+      "transparentPixel": "Este píxel es transparente. No hay color visible que guardar.",
+      "alphaPixel": "Píxel original · opacidad {a}%, sobre blanco",
+      "originalPixel": "Píxel original · sRGB",
+      "representativeColor": "Color representativo · promedio de colores similares",
+      "savedColor": "Color guardado",
+      "transparentShort": "Transparente",
+      "imageLimit": "Usa una imagen de hasta 50MiB, 64 megapíxeles y 16.384px por lado.",
+      "exportCode": "Obtener códigos",
+      "exportFormat": "Formato del código",
+      "exportHint": "CSS y JSON conservan estos colores; con cinco se incluyen las funciones de la plantilla. Obtén HTML y CSS en el editor.",
+      "previewFail": "No se pudieron cargar las vistas previas. Puedes abrir el editor.",
+      "templatePreviews": "Comparar colores en plantillas",
+      "preview_website": "Sitio web",
+      "preview_shop": "Tienda",
+      "preview_planner": "Agenda",
+      "samplePhoto": "Foto",
+      "sampleLogo": "Logotipo"
     },
     "pt": {
       "title": "Seletor de cor de imagem – HEX e RGB de qualquer foto grátis",
@@ -232,11 +375,34 @@
         ],
         [
           "O que faz Cores principais?",
-          "Amostra a imagem e agrupa os pixels em 6 grupos, mostrando as cores mais comuns como uma paleta que você pode copiar ou salvar em PNG."
+          "Ao escolher uma imagem, até 5 cores principais são extraídas automaticamente. Imagens com menos cores distintas mantêm a quantidade real. Copie as cores ou salve a paleta em PNG."
         ]
       ],
       "templateButton": "Ver nos modelos",
-      "templateHint": "Usa até 5 cores. Edite as funções e confira o contraste do texto no modelo."
+      "templateHint": "Usa estas 5 cores sem alterações. Confira as funções e o contraste do texto.",
+      "paletteReady": "Sua paleta de {n} cores está pronta. Toque na imagem para escolher outras cores.",
+      "templateNeed": "O modelo precisa de 5 cores diferentes; esta paleta tem {n}. Você ainda pode copiar ou salvar.",
+      "templateSelection": "Escolha 5 cores para o modelo ({n}/5). Desmarque uma para substituí-la.",
+      "templateChoose": "Usar no modelo",
+      "keyboardHelp": "Setas: 1px · Shift: 10px · Enter: salvar cor",
+      "sourceSize": "Original {w} × {h}",
+      "transparentPixel": "Este pixel é transparente. Não há cor visível para salvar.",
+      "alphaPixel": "Pixel original · opacidade {a}%, sobre branco",
+      "originalPixel": "Pixel original · sRGB",
+      "representativeColor": "Cor representativa · média de cores semelhantes",
+      "savedColor": "Cor salva",
+      "transparentShort": "Transparente",
+      "imageLimit": "Use uma imagem de até 50MiB, 64 megapixels e 16.384px por lado.",
+      "exportCode": "Obter códigos",
+      "exportFormat": "Formato do código",
+      "exportHint": "CSS e JSON mantêm estas cores; cinco cores incluem as funções do modelo. HTML e CSS estão disponíveis no editor.",
+      "previewFail": "Não foi possível carregar as prévias. Você pode abrir o editor.",
+      "templatePreviews": "Comparar cores em modelos",
+      "preview_website": "Site",
+      "preview_shop": "Loja",
+      "preview_planner": "Agenda",
+      "samplePhoto": "Foto",
+      "sampleLogo": "Logotipo"
     },
     "de": {
       "title": "Farbe aus Bild auslesen – HEX und RGB aus jedem Foto kostenlos",
@@ -268,11 +434,34 @@
         ],
         [
           "Was macht Hauptfarben?",
-          "Das Bild wird abgetastet und die Pixel werden in 6 Gruppen geteilt. Die häufigsten Farben erscheinen als Palette, die du kopieren oder als PNG sichern kannst."
+          "Nach der Bildauswahl werden automatisch bis zu 5 Hauptfarben extrahiert. Bei weniger unterschiedlichen Farben wird die tatsächliche Anzahl angezeigt. Farben kopieren oder als PNG speichern."
         ]
       ],
       "templateButton": "In Vorlagen ansehen",
-      "templateHint": "Bis zu 5 Farben. Rollen bearbeiten und Textkontrast in der Vorlage prüfen."
+      "templateHint": "Diese 5 Farben bleiben unverändert. Prüfe Rollen und Textkontrast in der Vorlage.",
+      "paletteReady": "Deine Palette mit {n} Farben ist bereit. Tippe auf das Bild, um weitere Farben auszuwählen.",
+      "templateNeed": "Die Vorlage braucht 5 verschiedene Farben; diese Palette hat {n}. Kopieren und Speichern bleiben möglich.",
+      "templateSelection": "Wähle 5 Farben für die Vorlage ({n}/5). Wähle eine ab, um sie zu ersetzen.",
+      "templateChoose": "In Vorlage verwenden",
+      "keyboardHelp": "Pfeiltasten: 1px · Umschalt: 10px · Enter: Farbe speichern",
+      "sourceSize": "Original {w} × {h}",
+      "transparentPixel": "Dieses Pixel ist transparent. Keine sichtbare Farbe zum Speichern.",
+      "alphaPixel": "Originalpixel · {a}% Deckkraft, auf Weiß",
+      "originalPixel": "Originalpixel · sRGB",
+      "representativeColor": "Repräsentative Farbe · Mittel ähnlicher Farbmuster",
+      "savedColor": "Gespeicherte Farbe",
+      "transparentShort": "Transparent",
+      "imageLimit": "Bild bis 50MiB, 64 Megapixel und 16.384px pro Seite verwenden.",
+      "exportCode": "Farbcodes erhalten",
+      "exportFormat": "Codeformat",
+      "exportHint": "CSS und JSON behalten diese Farben bei; fünf Farben enthalten auch Vorlagenrollen. HTML und CSS gibt es im Vorlageneditor.",
+      "previewFail": "Vorschauen konnten nicht geladen werden. Der Vorlageneditor bleibt verfügbar.",
+      "templatePreviews": "Farben in Vorlagen vergleichen",
+      "preview_website": "Website",
+      "preview_shop": "Shop",
+      "preview_planner": "Planer",
+      "samplePhoto": "Foto",
+      "sampleLogo": "Logo"
     },
     "fr": {
       "title": "Pipette couleur image – HEX et RGB de n'importe quelle photo gratuit",
@@ -304,11 +493,34 @@
         ],
         [
           "Que fait Couleurs clés ?",
-          "L'image est échantillonnée et les pixels sont regroupés en 6 groupes : vous obtenez les couleurs les plus fréquentes sous forme de palette, à copier ou à enregistrer en PNG."
+          "Le choix d’une image extrait automatiquement jusqu’à 5 couleurs principales. Si elle contient moins de couleurs distinctes, leur nombre réel est conservé. Copiez les couleurs ou enregistrez la palette en PNG."
         ]
       ],
       "templateButton": "Voir dans les modèles",
-      "templateHint": "Jusqu’à 5 couleurs. Modifiez leurs rôles et vérifiez le contraste du texte dans le modèle."
+      "templateHint": "Ces 5 couleurs sont conservées. Vérifiez leurs rôles et le contraste du texte.",
+      "paletteReady": "Votre palette de {n} couleurs est prête. Touchez l’image pour choisir d’autres couleurs.",
+      "templateNeed": "Le modèle nécessite 5 couleurs différentes ; cette palette en contient {n}. Vous pouvez la copier ou l’enregistrer.",
+      "templateSelection": "Choisissez 5 couleurs pour le modèle ({n}/5). Décochez une couleur pour la remplacer.",
+      "templateChoose": "Utiliser dans le modèle",
+      "keyboardHelp": "Flèches : 1px · Maj : 10px · Entrée : garder la couleur",
+      "sourceSize": "Original {w} × {h}",
+      "transparentPixel": "Ce pixel est transparent. Aucune couleur visible à garder.",
+      "alphaPixel": "Pixel original · opacité {a}%, sur fond blanc",
+      "originalPixel": "Pixel original · sRGB",
+      "representativeColor": "Couleur représentative · moyenne de couleurs proches",
+      "savedColor": "Couleur enregistrée",
+      "transparentShort": "Transparent",
+      "imageLimit": "Utilisez une image de 50Mio, 64 mégapixels et 16 384px par côté au maximum.",
+      "exportCode": "Obtenir les codes",
+      "exportFormat": "Format du code",
+      "exportHint": "CSS et JSON conservent ces couleurs ; cinq couleurs incluent les rôles du modèle. HTML et CSS sont disponibles dans l’éditeur.",
+      "previewFail": "Impossible de charger les aperçus. Vous pouvez ouvrir l’éditeur.",
+      "templatePreviews": "Comparer les couleurs dans les modèles",
+      "preview_website": "Site web",
+      "preview_shop": "Boutique",
+      "preview_planner": "Agenda",
+      "samplePhoto": "Photo",
+      "sampleLogo": "Logo"
     }
   }
 }

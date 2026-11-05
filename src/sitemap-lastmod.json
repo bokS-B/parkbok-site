@@ -8,8 +8,8 @@
   "lastmod": "2026-11-04"
  },
  "/color/": {
-  "hash": "187dce89c50c1b66",
-  "lastmod": "2026-11-04"
+  "hash": "2f6be7a0ed089ebc",
+  "lastmod": "2026-11-05"
  },
  "/color/contrast/": {
   "hash": "ce2044d11bd9c3a2",
@@ -828,12 +828,12 @@
   "lastmod": "2026-11-03"
  },
  "/color/ko/": {
-  "hash": "6c7ff88d08a4e145",
-  "lastmod": "2026-11-03"
+  "hash": "d0e17792f0cf6383",
+  "lastmod": "2026-11-05"
  },
  "/color/palette/": {
-  "hash": "9afe5d0a79aa57a5",
-  "lastmod": "2026-11-03"
+  "hash": "b56f974af744c499",
+  "lastmod": "2026-11-05"
  },
  "/color/palette/de/": {
   "hash": "dc89fd3223fed0c7",
@@ -852,8 +852,8 @@
   "lastmod": "2026-11-03"
  },
  "/color/palette/ko/": {
-  "hash": "7ae41a881e8a8b6a",
-  "lastmod": "2026-11-03"
+  "hash": "ac2128afe08d6bce",
+  "lastmod": "2026-11-05"
  },
  "/color/palette/pt/": {
   "hash": "601a444f8fd909cf",
@@ -864,36 +864,36 @@
   "lastmod": "2026-11-03"
  },
  "/color/picker/": {
-  "hash": "412aa320f2226f57",
-  "lastmod": "2026-11-04"
+  "hash": "f497cfc509931a89",
+  "lastmod": "2026-11-05"
  },
  "/color/picker/de/": {
-  "hash": "53895d48feffc617",
-  "lastmod": "2026-11-03"
- },
- "/color/picker/es/": {
-  "hash": "55baab0168d4498f",
-  "lastmod": "2026-11-03"
- },
- "/color/picker/fr/": {
-  "hash": "14243cb38270784d",
-  "lastmod": "2026-11-03"
- },
- "/color/picker/ja/": {
-  "hash": "e8053bbc2581eb10",
-  "lastmod": "2026-11-03"
- },
- "/color/picker/ko/": {
-  "hash": "db986b543dd45173",
+  "hash": "c066b06a303c607e",
   "lastmod": "2026-11-04"
  },
+ "/color/picker/es/": {
+  "hash": "adf341d1a9e86587",
+  "lastmod": "2026-11-04"
+ },
+ "/color/picker/fr/": {
+  "hash": "4575cb1b202451b4",
+  "lastmod": "2026-11-04"
+ },
+ "/color/picker/ja/": {
+  "hash": "17d385a7952c649e",
+  "lastmod": "2026-11-04"
+ },
+ "/color/picker/ko/": {
+  "hash": "5c63b2161fdd7f9e",
+  "lastmod": "2026-11-05"
+ },
  "/color/picker/pt/": {
-  "hash": "56891f98a0c0669a",
-  "lastmod": "2026-11-03"
+  "hash": "40b31d3763e9cbd5",
+  "lastmod": "2026-11-04"
  },
  "/color/picker/zh/": {
-  "hash": "0c5b610b0a7fb9b3",
-  "lastmod": "2026-11-03"
+  "hash": "151769cb107bdada",
+  "lastmod": "2026-11-04"
  },
  "/color/pt/": {
   "hash": "c273acf76d5b0c37",
@@ -908,8 +908,8 @@
   "lastmod": "2026-11-04"
  },
  "/en/": {
-  "hash": "d74e30e16f62b085",
-  "lastmod": "2026-11-04"
+  "hash": "6eef3a0e7507b846",
+  "lastmod": "2026-11-05"
  },
  "/es/": {
   "hash": "3168216d77532564",

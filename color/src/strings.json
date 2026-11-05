@@ -33,10 +33,10 @@
     "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato",
     "invalid": "Not a color. Try #ff5733, rgb(…) or a name like tomato.",
     "hub": {
-      "title": "Free Color Tools Online – HEX, RGB, HSL Converter, Palettes, Contrast",
+      "title": "Color Tools – Image Picker, Palettes & CSS Gradients | PARKBOK",
       "h1": "Color tools",
-      "line": "HEX, RGB, HSL, palettes and contrast – free, in your browser.",
-      "description": "Free online color tools: convert HEX, RGB, HSL, HSV and CMYK, find CSS color names, build tints, shades and harmonies, and check text contrast. Everything runs in your browser – no upload, no sign-up.",
+      "line": "Pick image colors, try palettes in templates, and take the CSS.",
+      "description": "Free color tools to pick image colors, build five-color palettes, preview templates and export CSS. Convert HEX and RGB, create gradients and check text contrast.",
       "colorsTitle": "Popular colors",
       "colorsLine": "HEX, RGB, CMYK, matching palettes and usage notes for each color."
     },
@@ -78,9 +78,9 @@
     "placeholder": "#ff5733 · rgb(255, 87, 51) · tomato",
     "invalid": "색으로 읽을 수 없습니다. #ff5733, rgb(…), tomato 같은 형식으로 넣어 주세요.",
     "hub": {
-      "title": "무료 색상 도구 – HEX RGB HSL 변환, 팔레트, 대비 검사",
+      "title": "색상 도구 – 이미지 색 추출·배색·CSS 그라데이션 | PARKBOK",
       "h1": "색상 도구",
-      "line": "색 코드 변환, 사진 색 추출, 배색·그라데이션·대비 검사를 설치 없이 하세요.",
+      "line": "이미지에서 색을 뽑고, 배색을 템플릿에 적용해 CSS로 가져가세요.",
       "description": "무료 색상 도구 5종. HEX·RGB·HSL 변환, 사진 색 추출, 랜덤 생성을 포함한 색 조합, CSS 그라데이션, 글자 대비 검사. 설치 없이 브라우저에서 처리됩니다.",
       "colorsTitle": "인기 색상",
       "colorsLine": "색상별 HEX·RGB·CMYK 값, 어울리는 팔레트, 활용 메모 (영어 페이지)"

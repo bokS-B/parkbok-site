@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480">
+  <title>Original PARKBOK five-color logo exercise</title>
+  <rect width="720" height="480" rx="0" fill="#fff7e4"/>
+  <path d="M80 0H190V480H80Z" fill="#edc3cf"/>
+  <rect x="220" y="70" width="420" height="340" rx="32" fill="#276653"/>
+  <g fill="#ef8c54"><circle cx="400" cy="170" r="46"/><circle cx="460" cy="230" r="46"/><circle cx="400" cy="290" r="46"/><circle cx="340" cy="230" r="46"/></g>
+  <circle cx="400" cy="230" r="32" fill="#293d3a"/>
+  <path d="M270 345H590V375H270Z" fill="#fff7e4"/>
+  <circle cx="590" cy="130" r="20" fill="#edc3cf"/>
+</svg>

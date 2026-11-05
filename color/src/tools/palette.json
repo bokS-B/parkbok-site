@@ -10,10 +10,10 @@
   ],
   "strings": {
     "en": {
-      "title": "Color Palette Generator – Random Colors, Locks & Live Preview",
+      "title": "Color Palette Generator – Preview & Export HTML/CSS | PARKBOK",
       "h1": "Color palette generator",
       "line": "Generate a five-color palette, lock favorites and preview three templates. Take the HTML and CSS.",
-      "description": "Generate random five-color palettes, lock favorites and preview three templates. Choose from 24 curated sets or edit every color. Copy HEX, HTML and CSS, or download standalone HTML.",
+      "description": "Generate five-color palettes, lock your favorites and try website, shop and planner templates. Explore 24 palettes. Copy CSS or download HTML with no sign-up.",
       "base": "Base color",
       "splitComp": "Split complementary",
       "lightness": "Lightness",
@@ -22,7 +22,7 @@
       "copyJson": "Copy JSON"
     },
     "ko": {
-      "title": "색 조합 생성기 – 랜덤 5색·잠금·템플릿 미리보기",
+      "title": "색 조합 생성기 – 5색 배색·템플릿·HTML/CSS 내보내기 | PARKBOK",
       "h1": "색 조합",
       "line": "5색 조합을 만들고, 마음에 드는 색은 잠그세요. 예시에 입혀 보고 HTML·CSS로 가져가세요.",
       "description": "랜덤 5색 조합을 만들고 마음에 드는 색을 잠그세요. 24개 추천 팔레트와 템플릿 3개, 색별 편집·HEX 복사·대비 확인·HTML/CSS 내보내기를 브라우저에서 무료로 사용하세요.",
