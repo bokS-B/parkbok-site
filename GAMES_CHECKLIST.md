@@ -11,8 +11,9 @@
 - [x] 전체 빌드, 공통 셸 361문서, Node 208개·Python 10개 테스트 통과.
 - [x] 공개 패키지 5,065파일·내부 참조 277,974건 정상. 게임 링크 0.
 - [x] 로컬 14페이지 × 1280/375 × 라이트/다크 = 56조건 넘침0. EN/KO 자동5색·클립보드·PNG 저장·템플릿 색 전달 정상, pageerror0.
-- [ ] main 배포와 공개 36개 URL의 404 확인.
-- [ ] 게임을 제외한 sitemap.xml을 Search Console에 재제출.
+- [x] main 배포와 공개 36개 URL의 404 확인. 공개 commit `27aac26a93b4ec1aa6048bdb86429c7522469020`, Pages 실행 `41965334876` 성공.
+- [x] 게임을 제외한 sitemap.xml을 Search Console에 재제출. 2026-11-05 접수 성공. 화면의 발견된 533개는 11월4일 읽은 값이며 새 사이트맵의 실제 URL 수는 529개.
+- [x] 배포 후 56화면 조건·EN/KO 자동5색·실제 클립보드·PNG 저장·템플릿 전달 재검증. 공개 HTML 13페이지 HTTP200, 제거 URL 36개 HTTP404.
 
 로컬 근거: `output/playwright/games-retirement/`, `output/seo-color-games/`. 제품 되돌림 기준: `5536a931b`(기록 포함 직전 HEAD `677cd96f8`). 실제 휴대폰 검사는 포함하지 않음.
 

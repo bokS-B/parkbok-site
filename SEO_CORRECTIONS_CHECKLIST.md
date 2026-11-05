@@ -45,3 +45,14 @@
 - BR1 파서 변경, CP1 첫 문장, S1a 여권사진, 홈/게임의 미배포 변경은 별도 작업으로 유지한다.
 
 미리보기: http://127.0.0.1:8796/hwp/ · http://127.0.0.1:8796/text/sql-in.html
+
+## 2026-11-05 색상 추출 검색 표시·색인 요청
+
+- [x] 실제 Chrome Google 검색에서 EN `site:parkbok.com/color/picker/` 확인. 영어 결과 제목은 `Image Color Picker`, 설명은 예전 `collect up to 12 colors` 문구. 새 `HEX, RGB & 5-Color Palettes` 제목/설명의 반영은 확인하지 못함. 검색 제목은 원본 title과 반드시 같지 않으며 이번 결과는 한국에서 로그인된 개인화 검색이다.
+- [x] KO `site:parkbok.com/color/picker/ko/` 결과 없음. Search Console도 `Google에는 아직 알려지지 않은 URL`·크롤링 없음으로 확인. site 검색 결과만으로 미색인을 단정하지 않음.
+- [x] KO 실시간 검사 `URL을 Google에 등록할 수 있음`. 사용자의 직접 진행 후 `색인 생성 요청됨`과 우선순위 크롤링 대기열 접수 화면 확인. 접수 완료와 색인 완료를 구분한다.
+- [ ] EN 재색인 요청: 기존 URL은 Google에 등록됨. 요청 2회 모두 `reCAPTCHA 서비스에 연결할 수 없습니다` 오류로 접수 실패. 사용자에게 수동 요청을 부탁했고 영어 URL 검사 탭을 남김. 완료로 기록하지 않음.
+- [x] 공개 EN/KO의 새 title과 정상 HTTP200, sitemap-core.xml / sitemap-tools.xml에 각각 포함 확인.
+- [x] 게임 36 URL 제거 배포 `27aac26a9` 후 `https://parkbok.com/sitemap.xml` 재제출. 11월5일 제출·접수 성공. 최신 파일은 core43+tools310+colors176=529 URL. GSC 발견된 페이지 수는 아직 11월4일 기준533으로 새 파일 처리 완료와 다름.
+
+증빙: `output/seo-color-games/google-en-before.png`, `google-ko-before.png`, `gsc-ko-requested.png`, `gsc-ko-index-status.png`, `gsc-en-request-error.png`, `sitemap-submitted.png`, `live-check.json`. 삭제·배포 상세는 `GAMES_CHECKLIST.md` 참조. 노출·색인·순위 상승을 보장하거나 완료 처리하지 않음.
