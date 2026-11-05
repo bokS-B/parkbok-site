@@ -53,6 +53,7 @@ GitHub 제공 Pages 액션의 Node20→24 강제 실행 경고1건과 ubuntu-lat
 - [x] 모든 언어·HEX 페이지에 공통 파비콘 링크 적용. 브라우저 캐시 갱신용 해시, 검색용 192px PNG 주소 유지.
 - [x] 전체 빌드·공통 셸 검사 361문서 실패0. Node 208개·Python 10개 통과. 배포 산출물 5066파일, 내부 참조 283311건 검사 통과. 사이트맵 529 URL 유지·lastmod 변경0.
 - [x] 14페이지 × 1280×900/375×812 × 라이트/다크 = 56조건. 헤더·푸터 마크, 테마 색상·가로 넘침0, 페이지 오류0·요청 실패0 확인. 파비콘 16/32/48/192px 시각 확인.
-- [ ] main push·Pages 배포 완료 후 공개 파일과 화면 재검증.
+- [x] `bd75c0cd41b6b5477d72b1b1cd335867e9468e89` main push·Pages 실행 `41967757191` 성공. 공개 build-info SHA 일치.
+- [x] 공개 SVG·ICO·PNG·공통 CSS 7개가 로컬과 SHA-256 일치. 공개 14페이지 56조건 재확인: 가로 넘침0, 페이지 오류0, 요청 실패0. 라이트/다크 파비콘 색 전환 확인.
 
-로컬 증거: `output/playwright/transparent-brand/`. 실제 휴대폰·Safari/Firefox·Google 검색 아이콘 갱신은 이번 Chromium 확인에 포함하지 않는다.
+로컬 증거: `output/playwright/transparent-brand/`, 공개 증거: 같은 폴더의 `live/`. 실제 휴대폰·Safari/Firefox·Google 검색 아이콘 갱신은 이번 Chromium 확인에 포함하지 않는다.
