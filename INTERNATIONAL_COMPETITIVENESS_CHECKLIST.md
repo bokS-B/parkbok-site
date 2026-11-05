@@ -189,7 +189,7 @@ Ahrefs 무료 Traffic Checker, 2026-11-03 조회, Exact URL의 월간 Google 자
 - [x] COLOR-03 활용 결과를 미리 보여주기: 기존 3개 템플릿의 작은 미리보기를 추출 결과 가까이에 연결. 기존 그림과 디자인을 재사용한다.
 - [x] COLOR-04 추출 화면에서 CSS 변수·JSON·PNG를 바로 가져가기. 기존 팔레트 스튜디오의 HTML/CSS 내보내기 재사용, 가입·업로드 요구 없음.
 - [x] COLOR-05 사진·로고·일러스트 예시와 실제 기능 설명 보강. 기존 영어 추출 URL에 집중하고 selector/chooser/finder별 복제 페이지를 만들지 않음.
-- [ ] COLOR-06 2026-11-05 사용자가 로컬 결과의 커밋·배포와 운영 EN/KO 자동 추출·템플릿 연결·복사·다운로드 검증을 승인했다. 배포 및 공개 검증 진행 중.
+- [x] COLOR-06 2026-11-05 사용자 승인 후 `5536a931b` 커밋·main push·Pages 배포 완료. 공개 EN/KO 자동 추출·템플릿 연결·실제 코드 복사·PNG/HTML 다운로드 검증 통과. 아래 공개 기록 참조.
 - [ ] COLOR-07 배포 후 GSC 검색어 묶음·노출/클릭과 실제 사용 완료를 구분해 관찰. 검색 노출·순위 상승은 로컬 검증으로 확인할 수 없음.
 
 ### COLOR-02~05 구현·검증 기록 (2026-11-05)
@@ -213,3 +213,17 @@ Ahrefs 무료 Traffic Checker, 2026-11-03 조회, Exact URL의 월간 Google 자
 - `regression.js`/`regression-report.txt`: 명시적 5색 교체·선택한 색만 JSON 출력, 16번 담아도 선택5색 유지, 지연된 이전 이미지 무효화, 손상 파일 복구, 실제 클립보드 CSS 일치, ImageBitmap 없는 디코더 EXIF 확인.
 - 다운로드 PNG를 Pillow로 다시 열어 800×200 및 5색 RGB 일치 확인. HTML 3개는 `file://`로 재개방해 HTTP 요청0 확인. 테스트 중 CLI가 임시 폴더에 남긴 HTML 3개는 이 작업의 `output/.../cli-downloads/`로 옮겨 공통 셸 검사의 서비스 페이지 오인식을 해결했다. 기존 임시 자료는 삭제하지 않았다.
 - 실제 휴대폰·Safari/Firefox·운영 도메인 측정·GSC 반영은 이번 로컬 완료 범위에 포함되지 않는다.
+
+### COLOR-06 공개 배포 완료 (2026-11-05)
+
+- 서비스 커밋 `5536a931b0ca00edf89fbe0ac673d325c97b3141`, main에 fast-forward push. 이전 서비스 기준 `3016425d9`(배포 직전 저장소 HEAD `245820a2b`). 이번 완료 기록은 문서 전용 `[skip ci]` 후속 커밋이며 공개 서비스 커밋을 바꾸지 않는다.
+- GitHub Pages 실행 [41957015531](https://github.com/bokS-B/parkbok-site/actions/runs/41957015531): 전체 생성·공통 셸 검사·Node/Python 테스트·패키지·artifact 업로드·배포 모두 성공.
+- 공개 `build-info.json`의 SHA와 서비스 커밋 일치. picker.js/picker-core.js/palette-import.js 및 사진/로고 자산 5개의 공개 바이트가 git 커밋 원본과 동일. 생성 템플릿·생성기·테스트 파일 3개는 HTTP404 유지.
+- [영어](https://parkbok.com/color/picker/)·[한국어](https://parkbok.com/color/picker/ko/) 모두 HTTP200/self-canonical/새 제목 확인. 일러스트·사진·로고 자동 5색, 로컬 합성 PNG의 실제 5색 추출 확인.
+- 양 언어에서 개별 HEX·전체 HEX·추출 CSS/JSON 및 템플릿 HTML+CSS/CSS 변수/JSON을 **실제 클립보드 읽기와 대조**했다. 미리보기 선택과 도착한 웹사이트/쇼핑몰/플래너 템플릿, 5개 색 역할이 모두 일치했다.
+- 다운로드 PNG 4개(언어별 예시+합성 원본)를 Pillow로 재개방: 모두 800×200, 표본 5색 RGB와 일치. 예시 PNG 13,424B, 합성 PNG 8,264B. 영어·한국어 출력은 각각 바이트 단위 동일.
+- 다운로드 HTML 6개(2언어×3템플릿)를 `file://`에서 다시 열어 원래 5색 역할 유지, HTTP 요청0 확인. 원래 영어 예시 문구와 폰트 라이선스 유지.
+- 공개 화면 23개: EN/KO 추출 1280×900/375×812 라이트·다크, 모바일 미리보기, 템플릿 3종의 데스크톱/모바일. 가로 넘침0. 브라우저 예외·콘솔 오류·외부 요청·GET/HEAD 외 요청·요청 실패 모두0.
+- 검증은 격리 Chromium 프로필에서 내부 방문 표식·통계 거절을 설정하고 외부 통신을 차단했다. 일반 사용자의 통계/동의 설정은 바꾸지 않았다. 실제 휴대폰·Safari/Firefox·검색 순위 반영은 별도다.
+- 근거: `output/playwright/color-release/`의 `release-proof.json`, `live.json`, `live-report.txt`, `download-proof.json`, PNG/HTML 10개와 캡처. 실제 공개 최종 화면은 `live-final-ko.png`.
+- 테스트 중 새 페이지로 너무 일찍 이동해 지연 로딩 요청이 취소된 검사 사례는 미리보기 로딩 완료까지 기다리도록 검사 절차를 수정했다. 재검증에서는 요청 실패0이며 서비스 코드 추가 수정은 없었다.
