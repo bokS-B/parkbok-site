@@ -24,7 +24,7 @@
         ],
         [
           "Can I make a 10–20KB signature?",
-          "Set the maximum to 20KB and open Minimum size to enter 10KB. Here that means 10,000–20,000 bytes. The tool checks the actual JPG and flags both undersize and oversize files. It does not add meaningless bytes to force a minimum."
+          "Set the maximum to 20KB and open Minimum size to enter 10KB. Here that means 10,000–20,000 bytes. The tool checks the actual JPG and flags both undersize and oversize files. For example, 6,000 bytes is under 20KB but still below a 10KB minimum. It does not add meaningless bytes to force a minimum."
         ],
         [
           "Does it distort my signature or upload it?",
@@ -76,12 +76,12 @@
       "runText": "서명 규격 맞추기",
       "faq": [
         [
-          "인도 신청서의 서명 규격은 무엇인가요?",
-          "신청처마다 픽셀·파일 형식·용량 범위가 다릅니다. 140×60·300×100·600×200 버튼은 직접 바꿀 수 있는 예시이며, 모든 시험·신청서의 공통 규격이 아닙니다. 접수를 보장하는 기능은 아닙니다."
+          "신청서에 제출할 서명 파일의 규격은 어떻게 확인하나요?",
+          "신청처 안내에서 가로·세로 픽셀, 파일 형식, 최소·최대 용량을 먼저 확인하세요. 140×60·300×100·600×200 버튼은 직접 바꿀 수 있는 예시이며 공통 제출 규격이 아닙니다. 실제 JPG의 픽셀과 바이트를 확인한 뒤 제출하세요. 접수 가능 여부는 신청처 기준에 따라 달라집니다."
         ],
         [
           "서명을 10~20KB로 만들 수 있나요?",
-          "상한에 20KB, 최소 용량에 10KB를 넣으면 실제 JPG가 10,000~20,000바이트인지 검사합니다. 초과와 미달 모두 경고하며, 최소 용량을 채우려고 무의미한 바이트를 붙이지 않습니다."
+          "상한에 20KB, 최소 용량에 10KB를 넣으면 실제 JPG가 10,000~20,000바이트인지 검사합니다. 예를 들어 6,000바이트는 20KB 이하이지만 10KB 최소 용량을 충족하지 않습니다. 초과와 미달 모두 경고하며, 최소 용량을 채우려고 무의미한 바이트를 붙이지 않습니다."
         ],
         [
           "서명이 찌그러지거나 업로드되나요?",
