@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>목록 ↔ 한 줄 변환 — 세로 목록을 쉼표로 잇기, 쉼표 목록 세로로 풀기 | parkbok</title>
-<meta name="description" content="세로 목록을 쉼표·탭으로 이은 한 줄로, 쉼표 한 줄을 세로 목록으로 바꾸세요. 구분자 직접 지정, 빈 항목·중복 제거. 설치 없이 브라우저에서 처리, 무료.">
+<meta name="description" content="세로 목록을 붙여넣어 a, b, c 한 줄로 합치고, 쉼표 한 줄은 입력 후 ‘한 줄 → 목록’을 골라 나누세요. 구분자를 선택해 결과를 복사하거나 TXT로 저장할 수 있습니다. 브라우저에서 무료로 처리합니다.">
 <link rel="canonical" href="https://parkbok.com/text/list-to-line.html">
 <meta property="og:title" content="목록 ↔ 한 줄 변환">
-<meta property="og:description" content="세로 목록을 쉼표 한 줄로, 쉼표 목록을 세로로. 서버 전송 없음.">
+<meta property="og:description" content="세로 목록을 붙여넣어 a, b, c 한 줄로 합치고, 쉼표 한 줄은 입력 후 ‘한 줄 → 목록’을 골라 나누세요. 구분자를 선택해 결과를 복사하거나 TXT로 저장할 수 있습니다. 브라우저에서 무료로 처리합니다.">
 <meta property="og:url" content="https://parkbok.com/text/list-to-line.html">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"목록 ↔ 한 줄 변환","url":"https://parkbok.com/text/list-to-line.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"세로 목록과 구분자로 이은 한 줄을 서로 바꾸는 무료 브라우저 도구"}
+{"@context":"https://schema.org","@type":"WebApplication","name":"목록 ↔ 한 줄 변환","url":"https://parkbok.com/text/list-to-line.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"세로 목록을 붙여넣어 a, b, c 한 줄로 합치고, 쉼표 한 줄은 입력 후 ‘한 줄 → 목록’을 골라 나누세요. 구분자를 선택해 결과를 복사하거나 TXT로 저장할 수 있습니다. 브라우저에서 무료로 처리합니다."}
 </script>
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.ico?v=12e6bda5" sizes="16x16 32x32 48x48" type="image/x-icon">
@@ -355,7 +355,7 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
 <main class="wrap">
   <div class="tool-head">
     <h1>목록 ↔ 한 줄 변환</h1>
-    <p class="lead">세로 목록을 쉼표 한 줄로, 쉼표 한 줄을 세로 목록으로 바꿔 복사하세요.</p>
+    <p class="lead">세로 목록을 붙여넣으면 <code>a, b, c</code> 한 줄로 합쳐집니다. 반대로 나누려면 한 줄을 붙여넣고 ‘한 줄 → 목록’을 고르세요.</p>
   </div>
 
   <section class="stage stage-in">
@@ -398,6 +398,7 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
     <summary>사용법 · 자주 묻는 질문</summary>
 <article class="card">
     <h2 style="margin-top:0">이럴 때 씁니다</h2>
+    <p>기본 예: <code>a</code>와 <code>b</code>를 한 줄에 하나씩 입력하면 <code>a, b</code>가 됩니다. <code>a, b</code>를 붙여넣은 뒤 ‘한 줄 → 목록’을 선택하면 다시 한 줄에 한 항목씩 나뉩니다.</p>
     <ul>
       <li>엑셀 한 열에 있는 <strong>이메일 주소</strong>를 복사해 메일 받는 사람 칸에 넣을 <code>a@x.com, b@x.com</code> 형태로 만들기 (구분자 쉼표 또는 세미콜론)</li>
       <li>쉼표로 나열된 <strong>해시태그·키워드</strong>를 한 줄에 하나씩 풀어 엑셀에 붙이기</li>
@@ -405,7 +406,7 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
     </ul>
     <h2>자주 묻는 질문</h2>
     <dl class="faq">
-      <dt>"한 줄 → 목록"에서 구분자는 어떻게 정하나요?</dt><dd>고른 구분자로 자릅니다. 쉼표·세미콜론·탭·세로줄이 섞여 있으면 "쉼표"를 고르세요 — 이때는 쉼표·세미콜론·탭·세로줄·줄바꿈을 모두 구분자로 봅니다.</dd>
+      <dt>"한 줄 → 목록"에서 구분자는 어떻게 정하나요?</dt><dd>먼저 원본 칸에 한 줄을 붙여넣고, 나타난 옵션에서 "한 줄 → 목록"과 구분자를 고르세요. 고른 구분자로 자릅니다. 쉼표·세미콜론·탭·세로줄이 섞여 있으면 "쉼표"를 고르세요 — 이때는 쉼표·세미콜론·탭·세로줄·줄바꿈을 모두 구분자로 봅니다.</dd>
       <dt>SQL IN절처럼 따옴표도 붙이고 싶어요.</dt><dd><a href="/text/sql-in.html">목록 → SQL IN절</a>을 쓰세요. 따옴표·괄호·열 이름까지 한 번에 붙습니다.</dd>
       <dt>결과를 다시 다른 설정으로 바꾸고 싶어요.</dt><dd>"원본으로 보내기" 버튼을 누르면 결과가 원본 칸으로 옮겨져 이어서 처리할 수 있습니다.</dd>
       <dt>목록이 서버로 가나요?</dt><dd>아니요. 변환은 전부 이 페이지 안의 자바스크립트가 하고, 입력한 내용은 어디에도 전송되지 않습니다. 결과는 Ctrl+Enter 로도 복사됩니다.</dd>

@@ -10,10 +10,19 @@
   ],
   "strings": {
     "en": {
-      "title": "Image Color Picker – HEX, RGB & 5-Color Palettes | PARKBOK",
+      "title": "Color Picker from Image – HEX & RGB Codes | PARKBOK",
       "h1": "Image Color Picker",
-      "line": "Pick HEX and RGB colors, then try your 5-color palette in templates.",
-      "description": "Pick HEX and RGB colors from an image, extract up to 5 colors, and preview them in templates. Copy CSS or JSON. Free, with no image upload.",
+      "pageH1": "Color Picker from Image",
+      "line": "Choose a photo, click a point, and copy its HEX or RGB color code.",
+      "description": "Find a color in an image and copy its HEX or RGB code. Choose a photo or try a sample, then click the point you need. Free, with no image upload.",
+      "cardLine": "Pick HEX and RGB colors, then try your 5-color palette in templates.",
+      "howToTitle": "How to pick and copy a color from an image",
+      "howToSteps": [
+        "Choose a photo, drag an image onto the tool, or try an example.",
+        "Click a point in the image to read its HEX and RGB color codes.",
+        "Use the copy button beside HEX or RGB to copy that value."
+      ],
+      "howToNote": "Click a pixel for a specific color. The automatic palette shows up to 5 representative colors, which may not match an individual pixel.",
       "sampleTitle": "Start with an example",
       "sampleLine": "Try an illustration, a photo or a logo. Your palette appears automatically.",
       "sampleButton": "Illustration",

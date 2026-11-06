@@ -86,12 +86,16 @@ function colorsBlock(H){
   const sw = c => `<a href="/color/hex/${c.hex.slice(1)}/"><i style="background:${c.hex}"></i>${esc(c.name)}</a>`;
   return `  <section class="popular-colors"><h2>${esc(H.colorsTitle)}</h2><p class="muted">${esc(H.colorsLine)}</p><nav class="swatches" aria-label="${esc(H.colorsTitle)}">${CURATED.map(sw).join('')}</nav></section>`;
 }
+function pickerHowTo(id, lang, T){
+  if (id !== 'picker' || lang !== 'en' || !T.howToTitle || !Array.isArray(T.howToSteps)) return '';
+  return `  <section class="picker-how-to" aria-labelledby="picker-how-to-title">\n    <h2 id="picker-how-to-title">${esc(T.howToTitle)}</h2>\n    <ol>${T.howToSteps.map(step => `<li>${esc(step)}</li>`).join('')}</ol>\n    <p class="muted">${esc(T.howToNote)}</p>\n  </section>\n`;
+}
 const urls = [];
 let count = 0;
 // 허브
 for (const lang of langs) {
   const H = S[lang].hub, canonical = SITE + url(lang, '');
-  const cards = activeTools.map(tl => { const T = tstr(tl, lang); return `<a class="card" href="${url(lang, tl.id)}"><span class="card-icon">${icon(tl)}</span><h3>${esc(T.h1)}</h3><p>${esc(T.line)}</p></a>`; }).join('');
+  const cards = activeTools.map(tl => { const T = tstr(tl, lang); return `<a class="card" href="${url(lang, tl.id)}"><span class="card-icon">${icon(tl)}</span><h3>${esc(T.h1)}</h3><p>${esc(T.cardLine || T.line)}</p></a>`; }).join('');
   const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: H.h1, url: url(lang, '') }]);
   const jsonld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: H.h1, url: canonical, inLanguage: HREFLANG[lang] || lang, description: H.description,
     hasPart: activeTools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }, crumbs.jsonld];
@@ -111,7 +115,8 @@ for (const tl of tools) for (const lang of langs) {
     finish(alias, lang, tl.id, { crumbs: '', colors: '', lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(target.id), h1: esc(T.h1), line: esc(T.line), nextTools: esc(S[lang].nextTools), nextChips: '', about: '', css, jsonld: '[]', toolId: tl.id, toolAssets: '', strings: safeJson(common(lang)), tool: safeJson({id: tl.id, lang, langUrls: langUrls(tl.id), strings: {}, next: []}) });
     count++; continue; // Preserve old URLs; only the destination belongs in the sitemap.
   }
-  const T = tstr(tl, lang), C = S[lang], canonical = SITE + url(lang, tl.id);
+  // pageH1 changes the tool page without renaming existing home and related-tool cards.
+  const T = tstr(tl, lang), C = S[lang], canonical = SITE + url(lang, tl.id), pageH1 = T.pageH1 || T.h1;
   let nextIds = (tl.next || []).filter(n => byId[n] && n !== tl.id);
   if (nextIds.length < 5) for (const o of activeTools) { if (nextIds.length >= 5) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
   nextIds = nextIds.slice(0, 6);
@@ -120,15 +125,15 @@ for (const tl of tools) for (const lang of langs) {
   const faqArr = tl.showAbout === false ? [] : (T.faq || []);
   const faq = faqArr.map(q => `<dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd>`).join('');
   const about = tl.showAbout === false ? '' : `  <details class="about">\n    <summary>${esc(C.aboutTitle)}</summary>\n    <p>${esc(C.aboutLine)}</p>\n    <dl class="faq">${faq}</dl>\n  </details>`;
-  const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: S[lang].hub.h1, url: url(lang, '') }, { name: T.h1, url: url(lang, tl.id) }]);
+  const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: S[lang].hub.h1, url: url(lang, '') }, { name: pageH1, url: url(lang, tl.id) }]);
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'WebApplication', name: T.h1, url: canonical, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: HREFLANG[lang] || lang, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: T.description }
+    { '@context': 'https://schema.org', '@type': 'WebApplication', name: pageH1, url: canonical, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: HREFLANG[lang] || lang, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: T.description }
   ];
   jsonld.push(crumbs.jsonld);
   if (faqArr.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqArr.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) });
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
     sample: tl.id === 'picker' && T.sampleButton ? `<div class="pk-sample" id="pk-sample"><img src="/color/assets/picker-sunset.svg" width="144" height="96" alt="${esc(T.sampleAlt)}"><div class="pk-sample-copy"><strong>${esc(T.sampleTitle)}</strong><p>${esc(T.sampleLine)}</p><div class="pk-sample-options"><button type="button" class="btn ghost sm" id="pk-try-sample">${esc(T.sampleButton)}</button><button type="button" class="btn ghost sm" data-sample="/color/assets/picker-earthrise.jpg">${esc(T.samplePhoto)}</button><button type="button" class="btn ghost sm" data-sample="/color/assets/picker-logo.svg">${esc(T.sampleLogo)}</button></div><p class="pk-sample-credit">${esc(T.samplePhoto)}: <a href="https://images.nasa.gov/details/as08-14-2383" target="_blank" rel="noopener">NASA / Apollo 8</a></p></div></div>` : '',
-    h1: esc(T.h1), line: esc(T.line), nextTools: esc(C.nextTools), nextChips, about, css, jsonld: safeJson(jsonld), toolId: tl.id,
+    h1: esc(pageH1), line: esc(T.line), nextTools: esc(C.nextTools), nextChips, about: pickerHowTo(tl.id, lang, T) + about, css, jsonld: safeJson(jsonld), toolId: tl.id,
     strings: safeJson(common(lang)), toolAssets: tl.id === 'palette' ? '<link rel="stylesheet" href="/color/palette-studio.css">\n' + ['palette-data','palette-core','palette-strings','palette-template-style','palette-templates'].map(n => '<script src="/color/'+n+'.js" defer></script>').join('\n')+'\n' : '', tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;
 }

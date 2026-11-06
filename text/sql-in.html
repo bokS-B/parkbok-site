@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>목록을 SQL IN절로 변환 — ('A', 'B', 'C') 만들기 | parkbok</title>
-<meta name="description" content="한 줄씩 적힌 값 목록을 col IN ('A', 'B') 구문으로 바꾸세요. 따옴표·열 이름·NOT IN·중복 제거 선택. 설치 없이 브라우저에서 처리, 무료.">
+<meta name="description" content="값 목록을 붙여넣어 ('A', 'B') 형태로 정리하세요. 열 이름을 넣으면 col IN (...) 구문까지 만들고, 결과를 복사하거나 TXT로 저장할 수 있습니다. 브라우저에서 무료로 처리합니다.">
 <link rel="canonical" href="https://parkbok.com/text/sql-in.html">
 <meta property="og:title" content="목록을 SQL IN절로 변환">
-<meta property="og:description" content="세로 목록을 ('A', 'B', 'C') 형태로. 따옴표·중복 제거·숫자 자동 감지. 서버 전송 없음.">
+<meta property="og:description" content="값 목록을 붙여넣어 ('A', 'B') 형태로 정리하세요. 열 이름을 넣으면 col IN (...) 구문까지 만들고, 결과를 복사하거나 TXT로 저장할 수 있습니다. 브라우저에서 무료로 처리합니다.">
 <meta property="og:url" content="https://parkbok.com/text/sql-in.html">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"SQL IN절 변환기","url":"https://parkbok.com/text/sql-in.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"목록을 SQL IN절 형태로 바꾸는 무료 브라우저 도구"}
+{"@context":"https://schema.org","@type":"WebApplication","name":"SQL IN절 변환기","url":"https://parkbok.com/text/sql-in.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"값 목록을 붙여넣어 ('A', 'B') 형태로 정리하세요. 열 이름을 넣으면 col IN (...) 구문까지 만들고, 결과를 복사하거나 TXT로 저장할 수 있습니다. 브라우저에서 무료로 처리합니다."}
 </script>
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.ico?v=12e6bda5" sizes="16x16 32x32 48x48" type="image/x-icon">
@@ -355,7 +355,7 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
 <main class="wrap">
   <div class="tool-head">
     <h1>목록 → SQL IN절 변환</h1>
-    <p class="lead">값 목록을 붙여 넣고 <code>IN ('A', 'B', 'C')</code> 구문으로 바꿔 복사하세요.</p>
+    <p class="lead">목록을 붙여넣어 <code>('A', 'B')</code> 형태로 복사하세요. 열 이름을 넣으면 <code>col IN (...)</code> 구문까지 만들 수 있습니다.</p>
   </div>
 
   <section class="stage stage-in">
@@ -396,9 +396,10 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
     <summary>사용법 · 자주 묻는 질문</summary>
 <article class="card">
     <h2 style="margin-top:0">사용 예</h2>
-    <p>엑셀에서 주문번호 열을 복사해 붙여 넣고 열 이름에 <code>order_no</code>를 적으면 아래처럼 나옵니다.</p>
+    <p>기본 예: <code>A</code>와 <code>B</code>를 한 줄에 하나씩 붙여넣으면 <code>('A', 'B')</code>가 됩니다. 열 이름을 비워 두면 값 목록만 만들고 <code>IN</code>은 붙이지 않습니다.</p>
+    <p>조건식까지 만들려면 값을 붙여넣은 뒤 열 이름을 입력하세요. 엑셀 주문번호 열을 붙여넣고 <code>order_no</code>를 적으면 아래처럼 나옵니다. <code>NOT IN</code>도 선택할 수 있습니다.</p>
     <pre>order_no IN ('20240101-001', '20240101-002', '20240102-003')</pre>
-    <p>숫자만 있으면 "자동" 설정에서 따옴표를 붙이지 않습니다: <code>id IN (1001, 1002, 1003)</code></p>
+    <p>숫자만 있으면 "자동" 설정에서 따옴표를 붙이지 않습니다. 열 이름에 <code>id</code>를 넣은 예: <code>id IN (1001, 1002, 1003)</code></p>
     <h2>주의할 점</h2>
     <ul>
       <li><strong>Oracle</strong>은 버전에 따라 IN 목록 제한이 다릅니다. <a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/IN-Condition.html" rel="noopener">19c는 1,000개</a>, <a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/IN-Condition.html" rel="noopener">26은 65,535개</a>입니다. 사용 중인 버전의 제한을 확인하세요. 이 도구는 1,000개 초과 시 안내하며 목록을 자동 분할하지 않습니다.</li>
@@ -408,7 +409,7 @@ body.busy .actions .btn{opacity:.6;pointer-events:none}
     </ul>
     <h2>자주 묻는 질문</h2>
     <dl class="faq">
-      <dt>반대로 IN절을 세로 목록으로 풀 수 있나요?</dt><dd><a href="/text/list-to-line.html">목록 ↔ 한 줄</a>에서 "한 줄 → 목록"을 고르고 붙여 넣으면 쉼표 기준으로 나뉩니다. 따옴표는 찾아 바꾸기로 지우세요.</dd>
+      <dt>반대로 IN절을 세로 목록으로 풀 수 있나요?</dt><dd><a href="/text/list-to-line.html">목록 ↔ 한 줄</a>에 쉼표 목록을 먼저 붙여넣고 "한 줄 → 목록"을 고르면 쉼표 기준으로 나뉩니다. 따옴표는 찾아 바꾸기로 지우세요.</dd>
       <dt>Python 리스트나 JSON 배열로도 쓸 수 있나요?</dt><dd>이 도구는 SQL 구문을 만듭니다. Python 리스트나 JSON 배열은 따옴표·역슬래시 이스케이프 규칙이 달라 별도 변환이 필요합니다.</dd>
     </dl>
   </article>
