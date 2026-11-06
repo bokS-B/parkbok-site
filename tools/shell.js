@@ -51,7 +51,8 @@ function header({ lang = 'ko', section = '', pdfHome = '/pdf/ko/', imageHome = '
     brand: esc(t.brand), brand_mark: BRAND_MARK, menu: esc(t.menu), home_url: homeUrl(lang), home_class: home ? ' home-header' : '', home_language: home ? homeLanguageSelect(lang) : '',
     'nav.hwp': esc(t.nav.hwp), 'nav.text': esc(t.nav.text), 'nav.pdf': esc(t.nav.pdf || 'PDF'), 'nav.image': esc(t.nav.image || 'Image'), 'nav.color': esc(t.nav.color || 'Color'), 'nav.guide': esc(t.nav.guide),
     'on:hwp': on('hwp'), 'on:text': on('text'), 'on:pdf': on('pdf'), 'on:image': on('image'), 'on:color': on('color'), 'on:guide': on('guide'),
-    pdf_home: pdfHome, image_home: imageHome, color_home: colorHome, lang_select: langSelect, subnav, theme: esc(t.theme || 'Theme')
+    pdf_home: pdfHome, image_home: imageHome, color_home: colorHome, lang_select: langSelect, subnav, theme: esc(t.theme || 'Theme'),
+    theme_to_dark: esc(t.themeToDark || STR.en.themeToDark), theme_to_light: esc(t.themeToLight || STR.en.themeToLight)
   });
 }
 // 공통 푸터: 브랜드 소개 + 도구 / 스튜디오 / 정책. 도구 링크는 현재 페이지의 언어를 유지한다.

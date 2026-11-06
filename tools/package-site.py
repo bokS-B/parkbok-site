@@ -3,6 +3,7 @@ import hashlib
 import json
 import re
 import shutil
+import stat
 import subprocess
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
@@ -28,6 +29,16 @@ def allowed(rel):
     # image/tools, pdf/tools and color/tools are browser runtime, not generators.
     return (parts[0] in PUBLIC_DIRS and not any(p == 'src' or p.startswith('.') for p in parts)
             and (rel.suffix.lower() in EXTENSIONS or rel.name in {'LICENSE', 'LICENSES.md', 'NOTICE'}))
+
+
+def is_symlink_or_junction(path):
+    try:
+        info = path.lstat()
+    except FileNotFoundError:
+        return False
+    # Python 3.11 lacks Path.is_junction(); lstat exposes the Windows junction tag.
+    return (stat.S_ISLNK(info.st_mode)
+            or getattr(info, 'st_reparse_tag', 0) == getattr(stat, 'IO_REPARSE_TAG_MOUNT_POINT', -1))
 
 
 class Page(HTMLParser):
@@ -131,24 +142,24 @@ def validate(directory, require_runtime=True):
 def package(root, commit=None, require_runtime=True):
     root = Path(root).resolve(strict=True)
     build = root / '_build'
-    if build.is_symlink(): raise ValueError('Build directory must not be a symlink')
+    if is_symlink_or_junction(build): raise ValueError('Build directory must not be a symlink or junction')
     build.mkdir(exist_ok=True)
     output = build / 'pages'
-    if output.is_symlink() or output.resolve().parent != build.resolve(): raise ValueError('Unsafe output path')
+    if is_symlink_or_junction(output) or output.resolve().parent != build.resolve(): raise ValueError('Unsafe output path')
     stage = Path(tempfile.mkdtemp(prefix='pages-stage-', dir=build)).resolve()
     try:
         copies = []
         for folder in sorted(PUBLIC_DIRS):
             base = root / folder
-            if base.is_symlink(): raise ValueError('Public directory symlink: ' + folder)
+            if is_symlink_or_junction(base): raise ValueError('Public directory symlink or junction: ' + folder)
             if not base.exists(): continue
             for p in base.rglob('*'):
-                if p.is_symlink(): raise ValueError('Public symlink: ' + str(p.relative_to(root)))
+                if is_symlink_or_junction(p): raise ValueError('Public symlink or junction: ' + str(p.relative_to(root)))
                 if p.is_file() and allowed(p.relative_to(root)):
                     copies.append(p)
         for p in root.iterdir():
             if p.is_file() and allowed(Path(p.name)):
-                if p.is_symlink(): raise ValueError('Root file symlink: ' + p.name)
+                if is_symlink_or_junction(p): raise ValueError('Root file symlink or junction: ' + p.name)
                 copies.append(p)
         def copy_public(p):
             dest = stage / p.relative_to(root)

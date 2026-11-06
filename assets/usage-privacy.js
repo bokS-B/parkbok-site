@@ -106,6 +106,12 @@
   window.gtag = function () {
     if (arguments[0] === 'consent' || currentChoice === 'allow') window.dataLayer.push(arguments);
   };
+  // Tool funnels may read the effective choice without loading GA or granting consent.
+  window.PBStatistics = {
+    canTrack: function () {
+      return production && !!id && currentChoice === 'allow' && window['ga-disable-' + id] !== true;
+    }
+  };
   window.gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
   var foot = document.querySelector('.foot-links');
   if (foot) {

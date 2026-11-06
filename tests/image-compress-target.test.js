@@ -55,7 +55,7 @@ test('missing, empty and zero are the only ordinary disabled-target values', asy
     assert.equal(r.warning,null);assert.equal(r.validation.size.status,'not_requested');assert.equal(calls.encodes.length,1);
   });
 });
-test('actual final Blob sizes obey the inclusive1000-byte KB boundary', async t => {
+test('actual final Blob sizes obey the inclusive 1000-byte KB boundary', async t => {
   for(const bytes of [999,1000,1001])await t.test(bytes+' B',async()=>{
     const {ctx}=fixture(()=>bytes);const r=await tool.run([file()],{maxKb:1},ctx);
     check(r,0,bytes,1000,bytes<=1000?'passed':'failed');
@@ -122,8 +122,19 @@ test('the target is per image, not an aggregate batch limit',async()=>{
   assert.equal(r.outputs.reduce((n,o)=>n+o.blob.size,0),1800);
   assert.equal(r.warning,null);assert.equal(r.validation.size.status,'passed');
 });
+
+test('reported dimensions belong to the returned encoding or original fallback', async () => {
+  const encoded = fixture(() => 900, 6000, 4000);
+  const resized = await tool.run([file()], { level: 'high', maxKb: 1 }, encoded.ctx);
+  assert.deepEqual(resized.outputs[0].dimensions, { width: 1600, height: 1067 });
+  const original = file('small.jpg', 500);
+  const fallback = fixture(() => 900, 6000, 4000);
+  const retained = await tool.run([original], { level: 'high', maxKb: 1 }, fallback.ctx);
+  assert.equal(retained.outputs[0].blob, original.file);
+  assert.deepEqual(retained.outputs[0].dimensions, { width: 6000, height: 4000 });
+});
 test('invalid explicit targets reject before run decoding or encoding',async t=>{
-  for(const maxKb of [-1,NaN,Infinity,'abc','1e309',Number.MAX_SAFE_INTEGER])await t.test(String(maxKb),async()=>{
+  for(const maxKb of [-1,1.5,51201,NaN,Infinity,'abc','1e309',Number.MAX_SAFE_INTEGER])await t.test(String(maxKb),async()=>{
     const {ctx,calls}=fixture();await assert.rejects(tool.run([file()],{maxKb},ctx),e=>e.key==='errorTarget');
     assert.equal(calls.loads.length,0);assert.equal(calls.encodes.length,0);
   });
@@ -171,4 +182,17 @@ test('explicitly disabling resizing for a KB target also bypasses the compressio
   assert.ok(r.warning); assert.equal(calls.scales.length,0);
   assert.ok(calls.encodes.every(c=>c.width===6000&&c.height===4000));
   assert.deepEqual(r.outputs[0].dimensions,{width:6000,height:4000});
+});
+test('20 KB is exactly 20000 bytes and target input is a bounded integer', async t => {
+  for (const bytes of [20000, 20001]) await t.test(bytes+' B', async () => {
+    const {ctx}=fixture(() => bytes);
+    const r=await tool.run([file('large.jpg',50000)],{maxKb:20},ctx);
+    check(r,0,bytes,20000,bytes<=20000?'passed':'failed');
+    assert.equal(!!r.warning,bytes>20000);
+  });
+  for (const maxKb of [0,1,20,51200]) {
+    const parsed=tool.parseOpts({maxKb});
+    assert.equal(parsed.validTarget,true);
+    assert.equal(parsed.maxBytes,maxKb===0?null:maxKb*1000);
+  }
 });

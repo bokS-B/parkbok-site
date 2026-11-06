@@ -78,7 +78,7 @@ for (const lang of langs) {
     hasPart: tools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }, crumbs.jsonld];
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(H.title), description: esc(H.description), canonical, hreflangs: hreflangs(''),
     h1: esc(H.h1), line: esc(H.line), cards, guideLink: lang === 'en' ? '\n  <nav class="chips next" aria-label="Image guides">' + formGuide(lang) + '</nav>' : '', aboutTitle: esc(S[lang].aboutTitle), aboutLine: esc(S[lang].aboutLine), css, jsonld: safeJson(jsonld),
-    strings: safeJson(common(lang)), tool: safeJson({ id: 'hub', lang, langUrls: langUrls(''), strings: {}, next: [] }) };
+    toolId: 'hub', strings: safeJson(common(lang)), tool: safeJson({ id: 'hub', lang, langUrls: langUrls(''), strings: {}, next: [] }) };
   urls.push(finish(hubTpl, lang, '', vars)); count++;
 }
 // 도구 페이지
@@ -101,6 +101,8 @@ for (const tl of tools) for (const lang of langs) {
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
     sample: tl.id === 'image-compress' ? '  <div id="compress-sample" class="compress-sample"><img src="/image/assets/compress-sample-20kb.jpg" width="120" height="80" alt="'+esc(T.sampleAlt)+'" loading="lazy"><div><strong>'+esc(T.sampleTitle)+'</strong><p>'+esc(T.sampleLine)+'</p></div><button type="button" class="btn ghost sm" id="btn-sample">'+esc(T.sampleButton)+'</button></div>\n' : '',
     h1: esc(T.h1), line: esc(T.line), buttonText: esc(T.buttonText || C.selectImages), dropText: esc(C.dropText), addMore: esc(C.addMore), startOver: esc(C.startOver), runText: esc(T.runText || C.done),
+    uploadHint: esc(tl.id === 'image-compress' ? (C.compressUploadHint || 'JPG, PNG, WebP · Multiple images · Processed on your device') : (C.localProcessingHint || 'Files are processed on your device.')),
+    downloadOversized: esc(T.downloadOverLimit || C.download || 'Download'),
     nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq, css, jsonld: safeJson(jsonld), toolId: tl.id,
     strings: safeJson(common(lang)), toolVersion: version(path.join(root, 'image/tools', tl.id + '.js')),
     helperScripts: ['image-compress', 'signature-resize'].includes(tl.id) ? `<script src="/image/target-size.js?v=${version(path.join(root, 'image/target-size.js'))}" defer></script>` : '',

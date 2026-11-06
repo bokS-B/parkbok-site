@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#511919">
-<script>try{var __t=localStorage.getItem('pb_theme');if(__t)document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
+<script>try{var __t=localStorage.getItem('pb_theme');if(__t==='light'||__t==='dark')document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="parkbok">
 <meta property="og:image" content="https://parkbok.com/og.png">
@@ -38,6 +38,8 @@
   --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--accent-label:#1d4ed8;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
+  --control-line:var(--line);--focus:var(--accent);--selection-line:var(--accent);--drop-line:var(--muted);--preview-check-a:#d9dee6;--preview-check-b:#f3f5f8;
+  --statistics-bg:#fff;--statistics-ink:#172033;--statistics-line:#cbd5e1;--statistics-control:#94a3b8;--statistics-hover:#f1f5f9;--statistics-muted:#475569;
   --cat-hwp:#2563eb;--cat-text:#10b981;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;--cat-color:#ec4899;
   --font:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
   --fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
@@ -58,8 +60,8 @@ html[lang="en"],html[lang="es"],html[lang="pt"],html[lang="de"],html[lang="fr"]{
 html[lang^="zh"]{--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 /* 다크: 기기 설정을 따르되, 헤더의 ◐ 버튼으로 고른 값(data-theme)이 있으면 그것을 우선 */
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--accent-label:#bfdbfe;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
-:root[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--accent-label:#bfdbfe;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#161719;--card:#202225;--hub:#161719;--ink:#e7e8ea;--muted:#a2a6ad;--line:#3a3f46;--accent:#506d8e;--accent-ink:#fff;--accent-hover:#435f7f;--accent-active:#38516d;--accent-tint:#2a3543;--accent-text:#94acc7;--accent-label:#b5c9df;--footer-bg:#141517;--footer-ink:#d5d7da;--brand:#c1a49d;--err:#e5a3a3;--ok:#93bea9;--info-bg:#29323b;--info-border:#7f9cbd;--badge-new:#29323b;--sh-btn-big:none;--control-line:#69717c;--focus:#b5c9df;--selection-line:#7f9cbd;--drop-line:#58616c;--preview-check-a:#30343a;--preview-check-b:#3a3f46;--statistics-bg:var(--card);--statistics-ink:var(--ink);--statistics-line:var(--line);--statistics-control:var(--control-line);--statistics-hover:#2b2e33;--statistics-muted:var(--muted)}}
+:root[data-theme="dark"]{--bg:#161719;--card:#202225;--hub:#161719;--ink:#e7e8ea;--muted:#a2a6ad;--line:#3a3f46;--accent:#506d8e;--accent-ink:#fff;--accent-hover:#435f7f;--accent-active:#38516d;--accent-tint:#2a3543;--accent-text:#94acc7;--accent-label:#b5c9df;--footer-bg:#141517;--footer-ink:#d5d7da;--brand:#c1a49d;--err:#e5a3a3;--ok:#93bea9;--info-bg:#29323b;--info-border:#7f9cbd;--badge-new:#29323b;--sh-btn-big:none;--control-line:#69717c;--focus:#b5c9df;--selection-line:#7f9cbd;--drop-line:#58616c;--preview-check-a:#30343a;--preview-check-b:#3a3f46;--statistics-bg:var(--card);--statistics-ink:var(--ink);--statistics-line:var(--line);--statistics-control:var(--control-line);--statistics-hover:#2b2e33;--statistics-muted:var(--muted)}
 :root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light}
 
 /* ---------- 기본 ---------- */
@@ -69,6 +71,7 @@ body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body)
 body>main{flex:1 0 auto;width:100%;min-width:0}
 footer.foot{margin-top:auto}
 a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 img,svg{vertical-align:middle}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--header-pad-x)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -95,8 +98,8 @@ nav.menu a{position:relative;display:inline-block;font-size:var(--fs-small);font
 nav.menu a::before{content:"";position:absolute;left:0;right:0;top:calc(50% - var(--touch)/2);height:var(--touch)}
 nav.menu a:hover{background:var(--bg);color:var(--ink);text-decoration:none}
 nav.menu a.on{background:var(--accent);color:var(--accent-ink)}
-.lang-select{flex:none;margin-left:auto;min-height:var(--touch);font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
-.theme-btn{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
+.lang-select{flex:none;margin-left:auto;min-height:var(--touch);font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--control-line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
+.theme-btn{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--control-line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
 /* 가상 영역은 패딩 박스 기준이라 테두리 1px 을 더해 -6px 이어야 실제 클릭 폭 44px */
 .theme-btn::before{content:"";position:absolute;inset:-6px}
 .theme-btn:hover{border-color:var(--ink)}
@@ -111,8 +114,8 @@ header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--su
 /* ---------- 셸: 브랜드 마크 — brand:start~end 는 build-color-pages.js 가 그대로 hex.css 뒤에 붙인다(롱테일 페이지도 같은 마크 규칙) ---------- */
 /* brand:start */
 :root{--brand:#511919}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#e2a096}}
-:root[data-theme="dark"]{--brand:#e2a096}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#c1a49d}}
+:root[data-theme="dark"]{--brand:#c1a49d}
 .brand{display:inline-flex;align-items:center;gap:8px}
 .brand-mark{display:block;flex:none;background-color:currentColor;-webkit-mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat;mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat}
 .brand .brand-mark{width:37px;height:26px;color:var(--brand)}
@@ -145,8 +148,10 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .foot-languages a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;line-height:20px}
 .foot-languages a[aria-current]{color:var(--foot-text);text-decoration:underline;text-underline-offset:5px}
 .foot .foot-note{margin:14px 0 0;border-top:1px solid var(--foot-rule);padding-top:16px;font-size:12px;line-height:20px;color:var(--foot-muted)}
-:root[data-theme="dark"] footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}}
+:root[data-theme="dark"] footer.foot{--foot-surface:var(--footer-bg);--foot-text:var(--footer-ink);--foot-muted:var(--muted);--foot-rule:var(--line)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:var(--footer-bg);--foot-text:var(--footer-ink);--foot-muted:var(--muted);--foot-rule:var(--line)}}
+:root[data-theme="dark"] .foot-brand .brand-mark{color:var(--brand)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .foot-brand .brand-mark{color:var(--brand)}}
 @media(max-width:960px){.foot-main{gap:32px;grid-template-columns:minmax(200px,.8fr) minmax(0,1.6fr)}.foot-directory{gap:20px}.foot-bottom{align-items:flex-start;flex-direction:column;gap:4px}}
 @media(max-width:767.98px){footer.foot{padding:36px 0 16px;margin-top:40px}.foot .wrap{padding-inline:20px}.foot-main{grid-template-columns:1fr;gap:32px;padding-bottom:24px}.foot .foot-brand{font-size:28px}.foot .foot-tagline{margin-top:16px}.foot .foot-local{margin-top:16px}.foot-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.foot-column:last-child{grid-column:1 / -1;border-top:1px solid var(--foot-rule);padding-top:24px}.foot-languages{gap:0 20px}.foot-bottom{padding-top:16px}.foot .foot-column h2{margin-bottom:8px}}
 /* footer:end */
@@ -166,8 +171,8 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .tools,.row,.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
 
 /* ---------- 입력 / 상태 ---------- */
-.drop{border:2px dashed var(--muted);border-radius:var(--r-card);padding:40px 24px;text-align:center;background:var(--card);cursor:pointer;transition:var(--t-btn)}
-.drop.on{border-color:var(--accent);background:var(--accent-tint)}
+.drop{border:2px dashed var(--drop-line);border-radius:var(--r-card);padding:40px 24px;text-align:center;background:var(--card);cursor:pointer;transition:var(--t-btn)}
+.drop.on{border-color:var(--selection-line);background:var(--accent-tint)}
 .drop.err{border-color:var(--err)}
 .drop strong{display:block;font-size:17px;margin-bottom:6px}
 .drop span,.droptxt{color:var(--muted);font-size:var(--fs-small)}
@@ -176,12 +181,12 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .status.err{color:var(--err)}.status.ok{color:var(--ok)}.status.busy,.status.empty{color:var(--muted)}
 .opts{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:var(--fs-small);margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-big);padding:10px 14px}
 .opts label{display:inline-flex;align-items:center;gap:5px;min-height:var(--touch);white-space:nowrap}
-.opts select,.opts input[type=text],.opts input[type=number]{min-height:var(--touch);font:inherit;font-size:var(--fs-small);padding:4px 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
+.opts select,.opts input[type=text],.opts input[type=number]{min-height:var(--touch);font:inherit;font-size:var(--fs-small);padding:4px 10px;border:1px solid var(--control-line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
 .opts .sep{flex-basis:100%;height:0}
 .tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tt-grid textarea,#textout{width:100%;min-height:260px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--card);color:var(--ink)}
+.tt-grid textarea,#textout{width:100%;min-height:260px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--control-line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--card);color:var(--ink)}
 .tt-grid textarea[readonly],#textout{background:var(--bg)}
-.tt-grid textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.tt-grid textarea:focus{outline:2px solid var(--focus);outline-offset:-1px}
 .tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
 #textout{min-height:200px;max-height:60vh;white-space:pre-wrap}
 #viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh;color:#1d2129}
@@ -273,6 +278,17 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 </style>
 <!-- /shell:head-common -->
 <style id="page-css">/* 이미지 도구 엔진 전용 스타일. 토큰·셸·버튼·.drop·.opts·.result·.chips 는 assets/site.css 에서 온다. */
+/* 공통 테마 토큰을 사용해 도구와 홈의 색을 일치시킨다. */
+body.page-image .stage-in .drop:not(:focus-visible):not(.on){border-color:var(--drop-line,var(--muted))}
+body.page-image.has-input .stage-in .drop:not(:focus-visible):not(.on){border-color:var(--line)}
+body.page-image .opts select,body.page-image .opts input[type=text],body.page-image .opts input[type=number],body.page-image .radio:not(:has(input:checked)){border-color:var(--control-line,var(--line))}
+body.page-image .radio:has(input:checked){border-color:var(--selection-line,var(--accent))}
+body.page-image :focus-visible{outline:3px solid var(--focus,var(--accent));outline-offset:3px}
+body.page-image .stage-in .drop:focus-visible{box-shadow:0 0 0 3px var(--focus,var(--accent-tint))}
+.upload-hint{margin:10px 0 0;color:var(--muted);font-size:13px;line-height:20px}
+body.has-input .upload-hint{display:none}
+.next-label{display:none}
+.stage-out .actions [hidden],#reset-notice[hidden]{display:none}
 .target-presets{display:flex;flex-wrap:wrap;gap:6px;flex-basis:100%}
 .target-presets .target-preset{min-height:44px;min-width:60px;justify-content:center;cursor:pointer}
 .target-presets .target-preset[aria-pressed=true]{border-color:var(--accent);color:var(--accent-text);background:var(--accent-tint)}
@@ -339,7 +355,7 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .pos:hover{border-color:var(--ink)}
 /* 도장 배경 제거: 바둑판(투명) 위 실시간 미리보기. 누르면 잉크 색을 고른다 */
 .opt-stamp-preview{flex-direction:column;flex-wrap:nowrap;align-items:stretch}
-.stamp-preview{display:block;max-width:100%;max-height:50vh;margin:0 auto;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px;cursor:crosshair;touch-action:manipulation}
+.stamp-preview{display:block;max-width:100%;max-height:50vh;margin:0 auto;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(var(--preview-check-a,#d9dee6) 0 25%,var(--preview-check-b,#f3f5f8) 0 50%) 0 0/16px 16px;cursor:crosshair;touch-action:manipulation}
 /* 긴 체크 문구·규격 이름이 좁은 화면에서 가로로 넘치지 않게 */
 .opts#opts[data-tool="stamp-background"] .check{white-space:normal;min-width:0;flex:1 1 auto}
 .opts#opts[data-tool="product-image-size"] select{max-width:100%;min-width:0}
@@ -407,7 +423,7 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 /* 클리핑은 안쪽 .rect-clip(이미지·어둡게 마스크)에만 둔다. 손잡이 레이어 .rect-layer 는 넘침을 보이게 해서 이미지 가장자리에서도 44px 히트 영역이 상자 밖으로 살아 있다 */
 .rect-box{position:relative;width:100%;--ar:1;--rect-max-h:min(56vh,520px);max-width:min(720px,calc(var(--rect-max-h) * var(--ar)));margin:0 auto;border:1px solid var(--line);border-radius:var(--r-btn);line-height:0}
 @supports (height:1dvh){.rect-box{--rect-max-h:min(56dvh,520px)}}
-.rect-clip{position:relative;overflow:hidden;border-radius:calc(var(--r-btn) - 1px);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px}
+.rect-clip{position:relative;overflow:hidden;border-radius:calc(var(--r-btn) - 1px);background:repeating-conic-gradient(var(--preview-check-a,#d9dee6) 0 25%,var(--preview-check-b,#f3f5f8) 0 50%) 0 0/16px 16px}
 .rect-bg{display:block;width:100%;height:auto}
 .rect-mask{position:absolute;inset:0;pointer-events:none}
 .rmask{position:absolute;box-shadow:0 0 0 9999px rgba(0,0,0,.35)}
@@ -439,16 +455,17 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .stage-out .result[hidden]{display:none}
 .result-one{text-align:center}
 .result-one .result-name{font-weight:var(--fw-semibold);word-break:break-all}
-.result-img{display:block;max-width:100%;max-height:60vh;margin:0 auto 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px}
+.result-img{display:block;max-width:100%;max-height:60vh;margin:0 auto 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(var(--preview-check-a,#d9dee6) 0 25%,var(--preview-check-b,#f3f5f8) 0 50%) 0 0/16px 16px}
 .result-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .result-grid li{display:flex;flex-direction:column;gap:4px;font-size:var(--fs-caption);text-align:center;min-width:0}
-.result-grid img{width:100%;aspect-ratio:1;object-fit:contain;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px}
+.result-grid img{width:100%;aspect-ratio:1;object-fit:contain;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(var(--preview-check-a,#d9dee6) 0 25%,var(--preview-check-b,#f3f5f8) 0 50%) 0 0/16px 16px}
 .result-ph{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--line);color:var(--muted);font-weight:var(--fw-semibold)}
 .result-grid .result-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .result-stats{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 8px;margin-top:10px;font-size:var(--fs-small);color:var(--muted)}
 .result-stats .after{color:var(--ink);font-weight:var(--fw-semibold)}
 .result-stats .saved{color:var(--accent-text);font-weight:var(--fw-semibold)}
 .result-note{text-align:center;margin:8px 0 0}
+.result-size-exact,.result-size-status{display:block;overflow-wrap:anywhere}
 .passport-preset-title{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
 .opts#opts .passport-preset-title .opt-label{flex:0 1 auto;min-width:0;margin:0}
 .passport-source{display:inline-flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box}
@@ -498,38 +515,121 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 .compress-sample{display:flex;align-items:center;gap:18px;padding:16px;margin:16px 0;border:1px solid var(--line);border-radius:var(--r-card);background:var(--card)}
 .compress-sample>img{width:120px;height:80px;object-fit:cover;border-radius:10px;flex:none}.compress-sample>div{flex:1;min-width:0}.compress-sample p{font-size:14px;line-height:1.5;color:var(--muted);margin:5px 0}#btn-sample{min-height:44px;flex:none}.has-input .compress-sample{display:none}
 .compress-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;width:100%;text-align:left}.compress-compare figure{margin:0;min-width:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}.compress-compare img{display:block;width:100%;height:clamp(140px,26vw,280px);object-fit:contain;background:var(--bg)}.compress-compare figcaption{display:flex;flex-direction:column;gap:6px;padding:12px;font-size:14px;line-height:1.5;overflow-wrap:anywhere}.compress-compare figcaption span{color:var(--muted)}.compare-help{font-size:14px;line-height:1.6;max-width:680px}
-@media(max-width:767.98px){.compress-sample{display:grid;grid-template-columns:80px minmax(0,1fr);gap:12px;padding:12px}.compress-sample>img{width:80px;height:80px}.compress-sample button{grid-column:1/-1;width:100%}.compress-compare{gap:10px}.compress-compare figcaption{padding:10px;font-size:13px}}</style>
+@media(max-width:767.98px){.compress-sample{display:grid;grid-template-columns:80px minmax(0,1fr);gap:12px;padding:12px}.compress-sample>img{width:80px;height:80px}.compress-sample button{grid-column:1/-1;width:100%}.compress-compare{gap:10px}.compress-compare figcaption{padding:10px;font-size:13px}}
+/* 용량 압축 작업대: 목표 설정과 파일/결과를 별도 열로 배치한다. */
+body[data-image-tool="image-compress"] .image-workspace{max-width:1120px}
+body[data-image-tool="image-compress"] .tool-head{margin-bottom:24px}
+body[data-image-tool="image-compress"] .tool-head .lead{max-width:720px;margin-inline:auto}
+body[data-image-tool="image-compress"] .image-workbench{display:grid;grid-template-columns:minmax(260px,320px) minmax(0,1fr);grid-template-rows:min-content 1fr;gap:20px 24px;align-items:start}
+body[data-image-tool="image-compress"] #opts{grid-column:1;grid-row:1/3;position:sticky;top:76px;margin:0;padding:18px;gap:18px;min-width:0}
+body[data-image-tool="image-compress"] #in{grid-column:2;grid-row:1;min-width:0}
+body[data-image-tool="image-compress"] #out{grid-column:2;grid-row:2;min-width:0}
+body[data-image-tool="image-compress"] .image-workbench>.ad{grid-column:1/-1}
+body[data-image-tool="image-compress"] .stage-in .drop{padding:30px 18px}
+body[data-image-tool="image-compress"] .stage-in .btn-big{min-width:0;width:min(100%,320px)}
+body[data-image-tool="image-compress"].has-input .stage-in .drop{padding:8px 12px}
+body[data-image-tool="image-compress"] #btn-reset-top{display:none}
+body[data-image-tool="image-compress"] .opt{gap:8px}
+body[data-image-tool="image-compress"] .opts#opts .opt-label{flex-basis:100%;min-width:0}
+body[data-image-tool="image-compress"] .opt-help{font-size:13px;line-height:20px}
+body[data-image-tool="image-compress"] .target-summary{margin:0;font-size:14px;font-weight:var(--fw-semibold);color:var(--ink);flex-basis:100%}
+body[data-image-tool="image-compress"] .target-presets{gap:6px}
+body[data-image-tool="image-compress"] .target-presets .target-preset{padding:8px 12px;min-width:52px;min-height:44px}
+body[data-image-tool="image-compress"] .opt-group{width:100%;border-top:1px solid var(--line);padding-top:4px}
+body[data-image-tool="image-compress"] .opt-group>summary{display:flex;font-size:14px}
+body[data-image-tool="image-compress"] .opt-group>.opt:first-of-type{margin-top:12px}
+body[data-image-tool="image-compress"] .result{padding:0;border:0;background:none}
+body[data-image-tool="image-compress"] .result-summary{margin:0 0 14px;font-size:16px;line-height:24px;font-weight:var(--fw-semibold);outline-offset:4px}
+body[data-image-tool="image-compress"] .result-summary[data-state="warning"]{padding:12px 14px;border:1px solid var(--err);border-radius:8px;background:color-mix(in srgb,var(--err) 9%,var(--card));color:var(--err)}
+body[data-image-tool="image-compress"] .result-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+body[data-image-tool="image-compress"] .result-grid li,body[data-image-tool="image-compress"] .result-one{padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-align:left;min-width:0}
+body[data-image-tool="image-compress"] .result-grid li{gap:8px;font-size:14px;line-height:20px}
+body[data-image-tool="image-compress"] .result-grid img{height:148px;aspect-ratio:auto;object-fit:contain}
+body[data-image-tool="image-compress"] .result-img{max-height:240px;margin-bottom:12px}
+body[data-image-tool="image-compress"] .result-name{font-size:14px;line-height:20px}
+body[data-image-tool="image-compress"] .result-stats{font-size:13px;line-height:20px;justify-content:flex-start;margin-top:12px}
+body[data-image-tool="image-compress"] .result-stats .saved{color:var(--muted);font-weight:var(--fw-regular)}
+body[data-image-tool="image-compress"] .result-size-status{width:fit-content;max-width:100%;padding:4px 8px;border-radius:6px;font-size:13px;line-height:20px;font-weight:var(--fw-semibold);background:var(--bg);color:var(--muted)}
+body[data-image-tool="image-compress"] .result-size-status[data-size-status="passed"]{background:color-mix(in srgb,var(--ok) 10%,var(--card));color:var(--ok)}
+body[data-image-tool="image-compress"] .result-size-status[data-size-status="failed"]{background:color-mix(in srgb,var(--err) 10%,var(--card));color:var(--err)}
+body[data-image-tool="image-compress"] .result-details{font-size:13px;line-height:20px;color:var(--muted);margin-top:4px}
+body[data-image-tool="image-compress"] .result-details>summary{min-height:32px;display:list-item;cursor:pointer;text-underline-offset:3px}
+body[data-image-tool="image-compress"] .result-details[open]>.result-size-exact{margin:4px 0}
+body[data-image-tool="image-compress"] .result-download{margin-top:auto;min-height:44px}
+body[data-image-tool="image-compress"] .result-note{text-align:left;font-size:13px;line-height:20px;margin-top:10px}
+body[data-image-tool="image-compress"] .stage-out .actions{justify-content:flex-start;gap:8px 12px}
+body[data-image-tool="image-compress"] #btn-primary{min-width:0;flex:1 1 240px}
+body[data-image-tool="image-compress"] #btn-reset{background:none;outline:0;border:0;color:var(--muted);text-decoration:underline;text-underline-offset:3px;padding:8px;min-height:44px}
+body[data-image-tool="image-compress"] #btn-reset:hover{color:var(--ink)}
+body[data-image-tool="image-compress"] #btn-download-warning{outline:0;border:1px solid var(--line);color:var(--ink);min-height:44px;font-size:14px;padding:8px 12px}
+body[data-image-tool="image-compress"] #reset-notice:not([hidden]){display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin:8px 0;font-size:14px;line-height:20px;color:var(--muted)}
+body[data-image-tool="image-compress"] #btn-undo-reset{min-height:44px;outline:0;border:0;background:none;text-decoration:underline;text-underline-offset:3px;padding:8px 0;color:var(--accent-text)}
+body[data-image-tool="image-compress"] :is(#btn-reset,#btn-download-warning,#btn-undo-reset):focus-visible{outline:3px solid var(--focus,var(--accent));outline-offset:3px}
+body[data-image-tool="image-compress"]:not(.done) .next{display:none}
+body[data-image-tool="image-compress"] .next{margin-top:28px;padding-top:18px;border-top:1px solid var(--line)}
+body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%;font-size:14px;font-weight:var(--fw-semibold);margin-bottom:4px;color:var(--muted)}
+@media(max-width:767.98px){
+  body[data-image-tool="image-compress"] .image-workbench{display:flex;flex-direction:column;gap:16px}
+  body[data-image-tool="image-compress"] .image-workbench>#opts,body[data-image-tool="image-compress"] .image-workbench>#in,body[data-image-tool="image-compress"] .image-workbench>#out{width:100%;min-width:0}
+  body[data-image-tool="image-compress"] #opts{position:static;order:1;padding:14px 16px;gap:12px}
+  body[data-image-tool="image-compress"] #in{order:2}
+  body[data-image-tool="image-compress"] #out{order:3}
+  body[data-image-tool="image-compress"] .stage-in .drop{padding:24px 16px}
+  body[data-image-tool="image-compress"] .tool-head{margin-bottom:18px}
+  body[data-image-tool="image-compress"] .opt-group{padding-top:0}
+  body[data-image-tool="image-compress"] .result-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  body[data-image-tool="image-compress"] .result-grid img{height:112px}
+  body[data-image-tool="image-compress"] .result-grid li{padding:10px;gap:8px}
+  body[data-image-tool="image-compress"] .result-details>summary{min-height:44px}
+  body[data-image-tool="image-compress"] .stage-out .actions{position:static;flex-wrap:wrap;align-items:center;padding-bottom:calc(8px + env(safe-area-inset-bottom));box-shadow:none}
+  body[data-image-tool="image-compress"] #btn-primary{flex:1 1 180px;font-size:18px;line-height:24px}
+  body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
+  body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
+}
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"图片旋转","url":"https://parkbok.com/image/image-rotate/zh/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"zh-Hans","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"免费在线图片旋转。将照片旋转 90、180、270 度或任意角度，水平或垂直翻转后下载。支持多张同时处理。全部在浏览器中完成，不上传任何文件。"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"图片工具","item":"https://parkbok.com/image/zh/"},{"@type":"ListItem","position":3,"name":"图片旋转","item":"https://parkbok.com/image/image-rotate/zh/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"旋转会损失画质吗？","acceptedAnswer":{"@type":"Answer","text":"旋转 90、180、270 度时每个像素都保持不变。JPG 会以高质量重新编码，PNG 和 WebP 保持原格式。"}},{"@type":"Question","name":"我的图片会被上传吗？","acceptedAnswer":{"@type":"Answer","text":"不会。每张图片都在您的设备上由浏览器旋转，不会发送到任何服务器。"}}]}]</script>
 </head>
-<body class="page-image">
+<body class="page-image" data-image-tool="image-rotate">
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/zh/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="主菜单"><a href="/hwp/">HWP 查看器 (KO)</a><a href="/text/">文本工具 (KO)</a><a href="/pdf/zh/">PDF 工具</a><a href="/image/zh/" class="on">图片工具</a><a href="/color/zh/">颜色工具</a><a href="/guide/">指南 (KO)</a><select id="lang" class="lang-select" aria-label="语言"><option value="/image/image-rotate/" data-code="en">English</option><option value="/image/image-rotate/ko/" data-code="ko">한국어</option><option value="/image/image-rotate/zh/" data-code="zh" selected>中文</option><option value="/image/image-rotate/ja/" data-code="ja">日本語</option><option value="/image/image-rotate/es/" data-code="es">Español</option><option value="/image/image-rotate/pt/" data-code="pt">Português</option><option value="/image/image-rotate/de/" data-code="de">Deutsch</option><option value="/image/image-rotate/fr/" data-code="fr">Français</option></select></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="浅色 / 深色" title="浅色 / 深色">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
+<header class="top"><div class="wrap"><a class="brand" href="/zh/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="主菜单"><a href="/hwp/">HWP 查看器 (KO)</a><a href="/text/">文本工具 (KO)</a><a href="/pdf/zh/">PDF 工具</a><a href="/image/zh/" class="on">图片工具</a><a href="/color/zh/">颜色工具</a><a href="/guide/">指南 (KO)</a><select id="lang" class="lang-select" aria-label="语言"><option value="/image/image-rotate/" data-code="en">English</option><option value="/image/image-rotate/ko/" data-code="ko">한국어</option><option value="/image/image-rotate/zh/" data-code="zh" selected>中文</option><option value="/image/image-rotate/ja/" data-code="ja">日本語</option><option value="/image/image-rotate/es/" data-code="es">Español</option><option value="/image/image-rotate/pt/" data-code="pt">Português</option><option value="/image/image-rotate/de/" data-code="de">Deutsch</option><option value="/image/image-rotate/fr/" data-code="fr">Français</option></select></nav><button type="button" class="theme-btn" id="theme-btn" aria-pressed="false" aria-label="当前为浅色模式。切换到深色模式" title="当前为浅色模式。切换到深色模式" data-label-to-dark="当前为浅色模式。切换到深色模式" data-label-to-light="当前为深色模式。切换到浅色模式">◐</button></div><script>(function(){
+  var b=document.getElementById('theme-btn'),r=document.documentElement,m=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+  if(!b)return;
+  function dark(){var c=r.getAttribute('data-theme');return c==='dark'||c!=='light'&&!!(m&&m.matches)}
+  function sync(){var d=dark(),label=b.getAttribute(d?'data-label-to-light':'data-label-to-dark');b.setAttribute('aria-pressed',String(d));b.setAttribute('aria-label',label);b.setAttribute('title',label)}
+  b.addEventListener('click',function(){var n=dark()?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}sync();window.dispatchEvent(new Event('resize'))});
+  if(m){if(m.addEventListener)m.addEventListener('change',sync);else if(m.addListener)m.addListener(sync)}
+  if(window.MutationObserver)new window.MutationObserver(sync).observe(r,{attributes:true,attributeFilter:['data-theme']});
+  sync();
+})();
 // 모바일 메뉴: 현재 분류를 가운데로 스크롤(최초·창 크기 변경 시). 끝까지 스크롤되면 .end(오른쪽 페이드 끔), scrollLeft>0 이면 .start(왼쪽 페이드 켬). 좌표는 getBoundingClientRect 차이라 어떤 CSS 에서도 같다
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 
-<main class="wrap">
+<main class="wrap image-workspace">
   <nav class="crumbs" aria-label="导航路径"><ol><li><a href="/">首页</a></li><li><a href="/image/zh/">图片工具</a></li><li aria-current="page">图片旋转</li></ol></nav>
   <div class="tool-head"><h1>图片旋转</h1><p class="lead">一键旋转或翻转</p></div>
+  <div class="image-workbench">
   <section class="stage stage-in" id="in">
-    <div class="drop" id="drop" tabindex="0" role="button" aria-label="选择图片">
+    <div class="drop" id="drop">
       <button class="btn-big" type="button" id="btn-select">选择图片</button>
       <div class="droptxt">或将图片拖到这里 · 也支持粘贴</div>
+      <p class="upload-hint">图片只在您的设备上处理。</p>
       <div class="drop-compact" id="drop-compact" hidden><span id="file-count"></span><button class="btn ghost sm" type="button" id="btn-add">继续添加</button><button class="btn ghost sm" type="button" id="btn-reset-top">重新开始</button></div>
       <input type="file" id="file-input" hidden>
     </div>
     <ul class="file-list" id="files"></ul>
-    <p class="status" id="in-status"></p>
+    <p class="status" id="in-status" role="status" aria-live="polite" aria-atomic="true"></p>
   </section>
   <div class="ad"></div>
   <section class="opts" id="opts" hidden></section>
   <section class="stage stage-out" id="out" hidden>
     <div class="result" id="result" hidden></div>
-    <div class="progress" id="progress" hidden role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="bar"></div></div><span class="ptxt"></span></div>
-    <div class="actions"><button class="btn-big" type="button" id="btn-primary" disabled>旋转</button><button class="btn ghost" type="button" id="btn-reset">重新开始</button></div>
-    <p class="status" id="status"></p>
+    <div class="progress" id="progress" hidden role="progressbar" aria-labelledby="progress-text" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="bar"></div></div><span class="ptxt" id="progress-text"></span></div>
+    <div class="actions"><button class="btn-big" type="button" id="btn-primary" disabled>旋转</button><button class="btn ghost" type="button" id="btn-download-warning" hidden>下载</button><button class="btn ghost" type="button" id="btn-reset">重新开始</button></div>
+    <p class="status" id="status" role="status" aria-live="polite" aria-atomic="true"></p>
   </section>
-  <nav class="chips next" aria-label="下一步工具"><a class="chip" href="/image/image-crop/zh/">图片裁剪</a><a class="chip" href="/image/image-resize/zh/">调整图片大小</a><a class="chip" href="/image/image-compress/zh/">图片压缩</a><a class="chip" href="/image/png-to-jpg/zh/">PNG 转 JPG</a><a class="chip" href="/image/jpg-to-png/zh/">JPG 转 PNG</a></nav>
+  </div>
+  <nav class="chips next" aria-label="下一步工具"><span class="next-label">下一步工具</span><a class="chip" href="/image/image-crop/zh/">图片裁剪</a><a class="chip" href="/image/image-resize/zh/">调整图片大小</a><a class="chip" href="/image/image-compress/zh/">图片压缩</a><a class="chip" href="/image/png-to-jpg/zh/">PNG 转 JPG</a><a class="chip" href="/image/jpg-to-png/zh/">JPG 转 PNG</a></nav>
   <details class="about">
     <summary>使用方法</summary>
     <p>图片只在您的设备上处理，不会上传到任何服务器。</p>
@@ -556,8 +656,8 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 
 </div></footer>
 <!-- /shell:footer -->
-<script>window.IMGT_STRINGS={"name":"中文","dir":"ltr","selectImages":"选择图片","dropText":"或将图片拖到这里 · 也支持粘贴","addMore":"继续添加","remove":"移除","filesCount":"{n} 张图片","fileCount":"1 张图片","processing":"处理中…","done":"完成","download":"下载","downloadAll":"下载 ZIP","startOver":"重新开始","errorType":"仅支持 {type} 图片。","errorBroken":"文件已损坏或不是支持的图片格式。","errorEmpty":"请至少选择 {n} 张图片。","errorHeic":"无法打开此 HEIC 文件。","errorGeneric":"处理失败，请换一张图片重试。","before":"原始","after":"结果","saved":"节省 {p}%","quality":"质量","width":"宽度","height":"高度","keepRatio":"保持比例","images":"{n} 张","imageN":"第 {n} 张","selected":"已选 {n} 张","moreImages":"还有 {n} 张（无预览）","selectAll":"全选","clearAll":"全部清除","moveLeft":"左移","moveRight":"右移","moveUp":"上移","moveDown":"下移","rotate":"旋转","delete":"删除","restore":"恢复","dragHint":"在图片上拖动以选择区域","regions":"{n} 个区域","reset":"重置","drawHere":"在此绘制","upload":"上传 PNG","clear":"清除","language":"语言","loadingLib":"加载中…","preview":"预览","aboutLine":"图片只在您的设备上处理，不会上传到任何服务器。","aboutTitle":"使用方法","nextTools":"下一步工具"};window.IMGT_TOOL={"id":"image-rotate","lang":"zh","langUrls":{"en":"/image/image-rotate/","ko":"/image/image-rotate/ko/","zh":"/image/image-rotate/zh/","ja":"/image/image-rotate/ja/","es":"/image/image-rotate/es/","pt":"/image/image-rotate/pt/","de":"/image/image-rotate/de/","fr":"/image/image-rotate/fr/"},"next":[{"id":"image-crop","url":"/image/image-crop/zh/","h1":"图片裁剪"},{"id":"image-resize","url":"/image/image-resize/zh/","h1":"调整图片大小"},{"id":"image-compress","url":"/image/image-compress/zh/","h1":"图片压缩"},{"id":"png-to-jpg","url":"/image/png-to-jpg/zh/","h1":"PNG 转 JPG"},{"id":"jpg-to-png","url":"/image/jpg-to-png/zh/","h1":"JPG 转 PNG"}],"strings":{"title":"图片旋转 – 免费在线旋转、翻转图片","h1":"图片旋转","line":"一键旋转或翻转","description":"免费在线图片旋转。将照片旋转 90、180、270 度或任意角度，水平或垂直翻转后下载。支持多张同时处理。全部在浏览器中完成，不上传任何文件。","buttonText":"选择图片","runText":"旋转","resultName":"旋转图片","options":{"angle":{"label":"角度","help":"顺时针。其他角度请选择自定义。","choices":{"90":"顺时针 90°","180":"180°","270":"逆时针 90°","custom":"自定义"}},"custom":{"label":"自定义角度","help":"-180 到 180，正数为顺时针"},"background":{"label":"背景色","help":"自定义角度时出现的空白角落会用此颜色填充。"},"flip":{"label":"翻转","help":"在旋转之后应用。","choices":{"none":"无","h":"水平翻转","v":"垂直翻转"}}},"faq":[["旋转会损失画质吗？","旋转 90、180、270 度时每个像素都保持不变。JPG 会以高质量重新编码，PNG 和 WebP 保持原格式。"],["我的图片会被上传吗？","不会。每张图片都在您的设备上由浏览器旋转，不会发送到任何服务器。"]]}};</script>
-<script src="/image/img-tools.js?v=306d0f8aef" defer></script>
+<script>window.IMGT_STRINGS={"name":"中文","dir":"ltr","selectImages":"选择图片","dropText":"或将图片拖到这里 · 也支持粘贴","addMore":"继续添加","remove":"移除","filesCount":"{n} 张图片","fileCount":"1 张图片","processing":"处理中…","done":"完成","download":"下载","downloadAll":"下载 ZIP","startOver":"重新开始","errorType":"仅支持 {type} 图片。","errorBroken":"文件已损坏或不是支持的图片格式。","errorEmpty":"请至少选择 {n} 张图片。","errorHeic":"无法打开此 HEIC 文件。","errorGeneric":"处理失败，请换一张图片重试。","before":"原始","after":"结果","saved":"节省 {p}%","quality":"质量","width":"宽度","height":"高度","keepRatio":"保持比例","images":"{n} 张","imageN":"第 {n} 张","selected":"已选 {n} 张","moreImages":"还有 {n} 张（无预览）","selectAll":"全选","clearAll":"全部清除","moveLeft":"左移","moveRight":"右移","moveUp":"上移","moveDown":"下移","rotate":"旋转","delete":"删除","restore":"恢复","dragHint":"在图片上拖动以选择区域","regions":"{n} 个区域","reset":"重置","drawHere":"在此绘制","upload":"上传 PNG","clear":"清除","language":"语言","loadingLib":"加载中…","preview":"预览","compressUploadHint":"JPG · PNG · WebP · 可多选图片 · 在设备上处理","localProcessingHint":"图片只在您的设备上处理。","targetSummary":"每张图片的目标：{target}","removeFileLabel":"移除 {name}","moveFileUpLabel":"将 {name} 上移","moveFileDownLabel":"将 {name} 下移","downloadFileLabel":"下载 {name}","targetFilePassed":"符合大小目标","targetFileExceeded":"超出大小目标","targetFileNotRequested":"不限制大小","aboutLine":"图片只在您的设备上处理，不会上传到任何服务器。","aboutTitle":"使用方法","nextTools":"下一步工具"};window.IMGT_TOOL={"id":"image-rotate","lang":"zh","langUrls":{"en":"/image/image-rotate/","ko":"/image/image-rotate/ko/","zh":"/image/image-rotate/zh/","ja":"/image/image-rotate/ja/","es":"/image/image-rotate/es/","pt":"/image/image-rotate/pt/","de":"/image/image-rotate/de/","fr":"/image/image-rotate/fr/"},"next":[{"id":"image-crop","url":"/image/image-crop/zh/","h1":"图片裁剪"},{"id":"image-resize","url":"/image/image-resize/zh/","h1":"调整图片大小"},{"id":"image-compress","url":"/image/image-compress/zh/","h1":"图片压缩"},{"id":"png-to-jpg","url":"/image/png-to-jpg/zh/","h1":"PNG 转 JPG"},{"id":"jpg-to-png","url":"/image/jpg-to-png/zh/","h1":"JPG 转 PNG"}],"strings":{"title":"图片旋转 – 免费在线旋转、翻转图片","h1":"图片旋转","line":"一键旋转或翻转","description":"免费在线图片旋转。将照片旋转 90、180、270 度或任意角度，水平或垂直翻转后下载。支持多张同时处理。全部在浏览器中完成，不上传任何文件。","buttonText":"选择图片","runText":"旋转","resultName":"旋转图片","options":{"angle":{"label":"角度","help":"顺时针。其他角度请选择自定义。","choices":{"90":"顺时针 90°","180":"180°","270":"逆时针 90°","custom":"自定义"}},"custom":{"label":"自定义角度","help":"-180 到 180，正数为顺时针"},"background":{"label":"背景色","help":"自定义角度时出现的空白角落会用此颜色填充。"},"flip":{"label":"翻转","help":"在旋转之后应用。","choices":{"none":"无","h":"水平翻转","v":"垂直翻转"}}},"faq":[["旋转会损失画质吗？","旋转 90、180、270 度时每个像素都保持不变。JPG 会以高质量重新编码，PNG 和 WebP 保持原格式。"],["我的图片会被上传吗？","不会。每张图片都在您的设备上由浏览器旋转，不会发送到任何服务器。"]]}};</script>
+<script src="/image/img-tools.js?v=84ede4066a" defer></script>
 
 <script src="/image/tools/image-rotate.js?v=034bc06cfa" defer></script>
 

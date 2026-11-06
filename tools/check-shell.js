@@ -5,7 +5,7 @@ const shell = require('./shell');
 const root = path.resolve(__dirname, '..');
 const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'tests', 'output', 'src'];
 const files = [];
-(function walk(dir){ for (const n of fs.readdirSync(dir)) { if (SKIP.includes(n) || (n === 'hex' && path.basename(dir) === 'color')) continue; /* color/hex/ 롱테일은 전용 축약 CSS 라 제외 */ const p = path.join(dir, n); if (fs.statSync(p).isDirectory()) walk(p); else if (n.endsWith('.html')) files.push(p); } })(root);
+(function walk(dir){ for (const n of fs.readdirSync(dir)) { if (n.startsWith('.') || SKIP.includes(n) || (n === 'hex' && path.basename(dir) === 'color')) continue; /* 숨김 검수 파일과 전용 축약 CSS 를 쓰는 color/hex/ 롱테일은 제외 */ const p = path.join(dir, n); if (fs.statSync(p).isDirectory()) walk(p); else if (n.endsWith('.html')) files.push(p); } })(root);
 const fails = [];
 const byLang = {};
 for (const p of files) {

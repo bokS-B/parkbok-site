@@ -27,6 +27,8 @@
     "language": "Language",
     "footMenu": "Footer menu",
     "theme": "Light / dark",
+    "themeToDark": "Light mode is on. Switch to dark mode",
+    "themeToLight": "Dark mode is on. Switch to light mode",
     "home": "Home",
     "breadcrumb": "Breadcrumb"
   },
@@ -58,6 +60,8 @@
     "language": "언어",
     "footMenu": "바닥글 메뉴",
     "theme": "라이트 / 다크",
+    "themeToDark": "현재 라이트 모드. 다크 모드로 전환",
+    "themeToLight": "현재 다크 모드. 라이트 모드로 전환",
     "home": "홈",
     "breadcrumb": "현재 위치"
   },
@@ -89,6 +93,8 @@
     "language": "语言",
     "footMenu": "页脚菜单",
     "theme": "浅色 / 深色",
+    "themeToDark": "当前为浅色模式。切换到深色模式",
+    "themeToLight": "当前为深色模式。切换到浅色模式",
     "home": "首页",
     "breadcrumb": "导航路径"
   },
@@ -120,6 +126,8 @@
     "language": "言語",
     "footMenu": "フッターメニュー",
     "theme": "ライト / ダーク",
+    "themeToDark": "現在はライトモード。ダークモードに切り替え",
+    "themeToLight": "現在はダークモード。ライトモードに切り替え",
     "home": "ホーム",
     "breadcrumb": "パンくずリスト"
   },
@@ -151,6 +159,8 @@
     "language": "Idioma",
     "footMenu": "Menú del pie",
     "theme": "Claro / oscuro",
+    "themeToDark": "Modo claro activo. Cambiar al modo oscuro",
+    "themeToLight": "Modo oscuro activo. Cambiar al modo claro",
     "home": "Inicio",
     "breadcrumb": "Ruta de navegación"
   },
@@ -182,6 +192,8 @@
     "language": "Idioma",
     "footMenu": "Menu do rodapé",
     "theme": "Claro / escuro",
+    "themeToDark": "Modo claro ativo. Mudar para o modo escuro",
+    "themeToLight": "Modo escuro ativo. Mudar para o modo claro",
     "home": "Início",
     "breadcrumb": "Trilha de navegação"
   },
@@ -213,6 +225,8 @@
     "language": "Sprache",
     "footMenu": "Fußzeilenmenü",
     "theme": "Hell / dunkel",
+    "themeToDark": "Heller Modus aktiv. Zum dunklen Modus wechseln",
+    "themeToLight": "Dunkler Modus aktiv. Zum hellen Modus wechseln",
     "home": "Startseite",
     "breadcrumb": "Brotkrumen"
   },
@@ -244,6 +258,8 @@
     "language": "Langue",
     "footMenu": "Menu de pied de page",
     "theme": "Clair / sombre",
+    "themeToDark": "Mode clair activé. Passer au mode sombre",
+    "themeToLight": "Mode sombre activé. Passer au mode clair",
     "home": "Accueil",
     "breadcrumb": "Fil d'Ariane"
   }

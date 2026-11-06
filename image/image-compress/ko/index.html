@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#511919">
-<script>try{var __t=localStorage.getItem('pb_theme');if(__t)document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
+<script>try{var __t=localStorage.getItem('pb_theme');if(__t==='light'||__t==='dark')document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="parkbok">
 <meta property="og:image" content="https://parkbok.com/og.png">
@@ -38,6 +38,8 @@
   --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--accent-label:#1d4ed8;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
+  --control-line:var(--line);--focus:var(--accent);--selection-line:var(--accent);--drop-line:var(--muted);--preview-check-a:#d9dee6;--preview-check-b:#f3f5f8;
+  --statistics-bg:#fff;--statistics-ink:#172033;--statistics-line:#cbd5e1;--statistics-control:#94a3b8;--statistics-hover:#f1f5f9;--statistics-muted:#475569;
   --cat-hwp:#2563eb;--cat-text:#10b981;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;--cat-color:#ec4899;
   --font:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
   --fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
@@ -58,8 +60,8 @@ html[lang="en"],html[lang="es"],html[lang="pt"],html[lang="de"],html[lang="fr"]{
 html[lang^="zh"]{--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 /* 다크: 기기 설정을 따르되, 헤더의 ◐ 버튼으로 고른 값(data-theme)이 있으면 그것을 우선 */
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--accent-label:#bfdbfe;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
-:root[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--accent-label:#bfdbfe;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#161719;--card:#202225;--hub:#161719;--ink:#e7e8ea;--muted:#a2a6ad;--line:#3a3f46;--accent:#506d8e;--accent-ink:#fff;--accent-hover:#435f7f;--accent-active:#38516d;--accent-tint:#2a3543;--accent-text:#94acc7;--accent-label:#b5c9df;--footer-bg:#141517;--footer-ink:#d5d7da;--brand:#c1a49d;--err:#e5a3a3;--ok:#93bea9;--info-bg:#29323b;--info-border:#7f9cbd;--badge-new:#29323b;--sh-btn-big:none;--control-line:#69717c;--focus:#b5c9df;--selection-line:#7f9cbd;--drop-line:#58616c;--preview-check-a:#30343a;--preview-check-b:#3a3f46;--statistics-bg:var(--card);--statistics-ink:var(--ink);--statistics-line:var(--line);--statistics-control:var(--control-line);--statistics-hover:#2b2e33;--statistics-muted:var(--muted)}}
+:root[data-theme="dark"]{--bg:#161719;--card:#202225;--hub:#161719;--ink:#e7e8ea;--muted:#a2a6ad;--line:#3a3f46;--accent:#506d8e;--accent-ink:#fff;--accent-hover:#435f7f;--accent-active:#38516d;--accent-tint:#2a3543;--accent-text:#94acc7;--accent-label:#b5c9df;--footer-bg:#141517;--footer-ink:#d5d7da;--brand:#c1a49d;--err:#e5a3a3;--ok:#93bea9;--info-bg:#29323b;--info-border:#7f9cbd;--badge-new:#29323b;--sh-btn-big:none;--control-line:#69717c;--focus:#b5c9df;--selection-line:#7f9cbd;--drop-line:#58616c;--preview-check-a:#30343a;--preview-check-b:#3a3f46;--statistics-bg:var(--card);--statistics-ink:var(--ink);--statistics-line:var(--line);--statistics-control:var(--control-line);--statistics-hover:#2b2e33;--statistics-muted:var(--muted)}
 :root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light}
 
 /* ---------- 기본 ---------- */
@@ -69,6 +71,7 @@ body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body)
 body>main{flex:1 0 auto;width:100%;min-width:0}
 footer.foot{margin-top:auto}
 a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 img,svg{vertical-align:middle}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--header-pad-x)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -95,8 +98,8 @@ nav.menu a{position:relative;display:inline-block;font-size:var(--fs-small);font
 nav.menu a::before{content:"";position:absolute;left:0;right:0;top:calc(50% - var(--touch)/2);height:var(--touch)}
 nav.menu a:hover{background:var(--bg);color:var(--ink);text-decoration:none}
 nav.menu a.on{background:var(--accent);color:var(--accent-ink)}
-.lang-select{flex:none;margin-left:auto;min-height:var(--touch);font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
-.theme-btn{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
+.lang-select{flex:none;margin-left:auto;min-height:var(--touch);font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--control-line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
+.theme-btn{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--control-line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
 /* 가상 영역은 패딩 박스 기준이라 테두리 1px 을 더해 -6px 이어야 실제 클릭 폭 44px */
 .theme-btn::before{content:"";position:absolute;inset:-6px}
 .theme-btn:hover{border-color:var(--ink)}
@@ -111,8 +114,8 @@ header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--su
 /* ---------- 셸: 브랜드 마크 — brand:start~end 는 build-color-pages.js 가 그대로 hex.css 뒤에 붙인다(롱테일 페이지도 같은 마크 규칙) ---------- */
 /* brand:start */
 :root{--brand:#511919}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#e2a096}}
-:root[data-theme="dark"]{--brand:#e2a096}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#c1a49d}}
+:root[data-theme="dark"]{--brand:#c1a49d}
 .brand{display:inline-flex;align-items:center;gap:8px}
 .brand-mark{display:block;flex:none;background-color:currentColor;-webkit-mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat;mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat}
 .brand .brand-mark{width:37px;height:26px;color:var(--brand)}
@@ -145,8 +148,10 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .foot-languages a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;line-height:20px}
 .foot-languages a[aria-current]{color:var(--foot-text);text-decoration:underline;text-underline-offset:5px}
 .foot .foot-note{margin:14px 0 0;border-top:1px solid var(--foot-rule);padding-top:16px;font-size:12px;line-height:20px;color:var(--foot-muted)}
-:root[data-theme="dark"] footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}}
+:root[data-theme="dark"] footer.foot{--foot-surface:var(--footer-bg);--foot-text:var(--footer-ink);--foot-muted:var(--muted);--foot-rule:var(--line)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:var(--footer-bg);--foot-text:var(--footer-ink);--foot-muted:var(--muted);--foot-rule:var(--line)}}
+:root[data-theme="dark"] .foot-brand .brand-mark{color:var(--brand)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .foot-brand .brand-mark{color:var(--brand)}}
 @media(max-width:960px){.foot-main{gap:32px;grid-template-columns:minmax(200px,.8fr) minmax(0,1.6fr)}.foot-directory{gap:20px}.foot-bottom{align-items:flex-start;flex-direction:column;gap:4px}}
 @media(max-width:767.98px){footer.foot{padding:36px 0 16px;margin-top:40px}.foot .wrap{padding-inline:20px}.foot-main{grid-template-columns:1fr;gap:32px;padding-bottom:24px}.foot .foot-brand{font-size:28px}.foot .foot-tagline{margin-top:16px}.foot .foot-local{margin-top:16px}.foot-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.foot-column:last-child{grid-column:1 / -1;border-top:1px solid var(--foot-rule);padding-top:24px}.foot-languages{gap:0 20px}.foot-bottom{padding-top:16px}.foot .foot-column h2{margin-bottom:8px}}
 /* footer:end */
@@ -166,8 +171,8 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .tools,.row,.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
 
 /* ---------- 입력 / 상태 ---------- */
-.drop{border:2px dashed var(--muted);border-radius:var(--r-card);padding:40px 24px;text-align:center;background:var(--card);cursor:pointer;transition:var(--t-btn)}
-.drop.on{border-color:var(--accent);background:var(--accent-tint)}
+.drop{border:2px dashed var(--drop-line);border-radius:var(--r-card);padding:40px 24px;text-align:center;background:var(--card);cursor:pointer;transition:var(--t-btn)}
+.drop.on{border-color:var(--selection-line);background:var(--accent-tint)}
 .drop.err{border-color:var(--err)}
 .drop strong{display:block;font-size:17px;margin-bottom:6px}
 .drop span,.droptxt{color:var(--muted);font-size:var(--fs-small)}
@@ -176,12 +181,12 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .status.err{color:var(--err)}.status.ok{color:var(--ok)}.status.busy,.status.empty{color:var(--muted)}
 .opts{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:var(--fs-small);margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-big);padding:10px 14px}
 .opts label{display:inline-flex;align-items:center;gap:5px;min-height:var(--touch);white-space:nowrap}
-.opts select,.opts input[type=text],.opts input[type=number]{min-height:var(--touch);font:inherit;font-size:var(--fs-small);padding:4px 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
+.opts select,.opts input[type=text],.opts input[type=number]{min-height:var(--touch);font:inherit;font-size:var(--fs-small);padding:4px 10px;border:1px solid var(--control-line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
 .opts .sep{flex-basis:100%;height:0}
 .tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tt-grid textarea,#textout{width:100%;min-height:260px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--card);color:var(--ink)}
+.tt-grid textarea,#textout{width:100%;min-height:260px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--control-line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--card);color:var(--ink)}
 .tt-grid textarea[readonly],#textout{background:var(--bg)}
-.tt-grid textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.tt-grid textarea:focus{outline:2px solid var(--focus);outline-offset:-1px}
 .tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
 #textout{min-height:200px;max-height:60vh;white-space:pre-wrap}
 #viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh;color:#1d2129}
@@ -273,6 +278,17 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 </style>
 <!-- /shell:head-common -->
 <style id="page-css">/* 이미지 도구 엔진 전용 스타일. 토큰·셸·버튼·.drop·.opts·.result·.chips 는 assets/site.css 에서 온다. */
+/* 공통 테마 토큰을 사용해 도구와 홈의 색을 일치시킨다. */
+body.page-image .stage-in .drop:not(:focus-visible):not(.on){border-color:var(--drop-line,var(--muted))}
+body.page-image.has-input .stage-in .drop:not(:focus-visible):not(.on){border-color:var(--line)}
+body.page-image .opts select,body.page-image .opts input[type=text],body.page-image .opts input[type=number],body.page-image .radio:not(:has(input:checked)){border-color:var(--control-line,var(--line))}
+body.page-image .radio:has(input:checked){border-color:var(--selection-line,var(--accent))}
+body.page-image :focus-visible{outline:3px solid var(--focus,var(--accent));outline-offset:3px}
+body.page-image .stage-in .drop:focus-visible{box-shadow:0 0 0 3px var(--focus,var(--accent-tint))}
+.upload-hint{margin:10px 0 0;color:var(--muted);font-size:13px;line-height:20px}
+body.has-input .upload-hint{display:none}
+.next-label{display:none}
+.stage-out .actions [hidden],#reset-notice[hidden]{display:none}
 .target-presets{display:flex;flex-wrap:wrap;gap:6px;flex-basis:100%}
 .target-presets .target-preset{min-height:44px;min-width:60px;justify-content:center;cursor:pointer}
 .target-presets .target-preset[aria-pressed=true]{border-color:var(--accent);color:var(--accent-text);background:var(--accent-tint)}
@@ -339,7 +355,7 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .pos:hover{border-color:var(--ink)}
 /* 도장 배경 제거: 바둑판(투명) 위 실시간 미리보기. 누르면 잉크 색을 고른다 */
 .opt-stamp-preview{flex-direction:column;flex-wrap:nowrap;align-items:stretch}
-.stamp-preview{display:block;max-width:100%;max-height:50vh;margin:0 auto;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px;cursor:crosshair;touch-action:manipulation}
+.stamp-preview{display:block;max-width:100%;max-height:50vh;margin:0 auto;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(var(--preview-check-a,#d9dee6) 0 25%,var(--preview-check-b,#f3f5f8) 0 50%) 0 0/16px 16px;cursor:crosshair;touch-action:manipulation}
 /* 긴 체크 문구·규격 이름이 좁은 화면에서 가로로 넘치지 않게 */
 .opts#opts[data-tool="stamp-background"] .check{white-space:normal;min-width:0;flex:1 1 auto}
 .opts#opts[data-tool="product-image-size"] select{max-width:100%;min-width:0}
@@ -407,7 +423,7 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 /* 클리핑은 안쪽 .rect-clip(이미지·어둡게 마스크)에만 둔다. 손잡이 레이어 .rect-layer 는 넘침을 보이게 해서 이미지 가장자리에서도 44px 히트 영역이 상자 밖으로 살아 있다 */
 .rect-box{position:relative;width:100%;--ar:1;--rect-max-h:min(56vh,520px);max-width:min(720px,calc(var(--rect-max-h) * var(--ar)));margin:0 auto;border:1px solid var(--line);border-radius:var(--r-btn);line-height:0}
 @supports (height:1dvh){.rect-box{--rect-max-h:min(56dvh,520px)}}
-.rect-clip{position:relative;overflow:hidden;border-radius:calc(var(--r-btn) - 1px);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px}
+.rect-clip{position:relative;overflow:hidden;border-radius:calc(var(--r-btn) - 1px);background:repeating-conic-gradient(var(--preview-check-a,#d9dee6) 0 25%,var(--preview-check-b,#f3f5f8) 0 50%) 0 0/16px 16px}
 .rect-bg{display:block;width:100%;height:auto}
 .rect-mask{position:absolute;inset:0;pointer-events:none}
 .rmask{position:absolute;box-shadow:0 0 0 9999px rgba(0,0,0,.35)}
@@ -439,16 +455,17 @@ body.has-input .stage-in .btn-big,body.has-input .stage-in .droptxt{display:none
 .stage-out .result[hidden]{display:none}
 .result-one{text-align:center}
 .result-one .result-name{font-weight:var(--fw-semibold);word-break:break-all}
-.result-img{display:block;max-width:100%;max-height:60vh;margin:0 auto 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px}
+.result-img{display:block;max-width:100%;max-height:60vh;margin:0 auto 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(var(--preview-check-a,#d9dee6) 0 25%,var(--preview-check-b,#f3f5f8) 0 50%) 0 0/16px 16px}
 .result-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .result-grid li{display:flex;flex-direction:column;gap:4px;font-size:var(--fs-caption);text-align:center;min-width:0}
-.result-grid img{width:100%;aspect-ratio:1;object-fit:contain;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(#d9dee6 0 25%,#f3f5f8 0 50%) 0 0/16px 16px}
+.result-grid img{width:100%;aspect-ratio:1;object-fit:contain;border:1px solid var(--line);border-radius:var(--r-btn);background:repeating-conic-gradient(var(--preview-check-a,#d9dee6) 0 25%,var(--preview-check-b,#f3f5f8) 0 50%) 0 0/16px 16px}
 .result-ph{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--line);color:var(--muted);font-weight:var(--fw-semibold)}
 .result-grid .result-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .result-stats{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 8px;margin-top:10px;font-size:var(--fs-small);color:var(--muted)}
 .result-stats .after{color:var(--ink);font-weight:var(--fw-semibold)}
 .result-stats .saved{color:var(--accent-text);font-weight:var(--fw-semibold)}
 .result-note{text-align:center;margin:8px 0 0}
+.result-size-exact,.result-size-status{display:block;overflow-wrap:anywhere}
 .passport-preset-title{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
 .opts#opts .passport-preset-title .opt-label{flex:0 1 auto;min-width:0;margin:0}
 .passport-source{display:inline-flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box}
@@ -498,43 +515,126 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 .compress-sample{display:flex;align-items:center;gap:18px;padding:16px;margin:16px 0;border:1px solid var(--line);border-radius:var(--r-card);background:var(--card)}
 .compress-sample>img{width:120px;height:80px;object-fit:cover;border-radius:10px;flex:none}.compress-sample>div{flex:1;min-width:0}.compress-sample p{font-size:14px;line-height:1.5;color:var(--muted);margin:5px 0}#btn-sample{min-height:44px;flex:none}.has-input .compress-sample{display:none}
 .compress-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;width:100%;text-align:left}.compress-compare figure{margin:0;min-width:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}.compress-compare img{display:block;width:100%;height:clamp(140px,26vw,280px);object-fit:contain;background:var(--bg)}.compress-compare figcaption{display:flex;flex-direction:column;gap:6px;padding:12px;font-size:14px;line-height:1.5;overflow-wrap:anywhere}.compress-compare figcaption span{color:var(--muted)}.compare-help{font-size:14px;line-height:1.6;max-width:680px}
-@media(max-width:767.98px){.compress-sample{display:grid;grid-template-columns:80px minmax(0,1fr);gap:12px;padding:12px}.compress-sample>img{width:80px;height:80px}.compress-sample button{grid-column:1/-1;width:100%}.compress-compare{gap:10px}.compress-compare figcaption{padding:10px;font-size:13px}}</style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"이미지 압축","url":"https://parkbok.com/image/image-compress/ko/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"사진을 20KB·50KB·100KB 이하로 압축하세요. 필요하면 해상도도 줄이고 실제 바이트와 픽셀을 확인합니다. JPG·PNG·WebP 지원, 서버 업로드 없이 무료."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"이미지 도구","item":"https://parkbok.com/image/ko/"},{"@type":"ListItem","position":3,"name":"이미지 압축","item":"https://parkbok.com/image/image-compress/ko/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"20KB·50KB·100KB에 맞출 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요."}},{"@type":"Question","name":"사진 용량을 100KB 이하로 줄이려면?","acceptedAnswer":{"@type":"Answer","text":"사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 형식 유지에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."}},{"@type":"Question","name":"원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?","acceptedAnswer":{"@type":"Answer","text":"입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 사이트에 따라 1KB를 1000바이트로 계산할 수 있으니 상한보다 조금 낮게 잡으면 안전합니다."}},{"@type":"Question","name":"증명사진 픽셀 크기도 정해져 있다면?","acceptedAnswer":{"@type":"Answer","text":"가로·세로 픽셀까지 정해져 있으면 여권사진 규격 도구에서 규격에 맞춰 자르고 용량 상한을 함께 지정하세요. 크기만 바꾸려면 이미지 크기 조절 도구를 쓴 뒤 여기서 압축하면 됩니다."}},{"@type":"Question","name":"이미지가 업로드되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다."}}]}]</script>
+@media(max-width:767.98px){.compress-sample{display:grid;grid-template-columns:80px minmax(0,1fr);gap:12px;padding:12px}.compress-sample>img{width:80px;height:80px}.compress-sample button{grid-column:1/-1;width:100%}.compress-compare{gap:10px}.compress-compare figcaption{padding:10px;font-size:13px}}
+/* 용량 압축 작업대: 목표 설정과 파일/결과를 별도 열로 배치한다. */
+body[data-image-tool="image-compress"] .image-workspace{max-width:1120px}
+body[data-image-tool="image-compress"] .tool-head{margin-bottom:24px}
+body[data-image-tool="image-compress"] .tool-head .lead{max-width:720px;margin-inline:auto}
+body[data-image-tool="image-compress"] .image-workbench{display:grid;grid-template-columns:minmax(260px,320px) minmax(0,1fr);grid-template-rows:min-content 1fr;gap:20px 24px;align-items:start}
+body[data-image-tool="image-compress"] #opts{grid-column:1;grid-row:1/3;position:sticky;top:76px;margin:0;padding:18px;gap:18px;min-width:0}
+body[data-image-tool="image-compress"] #in{grid-column:2;grid-row:1;min-width:0}
+body[data-image-tool="image-compress"] #out{grid-column:2;grid-row:2;min-width:0}
+body[data-image-tool="image-compress"] .image-workbench>.ad{grid-column:1/-1}
+body[data-image-tool="image-compress"] .stage-in .drop{padding:30px 18px}
+body[data-image-tool="image-compress"] .stage-in .btn-big{min-width:0;width:min(100%,320px)}
+body[data-image-tool="image-compress"].has-input .stage-in .drop{padding:8px 12px}
+body[data-image-tool="image-compress"] #btn-reset-top{display:none}
+body[data-image-tool="image-compress"] .opt{gap:8px}
+body[data-image-tool="image-compress"] .opts#opts .opt-label{flex-basis:100%;min-width:0}
+body[data-image-tool="image-compress"] .opt-help{font-size:13px;line-height:20px}
+body[data-image-tool="image-compress"] .target-summary{margin:0;font-size:14px;font-weight:var(--fw-semibold);color:var(--ink);flex-basis:100%}
+body[data-image-tool="image-compress"] .target-presets{gap:6px}
+body[data-image-tool="image-compress"] .target-presets .target-preset{padding:8px 12px;min-width:52px;min-height:44px}
+body[data-image-tool="image-compress"] .opt-group{width:100%;border-top:1px solid var(--line);padding-top:4px}
+body[data-image-tool="image-compress"] .opt-group>summary{display:flex;font-size:14px}
+body[data-image-tool="image-compress"] .opt-group>.opt:first-of-type{margin-top:12px}
+body[data-image-tool="image-compress"] .result{padding:0;border:0;background:none}
+body[data-image-tool="image-compress"] .result-summary{margin:0 0 14px;font-size:16px;line-height:24px;font-weight:var(--fw-semibold);outline-offset:4px}
+body[data-image-tool="image-compress"] .result-summary[data-state="warning"]{padding:12px 14px;border:1px solid var(--err);border-radius:8px;background:color-mix(in srgb,var(--err) 9%,var(--card));color:var(--err)}
+body[data-image-tool="image-compress"] .result-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+body[data-image-tool="image-compress"] .result-grid li,body[data-image-tool="image-compress"] .result-one{padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-align:left;min-width:0}
+body[data-image-tool="image-compress"] .result-grid li{gap:8px;font-size:14px;line-height:20px}
+body[data-image-tool="image-compress"] .result-grid img{height:148px;aspect-ratio:auto;object-fit:contain}
+body[data-image-tool="image-compress"] .result-img{max-height:240px;margin-bottom:12px}
+body[data-image-tool="image-compress"] .result-name{font-size:14px;line-height:20px}
+body[data-image-tool="image-compress"] .result-stats{font-size:13px;line-height:20px;justify-content:flex-start;margin-top:12px}
+body[data-image-tool="image-compress"] .result-stats .saved{color:var(--muted);font-weight:var(--fw-regular)}
+body[data-image-tool="image-compress"] .result-size-status{width:fit-content;max-width:100%;padding:4px 8px;border-radius:6px;font-size:13px;line-height:20px;font-weight:var(--fw-semibold);background:var(--bg);color:var(--muted)}
+body[data-image-tool="image-compress"] .result-size-status[data-size-status="passed"]{background:color-mix(in srgb,var(--ok) 10%,var(--card));color:var(--ok)}
+body[data-image-tool="image-compress"] .result-size-status[data-size-status="failed"]{background:color-mix(in srgb,var(--err) 10%,var(--card));color:var(--err)}
+body[data-image-tool="image-compress"] .result-details{font-size:13px;line-height:20px;color:var(--muted);margin-top:4px}
+body[data-image-tool="image-compress"] .result-details>summary{min-height:32px;display:list-item;cursor:pointer;text-underline-offset:3px}
+body[data-image-tool="image-compress"] .result-details[open]>.result-size-exact{margin:4px 0}
+body[data-image-tool="image-compress"] .result-download{margin-top:auto;min-height:44px}
+body[data-image-tool="image-compress"] .result-note{text-align:left;font-size:13px;line-height:20px;margin-top:10px}
+body[data-image-tool="image-compress"] .stage-out .actions{justify-content:flex-start;gap:8px 12px}
+body[data-image-tool="image-compress"] #btn-primary{min-width:0;flex:1 1 240px}
+body[data-image-tool="image-compress"] #btn-reset{background:none;outline:0;border:0;color:var(--muted);text-decoration:underline;text-underline-offset:3px;padding:8px;min-height:44px}
+body[data-image-tool="image-compress"] #btn-reset:hover{color:var(--ink)}
+body[data-image-tool="image-compress"] #btn-download-warning{outline:0;border:1px solid var(--line);color:var(--ink);min-height:44px;font-size:14px;padding:8px 12px}
+body[data-image-tool="image-compress"] #reset-notice:not([hidden]){display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin:8px 0;font-size:14px;line-height:20px;color:var(--muted)}
+body[data-image-tool="image-compress"] #btn-undo-reset{min-height:44px;outline:0;border:0;background:none;text-decoration:underline;text-underline-offset:3px;padding:8px 0;color:var(--accent-text)}
+body[data-image-tool="image-compress"] :is(#btn-reset,#btn-download-warning,#btn-undo-reset):focus-visible{outline:3px solid var(--focus,var(--accent));outline-offset:3px}
+body[data-image-tool="image-compress"]:not(.done) .next{display:none}
+body[data-image-tool="image-compress"] .next{margin-top:28px;padding-top:18px;border-top:1px solid var(--line)}
+body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%;font-size:14px;font-weight:var(--fw-semibold);margin-bottom:4px;color:var(--muted)}
+@media(max-width:767.98px){
+  body[data-image-tool="image-compress"] .image-workbench{display:flex;flex-direction:column;gap:16px}
+  body[data-image-tool="image-compress"] .image-workbench>#opts,body[data-image-tool="image-compress"] .image-workbench>#in,body[data-image-tool="image-compress"] .image-workbench>#out{width:100%;min-width:0}
+  body[data-image-tool="image-compress"] #opts{position:static;order:1;padding:14px 16px;gap:12px}
+  body[data-image-tool="image-compress"] #in{order:2}
+  body[data-image-tool="image-compress"] #out{order:3}
+  body[data-image-tool="image-compress"] .stage-in .drop{padding:24px 16px}
+  body[data-image-tool="image-compress"] .tool-head{margin-bottom:18px}
+  body[data-image-tool="image-compress"] .opt-group{padding-top:0}
+  body[data-image-tool="image-compress"] .result-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  body[data-image-tool="image-compress"] .result-grid img{height:112px}
+  body[data-image-tool="image-compress"] .result-grid li{padding:10px;gap:8px}
+  body[data-image-tool="image-compress"] .result-details>summary{min-height:44px}
+  body[data-image-tool="image-compress"] .stage-out .actions{position:static;flex-wrap:wrap;align-items:center;padding-bottom:calc(8px + env(safe-area-inset-bottom));box-shadow:none}
+  body[data-image-tool="image-compress"] #btn-primary{flex:1 1 180px;font-size:18px;line-height:24px}
+  body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
+  body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
+}
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"이미지 압축","url":"https://parkbok.com/image/image-compress/ko/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"사진을 20KB·50KB·100KB 이하로 압축하세요. 필요하면 해상도도 줄이고 실제 바이트와 픽셀을 확인합니다. JPG·PNG·WebP 지원, 서버 업로드 없이 무료."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"이미지 도구","item":"https://parkbok.com/image/ko/"},{"@type":"ListItem","position":3,"name":"이미지 압축","item":"https://parkbok.com/image/image-compress/ko/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"20KB·50KB·100KB에 맞출 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요."}},{"@type":"Question","name":"사진 용량을 100KB 이하로 줄이려면?","acceptedAnswer":{"@type":"Answer","text":"사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 자동에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."}},{"@type":"Question","name":"원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?","acceptedAnswer":{"@type":"Answer","text":"입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 이 도구는 1 KB를 1000바이트로 계산합니다. 제출처의 기준과 최종 바이트 수를 함께 확인하세요."}},{"@type":"Question","name":"증명사진 픽셀 크기도 정해져 있다면?","acceptedAnswer":{"@type":"Answer","text":"가로·세로 픽셀까지 정해져 있으면 여권사진 규격 도구에서 규격에 맞춰 자르고 용량 상한을 함께 지정하세요. 크기만 바꾸려면 이미지 크기 조절 도구를 쓴 뒤 여기서 압축하면 됩니다."}},{"@type":"Question","name":"이미지가 업로드되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다."}}]}]</script>
 </head>
-<body class="page-image">
+<body class="page-image" data-image-tool="image-compress">
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="주 메뉴"><a href="/hwp/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/image/ko/" class="on">이미지 도구</a><a href="/color/ko/">색상 도구</a><a href="/guide/">가이드</a><select id="lang" class="lang-select" aria-label="언어"><option value="/image/image-compress/" data-code="en">English</option><option value="/image/image-compress/ko/" data-code="ko" selected>한국어</option><option value="/image/image-compress/zh/" data-code="zh">中文</option><option value="/image/image-compress/ja/" data-code="ja">日本語</option><option value="/image/image-compress/es/" data-code="es">Español</option><option value="/image/image-compress/pt/" data-code="pt">Português</option><option value="/image/image-compress/de/" data-code="de">Deutsch</option><option value="/image/image-compress/fr/" data-code="fr">Français</option></select></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="라이트 / 다크" title="라이트 / 다크">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
+<header class="top"><div class="wrap"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="주 메뉴"><a href="/hwp/">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/image/ko/" class="on">이미지 도구</a><a href="/color/ko/">색상 도구</a><a href="/guide/">가이드</a><select id="lang" class="lang-select" aria-label="언어"><option value="/image/image-compress/" data-code="en">English</option><option value="/image/image-compress/ko/" data-code="ko" selected>한국어</option><option value="/image/image-compress/zh/" data-code="zh">中文</option><option value="/image/image-compress/ja/" data-code="ja">日本語</option><option value="/image/image-compress/es/" data-code="es">Español</option><option value="/image/image-compress/pt/" data-code="pt">Português</option><option value="/image/image-compress/de/" data-code="de">Deutsch</option><option value="/image/image-compress/fr/" data-code="fr">Français</option></select></nav><button type="button" class="theme-btn" id="theme-btn" aria-pressed="false" aria-label="현재 라이트 모드. 다크 모드로 전환" title="현재 라이트 모드. 다크 모드로 전환" data-label-to-dark="현재 라이트 모드. 다크 모드로 전환" data-label-to-light="현재 다크 모드. 라이트 모드로 전환">◐</button></div><script>(function(){
+  var b=document.getElementById('theme-btn'),r=document.documentElement,m=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+  if(!b)return;
+  function dark(){var c=r.getAttribute('data-theme');return c==='dark'||c!=='light'&&!!(m&&m.matches)}
+  function sync(){var d=dark(),label=b.getAttribute(d?'data-label-to-light':'data-label-to-dark');b.setAttribute('aria-pressed',String(d));b.setAttribute('aria-label',label);b.setAttribute('title',label)}
+  b.addEventListener('click',function(){var n=dark()?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}sync();window.dispatchEvent(new Event('resize'))});
+  if(m){if(m.addEventListener)m.addEventListener('change',sync);else if(m.addListener)m.addListener(sync)}
+  if(window.MutationObserver)new window.MutationObserver(sync).observe(r,{attributes:true,attributeFilter:['data-theme']});
+  sync();
+})();
 // 모바일 메뉴: 현재 분류를 가운데로 스크롤(최초·창 크기 변경 시). 끝까지 스크롤되면 .end(오른쪽 페이드 끔), scrollLeft>0 이면 .start(왼쪽 페이드 켬). 좌표는 getBoundingClientRect 차이라 어떤 CSS 에서도 같다
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 
-<main class="wrap">
+<main class="wrap image-workspace">
   <nav class="crumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/image/ko/">이미지 도구</a></li><li aria-current="page">이미지 압축</li></ol></nav>
-  <div class="tool-head"><h1>이미지 압축</h1><p class="lead">20·50·100KB를 선택해 사진을 줄이고 실제 용량을 확인하세요.</p></div>
+  <div class="tool-head"><h1>이미지 압축</h1><p class="lead">목표 용량을 고르고 압축한 뒤, 실제 결과 용량을 확인하세요.</p></div>
+  <div class="image-workbench">
   <section class="stage stage-in" id="in">
-    <div class="drop" id="drop" tabindex="0" role="button" aria-label="이미지 선택">
+    <div class="drop" id="drop">
       <button class="btn-big" type="button" id="btn-select">이미지 선택</button>
       <div class="droptxt">또는 여기에 끌어다 놓기 · 붙여넣기도 됩니다</div>
+      <p class="upload-hint">JPG · PNG · WebP · 여러 장 선택 가능 · 내 기기에서 처리</p>
       <div class="drop-compact" id="drop-compact" hidden><span id="file-count"></span><button class="btn ghost sm" type="button" id="btn-add">더 추가</button><button class="btn ghost sm" type="button" id="btn-reset-top">다시 시작</button></div>
       <input type="file" id="file-input" hidden>
     </div>
     <ul class="file-list" id="files"></ul>
-    <p class="status" id="in-status"></p>
-  </section>
+    <p class="status" id="in-status" role="status" aria-live="polite" aria-atomic="true"></p>
   <div id="compress-sample" class="compress-sample"><img src="/image/assets/compress-sample-20kb.jpg" width="120" height="80" alt="PARKBOK 노을 일러스트 샘플" loading="lazy"><div><strong>사진 없이 먼저 체험해 보세요</strong><p>샘플을 압축하고 실제 바이트·픽셀을 비교하세요.</p></div><button type="button" class="btn ghost sm" id="btn-sample">샘플 체험</button></div>
+  </section>
   <div class="ad"></div>
   <section class="opts" id="opts" hidden></section>
   <section class="stage stage-out" id="out" hidden>
     <div class="result" id="result" hidden></div>
-    <div class="progress" id="progress" hidden role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="bar"></div></div><span class="ptxt"></span></div>
-    <div class="actions"><button class="btn-big" type="button" id="btn-primary" disabled>압축하기</button><button class="btn ghost" type="button" id="btn-reset">다시 시작</button></div>
-    <p class="status" id="status"></p>
+    <div class="progress" id="progress" hidden role="progressbar" aria-labelledby="progress-text" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="bar"></div></div><span class="ptxt" id="progress-text"></span></div>
+    <div class="actions"><button class="btn-big" type="button" id="btn-primary" disabled>압축하기</button><button class="btn ghost" type="button" id="btn-download-warning" hidden>초과 파일도 내려받기</button><button class="btn ghost" type="button" id="btn-reset">다시 시작</button></div>
+    <p class="status" id="status" role="status" aria-live="polite" aria-atomic="true"></p>
   </section>
-  <nav class="chips next" aria-label="다음 도구"><a class="chip" href="/image/signature-resize/ko/">서명 규격 맞추기</a><a class="chip" href="/image/image-resize/ko/">이미지 크기 조절</a><a class="chip" href="/image/png-to-jpg/ko/">PNG JPG 변환</a><a class="chip" href="/image/jpg-to-webp/ko/">JPG WebP 변환</a><a class="chip" href="/image/product-image-size/ko/">쇼핑몰 상품 이미지 규격</a></nav>
+  </div>
+  <nav class="chips next" aria-label="다음 도구"><span class="next-label">다음 도구</span><a class="chip" href="/image/signature-resize/ko/">서명 규격 맞추기</a><a class="chip" href="/image/image-resize/ko/">이미지 크기 조절</a><a class="chip" href="/image/png-to-jpg/ko/">PNG JPG 변환</a><a class="chip" href="/image/jpg-to-webp/ko/">JPG WebP 변환</a><a class="chip" href="/image/product-image-size/ko/">쇼핑몰 상품 이미지 규격</a></nav>
   <details class="about">
     <summary>사용 방법</summary>
     <p>이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.</p>
-    <dl class="faq"><dt>20KB·50KB·100KB에 맞출 수 있나요?</dt><dd>목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요.</dd><dt>사진 용량을 100KB 이하로 줄이려면?</dt><dd>사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 형식 유지에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다.</dd><dt>원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?</dt><dd>입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 사이트에 따라 1KB를 1000바이트로 계산할 수 있으니 상한보다 조금 낮게 잡으면 안전합니다.</dd><dt>증명사진 픽셀 크기도 정해져 있다면?</dt><dd>가로·세로 픽셀까지 정해져 있으면 여권사진 규격 도구에서 규격에 맞춰 자르고 용량 상한을 함께 지정하세요. 크기만 바꾸려면 이미지 크기 조절 도구를 쓴 뒤 여기서 압축하면 됩니다.</dd><dt>이미지가 업로드되나요?</dt><dd>아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다.</dd></dl>
+    <dl class="faq"><dt>20KB·50KB·100KB에 맞출 수 있나요?</dt><dd>목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요.</dd><dt>사진 용량을 100KB 이하로 줄이려면?</dt><dd>사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 자동에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다.</dd><dt>원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?</dt><dd>입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 이 도구는 1 KB를 1000바이트로 계산합니다. 제출처의 기준과 최종 바이트 수를 함께 확인하세요.</dd><dt>증명사진 픽셀 크기도 정해져 있다면?</dt><dd>가로·세로 픽셀까지 정해져 있으면 여권사진 규격 도구에서 규격에 맞춰 자르고 용량 상한을 함께 지정하세요. 크기만 바꾸려면 이미지 크기 조절 도구를 쓴 뒤 여기서 압축하면 됩니다.</dd><dt>이미지가 업로드되나요?</dt><dd>아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다.</dd></dl>
   </details>
 </main>
 <!-- shell:footer -->
@@ -557,10 +657,10 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 
 </div></footer>
 <!-- /shell:footer -->
-<script>window.IMGT_STRINGS={"name":"한국어","dir":"ltr","selectImages":"이미지 선택","dropText":"또는 여기에 끌어다 놓기 · 붙여넣기도 됩니다","addMore":"더 추가","remove":"삭제","filesCount":"이미지 {n}장","fileCount":"이미지 1장","processing":"처리 중…","done":"완료","download":"내려받기","downloadAll":"ZIP 내려받기","startOver":"다시 시작","errorType":"{type} 이미지만 넣을 수 있습니다.","errorBroken":"파일이 손상되었거나 지원하는 이미지가 아닙니다.","errorEmpty":"이미지를 {n}장 이상 넣어 주세요.","errorHeic":"이 HEIC 파일을 열지 못했습니다.","errorGeneric":"처리에 실패했습니다. 다른 이미지로 다시 시도해 주세요.","before":"원본","after":"결과","saved":"{p}% 절감","quality":"품질","width":"가로","height":"세로","keepRatio":"비율 유지","images":"{n}장","imageN":"{n}번째","selected":"{n}장 선택","moreImages":"+{n}장 더 (미리보기 없음)","selectAll":"전체 선택","clearAll":"모두 지우기","moveLeft":"왼쪽으로","moveRight":"오른쪽으로","moveUp":"위로","moveDown":"아래로","rotate":"회전","delete":"삭제","restore":"되돌리기","dragHint":"이미지 위를 드래그해 영역을 정하세요","regions":"영역 {n}개","reset":"초기화","drawHere":"여기에 그리세요","upload":"PNG 올리기","clear":"지우기","language":"언어","loadingLib":"불러오는 중…","preview":"미리보기","aboutLine":"이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.","aboutTitle":"사용 방법","nextTools":"다음 도구"};window.IMGT_TOOL={"id":"image-compress","lang":"ko","langUrls":{"en":"/image/image-compress/","ko":"/image/image-compress/ko/","zh":"/image/image-compress/zh/","ja":"/image/image-compress/ja/","es":"/image/image-compress/es/","pt":"/image/image-compress/pt/","de":"/image/image-compress/de/","fr":"/image/image-compress/fr/"},"next":[{"id":"signature-resize","url":"/image/signature-resize/ko/","h1":"서명 규격 맞추기"},{"id":"image-resize","url":"/image/image-resize/ko/","h1":"이미지 크기 조절"},{"id":"png-to-jpg","url":"/image/png-to-jpg/ko/","h1":"PNG JPG 변환"},{"id":"jpg-to-webp","url":"/image/jpg-to-webp/ko/","h1":"JPG WebP 변환"},{"id":"product-image-size","url":"/image/product-image-size/ko/","h1":"쇼핑몰 상품 이미지 규격"}],"strings":{"title":"사진 용량 줄이기 – 20KB·50KB·100KB 이미지 압축 | PARKBOK","h1":"이미지 압축","line":"20·50·100KB를 선택해 사진을 줄이고 실제 용량을 확인하세요.","description":"사진을 20KB·50KB·100KB 이하로 압축하세요. 필요하면 해상도도 줄이고 실제 바이트와 픽셀을 확인합니다. JPG·PNG·WebP 지원, 서버 업로드 없이 무료.","buttonText":"이미지 선택","runText":"압축하기","resultName":"이미지압축","noteSize":"","noteKept":"{n}장은 원본이 더 작아 그대로 두었습니다.","noteKeptAll":"원본이 이미 더 작아 그대로 두었습니다.","errorTooBig":"너무 큰 이미지입니다(16384px 초과).","options":{"level":{"label":"압축 정도","help":"보통은 웹 사진용입니다. 높음은 기본적으로 긴 변을 1600px로 제한하지만, 목표 KB를 정하고 해상도 축소를 끄면 원본 픽셀을 유지합니다.","choices":{"low":"약하게","medium":"보통","high":"강하게"}},"format":{"label":"저장 형식","help":"형식 유지는 원본 형식을 따릅니다. 투명이 없는 PNG 는 JPG 로 바뀝니다.","choices":{"keep":"형식 유지","jpg":"JPG","webp":"WebP"}},"maxKb":{"label":"이미지당 용량 상한","help":"0 = 사용 안 함 · 1 KB = 1000 B. 초과 시 표시합니다."},"reduce":{"label":"목표 용량에 맞춰 해상도도 줄이기","help":"비율은 유지합니다. 제출처가 픽셀 크기를 정했다면 끄세요. 용량 상한을 설정한 경우에만 적용됩니다."}},"faq":[["20KB·50KB·100KB에 맞출 수 있나요?","목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요."],["사진 용량을 100KB 이하로 줄이려면?","사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 형식 유지에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."],["원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?","입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 사이트에 따라 1KB를 1000바이트로 계산할 수 있으니 상한보다 조금 낮게 잡으면 안전합니다."],["증명사진 픽셀 크기도 정해져 있다면?","가로·세로 픽셀까지 정해져 있으면 여권사진 규격 도구에서 규격에 맞춰 자르고 용량 상한을 함께 지정하세요. 크기만 바꾸려면 이미지 크기 조절 도구를 쓴 뒤 여기서 압축하면 됩니다."],["이미지가 업로드되나요?","아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다."]],"targetLimit":"각 파일 상한: {kb} KB ({limit} B).","targetExceeded":"용량 초과 {n}/{total}개","downloadTargetOver":"초과 포함 받기","needsRerun":"설정이 바뀌었습니다. 다시 실행하세요.","errorTarget":"0 또는 올바른 양수 용량(KB)을 입력하세요.","targetActual":"{w} × {h} px · {bytes} B.","groups":{"advanced":"형식·압축 강도"},"sampleTitle":"사진 없이 먼저 체험해 보세요","sampleLine":"샘플을 압축하고 실제 바이트·픽셀을 비교하세요.","sampleButton":"샘플 체험","sampleAlt":"PARKBOK 노을 일러스트 샘플","compareBefore":"원본","compareAfter":"압축 결과","compareMeta":"{w} × {h} px · {bytes} B","compareHint":"선명도와 신청서의 최소 용량도 확인하세요. 목표 KB는 상한이며 최소·최대 범위를 보장하지 않습니다."}};</script>
-<script src="/image/img-tools.js?v=306d0f8aef" defer></script>
+<script>window.IMGT_STRINGS={"name":"한국어","dir":"ltr","selectImages":"이미지 선택","dropText":"또는 여기에 끌어다 놓기 · 붙여넣기도 됩니다","addMore":"더 추가","remove":"삭제","filesCount":"이미지 {n}장","fileCount":"이미지 1장","processing":"처리 중…","done":"완료","download":"내려받기","downloadAll":"ZIP 내려받기","startOver":"다시 시작","errorType":"{type} 이미지만 넣을 수 있습니다.","errorBroken":"파일이 손상되었거나 지원하는 이미지가 아닙니다.","errorEmpty":"이미지를 {n}장 이상 넣어 주세요.","errorHeic":"이 HEIC 파일을 열지 못했습니다.","errorGeneric":"처리에 실패했습니다. 다른 이미지로 다시 시도해 주세요.","before":"원본","after":"결과","saved":"{p}% 절감","quality":"품질","width":"가로","height":"세로","keepRatio":"비율 유지","images":"{n}장","imageN":"{n}번째","selected":"{n}장 선택","moreImages":"+{n}장 더 (미리보기 없음)","selectAll":"전체 선택","clearAll":"모두 지우기","moveLeft":"왼쪽으로","moveRight":"오른쪽으로","moveUp":"위로","moveDown":"아래로","rotate":"회전","delete":"삭제","restore":"되돌리기","dragHint":"이미지 위를 드래그해 영역을 정하세요","regions":"영역 {n}개","reset":"초기화","drawHere":"여기에 그리세요","upload":"PNG 올리기","clear":"지우기","language":"언어","loadingLib":"불러오는 중…","preview":"미리보기","compressUploadHint":"JPG · PNG · WebP · 여러 장 선택 가능 · 내 기기에서 처리","localProcessingHint":"이미지는 내 기기 안에서만 처리합니다.","targetSummary":"이미지당 목표: {target}","removeFileLabel":"{name} 삭제","moveFileUpLabel":"{name} 위로 이동","moveFileDownLabel":"{name} 아래로 이동","downloadFileLabel":"{name} 내려받기","targetFilePassed":"목표 용량 충족","targetFileExceeded":"목표 용량 초과","targetFileNotRequested":"용량 제한 없음","aboutLine":"이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.","aboutTitle":"사용 방법","nextTools":"다음 도구"};window.IMGT_TOOL={"id":"image-compress","lang":"ko","langUrls":{"en":"/image/image-compress/","ko":"/image/image-compress/ko/","zh":"/image/image-compress/zh/","ja":"/image/image-compress/ja/","es":"/image/image-compress/es/","pt":"/image/image-compress/pt/","de":"/image/image-compress/de/","fr":"/image/image-compress/fr/"},"next":[{"id":"signature-resize","url":"/image/signature-resize/ko/","h1":"서명 규격 맞추기"},{"id":"image-resize","url":"/image/image-resize/ko/","h1":"이미지 크기 조절"},{"id":"png-to-jpg","url":"/image/png-to-jpg/ko/","h1":"PNG JPG 변환"},{"id":"jpg-to-webp","url":"/image/jpg-to-webp/ko/","h1":"JPG WebP 변환"},{"id":"product-image-size","url":"/image/product-image-size/ko/","h1":"쇼핑몰 상품 이미지 규격"}],"strings":{"title":"사진 용량 줄이기 – 20KB·50KB·100KB 이미지 압축 | PARKBOK","h1":"이미지 압축","line":"목표 용량을 고르고 압축한 뒤, 실제 결과 용량을 확인하세요.","description":"사진을 20KB·50KB·100KB 이하로 압축하세요. 필요하면 해상도도 줄이고 실제 바이트와 픽셀을 확인합니다. JPG·PNG·WebP 지원, 서버 업로드 없이 무료.","buttonText":"이미지 선택","runText":"압축하기","resultName":"이미지압축","noteSize":"","noteKept":"{n}장은 원본이 압축 결과보다 작거나 같아 원본을 유지했습니다.","noteKeptAll":"원본이 압축 결과보다 작거나 같아 원본을 유지했습니다.","errorTooBig":"너무 큰 이미지입니다(16384px 초과).","options":{"level":{"label":"압축 정도","help":"보통은 웹 사진용입니다. 높음은 기본적으로 긴 변을 1600px로 제한하지만, 목표 KB를 정하고 해상도 축소를 끄면 원본 픽셀을 유지합니다.","choices":{"low":"약하게","medium":"보통","high":"강하게"}},"format":{"label":"저장 형식","help":"자동은 투명 PNG와 WebP를 유지하며, 투명하지 않은 PNG는 JPG로 바꿉니다. 자동에서는 원본이 압축 결과보다 작거나 같으면 원본을 유지합니다. JPG를 선택하면 투명 부분을 흰색으로 채웁니다.","choices":{"keep":"자동(투명도 보존)","jpg":"JPG","webp":"WebP"}},"maxKb":{"label":"이미지당 용량 상한","help":"이미지마다 적용할 목표를 고르세요. 0 = 제한 없음 · 1 KB = 1000바이트. 초과 결과는 표시합니다."},"reduce":{"label":"목표 용량에 맞춰 해상도도 줄이기","help":"비율은 유지합니다. 제출처가 픽셀 크기를 정했다면 끄세요. 용량 상한을 설정한 경우에만 적용됩니다."}},"faq":[["20KB·50KB·100KB에 맞출 수 있나요?","목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요."],["사진 용량을 100KB 이하로 줄이려면?","사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 자동에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."],["원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?","입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 이 도구는 1 KB를 1000바이트로 계산합니다. 제출처의 기준과 최종 바이트 수를 함께 확인하세요."],["증명사진 픽셀 크기도 정해져 있다면?","가로·세로 픽셀까지 정해져 있으면 여권사진 규격 도구에서 규격에 맞춰 자르고 용량 상한을 함께 지정하세요. 크기만 바꾸려면 이미지 크기 조절 도구를 쓴 뒤 여기서 압축하면 됩니다."],["이미지가 업로드되나요?","아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다."]],"targetLimit":"각 파일 상한: {kb} KB ({limit} B).","targetExceeded":"용량 초과 {n}/{total}개","downloadTargetOver":"초과 포함 받기","needsRerun":"설정이 바뀌었습니다. 다시 실행하세요.","errorTarget":"0~51200 범위의 정수 용량(KB)을 입력하세요.","targetActual":"{w} × {h} px · {bytes} B.","groups":{"advanced":"형식·압축 강도"},"sampleTitle":"사진 없이 먼저 체험해 보세요","sampleLine":"샘플을 압축하고 실제 바이트·픽셀을 비교하세요.","sampleButton":"샘플 체험","sampleAlt":"PARKBOK 노을 일러스트 샘플","compareBefore":"원본","compareAfter":"압축 결과","compareMeta":"{w} × {h} px · {bytes} B","compareHint":"선명도와 신청서의 최소 용량도 확인하세요. 목표 KB는 상한이며 최소·최대 범위를 보장하지 않습니다.","targetUnlimited":"제한 없음","advancedSettings":"고급 설정","adjustTarget":"목표 용량 조정","downloadOverLimit":"초과 파일도 내려받기","resultSummaryPassed":"이미지 {n}장이 목표 용량을 충족했습니다","resultSummaryFailed":"{total}장 중 {n}장이 목표 용량을 초과했습니다","resultSummaryNoLimit":"이미지 {n}장 처리 완료","resultDetails":"파일 상세 정보","resetNotice":"이미지 선택과 설정을 초기화했습니다.","undoReset":"초기화 실행 취소","resetRestored":"이미지와 설정을 복원했습니다. 다시 실행하세요.","cardLine":"20·50·100KB를 선택해 사진을 줄이고 실제 용량을 확인하세요."}};</script>
+<script src="/image/img-tools.js?v=84ede4066a" defer></script>
 <script src="/image/target-size.js?v=fede06be2c" defer></script>
-<script src="/image/tools/image-compress.js?v=d4680b14d6" defer></script>
+<script src="/image/tools/image-compress.js?v=fb25a4b0a1" defer></script>
 
 
 </body>

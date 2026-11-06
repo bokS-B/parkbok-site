@@ -14,14 +14,14 @@
     "en": {
       "title": "Compress Image to 20KB, 50KB or 100KB – Free | PARKBOK",
       "h1": "Compress image to KB",
-      "line": "Choose 20, 50 or 100KB, compress your photo, and check the actual file size.",
+      "line": "Choose a target size, compress your images, and check the actual results.",
       "description": "Compress a photo to under 20KB, 50KB or 100KB for online forms. Resize if needed, check actual bytes, and download JPG, PNG or WebP. Free, no upload or signup.",
       "buttonText": "Select images",
       "runText": "Compress",
       "resultName": "compressed-images",
       "noteSize": "",
-      "noteKept": "{n} image(s) were already small and were kept as they are.",
-      "noteKeptAll": "The original is already smaller, so it was kept as it is.",
+      "noteKept": "The original was no larger for {n} image(s), so it was kept.",
+      "noteKeptAll": "The original was no larger than the compressed result, so it was kept.",
       "errorTooBig": "This image is too large to process (over 16384 px).",
       "options": {
         "level": {
@@ -35,16 +35,16 @@
         },
         "format": {
           "label": "Output format",
-          "help": "Keep uses the original format. PNG without transparency becomes JPG.",
+          "help": "Auto keeps transparent PNG and WebP; PNG without transparency becomes JPG. In Auto, the original is kept if it is no larger than the compressed result. Choosing JPG fills transparent areas with white.",
           "choices": {
-            "keep": "Keep format",
+            "keep": "Auto (preserve transparency)",
             "jpg": "JPG",
             "webp": "WebP"
           }
         },
         "maxKb": {
           "label": "Max size per image",
-          "help": "0 = off · 1 KB = 1000 B. Oversize files are flagged."
+          "help": "Choose a target per image. 0 = no limit · 1 KB = 1000 bytes. Oversized results are flagged."
         },
         "reduce": {
           "label": "Reduce dimensions to reach the target",
@@ -66,7 +66,7 @@
         ],
         [
           "What happens to transparent PNGs?",
-          "Keep format preserves transparency. Choose JPG to place transparent pixels on white. PNG files can be resized when dimension reduction is on; they are never silently changed to JPG."
+          "Auto keeps transparent PNG files as PNG. PNG files without transparency can be converted to JPG. If dimension reduction is enabled, the image may be resized. Choose JPG to fill transparent pixels with white. In Auto, the original is kept if it is no larger than the compressed result."
         ],
         [
           "Are my photos uploaded?",
@@ -77,7 +77,7 @@
       "targetExceeded": "Over limit: {n}/{total} files",
       "downloadTargetOver": "Download anyway",
       "needsRerun": "Settings changed. Run again.",
-      "errorTarget": "Enter 0 or a valid positive KB target.",
+      "errorTarget": "Enter a whole number from 0 to 51200 KB.",
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Format & quality"
@@ -89,19 +89,31 @@
       "compareBefore": "Original",
       "compareAfter": "Compressed",
       "compareMeta": "{w} × {h} px · {bytes} B",
-      "compareHint": "Check clarity and any minimum size your form requires. The KB target is an upper limit, not a guaranteed range."
+      "compareHint": "Check clarity and any minimum size your form requires. The KB target is an upper limit, not a guaranteed range.",
+      "targetUnlimited": "No size limit",
+      "advancedSettings": "Advanced settings",
+      "adjustTarget": "Adjust target",
+      "downloadOverLimit": "Download including oversized files",
+      "resultSummaryPassed": "Images within target: {n}",
+      "resultSummaryFailed": "Over target: {n} of {total}",
+      "resultSummaryNoLimit": "Images ready: {n}",
+      "resultDetails": "File details",
+      "resetNotice": "Image selection and settings reset.",
+      "undoReset": "Undo reset",
+      "resetRestored": "Images and settings restored. Run again.",
+      "cardLine": "Choose 20, 50 or 100KB, compress your photo, and check the actual file size."
     },
     "ko": {
       "title": "사진 용량 줄이기 – 20KB·50KB·100KB 이미지 압축 | PARKBOK",
       "h1": "이미지 압축",
-      "line": "20·50·100KB를 선택해 사진을 줄이고 실제 용량을 확인하세요.",
+      "line": "목표 용량을 고르고 압축한 뒤, 실제 결과 용량을 확인하세요.",
       "description": "사진을 20KB·50KB·100KB 이하로 압축하세요. 필요하면 해상도도 줄이고 실제 바이트와 픽셀을 확인합니다. JPG·PNG·WebP 지원, 서버 업로드 없이 무료.",
       "buttonText": "이미지 선택",
       "runText": "압축하기",
       "resultName": "이미지압축",
       "noteSize": "",
-      "noteKept": "{n}장은 원본이 더 작아 그대로 두었습니다.",
-      "noteKeptAll": "원본이 이미 더 작아 그대로 두었습니다.",
+      "noteKept": "{n}장은 원본이 압축 결과보다 작거나 같아 원본을 유지했습니다.",
+      "noteKeptAll": "원본이 압축 결과보다 작거나 같아 원본을 유지했습니다.",
       "errorTooBig": "너무 큰 이미지입니다(16384px 초과).",
       "options": {
         "level": {
@@ -115,16 +127,16 @@
         },
         "format": {
           "label": "저장 형식",
-          "help": "형식 유지는 원본 형식을 따릅니다. 투명이 없는 PNG 는 JPG 로 바뀝니다.",
+          "help": "자동은 투명 PNG와 WebP를 유지하며, 투명하지 않은 PNG는 JPG로 바꿉니다. 자동에서는 원본이 압축 결과보다 작거나 같으면 원본을 유지합니다. JPG를 선택하면 투명 부분을 흰색으로 채웁니다.",
           "choices": {
-            "keep": "형식 유지",
+            "keep": "자동(투명도 보존)",
             "jpg": "JPG",
             "webp": "WebP"
           }
         },
         "maxKb": {
           "label": "이미지당 용량 상한",
-          "help": "0 = 사용 안 함 · 1 KB = 1000 B. 초과 시 표시합니다."
+          "help": "이미지마다 적용할 목표를 고르세요. 0 = 제한 없음 · 1 KB = 1000바이트. 초과 결과는 표시합니다."
         },
         "reduce": {
           "label": "목표 용량에 맞춰 해상도도 줄이기",
@@ -138,11 +150,11 @@
         ],
         [
           "사진 용량을 100KB 이하로 줄이려면?",
-          "사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 형식 유지에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."
+          "사진을 선택하고 이미지당 용량 상한에서 100 KB를 누른 뒤 압축하세요. 1 KB는 1000바이트입니다. JPG·WebP는 품질을 조절하지만 목표를 넘을 수 있으며, 그때는 초과 경고가 표시됩니다. 강하게 압축하거나 크기를 줄여 다시 시도하세요. 자동에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."
         ],
         [
           "원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?",
-          "입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 사이트에 따라 1KB를 1000바이트로 계산할 수 있으니 상한보다 조금 낮게 잡으면 안전합니다."
+          "입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 이 도구는 1 KB를 1000바이트로 계산합니다. 제출처의 기준과 최종 바이트 수를 함께 확인하세요."
         ],
         [
           "증명사진 픽셀 크기도 정해져 있다면?",
@@ -157,7 +169,7 @@
       "targetExceeded": "용량 초과 {n}/{total}개",
       "downloadTargetOver": "초과 포함 받기",
       "needsRerun": "설정이 바뀌었습니다. 다시 실행하세요.",
-      "errorTarget": "0 또는 올바른 양수 용량(KB)을 입력하세요.",
+      "errorTarget": "0~51200 범위의 정수 용량(KB)을 입력하세요.",
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "형식·압축 강도"
@@ -169,19 +181,31 @@
       "compareBefore": "원본",
       "compareAfter": "압축 결과",
       "compareMeta": "{w} × {h} px · {bytes} B",
-      "compareHint": "선명도와 신청서의 최소 용량도 확인하세요. 목표 KB는 상한이며 최소·최대 범위를 보장하지 않습니다."
+      "compareHint": "선명도와 신청서의 최소 용량도 확인하세요. 목표 KB는 상한이며 최소·최대 범위를 보장하지 않습니다.",
+      "targetUnlimited": "제한 없음",
+      "advancedSettings": "고급 설정",
+      "adjustTarget": "목표 용량 조정",
+      "downloadOverLimit": "초과 파일도 내려받기",
+      "resultSummaryPassed": "이미지 {n}장이 목표 용량을 충족했습니다",
+      "resultSummaryFailed": "{total}장 중 {n}장이 목표 용량을 초과했습니다",
+      "resultSummaryNoLimit": "이미지 {n}장 처리 완료",
+      "resultDetails": "파일 상세 정보",
+      "resetNotice": "이미지 선택과 설정을 초기화했습니다.",
+      "undoReset": "초기화 실행 취소",
+      "resetRestored": "이미지와 설정을 복원했습니다. 다시 실행하세요.",
+      "cardLine": "20·50·100KB를 선택해 사진을 줄이고 실제 용량을 확인하세요."
     },
     "zh": {
       "title": "图片压缩 – 免费在线压缩 JPG、PNG、WebP 图片大小",
       "h1": "图片压缩",
-      "line": "缩小 JPG、PNG、WebP 文件",
+      "line": "选择大小目标，压缩后检查实际结果。",
       "description": "在浏览器内压缩JPG、PNG和WebP。选择压缩强度及可选的每文件KB上限，比较实际结果大小。目标不保证达到，不上传图片。",
       "buttonText": "选择图片",
       "runText": "压缩",
       "resultName": "压缩图片",
       "noteSize": "",
-      "noteKept": "{n} 张图片原本已经更小，保持原样。",
-      "noteKeptAll": "原图已经更小，保持原样。",
+      "noteKept": "{n} 张图片的原文件不大于压缩结果，已保留原文件。",
+      "noteKeptAll": "原文件不大于压缩结果，已保留原文件。",
       "errorTooBig": "图片太大，无法处理（超过 16384 像素）。",
       "options": {
         "level": {
@@ -195,16 +219,16 @@
         },
         "format": {
           "label": "输出格式",
-          "help": "保持格式沿用原格式。没有透明的 PNG 会转为 JPG。",
+          "help": "自动模式保留透明 PNG 和 WebP，不透明 PNG 转为 JPG。自动模式下，原文件不大于压缩结果时会保留原文件。选择 JPG 时，透明区域会填充为白色。",
           "choices": {
-            "keep": "保持格式",
+            "keep": "自动（保留透明）",
             "jpg": "JPG",
             "webp": "WebP"
           }
         },
         "maxKb": {
           "label": "每张图片大小上限",
-          "help": "0 = 关闭 · 1 KB = 1000 B。超限文件会标明。"
+          "help": "先选择每张图片的大小目标。0 = 不限大小 · 1 KB = 1000 字节。超限结果会标明。"
         },
         "reduce": {
           "label": "缩小尺寸以达到大小上限",
@@ -214,7 +238,7 @@
       "faq": [
         [
           "画质会变差吗？",
-          "画质和大小取决于图片、压缩强度和格式。设置KB目标会尝试进一步降低JPG/WebP画质，但不保证达标。选择保持格式可保留透明PNG；JPG会将透明部分填为白色。"
+          "画质和大小取决于图片、压缩强度和格式。设置KB目标会尝试进一步降低JPG/WebP画质，但不保证达标。选择自动模式可保留透明PNG；JPG会将透明部分填为白色。"
         ],
         [
           "我的图片会被上传吗？",
@@ -225,7 +249,7 @@
       "targetExceeded": "超出上限：{n}/{total}个",
       "downloadTargetOver": "仍要下载",
       "needsRerun": "设置已更改，请重新运行。",
-      "errorTarget": "请输入0或有效的正数KB上限。",
+      "errorTarget": "请输入0至51200之间的整数KB上限。",
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "格式与质量"
@@ -237,19 +261,31 @@
       "compareBefore": "原图",
       "compareAfter": "压缩后",
       "compareMeta": "{w} × {h} px · {bytes} B",
-      "compareHint": "请检查清晰度和申请表的最低大小要求。目标KB是上限，不保证满足大小区间。"
+      "compareHint": "请检查清晰度和申请表的最低大小要求。目标KB是上限，不保证满足大小区间。",
+      "targetUnlimited": "不限制大小",
+      "advancedSettings": "高级设置",
+      "adjustTarget": "调整大小目标",
+      "downloadOverLimit": "仍然下载超限结果",
+      "resultSummaryPassed": "{n} 张图片符合大小目标",
+      "resultSummaryFailed": "{total} 张图片中有 {n} 张超出大小目标",
+      "resultSummaryNoLimit": "已处理 {n} 张图片",
+      "resultDetails": "文件详情",
+      "resetNotice": "已重置图片选择和设置。",
+      "undoReset": "撤销重置",
+      "resetRestored": "已恢复图片和设置，请重新运行。",
+      "cardLine": "缩小 JPG、PNG、WebP 文件"
     },
     "ja": {
       "title": "画像圧縮 – JPG・PNG・WebP の容量を無料オンラインで削減",
       "h1": "画像圧縮",
-      "line": "JPG・PNG・WebPを軽く",
+      "line": "容量目標を選び、圧縮後の実際の容量を確認してください。",
       "description": "ブラウザー内でJPG・PNG・WebPを圧縮。圧縮の強さと任意のファイルごとのKB上限を選び、実際の容量を比較できます。目標を達成できない場合もあります。画像は送信しません。",
       "buttonText": "画像を選択",
       "runText": "圧縮する",
       "resultName": "画像圧縮",
       "noteSize": "",
-      "noteKept": "{n}枚は元の方が小さいためそのままにしました。",
-      "noteKeptAll": "元の画像の方が小さいためそのままにしました。",
+      "noteKept": "{n}枚は元の画像が圧縮結果以下の容量だったため、元のままにしました。",
+      "noteKeptAll": "元の画像が圧縮結果以下の容量だったため、元のままにしました。",
       "errorTooBig": "画像が大きすぎて処理できません（16384pxを超えています）。",
       "options": {
         "level": {
@@ -263,16 +299,16 @@
         },
         "format": {
           "label": "保存形式",
-          "help": "形式を維持は元の形式のまま。透明のないPNGはJPGになります。",
+          "help": "自動では透明PNGとWebPを維持し、透明のないPNGはJPGに変換します。自動では、元の画像が圧縮結果より小さいか同じ容量なら元の画像を保持します。JPGを選ぶと透明部分は白になります。",
           "choices": {
-            "keep": "形式を維持",
+            "keep": "自動（透明を保持）",
             "jpg": "JPG",
             "webp": "WebP"
           }
         },
         "maxKb": {
           "label": "画像ごとの容量上限",
-          "help": "0 = 無効 · 1 KB = 1000 B。超過したファイルは表示します。"
+          "help": "画像ごとの容量目標を選んでください。0 = 制限なし · 1 KB = 1000バイト。超過した結果は表示します。"
         },
         "reduce": {
           "label": "容量に合わせて解像度も下げる",
@@ -282,7 +318,7 @@
       "faq": [
         [
           "画質は悪くなりますか？",
-          "画質と容量は画像・圧縮の強さ・形式で変わります。KB上限を指定するとJPG/WebPの画質をさらに下げて試みますが、達成は保証しません。形式を維持すると透明PNGを保ちます。JPGは透明部分を白で塗ります。"
+          "画質と容量は画像・圧縮の強さ・形式によって変わります。KB上限を指定するとJPG/WebPの画質をさらに調整しますが、上限内に収まらない場合もあります。自動を選択すると透明PNGを保持します。JPGでは透明部分を白で塗ります。"
         ],
         [
           "画像はアップロードされますか？",
@@ -293,7 +329,7 @@
       "targetExceeded": "容量超過：{n}/{total}枚",
       "downloadTargetOver": "超過を含めて保存",
       "needsRerun": "設定が変わりました。再実行してください。",
-      "errorTarget": "0または有効な正の容量（KB）を入力してください。",
+      "errorTarget": "0〜51200の整数の容量（KB）を入力してください。",
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "形式・品質"
@@ -305,19 +341,31 @@
       "compareBefore": "元画像",
       "compareAfter": "圧縮後",
       "compareMeta": "{w} × {h} px · {bytes} B",
-      "compareHint": "鮮明さと申請先の最小容量も確認してください。目標KBは上限であり、容量範囲を保証しません。"
+      "compareHint": "鮮明さと申請先の最小容量も確認してください。目標KBは上限であり、容量範囲を保証しません。",
+      "targetUnlimited": "容量制限なし",
+      "advancedSettings": "詳細設定",
+      "adjustTarget": "容量目標を調整",
+      "downloadOverLimit": "超過した結果もダウンロード",
+      "resultSummaryPassed": "{n}枚が容量目標を達成しました",
+      "resultSummaryFailed": "{total}枚中{n}枚が容量目標を超えています",
+      "resultSummaryNoLimit": "{n}枚の処理が完了しました",
+      "resultDetails": "ファイルの詳細",
+      "resetNotice": "画像の選択と設定を初期化しました。",
+      "undoReset": "初期化を取り消す",
+      "resetRestored": "画像と設定を復元しました。もう一度実行してください。",
+      "cardLine": "JPG・PNG・WebPを軽く"
     },
     "es": {
       "title": "Comprimir imagen – Reducir el tamaño de JPG, PNG y WebP gratis online",
       "h1": "Comprimir imagen",
-      "line": "JPG, PNG y WebP más ligeros",
+      "line": "Elige un tamaño objetivo, comprime y comprueba el tamaño real de los resultados.",
       "description": "Comprime JPG, PNG o WebP en tu navegador. Elige el nivel y un límite opcional en KB por archivo, y compara el tamaño real. No se garantiza alcanzar el objetivo; no se suben archivos.",
       "buttonText": "Elegir imágenes",
       "runText": "Comprimir",
       "resultName": "imagenes-comprimidas",
       "noteSize": "",
-      "noteKept": "{n} imagen(es) ya eran pequeñas y se dejaron como estaban.",
-      "noteKeptAll": "El original ya es más pequeño, así que se dejó como estaba.",
+      "noteKept": "En {n} imágenes, el original no era mayor que el resultado comprimido, por lo que se conservó.",
+      "noteKeptAll": "El original no era mayor que el resultado comprimido, por lo que se conservó.",
       "errorTooBig": "La imagen es demasiado grande para procesarla (más de 16384 px).",
       "options": {
         "level": {
@@ -331,16 +379,16 @@
         },
         "format": {
           "label": "Formato de salida",
-          "help": "Mantener usa el formato original. Los PNG sin transparencia pasan a JPG.",
+          "help": "Automático conserva los PNG transparentes y WebP; los PNG sin transparencia pasan a JPG. En modo Automático, se conserva el original si no es mayor que el resultado comprimido. Al elegir JPG, las zonas transparentes se rellenan de blanco.",
           "choices": {
-            "keep": "Mantener formato",
+            "keep": "Automático (conservar transparencia)",
             "jpg": "JPG",
             "webp": "WebP"
           }
         },
         "maxKb": {
           "label": "Tamaño máximo por imagen",
-          "help": "0 = desactivado · 1 KB = 1000 B. Se indica si se supera."
+          "help": "Elige un objetivo por imagen. 0 = sin límite · 1 KB = 1000 bytes. Se indican los resultados que lo superen."
         },
         "reduce": {
           "label": "Reducir dimensiones para alcanzar el límite",
@@ -350,7 +398,7 @@
       "faq": [
         [
           "¿Se verá peor la imagen?",
-          "La calidad y el tamaño dependen de la imagen, el nivel y el formato. Un objetivo en KB puede reducir más la calidad JPG/WebP, sin garantía de cumplirlo. Mantener conserva PNG transparentes; JPG rellena la transparencia de blanco."
+          "La calidad y el tamaño dependen de la imagen, el nivel y el formato. Un objetivo en KB puede reducir más la calidad JPG/WebP, sin garantía de cumplirlo. Automático conserva PNG transparentes; JPG rellena la transparencia de blanco."
         ],
         [
           "¿Se suben mis imágenes?",
@@ -361,7 +409,7 @@
       "targetExceeded": "Exceden el límite: {n}/{total}",
       "downloadTargetOver": "Descargar igual",
       "needsRerun": "Ajustes cambiados. Vuelve a ejecutar.",
-      "errorTarget": "Introduce 0 o un objetivo positivo válido en KB.",
+      "errorTarget": "Introduce un número entero entre 0 y 51200 KB.",
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Formato y calidad"
@@ -373,19 +421,31 @@
       "compareBefore": "Original",
       "compareAfter": "Comprimida",
       "compareMeta": "{w} × {h} px · {bytes} B",
-      "compareHint": "Revisa la claridad y el tamaño mínimo del formulario. El objetivo KB es un máximo, no un intervalo garantizado."
+      "compareHint": "Revisa la claridad y el tamaño mínimo del formulario. El objetivo KB es un máximo, no un intervalo garantizado.",
+      "targetUnlimited": "Sin límite de tamaño",
+      "advancedSettings": "Ajustes avanzados",
+      "adjustTarget": "Ajustar objetivo",
+      "downloadOverLimit": "Descargar aunque se supere el límite",
+      "resultSummaryPassed": "Imágenes dentro del objetivo: {n}",
+      "resultSummaryFailed": "Superan el objetivo: {n} de {total}",
+      "resultSummaryNoLimit": "Imágenes listas: {n}",
+      "resultDetails": "Detalles del archivo",
+      "resetNotice": "Se han restablecido la selección de imágenes y los ajustes.",
+      "undoReset": "Deshacer restablecimiento",
+      "resetRestored": "Se han restaurado las imágenes y los ajustes. Vuelve a ejecutar.",
+      "cardLine": "JPG, PNG y WebP más ligeros"
     },
     "pt": {
       "title": "Comprimir imagem – Reduzir o tamanho de JPG, PNG e WebP grátis online",
       "h1": "Comprimir imagem",
-      "line": "JPG, PNG e WebP mais leves",
+      "line": "Escolha um tamanho alvo, comprima e confira o tamanho real dos resultados.",
       "description": "Comprima JPG, PNG ou WebP no navegador. Escolha o nível e um limite opcional em KB por arquivo, depois compare o tamanho real. O alvo pode não ser atingido; nenhum arquivo é enviado.",
       "buttonText": "Escolher imagens",
       "runText": "Comprimir",
       "resultName": "imagens-comprimidas",
       "noteSize": "",
-      "noteKept": "{n} imagem(ns) já eram pequenas e foram mantidas como estavam.",
-      "noteKeptAll": "O original já é menor, então foi mantido como estava.",
+      "noteKept": "Em {n} imagens, o original não era maior que o resultado comprimido e foi mantido.",
+      "noteKeptAll": "O original não era maior que o resultado comprimido e foi mantido.",
       "errorTooBig": "A imagem é grande demais para processar (mais de 16384 px).",
       "options": {
         "level": {
@@ -399,16 +459,16 @@
         },
         "format": {
           "label": "Formato de saída",
-          "help": "Manter usa o formato original. PNG sem transparência vira JPG.",
+          "help": "Automático preserva PNGs transparentes e WebP; PNGs sem transparência viram JPG. No modo Automático, o original é mantido se seu tamanho for menor ou igual ao resultado comprimido. Ao escolher JPG, as áreas transparentes ficam brancas.",
           "choices": {
-            "keep": "Manter formato",
+            "keep": "Automático (preservar transparência)",
             "jpg": "JPG",
             "webp": "WebP"
           }
         },
         "maxKb": {
           "label": "Tamanho máximo por imagem",
-          "help": "0 = desativado · 1 KB = 1000 B. Excedentes são indicados."
+          "help": "Escolha uma meta por imagem. 0 = sem limite · 1 KB = 1000 bytes. Resultados acima da meta são sinalizados."
         },
         "reduce": {
           "label": "Reduzir dimensões para atingir o limite",
@@ -418,7 +478,7 @@
       "faq": [
         [
           "A imagem vai ficar pior?",
-          "A qualidade e o tamanho dependem da imagem, nível e formato. Um alvo em KB pode reduzir mais a qualidade JPG/WebP, sem garantia de atingir o limite. Manter preserva PNG transparente; JPG preenche a transparência com branco."
+          "A qualidade e o tamanho dependem da imagem, nível e formato. Um alvo em KB pode reduzir mais a qualidade JPG/WebP, sem garantia de atingir o limite. Automático preserva PNG transparente; JPG preenche a transparência com branco."
         ],
         [
           "Minhas imagens são enviadas?",
@@ -429,7 +489,7 @@
       "targetExceeded": "Acima do limite: {n}/{total}",
       "downloadTargetOver": "Baixar mesmo assim",
       "needsRerun": "Configurações alteradas. Execute novamente.",
-      "errorTarget": "Digite 0 ou um alvo positivo válido em KB.",
+      "errorTarget": "Digite um número inteiro de 0 a 51200 KB.",
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Formato e qualidade"
@@ -441,19 +501,31 @@
       "compareBefore": "Original",
       "compareAfter": "Comprimida",
       "compareMeta": "{w} × {h} px · {bytes} B",
-      "compareHint": "Confira a nitidez e o tamanho mínimo exigido. A meta em KB é um limite máximo, não uma faixa garantida."
+      "compareHint": "Confira a nitidez e o tamanho mínimo exigido. A meta em KB é um limite máximo, não uma faixa garantida.",
+      "targetUnlimited": "Sem limite de tamanho",
+      "advancedSettings": "Configurações avançadas",
+      "adjustTarget": "Ajustar meta",
+      "downloadOverLimit": "Baixar mesmo acima do limite",
+      "resultSummaryPassed": "Imagens dentro da meta: {n}",
+      "resultSummaryFailed": "Acima da meta: {n} de {total}",
+      "resultSummaryNoLimit": "Imagens prontas: {n}",
+      "resultDetails": "Detalhes do arquivo",
+      "resetNotice": "A seleção de imagens e as configurações foram redefinidas.",
+      "undoReset": "Desfazer redefinição",
+      "resetRestored": "As imagens e configurações foram restauradas. Execute novamente.",
+      "cardLine": "JPG, PNG e WebP mais leves"
     },
     "de": {
       "title": "Bild komprimieren – JPG, PNG, WebP online kostenlos verkleinern",
       "h1": "Bild komprimieren",
-      "line": "Kleinere JPG-, PNG- und WebP-Dateien",
+      "line": "Wähle eine Zielgröße, komprimiere und prüfe die tatsächliche Größe der Ergebnisse.",
       "description": "JPG, PNG oder WebP im Browser komprimieren. Stufe und optionales KB-Ziel pro Datei wählen und die tatsächliche Größe vergleichen. Das Ziel wird nicht garantiert; kein Datei-Upload.",
       "buttonText": "Bilder wählen",
       "runText": "Komprimieren",
       "resultName": "komprimierte-bilder",
       "noteSize": "",
-      "noteKept": "{n} Bild(er) waren schon klein und wurden so gelassen.",
-      "noteKeptAll": "Das Original ist bereits kleiner und wurde so gelassen.",
+      "noteKept": "Bei {n} Bildern war das Original nicht größer als das komprimierte Ergebnis und wurde beibehalten.",
+      "noteKeptAll": "Das Original war nicht größer als das komprimierte Ergebnis und wurde beibehalten.",
       "errorTooBig": "Dieses Bild ist zu groß (über 16384 px).",
       "options": {
         "level": {
@@ -467,16 +539,16 @@
         },
         "format": {
           "label": "Ausgabeformat",
-          "help": "Beibehalten nutzt das Originalformat. PNG ohne Transparenz wird zu JPG.",
+          "help": "Im Modus „Automatisch“ behalten transparente PNGs und WebP-Dateien ihr Format; PNGs ohne Transparenz werden zu JPG. Ist das Original nicht größer als das komprimierte Ergebnis, bleibt es im Automatikmodus erhalten. Bei JPG werden transparente Bereiche mit Weiß gefüllt.",
           "choices": {
-            "keep": "Format beibehalten",
+            "keep": "Automatisch (Transparenz erhalten)",
             "jpg": "JPG",
             "webp": "WebP"
           }
         },
         "maxKb": {
           "label": "Maximale Größe pro Bild",
-          "help": "0 = aus · 1 KB = 1000 B. Überschreitungen werden angezeigt."
+          "help": "Wähle ein Ziel pro Bild. 0 = keine Begrenzung · 1 KB = 1000 Bytes. Überschreitungen werden angezeigt."
         },
         "reduce": {
           "label": "Abmessungen für die Zielgröße verkleinern",
@@ -486,7 +558,7 @@
       "faq": [
         [
           "Sieht das Bild schlechter aus?",
-          "Qualität und Größe hängen von Bild, Stufe und Format ab. Ein KB-Ziel kann die JPG/WebP-Qualität weiter senken, wird aber nicht garantiert. Beibehalten erhält transparente PNG; JPG füllt Transparenz weiß."
+          "Qualität und Größe hängen von Bild, Stufe und Format ab. Ein KB-Ziel kann die JPG/WebP-Qualität weiter senken, wird aber nicht garantiert. Automatisch erhält transparente PNG; JPG füllt Transparenz weiß."
         ],
         [
           "Werden meine Bilder hochgeladen?",
@@ -497,7 +569,7 @@
       "targetExceeded": "Über dem Limit: {n}/{total}",
       "downloadTargetOver": "Trotzdem laden",
       "needsRerun": "Einstellungen geändert. Erneut ausführen.",
-      "errorTarget": "0 oder ein gültiges positives KB-Ziel eingeben.",
+      "errorTarget": "Eine ganze Zahl zwischen 0 und 51200 KB eingeben.",
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Format und Qualität"
@@ -509,19 +581,31 @@
       "compareBefore": "Original",
       "compareAfter": "Komprimiert",
       "compareMeta": "{w} × {h} px · {bytes} B",
-      "compareHint": "Prüfe Lesbarkeit und Mindestgröße des Formulars. Das KB-Ziel ist eine Obergrenze, kein garantierter Bereich."
+      "compareHint": "Prüfe Lesbarkeit und Mindestgröße des Formulars. Das KB-Ziel ist eine Obergrenze, kein garantierter Bereich.",
+      "targetUnlimited": "Keine Größenbegrenzung",
+      "advancedSettings": "Erweiterte Einstellungen",
+      "adjustTarget": "Größenziel anpassen",
+      "downloadOverLimit": "Trotz Größenüberschreitung herunterladen",
+      "resultSummaryPassed": "Größenziel eingehalten: {n}",
+      "resultSummaryFailed": "Über dem Größenziel: {n} von {total}",
+      "resultSummaryNoLimit": "Bilder bereit: {n}",
+      "resultDetails": "Dateidetails",
+      "resetNotice": "Bildauswahl und Einstellungen wurden zurückgesetzt.",
+      "undoReset": "Zurücksetzen rückgängig machen",
+      "resetRestored": "Bilder und Einstellungen wurden wiederhergestellt. Erneut ausführen.",
+      "cardLine": "Kleinere JPG-, PNG- und WebP-Dateien"
     },
     "fr": {
       "title": "Compresser une image – Réduire le poids des JPG, PNG, WebP gratuitement",
       "h1": "Compresser une image",
-      "line": "Des JPG, PNG et WebP plus légers",
+      "line": "Choisissez une taille cible, compressez et vérifiez la taille réelle des résultats.",
       "description": "Compressez JPG, PNG ou WebP dans le navigateur. Choisissez le niveau et une limite facultative en Ko par fichier, puis comparez la taille réelle. L’objectif n’est pas garanti ; aucun fichier n’est envoyé.",
       "buttonText": "Choisir images",
       "runText": "Compresser",
       "resultName": "images-compressees",
       "noteSize": "",
-      "noteKept": "{n} image(s) étaient déjà légères et ont été laissées telles quelles.",
-      "noteKeptAll": "L'original est déjà plus léger, il a été laissé tel quel.",
+      "noteKept": "Pour {n} images, l’original ne dépassait pas la taille du résultat compressé et a été conservé.",
+      "noteKeptAll": "L’original ne dépassait pas la taille du résultat compressé et a été conservé.",
       "errorTooBig": "Cette image est trop grande pour être traitée (plus de 16384 px).",
       "options": {
         "level": {
@@ -535,16 +619,16 @@
         },
         "format": {
           "label": "Format de sortie",
-          "help": "Conserver garde le format d'origine. Un PNG sans transparence devient un JPG.",
+          "help": "Automatique conserve les PNG transparents et les WebP ; les PNG sans transparence deviennent des JPG. En mode Automatique, l’original est conservé s’il n’est pas plus volumineux que le résultat compressé. Le format JPG remplit les zones transparentes de blanc.",
           "choices": {
-            "keep": "Conserver le format",
+            "keep": "Automatique (garder la transparence)",
             "jpg": "JPG",
             "webp": "WebP"
           }
         },
         "maxKb": {
           "label": "Taille maximale par image",
-          "help": "0 = désactivé · 1 Ko = 1000 octets. Les dépassements sont signalés."
+          "help": "Choisissez une cible par image. 0 = sans limite · 1 Ko = 1000 octets. Les dépassements sont signalés."
         },
         "reduce": {
           "label": "Réduire les dimensions pour respecter la limite",
@@ -554,7 +638,7 @@
       "faq": [
         [
           "L'image sera-t-elle moins belle ?",
-          "La qualité et la taille dépendent de l’image, du niveau et du format. Une cible en Ko peut réduire davantage la qualité JPG/WebP, sans garantie. Conserver préserve les PNG transparents ; JPG remplit la transparence en blanc."
+          "La qualité et la taille dépendent de l’image, du niveau et du format. Une cible en Ko peut réduire davantage la qualité JPG/WebP, sans garantie. Automatique préserve les PNG transparents ; JPG remplit la transparence en blanc."
         ],
         [
           "Mes images sont-elles envoyées ?",
@@ -565,7 +649,7 @@
       "targetExceeded": "Limite dépassée : {n}/{total}",
       "downloadTargetOver": "Télécharger quand même",
       "needsRerun": "Réglages modifiés. Relancez le traitement.",
-      "errorTarget": "Saisissez 0 ou une cible positive valide en Ko.",
+      "errorTarget": "Saisissez un nombre entier de 0 à 51200 Ko.",
       "targetActual": "{w} × {h} px · {bytes} B.",
       "groups": {
         "advanced": "Format et qualité"
@@ -577,7 +661,19 @@
       "compareBefore": "Original",
       "compareAfter": "Compressé",
       "compareMeta": "{w} × {h} px · {bytes} B",
-      "compareHint": "Vérifiez la netteté et la taille minimale du formulaire. La cible en Ko est un maximum, pas une plage garantie."
+      "compareHint": "Vérifiez la netteté et la taille minimale du formulaire. La cible en Ko est un maximum, pas une plage garantie.",
+      "targetUnlimited": "Sans limite de taille",
+      "advancedSettings": "Réglages avancés",
+      "adjustTarget": "Ajuster l’objectif",
+      "downloadOverLimit": "Télécharger malgré le dépassement",
+      "resultSummaryPassed": "Images respectant l’objectif : {n}",
+      "resultSummaryFailed": "Au-dessus de l’objectif : {n} sur {total}",
+      "resultSummaryNoLimit": "Images prêtes : {n}",
+      "resultDetails": "Détails du fichier",
+      "resetNotice": "La sélection d’images et les réglages ont été réinitialisés.",
+      "undoReset": "Annuler la réinitialisation",
+      "resetRestored": "Les images et les réglages ont été restaurés. Relancez le traitement.",
+      "cardLine": "Des JPG, PNG et WebP plus légers"
     }
   }
 }

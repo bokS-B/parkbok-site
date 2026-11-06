@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#511919">
-<script>try{var __t=localStorage.getItem('pb_theme');if(__t)document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
+<script>try{var __t=localStorage.getItem('pb_theme');if(__t==='light'||__t==='dark')document.documentElement.setAttribute('data-theme',__t)}catch(e){}</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="parkbok">
 <meta property="og:image" content="https://parkbok.com/og.png">
@@ -38,6 +38,8 @@
   --accent:#2563eb;--accent-ink:#fff;--accent-hover:#1d4ed8;--accent-active:#1e3a8a;--accent-tint:#eef3ff;--accent-text:#2563eb;--accent-label:#1d4ed8;--hub:#fff;
   --footer-bg:#1d2129;--footer-ink:#fff;
   --err:#b91c1c;--ok:#16a34a;--info-bg:#eff6ff;--info-border:#2563eb;--badge-new:#eff6ff;
+  --control-line:var(--line);--focus:var(--accent);--selection-line:var(--accent);--drop-line:var(--muted);--preview-check-a:#d9dee6;--preview-check-b:#f3f5f8;
+  --statistics-bg:#fff;--statistics-ink:#172033;--statistics-line:#cbd5e1;--statistics-control:#94a3b8;--statistics-hover:#f1f5f9;--statistics-muted:#475569;
   --cat-hwp:#2563eb;--cat-text:#10b981;--cat-guide:#64748b;--cat-pdf:#ef4444;--cat-image:#f59e0b;--cat-color:#ec4899;
   --font:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
   --fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
@@ -58,8 +60,8 @@ html[lang="en"],html[lang="es"],html[lang="pt"],html[lang="de"],html[lang="fr"]{
 html[lang^="zh"]{--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 html[lang="ja"]{--font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 /* 다크: 기기 설정을 따르되, 헤더의 ◐ 버튼으로 고른 값(data-theme)이 있으면 그것을 우선 */
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--accent-label:#bfdbfe;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}}
-:root[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--ink:#e5e7eb;--muted:#94a3b8;--line:#334155;--accent-tint:#1e3a8a;--accent-text:#93c5fd;--accent-label:#bfdbfe;--hub:#0f172a;--err:#f87171;--ok:#4ade80;--footer-bg:#0f172a;--badge-new:#1e3a5f;--info-bg:#1e3a5f;--info-border:#60a5fa}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#161719;--card:#202225;--hub:#161719;--ink:#e7e8ea;--muted:#a2a6ad;--line:#3a3f46;--accent:#506d8e;--accent-ink:#fff;--accent-hover:#435f7f;--accent-active:#38516d;--accent-tint:#2a3543;--accent-text:#94acc7;--accent-label:#b5c9df;--footer-bg:#141517;--footer-ink:#d5d7da;--brand:#c1a49d;--err:#e5a3a3;--ok:#93bea9;--info-bg:#29323b;--info-border:#7f9cbd;--badge-new:#29323b;--sh-btn-big:none;--control-line:#69717c;--focus:#b5c9df;--selection-line:#7f9cbd;--drop-line:#58616c;--preview-check-a:#30343a;--preview-check-b:#3a3f46;--statistics-bg:var(--card);--statistics-ink:var(--ink);--statistics-line:var(--line);--statistics-control:var(--control-line);--statistics-hover:#2b2e33;--statistics-muted:var(--muted)}}
+:root[data-theme="dark"]{--bg:#161719;--card:#202225;--hub:#161719;--ink:#e7e8ea;--muted:#a2a6ad;--line:#3a3f46;--accent:#506d8e;--accent-ink:#fff;--accent-hover:#435f7f;--accent-active:#38516d;--accent-tint:#2a3543;--accent-text:#94acc7;--accent-label:#b5c9df;--footer-bg:#141517;--footer-ink:#d5d7da;--brand:#c1a49d;--err:#e5a3a3;--ok:#93bea9;--info-bg:#29323b;--info-border:#7f9cbd;--badge-new:#29323b;--sh-btn-big:none;--control-line:#69717c;--focus:#b5c9df;--selection-line:#7f9cbd;--drop-line:#58616c;--preview-check-a:#30343a;--preview-check-b:#3a3f46;--statistics-bg:var(--card);--statistics-ink:var(--ink);--statistics-line:var(--line);--statistics-control:var(--control-line);--statistics-hover:#2b2e33;--statistics-muted:var(--muted)}
 :root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light}
 
 /* ---------- 기본 ---------- */
@@ -69,6 +71,7 @@ body{font-family:var(--font);font-size:var(--fs-body);line-height:var(--lh-body)
 body>main{flex:1 0 auto;width:100%;min-width:0}
 footer.foot{margin-top:auto}
 a{color:var(--accent-text);text-decoration:none}a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 img,svg{vertical-align:middle}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--header-pad-x)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -95,8 +98,8 @@ nav.menu a{position:relative;display:inline-block;font-size:var(--fs-small);font
 nav.menu a::before{content:"";position:absolute;left:0;right:0;top:calc(50% - var(--touch)/2);height:var(--touch)}
 nav.menu a:hover{background:var(--bg);color:var(--ink);text-decoration:none}
 nav.menu a.on{background:var(--accent);color:var(--accent-ink)}
-.lang-select{flex:none;margin-left:auto;min-height:var(--touch);font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
-.theme-btn{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
+.lang-select{flex:none;margin-left:auto;min-height:var(--touch);font:inherit;font-size:13px;padding:5px 6px;border:1px solid var(--control-line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);max-width:130px}
+.theme-btn{position:relative;flex:none;width:34px;height:34px;border:1px solid var(--control-line);border-radius:50%;background:var(--card);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;padding:0}
 /* 가상 영역은 패딩 박스 기준이라 테두리 1px 을 더해 -6px 이어야 실제 클릭 폭 44px */
 .theme-btn::before{content:"";position:absolute;inset:-6px}
 .theme-btn:hover{border-color:var(--ink)}
@@ -111,8 +114,8 @@ header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--su
 /* ---------- 셸: 브랜드 마크 — brand:start~end 는 build-color-pages.js 가 그대로 hex.css 뒤에 붙인다(롱테일 페이지도 같은 마크 규칙) ---------- */
 /* brand:start */
 :root{--brand:#511919}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#e2a096}}
-:root[data-theme="dark"]{--brand:#e2a096}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#c1a49d}}
+:root[data-theme="dark"]{--brand:#c1a49d}
 .brand{display:inline-flex;align-items:center;gap:8px}
 .brand-mark{display:block;flex:none;background-color:currentColor;-webkit-mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat;mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat}
 .brand .brand-mark{width:37px;height:26px;color:var(--brand)}
@@ -145,8 +148,10 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .foot-languages a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;line-height:20px}
 .foot-languages a[aria-current]{color:var(--foot-text);text-decoration:underline;text-underline-offset:5px}
 .foot .foot-note{margin:14px 0 0;border-top:1px solid var(--foot-rule);padding-top:16px;font-size:12px;line-height:20px;color:var(--foot-muted)}
-:root[data-theme="dark"] footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:#0b1423;--foot-rule:#2b3749}}
+:root[data-theme="dark"] footer.foot{--foot-surface:var(--footer-bg);--foot-text:var(--footer-ink);--foot-muted:var(--muted);--foot-rule:var(--line)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:var(--footer-bg);--foot-text:var(--footer-ink);--foot-muted:var(--muted);--foot-rule:var(--line)}}
+:root[data-theme="dark"] .foot-brand .brand-mark{color:var(--brand)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .foot-brand .brand-mark{color:var(--brand)}}
 @media(max-width:960px){.foot-main{gap:32px;grid-template-columns:minmax(200px,.8fr) minmax(0,1.6fr)}.foot-directory{gap:20px}.foot-bottom{align-items:flex-start;flex-direction:column;gap:4px}}
 @media(max-width:767.98px){footer.foot{padding:36px 0 16px;margin-top:40px}.foot .wrap{padding-inline:20px}.foot-main{grid-template-columns:1fr;gap:32px;padding-bottom:24px}.foot .foot-brand{font-size:28px}.foot .foot-tagline{margin-top:16px}.foot .foot-local{margin-top:16px}.foot-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.foot-column:last-child{grid-column:1 / -1;border-top:1px solid var(--foot-rule);padding-top:24px}.foot-languages{gap:0 20px}.foot-bottom{padding-top:16px}.foot .foot-column h2{margin-bottom:8px}}
 /* footer:end */
@@ -166,8 +171,8 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .tools,.row,.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
 
 /* ---------- 입력 / 상태 ---------- */
-.drop{border:2px dashed var(--muted);border-radius:var(--r-card);padding:40px 24px;text-align:center;background:var(--card);cursor:pointer;transition:var(--t-btn)}
-.drop.on{border-color:var(--accent);background:var(--accent-tint)}
+.drop{border:2px dashed var(--drop-line);border-radius:var(--r-card);padding:40px 24px;text-align:center;background:var(--card);cursor:pointer;transition:var(--t-btn)}
+.drop.on{border-color:var(--selection-line);background:var(--accent-tint)}
 .drop.err{border-color:var(--err)}
 .drop strong{display:block;font-size:17px;margin-bottom:6px}
 .drop span,.droptxt{color:var(--muted);font-size:var(--fs-small)}
@@ -176,12 +181,12 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .status.err{color:var(--err)}.status.ok{color:var(--ok)}.status.busy,.status.empty{color:var(--muted)}
 .opts{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:var(--fs-small);margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-big);padding:10px 14px}
 .opts label{display:inline-flex;align-items:center;gap:5px;min-height:var(--touch);white-space:nowrap}
-.opts select,.opts input[type=text],.opts input[type=number]{min-height:var(--touch);font:inherit;font-size:var(--fs-small);padding:4px 10px;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
+.opts select,.opts input[type=text],.opts input[type=number]{min-height:var(--touch);font:inherit;font-size:var(--fs-small);padding:4px 10px;border:1px solid var(--control-line);border-radius:var(--r-btn);background:var(--card);color:var(--ink)}
 .opts .sep{flex-basis:100%;height:0}
 .tt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.tt-grid textarea,#textout{width:100%;min-height:260px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--card);color:var(--ink)}
+.tt-grid textarea,#textout{width:100%;min-height:260px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--control-line);border-radius:var(--r-btn);padding:12px;resize:vertical;background:var(--card);color:var(--ink)}
 .tt-grid textarea[readonly],#textout{background:var(--bg)}
-.tt-grid textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.tt-grid textarea:focus{outline:2px solid var(--focus);outline-offset:-1px}
 .tt-grid .lbl{display:block;font-size:13px;color:var(--muted);margin:0 0 4px}
 #textout{min-height:200px;max-height:60vh;white-space:pre-wrap}
 #viewer{min-height:200px;background:var(--line);border-radius:var(--r-btn);overflow:auto;max-height:80vh;color:#1d2129}
@@ -390,7 +395,16 @@ body.busy .stage-in .drop{opacity:.6;pointer-events:none}
 </head>
 <body class="page-pdf">
 <!-- shell:header -->
-<header class="top"><div class="wrap"><a class="brand" href="/ja/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="メインメニュー"><a href="/hwp/">HWPビューア (KO)</a><a href="/text/">テキストツール (KO)</a><a href="/pdf/ja/" class="on">PDFツール</a><a href="/image/ja/">画像ツール</a><a href="/color/ja/">カラーツール</a><a href="/guide/">ガイド (KO)</a><select id="lang" class="lang-select" aria-label="言語"><option value="/pdf/extract-pages/" data-code="en">English</option><option value="/pdf/extract-pages/ko/" data-code="ko">한국어</option><option value="/pdf/extract-pages/zh/" data-code="zh">中文</option><option value="/pdf/extract-pages/ja/" data-code="ja" selected>日本語</option><option value="/pdf/extract-pages/es/" data-code="es">Español</option><option value="/pdf/extract-pages/pt/" data-code="pt">Português</option><option value="/pdf/extract-pages/de/" data-code="de">Deutsch</option><option value="/pdf/extract-pages/fr/" data-code="fr">Français</option></select></nav><button type="button" class="theme-btn" id="theme-btn" aria-label="ライト / ダーク" title="ライト / ダーク">◐</button></div><script>document.getElementById('theme-btn').addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme'),d=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,n=c?(c==='dark'?'light':'dark'):(d?'light':'dark');r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}window.dispatchEvent(new Event('resize'))});
+<header class="top"><div class="wrap"><a class="brand" href="/ja/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="メインメニュー"><a href="/hwp/">HWPビューア (KO)</a><a href="/text/">テキストツール (KO)</a><a href="/pdf/ja/" class="on">PDFツール</a><a href="/image/ja/">画像ツール</a><a href="/color/ja/">カラーツール</a><a href="/guide/">ガイド (KO)</a><select id="lang" class="lang-select" aria-label="言語"><option value="/pdf/extract-pages/" data-code="en">English</option><option value="/pdf/extract-pages/ko/" data-code="ko">한국어</option><option value="/pdf/extract-pages/zh/" data-code="zh">中文</option><option value="/pdf/extract-pages/ja/" data-code="ja" selected>日本語</option><option value="/pdf/extract-pages/es/" data-code="es">Español</option><option value="/pdf/extract-pages/pt/" data-code="pt">Português</option><option value="/pdf/extract-pages/de/" data-code="de">Deutsch</option><option value="/pdf/extract-pages/fr/" data-code="fr">Français</option></select></nav><button type="button" class="theme-btn" id="theme-btn" aria-pressed="false" aria-label="現在はライトモード。ダークモードに切り替え" title="現在はライトモード。ダークモードに切り替え" data-label-to-dark="現在はライトモード。ダークモードに切り替え" data-label-to-light="現在はダークモード。ライトモードに切り替え">◐</button></div><script>(function(){
+  var b=document.getElementById('theme-btn'),r=document.documentElement,m=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+  if(!b)return;
+  function dark(){var c=r.getAttribute('data-theme');return c==='dark'||c!=='light'&&!!(m&&m.matches)}
+  function sync(){var d=dark(),label=b.getAttribute(d?'data-label-to-light':'data-label-to-dark');b.setAttribute('aria-pressed',String(d));b.setAttribute('aria-label',label);b.setAttribute('title',label)}
+  b.addEventListener('click',function(){var n=dark()?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('pb_theme',n)}catch(e){}sync();window.dispatchEvent(new Event('resize'))});
+  if(m){if(m.addEventListener)m.addEventListener('change',sync);else if(m.addListener)m.addListener(sync)}
+  if(window.MutationObserver)new window.MutationObserver(sync).observe(r,{attributes:true,attributeFilter:['data-theme']});
+  sync();
+})();
 // 모바일 메뉴: 현재 분류를 가운데로 스크롤(최초·창 크기 변경 시). 끝까지 스크롤되면 .end(오른쪽 페이드 끔), scrollLeft>0 이면 .start(왼쪽 페이드 켬). 좌표는 getBoundingClientRect 차이라 어떤 CSS 에서도 같다
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->

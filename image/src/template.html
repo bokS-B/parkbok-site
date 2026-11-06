@@ -12,31 +12,34 @@
 <style id="page-css">{{css}}</style>
 <script type="application/ld+json">{{jsonld}}</script>
 </head>
-<body class="page-image">
+<body class="page-image" data-image-tool="{{toolId}}">
 {{shell_header}}
 <!-- tool:start -->
-<main class="wrap">
+<main class="wrap image-workspace">
   {{crumbs}}
   <div class="tool-head"><h1>{{h1}}</h1><p class="lead">{{line}}</p></div>
+  <div class="image-workbench">
   <section class="stage stage-in" id="in">
-    <div class="drop" id="drop" tabindex="0" role="button" aria-label="{{buttonText}}">
+    <div class="drop" id="drop">
       <button class="btn-big" type="button" id="btn-select">{{buttonText}}</button>
       <div class="droptxt">{{dropText}}</div>
+      <p class="upload-hint">{{uploadHint}}</p>
       <div class="drop-compact" id="drop-compact" hidden><span id="file-count"></span><button class="btn ghost sm" type="button" id="btn-add">{{addMore}}</button><button class="btn ghost sm" type="button" id="btn-reset-top">{{startOver}}</button></div>
       <input type="file" id="file-input" hidden>
     </div>
     <ul class="file-list" id="files"></ul>
-    <p class="status" id="in-status"></p>
-  </section>
-{{sample}}  <div class="ad"></div>
+    <p class="status" id="in-status" role="status" aria-live="polite" aria-atomic="true"></p>
+{{sample}}  </section>
+  <div class="ad"></div>
   <section class="opts" id="opts" hidden></section>
   <section class="stage stage-out" id="out" hidden>
     <div class="result" id="result" hidden></div>
-    <div class="progress" id="progress" hidden role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="bar"></div></div><span class="ptxt"></span></div>
-    <div class="actions"><button class="btn-big" type="button" id="btn-primary" disabled>{{runText}}</button><button class="btn ghost" type="button" id="btn-reset">{{startOver}}</button></div>
-    <p class="status" id="status"></p>
+    <div class="progress" id="progress" hidden role="progressbar" aria-labelledby="progress-text" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="bar"></div></div><span class="ptxt" id="progress-text"></span></div>
+    <div class="actions"><button class="btn-big" type="button" id="btn-primary" disabled>{{runText}}</button><button class="btn ghost" type="button" id="btn-download-warning" hidden>{{downloadOversized}}</button><button class="btn ghost" type="button" id="btn-reset">{{startOver}}</button></div>
+    <p class="status" id="status" role="status" aria-live="polite" aria-atomic="true"></p>
   </section>
-  <nav class="chips next" aria-label="{{nextTools}}">{{nextChips}}</nav>
+  </div>
+  <nav class="chips next" aria-label="{{nextTools}}"><span class="next-label">{{nextTools}}</span>{{nextChips}}</nav>
   <details class="about">
     <summary>{{aboutTitle}}</summary>
     <p>{{aboutLine}}</p>

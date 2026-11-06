@@ -23,8 +23,8 @@
     var lv = LEVELS[opts.level] ? opts.level : 'medium';
     var fm = /^(keep|jpg|webp)$/.test(opts.format || '') ? opts.format : 'keep';
     var rawKb = opts.maxKb, kb = rawKb == null || String(rawKb).trim() === '' ? 0 : Number(rawKb);
-    var validTarget = isFinite(kb) && kb >= 0 && kb <= Number.MAX_SAFE_INTEGER / 1000;
-    return { level: lv, quality: LEVELS[lv].q, max: LEVELS[lv].max, format: fm, maxKb: kb, maxBytes: validTarget && kb > 0 ? Math.floor(kb * 1000) : null, validTarget: validTarget, reduce: opts.reduce === true, preserveDimensions: kb > 0 && opts.reduce === false };
+    var validTarget = Number.isInteger(kb) && kb >= 0 && kb <= 51200;
+    return { level: lv, quality: LEVELS[lv].q, max: LEVELS[lv].max, format: fm, maxKb: kb, maxBytes: validTarget && kb > 0 ? kb * 1000 : null, validTarget: validTarget, reduce: opts.reduce === true, preserveDimensions: kb > 0 && opts.reduce === false };
   }
   // 투명 픽셀이 하나라도 있는지. 줄 단위로 읽어 첫 투명 픽셀에서 바로 멈춘다.
   function hasAlpha(c){
@@ -55,16 +55,19 @@
     minFiles: 1,
     needsPages: false,
     invalidateOnEdit: true,
+    optionsBeforeInput: true,
     renderers: {
       'target-kb': function(o, row, api){
         row.classList.add('opt-number');
         var id = 'opt-' + o.id, label = api.el('label', 'opt-label', api.optStr(o.id, 'label'));
         label.htmlFor = id; row.appendChild(label);
-        var input = api.el('input'); input.type = 'number'; input.id = id; input.min = 0; input.step = 1; input.value = targetFromSearch(typeof location === 'undefined' ? '' : location.search); input.inputMode = 'decimal'; input.style.width = '100px';
+        var input = api.el('input'); input.type = 'number'; input.id = id; input.min = 0; input.max = 51200; input.step = 1; input.value = targetFromSearch(typeof location === 'undefined' ? '' : location.search); input.inputMode = 'numeric'; input.style.width = '100px';
         var wrap = api.el('span', 'num-wrap'); wrap.appendChild(input); wrap.appendChild(api.el('span', 'num-unit', 'KB')); row.appendChild(wrap);
         var presets = api.el('div', 'target-presets'); presets.setAttribute('role', 'group'); presets.setAttribute('aria-label', api.optStr(o.id, 'label'));
-        [20, 50, 100, 200, 500, 0].forEach(function(kb){
-          var button = api.el('button', 'chip target-preset', kb + ' KB'); button.type = 'button'; button.dataset.targetKb = kb;
+        [0, 20, 50, 100, 200, 500].forEach(function(kb){
+          var unlimited = api.t ? api.t('targetUnlimited') : 'targetUnlimited';
+          if (unlimited === 'targetUnlimited') unlimited = api.lang === 'ko' ? '제한 없음' : 'No size limit';
+          var button = api.el('button', 'chip target-preset', kb === 0 ? unlimited : kb + ' KB'); button.type = 'button'; button.dataset.targetKb = kb;
           button.addEventListener('click', function(){ if (api.busy()) return; input.value = kb; sync(); api.changed(); }); presets.appendChild(button);
         });
         function sync(){ Array.prototype.forEach.call(presets.children, function(b){ b.setAttribute('aria-pressed', String(Number(b.dataset.targetKb) === Number(input.value))); }); }
@@ -74,10 +77,10 @@
       }
     },
     options: [
-      { id: 'maxKb', type: 'target-kb', min: 0, step: 1, default: 0, unit: 'KB' },
-      { id: 'reduce', type: 'checkbox', default: true },
-      { id: 'format', type: 'select', choices: ['keep', 'jpg', 'webp'], default: 'keep', group: 'advanced' },
-      { id: 'level', type: 'radio', choices: ['low', 'medium', 'high'], default: 'medium', group: 'advanced' }
+      { id: 'maxKb', type: 'target-kb', min: 0, max: 51200, step: 1, default: 0, unit: 'KB' },
+      { id: 'level', type: 'radio', choices: ['low', 'medium', 'high'], default: 'medium', group: 'compressionAdvanced' },
+      { id: 'format', type: 'select', choices: ['keep', 'jpg', 'webp'], default: 'keep', group: 'compressionAdvanced' },
+      { id: 'reduce', type: 'checkbox', default: true, group: 'compressionAdvanced' }
     ],
     run: async function(files, opts, ctx){
       var o = parseOpts(opts), outputs = [], kept = 0, before = 0, after = 0, oversized = 0;

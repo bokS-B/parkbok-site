@@ -1,5 +1,7 @@
 import importlib.util
+import os
 from pathlib import Path
+import subprocess
 import tempfile
 import unittest
 
@@ -23,6 +25,86 @@ class PackageTests(unittest.TestCase):
         p.write_text(text, encoding='utf-8')
 
     def run_package(self): return site.package(self.root, 'test-commit', require_runtime=False)
+
+    def external_directory(self):
+        external = tempfile.TemporaryDirectory()
+        self.addCleanup(external.cleanup)
+        return Path(external.name)
+
+    def directory_link(self, link, target):
+        link.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            if os.name == 'nt':
+                result = subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(target)],
+                                        capture_output=True, text=True)
+                if result.returncode:
+                    self.skipTest('Cannot create Windows junction: ' + result.stderr.strip())
+            else:
+                link.symlink_to(target, target_is_directory=True)
+        except OSError as error:
+            self.skipTest('Cannot create directory link: ' + str(error))
+
+        def remove_link():
+            # Remove the link before TemporaryDirectory walks either fixture tree.
+            if link.is_symlink() or link.exists():
+                if os.name == 'nt': link.rmdir()
+                else: link.unlink()
+        self.addCleanup(remove_link)
+
+    def test_build_directory_link_rejected_before_external_data_changes(self):
+        external = self.external_directory()
+        (external / 'pages').mkdir()
+        marker = external / 'pages/keep.txt'
+        marker.write_text('external data', encoding='utf-8')
+        self.directory_link(self.root / '_build', external)
+        with self.assertRaisesRegex(ValueError, 'Build directory'):
+            self.run_package()
+        self.assertEqual(marker.read_text(encoding='utf-8'), 'external data')
+        self.assertEqual(sorted(p.name for p in external.iterdir()), ['pages'])
+
+    def test_output_directory_link_rejected_without_external_data_changes(self):
+        external = self.external_directory()
+        marker = external / 'keep.txt'
+        marker.write_text('external data', encoding='utf-8')
+        self.directory_link(self.root / '_build/pages', external)
+        with self.assertRaisesRegex(ValueError, 'Unsafe output path'):
+            self.run_package()
+        self.assertEqual(marker.read_text(encoding='utf-8'), 'external data')
+        self.assertEqual(sorted(p.name for p in external.iterdir()), ['keep.txt'])
+
+    def test_output_directory_link_to_sibling_build_directory_is_rejected(self):
+        target = self.root / '_build/previous'
+        target.mkdir(parents=True)
+        marker = target / 'keep.txt'
+        marker.write_text('previous output', encoding='utf-8')
+        self.directory_link(self.root / '_build/pages', target)
+        with self.assertRaisesRegex(ValueError, 'Unsafe output path'):
+            self.run_package()
+        self.assertEqual(marker.read_text(encoding='utf-8'), 'previous output')
+
+    def test_public_directory_link_rejected_without_copying_external_files(self):
+        self.run_package()
+        external = self.external_directory()
+        marker = external / 'private.txt'
+        marker.write_text('external data', encoding='utf-8')
+        self.directory_link(self.root / 'assets', external)
+        with self.assertRaisesRegex(ValueError, 'Public directory'):
+            self.run_package()
+        self.assertEqual(marker.read_text(encoding='utf-8'), 'external data')
+        self.assertFalse((self.root / '_build/pages/assets/private.txt').exists())
+        self.assertIn('<h1>Test</h1>', (self.root / '_build/pages/index.html').read_text())
+
+    def test_nested_public_directory_link_rejected_without_copying_external_files(self):
+        self.run_package()
+        external = self.external_directory()
+        marker = external / 'private.txt'
+        marker.write_text('external data', encoding='utf-8')
+        self.directory_link(self.root / 'assets/nested', external)
+        with self.assertRaisesRegex(ValueError, 'Public symlink or junction'):
+            self.run_package()
+        self.assertEqual(marker.read_text(encoding='utf-8'), 'external data')
+        self.assertFalse((self.root / '_build/pages/assets/nested/private.txt').exists())
+        self.assertIn('<h1>Test</h1>', (self.root / '_build/pages/index.html').read_text())
 
     def test_runtime_retained_sources_excluded(self):
         for name in ['image/src/template.html', 'color/src/hex-template.html', 'tools/dev.js', 'docs/private.html', 'src/config.json', 'tests/a.js']:

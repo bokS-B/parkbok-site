@@ -21,6 +21,28 @@
     if (v == null) return key;
     return vars ? fmt(v, vars) : v;
   }
+  function ui(key, vars){
+    var value = t(key, vars);
+    if (value !== key) return value;
+    var fallback = {
+      advancedSettings: ['Advanced settings', '고급 설정'],
+      adjustTarget: ['Adjust target', '목표 용량 조정'],
+      downloadOverLimit: ['Download over-limit results', '초과 결과 내려받기'],
+      resultSummaryPassed: ['{n} file(s) meet the target', '{n}개 파일이 목표 용량을 충족했습니다'],
+      resultSummaryFailed: ['{n} of {total} file(s) exceed the target', '{total}개 중 {n}개가 목표 용량을 초과했습니다'],
+      resultSummaryNoLimit: ['{n} file(s) ready', '{n}개 파일 처리가 완료됐습니다'],
+      resultDetails: ['File details', '파일 상세 정보'],
+      resetNotice: ['Input and settings cleared.', '입력과 설정을 초기화했습니다.'],
+      undoReset: ['Undo reset', '초기화 실행 취소'],
+      resetRestored: ['Input and settings restored. Run again.', '입력과 설정을 복원했습니다. 다시 실행하세요.'],
+      removeFileLabel: ['Remove {name}', '{name} 삭제'],
+      moveFileUpLabel: ['Move {name} up', '{name} 위로 이동'],
+      moveFileDownLabel: ['Move {name} down', '{name} 아래로 이동'],
+      downloadFileLabel: ['Download {name}', '{name} 내려받기']
+    };
+    return fmt((fallback[key] || [''])[T.lang === 'ko' ? 1 : 0], vars);
+  }
+  function isCompression(){ return tool && tool.id === 'image-compress'; }
   function optStr(optId, field, choice){
     var o = TS.options && TS.options[optId];
     if (!o) return choice != null ? choice : optId;
@@ -224,20 +246,41 @@
   // ---------- 상태 ----------
   var tool = null, files = [], pages = [], outputs = [], urls = [], busy = false, optUI = {}, inputBytes = 0;
   var resultWarning = null, editVersion = 0, inspectionShown = false;
-  var usageResult = null;
-  // Only coarse image-compression outcomes. Never pass files, names, pixels or error messages.
-  function trackUsage(name, detail){
+  var usageResult = null, usageRun = null, resetUndo = null;
+  var usageErrorStages = { unsupported_type: 'input', decode_failed: 'decode', processing_failed: 'processing', zip_failed: 'zip' };
+  function clearUsage(){ usageResult = null; usageRun = null; }
+  // Coarse, consented image-tool outcomes only; never files, names or raw errors.
+  function trackUsage(name, detail, sampleOnly){
     try {
-      if (!tool || tool.id !== 'image-compress' || !/^(parkbok\.com|www\.parkbok\.com)$/.test(location.hostname) || typeof window.gtag !== 'function') return;
-      if (localStorage.getItem('pb_internal') === '1') return;
-      if (files.length && files.every(function(f){ return f.sample; })) return; // Sample-only runs are not user-file conversions.
-      var data = { tool_id: 'image-compress', tool_language: T.lang || 'en' };
-      if (detail && /^(started|ready|over_limit|error)$/.test(detail.status)) data.result_status = detail.status;
+      if (!tool || !/^(image-compress|signature-resize)$/.test(tool.id) || !/^(parkbok\.com|www\.parkbok\.com)$/.test(location.hostname) || typeof window.gtag !== 'function') return false;
+      if (!/^(tool_start|tool_result|tool_download|tool_first_download|tool_error)$/.test(name)) return false;
+      if (!window.PBStatistics || typeof window.PBStatistics.canTrack !== 'function' || !window.PBStatistics.canTrack()) return false;
+      if (localStorage.getItem('pb_internal') === '1') return false;
+      if (sampleOnly == null) sampleOnly = files.length && files.every(function(f){ return f.sample; });
+      if (sampleOnly) return false;
+      var data = { tool_id: tool.id, tool_language: T.lang || 'en' };
+      if (detail && /^(started|ready|under_limit|over_limit|warning|error)$/.test(detail.status)) data.result_status = detail.status;
       if (detail && Number.isInteger(detail.targetKb) && detail.targetKb >= 0 && detail.targetKb <= 51200) data.target_kb = detail.targetKb;
+      if (name === 'tool_error' && detail && Object.prototype.hasOwnProperty.call(usageErrorStages, detail.errorCode)) {
+        data.error_code = detail.errorCode; data.error_stage = usageErrorStages[detail.errorCode];
+      }
       window.gtag('event', name, data);
-    } catch (_) {} // Blocked analytics must not affect the tool.
+      return true;
+    } catch (_) { return false; } // Blocked analytics must not affect the tool.
+  }
+  function usageStatus(res){
+    var size = res && res.validation && res.validation.size;
+    if (size && size.status === 'under') return 'under_limit';
+    if (size && /^(over|failed)$/.test(size.status)) return 'over_limit';
+    return res && res.warning ? 'warning' : 'ready';
   }
   var dom = {};
+  function dismissResetUndo(){ resetUndo = null; if (dom.resetNotice) dom.resetNotice.hidden = true; }
+  function focusFile(index, selector){
+    var row = dom.files.children[index], target = row && row.querySelector(selector || '.rm');
+    if (target && target.disabled) target = row.querySelector('.rm');
+    if (target) target.focus();
+  }
   function setStatus(msg, kind, target){
     var s = target || dom.status; if (!s) return;
     s.textContent = msg || ''; s.className = 'status' + (kind ? ' ' + kind : '');
@@ -272,11 +315,15 @@
   // ---------- 파일 추가 ----------
   function addFiles(list, sample){
     if (busy || !list || !list.length) return;
+    dismissResetUndo();
     var arr = Array.prototype.slice.call(list).filter(function(f){ return f && f.size > 0; });
     if (!tool.multiple) { arr = arr.slice(0, 1); files = []; pages = []; }
     var bad = arr.filter(function(f){ return !acceptsFile(f); });
     arr = arr.filter(acceptsFile);
-    if (bad.length) setStatus(t('errorType', { type: acceptLabel() }), 'err', files.length ? null : dom.inStatus);
+    if (bad.length) {
+      trackUsage('tool_error', { status: 'error', errorCode: 'unsupported_type' }, !!sample);
+      setStatus(t('errorType', { type: acceptLabel() }), 'err', files.length ? null : dom.inStatus);
+    }
     if (!arr.length) return;
     setBusy(true);
     setStatus(t('loadingLib'), 'busy', files.length ? null : dom.inStatus);
@@ -287,10 +334,11 @@
         return readOne(f);
       }).then(function(rec){ if (rec) { rec.sample = !!sample; files.push(rec); } }, function(e){ if (!firstErr) firstErr = e; });
     });
-    chain.then(function(){
+    return chain.then(function(){
       setBusy(false);
       rebuildPages();
-      if (!files.length) { reset(); setStatus(t(firstErr && firstErr.key ? firstErr.key : 'errorBroken'), 'err', dom.inStatus); return; }
+      if (firstErr) trackUsage('tool_error', { status: 'error', errorCode: 'decode_failed' }, !!sample);
+      if (!files.length) { reset(false); setStatus(t(firstErr && firstErr.key ? firstErr.key : 'errorBroken'), 'err', dom.inStatus); return; }
       afterInput();
       if (sample && optUI.maxKb && optUI.maxKb.set) { optUI.maxKb.set(tool.targetFromSearch(location.search) || 20); onOptChange(); }
       if (firstErr) setStatus(t(firstErr.key || 'errorBroken'), 'err');
@@ -310,13 +358,15 @@
   function removeFile(i){
     if (busy) return;
     files.splice(i, 1);
-    if (!files.length) { reset(); return; }
+    if (!files.length) { reset(false); return; }
     rebuildPages(); afterInput();
+    focusFile(Math.min(i, files.length - 1));
   }
   function moveFile(i, d){
     var j = i + d; if (busy || j < 0 || j >= files.length) return;
     var x = files[i]; files[i] = files[j]; files[j] = x;
     rebuildPages(); afterInput();
+    focusFile(j, d < 0 ? '.move-up' : '.move-down');
   }
 
   // ---------- 화면 ----------
@@ -324,12 +374,16 @@
     busy = b; document.body.classList.toggle('busy', b);
     if (dom.primary) dom.primary.disabled = b || !files.length;
     if (dom.reset) dom.reset.disabled = b;
+    if (dom.warningDownload) dom.warningDownload.disabled = b;
     // 결과 조건을 검증하는 도구는 실행 도중 키보드·포인터 편집도 잠근다.
     if (dom.opts && tool && tool.invalidateOnEdit) dom.opts.inert = b;
   }
   function afterInput(){
+    dismissResetUndo();
+    clearUsage();
     var keepPreset = tool.optionsBeforeInput ? getValue('preset') : null;
     dom.primary.removeAttribute('data-warning');
+    if (dom.warningDownload) dom.warningDownload.hidden = true;
     document.body.classList.add('has-input'); document.body.classList.remove('done');
     outputs = []; resultWarning = null; inspectionShown = false; revokeAll();
     dom.result.hidden = true; dom.result.innerHTML = '';
@@ -340,7 +394,9 @@
     dom.out.hidden = false;
     dom.primary.textContent = t('runText'); dom.primary.disabled = false;
     renderFiles();
-    renderOptions(keepPreset);
+    // These controls are independent of files, including unfinished numeric input.
+    // reset() clears optUI so a new batch still applies URL/default values.
+    if (tool.id !== 'image-compress' || !Object.keys(optUI).length) renderOptions(keepPreset);
     setStatus('', '');
     if (tool.minFiles > files.length) { setStatus(t('errorEmpty', { n: tool.minFiles }), 'empty'); dom.primary.disabled = true; }
   }
@@ -355,11 +411,11 @@
       li.appendChild(nm); li.appendChild(meta);
       var ctl = el('span', 'file-ctl');
       if (tool.multiple && files.length > 1) {
-        var up = el('button', 'ibtn', '↑'); up.type = 'button'; up.setAttribute('aria-label', t('moveUp')); up.title = t('moveUp'); up.disabled = i === 0; up.addEventListener('click', function(){ moveFile(i, -1); });
-        var dn = el('button', 'ibtn', '↓'); dn.type = 'button'; dn.setAttribute('aria-label', t('moveDown')); dn.title = t('moveDown'); dn.disabled = i === files.length - 1; dn.addEventListener('click', function(){ moveFile(i, 1); });
+        var up = el('button', 'ibtn move-up', '↑'); up.type = 'button'; up.setAttribute('aria-label', ui('moveFileUpLabel', { name: f.name })); up.title = t('moveUp'); up.disabled = i === 0; up.addEventListener('click', function(){ moveFile(i, -1); });
+        var dn = el('button', 'ibtn move-down', '↓'); dn.type = 'button'; dn.setAttribute('aria-label', ui('moveFileDownLabel', { name: f.name })); dn.title = t('moveDown'); dn.disabled = i === files.length - 1; dn.addEventListener('click', function(){ moveFile(i, 1); });
         ctl.appendChild(up); ctl.appendChild(dn);
       }
-      var rm = el('button', 'ibtn rm', '✕'); rm.type = 'button'; rm.setAttribute('aria-label', t('remove')); rm.title = t('remove'); rm.addEventListener('click', function(){ removeFile(i); });
+      var rm = el('button', 'ibtn rm', '✕'); rm.type = 'button'; rm.setAttribute('aria-label', ui('removeFileLabel', { name: f.name })); rm.title = t('remove'); rm.addEventListener('click', function(){ removeFile(i); });
       ctl.appendChild(rm); li.appendChild(ctl);
       ul.appendChild(li);
     });
@@ -371,7 +427,11 @@
   function actionText(){ return t(tool && tool.actionText ? tool.actionText(getOpts()) : 'runText'); }
   function renderOptions(keepPreset){
     var opts = tool.options || [], box = dom.opts;
-    if (tool.optionsBeforeInput) {
+    if (tool.optionsBeforeInput && isCompression()) {
+      var inputPanel = $('in'), workbench = box.parentNode;
+      if (workbench && workbench.classList.contains('image-workbench') && inputPanel && inputPanel.parentNode === workbench) workbench.insertBefore(box, inputPanel);
+    }
+    if (tool.optionsBeforeInput && !isCompression()) {
       // A country may require in-person capture, so let the user choose before selecting a photo.
       if (!files.length) dom.drop.closest('section').before(box); else dom.out.before(box);
     }
@@ -386,8 +446,14 @@
     var groups = {};
     function groupBox(name){
       if (groups[name]) return groups[name];
-      var d = el('details', 'opt-group'), sm = el('summary', null, (TS.groups && TS.groups[name]) || name);
+      var compressionAdvanced = isCompression() && name === 'compressionAdvanced';
+      var d = el('details', 'opt-group'), sm = el('summary', null, compressionAdvanced ? ui('advancedSettings') : (TS.groups && TS.groups[name]) || name);
+      if (compressionAdvanced) d.id = 'compression-advanced';
       d.setAttribute('data-group', name); d.appendChild(sm);
+      if (compressionAdvanced) {
+        d.open = DESKTOP_MQ ? DESKTOP_MQ.matches : window.innerWidth >= 1024;
+        (side || box).appendChild(d); groups[name] = d; return d;
+      }
       var manual = false;
       sm.addEventListener('click', function(){ manual = true; });
       function sync(){ if (DESKTOP_MQ ? DESKTOP_MQ.matches : window.innerWidth >= 1024) d.open = true; else if (!manual) d.open = false; }
@@ -400,12 +466,26 @@
       groups[name] = d; return d;
     }
     opts.forEach(function(o){
-      if (tool.optionsBeforeInput && !files.length && o.id !== 'preset') return;
+      if (tool.optionsBeforeInput && !isCompression() && !files.length && o.id !== 'preset') return;
       var row = el('div', 'opt opt-' + o.type); row.setAttribute('data-opt', o.id);
       var r = renderers[o.type] || (tool.renderers && tool.renderers[o.type]); if (!r) return;
       r(o, row, widgetApi());
       var help = optStr(o.id, 'help');
-      if (help && o.type !== 'text' && o.type !== 'number') row.appendChild(el('small', 'opt-help', help));
+      var helpNode;
+      if (help && (isCompression() || o.type !== 'text' && o.type !== 'number')) {
+        helpNode = el('small', 'opt-help', help); helpNode.id = 'opt-help-' + o.id; row.appendChild(helpNode);
+      }
+      if (isCompression()) {
+        var label = row.querySelector('label');
+        if (label) {
+          label.id = 'opt-label-' + o.id; row.setAttribute('role', 'group'); row.setAttribute('aria-labelledby', label.id);
+          var radios = row.querySelector('[role="radiogroup"]'); if (radios) radios.setAttribute('aria-labelledby', label.id);
+        }
+        if (helpNode) {
+          row.setAttribute('aria-describedby', helpNode.id);
+          Array.prototype.slice.call(row.querySelectorAll('input')).concat(Array.prototype.slice.call(row.querySelectorAll('select'))).forEach(function(input){ input.setAttribute('aria-describedby', helpNode.id); });
+        }
+      }
       (o.group ? groupBox(o.group) : (side && o.type !== 'crop' && o.type !== 'blur-regions' ? side : box)).appendChild(row);
     });
     box.hidden = false;
@@ -417,6 +497,8 @@
   function invalidateResult(){
     if (!tool || !tool.invalidateOnEdit) return;
     editVersion++;
+    clearUsage();
+    if (dom.warningDownload) dom.warningDownload.hidden = true;
     if (!outputs.length && !inspectionShown) return;
     outputs = []; resultWarning = null; inspectionShown = false; revokeAll();
     document.body.classList.remove('done');
@@ -425,7 +507,7 @@
     dom.primary.textContent = actionText(); dom.primary.disabled = busy || !files.length;
     setStatus(t('needsRerun'), 'empty');
   }
-  function onOptChange(){ invalidateResult(); applyShowIf(); optListeners.forEach(function(fn){ try { fn(); } catch (e) {} }); }
+  function onOptChange(){ dismissResetUndo(); invalidateResult(); applyShowIf(); optListeners.forEach(function(fn){ try { fn(); } catch (e) {} }); }
   function applyShowIf(){
     (tool.options || []).forEach(function(o){
       if (!o.showIf) return;
@@ -441,7 +523,7 @@
   function getValue(id){ var u = optUI[id]; return u ? u.get() : undefined; }
   // 도구 자체 위젯(tool.renderers)에 주는 도우미: 값 등록, 다른 옵션 읽기, 첫 파일, 문구, 변경 구독
   function widgetApi(){
-    return { el: el, t: t, optStr: optStr, getValue: getValue, files: function(){ return files.slice(); }, loadImage: loadImage, scaleTo: scaleTo, release: release, dims: dims,
+    return { el: el, t: t, lang: T.lang || 'en', optStr: optStr, getValue: getValue, files: function(){ return files.slice(); }, loadImage: loadImage, scaleTo: scaleTo, release: release, dims: dims,
       set: function(id, get, set){ optUI[id] = { get: get, set: set }; }, onChange: function(fn){ optListeners.push(fn); }, changed: onOptChange, invalidate: invalidateResult, busy: function(){ return busy; } };
   }
   function getOpts(){ var v = {}; Object.keys(optUI).forEach(function(k){ v[k] = optUI[k].get(); }); return v; }
@@ -744,23 +826,27 @@
     dom.progress.hidden = false;
     var pct = Math.max(0, Math.min(100, Math.round((p || 0) * 100)));
     dom.bar.style.width = pct + '%'; dom.progress.setAttribute('aria-valuenow', pct);
-    dom.ptxt.textContent = (text || t('processing')) + ' ' + pct + '%';
+    dom.ptxt.textContent = isCompression() ? t('processing') : (text || t('processing')) + ' ' + pct + '%';
   }
   function makeCtx(){
     return { loadImage: loadImage, canvas: mkCanvas, toBlob: toBlob, exifOrientation: exifOrientation, scaleTo: scaleTo, release: release, progress: progress, t: t, lang: T.lang || 'en', pages: pages, ensureJSZip: ensureJSZip, ensureLibheif: ensureLibheif, human: human };
   }
   function run(){
     if (busy || !files.length || !tool) return;
+    dismissResetUndo();
     dom.primary.removeAttribute('data-warning');
+    if (dom.warningDownload) dom.warningDownload.hidden = true;
     if (tool.minFiles > files.length) { setStatus(t('errorEmpty', { n: tool.minFiles }), 'err'); return; }
     var opts = getOpts(), version = editVersion, optsKey = tool.invalidateOnEdit ? JSON.stringify(opts) : null;
     usageResult = null;
-    trackUsage('tool_start', { status: 'started', targetKb: opts.maxKb });
+    var currentUsage = { started: false, firstDownload: false, result: null };
+    usageRun = currentUsage;
+    currentUsage.started = trackUsage('tool_start', { status: 'started', targetKb: opts.maxKb });
     setBusy(true); setStatus(t('processing'), 'busy'); progress(0);
     dom.result.hidden = true; dom.result.innerHTML = ''; outputs = []; resultWarning = null; inspectionShown = false; revokeAll();
     inputBytes = 0; files.forEach(function(f){ inputBytes += f.size; });
     var inputs = files.map(function(f){ return { name: f.name, type: f.type, size: f.size, file: f.file, width: f.width, height: f.height }; });
-    Promise.resolve().then(function(){ return tool.run(inputs, opts, makeCtx()); }).then(function(res){
+    return Promise.resolve().then(function(){ return tool.run(inputs, opts, makeCtx()); }).then(function(res){
       setBusy(false);
       // 비동기 인코딩 중 스크립트/뒤늦은 이벤트로 조건이 바뀌어도 이전 결과를 게시하지 않는다.
       if (tool.invalidateOnEdit && (version !== editVersion || optsKey !== JSON.stringify(getOpts()))) {
@@ -772,17 +858,22 @@
       var seen = {};
       outputs.forEach(function(o){ var n = o.name || 'image'; if (seen[n]) { var e = extOf(n), b = e ? n.slice(0, -e.length - 1) : n; var k = 2; while (seen[b + '-' + k + (e ? '.' + e : '')]) k++; n = b + '-' + k + (e ? '.' + e : ''); } seen[n] = true; o.name = n; });
       resultWarning = res && res.warning || null;
-      progress(1, resultWarning ? resultWarning.message : t('done'));
+      if (isCompression()) dom.progress.hidden = true;
+      else progress(1, resultWarning ? resultWarning.message : t('done'));
       showResult((res && res.note) || '');
-      usageResult = { status: resultWarning ? 'over_limit' : 'ready', targetKb: opts.maxKb };
-      trackUsage('tool_result', usageResult);
       if (tool.allowsInspection && res.links) {
         var links = el('div', 'passport-result-links');
         res.links.forEach(function(link){ var a = el('a', 'btn ghost passport-source', t(link.key)); a.href = link.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; links.appendChild(a); });
         dom.result.appendChild(links);
       }
-    }, function(e){
-      trackUsage('tool_error', { status: 'error', targetKb: opts.maxKb });
+      usageResult = currentUsage.result = { status: usageStatus(res), targetKb: opts.maxKb };
+      if (usageRun === currentUsage && currentUsage.started) trackUsage('tool_result', usageResult);
+    }).catch(function(e){
+      if (usageRun === currentUsage && currentUsage.started) trackUsage('tool_error', { status: 'error', targetKb: opts.maxKb, errorCode: 'processing_failed' });
+      clearUsage(); outputs = []; resultWarning = null; revokeAll();
+      document.body.classList.remove('done');
+      dom.result.hidden = true; dom.result.innerHTML = '';
+      if (dom.warningDownload) dom.warningDownload.hidden = true;
       setBusy(false); dom.progress.hidden = true;
       var msg = e && e.key ? t(e.key) : (e && e.userMessage ? e.userMessage : t('errorGeneric'));
       if (window.console && console.error) console.error(e);
@@ -804,22 +895,31 @@
     var failed = res.inspection.checks.some(function(c){ return !c.ok; });
     setStatus(t(failed ? 'fileCheckMismatch' : 'fileCheckDone'), failed ? 'err' : 'empty');
   }
-  function download(o){
+  function download(o, currentUsage){
+    if (arguments.length < 2) currentUsage = usageRun;
     var a = document.createElement('a'); a.href = o.url || (o.url = objUrl(o.blob)); a.download = o.name; a.rel = 'noopener';
     document.body.appendChild(a); a.click(); setTimeout(function(){ document.body.removeChild(a); }, 0);
-    trackUsage('tool_download', usageResult);
+    // This counts a browser download request, not successful storage by the OS.
+    if (currentUsage && currentUsage === usageRun && currentUsage.started && currentUsage.result) {
+      trackUsage('tool_download', currentUsage.result);
+      if (!currentUsage.firstDownload && trackUsage('tool_first_download', currentUsage.result)) currentUsage.firstDownload = true;
+    }
   }
   function downloadZip(){
-    if (busy) return;
+    if (busy || !outputs.length) return;
+    var currentUsage = usageRun;
     setBusy(true); setStatus(t('processing'), 'busy');
-    ensureJSZip().then(function(JSZip){
+    return ensureJSZip().then(function(JSZip){
       var zip = new JSZip();
       outputs.forEach(function(o){ zip.file(o.name, o.blob); });
       return zip.generateAsync({ type: 'blob', compression: 'STORE' });
     }).then(function(blob){
       setBusy(false); setStatus(resultWarning ? resultWarning.message : t('done'), resultWarning ? 'err' : 'ok');
-      download({ name: (t('resultName') !== 'resultName' ? t('resultName') : tool.id) + '.zip', blob: blob });
-    }, function(){ setBusy(false); setStatus(t('errorGeneric'), 'err'); });
+      download({ name: (t('resultName') !== 'resultName' ? t('resultName') : tool.id) + '.zip', blob: blob }, currentUsage);
+    }).catch(function(){
+      if (currentUsage && currentUsage === usageRun && currentUsage.started) trackUsage('tool_error', { status: 'error', errorCode: 'zip_failed', targetKb: currentUsage.result && currentUsage.result.targetKb });
+      setBusy(false); setStatus(t('errorGeneric'), 'err');
+    });
   }
   function isImageOut(o){ return /^image\//.test(o.blob.type || '') || /\.(png|jpe?g|webp|gif|bmp|svg|avif|ico)$/i.test(o.name); }
   // 원본 → 결과 용량과 절감률 한 줄: "60 KB → 19 KB · 69% 절감"
@@ -831,10 +931,82 @@
     if (before > 0 && after < before) { s.appendChild(el('span', 'dot', '·')); s.appendChild(el('span', 'saved', t('saved', { p: Math.round((1 - after / before) * 100) }))); }
     return s;
   }
+  function appendCompressSizeCheck(parent, o, details){
+    if (T.id !== 'image-compress') return;
+    var size = o.validation && o.validation.size;
+    if (!size) return;
+    var detail = o.blob.size + ' B', d = o.dimensions;
+    if (d && d.width > 0 && d.height > 0) detail = d.width + ' × ' + d.height + ' px · ' + o.blob.size + ' B';
+    if (size.status !== 'not_requested' && typeof size.limitBytes === 'number' && isFinite(size.limitBytes)) detail += ' (' + (size.status === 'passed' ? '≤ ' : '> ') + size.limitBytes + ' B)';
+    var exact = el('span', 'muted result-size-exact', detail);
+    if (details) { var entry = el('div', 'result-file-details'); entry.appendChild(el('strong', null, o.name)); entry.appendChild(exact); details.appendChild(entry); }
+    else parent.appendChild(exact);
+    var index = ['passed', 'failed', 'not_requested'].indexOf(size.status);
+    if (index < 0) return;
+    var fallback = {
+      en: ['Within size limit', 'Over size limit', 'No size limit set'],
+      ko: ['용량 상한 충족', '용량 상한 초과', '용량 상한 미설정'],
+      zh: ['符合容量上限', '超过容量上限', '未设置容量上限'],
+      ja: ['容量上限内', '容量上限超過', '容量上限なし'],
+      es: ['Dentro del límite', 'Supera el límite', 'Sin límite de tamaño'],
+      pt: ['Dentro do limite', 'Acima do limite', 'Sem limite de tamanho'],
+      de: ['Innerhalb des Limits', 'Über dem Limit', 'Kein Größenlimit'],
+      fr: ['Dans la limite', 'Limite dépassée', 'Aucune limite de taille']
+    };
+    var key = ['targetFilePassed', 'targetFileExceeded', 'targetFileNotRequested'][index], label = t(key);
+    if (label === key) label = (fallback[T.lang] || fallback.en)[index];
+    var line = el('span', 'result-size-status', label);
+    line.setAttribute('data-size-status', size.status); parent.appendChild(line);
+  }
+  function showCompressResult(note){
+    var r = dom.result; r.innerHTML = ''; r.hidden = false; dom.progress.hidden = true;
+    var failed = outputs.filter(function(o){ return o.validation && o.validation.size && o.validation.size.status === 'failed'; }).length;
+    var requested = outputs.some(function(o){ return o.validation && o.validation.size && o.validation.size.status !== 'not_requested'; });
+    var text = failed ? ui('resultSummaryFailed', { n: failed, total: outputs.length }) : resultWarning && resultWarning.message || ui(requested ? 'resultSummaryPassed' : 'resultSummaryNoLimit', { n: outputs.length });
+    var summary = el('h2', 'result-summary', text);
+    summary.setAttribute('tabindex', '-1'); summary.setAttribute('data-state', resultWarning ? 'warning' : 'success'); r.appendChild(summary);
+    var details = el('details', 'result-details'); details.open = false; details.appendChild(el('summary', null, ui('resultDetails')));
+    var list = el(outputs.length === 1 ? 'div' : 'ul', outputs.length === 1 ? 'result-one' : 'result-grid');
+    var total = 0;
+    outputs.forEach(function(o){
+      total += o.blob.size;
+      var card = outputs.length === 1 ? list : el('li');
+      appendCompressSizeCheck(card, o, details);
+      if (isImageOut(o)) { var image = el('img', outputs.length === 1 ? 'result-img' : ''); image.src = objUrl(o.blob); image.alt = o.name; image.loading = 'lazy'; card.appendChild(image); }
+      card.appendChild(el('span', 'result-name', o.name)); card.appendChild(el('span', 'muted result-size', human(o.blob.size)));
+      if (outputs.length > 1) {
+        var button = el('button', 'btn ghost sm result-download', t('download')); button.type = 'button';
+        button.setAttribute('aria-label', ui('downloadFileLabel', { name: o.name })); button.addEventListener('click', function(){ download(o); }); card.appendChild(button); list.appendChild(card);
+      }
+    });
+    r.appendChild(list);
+    // Retain the remote original/result comparison inside the optional details.
+    if (outputs.length === 1 && isImageOut(outputs[0])) {
+      var output = outputs[0], comparison = el('div', 'compress-compare');
+      [{ blob: files[0].file, key: 'compareBefore', width: files[0].width, height: files[0].height }, { blob: output.blob, key: 'compareAfter', width: output.dimensions && output.dimensions.width, height: output.dimensions && output.dimensions.height }].forEach(function(item){
+        var figure = el('figure'), image = el('img'), caption = el('figcaption'), label = t(item.key);
+        if (label === item.key) label = item.key === 'compareBefore' ? (T.lang === 'ko' ? '원본' : 'Original') : (T.lang === 'ko' ? '결과' : 'Result');
+        image.src = objUrl(item.blob); image.alt = label; image.loading = 'lazy';
+        caption.appendChild(el('strong', null, label));
+        var meta = t('compareMeta', { w: item.width, h: item.height, bytes: item.blob.size });
+        if (meta === 'compareMeta') meta = (item.width && item.height ? item.width + ' × ' + item.height + ' px · ' : '') + item.blob.size + ' B';
+        caption.appendChild(el('span', null, meta)); figure.appendChild(image); figure.appendChild(caption); comparison.appendChild(figure);
+      });
+      details.appendChild(comparison);
+      var hint = t('compareHint'); if (hint !== 'compareHint') details.appendChild(el('p', 'muted compare-help', hint));
+    }
+    details.appendChild(stats(inputBytes, total));
+    if (note) details.appendChild(el('p', 'muted result-note', note));
+    r.appendChild(details);
+    dom.primary.textContent = resultWarning ? ui('adjustTarget') : t(outputs.length === 1 ? 'download' : 'downloadAll'); dom.primary.disabled = false;
+    if (dom.warningDownload) { dom.warningDownload.hidden = !resultWarning; dom.warningDownload.textContent = ui('downloadOverLimit'); }
+    setStatus('', ''); summary.focus();
+  }
   function showResult(note){
     dom.primary.toggleAttribute('data-warning', !!resultWarning);
     note = String(note || '').trim();   // 도구가 빈 문구(용량 줄은 위 stats 가 담당) 뒤에 덧붙인 메모만 남긴다
     document.body.classList.add('done');
+    if (isCompression()) { showCompressResult(note); return; }
     var r = dom.result; r.innerHTML = ''; r.hidden = false;
     setTimeout(function(){ dom.progress.hidden = true; }, 600);
     var total = 0; outputs.forEach(function(o){ total += o.blob.size; });
@@ -853,6 +1025,7 @@
       } else if (isImageOut(o)) { var im = el('img', 'result-img'); im.src = objUrl(o.blob); im.alt = o.name; box.appendChild(im); }
       box.appendChild(el('div', 'result-name', o.name));
       box.appendChild(stats(o.srcSize != null ? o.srcSize : inputBytes, o.blob.size));
+      appendCompressSizeCheck(box, o);
       r.appendChild(box);
       dom.primary.textContent = resultWarning ? resultWarning.downloadText : t('download'); dom.primary.disabled = false;
     } else {
@@ -863,6 +1036,7 @@
         else li.appendChild(el('div', 'result-ph', (extOf(o.name) || 'file').toUpperCase()));
         var nm = el('span', 'result-name', o.name); nm.title = o.name; li.appendChild(nm);
         li.appendChild(el('span', 'muted', human(o.blob.size)));
+        appendCompressSizeCheck(li, o);
         var b = el('button', 'btn ghost sm', t('download')); b.type = 'button'; b.addEventListener('click', function(){ download(o); }); li.appendChild(b);
         list.appendChild(li);
       });
@@ -877,11 +1051,39 @@
   function onPrimary(){
     if (busy) return;
     if (!outputs.length) { run(); return; }
+    if (isCompression() && resultWarning) { var target = dom.opts.querySelector('#opt-maxKb'); if (target) target.focus(); return; }
     if (outputs.length === 1) download(outputs[0]); else downloadZip();
   }
-  function reset(){
+  function onWarningDownload(){
+    if (busy || !outputs.length || !resultWarning) return;
+    if (outputs.length === 1) download(outputs[0]); else return downloadZip();
+  }
+  function ensureResetNotice(){
+    if (dom.resetNotice) return;
+    dom.resetNotice = el('div', 'reset-notice'); dom.resetNotice.id = 'reset-notice'; dom.resetNotice.setAttribute('role', 'status');
+    dom.resetNotice.appendChild(el('span', null, ui('resetNotice')));
+    dom.undoReset = el('button', 'btn ghost sm', ui('undoReset')); dom.undoReset.id = 'btn-undo-reset'; dom.undoReset.type = 'button';
+    dom.undoReset.addEventListener('click', undoReset); dom.resetNotice.appendChild(dom.undoReset); dom.out.appendChild(dom.resetNotice);
+  }
+  function undoReset(){
+    if (busy || !resetUndo || !isCompression()) return;
+    var saved = resetUndo; dismissResetUndo(); clearUsage(); editVersion++;
+    outputs = []; resultWarning = null; inspectionShown = false; revokeAll();
+    dom.opts.innerHTML = ''; saved.controls.forEach(function(control){ dom.opts.appendChild(control); });
+    optUI = saved.optUI; optListeners = saved.optListeners;
+    files = saved.files; rebuildPages();
+    if (files.length) afterInput();
+    else { dom.opts.hidden = false; dom.result.hidden = true; dom.result.innerHTML = ''; dom.primary.disabled = true; }
+    setStatus(ui('resetRestored'), 'empty');
+    if (files.length) dom.primary.focus(); else { var target = dom.opts.querySelector('#opt-maxKb'); if (target) target.focus(); }
+  }
+  function reset(allowUndo){
     if (busy) return;
+    var snapshot = isCompression() && allowUndo !== false ? { files: files.slice(), controls: Array.prototype.slice.call(dom.opts.children), optUI: optUI, optListeners: optListeners.slice() } : null;
+    dismissResetUndo();
+    clearUsage();
     dom.primary.removeAttribute('data-warning');
+    if (dom.warningDownload) dom.warningDownload.hidden = true;
     files = []; pages = []; outputs = []; resultWarning = null; inspectionShown = false; revokeAll(); optUI = {}; optListeners = [];
     document.body.classList.remove('has-input', 'done', 'busy');
     dom.files.innerHTML = ''; dom.opts.innerHTML = ''; dom.opts.hidden = true;
@@ -892,7 +1094,10 @@
     dom.input.value = '';
     setStatus('', ''); setStatus('', '', dom.inStatus);
     if (tool.optionsBeforeInput) renderOptions();
-    try { dom.drop.focus(); } catch (e) {}
+    if (isCompression()) {
+      dom.out.hidden = false; ensureResetNotice(); resetUndo = snapshot; dom.resetNotice.hidden = !snapshot;
+    }
+    try { (dom.select || dom.drop).focus(); } catch (e) {}
   }
 
   // ---------- 입력 이벤트 ----------
@@ -907,8 +1112,16 @@
       }).catch(function(){setBusy(false);sampleButton.disabled=false;setStatus(t('errorBroken'),'err',dom.inStatus);});
     });
     dom = { drop: $('drop'), input: $('file-input'), select: $('btn-select'), add: $('btn-add'), btnAdd: $('btn-add'), resetTop: $('btn-reset-top'), compact: $('drop-compact'), count: $('file-count'),
-      files: $('files'), inStatus: $('in-status'), opts: $('opts'), out: $('out'), result: $('result'), progress: $('progress'), primary: $('btn-primary'), reset: $('btn-reset'), status: $('status') };
+      files: $('files'), inStatus: $('in-status'), opts: $('opts'), out: $('out'), result: $('result'), progress: $('progress'), primary: $('btn-primary'), reset: $('btn-reset'), status: $('status'), warningDownload: $('btn-download-warning') };
     dom.bar = dom.progress.querySelector('.bar'); dom.ptxt = dom.progress.querySelector('.ptxt');
+    if (dom.ptxt) dom.ptxt.id = 'progress-text';
+    dom.progress.setAttribute('aria-labelledby', 'progress-text');
+    dom.drop.removeAttribute('role'); dom.drop.removeAttribute('tabindex');
+    [dom.status, dom.inStatus].forEach(function(status){ status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true'); });
+    if (isCompression() && !dom.warningDownload) {
+      dom.warningDownload = el('button', 'btn ghost warning-download'); dom.warningDownload.id = 'btn-download-warning'; dom.warningDownload.type = 'button'; dom.warningDownload.hidden = true;
+      (dom.primary.parentNode || dom.out).appendChild(dom.warningDownload);
+    }
     dom.input.accept = tool.accept || 'image/*';
     dom.input.multiple = !!tool.multiple;
     if (tool.capture) dom.input.setAttribute('capture', tool.capture);
@@ -916,7 +1129,6 @@
     dom.add.addEventListener('click', function(e){ e.stopPropagation(); openPicker(); });
     dom.resetTop.addEventListener('click', function(e){ e.stopPropagation(); reset(); });
     dom.drop.addEventListener('click', function(e){ if (e.target.closest('button') || document.body.classList.contains('has-input')) return; openPicker(); });
-    dom.drop.addEventListener('keydown', function(e){ if ((e.key === 'Enter' || e.key === ' ') && e.target === dom.drop) { e.preventDefault(); openPicker(); } });
     dom.input.addEventListener('change', function(){ addFiles(dom.input.files); });
     var dragDepth = 0;
     document.addEventListener('dragenter', function(e){ if (!hasFiles(e)) return; e.preventDefault(); dragDepth++; dom.drop.classList.add('on'); });
@@ -932,8 +1144,10 @@
       e.preventDefault(); addFiles(list);
     });
     dom.primary.addEventListener('click', onPrimary);
+    if (dom.warningDownload) dom.warningDownload.addEventListener('click', onWarningDownload);
     dom.reset.addEventListener('click', reset);
     if (tool.optionsBeforeInput) renderOptions();
+    if (isCompression()) dom.out.hidden = false;
     document.addEventListener('keydown', function(e){
       var tg = e.target && e.target.tagName;
       if (tg === 'INPUT' || tg === 'TEXTAREA' || tg === 'SELECT' || tg === 'BUTTON' || e.target.isContentEditable) return;

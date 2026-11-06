@@ -71,7 +71,7 @@ function gridHtml(rel, cfg, lang = 'ko'){
     if (lang !== 'ko' && ['image', 'color'].includes(t.cat)) {
       const id = t.cat === 'color' ? t.id.replace(/^color-/, '') : t.id;
       const source = JSON.parse(fs.readFileSync(path.join(root, t.cat, 'src/tools', id + '.json'), 'utf8')).strings[lang];
-      name = source.h1; line = source.line;
+      name = source.h1; line = source.cardLine || source.line;
     }
     const multi = (t.langs || ['ko']).length > 1;
     const href = multi && t.url.endsWith('/') ? t.url + (lang === 'en' ? '' : lang + '/') : t.url;
@@ -123,7 +123,7 @@ function clean(src){
 const pages = [];
 function walk(dir){
   for (const name of fs.readdirSync(dir)) {
-    if (SKIP.includes(name)) continue;
+    if (name.startsWith('.') || SKIP.includes(name)) continue;
     const p = path.join(dir, name);
     if (fs.statSync(p).isDirectory()) { walk(p); continue; }
     if (name.endsWith('.html')) pages.push(p);

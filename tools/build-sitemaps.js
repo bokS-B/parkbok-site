@@ -39,17 +39,30 @@ function content(s){
 }
 const hashOf = s => crypto.createHash('sha256').update(attr(s, /<title>([^<]*)<\/title>/) + '\n' + attr(s, /<meta name="description" content="([^"]*)"/) + '\n' + content(s)).digest('hex').slice(0, 16);
 
+function isNoindex(s){
+  // robots 와 googlebot 의 제한은 모두 합산한다. none 은 noindex,nofollow 와 같다.
+  const html = s.replace(/<!--[\s\S]*?-->|<script\b[^>]*>[\s\S]*?<\/script\s*>|<style\b[^>]*>[\s\S]*?<\/style\s*>/gi, '');
+  for (const [tag] of html.matchAll(/<meta\b(?:[^"'<>]|"[^"]*"|'[^']*')*>/gi)) {
+    const attrs = Object.create(null);
+    for (const m of tag.matchAll(/([^\s=<>/'"]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/g)) {
+      attrs[m[1].toLowerCase()] = (m[2] ?? m[3] ?? m[4]).toLowerCase();
+    }
+    if (!['robots', 'googlebot'].includes(attrs.name)) continue;
+    if ((attrs.content || '').split(/[\s,]+/).some(rule => rule === 'noindex' || rule === 'none')) return true;
+  }
+  return false;
+}
+
 const pages = files.map(p => {
   const rel = relOf(p), s = fs.readFileSync(p, 'utf8'), url = urlOf(rel);
   const canonical = attr(s, /<link rel="canonical" href="([^"]*)"/);
-  const robots = attr(s, /<meta name="(?:robots|googlebot)" content="([^"]*)"/i).toLowerCase();
   const links = new Set();
   for (const m of s.matchAll(/<a\s[^>]*?href="([^"#]*)(?:#[^"]*)?"/g)) {
     const h = m[1]; if (!h || /^(?:mailto:|tel:|javascript:|data:)/.test(h)) continue;
     let u; try { u = new URL(h, SITE + url); } catch (e) { continue; }
     if (u.origin === SITE) links.add(u.pathname.replace(/\/index\.html$/, '/'));
   }
-  return { rel, url, s, canonical, noindex: robots.includes('noindex'), title: attr(s, /<title>([^<]*)<\/title>/), description: attr(s, /<meta name="description" content="([^"]*)"/), links };
+  return { rel, url, s, canonical, noindex: isNoindex(s), title: attr(s, /<title>([^<]*)<\/title>/), description: attr(s, /<meta name="description" content="([^"]*)"/), links };
 });
 const indexable = pages.filter(p => !p.noindex && p.canonical === SITE + p.url).sort((a, b) => a.url < b.url ? -1 : a.url > b.url ? 1 : 0);
 

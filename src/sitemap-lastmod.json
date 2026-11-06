@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "a01b60bf8846271c",
-  "lastmod": "2026-11-05"
+  "hash": "4dddbdadcab2d2af",
+  "lastmod": "2026-11-06"
  },
  "/about.html": {
   "hash": "0179ac90c3ed51b6",
@@ -905,19 +905,19 @@
  },
  "/de/": {
   "hash": "4a01dba03424f5fb",
-  "lastmod": "2026-11-05"
+  "lastmod": "2026-11-06"
  },
  "/en/": {
   "hash": "ed7621b65322d1da",
-  "lastmod": "2026-11-05"
+  "lastmod": "2026-11-06"
  },
  "/es/": {
   "hash": "6e791cd6401eed67",
-  "lastmod": "2026-11-05"
+  "lastmod": "2026-11-06"
  },
  "/fr/": {
   "hash": "15314072619ba124",
-  "lastmod": "2026-11-05"
+  "lastmod": "2026-11-06"
  },
  "/guide/": {
   "hash": "0ca46f543cc5dae3",
@@ -952,648 +952,648 @@
   "lastmod": "2026-11-03"
  },
  "/image/": {
-  "hash": "07d9f4298fb69c34",
-  "lastmod": "2026-11-04"
+  "hash": "d966fa6f37a025a7",
+  "lastmod": "2026-11-06"
  },
  "/image/blur/": {
-  "hash": "b981f6eccf5ac2e7",
-  "lastmod": "2026-11-03"
+  "hash": "70e67b4fbfa8ed1c",
+  "lastmod": "2026-11-06"
  },
  "/image/blur/de/": {
-  "hash": "0625042dcd929164",
-  "lastmod": "2026-11-03"
+  "hash": "a14f9eb7df3ddd4a",
+  "lastmod": "2026-11-06"
  },
  "/image/blur/es/": {
-  "hash": "7a5a99a011ad395d",
-  "lastmod": "2026-11-03"
+  "hash": "08b12d21cc0ae028",
+  "lastmod": "2026-11-06"
  },
  "/image/blur/fr/": {
-  "hash": "67188915dc406595",
-  "lastmod": "2026-11-03"
+  "hash": "02466f90f7aef59b",
+  "lastmod": "2026-11-06"
  },
  "/image/blur/ja/": {
-  "hash": "9729a79d435e9247",
-  "lastmod": "2026-11-03"
+  "hash": "aa3f33603551245b",
+  "lastmod": "2026-11-06"
  },
  "/image/blur/ko/": {
-  "hash": "664371e676eb358a",
-  "lastmod": "2026-11-03"
+  "hash": "3e73547f7f845c0a",
+  "lastmod": "2026-11-06"
  },
  "/image/blur/pt/": {
-  "hash": "d9ab27ea97ec3888",
-  "lastmod": "2026-11-03"
+  "hash": "c78a3e8d8e219429",
+  "lastmod": "2026-11-06"
  },
  "/image/blur/zh/": {
-  "hash": "966034efd0aff410",
-  "lastmod": "2026-11-03"
+  "hash": "80aa8da3807d224c",
+  "lastmod": "2026-11-06"
  },
  "/image/de/": {
-  "hash": "ee8a254bfae7c0d2",
-  "lastmod": "2026-11-04"
+  "hash": "f02f2cf8f1c012bf",
+  "lastmod": "2026-11-06"
  },
  "/image/es/": {
-  "hash": "722d4c33b6b2b00d",
-  "lastmod": "2026-11-04"
+  "hash": "8b9bbe7e62d15078",
+  "lastmod": "2026-11-06"
  },
  "/image/exif/": {
-  "hash": "e76c77e454102efd",
-  "lastmod": "2026-11-03"
+  "hash": "12b44410374a2180",
+  "lastmod": "2026-11-06"
  },
  "/image/exif/de/": {
-  "hash": "2707bd7da8e0c20b",
-  "lastmod": "2026-11-03"
+  "hash": "b72390efe6b01215",
+  "lastmod": "2026-11-06"
  },
  "/image/exif/es/": {
-  "hash": "36807f86aac13cf9",
-  "lastmod": "2026-11-03"
+  "hash": "583c4dbdd129365a",
+  "lastmod": "2026-11-06"
  },
  "/image/exif/fr/": {
-  "hash": "098c7726b1ecb9d6",
-  "lastmod": "2026-11-03"
+  "hash": "3a0f8df4cf9d3b7a",
+  "lastmod": "2026-11-06"
  },
  "/image/exif/ja/": {
-  "hash": "b21e197e250c34ef",
-  "lastmod": "2026-11-03"
+  "hash": "2b20a325d956ea87",
+  "lastmod": "2026-11-06"
  },
  "/image/exif/ko/": {
-  "hash": "89605fd7e6d0443a",
-  "lastmod": "2026-11-03"
+  "hash": "ffc9419233043941",
+  "lastmod": "2026-11-06"
  },
  "/image/exif/pt/": {
-  "hash": "edca25f683d24617",
-  "lastmod": "2026-11-03"
+  "hash": "7b25b17bee431806",
+  "lastmod": "2026-11-06"
  },
  "/image/exif/zh/": {
-  "hash": "0b53cc71763e800b",
-  "lastmod": "2026-11-03"
+  "hash": "bc7d627ac82cf435",
+  "lastmod": "2026-11-06"
  },
  "/image/favicon/": {
-  "hash": "b7f230452c4a813a",
-  "lastmod": "2026-11-03"
+  "hash": "6f92e841b7a1ecdc",
+  "lastmod": "2026-11-06"
  },
  "/image/favicon/de/": {
-  "hash": "ec9187fe3436110c",
-  "lastmod": "2026-11-03"
+  "hash": "2a8c0ab380562372",
+  "lastmod": "2026-11-06"
  },
  "/image/favicon/es/": {
-  "hash": "7cb84c015efa8145",
-  "lastmod": "2026-11-03"
+  "hash": "e45853fbc887bf2c",
+  "lastmod": "2026-11-06"
  },
  "/image/favicon/fr/": {
-  "hash": "563a3b87cb0deb5a",
-  "lastmod": "2026-11-03"
+  "hash": "eb2c7d547519139e",
+  "lastmod": "2026-11-06"
  },
  "/image/favicon/ja/": {
-  "hash": "99fa5a0914b6af30",
-  "lastmod": "2026-11-03"
+  "hash": "c70665461316d510",
+  "lastmod": "2026-11-06"
  },
  "/image/favicon/ko/": {
-  "hash": "96a91e6d3ccfa03f",
-  "lastmod": "2026-11-03"
+  "hash": "c2d1b921edefe912",
+  "lastmod": "2026-11-06"
  },
  "/image/favicon/pt/": {
-  "hash": "0752adcf125b2470",
-  "lastmod": "2026-11-03"
+  "hash": "643285be5bac4e8a",
+  "lastmod": "2026-11-06"
  },
  "/image/favicon/zh/": {
-  "hash": "ead2d5b775e7f9d2",
-  "lastmod": "2026-11-03"
+  "hash": "c57a35a5dfac9cc1",
+  "lastmod": "2026-11-06"
  },
  "/image/fr/": {
-  "hash": "f267fd0c849e0169",
-  "lastmod": "2026-11-04"
+  "hash": "811302de0c07e66c",
+  "lastmod": "2026-11-06"
  },
  "/image/heic-to-jpg/": {
-  "hash": "00fc79f8f3f7f7e5",
-  "lastmod": "2026-11-03"
+  "hash": "b099c7fba3bff371",
+  "lastmod": "2026-11-06"
  },
  "/image/heic-to-jpg/de/": {
-  "hash": "592c6a58c3bd6a88",
-  "lastmod": "2026-11-03"
+  "hash": "2c2082f7c7210a21",
+  "lastmod": "2026-11-06"
  },
  "/image/heic-to-jpg/es/": {
-  "hash": "9e0ebab1b9b9692f",
-  "lastmod": "2026-11-03"
+  "hash": "1cb79f8737f4389d",
+  "lastmod": "2026-11-06"
  },
  "/image/heic-to-jpg/fr/": {
-  "hash": "e067502bdad62d9e",
-  "lastmod": "2026-11-03"
+  "hash": "fc8956d1423c125c",
+  "lastmod": "2026-11-06"
  },
  "/image/heic-to-jpg/ja/": {
-  "hash": "74bc3e607ec4d64f",
-  "lastmod": "2026-11-03"
+  "hash": "38f34f15430835f2",
+  "lastmod": "2026-11-06"
  },
  "/image/heic-to-jpg/ko/": {
-  "hash": "fac0e2b5d446f4c7",
-  "lastmod": "2026-11-03"
+  "hash": "362a941f8e42578d",
+  "lastmod": "2026-11-06"
  },
  "/image/heic-to-jpg/pt/": {
-  "hash": "f4e5abf4a15d0118",
-  "lastmod": "2026-11-03"
+  "hash": "393f44ef4ac138d1",
+  "lastmod": "2026-11-06"
  },
  "/image/heic-to-jpg/zh/": {
-  "hash": "8d1b3cf0faf45754",
-  "lastmod": "2026-11-03"
+  "hash": "c32598d7aa08ece1",
+  "lastmod": "2026-11-06"
  },
  "/image/image-compress/": {
-  "hash": "1458a7f631053e37",
-  "lastmod": "2026-11-04"
+  "hash": "f77cf500b30a0163",
+  "lastmod": "2026-11-06"
  },
  "/image/image-compress/de/": {
-  "hash": "0e519060a6abbed5",
-  "lastmod": "2026-11-04"
+  "hash": "7039ccaea0a07c9e",
+  "lastmod": "2026-11-06"
  },
  "/image/image-compress/es/": {
-  "hash": "985a30ebff322649",
-  "lastmod": "2026-11-04"
+  "hash": "678e9dceaa71fd71",
+  "lastmod": "2026-11-06"
  },
  "/image/image-compress/fr/": {
-  "hash": "842f493fadc00c9e",
-  "lastmod": "2026-11-04"
+  "hash": "d1f4d57a4e66081f",
+  "lastmod": "2026-11-06"
  },
  "/image/image-compress/ja/": {
-  "hash": "f3542471210a1226",
-  "lastmod": "2026-11-04"
+  "hash": "048a49da23e3aeb6",
+  "lastmod": "2026-11-06"
  },
  "/image/image-compress/ko/": {
-  "hash": "27da8c27b76962a0",
-  "lastmod": "2026-11-04"
+  "hash": "d488ad60c2228eb5",
+  "lastmod": "2026-11-06"
  },
  "/image/image-compress/pt/": {
-  "hash": "c1014c0ac7203ff8",
-  "lastmod": "2026-11-04"
+  "hash": "14cd9e2037dd9798",
+  "lastmod": "2026-11-06"
  },
  "/image/image-compress/zh/": {
-  "hash": "e3064be8265d0a40",
-  "lastmod": "2026-11-04"
+  "hash": "db3710ba2850e9fa",
+  "lastmod": "2026-11-06"
  },
  "/image/image-crop/": {
-  "hash": "af6ff70eb9c383d1",
-  "lastmod": "2026-11-03"
+  "hash": "71794596dd6e8a95",
+  "lastmod": "2026-11-06"
  },
  "/image/image-crop/de/": {
-  "hash": "6c6acd7ebdb1690a",
-  "lastmod": "2026-11-03"
+  "hash": "7fd22064d8f47de0",
+  "lastmod": "2026-11-06"
  },
  "/image/image-crop/es/": {
-  "hash": "4069758a7ca7ec66",
-  "lastmod": "2026-11-03"
+  "hash": "94dcc8026add740d",
+  "lastmod": "2026-11-06"
  },
  "/image/image-crop/fr/": {
-  "hash": "d9685bebc3be4fb6",
-  "lastmod": "2026-11-03"
+  "hash": "d7effe69b2fa3e7a",
+  "lastmod": "2026-11-06"
  },
  "/image/image-crop/ja/": {
-  "hash": "572efc34f667dea0",
-  "lastmod": "2026-11-03"
+  "hash": "0d6279889a9f7934",
+  "lastmod": "2026-11-06"
  },
  "/image/image-crop/ko/": {
-  "hash": "0c21a55409121643",
-  "lastmod": "2026-11-03"
+  "hash": "9aa1a35abc994e1c",
+  "lastmod": "2026-11-06"
  },
  "/image/image-crop/pt/": {
-  "hash": "802ce03f71e6d88c",
-  "lastmod": "2026-11-03"
+  "hash": "264b27c9774a8fd0",
+  "lastmod": "2026-11-06"
  },
  "/image/image-crop/zh/": {
-  "hash": "801e7a520977829a",
-  "lastmod": "2026-11-03"
+  "hash": "c2282913b9f7c358",
+  "lastmod": "2026-11-06"
  },
  "/image/image-resize/": {
-  "hash": "99e6f943ddcd05b3",
-  "lastmod": "2026-11-03"
+  "hash": "76b51c4e96e395cd",
+  "lastmod": "2026-11-06"
  },
  "/image/image-resize/de/": {
-  "hash": "2c41fbcb1f80d2d2",
-  "lastmod": "2026-11-03"
+  "hash": "b5f5113d7bb7cde2",
+  "lastmod": "2026-11-06"
  },
  "/image/image-resize/es/": {
-  "hash": "d0fe744543742c0a",
-  "lastmod": "2026-11-03"
+  "hash": "0398a7e4a8e1477d",
+  "lastmod": "2026-11-06"
  },
  "/image/image-resize/fr/": {
-  "hash": "3fa764301dec2968",
-  "lastmod": "2026-11-03"
+  "hash": "bf309bd0e895d6e6",
+  "lastmod": "2026-11-06"
  },
  "/image/image-resize/ja/": {
-  "hash": "477aa27bac9f01cc",
-  "lastmod": "2026-11-03"
+  "hash": "33266d5708dfd399",
+  "lastmod": "2026-11-06"
  },
  "/image/image-resize/ko/": {
-  "hash": "33e1254a3750deaf",
-  "lastmod": "2026-11-03"
+  "hash": "5799c7b577a0de0c",
+  "lastmod": "2026-11-06"
  },
  "/image/image-resize/pt/": {
-  "hash": "5a4cc8ea16062580",
-  "lastmod": "2026-11-03"
+  "hash": "c2aaec0f99a48dba",
+  "lastmod": "2026-11-06"
  },
  "/image/image-resize/zh/": {
-  "hash": "20f2cac0048ce9f1",
-  "lastmod": "2026-11-03"
+  "hash": "c016f214de89c7ec",
+  "lastmod": "2026-11-06"
  },
  "/image/image-rotate/": {
-  "hash": "038a0e134bcc3aaa",
-  "lastmod": "2026-11-03"
+  "hash": "97e06dd5c19a3dec",
+  "lastmod": "2026-11-06"
  },
  "/image/image-rotate/de/": {
-  "hash": "04daf3acec7efcb2",
-  "lastmod": "2026-11-03"
+  "hash": "9f021ddaa03c5791",
+  "lastmod": "2026-11-06"
  },
  "/image/image-rotate/es/": {
-  "hash": "5b534790975ff17b",
-  "lastmod": "2026-11-03"
+  "hash": "a01f339742b5155a",
+  "lastmod": "2026-11-06"
  },
  "/image/image-rotate/fr/": {
-  "hash": "acef6dd415ae92a0",
-  "lastmod": "2026-11-03"
+  "hash": "04c71f0cfbc5682d",
+  "lastmod": "2026-11-06"
  },
  "/image/image-rotate/ja/": {
-  "hash": "05552a8277b3b809",
-  "lastmod": "2026-11-03"
+  "hash": "3bc55c3c9960bc42",
+  "lastmod": "2026-11-06"
  },
  "/image/image-rotate/ko/": {
-  "hash": "ce337144ef142d1f",
-  "lastmod": "2026-11-03"
+  "hash": "b3f911fb31c0d325",
+  "lastmod": "2026-11-06"
  },
  "/image/image-rotate/pt/": {
-  "hash": "39c4acb30c2d0846",
-  "lastmod": "2026-11-03"
+  "hash": "1a06c033e13b4620",
+  "lastmod": "2026-11-06"
  },
  "/image/image-rotate/zh/": {
-  "hash": "8712fb9623c73d33",
-  "lastmod": "2026-11-03"
+  "hash": "23e5332f74455b2f",
+  "lastmod": "2026-11-06"
  },
  "/image/image-watermark/": {
-  "hash": "1f5b208f87eea05d",
-  "lastmod": "2026-11-03"
+  "hash": "30850d6bddba6564",
+  "lastmod": "2026-11-06"
  },
  "/image/image-watermark/de/": {
-  "hash": "0f589465b9e08c13",
-  "lastmod": "2026-11-03"
+  "hash": "b20d5ddaa39bcf3c",
+  "lastmod": "2026-11-06"
  },
  "/image/image-watermark/es/": {
-  "hash": "df114bbc11ecbf02",
-  "lastmod": "2026-11-03"
+  "hash": "b63bcae62f176c1e",
+  "lastmod": "2026-11-06"
  },
  "/image/image-watermark/fr/": {
-  "hash": "31db130e7935e348",
-  "lastmod": "2026-11-03"
+  "hash": "01e9c9f675e40c75",
+  "lastmod": "2026-11-06"
  },
  "/image/image-watermark/ja/": {
-  "hash": "715754480d22f44c",
-  "lastmod": "2026-11-03"
+  "hash": "5e13c613efa0cae7",
+  "lastmod": "2026-11-06"
  },
  "/image/image-watermark/ko/": {
-  "hash": "c5f856f5ee7a5783",
-  "lastmod": "2026-11-03"
+  "hash": "cf147240f8390b45",
+  "lastmod": "2026-11-06"
  },
  "/image/image-watermark/pt/": {
-  "hash": "1fe304ccdbd9df39",
-  "lastmod": "2026-11-03"
+  "hash": "3ac4c5982b3129dd",
+  "lastmod": "2026-11-06"
  },
  "/image/image-watermark/zh/": {
-  "hash": "30870731049ae9c0",
-  "lastmod": "2026-11-03"
+  "hash": "7cfa61ac6bc87341",
+  "lastmod": "2026-11-06"
  },
  "/image/ja/": {
-  "hash": "15d036217c3cd89c",
-  "lastmod": "2026-11-04"
+  "hash": "e505a9d57cbe467a",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-png/": {
-  "hash": "8f7b7ce221d6176a",
-  "lastmod": "2026-11-03"
+  "hash": "56f25e845ccf8093",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-png/de/": {
-  "hash": "92a57fccc8c8a279",
-  "lastmod": "2026-11-03"
+  "hash": "ce96492573e0c031",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-png/es/": {
-  "hash": "f6e12e51323788b1",
-  "lastmod": "2026-11-03"
+  "hash": "8d6ad276003d8ffd",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-png/fr/": {
-  "hash": "6b5e693099a16c78",
-  "lastmod": "2026-11-03"
+  "hash": "c577ac2ff92124e0",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-png/ja/": {
-  "hash": "d160ddda966fd021",
-  "lastmod": "2026-11-03"
+  "hash": "6cb4dc57f295f49a",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-png/ko/": {
-  "hash": "f00fdc3c166df518",
-  "lastmod": "2026-11-03"
+  "hash": "ee8de5d3864f80e8",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-png/pt/": {
-  "hash": "73c93d320c1205ea",
-  "lastmod": "2026-11-03"
+  "hash": "a76f175bb0b6c759",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-png/zh/": {
-  "hash": "46d77e31b67ef933",
-  "lastmod": "2026-11-03"
+  "hash": "f93a673df60bc763",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-webp/": {
-  "hash": "786f00636fbfca61",
-  "lastmod": "2026-11-03"
+  "hash": "446591a04b35ae24",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-webp/de/": {
-  "hash": "8cf8d95a46c7404f",
-  "lastmod": "2026-11-03"
+  "hash": "0b37314a6cb305c1",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-webp/es/": {
-  "hash": "07b67784bacf04ca",
-  "lastmod": "2026-11-03"
+  "hash": "45af359a18315c2a",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-webp/fr/": {
-  "hash": "7c40a895efc49006",
-  "lastmod": "2026-11-03"
+  "hash": "ca952ecf589d2672",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-webp/ja/": {
-  "hash": "8262fe998ebdf6ff",
-  "lastmod": "2026-11-03"
+  "hash": "e00ca1e6832b31fa",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-webp/ko/": {
-  "hash": "f2d97a4626d4f13c",
-  "lastmod": "2026-11-03"
+  "hash": "1ac6ff73467e92b3",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-webp/pt/": {
-  "hash": "cccf1ebfb04ff349",
-  "lastmod": "2026-11-03"
+  "hash": "7abb30f7e610c808",
+  "lastmod": "2026-11-06"
  },
  "/image/jpg-to-webp/zh/": {
-  "hash": "17c5f9b9c53aad33",
-  "lastmod": "2026-11-03"
+  "hash": "b40c168f2b733416",
+  "lastmod": "2026-11-06"
  },
  "/image/ko/": {
-  "hash": "b4bc6815a2a7cd63",
-  "lastmod": "2026-11-04"
+  "hash": "41226fbf69f67509",
+  "lastmod": "2026-11-06"
  },
  "/image/meme/": {
-  "hash": "a1a66d9896e9fe0a",
-  "lastmod": "2026-11-03"
+  "hash": "bc99ea8316a2691c",
+  "lastmod": "2026-11-06"
  },
  "/image/meme/de/": {
-  "hash": "431b5f32b220ba95",
-  "lastmod": "2026-11-03"
+  "hash": "71d5d6bb98c4ffa9",
+  "lastmod": "2026-11-06"
  },
  "/image/meme/es/": {
-  "hash": "670ed8b58a26a18d",
-  "lastmod": "2026-11-03"
+  "hash": "237ec461b7200265",
+  "lastmod": "2026-11-06"
  },
  "/image/meme/fr/": {
-  "hash": "6db8e0329ee8c20d",
-  "lastmod": "2026-11-03"
+  "hash": "b36b8724992a3a4c",
+  "lastmod": "2026-11-06"
  },
  "/image/meme/ja/": {
-  "hash": "ec23506317fe8b1e",
-  "lastmod": "2026-11-03"
+  "hash": "90e18485020c0ab3",
+  "lastmod": "2026-11-06"
  },
  "/image/meme/ko/": {
-  "hash": "3ed85196e2c81217",
-  "lastmod": "2026-11-03"
+  "hash": "1c3ee9ba97214da5",
+  "lastmod": "2026-11-06"
  },
  "/image/meme/pt/": {
-  "hash": "3a4118d128a45138",
-  "lastmod": "2026-11-03"
+  "hash": "4c30d03ea66f90c2",
+  "lastmod": "2026-11-06"
  },
  "/image/meme/zh/": {
-  "hash": "aca69e86982f4569",
-  "lastmod": "2026-11-03"
+  "hash": "6a6943cda7d8f1e6",
+  "lastmod": "2026-11-06"
  },
  "/image/passport-photo/": {
-  "hash": "b406b23129c031ef",
-  "lastmod": "2026-11-03"
+  "hash": "6e8296137852f97f",
+  "lastmod": "2026-11-06"
  },
  "/image/passport-photo/de/": {
-  "hash": "338c7e74622f3714",
-  "lastmod": "2026-11-03"
+  "hash": "4c93e6a1459a2529",
+  "lastmod": "2026-11-06"
  },
  "/image/passport-photo/es/": {
-  "hash": "fc1bedee9ed712ec",
-  "lastmod": "2026-11-03"
+  "hash": "7a99b567a76e4ecd",
+  "lastmod": "2026-11-06"
  },
  "/image/passport-photo/fr/": {
-  "hash": "6e7c4d0cb7739198",
-  "lastmod": "2026-11-03"
+  "hash": "43d97dc974f2eb93",
+  "lastmod": "2026-11-06"
  },
  "/image/passport-photo/ja/": {
-  "hash": "4cfbf4ef59c34e0e",
-  "lastmod": "2026-11-03"
+  "hash": "afde4d44014ea2cb",
+  "lastmod": "2026-11-06"
  },
  "/image/passport-photo/ko/": {
-  "hash": "621c5717e8f68e59",
-  "lastmod": "2026-11-03"
+  "hash": "48851cc29f181032",
+  "lastmod": "2026-11-06"
  },
  "/image/passport-photo/pt/": {
-  "hash": "a9651d77347be479",
-  "lastmod": "2026-11-03"
+  "hash": "4ee99515e8b515e7",
+  "lastmod": "2026-11-06"
  },
  "/image/passport-photo/zh/": {
-  "hash": "882c4321ca0faa35",
-  "lastmod": "2026-11-03"
+  "hash": "b17f1ceb16f53f66",
+  "lastmod": "2026-11-06"
  },
  "/image/png-to-jpg/": {
-  "hash": "e6b554a0ea702583",
-  "lastmod": "2026-11-03"
+  "hash": "63099989eb41b954",
+  "lastmod": "2026-11-06"
  },
  "/image/png-to-jpg/de/": {
-  "hash": "455333b46ba8e898",
-  "lastmod": "2026-11-03"
+  "hash": "88c65a5370a49435",
+  "lastmod": "2026-11-06"
  },
  "/image/png-to-jpg/es/": {
-  "hash": "9b26053c37957013",
-  "lastmod": "2026-11-03"
+  "hash": "dbae3d6ce58e6104",
+  "lastmod": "2026-11-06"
  },
  "/image/png-to-jpg/fr/": {
-  "hash": "6e813117af19c05f",
-  "lastmod": "2026-11-03"
+  "hash": "367bc5f1c3a207b6",
+  "lastmod": "2026-11-06"
  },
  "/image/png-to-jpg/ja/": {
-  "hash": "f674e14d61a6d604",
-  "lastmod": "2026-11-03"
+  "hash": "3536d38fc924247f",
+  "lastmod": "2026-11-06"
  },
  "/image/png-to-jpg/ko/": {
-  "hash": "a472dabd92fd36fa",
-  "lastmod": "2026-11-03"
+  "hash": "b748728161560154",
+  "lastmod": "2026-11-06"
  },
  "/image/png-to-jpg/pt/": {
-  "hash": "832424940f3c2155",
-  "lastmod": "2026-11-03"
+  "hash": "d0aab8060e481afc",
+  "lastmod": "2026-11-06"
  },
  "/image/png-to-jpg/zh/": {
-  "hash": "658a69ed917ede6c",
-  "lastmod": "2026-11-03"
+  "hash": "bcf90e4226de8832",
+  "lastmod": "2026-11-06"
  },
  "/image/product-image-size/": {
-  "hash": "c796d3321de9514e",
-  "lastmod": "2026-11-03"
+  "hash": "7cbbfe50df7e3b92",
+  "lastmod": "2026-11-06"
  },
  "/image/product-image-size/de/": {
-  "hash": "8c4d722abaeedbf6",
-  "lastmod": "2026-11-03"
+  "hash": "019dfdf7d83b0a93",
+  "lastmod": "2026-11-06"
  },
  "/image/product-image-size/es/": {
-  "hash": "ad0df6ffdc081745",
-  "lastmod": "2026-11-03"
+  "hash": "6fe0820aeaa36e2c",
+  "lastmod": "2026-11-06"
  },
  "/image/product-image-size/fr/": {
-  "hash": "f3cab6ebda597c34",
-  "lastmod": "2026-11-03"
+  "hash": "367762c901f2c159",
+  "lastmod": "2026-11-06"
  },
  "/image/product-image-size/ja/": {
-  "hash": "70ca86cd186b20fd",
-  "lastmod": "2026-11-03"
+  "hash": "2be726c5f91d73e8",
+  "lastmod": "2026-11-06"
  },
  "/image/product-image-size/ko/": {
-  "hash": "0f9722e3194f8545",
-  "lastmod": "2026-11-03"
+  "hash": "b45b7800c40b5f87",
+  "lastmod": "2026-11-06"
  },
  "/image/product-image-size/pt/": {
-  "hash": "29630d6ee8431292",
-  "lastmod": "2026-11-03"
+  "hash": "9dd3b8211947efc2",
+  "lastmod": "2026-11-06"
  },
  "/image/product-image-size/zh/": {
-  "hash": "70620f26753c04f6",
-  "lastmod": "2026-11-03"
+  "hash": "516d9cb8f859d969",
+  "lastmod": "2026-11-06"
  },
  "/image/pt/": {
-  "hash": "eab87d07288e5317",
-  "lastmod": "2026-11-04"
+  "hash": "08e3a4aa6fd2d94e",
+  "lastmod": "2026-11-06"
  },
  "/image/signature-resize/": {
-  "hash": "a50583d2e80257b6",
-  "lastmod": "2026-11-04"
+  "hash": "dd23a09ae4556ed1",
+  "lastmod": "2026-11-06"
  },
  "/image/signature-resize/de/": {
-  "hash": "518e9c121001ee91",
-  "lastmod": "2026-11-04"
+  "hash": "fc3308659b0144d9",
+  "lastmod": "2026-11-06"
  },
  "/image/signature-resize/es/": {
-  "hash": "8400c77ae6a77b29",
-  "lastmod": "2026-11-04"
+  "hash": "33e09a7667cdd71a",
+  "lastmod": "2026-11-06"
  },
  "/image/signature-resize/fr/": {
-  "hash": "e4d8cd81edc7325c",
-  "lastmod": "2026-11-04"
+  "hash": "bfc6eb2f1870b947",
+  "lastmod": "2026-11-06"
  },
  "/image/signature-resize/ja/": {
-  "hash": "ee16a3ff755a72ea",
-  "lastmod": "2026-11-04"
+  "hash": "f0df9a1c521f5b2f",
+  "lastmod": "2026-11-06"
  },
  "/image/signature-resize/ko/": {
-  "hash": "b91f6349676dd96c",
-  "lastmod": "2026-11-04"
+  "hash": "af5a92afb56adef6",
+  "lastmod": "2026-11-06"
  },
  "/image/signature-resize/pt/": {
-  "hash": "ae17cf17b7039444",
-  "lastmod": "2026-11-04"
+  "hash": "798ff0b35ed15f7b",
+  "lastmod": "2026-11-06"
  },
  "/image/signature-resize/zh/": {
-  "hash": "6268814fadf950ed",
-  "lastmod": "2026-11-04"
+  "hash": "0a71d1ce839c31fd",
+  "lastmod": "2026-11-06"
  },
  "/image/stamp-background/": {
-  "hash": "292083a8a4e1fb14",
-  "lastmod": "2026-11-03"
+  "hash": "64482f478729151f",
+  "lastmod": "2026-11-06"
  },
  "/image/stamp-background/de/": {
-  "hash": "f7b1bc216d971503",
-  "lastmod": "2026-11-03"
+  "hash": "21b5052cf88bd446",
+  "lastmod": "2026-11-06"
  },
  "/image/stamp-background/es/": {
-  "hash": "4df9a8915fcfd1df",
-  "lastmod": "2026-11-03"
+  "hash": "cdefad2be73c0079",
+  "lastmod": "2026-11-06"
  },
  "/image/stamp-background/fr/": {
-  "hash": "3cff908fb4b81367",
-  "lastmod": "2026-11-03"
+  "hash": "45dd280735c27b54",
+  "lastmod": "2026-11-06"
  },
  "/image/stamp-background/ja/": {
-  "hash": "caecaf5296e126c5",
-  "lastmod": "2026-11-03"
+  "hash": "9640e6be0d0c2cb8",
+  "lastmod": "2026-11-06"
  },
  "/image/stamp-background/ko/": {
-  "hash": "e01c766204ef7496",
-  "lastmod": "2026-11-03"
+  "hash": "a85e4dedd77d5c3a",
+  "lastmod": "2026-11-06"
  },
  "/image/stamp-background/pt/": {
-  "hash": "bcdfebe0c95834a0",
-  "lastmod": "2026-11-03"
+  "hash": "9ae3ba24be7be402",
+  "lastmod": "2026-11-06"
  },
  "/image/stamp-background/zh/": {
-  "hash": "ed5eaf1c91b7a758",
-  "lastmod": "2026-11-03"
+  "hash": "06c2b82f11c4013f",
+  "lastmod": "2026-11-06"
  },
  "/image/svg-to-png/": {
-  "hash": "4b4537a0a43e1453",
-  "lastmod": "2026-11-03"
+  "hash": "bfd66a6b8760cb71",
+  "lastmod": "2026-11-06"
  },
  "/image/svg-to-png/de/": {
-  "hash": "34647e9cf410519f",
-  "lastmod": "2026-11-03"
+  "hash": "11d23f7e74233d6d",
+  "lastmod": "2026-11-06"
  },
  "/image/svg-to-png/es/": {
-  "hash": "f51d0868b17cda72",
-  "lastmod": "2026-11-03"
+  "hash": "15a50beee1f6780d",
+  "lastmod": "2026-11-06"
  },
  "/image/svg-to-png/fr/": {
-  "hash": "d11cce3ebb009e85",
-  "lastmod": "2026-11-03"
+  "hash": "e38297bc48a7d9de",
+  "lastmod": "2026-11-06"
  },
  "/image/svg-to-png/ja/": {
-  "hash": "bde09d4370ceda0e",
-  "lastmod": "2026-11-03"
+  "hash": "2a788eee1a59e5aa",
+  "lastmod": "2026-11-06"
  },
  "/image/svg-to-png/ko/": {
-  "hash": "14910877876a4493",
-  "lastmod": "2026-11-03"
+  "hash": "73df940d6d6f073d",
+  "lastmod": "2026-11-06"
  },
  "/image/svg-to-png/pt/": {
-  "hash": "d38335156b950e7d",
-  "lastmod": "2026-11-03"
+  "hash": "92bf60b8eb680cb8",
+  "lastmod": "2026-11-06"
  },
  "/image/svg-to-png/zh/": {
-  "hash": "b0b3e6e9b3fd3f6f",
-  "lastmod": "2026-11-03"
+  "hash": "cf5190079faf27f7",
+  "lastmod": "2026-11-06"
  },
  "/image/webp-to-jpg/": {
-  "hash": "5cf485bdce42368d",
-  "lastmod": "2026-11-03"
+  "hash": "f6c65e7007379f83",
+  "lastmod": "2026-11-06"
  },
  "/image/webp-to-jpg/de/": {
-  "hash": "0b7223610e9115d3",
-  "lastmod": "2026-11-03"
+  "hash": "b9acbe22da29df2a",
+  "lastmod": "2026-11-06"
  },
  "/image/webp-to-jpg/es/": {
-  "hash": "9114f12f0443e8a4",
-  "lastmod": "2026-11-03"
+  "hash": "509ea229ca640871",
+  "lastmod": "2026-11-06"
  },
  "/image/webp-to-jpg/fr/": {
-  "hash": "d08f6726ae7976a8",
-  "lastmod": "2026-11-03"
+  "hash": "8669ea34d2359fbe",
+  "lastmod": "2026-11-06"
  },
  "/image/webp-to-jpg/ja/": {
-  "hash": "7017b689e8489bb0",
-  "lastmod": "2026-11-03"
+  "hash": "1715c7dbf323bdbe",
+  "lastmod": "2026-11-06"
  },
  "/image/webp-to-jpg/ko/": {
-  "hash": "e20a138d8af75497",
-  "lastmod": "2026-11-03"
+  "hash": "ebf2dfd7c1eb9080",
+  "lastmod": "2026-11-06"
  },
  "/image/webp-to-jpg/pt/": {
-  "hash": "79c1275dd68ee7c8",
-  "lastmod": "2026-11-03"
+  "hash": "c24ec36057279429",
+  "lastmod": "2026-11-06"
  },
  "/image/webp-to-jpg/zh/": {
-  "hash": "3bfb307643f0849c",
-  "lastmod": "2026-11-03"
+  "hash": "3b15dbcfb68b6258",
+  "lastmod": "2026-11-06"
  },
  "/image/zh/": {
-  "hash": "5739fed22605b677",
-  "lastmod": "2026-11-04"
+  "hash": "c0f7fbf90a728402",
+  "lastmod": "2026-11-06"
  },
  "/ja/": {
   "hash": "abd0389a59d0ea54",
-  "lastmod": "2026-11-05"
+  "lastmod": "2026-11-06"
  },
  "/pdf/": {
   "hash": "aabddf6158edf31e",
@@ -1620,8 +1620,8 @@
   "lastmod": "2026-11-03"
  },
  "/pdf/compress/ko/": {
-  "hash": "732a6a552c9d9209",
-  "lastmod": "2026-11-03"
+  "hash": "afa8deaab75b52d6",
+  "lastmod": "2026-11-06"
  },
  "/pdf/compress/pt/": {
   "hash": "1042d7375c1f03d3",
@@ -1744,8 +1744,8 @@
   "lastmod": "2026-11-03"
  },
  "/pdf/ko/": {
-  "hash": "4abdebcfef44c7bb",
-  "lastmod": "2026-11-03"
+  "hash": "7cc5b0f99b0a55a4",
+  "lastmod": "2026-11-06"
  },
  "/pdf/merge/": {
   "hash": "b5cc28fa87456d33",
@@ -2076,12 +2076,12 @@
   "lastmod": "2026-11-03"
  },
  "/privacy.html": {
-  "hash": "7f6997d4be686879",
-  "lastmod": "2026-11-05"
+  "hash": "f14a632f6a148a63",
+  "lastmod": "2026-11-06"
  },
  "/pt/": {
   "hash": "efdc754fa6f70155",
-  "lastmod": "2026-11-05"
+  "lastmod": "2026-11-06"
  },
  "/terms.html": {
   "hash": "b56f0f27b711b5fb",
@@ -2113,6 +2113,6 @@
  },
  "/zh/": {
   "hash": "83bd145edc838b94",
-  "lastmod": "2026-11-05"
+  "lastmod": "2026-11-06"
  }
 }
