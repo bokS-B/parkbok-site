@@ -116,3 +116,55 @@ test('equal or larger serialized output returns original bytes and the no-reduct
     assert.deepEqual(new Uint8Array(await result.outputs[0].blob.arrayBuffer()), bytes);
   }
 });
+
+function renderImageLabels() {
+  const generator = path.join(root, 'tools', 'build-image.js');
+  const toolsDirectory = path.join(root, 'image', 'src', 'tools');
+  const generated = new Map();
+  const virtualFs = Object.create(fs);
+  virtualFs.readdirSync = directory => {
+    assert.equal(directory, toolsDirectory);
+    return ['image-compress.json', 'image-resize.json'];
+  };
+  virtualFs.mkdirSync = () => {};
+  virtualFs.writeFileSync = (file, content) => {
+    const relative = path.relative(root, file).replace(/\\/g, '/');
+    assert.match(relative, /^image\/(?:image-(?:compress|resize)\/)?(?:[a-z]{2}\/)?index\.html$/);
+    generated.set(relative, content);
+  };
+  const localRequire = createRequire(generator);
+  vm.runInNewContext(fs.readFileSync(generator, 'utf8'), {
+    __dirname: path.dirname(generator),
+    require: name => name === 'fs' ? virtualFs : localRequire(name),
+    console: { log() {}, warn(message) { assert.fail(message); } },
+  }, { filename: generator });
+  return generated;
+}
+
+test('generated Korean compression page uses its specific 100KB title and heading', () => {
+  const generated = renderImageLabels(), html = generated.get('image/image-compress/ko/index.html');
+  assert.ok(html);
+  const title = decode(html.match(/<title>([^<]*)<\/title>/)[1]);
+  assert.match(title, /^사진 100KB로 줄이기/);
+  assert.equal(decode(html.match(/<h1>([^<]*)<\/h1>/)[1]), '사진 100KB로 줄이기');
+  const jsonld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(jsonld.find(item => item['@type'] === 'WebApplication').name, '사진 100KB로 줄이기');
+  const runtime = { window: {} };
+  vm.runInNewContext(html.match(/<script>(window\.IMGT_STRINGS=[\s\S]*?)<\/script>/)[1], runtime);
+  assert.equal(runtime.window.IMGT_TOOL.strings.h1, '사진 100KB로 줄이기');
+});
+
+test('generated hub cards and related-tool names retain the generic Korean compression label', () => {
+  const generated = renderImageLabels(), hub = generated.get('image/ko/index.html');
+  const card = hub.match(/<a class="card" href="\/image\/image-compress\/ko\/">([\s\S]*?)<\/a>/);
+  assert.ok(card);
+  assert.equal(decode(card[1].match(/<h3>([^<]*)<\/h3>/)[1]), '이미지 압축');
+  const jsonld = JSON.parse(hub.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const collection = jsonld.find(item => item['@type'] === 'CollectionPage');
+  assert.equal(collection.hasPart.find(item => item.url === 'https://parkbok.com/image/image-compress/ko/').name, '이미지 압축');
+  const related = generated.get('image/image-resize/ko/index.html');
+  assert.match(related, /<a class="chip" href="\/image\/image-compress\/ko\/">이미지 압축<\/a>/);
+  const runtime = { window: {} };
+  vm.runInNewContext(related.match(/<script>(window\.IMGT_STRINGS=[\s\S]*?)<\/script>/)[1], runtime);
+  assert.equal(runtime.window.IMGT_TOOL.next.find(item => item.id === 'image-compress').h1, '이미지 압축');
+});
