@@ -71,7 +71,7 @@ function gridHtml(rel, cfg, lang = 'ko'){
     if (lang !== 'ko' && ['image', 'color'].includes(t.cat)) {
       const id = t.cat === 'color' ? t.id.replace(/^color-/, '') : t.id;
       const source = JSON.parse(fs.readFileSync(path.join(root, t.cat, 'src/tools', id + '.json'), 'utf8')).strings[lang];
-      name = source.h1; line = source.cardLine || source.line;
+      name = source.cardName || source.h1; line = source.cardLine || source.line;
     }
     const multi = (t.langs || ['ko']).length > 1;
     const href = multi && t.url.endsWith('/') ? t.url + (lang === 'en' ? '' : lang + '/') : t.url;

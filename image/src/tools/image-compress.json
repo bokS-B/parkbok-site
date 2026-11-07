@@ -12,10 +12,11 @@
   ],
   "strings": {
     "en": {
-      "title": "Compress Image to 20KB, 50KB or 100KB – Free | PARKBOK",
-      "h1": "Compress image to KB",
-      "line": "Choose a target size, compress your images, and check the actual results.",
-      "description": "Compress a photo to under 20KB, 50KB or 100KB for online forms. Resize if needed, check actual bytes, and download JPG, PNG or WebP. Free, no upload or signup.",
+      "title": "Compress Image to 200KB or 100KB – Free | PARKBOK",
+      "h1": "Compress image to 200KB",
+      "cardName": "Compress image to KB",
+      "line": "Choose 200 KB or another limit. Add a photo, compress, and download.",
+      "description": "Reduce a photo to under 200KB or 100KB. Choose a size limit, check the actual file size, and download. JPG, PNG and WebP. Free, no upload or signup.",
       "buttonText": "Select images",
       "runText": "Compress",
       "resultName": "compressed-images",
@@ -43,8 +44,8 @@
           }
         },
         "maxKb": {
-          "label": "Max size per image",
-          "help": "Choose a target per image. 0 = no limit · 1 KB = 1000 bytes. Oversized results are flagged."
+          "label": "Choose a size limit",
+          "help": "1 KB = 1000 bytes. 200 KB = 200,000 bytes. 0 = no limit. Oversized results are flagged."
         },
         "reduce": {
           "label": "Reduce dimensions to reach the target",
@@ -52,6 +53,10 @@
         }
       },
       "faq": [
+        [
+          "How do I compress an image to 200KB?",
+          "Choose 200 KB, add your photo, and click Compress. Check the result size before downloading. With dimension reduction enabled, the tool can reduce width and height to meet the limit. Any result over 200,000 bytes is marked as oversized."
+        ],
         [
           "How do I compress a photo to 20KB, 50KB or 100KB?",
           "Select a JPG, PNG or WebP, choose a KB target and compress. With dimension reduction enabled, the tool lowers quality first and then reduces width and height if necessary. It checks the actual output bytes and flags any file that still exceeds the limit."
