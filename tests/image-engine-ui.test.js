@@ -293,7 +293,7 @@ test('compression DOM order follows target, upload and results through input, re
 test('20 KB is a working preset and zero uses the readable unlimited label', async () => {
   const w = world(); await w.add(file('one.jpg'));
   const presets = w.getOption('maxKb').querySelectorAll('button');
-  assert.deepEqual(presets.map(button => Number(button.dataset.targetKb)), [0, 20, 50, 100, 200, 500]);
+  assert.deepEqual(presets.map(button => Number(button.dataset.targetKb)).sort((a, b) => a - b), [0, 20, 50, 100, 200, 500]);
   const unlimited = presets.find(button => Number(button.dataset.targetKb) === 0);
   assert.match(unlimited.textContent, /제한 없음/); assert.doesNotMatch(unlimited.textContent, /^0 KB$/);
   const twenty = presets.find(button => Number(button.dataset.targetKb) === 20); twenty.click();
@@ -425,4 +425,83 @@ test('remote sample input selects a 20 KB target and stays outside user-run metr
   await w.run(); w.ids['btn-primary'].click();
   assert.equal(w.doc.downloads.length,1);
   assert.deepEqual(w.events,[]);
+});
+
+test('Korean users can choose the first 100KB 이하 preset before adding an image', async () => {
+  const w = world({ lang: 'ko' }), row = w.getOption('maxKb'); assert.ok(row);
+  const presets = row.querySelectorAll('button'), hundred = presets[0];
+  assert.equal(Number(hundred.dataset.targetKb), 100);
+  assert.equal(hundred.textContent, '100KB 이하');
+  assert.equal(w.getValues().maxKb, '0', 'Reordering presets must not change the default target');
+  hundred.click(); assert.equal(hundred.getAttribute('aria-pressed'), 'true');
+  assert.equal(w.getValues().maxKb, '100');
+  await w.add(file('selected-photo.jpg'));
+  assert.ok(w.getOption('maxKb') === row); assert.equal(w.getValues().maxKb, '100');
+  assert.equal(hundred.getAttribute('aria-pressed'), 'true');
+});
+
+test('non-Korean presets retain their original order and 100 KB label', () => {
+  for (const lang of ['en', 'zh', 'ja', 'es', 'pt', 'de', 'fr']) {
+    const w = world({ lang }), presets = w.getOption('maxKb').querySelectorAll('button');
+    assert.deepEqual(presets.map(button => Number(button.dataset.targetKb)), [0, 20, 50, 100, 200, 500], lang);
+    assert.equal(presets.find(button => Number(button.dataset.targetKb) === 100).textContent, '100 KB', lang);
+  }
+});
+
+test('Korean 100KB results distinguish 100000 and 100001 bytes and keep explicit over-limit downloads', async () => {
+  const w = world({ lang: 'ko', outputFactory: (_inputs, opts) => makeOutputs([100000, 100001], opts.maxKb) });
+  w.getOption('maxKb').querySelectorAll('button').find(button => Number(button.dataset.targetKb) === 100).click();
+  await w.add(file('fits.jpg'), file('over.jpg')); await w.run();
+  assert.equal(w.lastOptions().maxKb, 100);
+  const [passed, failed] = cards(w), exact = w.ids.result.querySelectorAll('.result-size-exact');
+  assert.match(exact[0].textContent, /100000 B.*≤ 100000 B/);
+  assert.match(exact[1].textContent, /100001 B.*> 100000 B/);
+  assert.equal(passed.querySelector('.result-size-status').getAttribute('data-size-status'), 'passed');
+  assert.equal(failed.querySelector('.result-size-status').getAttribute('data-size-status'), 'failed');
+  w.ids['btn-primary'].click(); assert.deepEqual(w.doc.downloads, []);
+  assert.ok(w.doc.activeElement === w.getOption('maxKb').querySelector('input'));
+  failed.querySelector('.result-download').click(); assert.deepEqual(w.doc.downloads, ['image-2.jpg']);
+  assert.equal(w.ids['btn-download-warning'].hidden, false); w.ids['btn-download-warning'].click(); await settle();
+  assert.deepEqual(w.zipFiles, ['image-1.jpg', 'image-2.jpg']);
+  assert.deepEqual(w.doc.downloads, ['image-2.jpg', toolCopy.strings.ko.resultName + '.zip']);
+});
+
+test('a Korean image at the 100KB boundary keeps the normal single-result download', async () => {
+  const w = world({ lang: 'ko', outputFactory: (_inputs, opts) => makeOutputs([100000], opts.maxKb) });
+  w.getOption('maxKb').querySelectorAll('button').find(button => Number(button.dataset.targetKb) === 100).click();
+  await w.add(file('fits.jpg')); await w.run();
+  assert.equal(w.lastOptions().maxKb, 100);
+  assert.equal(w.ids.result.querySelector('.result-size-status').getAttribute('data-size-status'), 'passed');
+  assert.match(w.ids.result.querySelector('.result-size-exact').textContent, /100000 B/);
+  assert.equal(w.ids['btn-download-warning'].hidden, true); w.ids['btn-primary'].click();
+  assert.deepEqual(w.doc.downloads, ['image-1.jpg']);
+});
+
+test('Korean images within 100KB retain the normal primary ZIP download', async () => {
+  const w = world({ lang: 'ko', outputFactory: (_inputs, opts) => makeOutputs([99999, 100000], opts.maxKb) });
+  w.getOption('maxKb').querySelectorAll('button').find(button => Number(button.dataset.targetKb) === 100).click();
+  await w.add(file('one.jpg'), file('two.jpg')); await w.run();
+  assert.equal(w.lastOptions().maxKb, 100);
+  for (const card of cards(w)) assert.equal(card.querySelector('.result-size-status').getAttribute('data-size-status'), 'passed');
+  assert.equal(w.ids['btn-download-warning'].hidden, true); w.ids['btn-primary'].click(); await settle();
+  assert.deepEqual(w.zipFiles, ['image-1.jpg', 'image-2.jpg']);
+  assert.deepEqual(w.doc.downloads, [toolCopy.strings.ko.resultName + '.zip']);
+});
+
+for (const target of [20, 50, 0, 137]) test(`Korean URL maxKb=${target} takes precedence before and after file input`, async () => {
+  const w = world({ lang: 'ko', search: '?maxKb=' + target });
+  assert.equal(w.getValues().maxKb, String(target));
+  const selected = () => w.getOption('maxKb').querySelectorAll('button').filter(button => button.getAttribute('aria-pressed') === 'true').map(button => Number(button.dataset.targetKb));
+  assert.deepEqual(selected(), target === 137 ? [] : [target]);
+  await w.add(file('url-target.jpg')); assert.equal(w.getValues().maxKb, String(target));
+  assert.deepEqual(selected(), target === 137 ? [] : [target]);
+  await w.run(); assert.equal(w.lastOptions().maxKb, target);
+});
+
+test('a Korean custom target overrides its URL seed and survives the first file input', async () => {
+  const w = world({ lang: 'ko', search: '?maxKb=20' }), row = w.getOption('maxKb'), input = row.querySelector('input');
+  input.value = '137'; input.dispatch('input');
+  assert.ok(row.querySelectorAll('button').every(button => button.getAttribute('aria-pressed') === 'false'));
+  await w.add(file('custom-target.jpg')); assert.ok(w.getOption('maxKb').querySelector('input') === input);
+  assert.equal(w.getValues().maxKb, '137'); await w.run(); assert.equal(w.lastOptions().maxKb, 137);
 });

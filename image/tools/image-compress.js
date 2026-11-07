@@ -64,10 +64,16 @@
         var input = api.el('input'); input.type = 'number'; input.id = id; input.min = 0; input.max = 51200; input.step = 1; input.value = targetFromSearch(typeof location === 'undefined' ? '' : location.search); input.inputMode = 'numeric'; input.style.width = '100px';
         var wrap = api.el('span', 'num-wrap'); wrap.appendChild(input); wrap.appendChild(api.el('span', 'num-unit', 'KB')); row.appendChild(wrap);
         var presets = api.el('div', 'target-presets'); presets.setAttribute('role', 'group'); presets.setAttribute('aria-label', api.optStr(o.id, 'label'));
-        [0, 20, 50, 100, 200, 500].forEach(function(kb){
+        var korean = api.lang === 'ko';
+        (korean ? [100, 20, 50, 200, 500, 0] : [0, 20, 50, 100, 200, 500]).forEach(function(kb){
           var unlimited = api.t ? api.t('targetUnlimited') : 'targetUnlimited';
           if (unlimited === 'targetUnlimited') unlimited = api.lang === 'ko' ? '제한 없음' : 'No size limit';
-          var button = api.el('button', 'chip target-preset', kb === 0 ? unlimited : kb + ' KB'); button.type = 'button'; button.dataset.targetKb = kb;
+          var label = kb === 0 ? unlimited : kb + ' KB';
+          if (korean && kb === 100) {
+            label = api.t ? api.t('targetUnder100') : 'targetUnder100';
+            if (label === 'targetUnder100') label = '100KB 이하';
+          }
+          var button = api.el('button', 'chip target-preset', label); button.type = 'button'; button.dataset.targetKb = kb;
           button.addEventListener('click', function(){ if (api.busy()) return; input.value = kb; sync(); api.changed(); }); presets.appendChild(button);
         });
         function sync(){ Array.prototype.forEach.call(presets.children, function(b){ b.setAttribute('aria-pressed', String(Number(b.dataset.targetKb) === Number(input.value))); }); }

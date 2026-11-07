@@ -37,6 +37,7 @@ for (const f of fs.readdirSync(toolsDir).filter(n => n.endsWith('.json')).sort()
 tools.sort((a, b) => (a.order - b.order) || a.id.localeCompare(b.id));
 const byId = {}; tools.forEach(tl => { byId[tl.id] = tl; });
 const tstr = (tl, lang) => (tl.strings && (tl.strings[lang] || tl.strings.en)) || {};
+const cardName = (tl, lang) => { const T = tstr(tl, lang); return T.cardName || T.h1; };
 
 function icon(tl){
   const inner = (tl.icon && ICONS[tl.icon]) || ICONS[tl.id] || DEFAULT_GLYPH;
@@ -72,10 +73,10 @@ let count = 0;
 // 허브
 for (const lang of langs) {
   const H = S[lang].hub, canonical = SITE + url(lang, '');
-  const cards = tools.map(tl => { const T = tstr(tl, lang); return `<a class="card" href="${url(lang, tl.id)}"><span class="card-icon">${icon(tl)}</span><h3>${esc(T.h1)}</h3><p>${esc(T.line)}</p></a>`; }).join('');
+  const cards = tools.map(tl => { const T = tstr(tl, lang); return `<a class="card" href="${url(lang, tl.id)}"><span class="card-icon">${icon(tl)}</span><h3>${esc(cardName(tl, lang))}</h3><p>${esc(T.line)}</p></a>`; }).join('');
   const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: H.h1, url: url(lang, '') }]);
   const jsonld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: H.h1, url: canonical, inLanguage: HREFLANG[lang] || lang, description: H.description,
-    hasPart: tools.map(tl => ({ '@type': 'WebApplication', name: tstr(tl, lang).h1, url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }, crumbs.jsonld];
+    hasPart: tools.map(tl => ({ '@type': 'WebApplication', name: cardName(tl, lang), url: SITE + url(lang, tl.id), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any' })) }, crumbs.jsonld];
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: S[lang].dir || 'ltr', title: esc(H.title), description: esc(H.description), canonical, hreflangs: hreflangs(''),
     h1: esc(H.h1), line: esc(H.line), cards, guideLink: lang === 'en' ? '\n  <nav class="chips next" aria-label="Image guides">' + formGuide(lang) + '</nav>' : '', aboutTitle: esc(S[lang].aboutTitle), aboutLine: esc(S[lang].aboutLine), css, jsonld: safeJson(jsonld),
     toolId: 'hub', strings: safeJson(common(lang)), tool: safeJson({ id: 'hub', lang, langUrls: langUrls(''), strings: {}, next: [] }) };
@@ -87,7 +88,7 @@ for (const tl of tools) for (const lang of langs) {
   let nextIds = (tl.next || []).filter(n => byId[n] && n !== tl.id);
   if (nextIds.length < 5) for (const o of tools) { if (nextIds.length >= 5) break; if (o.id !== tl.id && nextIds.indexOf(o.id) < 0) nextIds.push(o.id); }
   nextIds = nextIds.slice(0, 6);
-  const next = nextIds.map(n => ({ id: n, url: url(lang, n), h1: tstr(byId[n], lang).h1 }));
+  const next = nextIds.map(n => ({ id: n, url: url(lang, n), h1: cardName(byId[n], lang) }));
   const nextChips = next.map(n => `<a class="chip" href="${n.url}">${esc(n.h1)}</a>`).join('')
     + (['image-compress', 'signature-resize'].includes(tl.id) ? formGuide(lang) : '');
   const faqArr = T.faq || [];

@@ -62,6 +62,17 @@ test('actual final Blob sizes obey the inclusive 1000-byte KB boundary', async t
     assert.equal(!!r.warning,bytes>1000);
   });
 });
+test('100KB target accepts exactly 100000 bytes and warns at 100001 bytes', async t => {
+  for (const bytes of [100000, 100001]) await t.test(bytes+' B', async () => {
+    const {ctx}=fixture(() => bytes);
+    const r=await tool.run([file('large.jpg',500000)],{maxKb:100,format:'jpg'},ctx);
+    check(r,0,bytes,100000,bytes<=100000?'passed':'failed');
+    assert.equal(r.validation.size.limitBytes,100000);
+    assert.equal(r.validation.size.status,bytes<=100000?'passed':'failed');
+    assert.equal(r.validation.size.oversizedCount,bytes>100000?1:0);
+    assert.equal(!!r.warning,bytes>100000);
+  });
+});
 for(const format of ['jpg','webp'])test(format+' target searches quality but never changes the level dimensions',async()=>{
   const {ctx,calls}=fixture(({quality})=>quality>.4?2200:900,6000,4000);
   const r=await tool.run([file()],{level:'high',format,maxKb:1},ctx);
@@ -152,7 +163,8 @@ test('all8 languages expose persistent byte units, failure labels and edit inval
     assert.ok(t.options.maxKb.label,lang);assert.match(t.options.maxKb.help,/1000/);
     for(const k of ['targetLimit','targetExceeded','downloadTargetOver','needsRerun','errorTarget'])assert.ok(typeof t[k]==='string'&&t[k].trim(),lang+' '+k);
   }
-  assert.equal(copy.strings.ko.h1,'이미지 압축');
+  assert.equal(copy.strings.ko.h1,'사진 100KB로 줄이기');
+  assert.equal(copy.strings.ko.cardName,'이미지 압축');
 });
 
 test('optional dimension reduction reaches 20/50/100KB without changing the aspect ratio',async()=>{
