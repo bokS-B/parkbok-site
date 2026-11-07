@@ -586,7 +586,27 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
   body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
   body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
 }
-@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}
+
+body[data-image-tool="image-compress"] .target-select{display:none}
+@media(max-width:767.98px){
+ body[data-image-tool="image-compress"] .tool-head{margin:6px 0 12px}
+ body[data-image-tool="image-compress"] .tool-head .lead{font-size:14px;line-height:1.5}
+ body[data-image-tool="image-compress"] .image-workbench{gap:10px}
+ body[data-image-tool="image-compress"] #opts{padding:12px;gap:8px}
+ body[data-image-tool="image-compress"] .opts#opts .opt-target-kb>.opt-label{flex:1 1 100px}
+ body[data-image-tool="image-compress"] .stage-in .drop{padding:16px 12px}
+ body[data-image-tool="image-compress"] .target-select{display:block;min-height:44px;max-width:100%}
+ body[data-image-tool="image-compress"] .target-presets{display:none}
+ body[data-image-tool="image-compress"] .opt-number:not(.target-custom) .num-wrap{display:none}
+ body[data-image-tool="image-compress"] .compress-sample{display:flex;justify-content:center;gap:0;padding:0;margin:8px 0 0;border:0;background:none}
+ body[data-image-tool="image-compress"].has-input .compress-sample{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>div{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>img{display:none}
+ body[data-image-tool="image-compress"] .compress-sample p{display:none}
+ body[data-image-tool="image-compress"] .compress-sample button{width:auto}
+ body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
+}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Blur Image","url":"https://parkbok.com/image/blur/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Blur a face or any part of a photo online for free. Drag boxes over what to hide, pick blur, pixelate or black, and download the image. Runs in your browser – nothing is uploaded."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"Image tools","item":"https://parkbok.com/image/"},{"@type":"ListItem","position":3,"name":"Blur Image","item":"https://parkbok.com/image/blur/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can the blur be undone?","acceptedAnswer":{"@type":"Answer","text":"No. The hidden pixels are replaced in the downloaded file, so the original cannot be recovered from it. Keep your original if you still need it."}},{"@type":"Question","name":"Is my photo uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The image is edited on your device in your browser and never sent to a server."}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="blur">
@@ -657,7 +677,7 @@ Made by PARKBOK Studio.</p>
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"English","dir":"ltr","selectImages":"Select images","dropText":"or drop images here · paste works too","addMore":"Add more","remove":"Remove","filesCount":"{n} images","fileCount":"1 image","processing":"Processing…","done":"Done","download":"Download","downloadAll":"Download ZIP","startOver":"Start over","errorType":"Only {type} images are supported.","errorBroken":"This file is damaged or is not a supported image.","errorEmpty":"Select at least {n} image(s).","errorHeic":"This HEIC file could not be opened.","errorGeneric":"Something went wrong. Try again with another image.","before":"Before","after":"After","saved":"saved {p}%","quality":"Quality","width":"Width","height":"Height","keepRatio":"Keep aspect ratio","images":"{n} images","imageN":"Image {n}","selected":"{n} selected","moreImages":"+{n} more images (no preview)","selectAll":"Select all","clearAll":"Clear all","moveLeft":"Move left","moveRight":"Move right","moveUp":"Move up","moveDown":"Move down","rotate":"Rotate","delete":"Delete","restore":"Restore","dragHint":"Drag on the image to select an area","regions":"{n} areas","reset":"Reset","drawHere":"Draw here","upload":"Upload PNG","clear":"Clear","language":"Language","loadingLib":"Loading…","preview":"Preview","compressUploadHint":"JPG · PNG · WebP · Select multiple images · Processed on your device","localProcessingHint":"Your images stay on your device.","targetSummary":"Per-image target: {target}","removeFileLabel":"Remove {name}","moveFileUpLabel":"Move {name} up","moveFileDownLabel":"Move {name} down","downloadFileLabel":"Download {name}","targetFilePassed":"Within target","targetFileExceeded":"Over target","targetFileNotRequested":"No size limit","aboutLine":"Your images are processed on your device and are never uploaded to a server.","aboutTitle":"How it works","nextTools":"Next tools"};window.IMGT_TOOL={"id":"blur","lang":"en","langUrls":{"en":"/image/blur/","ko":"/image/blur/ko/","zh":"/image/blur/zh/","ja":"/image/blur/ja/","es":"/image/blur/es/","pt":"/image/blur/pt/","de":"/image/blur/de/","fr":"/image/blur/fr/"},"next":[{"id":"image-crop","url":"/image/image-crop/","h1":"Crop Image"},{"id":"image-watermark","url":"/image/image-watermark/","h1":"Watermark image"},{"id":"image-compress","url":"/image/image-compress/","h1":"Compress image to KB"},{"id":"png-to-jpg","url":"/image/png-to-jpg/","h1":"PNG to JPG"},{"id":"jpg-to-png","url":"/image/jpg-to-png/","h1":"JPG to PNG"}],"strings":{"title":"Blur Face or Part of a Photo – Blur, Pixelate & Censor Online Free","h1":"Blur Image","line":"Hide faces and details","description":"Blur a face or any part of a photo online for free. Drag boxes over what to hide, pick blur, pixelate or black, and download the image. Runs in your browser – nothing is uploaded.","buttonText":"Select image","runText":"Hide areas","resultName":"blurred","noteWhole":"No area was drawn, so the whole image was covered.","options":{"regions":{"label":"Areas to hide","help":"Drag on the image to draw a box over each face or detail. Add as many as you need; with no box, the whole image is covered."},"style":{"label":"Style","help":"Blur softens, pixelate makes a mosaic, black paints a solid block.","choices":{"blur":"Blur","pixelate":"Pixelate","black":"Black"}},"strength":{"label":"Strength","help":"Higher values hide more. 20 is enough for most faces."}},"faq":[["Can the blur be undone?","No. The hidden pixels are replaced in the downloaded file, so the original cannot be recovered from it. Keep your original if you still need it."],["Is my photo uploaded?","No. The image is edited on your device in your browser and never sent to a server."]]}};</script>
-<script src="/image/img-tools.js?v=84ede4066a" defer></script>
+<script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/blur.js?v=e70504c91a" defer></script>
 

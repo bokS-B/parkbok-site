@@ -586,7 +586,27 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
   body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
   body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
 }
-@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}
+
+body[data-image-tool="image-compress"] .target-select{display:none}
+@media(max-width:767.98px){
+ body[data-image-tool="image-compress"] .tool-head{margin:6px 0 12px}
+ body[data-image-tool="image-compress"] .tool-head .lead{font-size:14px;line-height:1.5}
+ body[data-image-tool="image-compress"] .image-workbench{gap:10px}
+ body[data-image-tool="image-compress"] #opts{padding:12px;gap:8px}
+ body[data-image-tool="image-compress"] .opts#opts .opt-target-kb>.opt-label{flex:1 1 100px}
+ body[data-image-tool="image-compress"] .stage-in .drop{padding:16px 12px}
+ body[data-image-tool="image-compress"] .target-select{display:block;min-height:44px;max-width:100%}
+ body[data-image-tool="image-compress"] .target-presets{display:none}
+ body[data-image-tool="image-compress"] .opt-number:not(.target-custom) .num-wrap{display:none}
+ body[data-image-tool="image-compress"] .compress-sample{display:flex;justify-content:center;gap:0;padding:0;margin:8px 0 0;border:0;background:none}
+ body[data-image-tool="image-compress"].has-input .compress-sample{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>div{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>img{display:none}
+ body[data-image-tool="image-compress"] .compress-sample p{display:none}
+ body[data-image-tool="image-compress"] .compress-sample button{width:auto}
+ body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
+}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"调整图片大小","url":"https://parkbok.com/image/image-resize/zh/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"zh-Hans","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"免费在线调整图片大小。添加 JPG、PNG、WebP 或 HEIC 图片，设置百分比或精确的宽高，下载调整后的图片。全部在浏览器中完成，不上传任何文件。"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"图片工具","item":"https://parkbok.com/image/zh/"},{"@type":"ListItem","position":3,"name":"调整图片大小","item":"https://parkbok.com/image/image-resize/zh/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"图片会变模糊吗？","acceptedAnswer":{"@type":"Answer","text":"缩小时分步处理，照片保持清晰。超过 100% 的放大无法增加细节，放得越大越柔。"}},{"@type":"Question","name":"我的图片会被上传吗？","acceptedAnswer":{"@type":"Answer","text":"不会。每张图片都在您的设备上由浏览器处理，不会发送到任何服务器。"}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="image-resize">
@@ -657,7 +677,7 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"中文","dir":"ltr","selectImages":"选择图片","dropText":"或将图片拖到这里 · 也支持粘贴","addMore":"继续添加","remove":"移除","filesCount":"{n} 张图片","fileCount":"1 张图片","processing":"处理中…","done":"完成","download":"下载","downloadAll":"下载 ZIP","startOver":"重新开始","errorType":"仅支持 {type} 图片。","errorBroken":"文件已损坏或不是支持的图片格式。","errorEmpty":"请至少选择 {n} 张图片。","errorHeic":"无法打开此 HEIC 文件。","errorGeneric":"处理失败，请换一张图片重试。","before":"原始","after":"结果","saved":"节省 {p}%","quality":"质量","width":"宽度","height":"高度","keepRatio":"保持比例","images":"{n} 张","imageN":"第 {n} 张","selected":"已选 {n} 张","moreImages":"还有 {n} 张（无预览）","selectAll":"全选","clearAll":"全部清除","moveLeft":"左移","moveRight":"右移","moveUp":"上移","moveDown":"下移","rotate":"旋转","delete":"删除","restore":"恢复","dragHint":"在图片上拖动以选择区域","regions":"{n} 个区域","reset":"重置","drawHere":"在此绘制","upload":"上传 PNG","clear":"清除","language":"语言","loadingLib":"加载中…","preview":"预览","compressUploadHint":"JPG · PNG · WebP · 可多选图片 · 在设备上处理","localProcessingHint":"图片只在您的设备上处理。","targetSummary":"每张图片的目标：{target}","removeFileLabel":"移除 {name}","moveFileUpLabel":"将 {name} 上移","moveFileDownLabel":"将 {name} 下移","downloadFileLabel":"下载 {name}","targetFilePassed":"符合大小目标","targetFileExceeded":"超出大小目标","targetFileNotRequested":"不限制大小","aboutLine":"图片只在您的设备上处理，不会上传到任何服务器。","aboutTitle":"使用方法","nextTools":"下一步工具"};window.IMGT_TOOL={"id":"image-resize","lang":"zh","langUrls":{"en":"/image/image-resize/","ko":"/image/image-resize/ko/","zh":"/image/image-resize/zh/","ja":"/image/image-resize/ja/","es":"/image/image-resize/es/","pt":"/image/image-resize/pt/","de":"/image/image-resize/de/","fr":"/image/image-resize/fr/"},"next":[{"id":"image-compress","url":"/image/image-compress/zh/","h1":"图片压缩"},{"id":"product-image-size","url":"/image/product-image-size/zh/","h1":"韩国电商商品图片尺寸"},{"id":"image-crop","url":"/image/image-crop/zh/","h1":"图片裁剪"},{"id":"png-to-jpg","url":"/image/png-to-jpg/zh/","h1":"PNG 转 JPG"},{"id":"jpg-to-png","url":"/image/jpg-to-png/zh/","h1":"JPG 转 PNG"}],"strings":{"title":"图片尺寸修改 – 按像素或百分比在线免费调整图片大小","h1":"调整图片大小","line":"按像素或百分比改尺寸","description":"免费在线调整图片大小。添加 JPG、PNG、WebP 或 HEIC 图片，设置百分比或精确的宽高，下载调整后的图片。全部在浏览器中完成，不上传任何文件。","buttonText":"选择图片","runText":"调整大小","resultName":"调整大小","noteSize":"{w}×{h} → {tw}×{th} 像素","noteCount":"已调整 {n} 张图片。","errorNoSize":"请输入宽度或高度。","errorTooBig":"结果太大（超过 16384 像素）。","options":{"mode":{"label":"调整方式","help":"百分比按同一比例缩放所有图片。像素设置精确尺寸。","choices":{"percent":"百分比","pixel":"像素"}},"percent":{"label":"比例","help":"50% 表示宽高各减半。超过 100% 为放大。"},"width":{"label":"宽度","help":"宽度（像素）"},"height":{"label":"高度","help":"高度（像素）"},"keepRatio":{"label":"保持比例","help":"只填一项时另一项自动计算。两项都填时图片会缩放到该范围内。"},"format":{"label":"输出格式","help":"保持格式沿用原格式。HEIC 会保存为 JPG。","choices":{"keep":"保持格式","jpg":"JPG","png":"PNG","webp":"WebP"}}},"faq":[["图片会变模糊吗？","缩小时分步处理，照片保持清晰。超过 100% 的放大无法增加细节，放得越大越柔。"],["我的图片会被上传吗？","不会。每张图片都在您的设备上由浏览器处理，不会发送到任何服务器。"]]}};</script>
-<script src="/image/img-tools.js?v=84ede4066a" defer></script>
+<script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/image-resize.js?v=ddd4545591" defer></script>
 

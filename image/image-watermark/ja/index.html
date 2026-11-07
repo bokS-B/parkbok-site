@@ -586,7 +586,27 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
   body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
   body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
 }
-@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}
+
+body[data-image-tool="image-compress"] .target-select{display:none}
+@media(max-width:767.98px){
+ body[data-image-tool="image-compress"] .tool-head{margin:6px 0 12px}
+ body[data-image-tool="image-compress"] .tool-head .lead{font-size:14px;line-height:1.5}
+ body[data-image-tool="image-compress"] .image-workbench{gap:10px}
+ body[data-image-tool="image-compress"] #opts{padding:12px;gap:8px}
+ body[data-image-tool="image-compress"] .opts#opts .opt-target-kb>.opt-label{flex:1 1 100px}
+ body[data-image-tool="image-compress"] .stage-in .drop{padding:16px 12px}
+ body[data-image-tool="image-compress"] .target-select{display:block;min-height:44px;max-width:100%}
+ body[data-image-tool="image-compress"] .target-presets{display:none}
+ body[data-image-tool="image-compress"] .opt-number:not(.target-custom) .num-wrap{display:none}
+ body[data-image-tool="image-compress"] .compress-sample{display:flex;justify-content:center;gap:0;padding:0;margin:8px 0 0;border:0;background:none}
+ body[data-image-tool="image-compress"].has-input .compress-sample{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>div{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>img{display:none}
+ body[data-image-tool="image-compress"] .compress-sample p{display:none}
+ body[data-image-tool="image-compress"] .compress-sample button{width:auto}
+ body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
+}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"画像 透かし","url":"https://parkbok.com/image/image-watermark/ja/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"無料で画像に透かし（ウォーターマーク）を追加。1枚でも複数でも、文字やロゴの大きさ・色・透明度・位置を選ぶか、画像全体に繰り返せます。ブラウザ内で処理するためファイルはアップロードされません。"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"画像ツール","item":"https://parkbok.com/image/ja/"},{"@type":"ListItem","position":3,"name":"画像 透かし","item":"https://parkbok.com/image/image-watermark/ja/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"どの形式で保存されますか？","acceptedAnswer":{"@type":"Answer","text":"JPG写真はJPGのまま、PNG・WebPなどは透明を保つためPNGで保存されます。"}},{"@type":"Question","name":"画像はアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。各画像は端末のブラウザ内で描画され、サーバーには送信されません。"}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="image-watermark">
@@ -657,7 +677,7 @@ PARKBOK Studioがお届けします。</p>
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"日本語","dir":"ltr","selectImages":"画像を選択","dropText":"またはここにドロップ · 貼り付けも可","addMore":"さらに追加","remove":"削除","filesCount":"{n}枚","fileCount":"1枚","processing":"処理中…","done":"完了","download":"ダウンロード","downloadAll":"ZIPで保存","startOver":"やり直す","errorType":"{type} 画像のみ対応しています。","errorBroken":"ファイルが壊れているか、対応していない画像です。","errorEmpty":"画像を{n}枚以上選んでください。","errorHeic":"このHEICファイルを開けませんでした。","errorGeneric":"処理に失敗しました。別の画像でお試しください。","before":"元","after":"結果","saved":"{p}%削減","quality":"画質","width":"幅","height":"高さ","keepRatio":"縦横比を保つ","images":"{n}枚","imageN":"{n}枚目","selected":"{n}枚選択","moreImages":"他{n}枚（プレビューなし）","selectAll":"すべて選択","clearAll":"すべて消す","moveLeft":"左へ","moveRight":"右へ","moveUp":"上へ","moveDown":"下へ","rotate":"回転","delete":"削除","restore":"元に戻す","dragHint":"画像上をドラッグして範囲を決めます","regions":"{n}か所","reset":"リセット","drawHere":"ここに描く","upload":"PNGを選択","clear":"消す","language":"言語","loadingLib":"読み込み中…","preview":"プレビュー","compressUploadHint":"JPG · PNG · WebP · 複数枚を選択可能 · 端末内で処理","localProcessingHint":"画像は端末内だけで処理します。","targetSummary":"画像ごとの目標：{target}","removeFileLabel":"{name}を削除","moveFileUpLabel":"{name}を上へ移動","moveFileDownLabel":"{name}を下へ移動","downloadFileLabel":"{name}をダウンロード","targetFilePassed":"容量目標を達成","targetFileExceeded":"容量目標を超過","targetFileNotRequested":"容量制限なし","aboutLine":"画像はお使いの端末内だけで処理され、サーバーには送信されません。","aboutTitle":"使い方","nextTools":"次のツール"};window.IMGT_TOOL={"id":"image-watermark","lang":"ja","langUrls":{"en":"/image/image-watermark/","ko":"/image/image-watermark/ko/","zh":"/image/image-watermark/zh/","ja":"/image/image-watermark/ja/","es":"/image/image-watermark/es/","pt":"/image/image-watermark/pt/","de":"/image/image-watermark/de/","fr":"/image/image-watermark/fr/"},"next":[{"id":"meme","url":"/image/meme/ja/","h1":"ミーム作成"},{"id":"image-resize","url":"/image/image-resize/ja/","h1":"画像リサイズ"},{"id":"image-compress","url":"/image/image-compress/ja/","h1":"画像圧縮"},{"id":"png-to-jpg","url":"/image/png-to-jpg/ja/","h1":"PNG JPG 変換"},{"id":"jpg-to-png","url":"/image/jpg-to-png/ja/","h1":"JPG PNG 変換"}],"strings":{"title":"画像に透かし（ウォーターマーク）を入れる – 文字・ロゴを無料オンライン","h1":"画像 透かし","line":"写真に文字やロゴの透かし","description":"無料で画像に透かし（ウォーターマーク）を追加。1枚でも複数でも、文字やロゴの大きさ・色・透明度・位置を選ぶか、画像全体に繰り返せます。ブラウザ内で処理するためファイルはアップロードされません。","buttonText":"画像を選択","runText":"透かしを入れる","resultName":"透かし","options":{"type":{"label":"透かし","choices":{"text":"文字","image":"ロゴ (PNG)"}},"text":{"label":"文字","help":"例: © お名前"},"size":{"label":"文字サイズ"},"color":{"label":"文字色"},"image":{"label":"ロゴ","help":"背景が透明なPNGを選ぶか、直接描きます。"},"scale":{"label":"ロゴの大きさ","help":"画像の幅に対する割合です。"},"opacity":{"label":"不透明度"},"tile":{"label":"画像全体に繰り返す"},"position":{"label":"位置"}},"errors":{"text":"透かしの文字を入力してください。","image":"PNGのロゴを選ぶか、直接描いてください。"},"faq":[["どの形式で保存されますか？","JPG写真はJPGのまま、PNG・WebPなどは透明を保つためPNGで保存されます。"],["画像はアップロードされますか？","いいえ。各画像は端末のブラウザ内で描画され、サーバーには送信されません。"]]}};</script>
-<script src="/image/img-tools.js?v=84ede4066a" defer></script>
+<script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/image-watermark.js?v=f9ea632022" defer></script>
 

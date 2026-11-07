@@ -586,7 +586,27 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
   body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
   body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
 }
-@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}
+
+body[data-image-tool="image-compress"] .target-select{display:none}
+@media(max-width:767.98px){
+ body[data-image-tool="image-compress"] .tool-head{margin:6px 0 12px}
+ body[data-image-tool="image-compress"] .tool-head .lead{font-size:14px;line-height:1.5}
+ body[data-image-tool="image-compress"] .image-workbench{gap:10px}
+ body[data-image-tool="image-compress"] #opts{padding:12px;gap:8px}
+ body[data-image-tool="image-compress"] .opts#opts .opt-target-kb>.opt-label{flex:1 1 100px}
+ body[data-image-tool="image-compress"] .stage-in .drop{padding:16px 12px}
+ body[data-image-tool="image-compress"] .target-select{display:block;min-height:44px;max-width:100%}
+ body[data-image-tool="image-compress"] .target-presets{display:none}
+ body[data-image-tool="image-compress"] .opt-number:not(.target-custom) .num-wrap{display:none}
+ body[data-image-tool="image-compress"] .compress-sample{display:flex;justify-content:center;gap:0;padding:0;margin:8px 0 0;border:0;background:none}
+ body[data-image-tool="image-compress"].has-input .compress-sample{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>div{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>img{display:none}
+ body[data-image-tool="image-compress"] .compress-sample p{display:none}
+ body[data-image-tool="image-compress"] .compress-sample button{width:auto}
+ body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
+}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"画像トリミング","url":"https://parkbok.com/image/image-crop/ja/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"無料で画像をトリミング。写真の上をドラッグして範囲を決め、1:1 や 16:9 などの比率を固定して JPG・PNG・WebP でダウンロード。複数枚まとめて処理できます。ブラウザ内で処理するためファイルはアップロードされません。"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"画像ツール","item":"https://parkbok.com/image/ja/"},{"@type":"ListItem","position":3,"name":"画像トリミング","item":"https://parkbok.com/image/image-crop/ja/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"複数枚をまとめて切り抜けますか？","acceptedAnswer":{"@type":"Answer","text":"はい。1枚目で範囲を決めると、同じ相対位置がすべての画像に適用されます。1枚ずつ、または ZIP でダウンロードできます。"}},{"@type":"Question","name":"画像はアップロードされますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。各画像は端末のブラウザ内で切り抜かれ、サーバーには送信されません。"}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="image-crop">
@@ -657,7 +677,7 @@ PARKBOK Studioがお届けします。</p>
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"日本語","dir":"ltr","selectImages":"画像を選択","dropText":"またはここにドロップ · 貼り付けも可","addMore":"さらに追加","remove":"削除","filesCount":"{n}枚","fileCount":"1枚","processing":"処理中…","done":"完了","download":"ダウンロード","downloadAll":"ZIPで保存","startOver":"やり直す","errorType":"{type} 画像のみ対応しています。","errorBroken":"ファイルが壊れているか、対応していない画像です。","errorEmpty":"画像を{n}枚以上選んでください。","errorHeic":"このHEICファイルを開けませんでした。","errorGeneric":"処理に失敗しました。別の画像でお試しください。","before":"元","after":"結果","saved":"{p}%削減","quality":"画質","width":"幅","height":"高さ","keepRatio":"縦横比を保つ","images":"{n}枚","imageN":"{n}枚目","selected":"{n}枚選択","moreImages":"他{n}枚（プレビューなし）","selectAll":"すべて選択","clearAll":"すべて消す","moveLeft":"左へ","moveRight":"右へ","moveUp":"上へ","moveDown":"下へ","rotate":"回転","delete":"削除","restore":"元に戻す","dragHint":"画像上をドラッグして範囲を決めます","regions":"{n}か所","reset":"リセット","drawHere":"ここに描く","upload":"PNGを選択","clear":"消す","language":"言語","loadingLib":"読み込み中…","preview":"プレビュー","compressUploadHint":"JPG · PNG · WebP · 複数枚を選択可能 · 端末内で処理","localProcessingHint":"画像は端末内だけで処理します。","targetSummary":"画像ごとの目標：{target}","removeFileLabel":"{name}を削除","moveFileUpLabel":"{name}を上へ移動","moveFileDownLabel":"{name}を下へ移動","downloadFileLabel":"{name}をダウンロード","targetFilePassed":"容量目標を達成","targetFileExceeded":"容量目標を超過","targetFileNotRequested":"容量制限なし","aboutLine":"画像はお使いの端末内だけで処理され、サーバーには送信されません。","aboutTitle":"使い方","nextTools":"次のツール"};window.IMGT_TOOL={"id":"image-crop","lang":"ja","langUrls":{"en":"/image/image-crop/","ko":"/image/image-crop/ko/","zh":"/image/image-crop/zh/","ja":"/image/image-crop/ja/","es":"/image/image-crop/es/","pt":"/image/image-crop/pt/","de":"/image/image-crop/de/","fr":"/image/image-crop/fr/"},"next":[{"id":"image-resize","url":"/image/image-resize/ja/","h1":"画像リサイズ"},{"id":"image-rotate","url":"/image/image-rotate/ja/","h1":"画像回転"},{"id":"image-compress","url":"/image/image-compress/ja/","h1":"画像圧縮"},{"id":"stamp-background","url":"/image/stamp-background/ja/","h1":"印鑑の背景透過"},{"id":"png-to-jpg","url":"/image/png-to-jpg/ja/","h1":"PNG JPG 変換"}],"strings":{"title":"画像 トリミング – 写真を無料でオンライン切り抜き（JPG・PNG・WebP）","h1":"画像トリミング","line":"必要な部分だけ切り抜く","description":"無料で画像をトリミング。写真の上をドラッグして範囲を決め、1:1 や 16:9 などの比率を固定して JPG・PNG・WebP でダウンロード。複数枚まとめて処理できます。ブラウザ内で処理するためファイルはアップロードされません。","buttonText":"画像を選択","runText":"切り抜く","resultName":"トリミング","options":{"ratio":{"label":"比率","help":"枠の形を固定します。自由なら好きな大きさで選べます。","choices":{"free":"自由","1:1":"1:1 正方形","4:3":"4:3","16:9":"16:9","3:4":"3:4","9:16":"9:16"}},"crop":{"label":"切り抜く範囲","help":"画像上をドラッグするか、角を引いて調整します。複数枚の場合は同じ相対位置が各画像に適用されます。"},"format":{"label":"保存形式","help":"元のままなら PNG は PNG、JPG は JPG で保存します。","choices":{"keep":"元のまま","jpg":"JPG","png":"PNG"}}},"faq":[["複数枚をまとめて切り抜けますか？","はい。1枚目で範囲を決めると、同じ相対位置がすべての画像に適用されます。1枚ずつ、または ZIP でダウンロードできます。"],["画像はアップロードされますか？","いいえ。各画像は端末のブラウザ内で切り抜かれ、サーバーには送信されません。"]]}};</script>
-<script src="/image/img-tools.js?v=84ede4066a" defer></script>
+<script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/image-crop.js?v=5bbe976e95" defer></script>
 

@@ -586,7 +586,27 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
   body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
   body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
 }
-@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}
+
+body[data-image-tool="image-compress"] .target-select{display:none}
+@media(max-width:767.98px){
+ body[data-image-tool="image-compress"] .tool-head{margin:6px 0 12px}
+ body[data-image-tool="image-compress"] .tool-head .lead{font-size:14px;line-height:1.5}
+ body[data-image-tool="image-compress"] .image-workbench{gap:10px}
+ body[data-image-tool="image-compress"] #opts{padding:12px;gap:8px}
+ body[data-image-tool="image-compress"] .opts#opts .opt-target-kb>.opt-label{flex:1 1 100px}
+ body[data-image-tool="image-compress"] .stage-in .drop{padding:16px 12px}
+ body[data-image-tool="image-compress"] .target-select{display:block;min-height:44px;max-width:100%}
+ body[data-image-tool="image-compress"] .target-presets{display:none}
+ body[data-image-tool="image-compress"] .opt-number:not(.target-custom) .num-wrap{display:none}
+ body[data-image-tool="image-compress"] .compress-sample{display:flex;justify-content:center;gap:0;padding:0;margin:8px 0 0;border:0;background:none}
+ body[data-image-tool="image-compress"].has-input .compress-sample{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>div{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>img{display:none}
+ body[data-image-tool="image-compress"] .compress-sample p{display:none}
+ body[data-image-tool="image-compress"] .compress-sample button{width:auto}
+ body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
+}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"JPG para WebP","url":"https://parkbok.com/image/jpg-to-webp/pt/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"pt","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Converta JPG ou PNG para WebP grátis e online. Adicione uma ou várias imagens, escolha a qualidade e baixe WebP menores para sites mais rápidos. Funciona no navegador: nada é enviado."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"Ferramentas de imagem","item":"https://parkbok.com/image/pt/"},{"@type":"ListItem","position":3,"name":"JPG para WebP","item":"https://parkbok.com/image/jpg-to-webp/pt/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Por que usar WebP?","acceptedAnswer":{"@type":"Answer","text":"Os WebP costumam ser 25–35% menores que o JPG na mesma qualidade e mantêm a transparência do PNG, então as páginas carregam mais rápido."}},{"@type":"Question","name":"Minhas imagens são enviadas?","acceptedAnswer":{"@type":"Answer","text":"Não. Cada imagem é convertida no seu dispositivo pelo navegador e nunca vai para um servidor."}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="jpg-to-webp">
@@ -657,7 +677,7 @@ Feitas pelo PARKBOK Studio.</p>
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"Português","dir":"ltr","selectImages":"Escolher imagens","dropText":"ou arraste as imagens para cá · colar também funciona","addMore":"Adicionar mais","remove":"Remover","filesCount":"{n} imagens","fileCount":"1 imagem","processing":"Processando…","done":"Pronto","download":"Baixar","downloadAll":"Baixar ZIP","startOver":"Recomeçar","errorType":"Só são aceitas imagens {type}.","errorBroken":"O arquivo está danificado ou não é uma imagem compatível.","errorEmpty":"Escolha pelo menos {n} imagem(ns).","errorHeic":"Não foi possível abrir este arquivo HEIC.","errorGeneric":"Algo deu errado. Tente com outra imagem.","before":"Original","after":"Resultado","saved":"economia de {p}%","quality":"Qualidade","width":"Largura","height":"Altura","keepRatio":"Manter proporção","images":"{n} imagens","imageN":"Imagem {n}","selected":"{n} selecionadas","moreImages":"+{n} imagens (sem prévia)","selectAll":"Selecionar tudo","clearAll":"Limpar tudo","moveLeft":"Mover para a esquerda","moveRight":"Mover para a direita","moveUp":"Subir","moveDown":"Descer","rotate":"Girar","delete":"Excluir","restore":"Restaurar","dragHint":"Arraste sobre a imagem para escolher uma área","regions":"{n} áreas","reset":"Redefinir","drawHere":"Desenhe aqui","upload":"Enviar PNG","clear":"Apagar","language":"Idioma","loadingLib":"Carregando…","preview":"Prévia","compressUploadHint":"JPG · PNG · WebP · Várias imagens de uma vez · Processamento no seu dispositivo","localProcessingHint":"As imagens são processadas apenas no seu dispositivo.","targetSummary":"Meta por imagem: {target}","removeFileLabel":"Remover {name}","moveFileUpLabel":"Mover {name} para cima","moveFileDownLabel":"Mover {name} para baixo","downloadFileLabel":"Baixar {name}","targetFilePassed":"Dentro da meta","targetFileExceeded":"Acima da meta","targetFileNotRequested":"Sem limite de tamanho","aboutLine":"Suas imagens são processadas no seu dispositivo e nunca são enviadas a um servidor.","aboutTitle":"Como funciona","nextTools":"Próximas ferramentas"};window.IMGT_TOOL={"id":"jpg-to-webp","lang":"pt","langUrls":{"en":"/image/jpg-to-webp/","ko":"/image/jpg-to-webp/ko/","zh":"/image/jpg-to-webp/zh/","ja":"/image/jpg-to-webp/ja/","es":"/image/jpg-to-webp/es/","pt":"/image/jpg-to-webp/pt/","de":"/image/jpg-to-webp/de/","fr":"/image/jpg-to-webp/fr/"},"next":[{"id":"webp-to-jpg","url":"/image/webp-to-jpg/pt/","h1":"WebP para JPG"},{"id":"image-compress","url":"/image/image-compress/pt/","h1":"Comprimir imagem"},{"id":"png-to-jpg","url":"/image/png-to-jpg/pt/","h1":"PNG para JPG"},{"id":"jpg-to-png","url":"/image/jpg-to-png/pt/","h1":"JPG para PNG"},{"id":"heic-to-jpg","url":"/image/heic-to-jpg/pt/","h1":"HEIC para JPG"}],"strings":{"title":"JPG para WebP – Converter imagens JPG e PNG em WebP grátis online","h1":"JPG para WebP","line":"JPG e PNG em WebP leve","description":"Converta JPG ou PNG para WebP grátis e online. Adicione uma ou várias imagens, escolha a qualidade e baixe WebP menores para sites mais rápidos. Funciona no navegador: nada é enviado.","buttonText":"Escolher imagens","runText":"Converter","resultName":"imagens-webp","options":{"quality":{"label":"Qualidade","help":"Mais qualidade mantém mais detalhes, mas gera um arquivo maior. Com 85 fica quase igual ao original."}},"errors":{"noWebp":"Este navegador não consegue criar imagens WebP. Tente Chrome, Edge, Firefox ou um Safari recente."},"faq":[["Por que usar WebP?","Os WebP costumam ser 25–35% menores que o JPG na mesma qualidade e mantêm a transparência do PNG, então as páginas carregam mais rápido."],["Minhas imagens são enviadas?","Não. Cada imagem é convertida no seu dispositivo pelo navegador e nunca vai para um servidor."]]}};</script>
-<script src="/image/img-tools.js?v=84ede4066a" defer></script>
+<script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/jpg-to-webp.js?v=d1b2d99084" defer></script>
 

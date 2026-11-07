@@ -151,7 +151,7 @@ test('invalid explicit targets reject before run decoding or encoding',async t=>
   });
 });
 test('custom target input preserves badInput as invalid rather than disabling the goal',()=>{
-  const nodes=[],row={classList:{add(){}},appendChild(){}},api={el(tag){const n={tag,style:{},dataset:{},children:[],appendChild(child){this.children.push(child);},setAttribute(){},addEventListener(){}};nodes.push(n);return n;},optStr(){return '';},onChange(){},set(_id,get){this.get=get;}};
+  const nodes=[],row={classList:{add(){},toggle(){}},appendChild(){}},api={el(tag){const n={tag,style:{},dataset:{},children:[],appendChild(child){this.children.push(child);},setAttribute(){},addEventListener(){}};nodes.push(n);return n;},optStr(){return '';},onChange(){},set(_id,get){this.get=get;}};
   tool.renderers['target-kb']({id:'maxKb'},row,api);
   const input=nodes.find(n=>n.tag==='input');input.value='';input.validity={badInput:true};
   assert.ok(Number.isNaN(api.get()));assert.equal(tool.parseOpts({maxKb:api.get()}).validTarget,false);

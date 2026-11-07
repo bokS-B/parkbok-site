@@ -586,7 +586,27 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
   body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
   body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
 }
-@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}
+
+body[data-image-tool="image-compress"] .target-select{display:none}
+@media(max-width:767.98px){
+ body[data-image-tool="image-compress"] .tool-head{margin:6px 0 12px}
+ body[data-image-tool="image-compress"] .tool-head .lead{font-size:14px;line-height:1.5}
+ body[data-image-tool="image-compress"] .image-workbench{gap:10px}
+ body[data-image-tool="image-compress"] #opts{padding:12px;gap:8px}
+ body[data-image-tool="image-compress"] .opts#opts .opt-target-kb>.opt-label{flex:1 1 100px}
+ body[data-image-tool="image-compress"] .stage-in .drop{padding:16px 12px}
+ body[data-image-tool="image-compress"] .target-select{display:block;min-height:44px;max-width:100%}
+ body[data-image-tool="image-compress"] .target-presets{display:none}
+ body[data-image-tool="image-compress"] .opt-number:not(.target-custom) .num-wrap{display:none}
+ body[data-image-tool="image-compress"] .compress-sample{display:flex;justify-content:center;gap:0;padding:0;margin:8px 0 0;border:0;background:none}
+ body[data-image-tool="image-compress"].has-input .compress-sample{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>div{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>img{display:none}
+ body[data-image-tool="image-compress"] .compress-sample p{display:none}
+ body[data-image-tool="image-compress"] .compress-sample button{width:auto}
+ body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
+}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"印章去背景","url":"https://parkbok.com/image/stamp-background/zh/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"zh-Hans","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"去除红色印章、印鉴或手写签名照片/扫描件的纸张背景，保存为透明 PNG 电子印章。自动识别红色印章，也可选深色墨水或指定颜色，可调阈值、自动裁剪并输出 300/500 像素正方形。免费，在浏览器中处理，不上传文件。"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"图片工具","item":"https://parkbok.com/image/zh/"},{"@type":"ListItem","position":3,"name":"印章去背景","item":"https://parkbok.com/image/stamp-background/zh/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"如何制作透明印章图片？","acceptedAnswer":{"@type":"Answer","text":"在白纸上盖章，在光线均匀、无阴影处拍照或扫描。放入图片，选择红色印章，看着棋盘格预览调整阈值，然后下载 PNG。纸张部分会变透明，可放在任何文档上。"}},{"@type":"Question","name":"如何放进 Word 或电子合同？","acceptedAnswer":{"@type":"Answer","text":"以图片方式插入 PNG，并把文字环绕设为“浮于文字上方”，即可叠放在姓名上。多数电子签名服务支持上传 PNG 印章，300 或 500 像素正方形较方便。"}},{"@type":"Question","name":"使用印章图片要注意什么？","acceptedAnswer":{"@type":"Answer","text":"本工具只编辑图片。印章图片是否有效取决于文件和对方的要求。请妥善保管文件，不要把正式印鉴图片发给陌生人；需要时请使用正式的电子签名服务。"}},{"@type":"Question","name":"我的图片会被上传吗？","acceptedAnswer":{"@type":"Answer","text":"不会。所有处理都在您设备的浏览器中完成，不会发送到服务器。"}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="stamp-background">
@@ -657,7 +677,7 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"中文","dir":"ltr","selectImages":"选择图片","dropText":"或将图片拖到这里 · 也支持粘贴","addMore":"继续添加","remove":"移除","filesCount":"{n} 张图片","fileCount":"1 张图片","processing":"处理中…","done":"完成","download":"下载","downloadAll":"下载 ZIP","startOver":"重新开始","errorType":"仅支持 {type} 图片。","errorBroken":"文件已损坏或不是支持的图片格式。","errorEmpty":"请至少选择 {n} 张图片。","errorHeic":"无法打开此 HEIC 文件。","errorGeneric":"处理失败，请换一张图片重试。","before":"原始","after":"结果","saved":"节省 {p}%","quality":"质量","width":"宽度","height":"高度","keepRatio":"保持比例","images":"{n} 张","imageN":"第 {n} 张","selected":"已选 {n} 张","moreImages":"还有 {n} 张（无预览）","selectAll":"全选","clearAll":"全部清除","moveLeft":"左移","moveRight":"右移","moveUp":"上移","moveDown":"下移","rotate":"旋转","delete":"删除","restore":"恢复","dragHint":"在图片上拖动以选择区域","regions":"{n} 个区域","reset":"重置","drawHere":"在此绘制","upload":"上传 PNG","clear":"清除","language":"语言","loadingLib":"加载中…","preview":"预览","compressUploadHint":"JPG · PNG · WebP · 可多选图片 · 在设备上处理","localProcessingHint":"图片只在您的设备上处理。","targetSummary":"每张图片的目标：{target}","removeFileLabel":"移除 {name}","moveFileUpLabel":"将 {name} 上移","moveFileDownLabel":"将 {name} 下移","downloadFileLabel":"下载 {name}","targetFilePassed":"符合大小目标","targetFileExceeded":"超出大小目标","targetFileNotRequested":"不限制大小","aboutLine":"图片只在您的设备上处理，不会上传到任何服务器。","aboutTitle":"使用方法","nextTools":"下一步工具"};window.IMGT_TOOL={"id":"stamp-background","lang":"zh","langUrls":{"en":"/image/stamp-background/","ko":"/image/stamp-background/ko/","zh":"/image/stamp-background/zh/","ja":"/image/stamp-background/ja/","es":"/image/stamp-background/es/","pt":"/image/stamp-background/pt/","de":"/image/stamp-background/de/","fr":"/image/stamp-background/fr/"},"next":[{"id":"image-crop","url":"/image/image-crop/zh/","h1":"图片裁剪"},{"id":"image-resize","url":"/image/image-resize/zh/","h1":"调整图片大小"},{"id":"passport-photo","url":"/image/passport-photo/zh/","h1":"护照照片 尺寸"},{"id":"png-to-jpg","url":"/image/png-to-jpg/zh/","h1":"PNG 转 JPG"},{"id":"jpg-to-png","url":"/image/jpg-to-png/zh/","h1":"JPG 转 PNG"}],"strings":{"title":"印章去背景 – 制作透明电子印章、签名 PNG 免费在线","h1":"印章去背景","line":"上传红色印章或签名照片，去掉纸张背景，得到透明 PNG。","description":"去除红色印章、印鉴或手写签名照片/扫描件的纸张背景，保存为透明 PNG 电子印章。自动识别红色印章，也可选深色墨水或指定颜色，可调阈值、自动裁剪并输出 300/500 像素正方形。免费，在浏览器中处理，不上传文件。","buttonText":"选择印章图片","runText":"去除背景","resultName":"透明印章","fileSuffix":"透明","noteSize":"{w}×{h} 像素透明 PNG。","noteCount":"已生成 {n} 张透明 PNG。","noteEmpty":"{n} 张图片未找到墨迹。请提高阈值或直接选择墨水颜色。","errorTooBig":"图片太大，无法处理（超过 16384 像素）。","needsRerun":"设置已更改，请重新运行。","options":{"preview":{"label":"预览","help":"棋盘格 = 透明部分。点击预览可把该处颜色设为墨水颜色。"},"mode":{"label":"墨水","help":"红色印章只保留印泥颜色，去掉黑色文字和纸张。钢笔或黑色签名请选深色墨水。","choices":{"red":"红色印章（自动）","dark":"深色墨水/签名","custom":"指定颜色"}},"color":{"label":"墨水颜色","help":"点击预览或在此选择印章颜色。"},"tolerance":{"label":"阈值","help":"调高可保留较淡的印泥，但可能留下纸张污渍；调低背景更干净。"},"crop":{"label":"自动裁剪到印章（留少量边距）","help":""},"size":{"label":"输出尺寸","help":"正方形尺寸会把印章居中放在透明画布上。","choices":{"300":"300×300 像素","500":"500×500 像素","original":"原始尺寸"}}},"faq":[["如何制作透明印章图片？","在白纸上盖章，在光线均匀、无阴影处拍照或扫描。放入图片，选择红色印章，看着棋盘格预览调整阈值，然后下载 PNG。纸张部分会变透明，可放在任何文档上。"],["如何放进 Word 或电子合同？","以图片方式插入 PNG，并把文字环绕设为“浮于文字上方”，即可叠放在姓名上。多数电子签名服务支持上传 PNG 印章，300 或 500 像素正方形较方便。"],["使用印章图片要注意什么？","本工具只编辑图片。印章图片是否有效取决于文件和对方的要求。请妥善保管文件，不要把正式印鉴图片发给陌生人；需要时请使用正式的电子签名服务。"],["我的图片会被上传吗？","不会。所有处理都在您设备的浏览器中完成，不会发送到服务器。"]]}};</script>
-<script src="/image/img-tools.js?v=84ede4066a" defer></script>
+<script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/stamp-background.js?v=d4eee5a75d" defer></script>
 

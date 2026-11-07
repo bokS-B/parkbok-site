@@ -65,7 +65,10 @@
         var wrap = api.el('span', 'num-wrap'); wrap.appendChild(input); wrap.appendChild(api.el('span', 'num-unit', 'KB')); row.appendChild(wrap);
         var presets = api.el('div', 'target-presets'); presets.setAttribute('role', 'group'); presets.setAttribute('aria-label', api.optStr(o.id, 'label'));
         var korean = api.lang === 'ko';
-        (korean ? [100, 20, 50, 200, 500, 0] : [0, 20, 50, 100, 200, 500]).forEach(function(kb){
+        var customEditing = false;
+        var values = korean ? [100, 20, 50, 200, 500, 0] : [0, 20, 50, 100, 200, 500];
+        var select = api.el('select', 'target-select'); select.setAttribute('aria-label', api.optStr(o.id, 'label'));
+        values.forEach(function(kb){
           var unlimited = api.t ? api.t('targetUnlimited') : 'targetUnlimited';
           if (unlimited === 'targetUnlimited') unlimited = api.lang === 'ko' ? '제한 없음' : 'No size limit';
           var label = kb === 0 ? unlimited : kb + ' KB';
@@ -73,13 +76,28 @@
             label = api.t ? api.t('targetUnder100') : 'targetUnder100';
             if (label === 'targetUnder100') label = '100KB 이하';
           }
+          var option = api.el('option', '', label); option.value = String(kb); select.appendChild(option);
           var button = api.el('button', 'chip target-preset', label); button.type = 'button'; button.dataset.targetKb = kb;
-          button.addEventListener('click', function(){ if (api.busy()) return; input.value = kb; sync(); api.changed(); }); presets.appendChild(button);
+          button.addEventListener('click', function(){ if (api.busy()) return; customEditing = false; input.value = kb; sync(); api.changed(); }); presets.appendChild(button);
         });
-        function sync(){ Array.prototype.forEach.call(presets.children, function(b){ b.setAttribute('aria-pressed', String(Number(b.dataset.targetKb) === Number(input.value))); }); }
-        input.addEventListener('input', sync); api.onChange(sync); sync(); row.appendChild(presets);
+        var custom = api.t ? api.t('targetCustom') : 'targetCustom';
+        if (custom === 'targetCustom') custom = 'Custom';
+        var customOption = api.el('option', '', custom); customOption.value = 'custom'; select.appendChild(customOption); row.appendChild(select);
+        function sync(){
+          var raw = String(input.value), match = raw !== '' && !(input.validity && input.validity.badInput) && values.indexOf(Number(raw)) !== -1;
+          Array.prototype.forEach.call(presets.children, function(b){ b.setAttribute('aria-pressed', String(match && Number(b.dataset.targetKb) === Number(raw))); });
+          select.value = match && !customEditing ? String(Number(raw)) : 'custom'; row.classList.toggle('target-custom', !match || customEditing);
+        }
+        // Native selects emit input before change; keep the engine from restoring the old value between them.
+        select.addEventListener('input', function(event){ event.stopPropagation(); });
+        select.addEventListener('change', function(){
+          if (api.busy()) { sync(); return; }
+          if (select.value === 'custom') { customEditing = true; row.classList.add('target-custom'); input.focus(); return; }
+          customEditing = false; input.value = select.value; sync(); api.changed();
+        });
+        input.addEventListener('input', function(){ customEditing = true; sync(); }); api.onChange(sync); sync(); row.appendChild(presets);
         // Unlike the generic number renderer, this type gets a persistent help row from the engine.
-        api.set(o.id, function(){ return input.validity && input.validity.badInput ? NaN : Number(input.value); }, function(v){ input.value = v; });
+        api.set(o.id, function(){ return input.validity && input.validity.badInput ? NaN : Number(input.value); }, function(v){ customEditing = false; input.value = v; sync(); });
       }
     },
     options: [

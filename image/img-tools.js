@@ -1048,10 +1048,15 @@
     setStatus(resultWarning ? resultWarning.message : t('done'), resultWarning ? 'err' : 'ok');
     try { dom.out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
   }
+  function focusCompressionTarget(){
+    var target = dom.opts.querySelector('#opt-maxKb');
+    if (target && target.offsetParent === null) target = dom.opts.querySelector('.target-select');
+    if (target) target.focus();
+  }
   function onPrimary(){
     if (busy) return;
     if (!outputs.length) { run(); return; }
-    if (isCompression() && resultWarning) { var target = dom.opts.querySelector('#opt-maxKb'); if (target) target.focus(); return; }
+    if (isCompression() && resultWarning) { focusCompressionTarget(); return; }
     if (outputs.length === 1) download(outputs[0]); else downloadZip();
   }
   function onWarningDownload(){
@@ -1075,7 +1080,7 @@
     if (files.length) afterInput();
     else { dom.opts.hidden = false; dom.result.hidden = true; dom.result.innerHTML = ''; dom.primary.disabled = true; }
     setStatus(ui('resetRestored'), 'empty');
-    if (files.length) dom.primary.focus(); else { var target = dom.opts.querySelector('#opt-maxKb'); if (target) target.focus(); }
+    if (files.length) dom.primary.focus(); else focusCompressionTarget();
   }
   function reset(allowUndo){
     if (busy) return;

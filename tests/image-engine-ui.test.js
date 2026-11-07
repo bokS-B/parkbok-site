@@ -239,6 +239,9 @@ test('an over-limit primary action focuses the target and the separate warning a
   assert.equal(w.ids['btn-primary'].getAttribute('data-warning'), ''); w.ids['btn-primary'].click();
   assert.deepEqual(w.doc.downloads, []);
   assert.ok(w.doc.activeElement === w.getOption('maxKb').querySelector('input'));
+  w.getOption('maxKb').querySelector('input').offsetParent = null;
+  w.ids['btn-primary'].click();
+  assert.ok(w.doc.activeElement === w.getOption('maxKb').querySelector('select'));
   assert.equal(w.ids['btn-download-warning'].hidden, false); w.ids['btn-download-warning'].click();
   assert.deepEqual(w.doc.downloads, ['image-1.jpg']);
 });
@@ -504,4 +507,21 @@ test('a Korean custom target overrides its URL seed and survives the first file 
   assert.ok(row.querySelectorAll('button').every(button => button.getAttribute('aria-pressed') === 'false'));
   await w.add(file('custom-target.jpg')); assert.ok(w.getOption('maxKb').querySelector('input') === input);
   assert.equal(w.getValues().maxKb, '137'); await w.run(); assert.equal(w.lastOptions().maxKb, 137);
+});
+
+test('mobile target select synchronizes presets, custom values and result invalidation', async () => {
+  const w = world({ lang: 'ko', search: '?maxKb=190' }), row = w.getOption('maxKb');
+  const select = row.querySelector('select'), input = row.querySelector('input');
+  assert.equal(select.value, 'custom'); assert.ok(row.classList.contains('target-custom'));
+  select.value = '200'; select.dispatch('input'); select.dispatch('change'); assert.equal(input.value, '200');
+  assert.equal(select.value, '200'); assert.equal(row.classList.contains('target-custom'), false);
+  await w.add(file('photo.jpg')); await w.run();
+  select.value = '20'; select.dispatch('input'); select.dispatch('change'); assert.equal(w.getValues().maxKb, '20');
+  assert.equal(w.ids.result.hidden, true);
+  select.value = 'custom'; select.dispatch('input'); select.dispatch('change'); assert.ok(row.classList.contains('target-custom'));
+  input.value = '0'; input.dispatch('input'); assert.equal(select.value, 'custom');
+  assert.ok(row.classList.contains('target-custom'));
+  input.value = '190'; input.dispatch('input'); assert.equal(w.getValues().maxKb, '190');
+  row.querySelectorAll('button').find(b => Number(b.dataset.targetKb) === 0).click();
+  assert.equal(select.value, '0'); assert.equal(row.classList.contains('target-custom'), false);
 });

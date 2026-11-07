@@ -586,7 +586,27 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
   body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
   body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
 }
-@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}
+
+body[data-image-tool="image-compress"] .target-select{display:none}
+@media(max-width:767.98px){
+ body[data-image-tool="image-compress"] .tool-head{margin:6px 0 12px}
+ body[data-image-tool="image-compress"] .tool-head .lead{font-size:14px;line-height:1.5}
+ body[data-image-tool="image-compress"] .image-workbench{gap:10px}
+ body[data-image-tool="image-compress"] #opts{padding:12px;gap:8px}
+ body[data-image-tool="image-compress"] .opts#opts .opt-target-kb>.opt-label{flex:1 1 100px}
+ body[data-image-tool="image-compress"] .stage-in .drop{padding:16px 12px}
+ body[data-image-tool="image-compress"] .target-select{display:block;min-height:44px;max-width:100%}
+ body[data-image-tool="image-compress"] .target-presets{display:none}
+ body[data-image-tool="image-compress"] .opt-number:not(.target-custom) .num-wrap{display:none}
+ body[data-image-tool="image-compress"] .compress-sample{display:flex;justify-content:center;gap:0;padding:0;margin:8px 0 0;border:0;background:none}
+ body[data-image-tool="image-compress"].has-input .compress-sample{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>div{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>img{display:none}
+ body[data-image-tool="image-compress"] .compress-sample p{display:none}
+ body[data-image-tool="image-compress"] .compress-sample button{width:auto}
+ body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
+}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"이미지 크기 조절","url":"https://parkbok.com/image/image-resize/ko/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"JPG·PNG·WebP·HEIC를 여러 장 넣고 퍼센트 또는 가로·세로 픽셀과 저장 형식을 정해 크기를 바꿉니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"이미지 도구","item":"https://parkbok.com/image/ko/"},{"@type":"ListItem","position":3,"name":"이미지 크기 조절","item":"https://parkbok.com/image/image-resize/ko/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"이미지가 흐려지나요?","acceptedAnswer":{"@type":"Answer","text":"축소는 단계적으로 줄여 사진이 선명하게 유지됩니다. 100% 를 넘는 확대는 없는 세부를 만들 수 없어 크게 키울수록 부드러워집니다."}},{"@type":"Question","name":"이미지가 업로드되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 각 이미지는 내 기기의 브라우저 안에서 처리되며 서버로 전송되지 않습니다."}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="image-resize">
@@ -657,7 +677,7 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"한국어","dir":"ltr","selectImages":"이미지 선택","dropText":"또는 여기에 끌어다 놓기 · 붙여넣기도 됩니다","addMore":"더 추가","remove":"삭제","filesCount":"이미지 {n}장","fileCount":"이미지 1장","processing":"처리 중…","done":"완료","download":"내려받기","downloadAll":"ZIP 내려받기","startOver":"다시 시작","errorType":"{type} 이미지만 넣을 수 있습니다.","errorBroken":"파일이 손상되었거나 지원하는 이미지가 아닙니다.","errorEmpty":"이미지를 {n}장 이상 넣어 주세요.","errorHeic":"이 HEIC 파일을 열지 못했습니다.","errorGeneric":"처리에 실패했습니다. 다른 이미지로 다시 시도해 주세요.","before":"원본","after":"결과","saved":"{p}% 절감","quality":"품질","width":"가로","height":"세로","keepRatio":"비율 유지","images":"{n}장","imageN":"{n}번째","selected":"{n}장 선택","moreImages":"+{n}장 더 (미리보기 없음)","selectAll":"전체 선택","clearAll":"모두 지우기","moveLeft":"왼쪽으로","moveRight":"오른쪽으로","moveUp":"위로","moveDown":"아래로","rotate":"회전","delete":"삭제","restore":"되돌리기","dragHint":"이미지 위를 드래그해 영역을 정하세요","regions":"영역 {n}개","reset":"초기화","drawHere":"여기에 그리세요","upload":"PNG 올리기","clear":"지우기","language":"언어","loadingLib":"불러오는 중…","preview":"미리보기","compressUploadHint":"JPG · PNG · WebP · 여러 장 선택 가능 · 내 기기에서 처리","localProcessingHint":"이미지는 내 기기 안에서만 처리합니다.","targetSummary":"이미지당 목표: {target}","removeFileLabel":"{name} 삭제","moveFileUpLabel":"{name} 위로 이동","moveFileDownLabel":"{name} 아래로 이동","downloadFileLabel":"{name} 내려받기","targetFilePassed":"목표 용량 충족","targetFileExceeded":"목표 용량 초과","targetFileNotRequested":"용량 제한 없음","aboutLine":"이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.","aboutTitle":"사용 방법","nextTools":"다음 도구"};window.IMGT_TOOL={"id":"image-resize","lang":"ko","langUrls":{"en":"/image/image-resize/","ko":"/image/image-resize/ko/","zh":"/image/image-resize/zh/","ja":"/image/image-resize/ja/","es":"/image/image-resize/es/","pt":"/image/image-resize/pt/","de":"/image/image-resize/de/","fr":"/image/image-resize/fr/"},"next":[{"id":"image-compress","url":"/image/image-compress/ko/","h1":"이미지 압축"},{"id":"product-image-size","url":"/image/product-image-size/ko/","h1":"쇼핑몰 상품 이미지 규격"},{"id":"image-crop","url":"/image/image-crop/ko/","h1":"이미지 자르기"},{"id":"png-to-jpg","url":"/image/png-to-jpg/ko/","h1":"PNG JPG 변환"},{"id":"jpg-to-png","url":"/image/jpg-to-png/ko/","h1":"JPG PNG 변환"}],"strings":{"title":"이미지 크기 조절 – 픽셀·퍼센트로 사진 크기 변경 무료 온라인","h1":"이미지 크기 조절","line":"이미지를 넣고 퍼센트나 가로·세로 픽셀을 정해 크기 바꾼 파일을 내려받으세요.","description":"JPG·PNG·WebP·HEIC를 여러 장 넣고 퍼센트 또는 가로·세로 픽셀과 저장 형식을 정해 크기를 바꿉니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다.","buttonText":"이미지 선택","runText":"크기 변경","resultName":"크기조절","noteSize":"{w}×{h} → {tw}×{th} px","noteCount":"{n}장의 크기를 바꿨습니다.","errorNoSize":"가로나 세로를 입력해 주세요.","errorTooBig":"결과가 너무 큽니다(16384px 초과).","options":{"mode":{"label":"조절 방식","help":"퍼센트는 모든 이미지를 같은 비율로 줄입니다. 픽셀은 정확한 크기를 정합니다.","choices":{"percent":"퍼센트","pixel":"픽셀"}},"percent":{"label":"비율","help":"50% 면 가로·세로가 절반이 됩니다. 100% 를 넘기면 확대됩니다."},"width":{"label":"가로","help":"가로 px"},"height":{"label":"세로","help":"세로 px"},"keepRatio":{"label":"비율 유지","help":"한쪽만 넣으면 다른 쪽은 자동 계산됩니다. 둘 다 넣으면 그 상자 안에 맞춥니다."},"format":{"label":"저장 형식","help":"형식 유지는 원본 형식을 따릅니다. HEIC 는 JPG 로 저장됩니다.","choices":{"keep":"형식 유지","jpg":"JPG","png":"PNG","webp":"WebP"}}},"faq":[["이미지가 흐려지나요?","축소는 단계적으로 줄여 사진이 선명하게 유지됩니다. 100% 를 넘는 확대는 없는 세부를 만들 수 없어 크게 키울수록 부드러워집니다."],["이미지가 업로드되나요?","아니요. 각 이미지는 내 기기의 브라우저 안에서 처리되며 서버로 전송되지 않습니다."]]}};</script>
-<script src="/image/img-tools.js?v=84ede4066a" defer></script>
+<script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/image-resize.js?v=ddd4545591" defer></script>
 

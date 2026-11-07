@@ -586,7 +586,27 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
   body[data-image-tool="image-compress"] #btn-download-warning:not([hidden]){flex:1 1 100%}
   body[data-image-tool="image-compress"] .next{flex-wrap:wrap;overflow:visible}
 }
-@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}</style>
+@media(max-width:359.98px){body[data-image-tool="image-compress"] .result-grid{grid-template-columns:1fr}}
+
+body[data-image-tool="image-compress"] .target-select{display:none}
+@media(max-width:767.98px){
+ body[data-image-tool="image-compress"] .tool-head{margin:6px 0 12px}
+ body[data-image-tool="image-compress"] .tool-head .lead{font-size:14px;line-height:1.5}
+ body[data-image-tool="image-compress"] .image-workbench{gap:10px}
+ body[data-image-tool="image-compress"] #opts{padding:12px;gap:8px}
+ body[data-image-tool="image-compress"] .opts#opts .opt-target-kb>.opt-label{flex:1 1 100px}
+ body[data-image-tool="image-compress"] .stage-in .drop{padding:16px 12px}
+ body[data-image-tool="image-compress"] .target-select{display:block;min-height:44px;max-width:100%}
+ body[data-image-tool="image-compress"] .target-presets{display:none}
+ body[data-image-tool="image-compress"] .opt-number:not(.target-custom) .num-wrap{display:none}
+ body[data-image-tool="image-compress"] .compress-sample{display:flex;justify-content:center;gap:0;padding:0;margin:8px 0 0;border:0;background:none}
+ body[data-image-tool="image-compress"].has-input .compress-sample{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>div{display:none}
+ body[data-image-tool="image-compress"] .compress-sample>img{display:none}
+ body[data-image-tool="image-compress"] .compress-sample p{display:none}
+ body[data-image-tool="image-compress"] .compress-sample button{width:auto}
+ body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
+}</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"图片裁剪","url":"https://parkbok.com/image/image-crop/zh/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"zh-Hans","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"免费在线图片裁剪。在图片上拖出区域，可锁定 1:1、16:9 等比例，然后下载裁剪后的 JPG、PNG 或 WebP。支持多张同时处理。全部在浏览器中完成，不上传任何文件。"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"图片工具","item":"https://parkbok.com/image/zh/"},{"@type":"ListItem","position":3,"name":"图片裁剪","item":"https://parkbok.com/image/image-crop/zh/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"可以一次裁剪多张图片吗？","acceptedAnswer":{"@type":"Answer","text":"可以。在第一张图片上确定区域后，相同的相对区域会应用到每一张图片。可以逐张下载或打包为 ZIP。"}},{"@type":"Question","name":"我的图片会被上传吗？","acceptedAnswer":{"@type":"Answer","text":"不会。每张图片都在您的设备上由浏览器裁剪，不会发送到任何服务器。"}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="image-crop">
@@ -657,7 +677,7 @@ body[data-image-tool="image-compress"] .next-label{display:block;flex-basis:100%
 </div></footer>
 <!-- /shell:footer -->
 <script>window.IMGT_STRINGS={"name":"中文","dir":"ltr","selectImages":"选择图片","dropText":"或将图片拖到这里 · 也支持粘贴","addMore":"继续添加","remove":"移除","filesCount":"{n} 张图片","fileCount":"1 张图片","processing":"处理中…","done":"完成","download":"下载","downloadAll":"下载 ZIP","startOver":"重新开始","errorType":"仅支持 {type} 图片。","errorBroken":"文件已损坏或不是支持的图片格式。","errorEmpty":"请至少选择 {n} 张图片。","errorHeic":"无法打开此 HEIC 文件。","errorGeneric":"处理失败，请换一张图片重试。","before":"原始","after":"结果","saved":"节省 {p}%","quality":"质量","width":"宽度","height":"高度","keepRatio":"保持比例","images":"{n} 张","imageN":"第 {n} 张","selected":"已选 {n} 张","moreImages":"还有 {n} 张（无预览）","selectAll":"全选","clearAll":"全部清除","moveLeft":"左移","moveRight":"右移","moveUp":"上移","moveDown":"下移","rotate":"旋转","delete":"删除","restore":"恢复","dragHint":"在图片上拖动以选择区域","regions":"{n} 个区域","reset":"重置","drawHere":"在此绘制","upload":"上传 PNG","clear":"清除","language":"语言","loadingLib":"加载中…","preview":"预览","compressUploadHint":"JPG · PNG · WebP · 可多选图片 · 在设备上处理","localProcessingHint":"图片只在您的设备上处理。","targetSummary":"每张图片的目标：{target}","removeFileLabel":"移除 {name}","moveFileUpLabel":"将 {name} 上移","moveFileDownLabel":"将 {name} 下移","downloadFileLabel":"下载 {name}","targetFilePassed":"符合大小目标","targetFileExceeded":"超出大小目标","targetFileNotRequested":"不限制大小","aboutLine":"图片只在您的设备上处理，不会上传到任何服务器。","aboutTitle":"使用方法","nextTools":"下一步工具"};window.IMGT_TOOL={"id":"image-crop","lang":"zh","langUrls":{"en":"/image/image-crop/","ko":"/image/image-crop/ko/","zh":"/image/image-crop/zh/","ja":"/image/image-crop/ja/","es":"/image/image-crop/es/","pt":"/image/image-crop/pt/","de":"/image/image-crop/de/","fr":"/image/image-crop/fr/"},"next":[{"id":"image-resize","url":"/image/image-resize/zh/","h1":"调整图片大小"},{"id":"image-rotate","url":"/image/image-rotate/zh/","h1":"图片旋转"},{"id":"image-compress","url":"/image/image-compress/zh/","h1":"图片压缩"},{"id":"stamp-background","url":"/image/stamp-background/zh/","h1":"印章去背景"},{"id":"png-to-jpg","url":"/image/png-to-jpg/zh/","h1":"PNG 转 JPG"}],"strings":{"title":"图片裁剪 – 免费在线裁剪图片（JPG、PNG、WebP）","h1":"图片裁剪","line":"只保留需要的部分","description":"免费在线图片裁剪。在图片上拖出区域，可锁定 1:1、16:9 等比例，然后下载裁剪后的 JPG、PNG 或 WebP。支持多张同时处理。全部在浏览器中完成，不上传任何文件。","buttonText":"选择图片","runText":"裁剪","resultName":"裁剪图片","options":{"ratio":{"label":"比例","help":"将选框锁定为固定形状。自由可拖出任意大小。","choices":{"free":"自由","1:1":"1:1 正方形","4:3":"4:3","16:9":"16:9","3:4":"3:4","9:16":"9:16"}},"crop":{"label":"裁剪区域","help":"在图片上拖动或拉动边角调整。多张图片时，每张都按相同的相对位置裁剪。"},"format":{"label":"输出格式","help":"保持原格式：PNG 仍为 PNG，JPG 仍为 JPG。","choices":{"keep":"保持原格式","jpg":"JPG","png":"PNG"}}},"faq":[["可以一次裁剪多张图片吗？","可以。在第一张图片上确定区域后，相同的相对区域会应用到每一张图片。可以逐张下载或打包为 ZIP。"],["我的图片会被上传吗？","不会。每张图片都在您的设备上由浏览器裁剪，不会发送到任何服务器。"]]}};</script>
-<script src="/image/img-tools.js?v=84ede4066a" defer></script>
+<script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/image-crop.js?v=5bbe976e95" defer></script>
 
