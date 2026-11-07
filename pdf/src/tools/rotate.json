@@ -218,12 +218,12 @@
       ]
     },
     "es": {
-      "title": "Girar PDF – Rotar páginas 90°, 180° o 270° gratis online",
+      "title": "Girar PDF online gratis y guardar los cambios",
       "h1": "Girar PDF",
       "line": "Gira todas las páginas o solo algunas.",
-      "description": "Gira páginas de PDF gratis online. Rota todas, pares, impares o las que elijas 90, 180 o 270 grados y descarga. Todo en tu navegador, sin subir nada.",
+      "description": "Gira una página o todo el PDF y descarga el archivo con la nueva orientación. Elige 90° a la derecha, 90° a la izquierda o 180°. Gratis y sin subir el PDF.",
       "buttonText": "Elegir PDF",
-      "runText": "Girar",
+      "runText": "Girar PDF",
       "resultName": "girado",
       "options": {
         "angle": {
@@ -251,6 +251,10 @@
         "noPages": "Elige al menos una página para girar."
       },
       "faq": [
+        [
+          "¿Cómo giro un PDF y guardo los cambios?",
+          "Elige tu PDF, selecciona el ángulo y las páginas que quieres girar. Pulsa «Girar PDF» y luego «Descargar». El giro se guarda en el PDF descargado y se conserva al abrirlo en otro visor."
+        ],
         [
           "¿Girar reduce la calidad?",
           "No. Solo cambia la orientación de la página; el texto y las imágenes quedan igual."
