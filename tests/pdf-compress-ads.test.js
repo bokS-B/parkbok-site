@@ -22,6 +22,7 @@ function element() {
   return {
     children: [],
     style: {},
+    setAttribute(name, value) { this[name] = value; },
     addEventListener(name, callback) { listeners.set(name, callback); },
     appendChild(child) { this.children.push(child); },
     fire(name) { listeners.get(name)(); }
@@ -30,6 +31,7 @@ function element() {
 
 function setup({ url = page, internal = null, storageBlocked = false, adSlot = slot } = {}) {
   const head = element();
+  const body = element();
   const footer = element();
   const unit = { dataset: { adClient: client, adSlot } };
   const section = {
@@ -41,6 +43,7 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
   };
   const document = {
     head,
+    body,
     createElement: element,
     getElementById(id) { return [section, ...head.children, ...footer.children].find(node => node.id === id); },
     querySelector(selector) { return selector === '.foot-links' ? footer : null; }
@@ -63,6 +66,7 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
   };
   const window = {
     adsbygoogle: ads,
+    frames: {},
     __tcfapi(command, version, callback) {
       assert.equal(command, 'addEventListener');
       assert.equal(version, 2);
@@ -77,13 +81,17 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
       }
     }
   };
-  const context = { window, document, location: new URL(url), URLSearchParams, localStorage };
+  window.top = window;
+  const timers = [];
+  const context = { window, document, location: new URL(url), URLSearchParams, localStorage,
+    setTimeout(callback) { timers.push(callback); } };
   vm.runInNewContext(source, context);
   function signal(key) {
     for (const entry of [...window.googlefc.callbackQueue]) entry[key]?.();
   }
   return {
-    context, window, section, scripts: head.children, loader: head.children[0], footer, queuedPauses,
+    context, window, section, scripts: head.children, loader: head.children[0], footer, queuedPauses, body,
+    runTimers() { for (const callback of timers.splice(0)) callback(); },
     signal, setConsent(next) { values = next; },
     reportTcf(...args) { reportTcf(...args); },
     get revocations() { return revocations; }
@@ -173,6 +181,36 @@ test('keeps ads paused when the loader fails', () => {
   app.loader.fire('error');
   app.signal('CONSENT_MODE_DATA_READY');
   assertPaused(app);
+});
+
+test('starts the account CMP while keeping the single slot paused if AdSense did not start it', () => {
+  const native = setup();
+  native.loader.fire('load');
+  native.runTimers();
+  assert.equal(native.scripts.length, 1);
+
+  for (const [url, suffix] of [[page, ''], [page + '?fc=alwaysshow&fctype=gdpr', '&fc=alwaysshow&fctype=gdpr']]) {
+    const app = setup({ url, internal: suffix ? '1' : null });
+    const tcfApi = app.window.__tcfapi;
+    delete app.window.__tcfapi;
+    app.loader.fire('load');
+    assert.equal(app.scripts.length, 1);
+    app.runTimers();
+    assert.equal(app.scripts.length, 2);
+    assert.equal(app.scripts[1].src, 'https://fundingchoicesmessages.google.com/i/pub-1415309581345613?ers=1' + suffix);
+    assert.equal(app.body.children.length, 1);
+    assert.equal(app.body.children[0].name, 'googlefcPresent');
+    assert.equal(app.body.children[0].hidden, true);
+    assertPaused(app);
+
+    app.window.__tcfapi = tcfApi;
+    app.signal('CONSENT_API_READY');
+    app.reportTcf({ gdprApplies: false, eventStatus: 'tcloaded' }, true);
+    app.setConsent(consent(3, 3, 3));
+    app.signal('CONSENT_MODE_DATA_READY');
+    assert.equal(app.window.adsbygoogle.pauseAdRequests, suffix ? 1 : 0);
+    assert.deepEqual(app.queuedPauses, [1]);
+  }
 });
 
 test('offers a GDPR privacy control and pauses ads before reopening the CMP', () => {

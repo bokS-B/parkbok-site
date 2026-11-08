@@ -24,8 +24,8 @@
 
   const internal = internalVisit();
   const forcedMessage = query.has('fc') || query.has('fctype');
-  const probe = internal === true && (query.get('pb_ad_probe') === '1' ||
-    (query.get('fc') === 'alwaysshow' && query.get('fctype') === 'gdpr'));
+  const forcedPreview = query.get('fc') === 'alwaysshow' && query.get('fctype') === 'gdpr';
+  const probe = internal === true && (query.get('pb_ad_probe') === '1' || forcedPreview);
   if (!probe && (internal !== false || forcedMessage)) return;
 
   let loaderReady = false;
@@ -128,6 +128,26 @@
     } catch (_) { /* Leave the control hidden if the TCF API is unavailable. */ }
   }
 
+  function loadConsentTag() {
+    if (stopped || window.top !== window || window.frames.googlefcPresent ||
+      typeof window.__tcfapi === 'function' || consentReady) return;
+
+    // The account's Google Privacy & messaging tag also starts the certified CMP
+    // when the standard AdSense loader has not started it. Ads stay paused here.
+    const marker = document.createElement('iframe');
+    marker.name = 'googlefcPresent';
+    marker.hidden = true;
+    marker.tabIndex = -1;
+    marker.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(marker);
+
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://fundingchoicesmessages.google.com/i/' + client.slice(3) + '?ers=1';
+    if (probe && forcedPreview) tag.src += '&fc=alwaysshow&fctype=gdpr';
+    document.head.appendChild(tag);
+  }
+
   pauseAds();
   try {
     queueConsent('CONSENT_MODE_DATA_READY', function () {
@@ -160,6 +180,7 @@
   loader.addEventListener('load', function () {
     loaderReady = true;
     requestAd();
+    setTimeout(loadConsentTag, 1500);
   });
   loader.addEventListener('error', function () {
     stopped = true;
