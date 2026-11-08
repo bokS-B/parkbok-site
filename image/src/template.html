@@ -15,7 +15,7 @@
 <body class="page-image" data-image-tool="{{toolId}}">
 {{shell_header}}
 <!-- tool:start -->
-<main class="wrap image-workspace">
+<main class="wrap image-workspace"{{railProtection}}>
   {{crumbs}}
   <div class="tool-head"><h1>{{h1}}</h1><p class="lead">{{line}}</p></div>
   <div class="image-workbench">
@@ -44,13 +44,13 @@
     <summary>{{aboutTitle}}</summary>
     <p>{{aboutLine}}</p>
     <dl class="faq">{{faq}}</dl>
-  </details>
+  </details>{{adAfterHelp}}
 </main>
 {{shell_footer}}
 <script>window.IMGT_STRINGS={{strings}};window.IMGT_TOOL={{tool}};</script>
 <script src="/image/img-tools.js?v={{engineVersion}}" defer></script>
 {{helperScripts}}
-<script src="/image/tools/{{toolId}}.js?v={{toolVersion}}" defer></script>
+<script src="/image/tools/{{toolId}}.js?v={{toolVersion}}" defer></script>{{pageScript}}
 <!-- tool:end -->
 <!-- hub:start -->
 <main class="wrap">

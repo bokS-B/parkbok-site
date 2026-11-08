@@ -1,15 +1,20 @@
-// Manual AdSense placement for the Korean PDF compression page.
+// Manual AdSense placement for selected Korean tool pages.
 (function () {
   'use strict';
 
-  if (location.origin !== 'https://parkbok.com' || location.pathname !== '/pdf/compress/ko/') return;
+  if (location.origin !== 'https://parkbok.com' || window.top !== window ||
+      !['/pdf/compress/ko/', '/pdf/merge/ko/', '/image/image-compress/ko/',
+        '/image/png-to-jpg/ko/'].includes(location.pathname)) return;
 
   const client = 'ca-pub-1415309581345613';
-  const slot = '5292267734';
-  const loaderId = 'pb-pdf-compress-ads-loader';
-  const section = document.getElementById('pb-pdf-compress-ad');
-  const unit = section && section.querySelector('ins.adsbygoogle');
-  if (!unit || unit.dataset.adClient !== client || unit.dataset.adSlot !== slot || document.getElementById(loaderId)) return;
+  const loaderId = 'pb-tool-ads-loader';
+  const sections = document.querySelectorAll('#pb-tool-ad');
+  if (sections.length !== 1) return;
+  const section = sections[0];
+  const units = section.querySelectorAll('ins.adsbygoogle');
+  if (section.dataset.pagePath !== location.pathname || units.length !== 1 ||
+      units[0].dataset.adClient !== client || !/^\d{10}$/.test(units[0].dataset.adSlot || '') ||
+      document.getElementById(loaderId)) return;
   const sectionStyle = section.style.cssText;
 
   const query = new URLSearchParams(location.search);

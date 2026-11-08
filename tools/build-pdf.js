@@ -4,6 +4,7 @@
 const fs = require('fs'), path = require('path');
 const { createHash } = require('node:crypto');
 const shell = require('./shell');
+const toolAds = require('./tool-ads');
 const root = path.resolve(__dirname, '..'), src = path.join(root, 'pdf', 'src');
 const S = JSON.parse(fs.readFileSync(path.join(src, 'strings.json'), 'utf8'));
 const tpl = fs.readFileSync(path.join(src, 'template.html'), 'utf8');
@@ -102,12 +103,10 @@ for (const tl of tools) for (const lang of langs) {
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
     h1: esc(T.h1), line: esc(T.pageLine || T.line), buttonText: esc(T.buttonText || C.selectFiles), dropText: esc(C.dropText), addMore: esc(C.addMore), startOver: esc(C.startOver), runText: esc(T.runText || C.done),
     nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq,
-    css: compressPilot ? css + '\n#pb-pdf-compress-ad:has(> ins[data-ad-status="unfilled"]) { display: none; }' : css,
+    ...toolAds(url(lang, tl.id), css),
     jsonld: safeJson(jsonld), toolId: tl.id,
     runtimeVersion: compressPilot ? version('pdf/pdf-tools.js') : '',
     toolVersion: compressPilot ? version('pdf/tools/compress.js') : '',
-    adAfterHelp: compressPilot ? '\n  <section id="pb-pdf-compress-ad" hidden style="margin-block:2.5rem" aria-label="광고"><p class="muted">광고</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1415309581345613" data-ad-slot="5292267734" data-ad-format="auto" data-full-width-responsive="true"></ins></section>' : '',
-    pageScript: compressPilot ? '\n<script src="/assets/pdf-compress-ads.js' + version('assets/pdf-compress-ads.js') + '" defer></script>' : '',
     strings: safeJson(common(lang)), tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;
 }

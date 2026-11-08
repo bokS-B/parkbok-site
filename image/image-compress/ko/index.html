@@ -606,7 +606,25 @@ body[data-image-tool="image-compress"] .target-select{display:none}
  body[data-image-tool="image-compress"] .compress-sample p{display:none}
  body[data-image-tool="image-compress"] .compress-sample button{width:auto}
  body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
-}</style>
+}
+.pb-tool-ad {
+  margin: clamp(1.75rem, 4vw, 3rem) auto 0;
+  max-width: 970px;
+  background: var(--card);
+  border-radius: var(--r-big);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.pb-tool-ad__label {
+  margin: 0;
+  padding: .5rem .75rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--fs-caption);
+  text-align: center;
+}
+.pb-tool-ad[hidden],
+.pb-tool-ad:has(> ins[data-ad-status="unfilled"]) { display: none; }
+</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"사진 100KB로 줄이기","url":"https://parkbok.com/image/image-compress/ko/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"사진을 20KB·50KB·100KB 이하로 압축하세요. 필요하면 해상도도 줄이고 실제 바이트와 픽셀을 확인합니다. JPG·PNG·WebP 지원, 서버 업로드 없이 무료."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"이미지 도구","item":"https://parkbok.com/image/ko/"},{"@type":"ListItem","position":3,"name":"사진 100KB로 줄이기","item":"https://parkbok.com/image/image-compress/ko/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"20KB·50KB·100KB에 맞출 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요."}},{"@type":"Question","name":"사진 용량을 100KB 이하로 줄이려면?","acceptedAnswer":{"@type":"Answer","text":"먼저 ‘100KB 이하’를 고른 뒤 이미지를 선택하고 ‘압축하기’를 누르세요. 실제 결과 용량을 확인한 뒤 내려받으세요. 1KB는 1,000바이트이며, 목표를 넘으면 초과로 표시합니다. 자동에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다."}},{"@type":"Question","name":"원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?","acceptedAnswer":{"@type":"Answer","text":"입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 이 도구는 1 KB를 1000바이트로 계산합니다. 제출처의 기준과 최종 바이트 수를 함께 확인하세요."}},{"@type":"Question","name":"증명사진 픽셀 크기도 정해져 있다면?","acceptedAnswer":{"@type":"Answer","text":"가로·세로 픽셀까지 정해져 있으면 여권사진 규격 도구에서 규격에 맞춰 자르고 용량 상한을 함께 지정하세요. 크기만 바꾸려면 이미지 크기 조절 도구를 쓴 뒤 여기서 압축하면 됩니다."}},{"@type":"Question","name":"이미지가 업로드되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다."}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="image-compress">
@@ -625,7 +643,7 @@ body[data-image-tool="image-compress"] .target-select{display:none}
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 
-<main class="wrap image-workspace">
+<main class="wrap image-workspace" google-side-rail-overlap="false">
   <nav class="crumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/image/ko/">이미지 도구</a></li><li aria-current="page">사진 100KB로 줄이기</li></ol></nav>
   <div class="tool-head"><h1>사진 100KB로 줄이기</h1><p class="lead">100KB 이하 선택 → 사진 선택 → 압축. 실제 용량을 확인하고 내려받으세요.</p></div>
   <div class="image-workbench">
@@ -656,6 +674,10 @@ body[data-image-tool="image-compress"] .target-select{display:none}
     <p>이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.</p>
     <dl class="faq"><dt>20KB·50KB·100KB에 맞출 수 있나요?</dt><dd>목표 상한을 선택하면 품질을 조절하고, 해상도 줄이기가 켜져 있으면 가로·세로도 줄입니다. 1KB는 1,000바이트이며 실제 결과가 상한을 넘으면 초과로 표시합니다. 정확히 그 용량으로 늘리는 기능은 아니므로 제출처의 최소 용량도 확인하세요.</dd><dt>사진 용량을 100KB 이하로 줄이려면?</dt><dd>먼저 ‘100KB 이하’를 고른 뒤 이미지를 선택하고 ‘압축하기’를 누르세요. 실제 결과 용량을 확인한 뒤 내려받으세요. 1KB는 1,000바이트이며, 목표를 넘으면 초과로 표시합니다. 자동에서 투명 PNG는 PNG를 유지하고, JPG 선택 시 투명 부분을 흰색으로 채웁니다.</dd><dt>원서·입사지원·공공기관 사이트의 사진 용량 제한(100KB·200KB·500KB)은 어떻게 맞추나요?</dt><dd>입사지원서·원서 접수·공공기관 민원 사이트는 사진 파일에 100KB·200KB·500KB 같은 용량 상한을 두는 경우가 많습니다. 기준은 사이트마다 다르니 업로드 화면에서 용량·형식·픽셀 크기 안내를 먼저 확인하고, 그 값을 이미지당 용량 상한에 넣어 압축하세요. 이 도구는 1 KB를 1000바이트로 계산합니다. 제출처의 기준과 최종 바이트 수를 함께 확인하세요.</dd><dt>증명사진 픽셀 크기도 정해져 있다면?</dt><dd>가로·세로 픽셀까지 정해져 있으면 여권사진 규격 도구에서 규격에 맞춰 자르고 용량 상한을 함께 지정하세요. 크기만 바꾸려면 이미지 크기 조절 도구를 쓴 뒤 여기서 압축하면 됩니다.</dd><dt>이미지가 업로드되나요?</dt><dd>아니요. 각 이미지는 내 기기의 브라우저 안에서 압축되며 서버로 전송되지 않습니다.</dd></dl>
   </details>
+  <section class="pb-tool-ad" id="pb-tool-ad" data-page-path="/image/image-compress/ko/" hidden aria-label="광고">
+    <p class="pb-tool-ad__label">광고</p>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1415309581345613" data-ad-slot="4454662935" data-ad-format="auto" data-full-width-responsive="false"></ins>
+  </section>
 </main>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap">
@@ -681,6 +703,7 @@ body[data-image-tool="image-compress"] .target-select{display:none}
 <script src="/image/img-tools.js?v=acf530fe83" defer></script>
 <script src="/image/target-size.js?v=fede06be2c" defer></script>
 <script src="/image/tools/image-compress.js?v=ec36ac8a34" defer></script>
+<script src="/assets/tool-ads.js?v=eee8f7dfb5" defer></script>
 
 
 </body>

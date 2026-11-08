@@ -606,7 +606,25 @@ body[data-image-tool="image-compress"] .target-select{display:none}
  body[data-image-tool="image-compress"] .compress-sample p{display:none}
  body[data-image-tool="image-compress"] .compress-sample button{width:auto}
  body[data-image-tool="image-compress"]:not(.has-input) .stage-out .actions{display:none}
-}</style>
+}
+.pb-tool-ad {
+  margin: clamp(1.75rem, 4vw, 3rem) auto 0;
+  max-width: 970px;
+  background: var(--card);
+  border-radius: var(--r-big);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.pb-tool-ad__label {
+  margin: 0;
+  padding: .5rem .75rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--fs-caption);
+  text-align: center;
+}
+.pb-tool-ad[hidden],
+.pb-tool-ad:has(> ins[data-ad-status="unfilled"]) { display: none; }
+</style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"PNG JPG 변환","url":"https://parkbok.com/image/png-to-jpg/ko/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"PNG 이미지를 여러 장 넣고 JPG 품질과 투명 부분을 채울 배경색을 정해 한 번에 변환합니다. 무료, 설치 없이 브라우저 안에서만 처리됩니다."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://parkbok.com/"},{"@type":"ListItem","position":2,"name":"이미지 도구","item":"https://parkbok.com/image/ko/"},{"@type":"ListItem","position":3,"name":"PNG JPG 변환","item":"https://parkbok.com/image/png-to-jpg/ko/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"투명한 부분은 어떻게 되나요?","acceptedAnswer":{"@type":"Answer","text":"JPG 는 투명을 지원하지 않습니다. 투명한 픽셀은 선택한 배경색(기본 흰색)으로 채워집니다."}},{"@type":"Question","name":"이미지가 업로드되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 각 이미지는 내 기기의 브라우저 안에서 변환되며 서버로 전송되지 않습니다."}}]}]</script>
 </head>
 <body class="page-image" data-image-tool="png-to-jpg">
@@ -625,7 +643,7 @@ body[data-image-tool="image-compress"] .target-select{display:none}
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 
-<main class="wrap image-workspace">
+<main class="wrap image-workspace" google-side-rail-overlap="false">
   <nav class="crumbs" aria-label="현재 위치"><ol><li><a href="/">홈</a></li><li><a href="/image/ko/">이미지 도구</a></li><li aria-current="page">PNG JPG 변환</li></ol></nav>
   <div class="tool-head"><h1>PNG JPG 변환</h1><p class="lead">PNG를 여러 장 넣고 품질과 배경색을 정해 JPG로 내려받으세요.</p></div>
   <div class="image-workbench">
@@ -655,6 +673,10 @@ body[data-image-tool="image-compress"] .target-select{display:none}
     <p>이미지는 내 기기 안에서만 처리되며 서버로 전송되지 않습니다.</p>
     <dl class="faq"><dt>투명한 부분은 어떻게 되나요?</dt><dd>JPG 는 투명을 지원하지 않습니다. 투명한 픽셀은 선택한 배경색(기본 흰색)으로 채워집니다.</dd><dt>이미지가 업로드되나요?</dt><dd>아니요. 각 이미지는 내 기기의 브라우저 안에서 변환되며 서버로 전송되지 않습니다.</dd></dl>
   </details>
+  <section class="pb-tool-ad" id="pb-tool-ad" data-page-path="/image/png-to-jpg/ko/" hidden aria-label="광고">
+    <p class="pb-tool-ad__label">광고</p>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1415309581345613" data-ad-slot="4454662935" data-ad-format="auto" data-full-width-responsive="false"></ins>
+  </section>
 </main>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap">
@@ -680,6 +702,7 @@ body[data-image-tool="image-compress"] .target-select{display:none}
 <script src="/image/img-tools.js?v=acf530fe83" defer></script>
 
 <script src="/image/tools/png-to-jpg.js?v=249a971076" defer></script>
+<script src="/assets/tool-ads.js?v=eee8f7dfb5" defer></script>
 
 
 </body>
