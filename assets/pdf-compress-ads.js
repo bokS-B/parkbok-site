@@ -23,11 +23,13 @@
 
   const internal = internalVisit();
   const forcedMessage = query.has('fc') || query.has('fctype');
-  const forcedTest = internal === true && query.get('fc') === 'alwaysshow' && query.get('fctype') === 'gdpr';
-  if (!forcedTest && (internal !== false || forcedMessage)) return;
+  const probe = internal === true && (query.get('pb_ad_probe') === '1' ||
+    (query.get('fc') === 'alwaysshow' && query.get('fctype') === 'gdpr'));
+  if (!probe && (internal !== false || forcedMessage)) return;
 
   let loaderReady = false;
   let consentReady = false;
+  let tcData;
   let stopped = false;
   let requested = false;
 
@@ -43,21 +45,28 @@
   }
 
   function adConsentAllowsRequest() {
+    if (!tcData || typeof tcData.gdprApplies !== 'boolean') return false;
+    if (tcData.gdprApplies && !['tcloaded', 'useractioncomplete'].includes(tcData.eventStatus)) return false;
     try {
       const values = window.googlefc.getGoogleConsentModeValues();
       // ConsentModePurposeStatusEnum: GRANTED = 1, NOT_APPLICABLE = 3.
       // UNKNOWN, DENIED, NOT_CONFIGURED and missing values all keep ads paused.
       const adPurposes = [values.adStoragePurposeConsentStatus, values.adUserDataPurposeConsentStatus,
         values.adPersonalizationPurposeConsentStatus];
-      return adPurposes.every(value => value === 1 || value === 3);
+      return adPurposes.every(value => value === 1 || (!tcData.gdprApplies && value === 3));
     } catch (_) {
       return false;
     }
   }
 
   function requestAd() {
-    if (forcedTest || stopped || !loaderReady || !consentReady) return;
-    if (internalVisit() !== false || !adConsentAllowsRequest()) {
+    if (stopped || !loaderReady || !consentReady) return;
+    const allowed = adConsentAllowsRequest();
+    if (probe) {
+      section.dataset.pbAdCheck = allowed ? 'eligible' : 'blocked';
+      return;
+    }
+    if (internalVisit() !== false || !allowed) {
       if (requested) {
         stopped = true;
         pauseAds();
@@ -103,7 +112,8 @@
     footer.appendChild(control);
 
     try {
-      window.__tcfapi('addEventListener', 0, function (data, success) {
+      window.__tcfapi('addEventListener', 2, function (data, success) {
+        tcData = success ? data : null;
         control.hidden = !success || !data || data.gdprApplies !== true ||
           typeof window.googlefc.showRevocationMessage !== 'function';
         control.style.display = control.hidden ? 'none' : '';
@@ -112,11 +122,13 @@
           stopped = true;
           pauseAds();
         }
+        requestAd();
       });
     } catch (_) { /* Leave the control hidden if the TCF API is unavailable. */ }
   }
 
   pauseAds();
+  if (probe) section.dataset.pbAdCheck = 'waiting';
   try {
     queueConsent('CONSENT_MODE_DATA_READY', function () {
       consentReady = true;
@@ -139,6 +151,7 @@
   loader.addEventListener('error', function () {
     stopped = true;
     pauseAds();
+    if (probe) section.dataset.pbAdCheck = 'loader-error';
   });
   document.head.appendChild(loader);
 })();

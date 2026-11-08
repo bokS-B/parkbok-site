@@ -35,6 +35,7 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
   const section = {
     id: 'pb-pdf-compress-ad',
     hidden: true,
+    dataset: {},
     querySelector(selector) { return selector === 'ins.adsbygoogle' ? unit : null; }
   };
   const document = {
@@ -57,7 +58,7 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
     adsbygoogle: [],
     __tcfapi(command, version, callback) {
       assert.equal(command, 'addEventListener');
-      assert.equal(version, 0);
+      assert.equal(version, 2);
       reportTcf = callback;
     },
     googlefc: {
@@ -107,6 +108,8 @@ test('waits for the loader and CMP and enqueues one request for allowed advertis
   for (const values of [consent(1, 1, 1), consent(3, 3, 3)]) {
     const app = setup();
     app.setConsent(values);
+    app.signal('CONSENT_API_READY');
+    app.reportTcf({ gdprApplies: values.adStoragePurposeConsentStatus === 1, eventStatus: 'tcloaded' }, true);
     const ready = () => app.signal('CONSENT_MODE_DATA_READY');
     const load = () => app.loader.fire('load');
     const events = values.adStoragePurposeConsentStatus === 1 ? [ready, load] : [load, ready];
@@ -122,9 +125,11 @@ test('waits for the loader and CMP and enqueues one request for allowed advertis
 
 test('blocks advertising for unknown, incomplete, denied or unconfigured purposes', () => {
   for (const values of [undefined, {}, consent(0, 1, 1), consent(1, 2, 1), consent(1, 1, 2),
-    consent(1, 1, 4), consent(1, 1, '1')]) {
+    consent(1, 1, 4), consent(1, 1, '1'), consent(3, 3, 3)]) {
     const app = setup();
     app.setConsent(values);
+    app.signal('CONSENT_API_READY');
+    app.reportTcf({ gdprApplies: true, eventStatus: 'tcloaded' }, true);
     app.loader.fire('load');
     app.signal('CONSENT_MODE_DATA_READY');
     assertPaused(app);
@@ -137,11 +142,16 @@ test('blocks internal visits and external forced CMP URLs, with a paused interna
     assert.equal(setup(options).scripts.length, 0);
   }
   for (const options of [{ url: page + '?fc=alwaysshow&fctype=gdpr&pb_internal=1' },
+    { url: page + '?pb_ad_probe=1', internal: '1' },
     { url: page + '?fc=alwaysshow&fctype=gdpr', internal: '1' }]) {
     const app = setup(options);
     app.setConsent(consent(1, 1, 1));
     app.loader.fire('load');
     app.signal('CONSENT_MODE_DATA_READY');
+    assert.equal(app.section.dataset.pbAdCheck, 'blocked');
+    app.signal('CONSENT_API_READY');
+    app.reportTcf({ gdprApplies: true, eventStatus: 'tcloaded' }, true);
+    assert.equal(app.section.dataset.pbAdCheck, 'eligible');
     assertPaused(app);
   }
 });
@@ -196,6 +206,7 @@ test('stops an existing request state on consent denial or CMP reopening', () =>
   ]) {
     const app = setup();
     app.signal('CONSENT_API_READY');
+    app.reportTcf({ gdprApplies: true, eventStatus: 'tcloaded' }, true);
     app.setConsent(consent(1, 1, 1));
     app.loader.fire('load');
     app.signal('CONSENT_MODE_DATA_READY');
