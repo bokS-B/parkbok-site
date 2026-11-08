@@ -101,7 +101,9 @@ for (const tl of tools) for (const lang of langs) {
   if (faqArr.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqArr.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) });
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
     h1: esc(T.h1), line: esc(T.pageLine || T.line), buttonText: esc(T.buttonText || C.selectFiles), dropText: esc(C.dropText), addMore: esc(C.addMore), startOver: esc(C.startOver), runText: esc(T.runText || C.done),
-    nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq, css, jsonld: safeJson(jsonld), toolId: tl.id,
+    nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq,
+    css: compressPilot ? css + '\n#pb-pdf-compress-ad:has(> ins[data-ad-status="unfilled"]) { display: none; }' : css,
+    jsonld: safeJson(jsonld), toolId: tl.id,
     runtimeVersion: compressPilot ? version('pdf/pdf-tools.js') : '',
     toolVersion: compressPilot ? version('pdf/tools/compress.js') : '',
     adAfterHelp: compressPilot ? '\n  <section id="pb-pdf-compress-ad" hidden style="margin-block:2.5rem" aria-label="광고"><p class="muted">광고</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1415309581345613" data-ad-slot="5292267734" data-ad-format="auto" data-full-width-responsive="true"></ins></section>' : '',
