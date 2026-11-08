@@ -1,6 +1,7 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const { deflateSync } = require('node:zlib');
 const PDFLib = require('../assets/vendor/pdf-lib.min.js');
 const compress = require('../pdf/tools/compress.js');
 const original = new Uint8Array(5000100).fill(7);
@@ -37,4 +38,44 @@ test('unmet target returns smallest output, and never returns more than the orig
     assert.equal(f.notes[0].vars.bytes,expected.toLocaleString('ko-KR')); assert.equal(f.loads,4);
     if (expected === original.length) assert.deepEqual(new Uint8Array(await r.outputs[0].blob.arrayBuffer()),original);
   }
+});
+
+async function imagePdf(rows, imageOptions) {
+  const doc = await PDFLib.PDFDocument.create();
+  const page = doc.addPage([100, 100]);
+  const image = doc.context.register(doc.context.stream(deflateSync(rows), {
+    Type: 'XObject', Subtype: 'Image', Filter: 'FlateDecode', Width: 2, Height: 2,
+    BitsPerComponent: 8, ColorSpace: 'DeviceRGB', ...imageOptions,
+  }));
+  page.node.set(PDFLib.PDFName.of('Resources'), doc.context.obj({ XObject: { Im0: image } }));
+  page.node.set(PDFLib.PDFName.of('Contents'), doc.context.register(doc.context.flateStream('q 100 0 0 100 0 0 cm /Im0 Do Q')));
+  return doc.save();
+}
+
+test('PNG-predicted image streams stay intact instead of treating row filters as pixels', async () => {
+  // The leading zero on each row is the PNG "None" filter, not a color sample.
+  const rows = Uint8Array.of(0, 255, 0, 0, 0, 255, 0, 0, 0, 0, 255, 255, 255, 255);
+  const bytes = await imagePdf(rows, {
+    DecodeParms: { Predictor: 15, Colors: 3, Columns: 2, BitsPerComponent: 8 },
+  });
+  let encodes = 0;
+  const result = await compress.run([{ name: 'predictor.pdf', bytes }], {}, {
+    pdfLib: PDFLib,
+    encodeJpeg: async () => { encodes++; return Uint8Array.of(1); },
+  });
+  assert.equal(encodes, 0);
+  assert.equal(result.note, 'noteNoImages');
+  assert.deepEqual(new Uint8Array(await result.outputs[0].blob.arrayBuffer()), bytes);
+});
+
+test('external image streams are skipped without changing the original PDF', async () => {
+  const bytes = await imagePdf(new Uint8Array(12), { F: PDFLib.PDFString.of('external-image.bin') });
+  let encodes = 0;
+  const result = await compress.run([{ name: 'external.pdf', bytes }], {}, {
+    pdfLib: PDFLib,
+    encodeJpeg: async () => { encodes++; return Uint8Array.of(1); },
+  });
+  assert.equal(encodes, 0);
+  assert.equal(result.note, 'noteNoImages');
+  assert.deepEqual(new Uint8Array(await result.outputs[0].blob.arrayBuffer()), bytes);
 });

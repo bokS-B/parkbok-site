@@ -2,6 +2,7 @@
 //   → /pdf/[언어/]index.html (허브), /pdf/<도구>/[언어/]index.html   (node tools/build-pdf.js)
 // 도구 json 만 있고 pdf/tools/<id>.js 가 없으면 건너뛰고 경고한다. 사이트맵의 pdf 블록만 갱신한다(멱등).
 const fs = require('fs'), path = require('path');
+const { createHash } = require('node:crypto');
 const shell = require('./shell');
 const root = path.resolve(__dirname, '..'), src = path.join(root, 'pdf', 'src');
 const S = JSON.parse(fs.readFileSync(path.join(src, 'strings.json'), 'utf8'));
@@ -18,6 +19,10 @@ const DEFAULT_GLYPH = '<path d="M17 11h9l7 7v19a2 2 0 0 1-2 2H17a2 2 0 0 1-2-2V1
 const esc = shell.esc;
 const safeJson = o => JSON.stringify(o).replace(/</g, '\\u003c');
 const url = (lang, id) => '/pdf/' + (id ? id + '/' : '') + (lang === 'en' ? '' : lang + '/');
+function version(file){
+  const source = fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n/g, '\n');
+  return '?v=' + createHash('sha256').update(source).digest('hex').slice(0, 10);
+}
 
 // 도구 목록: json 이 있고 모듈 js 도 있는 것만
 const toolsDir = path.join(src, 'tools');
@@ -87,6 +92,7 @@ for (const tl of tools) for (const lang of langs) {
   const nextChips = next.map(n => `<a class="chip" href="${n.url}">${esc(n.h1)}</a>`).join('');
   const faqArr = T.faq || [];
   const faq = faqArr.map(q => `<dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd>`).join('');
+  const compressPilot = tl.id === 'compress' && lang === 'ko';
   const crumbs = shell.breadcrumb(lang, [{ name: shell.strings(lang).home, url: '/' }, { name: S[lang].hub.h1, url: url(lang, '') }, { name: T.h1, url: url(lang, tl.id) }]);
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name: T.h1, url: canonical, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: HREFLANG[lang] || lang, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, description: T.description }
@@ -96,6 +102,10 @@ for (const tl of tools) for (const lang of langs) {
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
     h1: esc(T.h1), line: esc(T.pageLine || T.line), buttonText: esc(T.buttonText || C.selectFiles), dropText: esc(C.dropText), addMore: esc(C.addMore), startOver: esc(C.startOver), runText: esc(T.runText || C.done),
     nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq, css, jsonld: safeJson(jsonld), toolId: tl.id,
+    runtimeVersion: compressPilot ? version('pdf/pdf-tools.js') : '',
+    toolVersion: compressPilot ? version('pdf/tools/compress.js') : '',
+    adAfterHelp: compressPilot ? '\n  <section id="pb-pdf-compress-ad" hidden style="margin-block:2.5rem" aria-label="광고"><p class="muted">광고</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1415309581345613" data-ad-slot="5292267734" data-ad-format="auto" data-full-width-responsive="true"></ins></section>' : '',
+    pageScript: compressPilot ? '\n<script src="/assets/pdf-compress-ads.js" defer></script>' : '',
     strings: safeJson(common(lang)), tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;
 }

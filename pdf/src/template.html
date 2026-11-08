@@ -41,12 +41,12 @@
     <summary>{{aboutTitle}}</summary>
     <p>{{aboutLine}}</p>
     <dl class="faq">{{faq}}</dl>
-  </details>
+  </details>{{adAfterHelp}}
 </main>
 {{shell_footer}}
 <script>window.PDFT_STRINGS={{strings}};window.PDFT_TOOL={{tool}};</script>
-<script src="/pdf/pdf-tools.js" defer></script>
-<script src="/pdf/tools/{{toolId}}.js" defer></script>
+<script src="/pdf/pdf-tools.js{{runtimeVersion}}" defer></script>
+<script src="/pdf/tools/{{toolId}}.js{{toolVersion}}" defer></script>{{pageScript}}
 <!-- tool:end -->
 <!-- hub:start -->
 <main class="wrap">

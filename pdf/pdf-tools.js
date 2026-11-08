@@ -73,6 +73,7 @@
 
   // ---------- 상태 ----------
   var tool = null, files = [], pages = [], outputs = [], urls = [], busy = false, optUI = {}, pagesUI = null;
+  var hasCompressionTarget = false;
   var dom = {};
   function setStatus(msg, kind, target){
     var s = target || dom.status; if (!s) return;
@@ -127,6 +128,7 @@
     }).then(function(){
       setBusy(false);
       afterInput();
+      if (hasCompressionTarget && getValue('targetMb') === '5') run();
     }, function(e){
       setBusy(false);
       var key = e && e.message === 'noinput' ? '' : (isEncryptedErr(e) ? 'errorEncrypted' : (e && e.message === 'load ' + VENDOR + 'pdf-lib.min.js' ? 'errorGeneric' : 'errorBroken'));
@@ -260,7 +262,8 @@
     dom.out.hidden = false;
     dom.primary.disabled = false;
     renderFiles();
-    renderOptions();
+    if (hasCompressionTarget) applyShowIf();
+    else renderOptions();
     setStatus('', '');
     if (tool.minFiles > files.length) { setStatus(t('errorEmpty', { n: tool.minFiles }), 'empty'); dom.primary.disabled = true; }
   }
@@ -311,7 +314,7 @@
         var want = o.showIf[k], cur = getValue(k);
         if (Array.isArray(want) ? want.indexOf(cur) < 0 : cur !== want) show = false;
       });
-      row.hidden = !show;
+      row.hidden = !show || (hasCompressionTarget && o.id === 'level' && !files.length);
     });
   }
   function getValue(id){ var u = optUI[id]; return u ? u.get() : undefined; }
@@ -534,6 +537,34 @@
     }, function(){ setBusy(false); setStatus(t('errorGeneric'), 'err'); });
   }
   function isImageName(n){ return /\.(png|jpe?g|webp|gif)$/i.test(n); }
+  function addResultPreview(box, output){
+    var preview = el('details', 'about');
+    var content = el('div');
+    preview.appendChild(el('summary', null, t('previewTarget')));
+    preview.appendChild(content);
+    preview.addEventListener('toggle', function(){
+      if (!preview.open || content.childNodes.length) return;
+      content.appendChild(el('p', 'muted', t('processing')));
+      ensurePdfjs().then(function(pdfjs){
+        return output.blob.arrayBuffer().then(function(bytes){
+          return pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false }).promise;
+        });
+      }).then(function(doc){
+        return doc.getPage(1).then(function(page){
+          var viewport = page.getViewport({ scale: 1 });
+          var scale = Math.min(2, 1200 / Math.max(viewport.width, viewport.height));
+          return renderPdfPage(doc, 0, scale);
+        }).finally(function(){ return doc.destroy(); });
+      }).then(function(canvas){
+        canvas.style.maxWidth = '100%'; canvas.style.height = 'auto';
+        canvas.setAttribute('role', 'img'); canvas.setAttribute('aria-label', t('previewTarget'));
+        content.replaceChildren(canvas);
+      }).catch(function(){
+        content.textContent = t('previewTargetError');
+      });
+    });
+    box.appendChild(preview);
+  }
   function showResult(note, targetStatus){
     document.body.classList.add('done');
     var r = dom.result; r.innerHTML = ''; r.hidden = false;
@@ -546,7 +577,14 @@
       if (isImageName(o.name)) { var im = el('img', 'result-img'); im.src = objUrl(o.blob); im.alt = o.name; box.appendChild(im); }
       box.appendChild(el('div', 'result-name', o.name));
       if (!targetStatus) box.appendChild(el('div', 'muted', human(o.blob.size)));
+      if (targetStatus) addResultPreview(box, o);
       r.appendChild(box);
+      if (targetStatus === 'missed') {
+        var next = el('p', 'muted', t('targetMissedHelp') + ' ');
+        var split = el('a', null, t('targetSplitLink'));
+        split.href = '/pdf/split/ko/';
+        next.appendChild(split); r.appendChild(next);
+      }
       dom.primary.textContent = t('download'); dom.primary.disabled = false;
     } else {
       var imgs = outputs.every(function(o){ return isImageName(o.name); });
@@ -581,6 +619,7 @@
     dom.compact.hidden = true; dom.count.textContent = '';
     dom.primary.textContent = t('runText'); dom.primary.disabled = true;
     dom.input.value = '';
+    if (hasCompressionTarget) renderOptions();
     setStatus('', ''); setStatus('', '', dom.inStatus);
     try { dom.drop.focus(); } catch (e) {}
   }
@@ -599,6 +638,11 @@
     dom.bar = dom.progress.querySelector('.bar'); dom.ptxt = dom.progress.querySelector('.ptxt');
     dom.input.accept = tool.accept || '.pdf';
     dom.input.multiple = !!tool.multiple;
+    hasCompressionTarget = tool.id === 'compress' && (tool.options || []).some(function(o){ return o.id === 'targetMb'; });
+    if (hasCompressionTarget) {
+      dom.drop.parentElement.before(dom.opts);
+      renderOptions();
+    }
     if (tool.capture) dom.input.setAttribute('capture', tool.capture);
     dom.select.addEventListener('click', function(e){ e.stopPropagation(); openPicker(); });
     dom.add.addEventListener('click', function(e){ e.stopPropagation(); openPicker(); });
@@ -619,10 +663,13 @@
     });
     dom.primary.addEventListener('click', onPrimary);
     dom.reset.addEventListener('click', reset);
-    dom.opts.addEventListener('change', function(){
-      if (!optUI.targetMb || busy || !outputs.length) return;
-      clearResult();
-      setStatus('', '');
+    dom.opts.addEventListener('change', function(event){
+      if (!hasCompressionTarget || busy || !files.length) return;
+      if (outputs.length) {
+        clearResult();
+        setStatus('', '');
+      }
+      if (event.target.id === 'opt-targetMb' && getValue('targetMb') === '5') run();
     });
     document.addEventListener('keydown', function(e){
       var tg = e.target && e.target.tagName;

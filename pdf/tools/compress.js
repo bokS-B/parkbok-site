@@ -19,6 +19,16 @@
     if (f instanceof P.PDFArray) { var out = []; for (var i = 0; i < f.size(); i++) { var n = nameOf(P, ctx.lookup(f.get(i))); if (n) out.push(n); } return out; }
     return [];
   }
+  // pdf-lib decompresses the stream but does not reverse image predictors.
+  // Browsers also do not apply PDF-only decode parameters to embedded JPEGs.
+  function hasDecodeParams(P, ctx, dict){
+    var params = ctx.lookup(dict.get(P.PDFName.of('DecodeParms')));
+    function isSet(value){
+      var param = ctx.lookup(value);
+      return !!param && param !== P.PDFNull && (!(param instanceof P.PDFDict) || param.keys().length > 0);
+    }
+    return params instanceof P.PDFArray ? params.asArray().some(isSet) : isSet(params);
+  }
   // 색공간 → 채널 수(1 또는 3). 지원하지 않으면 0.
   function channelsOf(P, ctx, cs){
     cs = ctx.lookup(cs);
@@ -64,6 +74,8 @@
       if (mask instanceof P.PDFArray) { rec.why = 'colorkey'; continue; }   // 색상 키 마스크는 정확한 픽셀값이 필요
       rec.hasSMask = dict.get(P.PDFName.of('SMask')) instanceof P.PDFRef;
       if (dict.get(P.PDFName.of('Decode'))) { rec.why = 'decode'; continue; }   // Decode 배열(반전 등)은 canvas 가 적용하지 못하므로 건너뜀
+      if (dict.has(P.PDFName.of('F'))) { rec.why = 'external'; continue; }
+      if (hasDecodeParams(P, ctx, dict)) { rec.why = 'decodeparms'; continue; }
       var filters = filtersOf(P, ctx, dict);
       if (filters.length === 1 && (filters[0] === 'DCTDecode' || filters[0] === 'DCT')) { rec.kind = 'jpeg'; continue; }
       var raw = filters.length > 0;
