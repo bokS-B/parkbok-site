@@ -36,6 +36,7 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
     id: 'pb-pdf-compress-ad',
     hidden: true,
     dataset: {},
+    style: { cssText: 'margin-block: 2.5rem;' },
     querySelector(selector) { return selector === 'ins.adsbygoogle' ? unit : null; }
   };
   const document = {
@@ -54,8 +55,14 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
   let values;
   let reportTcf;
   let revocations = 0;
+  const queuedPauses = [];
+  const ads = [];
+  ads.push = function (entry) {
+    queuedPauses.push(this.pauseAdRequests);
+    return Array.prototype.push.call(this, entry);
+  };
   const window = {
-    adsbygoogle: [],
+    adsbygoogle: ads,
     __tcfapi(command, version, callback) {
       assert.equal(command, 'addEventListener');
       assert.equal(version, 2);
@@ -76,7 +83,7 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
     for (const entry of [...window.googlefc.callbackQueue]) entry[key]?.();
   }
   return {
-    context, window, section, scripts: head.children, loader: head.children[0], footer,
+    context, window, section, scripts: head.children, loader: head.children[0], footer, queuedPauses,
     signal, setConsent(next) { values = next; },
     reportTcf(...args) { reportTcf(...args); },
     get revocations() { return revocations; }
@@ -84,9 +91,9 @@ function setup({ url = page, internal = null, storageBlocked = false, adSlot = s
 }
 
 function assertPaused(app) {
-  assert.equal(app.section.hidden, true);
-  assert.equal(app.window.adsbygoogle.length, 0);
-  if (app.loader) assert.equal(app.window.adsbygoogle.pauseAdRequests, 1);
+  assert.ok(app.section.hidden || app.section.style.visibility === 'hidden');
+  assert.equal(app.window.adsbygoogle.pauseAdRequests, 1);
+  assert.deepEqual(app.queuedPauses, [1]);
 }
 
 test('uses the official loader only for the exact production page and ad unit', () => {
@@ -104,9 +111,12 @@ test('uses the official loader only for the exact production page and ad unit', 
   assertPaused(app);
 });
 
-test('waits for the loader and CMP and enqueues one request for allowed advertising', () => {
+test('queues one slot while paused and resumes only after the loader and CMP are ready', () => {
   for (const values of [consent(1, 1, 1), consent(3, 3, 3)]) {
     const app = setup();
+    assertPaused(app);
+    assert.equal(app.section.hidden, false);
+    assert.equal(app.section.style.maxHeight, '0');
     app.setConsent(values);
     app.signal('CONSENT_API_READY');
     app.reportTcf({ gdprApplies: values.adStoragePurposeConsentStatus === 1, eventStatus: 'tcloaded' }, true);
@@ -120,6 +130,7 @@ test('waits for the loader and CMP and enqueues one request for allowed advertis
     assert.equal(app.section.hidden, false);
     assert.equal(app.window.adsbygoogle.pauseAdRequests, 0);
     assert.equal(app.window.adsbygoogle.length, 1);
+    assert.deepEqual(app.queuedPauses, [1]);
   }
 });
 
