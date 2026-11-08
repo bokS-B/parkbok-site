@@ -21,6 +21,7 @@ function element() {
   const listeners = new Map();
   return {
     children: [],
+    style: {},
     addEventListener(name, callback) { listeners.set(name, callback); },
     appendChild(child) { this.children.push(child); },
     fire(name) { listeners.get(name)(); }
@@ -160,10 +161,13 @@ test('offers a GDPR privacy control and pauses ads before reopening the CMP', ()
   assert.equal(app.footer.children.length, 1);
   const [button] = app.footer.children;
   assert.equal(button.hidden, true);
+  assert.equal(button.style.display, 'none');
   app.reportTcf({ gdprApplies: false }, true);
   assert.equal(button.hidden, true);
+  assert.equal(button.style.display, 'none');
   app.reportTcf({ gdprApplies: true, eventStatus: 'tcloaded' }, true);
   assert.equal(button.hidden, false);
+  assert.equal(button.style.display, '');
 
   app.setConsent(consent(1, 1, 1));
   app.loader.fire('load');

@@ -86,6 +86,7 @@
     control.id = controlId;
     control.textContent = '광고 개인정보 설정';
     control.hidden = true;
+    control.style.display = 'none';
     control.addEventListener('click', function () {
       // A stale consent callback must not restart advertising after the message is reopened.
       // The next page load reads the new decision from Google's CMP.
@@ -105,6 +106,7 @@
       window.__tcfapi('addEventListener', 0, function (data, success) {
         control.hidden = !success || !data || data.gdprApplies !== true ||
           typeof window.googlefc.showRevocationMessage !== 'function';
+        control.style.display = control.hidden ? 'none' : '';
         if (requested && (!success || !data || data.eventStatus === 'cmpuishown' ||
           (data.eventStatus === 'useractioncomplete' && !adConsentAllowsRequest()))) {
           stopped = true;
