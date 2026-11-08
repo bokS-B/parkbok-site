@@ -94,7 +94,7 @@ for (const tl of tools) for (const lang of langs) {
   jsonld.push(crumbs.jsonld);
   if (faqArr.length) jsonld.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqArr.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) });
   const vars = { crumbs: crumbs.html, lang: HTMLLANG[lang] || lang, dir: C.dir || 'ltr', title: esc(T.title), description: esc(T.description), canonical, hreflangs: hreflangs(tl.id),
-    h1: esc(T.h1), line: esc(T.line), buttonText: esc(T.buttonText || C.selectFiles), dropText: esc(C.dropText), addMore: esc(C.addMore), startOver: esc(C.startOver), runText: esc(T.runText || C.done),
+    h1: esc(T.h1), line: esc(T.pageLine || T.line), buttonText: esc(T.buttonText || C.selectFiles), dropText: esc(C.dropText), addMore: esc(C.addMore), startOver: esc(C.startOver), runText: esc(T.runText || C.done),
     nextTools: esc(C.nextTools), nextChips, aboutTitle: esc(C.aboutTitle), aboutLine: esc(C.aboutLine), faq, css, jsonld: safeJson(jsonld), toolId: tl.id,
     strings: safeJson(common(lang)), tool: safeJson({ id: tl.id, lang, langUrls: langUrls(tl.id), next, strings: T }) };
   urls.push(finish(toolTpl, lang, tl.id, vars)); count++;

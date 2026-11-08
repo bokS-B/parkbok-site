@@ -3,6 +3,7 @@
 // 이미지 디코드·인코딩은 브라우저 canvas 가 필요하다. Node 에서는 encodeJpeg 가 없으므로 열거·비교 로직만 돈다(ctx.encodeJpeg 로 주입 가능).
 (function(){
   var LEVELS = { low: { q: 0.8, max: 2500 }, medium: { q: 0.6, max: 1800 }, high: { q: 0.4, max: 1200 } };
+  var TARGET_5MB = 5000000;
   var RAW_FILTERS = { FlateDecode: 1, Fl: 1, LZWDecode: 1, LZW: 1, ASCII85Decode: 1, A85: 1, ASCIIHexDecode: 1, AHx: 1, RunLengthDecode: 1, RL: 1 };
 
   function human(n){ if (n < 1024) return n + ' B'; if (n < 1048576) return (n / 1024).toFixed(0) + ' KB'; return (n / 1048576).toFixed(n < 10485760 ? 1 : 0) + ' MB'; }
@@ -137,51 +138,72 @@
     return out;
   }
 
+  var koreanUI = typeof window !== 'undefined' && window.PDFT_TOOL && window.PDFT_TOOL.lang === 'ko';
   var tool = {
     id: 'compress',
     accept: '.pdf',
     multiple: false,
     minFiles: 1,
     needsPages: false,
-    options: [
+    options: koreanUI ? [
+      { id: 'targetMb', type: 'select', default: 'none', choices: ['none', '5'] },
+      { id: 'level', type: 'radio', default: 'medium', choices: ['low', 'medium', 'high'], showIf: { targetMb: 'none' } }
+    ] : [
       { id: 'level', type: 'radio', default: 'medium', choices: ['low', 'medium', 'high'] }
     ],
     run: async function(files, opts, ctx){
       var P = ctx.pdfLib, f = files[0];
-      var lv = LEVELS[opts && opts.level] || LEVELS.medium;
-      var encode = ctx.encodeJpeg || browserEncoder();
-      var doc = await P.PDFDocument.load(f.bytes, { ignoreEncryption: false, updateMetadata: false });
-      var list = scan(P, doc), cand = list.filter(function(r){ return r.kind !== 'skip'; });
-      var replaced = 0, i;
-      for (i = 0; i < cand.length; i++) {
-        var rec = cand[i];
-        if (ctx.progress) ctx.progress((i / (cand.length + 1)) * 0.9);
-        if (!encode) continue;
-        var tg = target(rec, lv.max), bytes = null;
-        try {
-          if (rec.kind === 'jpeg') bytes = await encode({ kind: 'jpeg', bytes: rec.stream.contents }, tg.width, tg.height, lv.q);
-          else {
-            var samples = P.decodePDFRawStream(rec.stream).decode();
-            if (samples.length < rec.width * rec.height * rec.channels) continue;
-            bytes = await encode({ kind: 'rgba', data: toRgba(samples, rec.width, rec.height, rec.channels), width: rec.width, height: rec.height }, tg.width, tg.height, lv.q);
-            samples = null;
-          }
-        } catch (e) { bytes = null; }   // 디코드 실패(지원 안 하는 JPEG 등) → 건너뜀
-        if (!bytes || !bytes.length || bytes.length >= rec.size) continue;
-        replace(P, doc, rec, bytes, tg.width, tg.height);
-        replaced++;
-      }
-      if (ctx.progress) ctx.progress(0.92);
-      var before = f.bytes.length, out = null;
-      if (replaced) out = await doc.save({ useObjectStreams: true, updateFieldAppearances: false });
-      if (ctx.progress) ctx.progress(1);
+      var targeted = opts && String(opts.targetMb) === '5', before = f.bytes.length;
       var name = baseName(f.name) + '-' + ((ctx.t && ctx.t('resultName')) || 'compressed') + '.pdf';
-      if (!out || out.length >= before) {
-        var why = !cand.length ? 'noteNoImages' : 'noteSame';
-        return { outputs: [ { name: name, blob: new Blob([f.bytes], { type: 'application/pdf' }) } ], note: ctx.t ? ctx.t(why, { size: human(before) }) : why, replaced: replaced, before: before, after: before };
+      function result(bytes, key, replaced, extra){
+        var vars = { bytes: bytes.length.toLocaleString('ko-KR'), size: human(before), before: human(before), after: human(bytes.length), pct: Math.round((1 - bytes.length / before) * 100) };
+        var r = { outputs: [{ name: name, blob: new Blob([bytes], { type: 'application/pdf' }) }], note: ctx.t ? ctx.t(key, vars) : key, replaced: replaced, before: before, after: bytes.length };
+        if (extra) { r.targetBytes = TARGET_5MB; r.targetStatus = extra; }
+        return r;
       }
-      var pct = Math.round((1 - out.length / before) * 100);
-      return { outputs: [ { name: name, blob: new Blob([out], { type: 'application/pdf' }) } ], note: ctx.t ? ctx.t('noteSaved', { before: human(before), after: human(out.length), pct: pct }) : 'noteSaved', replaced: replaced, before: before, after: out.length };
+      if (targeted && before <= TARGET_5MB) {
+        if (ctx.progress) ctx.progress(1);
+        return result(f.bytes, 'noteTargetAlready', 0, 'already');
+      }
+      var encode = ctx.encodeJpeg || browserEncoder();
+      var levels = targeted ? [LEVELS.low, LEVELS.medium, LEVELS.high, { q: 0.25, max: 800 }] : [LEVELS[opts && opts.level] || LEVELS.medium];
+      var best = f.bytes, bestReplaced = 0, firstCand = 0, lastReplaced = 0;
+      for (var pass = 0; pass < levels.length; pass++) {
+        // Each pass starts with original bytes, never a previously compressed image.
+        var doc = await P.PDFDocument.load(f.bytes, { ignoreEncryption: false, updateMetadata: false });
+        var cand = scan(P, doc).filter(function(r){ return r.kind !== 'skip'; });
+        if (!pass) firstCand = cand.length;
+        var lv = levels[pass], replaced = 0;
+        for (var i = 0; i < cand.length; i++) {
+          var rec = cand[i];
+          if (ctx.progress) ctx.progress((pass + (i / (cand.length + 1)) * 0.9) / levels.length);
+          if (!encode) continue;
+          var tg = target(rec, lv.max), bytes = null;
+          try {
+            if (rec.kind === 'jpeg') bytes = await encode({ kind: 'jpeg', bytes: rec.stream.contents }, tg.width, tg.height, lv.q);
+            else {
+              var samples = P.decodePDFRawStream(rec.stream).decode();
+              if (samples.length < rec.width * rec.height * rec.channels) continue;
+              bytes = await encode({ kind: 'rgba', data: toRgba(samples, rec.width, rec.height, rec.channels), width: rec.width, height: rec.height }, tg.width, tg.height, lv.q);
+              samples = null;
+            }
+          } catch (e) { bytes = null; }
+          if (!bytes || !bytes.length || bytes.length >= rec.size) continue;
+          replace(P, doc, rec, bytes, tg.width, tg.height); replaced++;
+        }
+        if (ctx.progress) ctx.progress((pass + 0.92) / levels.length);
+        lastReplaced = replaced;
+        var out = replaced ? await doc.save({ useObjectStreams: true, updateFieldAppearances: false }) : null;
+        if (out && out.length < best.length) { best = out; bestReplaced = replaced; }
+        if (!targeted || best.length <= TARGET_5MB || !cand.length || !encode) break;
+      }
+      if (ctx.progress) ctx.progress(1);
+      if (targeted) {
+        var meetsTarget = best.length <= TARGET_5MB;
+        return result(best, meetsTarget ? 'noteTargetMet' : 'noteTargetMissed', bestReplaced, meetsTarget ? 'met' : 'missed');
+      }
+      if (best.length >= before) return result(f.bytes, !firstCand ? 'noteNoImages' : 'noteSame', lastReplaced);
+      return result(best, 'noteSaved', bestReplaced);
     }
   };
   tool.scan = scan;       // Node 테스트용

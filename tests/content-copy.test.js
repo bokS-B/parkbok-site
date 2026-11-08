@@ -53,8 +53,8 @@ test('PDF compression description reaches metadata schema and runtime from one s
     runtime.strings.description,
   ], Array(4).fill(ko.description));
   assert.deepEqual(runtime.strings, ko);
-  assert.ok(html.includes('<p class="lead">' + ko.line + '</p>'));
-  assert.equal(decode(html.match(/<title>([^<]*)<\/title>/)[1]), 'PDF 압축 – PDF 용량 줄이기 무료 온라인');
+  assert.ok(html.includes('<p class="lead">' + ko.pageLine + '</p>'));
+  assert.equal(decode(html.match(/<title>([^<]*)<\/title>/)[1]), 'PDF 용량 줄이기 – 5MB 이하 압축 무료');
   assert.ok(html.includes('<link rel="canonical" href="https://parkbok.com/pdf/compress/ko/">'));
   const visibleFaq = [...html.matchAll(/<dt>(.*?)<\/dt><dd>(.*?)<\/dd>/g)].map(match => [decode(match[1]), decode(match[2])]);
   const schemaFaq = jsonld.find(item => item['@type'] === 'FAQPage').mainEntity.map(item => [item.name, item.acceptedAnswer.text]);
@@ -68,9 +68,10 @@ test('Korean guidance distinguishes text objects scans and the original-file fal
   assert.match(ko.options.level.help, /스캔 이미지 속 글자는 흐려질 수/);
   assert.match(ko.faq[1][1], /텍스트로 저장된 글자·글꼴·도형은 이미지 압축 대상이 아닙니다/);
   assert.match(ko.faq[1][1], /사진·스캔 이미지 안에 포함된 글자는.*흐려질 수/);
-  assert.match(ko.description, /용량이 줄지 않을 수/);
-  assert.match(ko.description, /원본보다 크거나 같으면 원본을 돌려/);
-  assert.match(ko.description, /목표 용량 지정 없이/);
+  assert.match(ko.faq[0][1], /용량이 줄지 않을 수/);
+  assert.match(ko.faq[0][1], /원본보다 크거나 같으면 원본을 돌려/);
+  assert.match(ko.description, /5MB 이하로 줄여 보세요/);
+  assert.match(ko.description, /제한 충족 여부/);
   assert.match(ko.noteSame, /이 설정에서는 용량이 줄지 않았/);
   assert.match(ko.noteNoImages, /압축할 수 있는 이미지가 없/);
   assert.ok(ko.noteSame.includes('{size}') && ko.noteNoImages.includes('{size}'));

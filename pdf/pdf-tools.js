@@ -242,17 +242,23 @@
     busy = b; document.body.classList.toggle('busy', b);
     if (dom.primary) dom.primary.disabled = b || !files.length;
     if (dom.reset) dom.reset.disabled = b;
+    if (optUI.targetMb) dom.opts.querySelectorAll('select, input').forEach(function(input){ input.disabled = b; });
   }
-  function afterInput(){
-    document.body.classList.add('has-input'); document.body.classList.remove('done');
+  function clearResult(){
+    document.body.classList.remove('done');
     outputs = []; revokeAll();
     dom.result.hidden = true; dom.result.innerHTML = '';
     dom.progress.hidden = true;
+    dom.primary.textContent = t('runText');
+  }
+  function afterInput(){
+    document.body.classList.add('has-input');
+    clearResult();
     dom.count.textContent = files.length === 1 ? t('fileCount') : t('filesCount', { n: files.length });
     dom.compact.hidden = false;
     dom.btnAdd.hidden = !tool.multiple;
     dom.out.hidden = false;
-    dom.primary.textContent = t('runText'); dom.primary.disabled = false;
+    dom.primary.disabled = false;
     renderFiles();
     renderOptions();
     setStatus('', '');
@@ -503,7 +509,7 @@
       outputs = (res && res.outputs) || [];
       if (!outputs.length) throw new Error('empty');
       progress(1, t('done'));
-      showResult(res.note || '');
+      showResult(res.note || '', res.targetStatus);
     }, function(e){
       setBusy(false); dom.progress.hidden = true;
       var msg = e && e.key ? t(e.key) : (isEncryptedErr(e) ? t('errorEncrypted') : (e && e.userMessage ? e.userMessage : t('errorGeneric')));
@@ -528,16 +534,18 @@
     }, function(){ setBusy(false); setStatus(t('errorGeneric'), 'err'); });
   }
   function isImageName(n){ return /\.(png|jpe?g|webp|gif)$/i.test(n); }
-  function showResult(note){
+  function showResult(note, targetStatus){
     document.body.classList.add('done');
     var r = dom.result; r.innerHTML = ''; r.hidden = false;
-    setTimeout(function(){ dom.progress.hidden = true; }, 600);
+    var shownOutputs = outputs;
+    setTimeout(function(){ if (outputs === shownOutputs) dom.progress.hidden = true; }, 600);
+    if (note && targetStatus) r.appendChild(el('p', targetStatus === 'missed' ? 'status err' : 'status ok', note));
     if (outputs.length === 1) {
       var o = outputs[0];
       var box = el('div', 'result-one');
       if (isImageName(o.name)) { var im = el('img', 'result-img'); im.src = objUrl(o.blob); im.alt = o.name; box.appendChild(im); }
       box.appendChild(el('div', 'result-name', o.name));
-      box.appendChild(el('div', 'muted', human(o.blob.size)));
+      if (!targetStatus) box.appendChild(el('div', 'muted', human(o.blob.size)));
       r.appendChild(box);
       dom.primary.textContent = t('download'); dom.primary.disabled = false;
     } else {
@@ -554,7 +562,7 @@
       r.appendChild(list);
       dom.primary.textContent = t('downloadAll'); dom.primary.disabled = false;
     }
-    if (note) r.appendChild(el('p', 'muted', note));
+    if (note && !targetStatus) r.appendChild(el('p', 'muted', note));
     setStatus(t('done'), 'ok');
     try { dom.out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
   }
@@ -611,6 +619,11 @@
     });
     dom.primary.addEventListener('click', onPrimary);
     dom.reset.addEventListener('click', reset);
+    dom.opts.addEventListener('change', function(){
+      if (!optUI.targetMb || busy || !outputs.length) return;
+      clearResult();
+      setStatus('', '');
+    });
     document.addEventListener('keydown', function(e){
       var tg = e.target && e.target.tagName;
       if (tg === 'INPUT' || tg === 'TEXTAREA' || tg === 'SELECT' || tg === 'BUTTON' || e.target.isContentEditable) return;
