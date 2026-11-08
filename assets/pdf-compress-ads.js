@@ -29,6 +29,7 @@
   if (!probe && (internal !== false || forcedMessage)) return;
 
   let loaderReady = false;
+  let consentApiReady = false;
   let consentReady = false;
   let tcData;
   let stopped = false;
@@ -130,10 +131,11 @@
 
   function loadConsentTag() {
     if (stopped || window.top !== window || window.frames.googlefcPresent ||
-      typeof window.__tcfapi === 'function' || consentReady) return;
+      consentApiReady || consentReady) return;
 
     // The account's Google Privacy & messaging tag also starts the certified CMP
-    // when the standard AdSense loader has not started it. Ads stay paused here.
+    // when the standard AdSense loader has not started it. A TCF stub can exist
+    // without a CMP, so wait for Google's own markers. Ads stay paused here.
     const marker = document.createElement('iframe');
     marker.name = 'googlefcPresent';
     marker.hidden = true;
@@ -155,6 +157,7 @@
       requestAd();
     });
     queueConsent('CONSENT_API_READY', function () {
+      consentApiReady = true;
       if (probe) section.dataset.pbAdApi = 'ready';
       addPrivacyControl();
     });

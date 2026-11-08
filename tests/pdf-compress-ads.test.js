@@ -185,6 +185,7 @@ test('keeps ads paused when the loader fails', () => {
 
 test('starts the account CMP while keeping the single slot paused if AdSense did not start it', () => {
   const native = setup();
+  native.signal('CONSENT_API_READY');
   native.loader.fire('load');
   native.runTimers();
   assert.equal(native.scripts.length, 1);
@@ -192,7 +193,8 @@ test('starts the account CMP while keeping the single slot paused if AdSense did
   for (const [url, suffix] of [[page, ''], [page + '?fc=alwaysshow&fctype=gdpr', '&fc=alwaysshow&fctype=gdpr']]) {
     const app = setup({ url, internal: suffix ? '1' : null });
     const tcfApi = app.window.__tcfapi;
-    delete app.window.__tcfapi;
+    if (suffix) delete app.window.__tcfapi;
+    else app.window.__tcfapi = () => {}; // AdSense installed a stub, but the CMP did not load.
     app.loader.fire('load');
     assert.equal(app.scripts.length, 1);
     app.runTimers();
