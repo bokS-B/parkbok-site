@@ -26,6 +26,15 @@ const adCss = `
   font-size: var(--fs-caption);
   text-align: center;
 }
+.pb-tool-ad > .adsbygoogle {
+  width: 100%;
+  height: 280px;
+}
+@media (max-width: 1023px) {
+  .pb-tool-ad { width: min(100%, 320px); }
+  .pb-tool-ad__label { padding-block: .25rem; }
+  .pb-tool-ad > .adsbygoogle { height: 100px; }
+}
 .pb-tool-ad[hidden],
 .pb-tool-ad:has(> ins[data-ad-status="unfilled"]) { display: none; }
 `;
@@ -38,7 +47,7 @@ function toolAds(pagePath, css) {
     adAfterHelp: `
   <section class="pb-tool-ad" id="pb-tool-ad" data-page-path="${pagePath}" hidden aria-label="광고">
     <p class="pb-tool-ad__label">광고</p>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1415309581345613" data-ad-slot="${slot}" data-ad-format="auto" data-full-width-responsive="false"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1415309581345613" data-ad-slot="${slot}"></ins>
   </section>`,
     pageScript: '\n<script src="/assets/tool-ads.js?v=' + revision + '" defer></script>',
     railProtection: ' google-side-rail-overlap="false"'
