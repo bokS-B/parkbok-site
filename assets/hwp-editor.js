@@ -92,6 +92,7 @@
   function createEditor(container, entries, sections, compressed) {
     const dirty = new Set();
     let expandedSize = sections.reduce((total, section) => total + section.records.bytes.length, 0);
+    let readyCopy = null;
 
     function find(query) {
       const matches = [];
@@ -104,7 +105,7 @@
       return matches;
     }
 
-    function copy(previewText) {
+    function copy(changes, previewText) {
       const next = {
         FullPaths: container.FullPaths.slice(),
         FileIndex: container.FileIndex.map(entry => ({ ...entry }))
@@ -113,9 +114,7 @@
         next.FileIndex[index].content = bytes;
         next.FileIndex[index].size = bytes.length;
       }
-      for (const section of dirty) {
-        setContent(section.index, writeSection(section.records.bytes, compressed, section.trailer));
-      }
+      for (const [index, bytes] of changes) setContent(index, bytes);
       if (typeof previewText === 'string') {
         const text = entries.get('PrvText');
         const image = entries.get('PrvImage');
@@ -125,7 +124,7 @@
       return Uint8Array.from(window.CFB.write(next, { type: 'array', fileType: 'cfb' }));
     }
 
-    function replace(item, query, replacement, show) {
+    function replace(item, query, replacement, prepareCopy) {
       if (!item || !sections.includes(item.section)) throw new Error('문구를 다시 찾아 주세요.');
       const { section, match } = item;
       const before = section.records.bytes;
@@ -137,22 +136,31 @@
         throw new Error('편집할 수 있는 문서 용량을 넘습니다.');
       }
       dirty.add(section);
-      try {
-        show(copy());
-      } catch (error) {
+      function rollback() {
         window.PBHwpRecords.restore(section.records, before);
         if (!wasDirty) dirty.delete(section);
+      }
+      let result;
+      try {
+        const changes = [...dirty].map(part => [part.index, writeSection(part.records.bytes, compressed, part.trailer)]);
+        const previewText = prepareCopy(copy(changes));
+        result = copy(changes, previewText);
+      } catch (error) {
+        rollback();
         throw new Error('수정본을 열 수 없습니다. 문구를 다시 찾아 주세요.');
       }
+      if (result.length > maxFileSize) {
+        rollback();
+        throw new Error('이 변경을 적용하면 사본이 10MB를 넘습니다. 더 짧은 문구를 입력해 주세요.');
+      }
       expandedSize = nextSize;
+      readyCopy = result;
       return true;
     }
 
-    function save(previewText) {
-      if (!dirty.size) throw new Error('편집한 내용이 없습니다.');
-      const result = copy(previewText);
-      if (result.length > maxFileSize) throw new Error('사본이 10MB를 넘습니다.');
-      return result;
+    function save() {
+      if (!readyCopy) throw new Error('편집한 내용이 없습니다.');
+      return readyCopy;
     }
 
     return { find, replace, save };

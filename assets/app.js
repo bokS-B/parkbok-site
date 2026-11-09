@@ -340,26 +340,33 @@
     event.preventDefault();
     var doc = current.edit;
     if (!doc || !doc.editor || busy || doc.saving || matchInput.value === '') return;
+    var stagedHwp = null;
+    var result;
     try {
-      var result;
-      function showHwpCopy(bytes){
-        var previous = viewerEl.querySelector('.hwp-page-scroll');
-        var top = previous ? previous.scrollTop : 0;
-        var left = previous ? previous.scrollLeft : 0;
+      function prepareHwpCopy(bytes){
         var target = document.createElement('div');
         target.id = 'viewer';
         result = renderHwp(bytes, target);
-        target.classList.toggle('hwp-fit', viewerEl.classList.contains('hwp-fit'));
-        mountViewer(target, result.viewer);
-        var scroller = viewerEl.querySelector('.hwp-page-scroll');
-        if (scroller) { scroller.scrollTop = top; scroller.scrollLeft = left; }
+        stagedHwp = target;
+        return result.text;
       }
-      if (!doc.editor.replace(editMatches[Number(matchInput.value)], findInput.value, replaceInput.value, showHwpCopy)) {
+      if (!doc.editor.replace(editMatches[Number(matchInput.value)], findInput.value, replaceInput.value, prepareHwpCopy)) {
         editMessage('같은 문구입니다. 다른 문구를 입력하세요.', 'empty');
         return;
       }
+      if (stagedHwp) {
+        var previous = viewerEl.querySelector('.hwp-page-scroll');
+        var top = previous ? previous.scrollTop : 0;
+        var left = previous ? previous.scrollLeft : 0;
+        stagedHwp.classList.toggle('hwp-fit', viewerEl.classList.contains('hwp-fit'));
+        mountViewer(stagedHwp, result.viewer);
+        stagedHwp = null;
+        var scroller = viewerEl.querySelector('.hwp-page-scroll');
+        if (scroller) { scroller.scrollTop = top; scroller.scrollLeft = left; }
+      } else {
+        result = renderHwpxSections(doc.sections, viewerEl);
+      }
       clearEditCopy();
-      if (doc.format === 'HWPX') result = renderHwpxSections(doc.sections, viewerEl);
       current.html = result.html;
       current.text = result.text;
       textOut.value = current.text;
@@ -368,6 +375,7 @@
       editMessage('문구를 바꿨습니다. 더 바꾸거나 ' + doc.format + ' 사본을 만드세요.', 'ok');
       findInput.focus();
     } catch (error) {
+      if (stagedHwp) { try { result.viewer.distory(); } catch(e){} }
       editMessage(error.message || '이 문구는 바꿀 수 없습니다.', 'err');
     }
   }
@@ -377,13 +385,14 @@
     if (!doc || !doc.editor || busy || doc.saving) return;
     doc.saving = true;
     makeCopy.disabled = true;
-    clearEditCopy();
     editMessage(doc.format + ' 사본 만드는 중…', 'busy');
     try {
       var bytes = await doc.editor.save(current.text);
       if (current.edit !== doc) return;
       var type = doc.format === 'HWP' ? 'application/x-hwp' : 'application/hwp+zip';
-      copyUrl = URL.createObjectURL(new Blob([bytes], { type: type }));
+      var nextUrl = URL.createObjectURL(new Blob([bytes], { type: type }));
+      clearEditCopy();
+      copyUrl = nextUrl;
       copyLink.href = copyUrl;
       copyLink.download = base(current.name) + '-편집본.' + doc.format.toLowerCase();
       copyLink.hidden = false;
