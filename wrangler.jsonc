@@ -1,14 +1,18 @@
 {
+  // Run the site build and tools/package-site.py before deploying with Wrangler.
   "name": "parkbok",
   "main": "tools/cloudflare-worker.mjs",
   "compatibility_date": "2026-11-09",
-  "workers_dev": true,
+  "workers_dev": false,
   "preview_urls": false,
+  "routes": [
+    { "pattern": "parkbok.com/*", "zone_name": "parkbok.com" },
+    { "pattern": "www.parkbok.com/*", "zone_name": "parkbok.com" }
+  ],
   "assets": {
     "directory": "_build/pages",
     "binding": "ASSETS",
     "html_handling": "none",
-    "not_found_handling": "404-page",
     "run_worker_first": true
   }
 }

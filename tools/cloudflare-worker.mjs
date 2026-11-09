@@ -1,3 +1,14 @@
+const notFoundPage = `<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>페이지를 찾을 수 없습니다 | 박복</title>
+<main>
+  <h1>페이지를 찾을 수 없습니다</h1>
+  <p>주소를 확인하거나 박복 홈에서 도구를 찾아보세요.</p>
+  <a href="/">박복 홈</a>
+</main>`;
+
 function atPath(url, pathname) {
   const next = new URL(url);
   next.pathname = pathname;
@@ -5,7 +16,7 @@ function atPath(url, pathname) {
 }
 
 async function siteResponse(request, assets, url) {
-  if (url.hostname === 'www.parkbok.com') {
+  if (url.hostname === 'www.parkbok.com' || (url.hostname === 'parkbok.com' && url.protocol === 'http:')) {
     url.protocol = 'https:';
     url.hostname = 'parkbok.com';
     url.port = '';
@@ -33,7 +44,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const staging = url.hostname.endsWith('.workers.dev');
-    const response = await siteResponse(request, env.ASSETS, url);
+    let response = await siteResponse(request, env.ASSETS, url);
+    if (response.status === 404 && (request.method === 'GET' || request.method === 'HEAD')) {
+      response = new Response(request.method === 'HEAD' ? null : notFoundPage, {
+        status: 404,
+        headers: { 'Content-Type': 'text/html; charset=utf-8' }
+      });
+    }
     if (!staging) return response;
 
     const headers = new Headers(response.headers);
