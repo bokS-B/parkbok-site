@@ -4,7 +4,6 @@
 
 /* ---------- 파일 선택과 기기 내 처리 안내 ---------- */
 .drop.home{display:flex;align-items:center;justify-content:center;padding:24px 16px;margin:0 0 12px;border:1px dashed var(--control-line);border-radius:var(--r-big);position:relative;outline:none}
-.drop.home:focus-visible{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
 .drop-start{display:flex;flex-direction:column;align-items:center;gap:10px}
 .drop-start .droptxt,.hwp-privacy{margin:0;color:var(--muted);font-size:var(--fs-small);line-height:20px}
 

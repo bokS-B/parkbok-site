@@ -276,7 +276,6 @@
     if (document.body.classList.contains('has-input') && !b) return;
     openPicker();
   });
-  drop.addEventListener('keydown', function(e){ if ((e.key === 'Enter' || e.key === ' ') && e.target === drop) { e.preventDefault(); openPicker(); } });
   drop.addEventListener('mouseenter', function(){ loadLib(); });
   drop.addEventListener('touchstart', function(){ loadLib(); }, { passive: true });
   fileInput.addEventListener('change', function(){ handle(fileInput.files[0]); fileInput.value = ''; });

@@ -272,7 +272,6 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 
 /* ---------- 파일 선택과 기기 내 처리 안내 ---------- */
 .drop.home{display:flex;align-items:center;justify-content:center;padding:24px 16px;margin:0 0 12px;border:1px dashed var(--control-line);border-radius:var(--r-big);position:relative;outline:none}
-.drop.home:focus-visible{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
 .drop-start{display:flex;flex-direction:column;align-items:center;gap:10px}
 .drop-start .droptxt,.hwp-privacy{margin:0;color:var(--muted);font-size:var(--fs-small);line-height:20px}
 
@@ -333,7 +332,6 @@ html,body{overflow-x:clip}
 main.wrap>h1{min-width:0;overflow-wrap:break-word}
 main.wrap>.lead{margin-bottom:16px}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--hwp-focus);outline-offset:3px;transition:none}
-.drop.home:focus-visible{outline:2px solid var(--hwp-focus);outline-offset:3px;box-shadow:none}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head><body>
@@ -354,7 +352,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 <main class="wrap">
   <h1>HWP·HWPX 뷰어</h1>
   <p class="lead">한글 문서를 열고 PDF, 텍스트, HTML로 저장하세요.</p>
-  <div class="drop home" id="drop" tabindex="0" role="button" aria-label="HWP 파일 열기">
+  <div class="drop home" id="drop">
     <div class="drop-start">
       <p class="droptxt">HWP·HWPX 파일을 여기에 끌어다 놓으세요.</p>
       <button class="btn" type="button" id="btn-select" aria-describedby="hwp-privacy">HWP 파일 열기</button>
@@ -407,7 +405,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   </details>
 </main>
 <link rel="prefetch" href="/assets/hwp-bundle.js" as="script">
-<script src="/assets/app.js?v=2c7361a8e6" defer></script>
+<script src="/assets/app.js?v=85385a513b" defer></script>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap">
   <div class="foot-main">
