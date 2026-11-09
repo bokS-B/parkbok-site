@@ -28,6 +28,7 @@
   var btnHtml = $('btn-html');
   var btnCopy = $('btn-copy');
   var btnReset = $('btn-reset');
+  var btnViewSize = $('btn-view-size');
   var current = { name: '', text: '', html: '' };
   var viewer = null;
   var busy = false;
@@ -43,6 +44,8 @@
     if (viewer) { try { viewer.distory(); } catch(e){} viewer = null; }
     viewerEl.innerHTML = '';
     viewerEl.style.height = '';
+    viewerEl.classList.remove('hwp-fit');
+    btnViewSize.hidden = true;
     textOut.value = '';
     tools.hidden = true;
     textWrap.hidden = true;
@@ -106,18 +109,92 @@
     current.html = '<pre style="white-space:pre-wrap;font-family:inherit">' + esc(current.text) + '</pre>';
     viewerEl.style.height = '80vh';
     viewer = new L.Viewer(viewerEl, bytes, { type: 'array' });
+    var page = viewerEl.querySelector('[data-page-number]:not(.hwpjs-observer)');
+    if (page) {
+      page.parentElement.classList.add('hwp-page-scroll');
+      viewerEl.classList.add('hwp-fit');
+      btnViewSize.textContent = '원래 크기로 보기';
+      btnViewSize.hidden = false;
+      fitHwpPages();
+    }
   }
 
-  function directText(p){
-    // 문단 바로 아래 run 의 t 요소만 모은다 (표 안 문단은 표에서 따로 처리)
-    var s = '';
-    var rs = p.getElementsByTagNameNS('*', 'run');
-    for (var j = 0; j < rs.length; j++) {
-      if (rs[j].parentNode !== p) continue;
-      var ts = rs[j].getElementsByTagNameNS('*', 't');
-      for (var m = 0; m < ts.length; m++) if (ts[m].parentNode === rs[j]) s += ts[m].textContent;
+  function fitHwpPages(){
+    var scroller = viewerEl.querySelector('.hwp-page-scroll');
+    if (!scroller || !viewerEl.classList.contains('hwp-fit')) return;
+    var style = window.getComputedStyle(scroller);
+    var available = scroller.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+    if (available <= 0) return;
+    Array.prototype.forEach.call(scroller.children, function(page){
+      if (page.hasAttribute('data-page-number') && page.offsetWidth) {
+        page.style.setProperty('--hwp-page-fit', Math.min(1, available / page.offsetWidth));
+      }
+    });
+  }
+
+  function xmlChildren(element, name){
+    return Array.prototype.filter.call(element.children, function(child){ return child.localName === name; });
+  }
+
+  function xmlNumber(element, attribute){
+    var value = element && Number(element.getAttribute(attribute));
+    return Number.isFinite(value) && value > 0 ? value : 0;
+  }
+
+  function readHwpxTable(table){
+    var size = xmlChildren(table, 'sz')[0];
+    var width = size && size.getAttribute('widthRelTo') === 'ABSOLUTE' ? xmlNumber(size, 'width') : 0;
+    // HWP units are 1/7200 inch. Preserve column proportions on narrower screens.
+    var style = 'border-collapse:collapse;margin:8px 0;max-width:100%;overflow-wrap:anywhere';
+    if (width) style += ';width:' + (width / 75) + 'px';
+    var html = '<table border="1" cellpadding="4" style="' + style + '">';
+    var lines = [];
+    xmlChildren(table, 'tr').forEach(function(row){
+      html += '<tr>';
+      var rowText = [];
+      xmlChildren(row, 'tc').forEach(function(cell){
+        var span = xmlChildren(cell, 'cellSpan')[0];
+        var cols = xmlNumber(span, 'colSpan');
+        var rows = xmlNumber(span, 'rowSpan');
+        var cellWidth = xmlNumber(xmlChildren(cell, 'cellSz')[0], 'width');
+        var attrs = '';
+        if (Number.isInteger(cols) && cols > 1) attrs += ' colspan="' + cols + '"';
+        if (Number.isInteger(rows) && rows > 1) attrs += ' rowspan="' + rows + '"';
+        if (width && cellWidth) attrs += ' style="width:' + Math.min(100, 100 * cellWidth / width) + '%"';
+        var cellHtml = [], cellText = [];
+        xmlChildren(cell, 'subList').forEach(function(list){
+          xmlChildren(list, 'p').forEach(function(p){ readHwpxParagraph(p, cellHtml, cellText); });
+        });
+        html += '<td' + attrs + '>' + cellHtml.join('') + '</td>';
+        rowText.push(cellText.join(' ').trim());
+      });
+      html += '</tr>';
+      lines.push(rowText.join('\t'));
+    });
+    return { html: html + '</table>', text: lines.join('\n') };
+  }
+
+  function readHwpxParagraph(paragraph, html, text){
+    var line = '';
+    var hasTable = false;
+    function flushLine(){
+      html.push('<p>' + (esc(line) || '&nbsp;') + '</p>');
+      text.push(line);
+      line = '';
     }
-    return s;
+    xmlChildren(paragraph, 'run').forEach(function(run){
+      Array.prototype.forEach.call(run.children, function(child){
+        if (child.localName === 't') line += child.textContent;
+        if (child.localName === 'tbl') {
+          if (line) flushLine();
+          var table = readHwpxTable(child);
+          html.push(table.html);
+          text.push(table.text);
+          hasTable = true;
+        }
+      });
+    });
+    if (line || !hasTable) flushLine();
   }
 
   function renderHwpx(bytes){
@@ -129,42 +206,13 @@
     var html = [], text = [];
     names.forEach(function(n){
       var xml = parser.parseFromString(L.strFromU8(files[n]), 'application/xml');
-      var paras = xml.getElementsByTagNameNS('*', 'p');
-      for (var i = 0; i < paras.length; i++) {
-        var p = paras[i];
-        var parentTag = p.parentNode && p.parentNode.localName;
-        if (parentTag === 'tc' || parentTag === 'subList') continue;
-        var tbls = p.getElementsByTagNameNS('*', 'tbl');
-        for (var ti = 0; ti < tbls.length; ti++) {
-          var rows = tbls[ti].getElementsByTagNameNS('*', 'tr');
-          var th = '<table border="1" cellpadding="4" style="border-collapse:collapse;margin:8px 0">';
-          var tt = [];
-          for (var r = 0; r < rows.length; r++) {
-            th += '<tr>';
-            var cells = rows[r].getElementsByTagNameNS('*', 'tc');
-            var rowText = [];
-            for (var c = 0; c < cells.length; c++) {
-              var cps = cells[c].getElementsByTagNameNS('*', 'p');
-              var cellTxt = [];
-              for (var k = 0; k < cps.length; k++) cellTxt.push(directText(cps[k]));
-              th += '<td>' + cellTxt.map(esc).join('<br>') + '</td>';
-              rowText.push(cellTxt.join(' '));
-            }
-            th += '</tr>';
-            tt.push(rowText.join('\t'));
-          }
-          th += '</table>';
-          html.push(th); text.push(tt.join('\n'));
-        }
-        var line = directText(p);
-        html.push('<p>' + (esc(line) || '&nbsp;') + '</p>');
-        text.push(line);
-      }
+      if (xml.documentElement.localName === 'parsererror') throw new Error('invalid section');
+      xmlChildren(xml.documentElement, 'p').forEach(function(p){ readHwpxParagraph(p, html, text); });
     });
     current.html = html.join('\n');
     current.text = text.join('\n');
     viewerEl.style.height = '';
-    viewerEl.innerHTML = '<div style="background:#fff;max-width:800px;margin:0 auto;padding:40px 48px;font-size:14px">' + current.html + '</div>';
+    viewerEl.innerHTML = '<div class="hwpx-paper">' + current.html + '</div>';
   }
 
   function handle(file){
@@ -229,6 +277,15 @@
   document.addEventListener('paste', function(e){ var f = e.clipboardData && e.clipboardData.files && e.clipboardData.files[0]; if (f) handle(f); });
 
   btnPdf.addEventListener('click', function(){ say('인쇄 창에서 PDF로 저장 선택', 'ok'); window.print(); });
+  btnViewSize.addEventListener('click', function(){
+    var fit = viewerEl.classList.toggle('hwp-fit');
+    btnViewSize.textContent = fit ? '원래 크기로 보기' : '화면 폭에 맞추기';
+    if (fit) {
+      fitHwpPages();
+      viewerEl.querySelector('.hwp-page-scroll').scrollLeft = 0;
+    }
+  });
+  window.addEventListener('resize', fitHwpPages);
   btnTxt.addEventListener('click', function(){ download(base(current.name) + '.txt', '﻿' + current.text, 'text/plain;charset=utf-8'); });
   btnHtml.addEventListener('click', function(){
     var doc = '<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>' + esc(base(current.name)) + '</title></head><body style="font-family:sans-serif;max-width:800px;margin:40px auto">' + current.html + '</body></html>';
