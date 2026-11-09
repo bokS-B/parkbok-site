@@ -28,6 +28,7 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 #viewer{margin:0 0 16px}
 .hwpx-paper{background:#fff;color:#1d2129;max-width:800px;margin:0 auto;padding:40px 48px;font-size:14px}
 .hwpx-paper td>p{margin:0}
+#viewer.hwpx-tap-edit td{cursor:pointer}
 #textwrap{margin:0 0 16px}
 #textwrap h2{margin:0 0 8px;font-size:16px;line-height:24px}
 #textwrap #textout{display:block}

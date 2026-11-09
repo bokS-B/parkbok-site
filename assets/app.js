@@ -64,7 +64,7 @@
     if (viewer) { try { viewer.distory(); } catch(e){} viewer = null; }
     viewerEl.innerHTML = '';
     viewerEl.style.height = '';
-    viewerEl.classList.remove('hwp-fit');
+    viewerEl.classList.remove('hwp-fit', 'hwpx-tap-edit');
     btnViewSize.hidden = true;
     resetEditor();
     textOut.value = '';
@@ -159,7 +159,7 @@
     return Number.isFinite(value) && value > 0 ? value : 0;
   }
 
-  function readHwpxTable(table){
+  function readHwpxTable(table, cells){
     var size = xmlChildren(table, 'sz')[0];
     var width = size && size.getAttribute('widthRelTo') === 'ABSOLUTE' ? xmlNumber(size, 'width') : 0;
     // HWP units are 1/7200 inch. Preserve column proportions on narrower screens.
@@ -171,6 +171,7 @@
       html += '<tr>';
       var rowText = [];
       xmlChildren(row, 'tc').forEach(function(cell){
+        cells.push(cell);
         var span = xmlChildren(cell, 'cellSpan')[0];
         var cols = xmlNumber(span, 'colSpan');
         var rows = xmlNumber(span, 'rowSpan');
@@ -181,7 +182,7 @@
         if (width && cellWidth) attrs += ' style="width:' + Math.min(100, 100 * cellWidth / width) + '%"';
         var cellHtml = [], cellText = [];
         xmlChildren(cell, 'subList').forEach(function(list){
-          xmlChildren(list, 'p').forEach(function(p){ readHwpxParagraph(p, cellHtml, cellText); });
+          xmlChildren(list, 'p').forEach(function(p){ readHwpxParagraph(p, cellHtml, cellText, cells); });
         });
         html += '<td' + attrs + '>' + cellHtml.join('') + '</td>';
         rowText.push(cellText.join(' ').trim());
@@ -192,7 +193,7 @@
     return { html: html + '</table>', text: lines.join('\n') };
   }
 
-  function readHwpxParagraph(paragraph, html, text){
+  function readHwpxParagraph(paragraph, html, text, cells){
     var line = '';
     var hasBlock = false;
     function flushLine(){
@@ -206,13 +207,13 @@
           line += child.textContent;
         } else if (child.localName === 'tbl') {
           if (line) flushLine();
-          var table = readHwpxTable(child);
+          var table = readHwpxTable(child, cells);
           html.push(table.html);
           text.push(table.text);
           hasBlock = true;
         } else if (child.localName === 'p') {
           if (line) flushLine();
-          readHwpxParagraph(child, html, text);
+          readHwpxParagraph(child, html, text, cells);
           hasBlock = true;
         } else {
           // Footnotes and other controls can wrap paragraphs or tables.
@@ -241,18 +242,21 @@
     });
     var result = renderHwpxSections(sections, target);
     if (window.PBHWPXEditor && window.PBHWPXEditor.canEdit(bytes, entries)) {
-      result.edit = { format: 'HWPX', bytes: bytes, entries: entries, sections: sections };
+      result.edit = { format: 'HWPX', bytes: bytes, entries: entries, sections: sections, cells: result.cells };
     }
     return result;
   }
 
   function renderHwpxSections(sections, target){
-    var html = [], text = [];
+    var html = [], text = [], cells = [];
     sections.forEach(function(section){
-      xmlChildren(section.xml.documentElement, 'p').forEach(function(p){ readHwpxParagraph(p, html, text); });
+      xmlChildren(section.xml.documentElement, 'p').forEach(function(p){ readHwpxParagraph(p, html, text, cells); });
     });
-    var result = { html: html.join('\n'), text: text.join('\n') };
+    var result = { html: html.join('\n'), text: text.join('\n'), cells: new WeakMap() };
     target.innerHTML = '<div class="hwpx-paper">' + result.html + '</div>';
+    // The renderer emits each <td> in source order, including nested cells.
+    var rendered = target.querySelectorAll('td');
+    if (rendered.length === cells.length) rendered.forEach(function(td, index){ result.cells.set(td, cells[index]); });
     return result;
   }
 
@@ -292,8 +296,9 @@
     var opening = editPanel.hidden;
     editPanel.hidden = !opening;
     btnEdit.setAttribute('aria-expanded', String(opening));
+    viewerEl.classList.toggle('hwpx-tap-edit', opening && doc.format === 'HWPX' && !!doc.editor);
     if (!opening) return;
-    if (doc.editor) { findInput.focus(); return; }
+    if (doc.editor) { focusEditSearch(doc); return; }
     if (doc.loading) return;
     doc.loading = true;
     editMessage('편집 준비 중…', 'busy');
@@ -303,8 +308,9 @@
         : await window.PBHWPXEditor.load(doc.bytes, doc.entries, doc.sections);
       if (current.edit !== doc) return;
       findInput.disabled = findButton.disabled = false;
+      viewerEl.classList.toggle('hwpx-tap-edit', !editPanel.hidden && doc.format === 'HWPX');
       editMessage('');
-      if (!editPanel.hidden) findInput.focus();
+      if (!editPanel.hidden) focusEditSearch(doc);
     } catch (error) {
       if (current.edit === doc) editMessage(error.message || '이 문서는 편집할 수 없습니다.', 'err');
     } finally {
@@ -312,17 +318,27 @@
     }
   }
 
+  function focusEditSearch(doc){
+    if (doc.format !== 'HWPX' || !window.matchMedia('(max-width:767.98px)').matches) findInput.focus();
+  }
+
   function findEditMatches(event){
     event.preventDefault();
     var doc = current.edit;
     if (!doc || !doc.editor || busy || doc.saving) return;
     clearEditMatches();
-    var query = findInput.value;
-    editMatches = doc.editor.find(query);
-    if (!editMatches.length) {
+    var matches = doc.editor.find(findInput.value);
+    if (!matches.length) {
       editMessage('편집할 수 있는 문구를 찾지 못했습니다. 짧게 나눠 찾아보세요.', 'empty');
       return;
     }
+    showEditMatches(matches);
+    editMessage(matches.length === 100 ? '처음 100곳을 표시했습니다.' : matches.length + '곳에서 찾았습니다.');
+    (matches.length > 1 ? matchInput : replaceInput).focus();
+  }
+
+  function showEditMatches(matches){
+    editMatches = matches;
     if (editMatches.length > 1) {
       var prompt = new Option('바꿀 위치를 선택하세요', '', true, true);
       prompt.disabled = true;
@@ -332,8 +348,28 @@
       matchInput.add(new Option((index + 1) + '. ' + match.location + ' · ' + match.context, String(index)));
     });
     replaceForm.hidden = false;
-    editMessage(editMatches.length === 100 ? '처음 100곳을 표시했습니다.' : editMatches.length + '곳에서 찾았습니다.');
-    (editMatches.length > 1 ? matchInput : replaceInput).focus();
+  }
+
+  function selectHwpxCell(event){
+    var doc = current.edit;
+    if (!doc || doc.format !== 'HWPX' || !doc.editor || editPanel.hidden || busy || doc.saving ||
+        !viewerEl.contains(event.target) || !event.target.closest ||
+        (window.getSelection() && !window.getSelection().isCollapsed)) return;
+    var cell = doc.cells.get(event.target.closest('td'));
+    if (!cell) return;
+    clearEditMatches();
+    var selected = doc.editor.findCell(cell);
+    if (!selected) {
+      editMessage('이 셀은 눌러서 바꿀 수 없습니다. 문구가 있으면 검색으로 찾아보세요.', 'empty');
+      editStatus.scrollIntoView({ block: 'nearest' });
+      return;
+    }
+    findInput.value = selected.query;
+    showEditMatches([selected.match]);
+    replaceInput.value = selected.query;
+    editMessage('표 셀을 선택했습니다. 문구를 바꿔 주세요.');
+    replaceInput.focus();
+    replaceInput.select();
   }
 
   function applyEdit(event){
@@ -365,6 +401,7 @@
         if (scroller) { scroller.scrollTop = top; scroller.scrollLeft = left; }
       } else {
         result = renderHwpxSections(doc.sections, viewerEl);
+        doc.cells = result.cells;
       }
       clearEditCopy();
       current.html = result.html;
@@ -424,7 +461,7 @@
     copyLink.textContent = doc.format + ' 사본 다운로드';
     editHelp.textContent = doc.format === 'HWP'
       ? '한 줄·한 서식 안의 짧은 문구를 늘리거나 줄입니다. 표 셀의 길이를 바꿀 때는 폭이 제한됩니다.'
-      : '본문이나 표 셀의 짧은 문구를 찾아 한 곳씩 바꿉니다. 여러 서식에 걸친 문구는 나눠 찾으세요.';
+      : '표에서 기존 문구가 있는 셀을 누르거나, 본문·표 문구를 검색해 한 곳씩 바꿉니다.';
   }
 
   function handle(file){
@@ -520,6 +557,7 @@
   });
   btnReset.addEventListener('click', function(){ reset(); btnSelect.focus(); });
   btnEdit.addEventListener('click', toggleEditor);
+  document.addEventListener('click', selectHwpxCell);
   findForm.addEventListener('submit', findEditMatches);
   findInput.addEventListener('input', function(){ clearEditMatches(); editMessage(''); });
   replaceForm.addEventListener('submit', applyEdit);

@@ -225,9 +225,7 @@
     const issued = new WeakMap();
     let saving = false;
 
-    function find(query) {
-      const matches = [];
-      if (!allowedText(query, false)) return matches;
+    function* textNodes() {
       let fieldDepth = 0;
       for (const section of sections) {
         for (const el of section.xml.getElementsByTagName('*')) {
@@ -236,24 +234,64 @@
           if (el.localName === 'fieldEnd') fieldDepth = Math.max(0, fieldDepth - 1);
           if (fieldDepth || el.localName !== 't') continue;
           const node = el.firstChild;
-          if (!node || node.nodeType !== 3) continue;
-          const text = node.data;
-          const firstOffset = text.indexOf(query);
-          if (firstOffset === -1) continue;
-          const location = locationFor(el, section);
-          if (!location) continue;
-          for (let offset = firstOffset; offset !== -1; offset = text.indexOf(query, offset + query.length)) {
-            const left = Math.max(0, offset - 24);
-            const right = Math.min(text.length, offset + query.length + 24);
-            const context = (left ? '…' : '') + text.slice(left, right) + (right < text.length ? '…' : '');
-            const match = { sectionName: section.name, node, offset, context, location };
-            issued.set(match, { section, node, offset, text, query });
-            matches.push(match);
-            if (matches.length === 100) return matches;
-          }
+          if (node && node.nodeType === 3) yield { section, node };
+        }
+      }
+    }
+
+    function issueMatch(section, node, query, offset, location) {
+      const text = node.data;
+      const left = Math.max(0, offset - 24);
+      const right = Math.min(text.length, offset + query.length + 24);
+      const context = (left ? '…' : '') + text.slice(left, right) + (right < text.length ? '…' : '');
+      const match = { sectionName: section.name, node, offset, context, location };
+      issued.set(match, { section, node, offset, text, query });
+      return match;
+    }
+
+    function find(query) {
+      const matches = [];
+      if (!allowedText(query, false)) return matches;
+      for (const { section, node } of textNodes()) {
+        const text = node.data;
+        const firstOffset = text.indexOf(query);
+        if (firstOffset === -1) continue;
+        const location = locationFor(node.parentElement, section);
+        if (!location) continue;
+        for (let offset = firstOffset; offset !== -1; offset = text.indexOf(query, offset + query.length)) {
+          matches.push(issueMatch(section, node, query, offset, location));
+          if (matches.length === 100) return matches;
         }
       }
       return matches;
+    }
+
+    function findCell(cell) {
+      const section = cell && sections.find(item => item.xml === cell.ownerDocument);
+      if (!section) return null;
+      const is = (node, name) => !!node && node.namespaceURI === section.namespace && node.localName === name;
+      if (!is(cell, 'tc')) return null;
+      const lists = Array.from(cell.children).filter(child => is(child, 'subList'));
+      if (lists.length !== 1 || lists[0].children.length !== 1 ||
+        cell.getElementsByTagNameNS(section.namespace, 'tbl').length) return null;
+      const paragraph = lists[0].firstElementChild;
+      if (!is(paragraph, 'p')) return null;
+      const children = Array.from(paragraph.children);
+      const runs = children.filter(child => is(child, 'run'));
+      if (runs.length !== 1 || children.some(child => child !== runs[0] && !is(child, 'linesegarray')) ||
+        runs[0].children.length !== 1) return null;
+      const text = runs[0].firstElementChild;
+      const location = locationFor(text, section);
+      if (!location) return null;
+      const node = text.firstChild;
+      const query = node.data;
+      if (!allowedText(query, false)) return null;
+
+      // Use the document-order scan because a field can begin outside the tapped cell.
+      for (const entry of textNodes()) {
+        if (entry.node === node) return { query, match: issueMatch(section, node, query, 0, location) };
+      }
+      return null;
     }
 
     function replace(match, query, value) {
@@ -321,7 +359,7 @@
       }
     }
 
-    return { find, replace, save };
+    return { find, findCell, replace, save };
   }
 
   async function load(bytes, entries, sections) {
