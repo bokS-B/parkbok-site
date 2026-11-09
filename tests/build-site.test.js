@@ -41,3 +41,21 @@ test('site build preserves private browser exports while generating public pages
   assert.equal(fs.readFileSync(path.join(root, '.playwright-cli/export.html'), 'utf8'), document);
   assert.match(result.stdout, /pages: 2 \| changed: 2/);
 });
+
+test('the HWP viewer and each HWP guide have one Hancom source notice in the footer', () => {
+  const notice = '<p class="foot-note">본 제품은 한컴의 <a href="https://download.hancom.com/support/downloadCenter/hwpOwpml" rel="noopener">HWP 문서 파일(.hwp) 공개 문서</a>를 참고하여 개발하였습니다.';
+  const files = [
+    'hwp/index.html',
+    'guide/hwp-to-pdf.html',
+    'guide/hwp-vs-hwpx.html',
+    'guide/hwp-wont-open.html',
+    'guide/open-hwp-on-mac.html',
+    'guide/open-hwp-on-phone.html'
+  ];
+  for (const file of files) {
+    const html = fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
+    const footer = html.match(/<!-- shell:footer -->[\s\S]*?<!-- \/shell:footer -->/)?.[0];
+    assert.ok(footer?.includes(notice), file);
+    assert.equal(html.match(/본 제품은 한컴의/g)?.length, 1, file);
+  }
+});

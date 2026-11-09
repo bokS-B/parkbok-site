@@ -17,8 +17,14 @@ for (const lang of Object.keys(HOME).filter(l => l !== 'ko')) {
   if (!fs.existsSync(path.join(dir, 'index.html'))) fs.writeFileSync(path.join(dir, 'index.html'), homeSource);
 }
 const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'tests', 'output', 'pdf', 'image', 'color', 'src'];   // 테스트 산출물 제외. pdf/image/color 는 자체 생성기가 셸을 넣는다
+const HANCOM_HWP_NOTICE = '본 제품은 한컴의 <a href="https://download.hancom.com/support/downloadCenter/hwpOwpml" rel="noopener">HWP 문서 파일(.hwp) 공개 문서</a>를 참고하여 개발하였습니다.';
 const FOOT_EXTRA = {
-  'hwp/index.html': ' · 본 제품은 한컴의 <a href="https://download.hancom.com/support/downloadCenter/hwpOwpml" rel="noopener">HWP 문서 파일(.hwp) 공개 문서</a>를 참고하여 개발하였습니다. HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.'
+  'hwp/index.html': HANCOM_HWP_NOTICE + ' HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.',
+  'guide/hwp-to-pdf.html': HANCOM_HWP_NOTICE,
+  'guide/hwp-vs-hwpx.html': HANCOM_HWP_NOTICE,
+  'guide/hwp-wont-open.html': HANCOM_HWP_NOTICE,
+  'guide/open-hwp-on-mac.html': HANCOM_HWP_NOTICE,
+  'guide/open-hwp-on-phone.html': HANCOM_HWP_NOTICE
 };
 // 페이지 전용 CSS: <style id="page-css"> 로 site-css 다음에 인라인
 const PAGE_CSS = {
