@@ -176,25 +176,34 @@
 
   function readHwpxParagraph(paragraph, html, text){
     var line = '';
-    var hasTable = false;
+    var hasBlock = false;
     function flushLine(){
       html.push('<p>' + (esc(line) || '&nbsp;') + '</p>');
       text.push(line);
       line = '';
     }
-    xmlChildren(paragraph, 'run').forEach(function(run){
-      Array.prototype.forEach.call(run.children, function(child){
-        if (child.localName === 't') line += child.textContent;
-        if (child.localName === 'tbl') {
+    function readContent(element){
+      Array.prototype.forEach.call(element.children, function(child){
+        if (child.localName === 't') {
+          line += child.textContent;
+        } else if (child.localName === 'tbl') {
           if (line) flushLine();
           var table = readHwpxTable(child);
           html.push(table.html);
           text.push(table.text);
-          hasTable = true;
+          hasBlock = true;
+        } else if (child.localName === 'p') {
+          if (line) flushLine();
+          readHwpxParagraph(child, html, text);
+          hasBlock = true;
+        } else {
+          // Footnotes and other controls can wrap paragraphs or tables.
+          readContent(child);
         }
       });
-    });
-    if (line || !hasTable) flushLine();
+    }
+    readContent(paragraph);
+    if (line || !hasBlock) flushLine();
   }
 
   function renderHwpx(bytes){
