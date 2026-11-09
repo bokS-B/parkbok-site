@@ -8,7 +8,6 @@ body{caret-color:var(--accent-text)}
 @media(max-width:767.98px){
   header.top.home-header>.wrap{display:grid;grid-template-columns:1fr auto 34px;gap:0 12px;height:auto;min-height:96px;padding-top:4px}
   .home-header .brand{grid-column:1;grid-row:1;gap:8px;min-height:44px;font-size:20px}
-  .home-header .brand-t{position:static;width:auto;height:auto;overflow:visible;clip:auto}
   .home-header .home-lang{grid-column:2;grid-row:1;max-width:132px;margin:0;height:44px}
   .home-header .theme-btn{grid-column:3;grid-row:1}
   .home-header nav.menu{grid-column:1 / -1;grid-row:2;width:100%;min-height:44px;margin-top:0}

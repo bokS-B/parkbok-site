@@ -1,12 +1,12 @@
 /* 소개(about.html) 전용. tools/build-site.js 가 <style id="page-css"> 로 인라인한다 — 공통 규칙은 assets/site.css */
-/* 본문 720px. 로고 색은 site.css 의 --brand(라이트 #511919 / 다크 #e2a096, 헤더 마크와 같음). fallback #511919 는 공식 원본(assets/brand/logo-source.png)에서 샘플링한 값 */
+/* 본문 720px. */
 .about{max-width:720px;margin:0 auto}
 .about p{line-height:26px}
 .about h2{margin:0 0 12px}
 .about-sec+.about-sec{margin-top:40px}
 
-/* 첫 화면: 로고(비율 1080:759.3, 최대 240×64) → 보조 제목 → 제목 → 소개 → 주 버튼 */
-.about-logo{display:block;width:auto;height:64px;max-width:240px;aspect-ratio:1080/759.3;color:var(--brand,#511919);margin:0 0 20px}
+/* 첫 화면: 브랜드 마크 → 보조 제목 → 제목 → 소개 → 주 버튼 */
+.about-logo{display:block;margin:0 0 20px}
 .about-eyebrow{font-size:var(--fs-small);line-height:var(--lh-small);font-weight:var(--fw-semibold);letter-spacing:.04em;color:var(--accent-text);margin:0 0 8px}
 .about h1{margin:0 0 16px}
 .about .btn-big{min-height:56px;min-width:0;padding:0 32px;font-size:var(--fs-lead);line-height:var(--lh-lead);margin-top:8px}

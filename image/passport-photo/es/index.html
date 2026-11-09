@@ -17,8 +17,8 @@
 <meta property="og:title" content="Foto de pasaporte online gratis – Recortar y redimensionar (32×26 mm, 2×2 in, 35×45 mm)"><meta property="og:description" content="Recorta al tamaño de pasaporte o documento elegido, o comprueba el archivo original para trámites en línea. Gratis en el navegador, sin subir fotos. Consulta las instrucciones oficiales.">
 <meta property="og:url" content="https://parkbok.com/image/passport-photo/es/">
 <!-- shell:head-common -->
-<link rel="icon" href="/favicon.ico?v=12e6bda5" sizes="16x16 32x32 48x48" type="image/x-icon">
-<link rel="icon" href="/favicon.svg?v=12e6bda5" sizes="any" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico?v=ebc61927" sizes="16x16 32x32 48x48" type="image/x-icon">
+<link rel="icon" href="/favicon.svg?v=ebc61927" sizes="any" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/icon-180.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#511919">
@@ -113,15 +113,13 @@ header.top .subnav .wrap{display:flex;align-items:center;gap:6px;height:var(--su
 
 /* ---------- 셸: 브랜드 마크 — brand:start~end 는 build-color-pages.js 가 그대로 hex.css 뒤에 붙인다(롱테일 페이지도 같은 마크 규칙) ---------- */
 /* brand:start */
-:root{--brand:#511919}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#c1a49d}}
-:root[data-theme="dark"]{--brand:#c1a49d}
-.brand{display:inline-flex;align-items:center;gap:8px}
-.brand-mark{display:block;flex:none;background-color:currentColor;-webkit-mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat;mask:url('/assets/brand/logo-transparent.svg') center/contain no-repeat}
-.brand .brand-mark{width:37px;height:26px;color:var(--brand)}
-@media (max-width:860px){.brand .brand-mark{width:34px;height:24px}}
-@media (max-width:767.98px){.brand{gap:6px}.brand .brand-mark{width:31px;height:22px}}
-@media (max-width:480px){.brand{gap:0}.brand-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+:root{--brand:#254666}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--brand:#a9c6e3}}
+:root[data-theme="dark"]{--brand:#a9c6e3}
+.brand{display:inline-flex;flex:none;align-items:center;gap:8px;min-height:44px}
+.brand-mark{display:block;flex:none;background:url('/assets/brand/parkbok-mark.svg') center/contain no-repeat}
+.brand .brand-mark{width:28px;height:28px}
+@media (max-width:767.98px){.brand{gap:6px}.brand .brand-mark{width:24px;height:24px}}
 /* brand:end */
 
 /* footer:start — HEX pages share this block. */
@@ -130,7 +128,7 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .foot-main{display:grid;grid-template-columns:minmax(240px,1.05fr) minmax(0,1.7fr);gap:64px;padding-bottom:40px}
 .foot-brand-block{min-width:0}
 .foot .foot-brand{display:inline-flex;align-items:center;gap:12px;min-height:44px;color:var(--foot-text);font-size:32px;font-weight:700;letter-spacing:-1px;text-decoration:none}
-.foot-brand .brand-mark{width:46px;height:32px;color:#e2a096}
+.foot-brand .brand-mark{width:34px;height:34px}
 .foot .foot-tagline{margin:24px 0 10px;font-size:18px;line-height:28px;font-weight:600;letter-spacing:-.02em;color:var(--foot-text)}
 .foot .foot-description{max-width:330px;margin:0;white-space:pre-line;color:var(--foot-muted);font-size:14px;line-height:24px}
 .foot .foot-local{display:flex;align-items:flex-start;gap:8px;max-width:330px;margin:24px 0 0;font-size:12px;line-height:20px;color:var(--foot-muted)}
@@ -150,8 +148,6 @@ footer.foot{--foot-surface:#172234;--foot-text:#f3f6fb;--foot-muted:#b5c0cf;--fo
 .foot .foot-note{margin:14px 0 0;border-top:1px solid var(--foot-rule);padding-top:16px;font-size:12px;line-height:20px;color:var(--foot-muted)}
 :root[data-theme="dark"] footer.foot{--foot-surface:var(--footer-bg);--foot-text:var(--footer-ink);--foot-muted:var(--muted);--foot-rule:var(--line)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) footer.foot{--foot-surface:var(--footer-bg);--foot-text:var(--footer-ink);--foot-muted:var(--muted);--foot-rule:var(--line)}}
-:root[data-theme="dark"] .foot-brand .brand-mark{color:var(--brand)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .foot-brand .brand-mark{color:var(--brand)}}
 @media(max-width:960px){.foot-main{gap:32px;grid-template-columns:minmax(200px,.8fr) minmax(0,1.6fr)}.foot-directory{gap:20px}.foot-bottom{align-items:flex-start;flex-direction:column;gap:4px}}
 @media(max-width:767.98px){footer.foot{padding:36px 0 16px;margin-top:40px}.foot .wrap{padding-inline:20px}.foot-main{grid-template-columns:1fr;gap:32px;padding-bottom:24px}.foot .foot-brand{font-size:28px}.foot .foot-tagline{margin-top:16px}.foot .foot-local{margin-top:16px}.foot-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}.foot-column:last-child{grid-column:1 / -1;border-top:1px solid var(--foot-rule);padding-top:24px}.foot-languages{gap:0 20px}.foot-bottom{padding-top:16px}.foot .foot-column h2{margin-bottom:8px}}
 /* footer:end */

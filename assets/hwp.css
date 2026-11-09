@@ -2,18 +2,18 @@
 /* ---------- 숨김 ---------- */
 .actions[hidden],.drop-compact[hidden],#textwrap[hidden],#btn-view-size{display:none}
 
-/* ---------- HWP 스트립: 한 줄, 높이 72px 이하 ---------- */
-.drop.home{display:flex;align-items:center;justify-content:center;gap:12px;min-height:56px;max-height:72px;padding:8px 12px;margin:0 0 12px;border-radius:var(--r-big);position:relative;outline:none}
+/* ---------- 파일 선택과 기기 내 처리 안내 ---------- */
+.drop.home{display:flex;align-items:center;justify-content:center;padding:24px 16px;margin:0 0 12px;border:1px dashed var(--control-line);border-radius:var(--r-big);position:relative;outline:none}
 .drop.home:focus-visible{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
-.drop.home .droptxt{margin:0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#btn-select{flex:none}
+.drop-start{display:flex;flex-direction:column;align-items:center;gap:10px}
+.drop-start .droptxt,.hwp-privacy{margin:0;color:var(--muted);font-size:var(--fs-small);line-height:20px}
 
 /* ---------- 파일 연 뒤: 파일명 + 다른 파일 선택(48px) ---------- */
 .drop-compact{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-width:0;font-size:var(--fs-small);color:var(--ink)}
 .drop-compact .fname{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .drop-compact .btn{flex:none}
 body.has-input .drop.home{min-height:var(--drop-compact-h);max-height:var(--drop-compact-h);padding:0 12px;border-style:solid;border-color:var(--line);cursor:default}
-body.has-input .drop.home #btn-select,body.has-input .drop.home .droptxt{display:none}
+body.has-input .drop-start{display:none}
 
 /* ---------- 상태 ---------- */
 .status{margin:0 0 12px;min-height:0}
@@ -42,7 +42,8 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
   main.wrap>.status{order:-2}
   main.wrap>#btn-view-size{order:-1;align-self:flex-end;margin-bottom:8px}
   main.wrap>#viewer{order:-1}
-  .drop.home{min-height:48px;padding:6px 10px;margin-bottom:10px}
+  .drop.home{padding:16px 12px;margin-bottom:10px}
+  .drop-start .droptxt{display:none}
   .actions:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-items:stretch}
   .actions .btn-big{grid-column:1/-1;width:100%}
   .actions .btn{width:100%}
