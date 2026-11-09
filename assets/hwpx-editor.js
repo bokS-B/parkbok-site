@@ -151,7 +151,7 @@
       const name = normalized(el.localName);
       if (protection.test(name) || protection.test(normalized(el.getAttribute('name') || '')) ||
         revision.test(name) || Array.from(el.attributes).some(attr =>
-          protection.test(normalized(attr.localName)) && !/^(?:|0|false|none)$/i.test(attr.value))) reject(protectedDocument);
+          protection.test(normalized(attr.localName)) && !/^(?:|0|false|none)$/i.test(attr.value.trim()))) reject(protectedDocument);
       if (name === 'trackchangeconfig' && !/^(?:|0)$/.test(el.getAttribute('flags') || '')) reject();
     }
   }
@@ -190,6 +190,11 @@
       Array.from(value).length <= maxText && !/[\t\r\n\u0085\u2028\u2029]/.test(value) && xmlCharacters.test(value);
   }
 
+  function locked(element, attribute) {
+    const value = element.getAttribute(attribute);
+    return value !== null && !/^(?:0|false)$/i.test(value.trim());
+  }
+
   function locationFor(text, section) {
     const is = (node, name) => !!node && node.namespaceURI === section.namespace && node.localName === name;
     if (!is(text, 't')) return null;
@@ -209,8 +214,7 @@
     const tableParagraph = tableRun && tableRun.parentElement;
     if (!is(list, 'subList') || !is(cell, 'tc') || !is(row, 'tr') || !is(table, 'tbl') ||
       !is(tableRun, 'run') || !is(tableParagraph, 'p') || tableParagraph.parentElement !== root ||
-      cell.getAttribute('name') || /^(?:1|true)$/i.test(cell.getAttribute('protect')) ||
-      /^(?:1|true)$/i.test(table.getAttribute('lock'))) return null;
+      cell.getAttribute('name') || locked(cell, 'protect') || locked(table, 'lock')) return null;
     const rowNumber = Array.from(table.children).filter(child => is(child, 'tr')).indexOf(row) + 1;
     const cellNumber = Array.from(row.children).filter(child => is(child, 'tc')).indexOf(cell) + 1;
     return paragraphNumber(tableParagraph) + '문단 표 ' + rowNumber + '행 ' + cellNumber + '셀';

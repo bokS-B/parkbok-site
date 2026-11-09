@@ -49,7 +49,11 @@
 
   // kind: '' | 'ok' | 'err' | 'busy' | 'empty'
   function say(msg, kind){ status.textContent = msg || ''; status.className = 'status' + (kind ? ' ' + kind : ''); }
-  function setBusy(b){ busy = b; if (b) document.body.classList.add('busy'); else document.body.classList.remove('busy'); }
+  function setBusy(b){
+    busy = b;
+    btnReset.disabled = b;
+    document.body.classList.toggle('busy', b);
+  }
   function base(name){ return name.replace(/\.(hwpx?)$/i, ''); }
   function esc(s){ return String(s).replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
 
@@ -118,20 +122,17 @@
     return out.join('\n').replace(/\n{3,}/g, '\n\n');
   }
 
-  function renderHwp(bytes){
+  function renderHwp(bytes, target){
     var doc = L.parse(bytes, { type: 'array' });
-    current.text = extractHwpText(doc);
-    current.html = '<pre style="white-space:pre-wrap;font-family:inherit">' + esc(current.text) + '</pre>';
-    viewerEl.style.height = '80vh';
-    viewer = new L.Viewer(viewerEl, bytes, { type: 'array' });
-    var page = viewerEl.querySelector('[data-page-number]:not(.hwpjs-observer)');
+    var text = extractHwpText(doc);
+    target.style.height = '80vh';
+    var hwpViewer = new L.Viewer(target, bytes, { type: 'array' });
+    var page = target.querySelector('[data-page-number]:not(.hwpjs-observer)');
     if (page) {
       page.parentElement.classList.add('hwp-page-scroll');
-      viewerEl.classList.add('hwp-fit');
-      btnViewSize.textContent = '원래 크기로 보기';
-      btnViewSize.hidden = false;
-      fitHwpPages();
+      target.classList.add('hwp-fit');
     }
+    return { text: text, html: '<pre style="white-space:pre-wrap;font-family:inherit">' + esc(text) + '</pre>', viewer: hwpViewer };
   }
 
   function fitHwpPages(){
@@ -221,7 +222,7 @@
     if (line || !hasBlock) flushLine();
   }
 
-  function renderHwpx(bytes){
+  function renderHwpx(bytes, target){
     var entries = [];
     var files = L.unzipSync(bytes, { filter: function(entry){
       if (entries.length <= 1024) entries.push(entry);
@@ -236,22 +237,21 @@
       if (xml.documentElement.localName === 'parsererror') throw new Error('invalid section');
       return { name: n, xml: xml };
     });
-    renderHwpxSections(sections);
+    var result = renderHwpxSections(sections, target);
     if (window.PBHWPXEditor && window.PBHWPXEditor.canEdit(bytes, entries)) {
-      current.hwpx = { bytes: bytes, entries: entries, sections: sections };
-      btnEdit.hidden = false;
+      result.hwpx = { bytes: bytes, entries: entries, sections: sections };
     }
+    return result;
   }
 
-  function renderHwpxSections(sections){
+  function renderHwpxSections(sections, target){
     var html = [], text = [];
     sections.forEach(function(section){
       xmlChildren(section.xml.documentElement, 'p').forEach(function(p){ readHwpxParagraph(p, html, text); });
     });
-    current.html = html.join('\n');
-    current.text = text.join('\n');
-    viewerEl.style.height = '';
-    viewerEl.innerHTML = '<div class="hwpx-paper">' + current.html + '</div>';
+    var result = { html: html.join('\n'), text: text.join('\n') };
+    target.innerHTML = '<div class="hwpx-paper">' + result.html + '</div>';
+    return result;
   }
 
   function editMessage(message, kind){
@@ -286,7 +286,7 @@
 
   async function toggleEditor(){
     var doc = current.hwpx;
-    if (!doc) return;
+    if (!doc || busy) return;
     var opening = editPanel.hidden;
     editPanel.hidden = !opening;
     btnEdit.setAttribute('aria-expanded', String(opening));
@@ -311,7 +311,7 @@
   function findEditMatches(event){
     event.preventDefault();
     var doc = current.hwpx;
-    if (!doc || !doc.editor || doc.saving) return;
+    if (!doc || !doc.editor || busy || doc.saving) return;
     clearEditMatches();
     var query = findInput.value;
     editMatches = doc.editor.find(query);
@@ -335,14 +335,16 @@
   function applyEdit(event){
     event.preventDefault();
     var doc = current.hwpx;
-    if (!doc || !doc.editor || doc.saving || matchInput.value === '') return;
+    if (!doc || !doc.editor || busy || doc.saving || matchInput.value === '') return;
     try {
       if (!doc.editor.replace(editMatches[Number(matchInput.value)], findInput.value, replaceInput.value)) {
         editMessage('같은 문구입니다. 다른 문구를 입력하세요.', 'empty');
         return;
       }
       clearEditCopy();
-      renderHwpxSections(doc.sections);
+      var result = renderHwpxSections(doc.sections, viewerEl);
+      current.html = result.html;
+      current.text = result.text;
       textOut.value = current.text;
       makeCopy.disabled = false;
       clearEditMatches();
@@ -355,7 +357,7 @@
 
   async function buildEditCopy(){
     var doc = current.hwpx;
-    if (!doc || !doc.editor || doc.saving) return;
+    if (!doc || !doc.editor || busy || doc.saving) return;
     doc.saving = true;
     makeCopy.disabled = true;
     clearEditCopy();
@@ -383,19 +385,30 @@
     var isHwp = /\.hwp$/i.test(file.name);
     if (!isHwpx && !isHwp) { drop.classList.add('err'); say('HWP·HWPX 파일만 열 수 있음', 'err'); return; }
     drop.classList.remove('err');
-    clearResult();
-    current.name = file.name;
-    // 파일을 열면 드롭존을 한 줄(파일명 + 다른 파일 선택)로 줄인다
-    fileName.textContent = file.name;
-    compact.hidden = false;
-    document.body.classList.add('has-input');
     setBusy(true);
     say('변환 중…', 'busy');
     var reader = new FileReader();
     reader.onload = function(){
       try {
         var bytes = new Uint8Array(reader.result);
-        if (isHwpx) renderHwpx(bytes); else renderHwp(bytes);
+        // 새 문서를 다 그린 뒤 교체한다. 열기에 실패하면 현재 편집과 사본을 유지한다.
+        var nextViewer = document.createElement('div');
+        nextViewer.id = 'viewer';
+        var next = isHwpx ? renderHwpx(bytes, nextViewer) : renderHwp(bytes, nextViewer);
+        clearResult();
+        viewerEl.replaceWith(nextViewer);
+        viewerEl = nextViewer;
+        viewer = next.viewer || null;
+        current = { name: file.name, text: next.text, html: next.html, hwpx: next.hwpx };
+        fileName.textContent = file.name;
+        compact.hidden = false;
+        document.body.classList.add('has-input');
+        btnEdit.hidden = !next.hwpx;
+        if (viewerEl.classList.contains('hwp-fit')) {
+          btnViewSize.textContent = '원래 크기로 보기';
+          btnViewSize.hidden = false;
+          fitHwpPages();
+        }
         textOut.value = current.text;
         tools.hidden = false;
         textWrap.hidden = false;
