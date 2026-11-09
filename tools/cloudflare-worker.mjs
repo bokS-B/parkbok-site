@@ -15,7 +15,31 @@ function atPath(url, pathname) {
   return next;
 }
 
-async function siteResponse(request, assets, url) {
+async function hwpFeedback(request, url, db) {
+  const headers = { 'Cache-Control': 'no-store' };
+  const empty = (status) => new Response(null, { status, headers });
+  if (request.method !== 'POST') {
+    headers.Allow = 'POST';
+    return empty(405);
+  }
+  const origin = request.headers.get('Origin');
+  const site = request.headers.get('Sec-Fetch-Site');
+  if (origin !== url.origin || (site && site !== 'same-origin')) return empty(403);
+  const answer = request.headers.get('X-HWP-Feedback');
+  if (url.search || !['ok', 'problem', 'not_opened'].includes(answer)) return empty(400);
+  try {
+    // Workers can expose an empty stream even when the request has no body.
+    if (request.body && !(await request.body.getReader().read()).done) return empty(400);
+    const result = await db.prepare(
+      'UPDATE hwp_feedback_totals SET total = total + 1 WHERE answer = ?'
+    ).bind(answer).run();
+    return empty(result.meta.changes === 1 ? 204 : 503);
+  } catch {
+    return empty(503);
+  }
+}
+
+async function siteResponse(request, env, url) {
   if (url.hostname === 'www.parkbok.com' || (url.hostname === 'parkbok.com' && url.protocol === 'http:')) {
     url.protocol = 'https:';
     url.hostname = 'parkbok.com';
@@ -23,6 +47,8 @@ async function siteResponse(request, assets, url) {
     return Response.redirect(url, 301);
   }
 
+  if (url.pathname === '/hwp/feedback') return hwpFeedback(request, url, env.HWP_FEEDBACK);
+  const assets = env.ASSETS;
   if (request.method !== 'GET' && request.method !== 'HEAD') return assets.fetch(request);
   const path = url.pathname;
   if (path.endsWith('/')) {
@@ -44,7 +70,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const staging = url.hostname.endsWith('.workers.dev');
-    let response = await siteResponse(request, env.ASSETS, url);
+    let response = await siteResponse(request, env, url);
     if (response.status === 404 && (request.method === 'GET' || request.method === 'HEAD')) {
       response = new Response(request.method === 'HEAD' ? null : notFoundPage, {
         status: 404,

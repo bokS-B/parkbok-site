@@ -306,7 +306,7 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 /* ---------- HWPX 문구 편집 ---------- */
 .hwpx-edit-toggle{align-self:flex-start;margin:0 0 12px}
 .hwpx-edit-toggle[hidden],.hwpx-editor [hidden]{display:none}
-.hwpx-editor{min-width:0;padding:16px;margin:0 0 16px;border:1px solid var(--line);border-radius:var(--r-big);background:var(--card)}
+.hwpx-editor,.hwp-copy-feedback{min-width:0;padding:16px;margin:0 0 16px;border:1px solid var(--line);border-radius:var(--r-big);background:var(--card)}
 .hwpx-editor h2{margin:0 0 6px}
 .hwpx-editor form{margin-bottom:12px}
 .hwpx-editor label{display:block;margin:0 0 4px;font-size:var(--fs-small);font-weight:var(--fw-semibold)}
@@ -315,6 +315,9 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 .hwpx-edit-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
 .hwpx-edit-actions{display:flex;flex-wrap:wrap;gap:8px}
 .hwpx-edit-actions+.muted{margin:8px 0 0}
+.hwp-copy-feedback h2{margin:0 0 8px;font-size:var(--fs-body)}
+.hwp-copy-feedback .muted{margin:0 0 8px}
+.hwp-copy-feedback #hwp-feedback-status{margin:0}
 
 /* ---------- 휴대폰: 문서를 먼저 표시하고 작업 버튼은 그 아래에 배치 ---------- */
 @media screen and (max-width:767.98px){
@@ -322,7 +325,7 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
   main.wrap>h1{order:-5}
   main.wrap>.lead{order:-4}
   main.wrap>.drop{order:-3}
-  main.wrap>.status,main.wrap>.hwpx-edit-toggle,main.wrap>.hwpx-editor{order:-2}
+  main.wrap>.status,main.wrap>.hwpx-edit-toggle,main.wrap>.hwpx-editor,main.wrap>.hwp-copy-feedback{order:-2}
   main.wrap>#btn-view-size{order:-1;align-self:flex-end;margin-bottom:8px}
   main.wrap>#viewer{order:-1}
   .drop.home{padding:16px 12px;margin-bottom:10px}
@@ -339,7 +342,7 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 
 /* ---------- 인쇄: 뷰어만 ---------- */
 @media print{
-  .actions,.drop-compact,#textwrap,.hwpx-edit-toggle,.hwpx-editor{display:none!important}
+  .actions,.drop-compact,#textwrap,.hwpx-edit-toggle,.hwpx-editor,.hwp-copy-feedback{display:none!important}
   #viewer{height:auto!important;margin:0}
 }
 /* HWP viewer page: shared tool layout, same parsing and export runtime. */
@@ -407,6 +410,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
     <p class="muted">원본은 그대로 두고 이 기기에서 사본을 만듭니다.</p>
   </section>
 
+  <section class="hwp-copy-feedback" id="hwp-copy-feedback" aria-labelledby="hwp-feedback-title" hidden>
+    <h2 id="hwp-feedback-title">사본을 다시 열었을 때 수정한 내용과 표가 제대로 보였나요?</h2>
+    <div id="hwp-feedback-options">
+      <p class="muted">파일이나 이름 없이 선택한 응답만 보냅니다.</p>
+      <div class="hwpx-edit-actions">
+        <button class="btn ghost" type="button" data-feedback-answer="ok">잘 열렸어요</button>
+        <button class="btn ghost" type="button" data-feedback-answer="problem">문제가 있었어요</button>
+        <button class="btn ghost" type="button" data-feedback-answer="not_opened">아직 안 열어봤어요</button>
+        <button class="btn ghost" type="button" data-feedback-close>닫기</button>
+      </div>
+    </div>
+    <p class="muted" id="hwp-feedback-status" role="status" tabindex="-1"></p>
+  </section>
+
   <div class="actions" id="tools" hidden>
     <button class="btn-big" type="button" id="btn-primary">PDF로 저장</button>
     <button class="btn ghost" type="button" id="btn-txt">텍스트 저장</button>
@@ -452,7 +469,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 <script src="/assets/hwp-record-editor.js?v=25a6542109" defer></script>
 <script src="/assets/hwp-editor.js?v=f39bde4846" defer></script>
 <script src="/assets/hwpx-editor.js?v=f7139e4890" defer></script>
-<script src="/assets/app.js?v=4ff2199780" defer></script>
+<script src="/assets/app.js?v=686ac8f1ad" defer></script>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap">
   <div class="foot-main">

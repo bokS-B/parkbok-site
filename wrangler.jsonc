@@ -9,6 +9,14 @@
     { "pattern": "parkbok.com/*", "zone_name": "parkbok.com" },
     { "pattern": "www.parkbok.com/*", "zone_name": "parkbok.com" }
   ],
+  "d1_databases": [
+    {
+      "binding": "HWP_FEEDBACK",
+      "database_name": "parkbok-hwp-feedback",
+      "database_id": "5b49ff36-7228-4ee6-b579-9c5731ae75d9",
+      "migrations_dir": "tools/d1/hwp-feedback"
+    }
+  ],
   "assets": {
     "directory": "_build/pages",
     "binding": "ASSETS",

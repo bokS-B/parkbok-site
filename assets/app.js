@@ -43,6 +43,11 @@
   var editStatus = $('hwpx-edit-status');
   var makeCopy = $('btn-make-hwpx');
   var copyLink = $('link-save-hwpx');
+  var copyFeedback = $('hwp-copy-feedback');
+  var feedbackOptions = $('hwp-feedback-options');
+  var feedbackStatus = $('hwp-feedback-status');
+  var feedbackShown = false;
+  var feedbackSessionKey = 'pb_hwp_copy_feedback_seen';
   var editMatches = [];
   var copyUrl = '';
   var current = { name: '', text: '', html: '' };
@@ -443,6 +448,56 @@
     }
   }
 
+  function showCopyFeedback(event){
+    if (event.defaultPrevented || !copyUrl || copyLink.hidden || feedbackShown) return;
+    feedbackShown = true;
+    try {
+      if (sessionStorage.getItem(feedbackSessionKey)) return;
+      sessionStorage.setItem(feedbackSessionKey, '1');
+    } catch (_) {}
+    copyFeedback.hidden = false;
+  }
+
+  function isInternalFeedback(){
+    var flag = new URLSearchParams(window.location.search).get('pb_internal');
+    if (flag === '1' || flag === '0') return flag === '1';
+    try { return localStorage.getItem('pb_internal') === '1'; } catch (_) { return false; }
+  }
+
+  async function sendCopyFeedback(event){
+    var button = event.target.closest('button');
+    if (!button || feedbackOptions.hidden || copyFeedback.hidden) return;
+    if (button.hasAttribute('data-feedback-close')) {
+      copyFeedback.hidden = true;
+      if (!copyLink.hidden && !editPanel.hidden) copyLink.focus();
+      else if (!btnEdit.hidden) btnEdit.focus();
+      return;
+    }
+    var answer = button.getAttribute('data-feedback-answer');
+    if (!answer) return;
+    feedbackOptions.hidden = true;
+    feedbackStatus.textContent = '응답 보내는 중…';
+    feedbackStatus.focus();
+    if (isInternalFeedback()) {
+      feedbackStatus.textContent = '검증용 응답은 집계에서 제외됩니다.';
+      return;
+    }
+    try {
+      var response = await fetch('/hwp/feedback', {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'omit',
+        referrerPolicy: 'no-referrer',
+        redirect: 'error',
+        headers: { 'X-HWP-Feedback': answer }
+      });
+      if (response.status !== 204) throw new Error('Feedback not accepted');
+      feedbackStatus.textContent = '응답해 주셔서 감사합니다.';
+    } catch (_) {
+      feedbackStatus.textContent = '응답 접수를 확인하지 못했어요.';
+    }
+  }
+
   function mountViewer(target, nextViewer){
     if (viewer) { try { viewer.distory(); } catch(e){} }
     viewerEl.replaceWith(target);
@@ -562,4 +617,6 @@
   findInput.addEventListener('input', function(){ clearEditMatches(); editMessage(''); });
   replaceForm.addEventListener('submit', applyEdit);
   makeCopy.addEventListener('click', buildEditCopy);
+  copyLink.addEventListener('click', showCopyFeedback);
+  feedbackOptions.addEventListener('click', sendCopyFeedback);
 })();

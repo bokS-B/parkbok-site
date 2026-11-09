@@ -36,7 +36,7 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 /* ---------- HWPX 문구 편집 ---------- */
 .hwpx-edit-toggle{align-self:flex-start;margin:0 0 12px}
 .hwpx-edit-toggle[hidden],.hwpx-editor [hidden]{display:none}
-.hwpx-editor{min-width:0;padding:16px;margin:0 0 16px;border:1px solid var(--line);border-radius:var(--r-big);background:var(--card)}
+.hwpx-editor,.hwp-copy-feedback{min-width:0;padding:16px;margin:0 0 16px;border:1px solid var(--line);border-radius:var(--r-big);background:var(--card)}
 .hwpx-editor h2{margin:0 0 6px}
 .hwpx-editor form{margin-bottom:12px}
 .hwpx-editor label{display:block;margin:0 0 4px;font-size:var(--fs-small);font-weight:var(--fw-semibold)}
@@ -45,6 +45,9 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 .hwpx-edit-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
 .hwpx-edit-actions{display:flex;flex-wrap:wrap;gap:8px}
 .hwpx-edit-actions+.muted{margin:8px 0 0}
+.hwp-copy-feedback h2{margin:0 0 8px;font-size:var(--fs-body)}
+.hwp-copy-feedback .muted{margin:0 0 8px}
+.hwp-copy-feedback #hwp-feedback-status{margin:0}
 
 /* ---------- 휴대폰: 문서를 먼저 표시하고 작업 버튼은 그 아래에 배치 ---------- */
 @media screen and (max-width:767.98px){
@@ -52,7 +55,7 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
   main.wrap>h1{order:-5}
   main.wrap>.lead{order:-4}
   main.wrap>.drop{order:-3}
-  main.wrap>.status,main.wrap>.hwpx-edit-toggle,main.wrap>.hwpx-editor{order:-2}
+  main.wrap>.status,main.wrap>.hwpx-edit-toggle,main.wrap>.hwpx-editor,main.wrap>.hwp-copy-feedback{order:-2}
   main.wrap>#btn-view-size{order:-1;align-self:flex-end;margin-bottom:8px}
   main.wrap>#viewer{order:-1}
   .drop.home{padding:16px 12px;margin-bottom:10px}
@@ -69,6 +72,6 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 
 /* ---------- 인쇄: 뷰어만 ---------- */
 @media print{
-  .actions,.drop-compact,#textwrap,.hwpx-edit-toggle,.hwpx-editor{display:none!important}
+  .actions,.drop-compact,#textwrap,.hwpx-edit-toggle,.hwpx-editor,.hwp-copy-feedback{display:none!important}
   #viewer{height:auto!important;margin:0}
 }
