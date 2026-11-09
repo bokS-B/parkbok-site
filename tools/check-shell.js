@@ -12,7 +12,9 @@ for (const p of files) {
   const rel = path.relative(root, p).split(path.sep).join('/');
   const s = fs.readFileSync(p, 'utf8');
   const count = re => (s.match(re) || []).length;
-  if (count(/name="google-adsense-account" content="ca-pub-1415309581345613"/g) !== 1) fails.push(rel + ': 애드센스 소유권 메타 누락/중복');
+  const hwpEditor = rel.startsWith('hwp/');
+  if (count(/name="google-adsense-account" content="ca-pub-1415309581345613"/g) !== (hwpEditor ? 0 : 1)) fails.push(rel + ': 애드센스 소유권 메타 위치 오류');
+  if (hwpEditor && /google-adsense-account|adsbygoogle|tool-ads\.js|data-ad-(?:client|slot)|googlesyndication\.com|fundingchoicesmessages\.google\.com|doubleclick\.net/.test(s)) fails.push(rel + ': HWP 화면 광고 코드');
   if (count(/src="\/assets\/usage-privacy\.js" data-ga="G-377MXFWS51"/g) !== 1) fails.push(rel + ': 동의형 GA 로더 누락/중복');
   if (/adsbygoogle\.js|googletagmanager\.com/.test(s)) fails.push(rel + ': 동의 전 직접 Google 로더');
   if (count(/<style id="site-css">/g) !== 1) fails.push(rel + ': site-css ' + count(/<style id="site-css">/g) + '회');

@@ -7,12 +7,11 @@ const SHELL = fs.readFileSync(path.join(root, 'src', 'shell.html'), 'utf8');
 const siteCss = fs.readFileSync(path.join(root, 'assets', 'site.css'), 'utf8').trim();
 const gaFile = path.join(__dirname, 'ga-id.txt');
 const gaId = fs.existsSync(gaFile) ? fs.readFileSync(gaFile, 'utf8').trim() : '';
-// Ownership verification is separate from ad serving. No ad units or Auto ads are enabled.
-// Keep ads.txt + this supported verification method independently of CMP/ad serving.
-// Do not restore the ad loader on every route: review eligible placements + CMP first.
+// Ownership verification is separate from ad serving.
+// Keep the ad loader limited to the reviewed placements and CMP.
 const ADSENSE = '<meta name="google-adsense-account" content="ca-pub-1415309581345613">';
 // Shared basic-consent loader: production hosts only; pb_internal is preserved.
-// Ad-free release: first-party analytics choice in every region; no Google before opt-in.
+// First-party analytics choice in every region; no GA before opt-in.
 const GA_HOSTS = ['parkbok.com', 'www.parkbok.com'];
 const GA = gaId ? '<script defer src="/assets/usage-privacy.js" data-ga="' + gaId + '"></script>' : '';
 const BRAND_MARK = '<span class="brand-mark" aria-hidden="true"></span>';
@@ -39,8 +38,8 @@ function favicons({ home = false } = {}){
     + (home ? '<link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png">\n' : '')
     + '<link rel="icon" href="/favicon.svg?v=' + faviconVersion + '" sizes="any" type="image/svg+xml">';
 }
-function head({ og = 'og.png', home = false } = {}){
-  return fill(fragment('head-common'), { favicon: favicons({ home }), og, adsense: ADSENSE, ga: GA, site_css: siteCss });
+function head({ og = 'og.png', home = false, adsenseVerification = true } = {}){
+  return fill(fragment('head-common'), { favicon: favicons({ home }), og, adsense: adsenseVerification ? ADSENSE : '', ga: GA, site_css: siteCss });
 }
 // 언어별 구역 루트: 영어는 /<section>/, 그 외는 /<section>/<lang>/
 const sectionHome = (section, lang) => '/' + section + '/' + (lang === 'en' ? '' : lang + '/');

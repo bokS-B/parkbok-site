@@ -6,7 +6,12 @@ const slots = {
   '/pdf/compress/ko/': '5292267734',
   '/pdf/merge/ko/': '4454662935',
   '/image/image-compress/ko/': '4454662935',
-  '/image/png-to-jpg/ko/': '4454662935'
+  '/image/png-to-jpg/ko/': '4454662935',
+  '/guide/hwp-to-pdf.html': '4454662935',
+  '/guide/hwp-vs-hwpx.html': '4454662935',
+  '/guide/hwp-wont-open.html': '4454662935',
+  '/guide/open-hwp-on-mac.html': '4454662935',
+  '/guide/open-hwp-on-phone.html': '4454662935'
 };
 const script = fs.readFileSync(path.join(__dirname, '../assets/tool-ads.js'), 'utf8').replace(/\r\n/g, '\n');
 const revision = createHash('sha256').update(script).digest('hex').slice(0, 10);

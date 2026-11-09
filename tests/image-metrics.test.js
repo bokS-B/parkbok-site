@@ -161,10 +161,10 @@ test('consent_bridge_exposes_current_state_without_enabling_ads', async () => {
   assert.equal(typeof h.ctx.PBStatistics?.canTrack, 'function');
   assert.equal(h.ctx.PBStatistics.canTrack(), false);
   assert.equal(h.scripts.filter(x => /googletagmanager/.test(x)).length, 0);
-  assert.equal(h.ctx.adsbygoogle.pauseAdRequests, 1);
+  assert.equal(h.ctx.adsbygoogle, undefined);
   h.choose('allow'); assert.equal(h.ctx.PBStatistics.canTrack(), true);
   h.choose('deny'); assert.equal(h.ctx.PBStatistics.canTrack(), false);
-  assert.equal(h.ctx.adsbygoogle.pauseAdRequests, 1);
+  assert.equal(h.ctx.adsbygoogle, undefined);
   assert.equal(h.scripts.some(x => /adsbygoogle/.test(x)), false);
 });
 

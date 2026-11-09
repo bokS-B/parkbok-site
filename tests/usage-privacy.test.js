@@ -62,13 +62,13 @@ test('stored opt-in loads once on production, never on local or preview hosts', 
   assert.equal(browser({ choice }).tags().length, 1);
   for (const host of ['localhost', '127.0.0.1', 'preview.github.io', 'parkbok.com.example.invalid']) assert.equal(browser({ host, choice }).tags().length, 0);
 });
-test('the ad-free release has no ad loader or Google consent bootstrap', () => {
+test('the shared analytics loader has no advertising code', () => {
   const shell = require('../tools/shell');
   assert.match(shell.ADSENSE, /google-adsense-account/);
   assert.doesNotMatch(shell.head(), /adsbygoogle\.js|googletagmanager\.com/);
   assert.match(shell.head(), /usage-privacy\.js/);
   assert.doesNotMatch(code, /adsbygoogle\.js|doubleclick\.net|pagead2|fundingchoicesmessages\.google\.com/);
-  assert.match(code, /pauseAdRequests = 1/);
+  assert.doesNotMatch(code, /adsbygoogle|pauseAdRequests/);
 });
 
 test('missing or broken advertising CMP cannot hide the analytics choice', () => {

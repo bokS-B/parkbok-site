@@ -3,4 +3,5 @@ node_modules/
 output/
 docs/
 /.hallmark/
+/.wrangler/
 __pycache__/

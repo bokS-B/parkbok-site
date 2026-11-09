@@ -120,19 +120,28 @@ test('uses the official loader only for the exact production page and ad unit', 
   assertPaused(app);
 });
 
-test('generated ads appear once below help on selected Korean tools and stay off protected pages', () => {
+test('generated ads appear once below content on selected Korean tools and HWP guides', () => {
   const placements = [
     ['/pdf/compress/ko/', '5292267734'],
     ['/pdf/merge/ko/', '4454662935'],
     ['/image/image-compress/ko/', '4454662935'],
-    ['/image/png-to-jpg/ko/', '4454662935']
+    ['/image/png-to-jpg/ko/', '4454662935'],
+    ['/guide/hwp-to-pdf.html', '4454662935'],
+    ['/guide/hwp-vs-hwpx.html', '4454662935'],
+    ['/guide/hwp-wont-open.html', '4454662935'],
+    ['/guide/open-hwp-on-mac.html', '4454662935'],
+    ['/guide/open-hwp-on-phone.html', '4454662935']
   ];
   function html(route) {
-    return fs.readFileSync(path.join(__dirname, '..', route.slice(1), 'index.html'), 'utf8');
+    const file = route.endsWith('/') ? route + 'index.html' : route;
+    return fs.readFileSync(path.join(__dirname, '..', file.slice(1)), 'utf8');
   }
   for (const [route, adSlot] of placements) {
     const markup = html(route);
-    assert.match(markup, /<\/details>\s*<section class="pb-tool-ad"/);
+    if (route.startsWith('/guide/')) {
+      assert.match(markup, /<\/article>[\s\S]*?<!-- guide-ad -->\s*<section class="pb-tool-ad"/);
+      assert.doesNotMatch(markup, /<div class="ad"><\/div>/);
+    } else assert.match(markup, /<\/details>\s*<section class="pb-tool-ad"/);
     assert.equal(markup.match(/data-ad-slot=/g)?.length, 1);
     assert.ok(markup.includes('data-ad-slot="' + adSlot + '"'));
     assert.ok(markup.includes('data-page-path="' + route + '"'));
@@ -140,8 +149,18 @@ test('generated ads appear once below help on selected Korean tools and stay off
     assert.match(markup, /<script src="\/assets\/tool-ads\.js\?v=[\da-f]{10}" defer>/);
     assertPaused(setup({ url: 'https://parkbok.com' + route, pagePath: route, adSlot }));
   }
-  for (const route of ['/', '/color/palette/ko/', '/pdf/merge/', '/pdf/split/ko/', '/image/image-resize/ko/']) {
+  for (const route of ['/', '/color/palette/ko/', '/guide/', '/guide/photo-signature-size-india.html',
+    '/hwp/', '/pdf/merge/', '/pdf/split/ko/', '/image/image-resize/ko/']) {
     assert.doesNotMatch(html(route), /data-ad-slot=|\/assets\/tool-ads\.js/);
+  }
+  assert.doesNotMatch(html('/hwp/'), /google-adsense-account|adsbygoogle|googlesyndication\.com|fundingchoicesmessages\.google\.com/);
+});
+
+test('cannot load ads on the HWP editor or other guides even if a slot is present', () => {
+  for (const route of ['/hwp', '/hwp/', '/hwp/index.html', '/guide/', '/guide/photo-signature-size-india.html']) {
+    const app = setup({ url: 'https://parkbok.com' + route, pagePath: route, adSlot: '4454662935' });
+    assert.equal(app.scripts.length, 0);
+    assert.equal(app.window.adsbygoogle.length, 0);
   }
 });
 

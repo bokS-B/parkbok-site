@@ -6,6 +6,7 @@
 <meta name="description" content="한글 문서의 두 확장자 HWP와 HWPX가 어떻게 다른지, 호환성과 보안, 제출 시 어떤 형식이 안전한지 정리했습니다.">
 <link rel="canonical" href="https://parkbok.com/guide/hwp-vs-hwpx.html">
 
+
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.ico?v=ebc61927" sizes="16x16 32x32 48x48" type="image/x-icon">
 <link rel="icon" href="/favicon.svg?v=ebc61927" sizes="any" type="image/svg+xml">
@@ -263,6 +264,34 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:2px 6px;margin:0 0 12px;padding:0;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--muted)}.crumbs li+li::before{content:"›";margin-right:6px}.crumbs a{color:var(--muted)}
 </style>
 <!-- /shell:head-common -->
+<style id="page-css">
+.pb-tool-ad {
+  margin: clamp(1.75rem, 4vw, 3rem) auto 0;
+  max-width: 970px;
+  background: var(--card);
+  border-radius: var(--r-big);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.pb-tool-ad__label {
+  margin: 0;
+  padding: .5rem .75rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--fs-caption);
+  text-align: center;
+}
+.pb-tool-ad > .adsbygoogle {
+  width: 100%;
+  height: 280px;
+}
+@media (max-width: 1023px) {
+  .pb-tool-ad { width: min(100%, 320px); }
+  .pb-tool-ad__label { padding-block: .25rem; }
+  .pb-tool-ad > .adsbygoogle { height: 100px; }
+}
+.pb-tool-ad[hidden],
+.pb-tool-ad:has(> ins[data-ad-status="unfilled"]) { display: none; }
+</style>
 </head>
 <body>
 <!-- shell:header -->
@@ -279,7 +308,7 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 // 모바일 메뉴: 현재 분류를 가운데로 스크롤(최초·창 크기 변경 시). 끝까지 스크롤되면 .end(오른쪽 페이드 끔), scrollLeft>0 이면 .start(왼쪽 페이드 켬). 좌표는 getBoundingClientRect 차이라 어떤 CSS 에서도 같다
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
-<main class="wrap"><article class="card">
+<main class="wrap" google-side-rail-overlap="false"><article class="card">
 <h1>HWP와 HWPX의 차이, 무엇을 써야 할까</h1>
 
 <p>한글 문서를 받다 보면 <strong>.hwp</strong>와 <strong>.hwpx</strong> 두 가지 확장자를 보게 됩니다. 둘 다 한글과컴퓨터의 문서이지만 안쪽 구조가 완전히 다릅니다.</p>
@@ -309,7 +338,14 @@ article p{margin:0 0 14px}article ul,article ol{padding-left:22px}article li{mar
 
 <p style="margin-top:24px"><a class="btn" href="/hwp/">지금 HWP 파일 열어 보기 →</a></p>
 </article>
-<div class="ad"></div>
+<p>본 제품은 한컴의 <a href="https://download.hancom.com/support/downloadCenter/hwpOwpml" rel="noopener">HWP 문서 파일(.hwp) 공개 문서</a>를 참고하여 개발하였습니다.</p>
+<!-- guide-ad -->
+  <section class="pb-tool-ad" id="pb-tool-ad" data-page-path="/guide/hwp-vs-hwpx.html" hidden aria-label="광고">
+    <p class="pb-tool-ad__label">광고</p>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1415309581345613" data-ad-slot="4454662935"></ins>
+  </section>
+<script src="/assets/tool-ads.js?v=fad971b37d" defer></script>
+<!-- /guide-ad -->
 </main>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap">

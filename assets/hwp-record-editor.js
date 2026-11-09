@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+  // 본 제품은 한컴의 HWP 문서 파일(.hwp) 공개 문서를 참고하여 개발하였습니다.
   // Hancom HWP 5.0 rev. 1.3, sections 4.1 and 4.3.1–4.3.4.
   const PARA_HEADER = 66;
   const PARA_TEXT = 67;

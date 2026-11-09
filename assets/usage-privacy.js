@@ -129,8 +129,5 @@
     if (panel && choice) hide();
     else if (!choice && production) show();
   });
-  // Advertising remains disabled; a certified advertising CMP must be verified
-  // separately before any ad loader/placement can be enabled.
-  (window.adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 1;
   if (production) { apply(read()); if (!read()) show(); }
 })();

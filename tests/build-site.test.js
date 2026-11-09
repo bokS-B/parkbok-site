@@ -13,7 +13,9 @@ test('site build preserves private browser exports while generating public pages
     fs.rmSync(root, { recursive: true, force: true });
   });
   for (const folder of ['tools', 'src', 'assets', '.playwright-cli']) fs.mkdirSync(path.join(root, folder));
-  fs.copyFileSync(path.join(__dirname, '../tools/build-site.js'), path.join(root, 'tools/build-site.js'));
+  for (const file of ['tools/build-site.js', 'tools/tool-ads.js', 'assets/tool-ads.js']) {
+    fs.copyFileSync(path.join(__dirname, '..', file), path.join(root, file));
+  }
   fs.writeFileSync(path.join(root, 'tools/shell.js'), `module.exports = {
     esc: value => value,
     head: () => '<meta name="test-shell" content="generated">',

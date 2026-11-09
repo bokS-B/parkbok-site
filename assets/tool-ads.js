@@ -1,10 +1,12 @@
-// Manual AdSense placement for selected Korean tool pages.
+// Manual AdSense placement for selected Korean tools and help articles.
 (function () {
   'use strict';
 
   if (location.origin !== 'https://parkbok.com' || window.top !== window ||
       !['/pdf/compress/ko/', '/pdf/merge/ko/', '/image/image-compress/ko/',
-        '/image/png-to-jpg/ko/'].includes(location.pathname)) return;
+        '/image/png-to-jpg/ko/', '/guide/hwp-to-pdf.html', '/guide/hwp-vs-hwpx.html',
+        '/guide/hwp-wont-open.html', '/guide/open-hwp-on-mac.html',
+        '/guide/open-hwp-on-phone.html'].includes(location.pathname)) return;
 
   const client = 'ca-pub-1415309581345613';
   const loaderId = 'pb-tool-ads-loader';

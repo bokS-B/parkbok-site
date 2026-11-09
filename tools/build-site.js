@@ -5,6 +5,7 @@
 // 홈(index.html)·텍스트 허브(text/index.html)의 <!-- grid:start --> … <!-- grid:end --> 사이는 src/tools.json 으로 카드 그리드를 생성한다.
 const fs = require('fs'), path = require('path');
 const shell = require('./shell');
+const toolAds = require('./tool-ads');
 const root = path.resolve(__dirname, '..');
 const HOME = JSON.parse(fs.readFileSync(path.join(root, 'src/home-strings.json'), 'utf8'));
 const homeLang = rel => rel === 'index.html' ? 'ko' : /^(en|ja|zh|es|pt|de|fr)\/index\.html$/.test(rel) ? rel.split('/')[0] : null;
@@ -17,7 +18,7 @@ for (const lang of Object.keys(HOME).filter(l => l !== 'ko')) {
 }
 const SKIP = ['.git', '.hallmark', '_build', 'node_modules', 'docs', 'tools', 'tests', 'output', 'pdf', 'image', 'color', 'src'];   // 테스트 산출물 제외. pdf/image/color 는 자체 생성기가 셸을 넣는다
 const FOOT_EXTRA = {
-  'hwp/index.html': ' · HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.'
+  'hwp/index.html': ' · 본 제품은 한컴의 <a href="https://download.hancom.com/support/downloadCenter/hwpOwpml" rel="noopener">HWP 문서 파일(.hwp) 공개 문서</a>를 참고하여 개발하였습니다. HWP 해석에 <a href="https://github.com/hahnlee/hwp.js" rel="noopener">hwp.js</a>(Apache-2.0)를 사용합니다. 한글(HWP)은 한글과컴퓨터의 상표이며 이 사이트와 관련이 없습니다.'
 };
 // 페이지 전용 CSS: <style id="page-css"> 로 site-css 다음에 인라인
 const PAGE_CSS = {
@@ -115,6 +116,7 @@ function clean(src){
     .replace(/<!-- head:common -->[\s\S]*?<!-- \/head:common -->\n?/g, '')
     .replace(/<!-- head:ga -->[\s\S]*?<!-- \/head:ga -->\n?/g, '')
     .replace(/<!-- shell:head-common -->[\s\S]*?<!-- \/shell:head-common -->\n?/g, '')
+    .replace(/<!-- guide-ad -->[\s\S]*?<!-- \/guide-ad -->(?:\r?\n)?/g, '')
     .replace(/<script async src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js[^"]*"[^>]*><\/script>\n?/g, '')
     .replace(/<link rel="stylesheet" href="\/assets\/site\.css">\n?/g, '')
     .replace(/<style id="site-css">[\s\S]*?<\/style>\n?/g, '')
@@ -159,11 +161,18 @@ for (const p of pages) {
     s = s.replace('</head>', alternate + '\n<link rel="alternate" hreflang="x-default" href="https://parkbok.com/">\n</head>');
     s = s.replace(/src="\/assets\/home\.js(?:\?v=[^"]*)?"/, 'src="/assets/home.js?v=' + homeJsVersion + '"');
   }
-  s = s.replace(/<\/head>/, () => shell.head({ og: 'og.png', home: !!isHome }) + '\n</head>');
+  s = s.replace(/<\/head>/, () => shell.head({ og: 'og.png', home: !!isHome, adsenseVerification: !rel.startsWith('hwp/') }) + '\n</head>');
   const pageCss = isHome ? PAGE_CSS['index.html'] : PAGE_CSS[rel];
-  if (pageCss) {
-    const css = [].concat(pageCss).map(f => fs.readFileSync(path.join(root, f), 'utf8').trim()).join('\n');
-    s = s.replace(/<\/head>/, () => '<style id="page-css">\n' + css + '\n</style>\n</head>');
+  const css = pageCss ? [].concat(pageCss).map(f => fs.readFileSync(path.join(root, f), 'utf8').trim()).join('\n') : '';
+  const ads = toolAds(pagePath(rel), css);
+  if (ads.css) {
+    s = s.replace(/<\/head>/, () => '<style id="page-css">\n' + ads.css.trim() + '\n</style>\n</head>');
+  }
+  if (ads.adAfterHelp) {
+    s = s.replace('<main class="wrap">', '<main class="wrap"' + ads.railProtection + '>')
+      .replace(/<div class="ad"><\/div>\r?\n/, '')
+      .replace('</main>', () =>
+        '<!-- guide-ad -->' + ads.adAfterHelp + ads.pageScript + '\n<!-- /guide-ad -->\n</main>');
   }
   const gridCfg = isHome ? GRIDS['index.html'] : GRIDS[rel];
   if (gridCfg) {
