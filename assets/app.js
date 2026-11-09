@@ -23,6 +23,7 @@
   var tools = $('tools');
   var compact = $('drop-compact');
   var fileName = $('file-name');
+  var btnSelect = $('btn-select');
   var btnPdf = $('btn-primary');
   var btnTxt = $('btn-txt');
   var btnHtml = $('btn-html');
@@ -304,5 +305,5 @@
     function fallback(){ textOut.select(); try { document.execCommand('copy'); } catch(e){} done(); }
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(current.text).then(done, fallback); else fallback();
   });
-  btnReset.addEventListener('click', function(){ reset(); try { drop.focus(); } catch(e){} });
+  btnReset.addEventListener('click', function(){ reset(); btnSelect.focus(); });
 })();
