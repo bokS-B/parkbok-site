@@ -32,6 +32,8 @@
   var btnViewSize = $('btn-view-size');
   var btnEdit = $('btn-edit-hwpx');
   var editPanel = $('hwpx-editor');
+  var editTitle = $('hwpx-edit-title');
+  var editHelp = $('hwpx-edit-help');
   var findForm = $('hwpx-find-form');
   var findInput = $('hwpx-find');
   var findButton = $('hwpx-find-button');
@@ -239,7 +241,7 @@
     });
     var result = renderHwpxSections(sections, target);
     if (window.PBHWPXEditor && window.PBHWPXEditor.canEdit(bytes, entries)) {
-      result.hwpx = { bytes: bytes, entries: entries, sections: sections };
+      result.edit = { format: 'HWPX', bytes: bytes, entries: entries, sections: sections };
     }
     return result;
   }
@@ -285,7 +287,7 @@
   }
 
   async function toggleEditor(){
-    var doc = current.hwpx;
+    var doc = current.edit;
     if (!doc || busy) return;
     var opening = editPanel.hidden;
     editPanel.hidden = !opening;
@@ -296,13 +298,15 @@
     doc.loading = true;
     editMessage('편집 준비 중…', 'busy');
     try {
-      doc.editor = await window.PBHWPXEditor.load(doc.bytes, doc.entries, doc.sections);
-      if (current.hwpx !== doc) return;
+      doc.editor = doc.format === 'HWP'
+        ? await window.PBHwpEditor.load(doc.bytes)
+        : await window.PBHWPXEditor.load(doc.bytes, doc.entries, doc.sections);
+      if (current.edit !== doc) return;
       findInput.disabled = findButton.disabled = false;
       editMessage('');
       if (!editPanel.hidden) findInput.focus();
     } catch (error) {
-      if (current.hwpx === doc) editMessage(error.message || '이 문서는 편집할 수 없습니다.', 'err');
+      if (current.edit === doc) editMessage(error.message || '이 문서는 편집할 수 없습니다.', 'err');
     } finally {
       doc.loading = false;
     }
@@ -310,7 +314,7 @@
 
   function findEditMatches(event){
     event.preventDefault();
-    var doc = current.hwpx;
+    var doc = current.edit;
     if (!doc || !doc.editor || busy || doc.saving) return;
     clearEditMatches();
     var query = findInput.value;
@@ -334,21 +338,34 @@
 
   function applyEdit(event){
     event.preventDefault();
-    var doc = current.hwpx;
+    var doc = current.edit;
     if (!doc || !doc.editor || busy || doc.saving || matchInput.value === '') return;
     try {
-      if (!doc.editor.replace(editMatches[Number(matchInput.value)], findInput.value, replaceInput.value)) {
+      var result;
+      function showHwpCopy(bytes){
+        var previous = viewerEl.querySelector('.hwp-page-scroll');
+        var top = previous ? previous.scrollTop : 0;
+        var left = previous ? previous.scrollLeft : 0;
+        var target = document.createElement('div');
+        target.id = 'viewer';
+        result = renderHwp(bytes, target);
+        target.classList.toggle('hwp-fit', viewerEl.classList.contains('hwp-fit'));
+        mountViewer(target, result.viewer);
+        var scroller = viewerEl.querySelector('.hwp-page-scroll');
+        if (scroller) { scroller.scrollTop = top; scroller.scrollLeft = left; }
+      }
+      if (!doc.editor.replace(editMatches[Number(matchInput.value)], findInput.value, replaceInput.value, showHwpCopy)) {
         editMessage('같은 문구입니다. 다른 문구를 입력하세요.', 'empty');
         return;
       }
       clearEditCopy();
-      var result = renderHwpxSections(doc.sections, viewerEl);
+      if (doc.format === 'HWPX') result = renderHwpxSections(doc.sections, viewerEl);
       current.html = result.html;
       current.text = result.text;
       textOut.value = current.text;
       makeCopy.disabled = false;
       clearEditMatches();
-      editMessage('문구를 바꿨습니다. 더 바꾸거나 HWPX 사본을 만드세요.', 'ok');
+      editMessage('문구를 바꿨습니다. 더 바꾸거나 ' + doc.format + ' 사본을 만드세요.', 'ok');
       findInput.focus();
     } catch (error) {
       editMessage(error.message || '이 문구는 바꿀 수 없습니다.', 'err');
@@ -356,27 +373,49 @@
   }
 
   async function buildEditCopy(){
-    var doc = current.hwpx;
+    var doc = current.edit;
     if (!doc || !doc.editor || busy || doc.saving) return;
     doc.saving = true;
     makeCopy.disabled = true;
     clearEditCopy();
-    editMessage('HWPX 사본 만드는 중…', 'busy');
+    editMessage(doc.format + ' 사본 만드는 중…', 'busy');
     try {
       var bytes = await doc.editor.save(current.text);
-      if (current.hwpx !== doc) return;
-      copyUrl = URL.createObjectURL(new Blob([bytes], { type: 'application/hwp+zip' }));
+      if (current.edit !== doc) return;
+      var type = doc.format === 'HWP' ? 'application/x-hwp' : 'application/hwp+zip';
+      copyUrl = URL.createObjectURL(new Blob([bytes], { type: type }));
       copyLink.href = copyUrl;
-      copyLink.download = base(current.name) + '-편집본.hwpx';
+      copyLink.download = base(current.name) + '-편집본.' + doc.format.toLowerCase();
       copyLink.hidden = false;
       editMessage('사본을 만들었습니다.', 'ok');
       if (!editPanel.hidden) copyLink.focus();
     } catch (error) {
-      if (current.hwpx === doc) editMessage(error.message || 'HWPX 사본을 만들지 못했습니다.', 'err');
+      if (current.edit === doc) editMessage(error.message || '사본을 만들지 못했습니다.', 'err');
     } finally {
       doc.saving = false;
-      if (current.hwpx === doc) makeCopy.disabled = false;
+      if (current.edit === doc) makeCopy.disabled = false;
     }
+  }
+
+  function mountViewer(target, nextViewer){
+    if (viewer) { try { viewer.distory(); } catch(e){} }
+    viewerEl.replaceWith(target);
+    viewerEl = target;
+    viewer = nextViewer || null;
+    btnViewSize.hidden = !viewerEl.querySelector('.hwp-page-scroll');
+    btnViewSize.textContent = viewerEl.classList.contains('hwp-fit') ? '원래 크기로 보기' : '화면 폭에 맞추기';
+    fitHwpPages();
+  }
+
+  function setupEdit(doc){
+    if (!doc) return;
+    btnEdit.hidden = false;
+    btnEdit.textContent = editTitle.textContent = doc.format + ' 문구 편집';
+    makeCopy.textContent = doc.format + ' 사본 만들기';
+    copyLink.textContent = doc.format + ' 사본 다운로드';
+    editHelp.textContent = doc.format === 'HWP'
+      ? '본문이나 일반 표 셀에서 찾은 문구를 길이가 같은 글자로 바꿉니다.'
+      : '본문이나 표 셀의 짧은 문구를 찾아 한 곳씩 바꿉니다. 여러 서식에 걸친 문구는 나눠 찾으세요.';
   }
 
   function handle(file){
@@ -395,20 +434,16 @@
         var nextViewer = document.createElement('div');
         nextViewer.id = 'viewer';
         var next = isHwpx ? renderHwpx(bytes, nextViewer) : renderHwp(bytes, nextViewer);
+        if (isHwp && window.PBHwpEditor && window.PBHwpEditor.canEdit(bytes)) {
+          next.edit = { format: 'HWP', bytes: bytes };
+        }
         clearResult();
-        viewerEl.replaceWith(nextViewer);
-        viewerEl = nextViewer;
-        viewer = next.viewer || null;
-        current = { name: file.name, text: next.text, html: next.html, hwpx: next.hwpx };
+        mountViewer(nextViewer, next.viewer);
+        current = { name: file.name, text: next.text, html: next.html, edit: next.edit };
         fileName.textContent = file.name;
         compact.hidden = false;
         document.body.classList.add('has-input');
-        btnEdit.hidden = !next.hwpx;
-        if (viewerEl.classList.contains('hwp-fit')) {
-          btnViewSize.textContent = '원래 크기로 보기';
-          btnViewSize.hidden = false;
-          fitHwpPages();
-        }
+        setupEdit(current.edit);
         textOut.value = current.text;
         tools.hidden = false;
         textWrap.hidden = false;

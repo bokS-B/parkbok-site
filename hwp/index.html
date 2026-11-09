@@ -379,7 +379,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   <button class="btn ghost hwpx-edit-toggle" type="button" id="btn-edit-hwpx" aria-controls="hwpx-editor" aria-expanded="false" hidden>HWPX 문구 편집</button>
   <section class="hwpx-editor" id="hwpx-editor" aria-labelledby="hwpx-edit-title" hidden>
     <h2 id="hwpx-edit-title">HWPX 문구 편집</h2>
-    <p class="muted">본문이나 표 셀의 짧은 문구를 찾아 한 곳씩 바꿉니다. 여러 서식에 걸친 문구는 나눠 찾으세요.</p>
+    <p class="muted" id="hwpx-edit-help">본문이나 표 셀의 짧은 문구를 찾아 한 곳씩 바꿉니다. 여러 서식에 걸친 문구는 나눠 찾으세요.</p>
     <form id="hwpx-find-form">
       <label for="hwpx-find">찾을 문구</label>
       <div class="hwpx-edit-row">
@@ -427,7 +427,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
     <h2 style="margin-top:0">이 도구로 할 수 있는 것</h2>
     <div class="grid">
       <div class="card"><h3>HWP 열기</h3><p>한글(아래아한글) 5.0 형식 .hwp 문서의 본문을 확인합니다. 글꼴·표·수식 등 일부 서식은 원본과 다를 수 있습니다.</p></div>
-      <div class="card"><h3>HWPX 문구 편집</h3><p>10MB 이하 .hwpx의 본문과 표 셀에서 짧은 문구를 바꿉니다. 보호·서명 문서나 일부 복잡한 문서는 편집이 제한됩니다.</p></div>
+      <div class="card"><h3>HWP·HWPX 문구 편집</h3><p>10MB 이하 문서에서 짧은 문구를 바꾸고 같은 형식의 사본을 저장합니다. HWP는 길이가 같은 문구를 지원하며 보호 문서와 일부 복잡한 서식은 편집이 제한됩니다.</p></div>
       <div class="card"><h3>PDF 저장</h3><p>브라우저 인쇄 기능으로 PDF 파일을 만듭니다. 맥·윈도우·안드로이드 모두 가능합니다.</p></div>
       <div class="card"><h3>텍스트·HTML 저장</h3><p>본문만 뽑아 .txt로 받거나, 다른 편집기에 붙여 넣을 수 있게 복사합니다.</p></div>
     </div>
@@ -446,8 +446,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   </details>
 </main>
 <link rel="prefetch" href="/assets/hwp-bundle.js" as="script">
+<script src="/assets/hwp-record-editor.js?v=11ea5c1d7a" defer></script>
+<script src="/assets/hwp-editor.js?v=fd05135b23" defer></script>
 <script src="/assets/hwpx-editor.js?v=fcb1734bea" defer></script>
-<script src="/assets/app.js?v=4c8649aed8" defer></script>
+<script src="/assets/app.js?v=480a982f19" defer></script>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap">
   <div class="foot-main">
