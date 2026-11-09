@@ -63,6 +63,8 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
   .actions:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-items:stretch}
   .actions .btn-big{grid-column:1/-1;width:100%}
   .actions .btn{width:100%}
+  .hwp-copy-feedback .hwpx-edit-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .hwp-copy-feedback .btn{min-width:0;min-height:44px;padding:6px 4px;white-space:normal}
   .hwpx-paper{padding:16px 12px}
   @supports (zoom:1){
     #btn-view-size:not([hidden]){display:inline-flex}

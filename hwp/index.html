@@ -10,6 +10,18 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"parkbok HWP·HWPX 뷰어","url":"https://parkbok.com/hwp/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"description":"설치 없이 HWP·HWPX 파일의 본문과 표를 확인하고 PDF·텍스트·HTML로 저장하세요. 파일은 서버로 보내지 않고 브라우저에서 처리합니다. 일부 서식은 원본과 다를 수 있습니다."}</script>
 
 
+<script>
+// Read the tab's QA flag before the shared analytics script cleans the URL.
+(function () {
+  var flag = new URLSearchParams(location.search).get('pb_internal');
+  var key = 'pb_hwp_feedback_internal';
+  try {
+    if (flag !== '1' && flag !== '0') flag = sessionStorage.getItem(key) || localStorage.getItem('pb_internal');
+    sessionStorage.setItem(key, flag === '1' ? '1' : '0');
+  } catch (_) {}
+  if (flag === '1') document.documentElement.setAttribute('data-hwp-feedback-internal', '');
+})();
+</script>
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.ico?v=ebc61927" sizes="16x16 32x32 48x48" type="image/x-icon">
 <link rel="icon" href="/favicon.svg?v=ebc61927" sizes="any" type="image/svg+xml">
@@ -333,6 +345,8 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
   .actions:not([hidden]){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-items:stretch}
   .actions .btn-big{grid-column:1/-1;width:100%}
   .actions .btn{width:100%}
+  .hwp-copy-feedback .hwpx-edit-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .hwp-copy-feedback .btn{min-width:0;min-height:44px;padding:6px 4px;white-space:normal}
   .hwpx-paper{padding:16px 12px}
   @supports (zoom:1){
     #btn-view-size:not([hidden]){display:inline-flex}
@@ -469,7 +483,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 <script src="/assets/hwp-record-editor.js?v=25a6542109" defer></script>
 <script src="/assets/hwp-editor.js?v=f39bde4846" defer></script>
 <script src="/assets/hwpx-editor.js?v=f7139e4890" defer></script>
-<script src="/assets/app.js?v=686ac8f1ad" defer></script>
+<script src="/assets/app.js?v=e0d12d9d42" defer></script>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap">
   <div class="foot-main">

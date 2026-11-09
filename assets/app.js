@@ -458,12 +458,6 @@
     copyFeedback.hidden = false;
   }
 
-  function isInternalFeedback(){
-    var flag = new URLSearchParams(window.location.search).get('pb_internal');
-    if (flag === '1' || flag === '0') return flag === '1';
-    try { return localStorage.getItem('pb_internal') === '1'; } catch (_) { return false; }
-  }
-
   async function sendCopyFeedback(event){
     var button = event.target.closest('button');
     if (!button || feedbackOptions.hidden || copyFeedback.hidden) return;
@@ -478,7 +472,7 @@
     feedbackOptions.hidden = true;
     feedbackStatus.textContent = '응답 보내는 중…';
     feedbackStatus.focus();
-    if (isInternalFeedback()) {
+    if (document.documentElement.hasAttribute('data-hwp-feedback-internal')) {
       feedbackStatus.textContent = '검증용 응답은 집계에서 제외됩니다.';
       return;
     }
