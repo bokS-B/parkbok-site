@@ -300,13 +300,26 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 #textwrap h2{margin:0 0 8px;font-size:16px;line-height:24px}
 #textwrap #textout{display:block}
 
+/* ---------- HWPX 문구 편집 ---------- */
+.hwpx-edit-toggle{align-self:flex-start;margin:0 0 12px}
+.hwpx-edit-toggle[hidden],.hwpx-editor [hidden]{display:none}
+.hwpx-editor{min-width:0;padding:16px;margin:0 0 16px;border:1px solid var(--line);border-radius:var(--r-big);background:var(--card)}
+.hwpx-editor h2{margin:0 0 6px}
+.hwpx-editor form{margin-bottom:12px}
+.hwpx-editor label{display:block;margin:0 0 4px;font-size:var(--fs-small);font-weight:var(--fw-semibold)}
+.hwpx-editor input,.hwpx-editor select{width:100%;min-width:0;min-height:44px;padding:8px 10px;border:1px solid var(--control-line);border-radius:var(--r-btn);background:var(--card);color:var(--ink);font:inherit}
+.hwpx-editor select{margin-bottom:10px;text-overflow:ellipsis}
+.hwpx-edit-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.hwpx-edit-actions{display:flex;flex-wrap:wrap;gap:8px}
+.hwpx-edit-actions+.muted{margin:8px 0 0}
+
 /* ---------- 휴대폰: 문서를 먼저 표시하고 작업 버튼은 그 아래에 배치 ---------- */
 @media screen and (max-width:767.98px){
   main.wrap{display:flex;flex-direction:column}
   main.wrap>h1{order:-5}
   main.wrap>.lead{order:-4}
   main.wrap>.drop{order:-3}
-  main.wrap>.status{order:-2}
+  main.wrap>.status,main.wrap>.hwpx-edit-toggle,main.wrap>.hwpx-editor{order:-2}
   main.wrap>#btn-view-size{order:-1;align-self:flex-end;margin-bottom:8px}
   main.wrap>#viewer{order:-1}
   .drop.home{padding:16px 12px;margin-bottom:10px}
@@ -323,7 +336,7 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 
 /* ---------- 인쇄: 뷰어만 ---------- */
 @media print{
-  .actions,.drop-compact,#textwrap{display:none!important}
+  .actions,.drop-compact,#textwrap,.hwpx-edit-toggle,.hwpx-editor{display:none!important}
   #viewer{height:auto!important;margin:0}
 }
 /* HWP viewer page: shared tool layout, same parsing and export runtime. */
@@ -363,6 +376,34 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   </div>
   <p class="status" id="status" aria-live="polite"></p>
 
+  <button class="btn ghost hwpx-edit-toggle" type="button" id="btn-edit-hwpx" aria-controls="hwpx-editor" aria-expanded="false" hidden>HWPX 문구 편집</button>
+  <section class="hwpx-editor" id="hwpx-editor" aria-labelledby="hwpx-edit-title" hidden>
+    <h2 id="hwpx-edit-title">HWPX 문구 편집</h2>
+    <p class="muted">본문이나 표 셀의 짧은 문구를 찾아 한 곳씩 바꿉니다. 여러 서식에 걸친 문구는 나눠 찾으세요.</p>
+    <form id="hwpx-find-form">
+      <label for="hwpx-find">찾을 문구</label>
+      <div class="hwpx-edit-row">
+        <input id="hwpx-find" type="text" maxlength="80" autocomplete="off" required disabled>
+        <button class="btn ghost" id="hwpx-find-button" type="submit" disabled>찾기</button>
+      </div>
+    </form>
+    <form id="hwpx-replace-form" hidden>
+      <label for="hwpx-match">바꿀 위치</label>
+      <select id="hwpx-match" required></select>
+      <label for="hwpx-replacement">새 문구</label>
+      <div class="hwpx-edit-row">
+        <input id="hwpx-replacement" type="text" maxlength="80" autocomplete="off" required>
+        <button class="btn ghost" type="submit">바꾸기</button>
+      </div>
+    </form>
+    <p class="status" id="hwpx-edit-status" role="status"></p>
+    <div class="hwpx-edit-actions">
+      <button class="btn" type="button" id="btn-make-hwpx" disabled>HWPX 사본 만들기</button>
+      <a class="btn" id="link-save-hwpx" download hidden>HWPX 사본 다운로드</a>
+    </div>
+    <p class="muted">원본은 그대로 두고 이 기기에서 사본을 만듭니다.</p>
+  </section>
+
   <div class="actions" id="tools" hidden>
     <button class="btn-big" type="button" id="btn-primary">PDF로 저장</button>
     <button class="btn ghost" type="button" id="btn-txt">텍스트 저장</button>
@@ -386,7 +427,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
     <h2 style="margin-top:0">이 도구로 할 수 있는 것</h2>
     <div class="grid">
       <div class="card"><h3>HWP 열기</h3><p>한글(아래아한글) 5.0 형식 .hwp 문서의 본문을 확인합니다. 글꼴·표·수식 등 일부 서식은 원본과 다를 수 있습니다.</p></div>
-      <div class="card"><h3>HWPX 열기</h3><p>한글 2014 이후 표준 .hwpx 문서의 본문과 표를 읽습니다.</p></div>
+      <div class="card"><h3>HWPX 문구 편집</h3><p>10MB 이하 .hwpx의 본문과 표 셀에서 짧은 문구를 바꿉니다. 보호·서명 문서나 일부 복잡한 문서는 편집이 제한됩니다.</p></div>
       <div class="card"><h3>PDF 저장</h3><p>브라우저 인쇄 기능으로 PDF 파일을 만듭니다. 맥·윈도우·안드로이드 모두 가능합니다.</p></div>
       <div class="card"><h3>텍스트·HTML 저장</h3><p>본문만 뽑아 .txt로 받거나, 다른 편집기에 붙여 넣을 수 있게 복사합니다.</p></div>
     </div>
@@ -405,7 +446,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   </details>
 </main>
 <link rel="prefetch" href="/assets/hwp-bundle.js" as="script">
-<script src="/assets/app.js?v=4d9c70cf40" defer></script>
+<script src="/assets/hwpx-editor.js?v=fb0536ea6b" defer></script>
+<script src="/assets/app.js?v=881eb12200" defer></script>
 <!-- shell:footer -->
 <footer class="foot"><div class="wrap">
   <div class="foot-main">

@@ -30,6 +30,19 @@
   var btnCopy = $('btn-copy');
   var btnReset = $('btn-reset');
   var btnViewSize = $('btn-view-size');
+  var btnEdit = $('btn-edit-hwpx');
+  var editPanel = $('hwpx-editor');
+  var findForm = $('hwpx-find-form');
+  var findInput = $('hwpx-find');
+  var findButton = $('hwpx-find-button');
+  var replaceForm = $('hwpx-replace-form');
+  var matchInput = $('hwpx-match');
+  var replaceInput = $('hwpx-replacement');
+  var editStatus = $('hwpx-edit-status');
+  var makeCopy = $('btn-make-hwpx');
+  var copyLink = $('link-save-hwpx');
+  var editMatches = [];
+  var copyUrl = '';
   var current = { name: '', text: '', html: '' };
   var viewer = null;
   var busy = false;
@@ -47,6 +60,7 @@
     viewerEl.style.height = '';
     viewerEl.classList.remove('hwp-fit');
     btnViewSize.hidden = true;
+    resetEditor();
     textOut.value = '';
     tools.hidden = true;
     textWrap.hidden = true;
@@ -208,21 +222,159 @@
   }
 
   function renderHwpx(bytes){
-    var files = L.unzipSync(bytes);
+    var entries = [];
+    var files = L.unzipSync(bytes, { filter: function(entry){
+      if (entries.length <= 1024) entries.push(entry);
+      return /^Contents\/section\d+\.xml$/i.test(entry.name);
+    } });
     var names = Object.keys(files).filter(function(n){ return /^Contents\/section\d+\.xml$/i.test(n); })
       .sort(function(a,b){ return parseInt(a.match(/\d+/)[0], 10) - parseInt(b.match(/\d+/)[0], 10); });
     if (!names.length) throw new Error('no section');
     var parser = new DOMParser();
-    var html = [], text = [];
-    names.forEach(function(n){
+    var sections = names.map(function(n){
       var xml = parser.parseFromString(L.strFromU8(files[n]), 'application/xml');
       if (xml.documentElement.localName === 'parsererror') throw new Error('invalid section');
-      xmlChildren(xml.documentElement, 'p').forEach(function(p){ readHwpxParagraph(p, html, text); });
+      return { name: n, xml: xml };
+    });
+    renderHwpxSections(sections);
+    if (window.PBHWPXEditor && window.PBHWPXEditor.canEdit(bytes, entries)) {
+      current.hwpx = { bytes: bytes, entries: entries, sections: sections };
+      btnEdit.hidden = false;
+    }
+  }
+
+  function renderHwpxSections(sections){
+    var html = [], text = [];
+    sections.forEach(function(section){
+      xmlChildren(section.xml.documentElement, 'p').forEach(function(p){ readHwpxParagraph(p, html, text); });
     });
     current.html = html.join('\n');
     current.text = text.join('\n');
     viewerEl.style.height = '';
     viewerEl.innerHTML = '<div class="hwpx-paper">' + current.html + '</div>';
+  }
+
+  function editMessage(message, kind){
+    editStatus.textContent = message;
+    editStatus.className = 'status' + (kind ? ' ' + kind : '');
+  }
+
+  function clearEditMatches(){
+    editMatches = [];
+    matchInput.replaceChildren();
+    replaceInput.value = '';
+    replaceForm.hidden = true;
+  }
+
+  function clearEditCopy(){
+    if (copyUrl) URL.revokeObjectURL(copyUrl);
+    copyUrl = '';
+    copyLink.removeAttribute('href');
+    copyLink.hidden = true;
+  }
+
+  function resetEditor(){
+    btnEdit.hidden = true;
+    btnEdit.setAttribute('aria-expanded', 'false');
+    editPanel.hidden = true;
+    findForm.reset();
+    findInput.disabled = findButton.disabled = makeCopy.disabled = true;
+    clearEditMatches();
+    clearEditCopy();
+    editMessage('');
+  }
+
+  async function toggleEditor(){
+    var doc = current.hwpx;
+    if (!doc) return;
+    var opening = editPanel.hidden;
+    editPanel.hidden = !opening;
+    btnEdit.setAttribute('aria-expanded', String(opening));
+    if (!opening) return;
+    if (doc.editor) { findInput.focus(); return; }
+    if (doc.loading) return;
+    doc.loading = true;
+    editMessage('편집 준비 중…', 'busy');
+    try {
+      doc.editor = await window.PBHWPXEditor.load(doc.bytes, doc.entries, doc.sections);
+      if (current.hwpx !== doc) return;
+      findInput.disabled = findButton.disabled = false;
+      editMessage('');
+      if (!editPanel.hidden) findInput.focus();
+    } catch (error) {
+      if (current.hwpx === doc) editMessage(error.message || '이 문서는 편집할 수 없습니다.', 'err');
+    } finally {
+      doc.loading = false;
+    }
+  }
+
+  function findEditMatches(event){
+    event.preventDefault();
+    var doc = current.hwpx;
+    if (!doc || !doc.editor || doc.saving) return;
+    clearEditMatches();
+    var query = findInput.value;
+    editMatches = doc.editor.find(query);
+    if (!editMatches.length) {
+      editMessage('편집할 수 있는 문구를 찾지 못했습니다. 짧게 나눠 찾아보세요.', 'empty');
+      return;
+    }
+    if (editMatches.length > 1) {
+      var prompt = new Option('바꿀 위치를 선택하세요', '', true, true);
+      prompt.disabled = true;
+      matchInput.add(prompt);
+    }
+    editMatches.forEach(function(match, index){
+      matchInput.add(new Option((index + 1) + '. ' + match.location + ' · ' + match.context, String(index)));
+    });
+    replaceForm.hidden = false;
+    editMessage(editMatches.length === 100 ? '처음 100곳을 표시했습니다.' : editMatches.length + '곳에서 찾았습니다.');
+    (editMatches.length > 1 ? matchInput : replaceInput).focus();
+  }
+
+  function applyEdit(event){
+    event.preventDefault();
+    var doc = current.hwpx;
+    if (!doc || !doc.editor || doc.saving || matchInput.value === '') return;
+    try {
+      if (!doc.editor.replace(editMatches[Number(matchInput.value)], findInput.value, replaceInput.value)) {
+        editMessage('같은 문구입니다. 다른 문구를 입력하세요.', 'empty');
+        return;
+      }
+      clearEditCopy();
+      renderHwpxSections(doc.sections);
+      textOut.value = current.text;
+      makeCopy.disabled = false;
+      clearEditMatches();
+      editMessage('문구를 바꿨습니다. 더 바꾸거나 HWPX 사본을 만드세요.', 'ok');
+      findInput.focus();
+    } catch (error) {
+      editMessage(error.message || '이 문구는 바꿀 수 없습니다.', 'err');
+    }
+  }
+
+  async function buildEditCopy(){
+    var doc = current.hwpx;
+    if (!doc || !doc.editor || doc.saving) return;
+    doc.saving = true;
+    makeCopy.disabled = true;
+    clearEditCopy();
+    editMessage('HWPX 사본 만드는 중…', 'busy');
+    try {
+      var bytes = await doc.editor.save(current.text);
+      if (current.hwpx !== doc) return;
+      copyUrl = URL.createObjectURL(new Blob([bytes], { type: 'application/hwp+zip' }));
+      copyLink.href = copyUrl;
+      copyLink.download = base(current.name) + '-편집본.hwpx';
+      copyLink.hidden = false;
+      editMessage('사본을 만들었습니다.', 'ok');
+      if (!editPanel.hidden) copyLink.focus();
+    } catch (error) {
+      if (current.hwpx === doc) editMessage(error.message || 'HWPX 사본을 만들지 못했습니다.', 'err');
+    } finally {
+      doc.saving = false;
+      if (current.hwpx === doc) makeCopy.disabled = false;
+    }
   }
 
   function handle(file){
@@ -306,4 +458,9 @@
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(current.text).then(done, fallback); else fallback();
   });
   btnReset.addEventListener('click', function(){ reset(); btnSelect.focus(); });
+  btnEdit.addEventListener('click', toggleEditor);
+  findForm.addEventListener('submit', findEditMatches);
+  findInput.addEventListener('input', function(){ clearEditMatches(); editMessage(''); });
+  replaceForm.addEventListener('submit', applyEdit);
+  makeCopy.addEventListener('click', buildEditCopy);
 })();
