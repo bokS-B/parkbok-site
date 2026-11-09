@@ -134,7 +134,7 @@
       page.parentElement.classList.add('hwp-page-scroll');
       target.classList.add('hwp-fit');
     }
-    return { text: text, html: '<pre style="white-space:pre-wrap;font-family:inherit">' + esc(text) + '</pre>', viewer: hwpViewer };
+    return { text: text, html: '<pre style="white-space:pre-wrap;font-family:inherit">' + esc(text) + '</pre>', viewer: hwpViewer, charShapes: doc.info.charShapes };
   }
 
   function fitHwpPages(){
@@ -299,7 +299,7 @@
     editMessage('편집 준비 중…', 'busy');
     try {
       doc.editor = doc.format === 'HWP'
-        ? await window.PBHwpEditor.load(doc.bytes)
+        ? await window.PBHwpEditor.load(doc.bytes, doc.charShapes)
         : await window.PBHWPXEditor.load(doc.bytes, doc.entries, doc.sections);
       if (current.edit !== doc) return;
       findInput.disabled = findButton.disabled = false;
@@ -414,7 +414,7 @@
     makeCopy.textContent = doc.format + ' 사본 만들기';
     copyLink.textContent = doc.format + ' 사본 다운로드';
     editHelp.textContent = doc.format === 'HWP'
-      ? '본문이나 일반 표 셀에서 찾은 문구를 길이가 같은 글자로 바꿉니다.'
+      ? '한 줄·한 서식 안의 짧은 문구를 늘리거나 줄입니다. 표 셀의 길이를 바꿀 때는 폭이 제한됩니다.'
       : '본문이나 표 셀의 짧은 문구를 찾아 한 곳씩 바꿉니다. 여러 서식에 걸친 문구는 나눠 찾으세요.';
   }
 
@@ -435,7 +435,11 @@
         nextViewer.id = 'viewer';
         var next = isHwpx ? renderHwpx(bytes, nextViewer) : renderHwp(bytes, nextViewer);
         if (isHwp && window.PBHwpEditor && window.PBHwpEditor.canEdit(bytes)) {
-          next.edit = { format: 'HWP', bytes: bytes };
+          var charShapes = next.charShapes.map(function(shape){
+            return { fontBaseSize: Math.round(shape.fontBaseSize * 100), fontScale: shape.fontScale,
+              fontRatio: shape.fontRatio, fontSpacing: shape.fontSpacing };
+          });
+          next.edit = { format: 'HWP', bytes: bytes, charShapes: charShapes };
         }
         clearResult();
         mountViewer(nextViewer, next.viewer);

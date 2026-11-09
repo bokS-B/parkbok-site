@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  // Hancom HWP 5.0 rev. 1.3, sections 3.2.2 and 4.3.
+  // Hancom HWP 5.0 rev. 1.3, sections 4.1 and 4.3.1–4.3.4.
   const PARA_HEADER = 66;
   const PARA_TEXT = 67;
   const PARA_CHAR_SHAPE = 68;
@@ -10,6 +10,7 @@
   const LIST_HEADER = 72;
   const TABLE = 77;
   const TABLE_ID = 0x74626c20;
+  const extendedSize = 0xfff;
   const maxText = 80;
   const maxMatches = 100;
   const maxRecords = 200000;
@@ -31,18 +32,19 @@
     let lastLevel = -1;
     while (offset < view.byteLength) {
       if (result.length >= maxRecords || offset + 4 > view.byteLength) unsupported();
+      const headerOffset = offset;
       const header = view.getUint32(offset, true);
       const tag = header & 0x3ff;
       const level = (header >>> 10) & 0x3ff;
       let size = header >>> 20;
       offset += 4;
-      if (size === 0xfff) {
+      if (size === extendedSize) {
         if (offset + 4 > view.byteLength) unsupported();
         size = view.getUint32(offset, true);
         offset += 4;
       }
       if (level > lastLevel + 1 || offset + size > view.byteLength) unsupported();
-      result.push({ tag, level, offset, size });
+      result.push({ tag, level, headerOffset, offset, size });
       offset += size;
       lastLevel = level;
     }
@@ -96,7 +98,7 @@
     return positions;
   }
 
-  function paragraphRuns(view, entries, index, location) {
+  function paragraphRuns(view, entries, index, location, cell) {
     const paragraph = entries[index];
     const text = entries[index + 1];
     const shapes = entries[index + 2];
@@ -117,13 +119,19 @@
       ? readBoundaries(view, lines, lineCount, 36, length) : null;
     if (!shapePositions || !linePositions) return [];
     const boundaries = new Set([...shapePositions, ...linePositions]);
+    const next = entries[index + 4];
+    const metadata = {
+      paragraph, text, shapes, lines, cell,
+      resizeSafe: !next || next.level <= paragraph.level,
+      extraCellParagraph: next && next.level === paragraph.level && next.tag === PARA_HEADER
+    };
     const runs = [];
     let start = 0;
 
     function addRun(end) {
       if (end <= start) return;
       if (runs.length === maxRuns) unsupported();
-      runs.push({ offset: text.offset + start * 2, length: end - start, location });
+      runs.push({ offset: text.offset + start * 2, length: end - start, location, metadata });
     }
 
     for (let at = 0; at < length;) {
@@ -176,24 +184,23 @@
     for (let at = offset + 38; at < offset + record.size; at++) {
       if (view.getUint8(at) !== 0) return null;
     }
-    return { paragraphCount, row, column };
+    return {
+      paragraphCount, row, column,
+      simpleLayout: paragraphCount === 1 && (properties & 0x1f) === 0
+    };
   }
 
-  function read(bytes, sectionName) {
+  function parseSection(bytes, label, charShapes) {
     if (!ArrayBuffer.isView(bytes) || bytes.BYTES_PER_ELEMENT !== 1 ||
         !bytes.byteLength || bytes.byteLength > maxSectionSize) unsupported();
-    const name = String(sectionName);
-    const number = /Section(\d+)$/i.exec(name);
-    if (!number) unsupported();
-    const label = (Number(number[1]) + 1) + '구역 ';
     const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
     const entries = records(view);
     if (entries[0].tag !== PARA_HEADER) unsupported();
     verifyFieldBoundaries(view, entries);
 
     const runs = [];
-    function addParagraph(index, location) {
-      const next = paragraphRuns(view, entries, index, location);
+    function addParagraph(index, location, cell) {
+      const next = paragraphRuns(view, entries, index, location, cell);
       if (runs.length + next.length > maxRuns) unsupported();
       for (const run of next) runs.push(run);
     }
@@ -229,15 +236,33 @@
           cell.paragraphCount--;
           const location = label + paragraphNumber + '문단 표 ' + tableNumber +
             ' · ' + (cell.row + 1) + '행 ' + (cell.column + 1) + '열';
-          addParagraph(index, location);
+          addParagraph(index, location, cell);
         } else {
           table.cell = null;
         }
       }
     });
-    const section = Object.freeze({ bytes, name, runCount: runs.length });
-    sections.set(section, { runs, view, revision: 0 });
+    return { bytes, label, runs, view, charShapes };
+  }
+
+  function read(bytes, sectionName, charShapes) {
+    const name = String(sectionName);
+    const number = /Section(\d+)$/i.exec(name);
+    if (!number) unsupported();
+    const label = (Number(number[1]) + 1) + '구역 ';
+    const section = Object.freeze({
+      name,
+      get bytes() { return sections.get(section).bytes; },
+      get runCount() { return sections.get(section).runs.length; }
+    });
+    sections.set(section, parseSection(bytes, label, charShapes));
     return section;
+  }
+
+  function restore(section, bytes) {
+    const state = sections.get(section);
+    if (!state) unsupported();
+    sections.set(section, parseSection(bytes, state.label, state.charShapes));
   }
 
   function validText(value) {
@@ -257,7 +282,7 @@
         const end = Math.min(text.length, at + query.length + 24);
         const context = (begin ? '…' : '') + text.slice(begin, end) + (end < text.length ? '…' : '');
         const match = Object.freeze({ offset, location: run.location, context });
-        matches.set(match, { section, query, revision: state.revision });
+        matches.set(match, { state, query, run });
         result.push(match);
         if (result.length === maxMatches) return result;
         at = text.indexOf(query, at + query.length);
@@ -266,23 +291,123 @@
     return result;
   }
 
+  function writeUnits(view, offset, value) {
+    for (let index = 0; index < value.length; index++) {
+      view.setUint16(offset + index * 2, value.charCodeAt(index), true);
+    }
+  }
+
+  function shiftStarts(view, record, recordShift, stride, oldEnd, delta) {
+    const start = record.offset + recordShift;
+    for (let offset = start; offset < start + record.size; offset += stride) {
+      const position = view.getUint32(offset, true);
+      if (position >= oldEnd) view.setUint32(offset, position + delta, true);
+    }
+  }
+
+  function resizeText(state, metadata, offset, query, replacement) {
+    const { paragraph, text, shapes, lines } = metadata;
+    const delta = replacement.length - query.length;
+    const textSize = text.size + delta * 2;
+    const headerSize = textSize >= extendedSize ? 8 : 4;
+    const headerShift = headerSize - (text.offset - text.headerOffset);
+    const recordShift = headerShift + delta * 2;
+    const sectionSize = state.bytes.byteLength + recordShift;
+    if (sectionSize > maxSectionSize) unsupported();
+
+    const bytes = new Uint8Array(sectionSize);
+    const view = new DataView(bytes.buffer);
+    const replacementOffset = offset + headerShift;
+    bytes.set(state.bytes.subarray(0, text.headerOffset));
+    bytes.set(state.bytes.subarray(text.offset, offset), text.headerOffset + headerSize);
+    writeUnits(view, replacementOffset, replacement);
+    bytes.set(state.bytes.subarray(offset + query.length * 2), replacementOffset + replacement.length * 2);
+
+    const header = text.tag | (text.level << 10) | (Math.min(textSize, extendedSize) << 20);
+    view.setUint32(text.headerOffset, header, true);
+    if (headerSize === 8) view.setUint32(text.headerOffset + 4, textSize, true);
+
+    // Keep the last-in-list bit and move only positions after the edited span.
+    const paragraphCount = state.view.getUint32(paragraph.offset, true);
+    const length = (paragraphCount & 0x7fffffff) + delta;
+    view.setUint32(paragraph.offset, (paragraphCount & 0x80000000) | length, true);
+    const oldEnd = (offset - text.offset) / 2 + query.length;
+    shiftStarts(view, shapes, recordShift, 8, oldEnd, delta);
+    shiftStarts(view, lines, recordShift, 36, oldEnd, delta);
+    return bytes;
+  }
+
+  function glyphWidth(shape, language) {
+    const base = shape?.fontBaseSize;
+    const scale = shape?.fontScale?.[language];
+    const ratio = shape?.fontRatio?.[language];
+    const spacing = shape?.fontSpacing?.[language];
+    if (!Number.isFinite(base) || base <= 0 || base > 409600 ||
+        !Number.isInteger(scale) || scale < 50 || scale > 200 ||
+        !Number.isInteger(ratio) || ratio < 10 || ratio > 250 ||
+        !Number.isInteger(spacing) || spacing < -50 || spacing > 50) return NaN;
+    const em = base * ratio / 100;
+    const width = em * scale / 100;
+    // Budget one em per glyph and never count negative character spacing as room.
+    return Math.ceil(width + Math.max(base, em, width) * Math.max(0, spacing) / 100);
+  }
+
+  function verifyTableWidth(state, metadata, offset, query, replacement) {
+    const { cell, text, shapes, lines, extraCellParagraph } = metadata;
+    if (!cell.simpleLayout || extraCellParagraph || shapes.size !== 8 || lines.size !== 36) {
+      throw new Error('문단과 줄이 하나이고 글자 서식이 같은 일반 표 셀에서만 문구 길이를 바꿀 수 있습니다.');
+    }
+
+    const shapeId = state.view.getUint32(shapes.offset + 4, true);
+    const shape = state.charShapes?.[shapeId];
+    const available = state.view.getInt32(lines.offset + 28, true);
+    const original = readUnits(state.view, text.offset, text.size / 2 - 1);
+    const start = (offset - text.offset) / 2;
+    const next = original.slice(0, start) + replacement + original.slice(start + query.length);
+    const hangulWidth = glyphWidth(shape, 0);
+    const asciiWidth = glyphWidth(shape, 1);
+    let width = 0;
+    for (const char of next) {
+      const code = char.codePointAt(0);
+      if (code >= 0xac00 && code <= 0xd7a3) width += hangulWidth;
+      else if (code >= 0x20 && code <= 0x7e) width += asciiWidth;
+      else width = NaN;
+    }
+    if (!Number.isFinite(width) || available <= 0) {
+      throw new Error('표 셀의 글자 폭을 확인할 수 없습니다. 같은 길이의 문구로 바꿔 주세요.');
+    }
+    if (width > available) throw new Error('표 셀에 들어갈 폭이 부족합니다. 더 짧은 문구를 입력해 주세요.');
+  }
+
   function replace(section, match, query, replacement) {
     const state = sections.get(section);
     const candidate = matches.get(match);
-    if (!state || !candidate || candidate.section !== section || candidate.query !== query ||
-        candidate.revision !== state.revision || readUnits(state.view, match.offset, query.length) !== query) {
+    if (!state || !candidate || candidate.state !== state || candidate.query !== query ||
+        readUnits(state.view, match.offset, query.length) !== query) {
       throw new Error('문구를 다시 찾은 뒤 변경할 위치를 선택하세요.');
     }
-    if (!validText(replacement) || replacement.length !== query.length) {
-      throw new Error('줄바꿈 없이 찾은 문구와 길이가 같은 문구를 입력하세요.');
+    if (replacement !== '' && !validText(replacement)) {
+      throw new Error('줄바꿈과 탭 없이 80자 이하의 글자를 입력하세요.');
     }
     if (replacement === query) return false;
-    for (let index = 0; index < replacement.length; index++) {
-      state.view.setUint16(match.offset + index * 2, replacement.charCodeAt(index), true);
+    const { run } = candidate;
+    if (!replacement.length && query.length === run.length) {
+      throw new Error('서식 범위의 전체 문구를 지울 수 없습니다. 글자를 한 자 이상 남겨 주세요.');
     }
-    state.revision++;
+    if (replacement.length !== query.length) {
+      if (!run.metadata.resizeSafe) {
+        throw new Error('개체가 포함된 문단은 같은 길이의 문구로 바꿔 주세요.');
+      }
+      if (run.metadata.cell) verifyTableWidth(state, run.metadata, match.offset, query, replacement);
+      restore(section, resizeText(state, run.metadata, match.offset, query, replacement));
+    } else {
+      const bytes = new Uint8Array(state.bytes);
+      const view = new DataView(bytes.buffer);
+      writeUnits(view, match.offset, replacement);
+      sections.set(section, { ...state, bytes, view });
+    }
     return true;
   }
 
-  window.PBHwpRecords = { read, find, replace };
+  window.PBHwpRecords = { read, find, replace, restore };
 })();

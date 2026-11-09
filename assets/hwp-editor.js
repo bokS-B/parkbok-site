@@ -91,6 +91,7 @@
 
   function createEditor(container, entries, sections, compressed) {
     const dirty = new Set();
+    let expandedSize = sections.reduce((total, section) => total + section.records.bytes.length, 0);
 
     function find(query) {
       const matches = [];
@@ -127,17 +128,23 @@
     function replace(item, query, replacement, show) {
       if (!item || !sections.includes(item.section)) throw new Error('문구를 다시 찾아 주세요.');
       const { section, match } = item;
-      const before = section.records.bytes.slice(match.offset, match.offset + query.length * 2);
+      const before = section.records.bytes;
       const wasDirty = dirty.has(section);
       if (!window.PBHwpRecords.replace(section.records, match, query, replacement)) return false;
+      const nextSize = expandedSize - before.length + section.records.bytes.length;
+      if (nextSize > maxSectionData) {
+        window.PBHwpRecords.restore(section.records, before);
+        throw new Error('편집할 수 있는 문서 용량을 넘습니다.');
+      }
       dirty.add(section);
       try {
         show(copy());
       } catch (error) {
-        section.records.bytes.set(before, match.offset);
+        window.PBHwpRecords.restore(section.records, before);
         if (!wasDirty) dirty.delete(section);
         throw new Error('수정본을 열 수 없습니다. 문구를 다시 찾아 주세요.');
       }
+      expandedSize = nextSize;
       return true;
     }
 
@@ -151,7 +158,7 @@
     return { find, replace, save };
   }
 
-  async function load(bytes) {
+  async function load(bytes, charShapes) {
     if (!canEdit(bytes) || !window.PBHwpRecords) throw new Error(unsupported);
     await loadDependencies();
     try {
@@ -184,7 +191,7 @@
         const index = entries.get(name);
         const result = readSection(Uint8Array.from(container.FileIndex[index].content), compressed, remaining);
         remaining -= result.data.length;
-        const records = window.PBHwpRecords.read(result.data, name);
+        const records = window.PBHwpRecords.read(result.data, name, charShapes);
         return { index, trailer: result.trailer, records };
       });
       if (!sections.some(section => section.records.runCount)) throw new Error(unsupported);
