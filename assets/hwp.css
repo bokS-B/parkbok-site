@@ -79,8 +79,8 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
   body.hwp-page #pb-statistics{display:none!important}
 }
 
-/* Keep the optional statistics choice visible without covering narrow HWP controls. */
-@media screen and (max-width:360px){
+/* Keep the statistics choice in flow on narrow or short HWP screens. */
+@media screen and (max-width:360px), screen and (max-height:420px){
   body.hwp-page{padding-bottom:0}
   body.hwp-page [data-statistics-mount]{order:-3}
   body.hwp-page #pb-statistics{position:static;width:auto;margin:0 0 12px;box-shadow:none}
