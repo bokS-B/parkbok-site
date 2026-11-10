@@ -85,7 +85,8 @@
       no.type = yes.type = 'button'; no.dataset.choice = 'deny'; yes.dataset.choice = 'allow';
       no.onclick = function () { choose('deny'); }; yes.onclick = function () { choose('allow'); };
       link.href = '/privacy.html#statistics'; make('small', t[6], panel);
-      document.body.appendChild(panel);
+      var mount = document.querySelector('[data-statistics-mount]');
+      (mount || document.body).appendChild(panel);
       if (window.ResizeObserver) new ResizeObserver(function () {
         if (!panel.hidden) document.body.style.setProperty('--pb-statistics-space', panel.offsetHeight + 24 + 'px');
       }).observe(panel);

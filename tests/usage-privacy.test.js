@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const fs = require('node:fs');
 const code = fs.readFileSync(require.resolve('../assets/usage-privacy.js'), 'utf8');
 
-function browser({ host = 'parkbok.com', choice, blocked = false, query = '', googlefc, gaId = 'G-377MXFWS51' } = {}) {
+function browser({ host = 'parkbok.com', choice, blocked = false, query = '', mount = false, googlefc, gaId = 'G-377MXFWS51' } = {}) {
   const elements = [], storage = new Map(), cookieWrites = [], events = {};
   if (choice) storage.set('pb_statistics_v1', JSON.stringify(choice));
   const element = tag => {
@@ -14,9 +14,9 @@ function browser({ host = 'parkbok.com', choice, blocked = false, query = '', go
       querySelector(selector) { return this.children.flatMap(c => [c, ...c.children]).find(c => c.tag === selector); }
     }; return e;
   };
-  const foot = element('nav'), doc = { documentElement: { lang: 'en' }, referrer: 'https://www.google.com/search?q=private-referrer',
+  const foot = element('nav'), target = mount ? element('div') : null, doc = { documentElement: { lang: 'en' }, referrer: 'https://www.google.com/search?q=private-referrer',
     currentScript: { getAttribute: () => gaId }, head: element('head'), body: element('body'),
-    querySelector: () => foot, createElement: element
+    querySelector: selector => selector === '[data-statistics-mount]' ? target : selector === '.foot-links' ? foot : null, createElement: element
   };
   Object.defineProperty(doc, 'cookie', { get: () => '_ga=old; _ga_377MXFWS51=old; essential=keep', set: v => cookieWrites.push(v) });
   const window = { googlefc, addEventListener(k, f) { events[k] = f; } };
@@ -24,7 +24,7 @@ function browser({ host = 'parkbok.com', choice, blocked = false, query = '', go
     setItem(k, v) { if (blocked) throw Error('blocked'); storage.set(k, v); } };
   const location = new URL('https://' + host + '/image/image-compress/' + query);
   vm.runInNewContext(code, { window, document: doc, localStorage, location, history: { replaceState() {} }, URL, Date, Math, encodeURIComponent, setTimeout: () => 1, clearTimeout() {} });
-  return { window, elements, storage, cookieWrites, doc,
+  return { window, elements, storage, cookieWrites, doc, target,
     storageEvent(key) { events.storage({ key }); },
     select(choice) { const b = elements.find(e => e.dataset.choice === choice); assert.ok(b); b.onclick(); },
     open() { elements.find(e => e.className === 'pb-statistics-settings').onclick(); },
@@ -194,4 +194,11 @@ test('another tab denial, cleared storage and legacy withdrawal close the bridge
   b.storageEvent('pb_cmp_change_v1'); assertTracking(b, false);
   b.open(); b.select('allow'); assertTracking(b, true);
   assert.equal(b.tags().length, 1);
+});
+
+test('optional statistics mount contains the notice while other pages use the body', () => {
+  const mounted = browser({ mount: true }), normal = browser();
+  assert.equal(mounted.target.children.some(e => e.id === 'pb-statistics'), true);
+  assert.equal(normal.doc.body.children.some(e => e.id === 'pb-statistics'), true);
+  assert.equal(mounted.window.PBStatistics.canTrack(), false);
 });

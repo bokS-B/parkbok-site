@@ -22,6 +22,10 @@
   if (flag === '1') document.documentElement.setAttribute('data-hwp-feedback-internal', '');
 })();
 </script>
+
+
+
+
 <!-- shell:head-common -->
 <link rel="icon" href="/favicon.ico?v=ebc61927" sizes="16x16 32x32 48x48" type="image/x-icon">
 <link rel="icon" href="/favicon.svg?v=ebc61927" sizes="any" type="image/svg+xml">
@@ -358,6 +362,14 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 @media print{
   .actions,.drop-compact,#textwrap,.hwpx-edit-toggle,.hwpx-editor,.hwp-copy-feedback{display:none!important}
   #viewer{height:auto!important;margin:0}
+  body.hwp-page #pb-statistics{display:none!important}
+}
+
+/* Keep the optional statistics choice visible without covering narrow HWP controls. */
+@media screen and (max-width:360px){
+  body.hwp-page{padding-bottom:0}
+  body.hwp-page [data-statistics-mount]{order:-3}
+  body.hwp-page #pb-statistics{position:static;width:auto;margin:0 0 12px;box-shadow:none}
 }
 /* HWP viewer page: shared tool layout, same parsing and export runtime. */
 :root{--hwp-focus:var(--accent-text);--t-btn:background-color .15s,border-color .15s,color .15s}
@@ -367,7 +379,7 @@ main.wrap>.lead{margin-bottom:16px}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--hwp-focus);outline-offset:3px;transition:none}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
-</head><body>
+</head><body class="hwp-page">
 <!-- shell:header -->
 <header class="top"><div class="wrap"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-t">parkbok</span></a><nav class="menu" aria-label="주 메뉴"><a href="/hwp/" class="on">HWP 뷰어</a><a href="/text/">텍스트 도구</a><a href="/pdf/ko/">PDF 도구</a><a href="/image/ko/">이미지 도구</a><a href="/color/ko/">색상 도구</a><a href="/guide/">가이드</a></nav><button type="button" class="theme-btn" id="theme-btn" aria-pressed="false" aria-label="현재 라이트 모드. 다크 모드로 전환" title="현재 라이트 모드. 다크 모드로 전환" data-label-to-dark="현재 라이트 모드. 다크 모드로 전환" data-label-to-light="현재 다크 모드. 라이트 모드로 전환">◐</button></div><script>(function(){
   var b=document.getElementById('theme-btn'),r=document.documentElement,m=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
@@ -394,6 +406,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
     <div class="drop-compact" id="drop-compact" hidden><span class="fname" id="file-name"></span><button class="btn sm ghost" type="button" id="btn-change">다른 파일 선택</button></div>
     <input type="file" id="file" accept=".hwp,.hwpx" hidden>
   </div>
+  <div data-statistics-mount></div>
   <p class="status" id="status" aria-live="polite"></p>
 
   <button class="btn ghost hwpx-edit-toggle" type="button" id="btn-edit-hwpx" aria-controls="hwpx-editor" aria-expanded="false" hidden>HWPX 문구 편집</button>

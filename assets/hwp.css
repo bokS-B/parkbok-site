@@ -76,4 +76,12 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 @media print{
   .actions,.drop-compact,#textwrap,.hwpx-edit-toggle,.hwpx-editor,.hwp-copy-feedback{display:none!important}
   #viewer{height:auto!important;margin:0}
+  body.hwp-page #pb-statistics{display:none!important}
+}
+
+/* Keep the optional statistics choice visible without covering narrow HWP controls. */
+@media screen and (max-width:360px){
+  body.hwp-page{padding-bottom:0}
+  body.hwp-page [data-statistics-mount]{order:-3}
+  body.hwp-page #pb-statistics{position:static;width:auto;margin:0 0 12px;box-shadow:none}
 }
