@@ -89,3 +89,54 @@ test('increments only an explicit same-origin HWP copy response', async () => {
   assert.deepEqual(totals, { ok: 2, problem: 1, not_opened: 1 });
   assert.equal((await visit(url, 'POST', { headers })).status, 503);
 });
+
+test('counts only empty same-origin line-breaks arrivals independently of HWP copy feedback', async () => {
+  const origin = 'https://parkbok.com';
+  const url = origin + '/hwp/entry';
+  const headers = { Origin: origin, 'Sec-Fetch-Site': 'same-origin', 'X-HWP-Entry': 'line_breaks' };
+  const entrySql = 'UPDATE hwp_entry_totals SET total = total + 1 WHERE metric = ?';
+  const feedbackSql = 'UPDATE hwp_feedback_totals SET total = total + 1 WHERE answer = ?';
+  const updates = [];
+  const db = {
+    prepare(sql) {
+      return { bind(value) {
+        return { async run() {
+          updates.push([sql, value]);
+          return { meta: { changes: 1 } };
+        } };
+      } };
+    }
+  };
+  const post = (path = url, options = {}) => visit(path, 'POST', { headers, ...options }, db);
+
+  for (const method of ['GET', 'HEAD', 'OPTIONS']) {
+    const response = await visit(url, method, {}, db);
+    assert.equal(response.status, 405);
+    assert.equal(response.headers.get('Allow'), 'POST');
+    assert.equal(response.headers.get('Cache-Control'), 'no-store');
+    assert.equal(await response.text(), '');
+  }
+  assert.equal((await post(url, { headers: { 'X-HWP-Entry': 'line_breaks' } })).status, 403);
+  assert.equal((await post(url, { headers: { ...headers, Origin: 'https://other.example' } })).status, 403);
+  assert.equal((await post(url, { headers: { ...headers, 'Sec-Fetch-Site': 'same-site' } })).status, 403);
+  assert.equal((await post(url, { headers: { ...headers, 'X-HWP-Entry': 'other' } })).status, 400);
+  assert.equal((await post(url, { headers: { Origin: origin, 'X-HWP-Feedback': 'ok' } })).status, 400);
+  assert.equal((await post(url, { body: 'any nonempty body' })).status, 400);
+  assert.equal((await post(url + '?')).status, 400);
+  assert.equal((await post(url + '?source=line_breaks')).status, 400);
+  assert.equal((await post(origin + '/hwp/feedback')).status, 400);
+  assert.deepEqual(updates, []);
+
+  const emptyBody = new ReadableStream({ start(controller) { controller.close(); } });
+  for (const response of [await post(), await post(url, { body: emptyBody, duplex: 'half' })]) {
+    assert.equal(response.status, 204);
+    assert.equal(response.headers.get('Cache-Control'), 'no-store');
+    assert.equal(await response.text(), '');
+  }
+  assert.equal((await post(origin + '/hwp/feedback', { headers: { Origin: origin, 'X-HWP-Feedback': 'ok' } })).status, 204);
+  assert.deepEqual(updates, [[entrySql, 'line_breaks_hwp_entry'], [entrySql, 'line_breaks_hwp_entry'], [feedbackSql, 'ok']]);
+
+  const missingRow = { prepare: () => ({ bind: () => ({ run: async () => ({ meta: { changes: 0 } }) }) }) };
+  assert.equal((await visit(url, 'POST', { headers }, missingRow)).status, 503);
+  assert.equal((await visit(url, 'POST', { headers })).status, 503);
+});

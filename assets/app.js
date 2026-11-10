@@ -448,6 +448,54 @@
     }
   }
 
+  function recordLineBreakArrival(){
+    var marker = '#from-line-breaks';
+    if (location.pathname !== '/hwp/' || location.hash !== marker) return;
+
+    function stopWaiting(){
+      document.removeEventListener('visibilitychange', sendWhenVisible);
+      window.removeEventListener('pagehide', stopWaiting);
+    }
+
+    async function sendWhenVisible(){
+      if (document.visibilityState !== 'visible') return;
+      stopWaiting();
+      try {
+        await fetch('/hwp/entry', {
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'omit',
+          referrerPolicy: 'no-referrer',
+          redirect: 'error',
+          keepalive: true,
+          headers: { 'X-HWP-Entry': 'line_breaks' }
+        });
+      } catch (_) {}
+    }
+
+    function activate(){
+      if (location.hash !== marker) return;
+      try {
+        // Consume the marker even when this visit is excluded.
+        history.replaceState(history.state, '', location.pathname + location.search);
+        if (document.documentElement.hasAttribute('data-hwp-feedback-internal')) return;
+        var navigation = performance.getEntriesByType('navigation')[0];
+        if (navigation && navigation.type !== 'navigate') return;
+        var source = new URL(document.referrer);
+        if (source.origin !== location.origin ||
+            !['/text/remove-line-breaks.html', '/text/remove-line-breaks'].includes(source.pathname)) return;
+      } catch (_) { return; }
+      if (document.visibilityState === 'visible') sendWhenVisible();
+      else {
+        document.addEventListener('visibilitychange', sendWhenVisible);
+        window.addEventListener('pagehide', stopWaiting);
+      }
+    }
+
+    if (document.prerendering) document.addEventListener('prerenderingchange', activate, { once: true });
+    else activate();
+  }
+
   function showCopyFeedback(event){
     if (event.defaultPrevented || !copyUrl || copyLink.hidden || feedbackShown) return;
     feedbackShown = true;
@@ -613,4 +661,5 @@
   makeCopy.addEventListener('click', buildEditCopy);
   copyLink.addEventListener('click', showCopyFeedback);
   feedbackOptions.addEventListener('click', sendCopyFeedback);
+  recordLineBreakArrival();
 })();
