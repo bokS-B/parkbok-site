@@ -167,7 +167,7 @@ for (const p of pages) {
     s = s.replace('</head>', alternate + '\n<link rel="alternate" hreflang="x-default" href="https://parkbok.com/">\n</head>');
     s = s.replace(/src="\/assets\/home\.js(?:\?v=[^"]*)?"/, 'src="/assets/home.js?v=' + homeJsVersion + '"');
   }
-  s = s.replace(/<\/head>/, () => shell.head({ og: rel === 'hwp/index.html' ? 'assets/brand/hwp-share-v1.png' : 'og.png', home: !!isHome, adsenseVerification: !rel.startsWith('hwp/') }) + '\n</head>');
+  s = s.replace(/<\/head>/, () => shell.head({ og: rel === 'hwp/index.html' ? 'assets/brand/hwp-share-v2.png' : 'og.png', home: !!isHome, adsenseVerification: !rel.startsWith('hwp/') }) + '\n</head>');
   const pageCss = isHome ? PAGE_CSS['index.html'] : PAGE_CSS[rel];
   const css = pageCss ? [].concat(pageCss).map(f => fs.readFileSync(path.join(root, f), 'utf8').trim()).join('\n') : '';
   const ads = toolAds(pagePath(rel), css);
