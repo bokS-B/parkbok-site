@@ -2,6 +2,9 @@
 :root{--hwp-focus:var(--accent-text);--t-btn:background-color .15s,border-color .15s,color .15s}
 html,body{overflow-x:clip}
 main.wrap>h1{min-width:0;overflow-wrap:break-word}
+.hwp-title{display:flex;align-items:center;gap:8px}
+.hwp-title img{flex:none;display:block;width:40px;height:40px}
+@media(max-width:767.98px){.hwp-title img{width:32px;height:32px}}
 main.wrap>.lead{margin-bottom:16px}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--hwp-focus);outline-offset:3px;transition:none}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

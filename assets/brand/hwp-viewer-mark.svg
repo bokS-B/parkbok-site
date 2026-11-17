@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+  <defs>
+    <linearGradient id="amber" x2="100%" y2="100%">
+      <stop stop-color="#ffc98e"/>
+      <stop offset="1" stop-color="#ee995d"/>
+    </linearGradient>
+    <linearGradient id="mint" x2="100%" y2="100%">
+      <stop stop-color="#7adcbc"/>
+      <stop offset="1" stop-color="#39ac9a"/>
+    </linearGradient>
+    <linearGradient id="blue" x2="100%" y2="100%">
+      <stop stop-color="#397be1"/>
+      <stop offset="1" stop-color="#254ea7"/>
+    </linearGradient>
+  </defs>
+  <rect x="-32" y="-102" width="64" height="102" rx="10" transform="translate(78 128) rotate(24)" fill="url(#amber)"/>
+  <rect x="-33.5" y="-108" width="67" height="108" rx="10" transform="translate(75 133) rotate(11)" fill="url(#mint)"/>
+  <g transform="translate(67 138) rotate(-8)">
+    <rect x="-37" y="-110" width="74" height="110" rx="10" fill="url(#blue)"/>
+    <path d="M1 2h3v7h5V2h3v17H9v-7H4v7H1zm13 0h3l2 11 3-10h3l3 10 2-11h3l-4 17h-3l-3-10-3 10h-3zm21 0h7a5 5 0 0 1 0 10h-4v7h-3zm3 3v4h4a2 2 0 1 0 0-4z" transform="translate(-29 -70) scale(1.24)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+</svg>

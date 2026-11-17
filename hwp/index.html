@@ -375,6 +375,9 @@ body.busy .actions .btn,body.busy .actions .btn-big{opacity:.6;pointer-events:no
 :root{--hwp-focus:var(--accent-text);--t-btn:background-color .15s,border-color .15s,color .15s}
 html,body{overflow-x:clip}
 main.wrap>h1{min-width:0;overflow-wrap:break-word}
+.hwp-title{display:flex;align-items:center;gap:8px}
+.hwp-title img{flex:none;display:block;width:40px;height:40px}
+@media(max-width:767.98px){.hwp-title img{width:32px;height:32px}}
 main.wrap>.lead{margin-bottom:16px}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--hwp-focus);outline-offset:3px;transition:none}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
@@ -395,7 +398,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 (function(){var n=document.querySelector('nav.menu');if(!n)return;var f=function(){var l=n.scrollLeft;n.classList.toggle('start',l>0);n.classList.toggle('end',l+n.clientWidth>=n.scrollWidth-1)};var c=function(){var o=n.querySelector('a.on');if(o&&n.scrollWidth>n.clientWidth){var r=n.getBoundingClientRect(),b=o.getBoundingClientRect();n.scrollLeft+=b.left-r.left-(n.clientWidth-b.width)/2}f()};var t,d=function(){f();clearTimeout(t);t=setTimeout(c,120)};n.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',d);if(window.ResizeObserver)new ResizeObserver(d).observe(n);c()})();</script></header>
 <!-- /shell:header -->
 <main class="wrap">
-  <h1>HWP·HWPX 뷰어</h1>
+  <h1 class="hwp-title"><img src="/assets/brand/hwp-viewer-mark.svg" width="40" height="40" alt=""><span>HWP·HWPX 뷰어</span></h1>
   <p class="lead">한글 문서를 열고 PDF, 텍스트, HTML로 저장하세요.</p>
   <div class="drop home" id="drop">
     <div class="drop-start">
