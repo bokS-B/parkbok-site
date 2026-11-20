@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "625b23bcd48b5595",
+  "hash": "ba11c693e9a9e4ff",
   "lastmod": "2026-11-20"
  },
  "/about.html": {
@@ -2106,6 +2106,10 @@
  "/text/list-to-line.html": {
   "hash": "0910b60bdf9c4eca",
   "lastmod": "2026-11-06"
+ },
+ "/text/photo-ledger-check.html": {
+  "hash": "ecb281287e01044c",
+  "lastmod": "2026-11-20"
  },
  "/text/remove-line-breaks.html": {
   "hash": "f8ad415d45520604",

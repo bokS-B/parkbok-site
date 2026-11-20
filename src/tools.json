@@ -1292,5 +1292,23 @@
     "langs": [
       "ko"
     ]
+  },
+  {
+    "id": "photo-ledger-check",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 92,
+    "url": "/text/photo-ledger-check.html",
+    "icon": "image-crop",
+    "name": {
+      "ko": "공사 사진대지 중복 검사"
+    },
+    "line": {
+      "ko": "엑셀에서 같은 사진이 들어간 칸 찾기"
+    },
+    "langs": [
+      "ko"
+    ]
   }
 ]
