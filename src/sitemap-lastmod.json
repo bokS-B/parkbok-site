@@ -1,7 +1,7 @@
 {
  "/": {
-  "hash": "4dddbdadcab2d2af",
-  "lastmod": "2026-11-06"
+  "hash": "69387edf1e322f6c",
+  "lastmod": "2026-11-20"
  },
  "/about.html": {
   "hash": "3d32523efb428082",
@@ -2074,6 +2074,10 @@
  "/pdf/zh/": {
   "hash": "54bd27195b68c95f",
   "lastmod": "2026-11-03"
+ },
+ "/photo-select/": {
+  "hash": "f7241072401ea2b6",
+  "lastmod": "2026-11-20"
  },
  "/privacy.html": {
   "hash": "8139a91e892567d8",

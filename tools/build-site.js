@@ -28,6 +28,7 @@ const FOOT_EXTRA = {
 };
 // 페이지 전용 CSS: <style id="page-css"> 로 site-css 다음에 인라인
 const PAGE_CSS = {
+  'photo-select/index.html': 'assets/photo-select.css',
   'guide/photo-signature-size-india.html': 'assets/photo-signature-guide.css',
   'index.html': ['assets/home-tokens.css', 'assets/home.css'],
   'hwp/index.html': ['assets/hwp.css', 'assets/hwp-page.css'],
@@ -110,7 +111,7 @@ function gridHtml(rel, cfg, lang = 'ko'){
   return '<!-- grid:start -->\n' + out + '\n  <!-- grid:end -->';
 }
 function sectionOf(rel){
-  if (rel === 'guide/photo-signature-size-india.html') return 'image';
+  if (rel === 'photo-select/index.html' || rel === 'guide/photo-signature-size-india.html') return 'image';
   if (rel.startsWith('hwp/')) return 'hwp';
   if (rel.startsWith('text/')) return 'text';
   if (rel.startsWith('guide/')) return 'guide';

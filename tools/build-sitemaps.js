@@ -13,7 +13,7 @@ const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const root = path.resolve(__dirname, '..');
 const SITE = 'https://parkbok.com';
-const PUBLIC_DIRS = ['color', 'guide', 'hwp', 'image', 'pdf', 'text', 'en', 'ja', 'zh', 'es', 'pt', 'de', 'fr'];
+const PUBLIC_DIRS = ['color', 'guide', 'hwp', 'photo-select', 'image', 'pdf', 'text', 'en', 'ja', 'zh', 'es', 'pt', 'de', 'fr'];
 const LASTMOD = path.join(root, 'src', 'sitemap-lastmod.json');
 const day = d => d.toISOString().slice(0, 10);   // 날짜는 모두 UTC 기준(로컬·CI 결과가 같도록)
 const today = day(new Date());

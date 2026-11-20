@@ -1256,5 +1256,23 @@
       "de",
       "fr"
     ]
+  },
+  {
+    "id": "wedding-photo-select",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 90,
+    "url": "/photo-select/",
+    "icon": "image-crop",
+    "name": {
+      "ko": "웨딩사진 셀렉"
+    },
+    "line": {
+      "ko": "파일명·컷 번호로 고른 원본만 ZIP 저장"
+    },
+    "langs": [
+      "ko"
+    ]
   }
 ]
