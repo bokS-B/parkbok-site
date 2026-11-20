@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "69387edf1e322f6c",
+  "hash": "625b23bcd48b5595",
   "lastmod": "2026-11-20"
  },
  "/about.html": {
@@ -2092,8 +2092,8 @@
   "lastmod": "2026-11-09"
  },
  "/text/": {
-  "hash": "c8caa89ac4cc2d01",
-  "lastmod": "2026-11-03"
+  "hash": "231e06e822cf2d91",
+  "lastmod": "2026-11-20"
  },
  "/text/char-count.html": {
   "hash": "39aacd90934fcf18",
@@ -2110,6 +2110,10 @@
  "/text/remove-line-breaks.html": {
   "hash": "f8ad415d45520604",
   "lastmod": "2026-11-10"
+ },
+ "/text/smartstore-invoice.html": {
+  "hash": "15d99069381b845f",
+  "lastmod": "2026-11-20"
  },
  "/text/sql-in.html": {
   "hash": "2b246e7bfa157950",

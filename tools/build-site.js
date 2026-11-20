@@ -28,6 +28,7 @@ const FOOT_EXTRA = {
 };
 // 페이지 전용 CSS: <style id="page-css"> 로 site-css 다음에 인라인
 const PAGE_CSS = {
+  'text/smartstore-invoice.html': 'assets/dispatch-check.css',
   'photo-select/index.html': 'assets/photo-select.css',
   'guide/photo-signature-size-india.html': 'assets/photo-signature-guide.css',
   'index.html': ['assets/home-tokens.css', 'assets/home.css'],

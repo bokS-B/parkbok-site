@@ -1274,5 +1274,23 @@
     "langs": [
       "ko"
     ]
+  },
+  {
+    "id": "smartstore-invoice",
+    "cat": "text",
+    "section": "text",
+    "status": "live",
+    "order": 91,
+    "url": "/text/smartstore-invoice.html",
+    "icon": "text-sql",
+    "name": {
+      "ko": "스마트스토어 송장 엑셀 검사"
+    },
+    "line": {
+      "ko": "일괄발송 전 엑셀에서 고칠 행 찾기"
+    },
+    "langs": [
+      "ko"
+    ]
   }
 ]

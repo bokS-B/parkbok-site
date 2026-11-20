@@ -40,3 +40,5 @@
 - `color/palette-pocket.woff`: Google Fonts의 Jua Regular에서 템플릿 문구에 쓰는 글리프를 추린 파생본. 내부 이름은 ParkbokPocket, CSS 이름은 PB Pocket이다. Copyright 2018 The Jua Project Authors, SIL Open Font License1.1.
 - 원본: https://github.com/google/fonts/tree/main/ofl/jua . 원문: `licenses/Jua-OFL.txt`.
 - 원본 TTF SHA-256 및 서브셋 과정은 `PALETTE_STUDIO_CHECKLIST.md`에 기록한다. 런타임 외부 폰트 요청 없이 생성된 CSS의 data URL로 포함한다. HTML 내보내기에도 저작권·OFL 원문과 폰트가 함께 들어간다.
+
+ExcelJS 4.4.0 · MIT · https://www.npmjs.com/package/exceljs/v/4.4.0 · licenses/exceljs-LICENSE.txt
