@@ -1310,5 +1310,23 @@
     "langs": [
       "ko"
     ]
+  },
+  {
+    "id": "takeout-date-check",
+    "cat": "image",
+    "section": "image",
+    "status": "live",
+    "order": 93,
+    "url": "/text/takeout-date-check.html",
+    "icon": "exif",
+    "name": {
+      "ko": "구글 포토 테이크아웃 촬영일 검사"
+    },
+    "line": {
+      "ko": "사진 ZIP의 JSON 촬영일 누락과 충돌 찾기"
+    },
+    "langs": [
+      "ko"
+    ]
   }
 ]

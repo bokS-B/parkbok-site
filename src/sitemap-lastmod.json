@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "ba11c693e9a9e4ff",
+  "hash": "d05ec213cf4a9394",
   "lastmod": "2026-11-20"
  },
  "/about.html": {
@@ -2122,6 +2122,10 @@
  "/text/sql-in.html": {
   "hash": "2b246e7bfa157950",
   "lastmod": "2026-11-06"
+ },
+ "/text/takeout-date-check.html": {
+  "hash": "6d574c8bf00a787e",
+  "lastmod": "2026-11-20"
  },
  "/zh/": {
   "hash": "83bd145edc838b94",
